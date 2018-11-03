@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		14B6C7D5AD5979888331B70D /* Pods_signupfirebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FA6AF44DDF6A6C8562A35A /* Pods_signupfirebase.framework */; };
 		D1118D45218CCA2300EB33B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1118D44218CCA2200EB33B3 /* GoogleService-Info.plist */; };
+		D16BDCC1218DA4D300A8DF7A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16BDCC0218DA4D300A8DF7A /* HomeViewController.swift */; };
 		D1C7F2E1218C98C800481E48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C7F2E0218C98C800481E48 /* AppDelegate.swift */; };
 		D1C7F2E3218C98C800481E48 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C7F2E2218C98C800481E48 /* ViewController.swift */; };
 		D1C7F2E6218C98C800481E48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1C7F2E4218C98C800481E48 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 		08126B0DA4D29A97D8D93FE5 /* Pods-signupfirebase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-signupfirebase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-signupfirebase/Pods-signupfirebase.debug.xcconfig"; sourceTree = "<group>"; };
 		893C897689365B2F237CCE21 /* Pods-signupfirebase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-signupfirebase.release.xcconfig"; path = "Pods/Target Support Files/Pods-signupfirebase/Pods-signupfirebase.release.xcconfig"; sourceTree = "<group>"; };
 		D1118D44218CCA2200EB33B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D16BDCC0218DA4D300A8DF7A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D1C7F2DD218C98C800481E48 /* signupfirebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = signupfirebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1C7F2E0218C98C800481E48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1C7F2E2218C98C800481E48 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				D1C7F2E9218C98C900481E48 /* LaunchScreen.storyboard */,
 				D1C7F2EC218C98C900481E48 /* Info.plist */,
 				D1118D44218CCA2200EB33B3 /* GoogleService-Info.plist */,
+				D16BDCC0218DA4D300A8DF7A /* HomeViewController.swift */,
 			);
 			path = signupfirebase;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 			files = (
 				D1C7F2E3218C98C800481E48 /* ViewController.swift in Sources */,
 				D1C7F2E1218C98C800481E48 /* AppDelegate.swift in Sources */,
+				D16BDCC1218DA4D300A8DF7A /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

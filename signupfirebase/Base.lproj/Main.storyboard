@@ -132,12 +132,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1586" y="37"/>
+            <point key="canvasLocation" x="-1551" y="-52"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="aZY-wr-2IZ">
             <objects>
-                <viewController id="0xU-g5-XoL" sceneMemberID="viewController">
+                <viewController id="0xU-g5-XoL" customClass="HomeViewController" customModule="signupfirebase" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x7d-50-njn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -155,7 +155,7 @@
                                         <rect key="frame" x="0.0" y="356" width="375" height="30"/>
                                         <state key="normal" title="Return"/>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="aef-cD-NsX"/>
+                                            <action selector="cancelPost:" destination="0xU-g5-XoL" eventType="touchUpInside" id="sZk-li-r94"/>
                                         </connections>
                                     </button>
                                 </subviews>
