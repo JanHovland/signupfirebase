@@ -16,13 +16,8 @@ class HomeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    @IBAction func cancelPost(_ sender: Any) {
-        
-        // Dismiss the popover
-        presentingViewController?.dismiss(animated: true, completion: nil)
-        
-        
+    @IBAction func updateButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "goToUpdate", sender: self)
     }
-
+    
 }

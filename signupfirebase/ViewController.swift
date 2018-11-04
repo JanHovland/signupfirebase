@@ -22,9 +22,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var signInSelector: UISegmentedControl!
     
     
-    @IBOutlet weak var signInLabel: UILabel!
-    
-    
     @IBOutlet weak var emailTextField: UITextField!
     
     
@@ -38,15 +35,6 @@ class ViewController: UIViewController {
         
         // Flip the boolean
         isSignIn = !isSignIn
-        
-        // Check the bool and set the labels and button
-        if isSignIn {
-            signInLabel.text = "Sign In"
-            signInButton.setTitle("Sign In", for: .normal)
-        } else {
-            signInLabel.text = "Register"
-            signInButton.setTitle("Register", for: .normal)
-        }
         
     }
     
@@ -67,14 +55,14 @@ class ViewController: UIViewController {
                 Auth.auth().signIn(withEmail: email, password: pass) { (user, error) in
                 // Check that user isn't nil
                     
-                    if let u = user {
-                        // User is found, go to home screen
-                        self.performSegue(withIdentifier: "goToHome", sender: self)
-                    } else {
-                        // Error: check error and show message
-                    }
-                    
+                if  user != nil {
+                    // User is found, go to home screen
+                    self.performSegue(withIdentifier: "goToHome", sender: self)
+                } else {
+                    // Error: check error and show message
                 }
+                    
+            }
                 
             } else {
                 // Register the user with Firebase
@@ -82,7 +70,7 @@ class ViewController: UIViewController {
                 Auth.auth().createUser(withEmail: email, password: pass) { (user, error) in
                 // Check that user isn't nil
                     
-                    if let u = user {
+                    if  user != nil {
                         // User is found, go to home screen
                         self.performSegue(withIdentifier: "goToHome", sender: self)
                     }
@@ -100,6 +88,13 @@ class ViewController: UIViewController {
         passwordTextField.resignFirstResponder()
     }
     
+    @IBAction func cancelPost(_ sender: Any) {
+        
+        // Dismiss the popover
+        presentingViewController?.dismiss(animated: true, completion: nil)
+        
+        
+    }
     
     
     
