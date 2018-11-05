@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BR8-16-bWc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cMm-fO-FdE">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -15,11 +15,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="signupfirebase" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kz5-Zy-90j">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="firebaselogo" translatesAutoresizingMaskIntoConstraints="NO" id="QX1-6g-BT4">
                                         <rect key="frame" x="151" y="30" width="73" height="67"/>
@@ -121,132 +121,94 @@
                         <outlet property="passwordTextField" destination="t1G-XY-eyO" id="JUI-QG-v0J"/>
                         <outlet property="signInButton" destination="vyr-ue-Ryp" id="JD7-8a-gbF"/>
                         <outlet property="signInSelector" destination="9al-mr-gSf" id="IrP-BE-sgV"/>
-                        <segue destination="0xU-g5-XoL" kind="show" identifier="goToHome" id="doU-2Y-yQ3"/>
+                        <segue destination="nhA-xf-W66" kind="show" identifier="goToUpdateUserData" id="iGi-qx-0X2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-879" y="-54"/>
+            <point key="canvasLocation" x="60" y="-54.422788605697157"/>
         </scene>
-        <!--Update Firebase-->
-        <scene sceneID="aZY-wr-2IZ">
+        <!--Update userdata-->
+        <scene sceneID="sjW-1t-WAY">
             <objects>
-                <viewController id="0xU-g5-XoL" customClass="HomeViewController" customModule="signupfirebase" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="x7d-50-njn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                <tableViewController id="nhA-xf-W66" customClass="TableViewController" customModule="signupfirebase" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="v9w-dM-QW3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hVM-IN-sGl">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are in Firebase" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTV-2t-A8g">
-                                        <rect key="frame" x="115" y="291" width="145" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="firebaselogo" translatesAutoresizingMaskIntoConstraints="NO" id="ZWl-7m-XcV">
-                                        <rect key="frame" x="151" y="30" width="73" height="67"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="67" id="6rC-Ob-AKu"/>
-                                            <constraint firstAttribute="width" constant="73" id="HS0-L8-hph"/>
-                                        </constraints>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5H4-JF-g6W">
-                                        <rect key="frame" x="151" y="443" width="73" height="30"/>
-                                        <state key="normal" title="Button"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <sections>
+                            <tableViewSection id="Hlp-Ao-XeV">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="j0c-9S-mUm" imageView="d2C-7i-33O" style="IBUITableViewCellStyleDefault" id="LiZ-SJ-eFC">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LiZ-SJ-eFC" id="RG2-Np-P5v">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="eMail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="j0c-9S-mUm">
+                                                    <rect key="frame" x="75" y="0.0" width="265" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="firebaselogo" id="d2C-7i-33O">
+                                                    <rect key="frame" x="16" y="0.0" width="44" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
                                         <connections>
-                                            <action selector="updateButtonTapped:" destination="0xU-g5-XoL" eventType="touchUpInside" id="459-SX-hRX"/>
+                                            <segue destination="jMj-U0-HFM" kind="show" id="4JQ-SZ-NHx"/>
                                         </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.18823583629999999" green="0.62417017490000004" blue="0.17401191260000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="YTV-2t-A8g" firstAttribute="centerY" secondItem="hVM-IN-sGl" secondAttribute="centerY" id="4WE-A6-hp7"/>
-                                    <constraint firstItem="5H4-JF-g6W" firstAttribute="leading" secondItem="ZWl-7m-XcV" secondAttribute="leading" id="BXX-XA-cKS"/>
-                                    <constraint firstItem="5H4-JF-g6W" firstAttribute="centerX" secondItem="hVM-IN-sGl" secondAttribute="centerX" id="Scf-Ut-Eii"/>
-                                    <constraint firstItem="5H4-JF-g6W" firstAttribute="top" secondItem="YTV-2t-A8g" secondAttribute="bottom" constant="131" id="bEJ-Ee-AnF"/>
-                                    <constraint firstItem="ZWl-7m-XcV" firstAttribute="top" secondItem="hVM-IN-sGl" secondAttribute="top" constant="30" id="cM4-cy-Xjx"/>
-                                    <constraint firstItem="YTV-2t-A8g" firstAttribute="centerX" secondItem="hVM-IN-sGl" secondAttribute="centerX" id="tet-se-Css"/>
-                                    <constraint firstItem="ZWl-7m-XcV" firstAttribute="centerX" secondItem="hVM-IN-sGl" secondAttribute="centerX" id="vyp-lC-WtS"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="V2n-Cg-X1L" firstAttribute="trailing" secondItem="hVM-IN-sGl" secondAttribute="trailing" id="AxC-41-blG"/>
-                            <constraint firstItem="hVM-IN-sGl" firstAttribute="top" secondItem="V2n-Cg-X1L" secondAttribute="top" id="BBk-hp-Eaz"/>
-                            <constraint firstItem="V2n-Cg-X1L" firstAttribute="bottom" secondItem="hVM-IN-sGl" secondAttribute="bottom" id="jdy-Rf-kao"/>
-                            <constraint firstItem="hVM-IN-sGl" firstAttribute="leading" secondItem="V2n-Cg-X1L" secondAttribute="leading" id="yEN-2I-YtL"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="V2n-Cg-X1L"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Update Firebase" id="klc-YM-X7D"/>
-                    <connections>
-                        <segue destination="2aE-yh-Mjp" kind="show" identifier="goToUpdate" id="qQx-sU-ibN"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="u4y-EZ-Uar" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="nhA-xf-W66" id="JAa-pR-xFo"/>
+                            <outlet property="delegate" destination="nhA-xf-W66" id="STD-gS-rFP"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Update userdata" id="tSB-Wf-nFh" userLabel="Update user data"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pgR-wM-cad" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-113" y="-54"/>
+            <point key="canvasLocation" x="832.79999999999995" y="-126.38680659670166"/>
         </scene>
-        <!--Users-->
-        <scene sceneID="irF-l8-KdE">
+        <!--View Controller-->
+        <scene sceneID="2E7-Fn-7tm">
             <objects>
-                <viewController modalTransitionStyle="flipHorizontal" id="2aE-yh-Mjp" customClass="UpdateViewController" customModule="signupfirebase" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="pkk-Sh-Rtn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                <viewController id="jMj-U0-HFM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8pq-Vc-bna">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qe0-SY-Q1n">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="firebaselogo" translatesAutoresizingMaskIntoConstraints="NO" id="axj-Rz-Tqa">
-                                <rect key="frame" x="151" y="30" width="73" height="67"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="67" id="CPX-o0-vrl"/>
-                                    <constraint firstAttribute="width" constant="73" id="v1p-mn-cdm"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="qe0-SY-Q1n" firstAttribute="top" secondItem="1Ow-dh-uCi" secondAttribute="top" id="Cc0-lh-NRt"/>
-                            <constraint firstItem="qe0-SY-Q1n" firstAttribute="leading" secondItem="1Ow-dh-uCi" secondAttribute="leading" id="Chn-RZ-30N"/>
-                            <constraint firstItem="axj-Rz-Tqa" firstAttribute="top" secondItem="1Ow-dh-uCi" secondAttribute="top" constant="30" id="FeD-60-qsn"/>
-                            <constraint firstItem="axj-Rz-Tqa" firstAttribute="centerX" secondItem="pkk-Sh-Rtn" secondAttribute="centerX" id="VeJ-Y2-ik0"/>
-                            <constraint firstItem="1Ow-dh-uCi" firstAttribute="trailing" secondItem="qe0-SY-Q1n" secondAttribute="trailing" id="fJc-Ex-VkR"/>
-                            <constraint firstItem="1Ow-dh-uCi" firstAttribute="bottom" secondItem="qe0-SY-Q1n" secondAttribute="bottom" id="scf-2A-Mvx"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="1Ow-dh-uCi"/>
+                        <viewLayoutGuide key="safeArea" id="ulc-KM-2cY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Users" id="S7S-6a-CdB"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hLT-0J-EwH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gdd-vX-lHE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="642" y="-53"/>
+            <point key="canvasLocation" x="1546" y="-134"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="UbB-ca-rvq">
+        <scene sceneID="XXp-aT-bTx">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BR8-16-bWc" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cMm-fO-FdE" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Shw-8H-4ok">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="erf-BQ-Ewv">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="vYd-3x-RN8"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="jL9-TS-mEK"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="U6h-6X-3np" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AK4-Pc-bie" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1551.2" y="-52.623688155922046"/>
+            <point key="canvasLocation" x="-879.20000000000005" y="-54.422788605697157"/>
         </scene>
     </scenes>
     <resources>

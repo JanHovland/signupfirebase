@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     @IBAction func signInSelectorChanged(_ sender: Any) {
         
         // Flip the boolean
-        isSignIn = !isSignIn
+        // isSignIn = !isSignIn
         
     }
     
@@ -46,6 +46,8 @@ class ViewController: UIViewController {
         //
         // print(passwordTextField.text as Any)
         
+        print(isSignIn)
+
         if let email = emailTextField.text, let pass = passwordTextField.text {
             
             // Check if it is sign in or register
@@ -57,7 +59,7 @@ class ViewController: UIViewController {
                     
                 if  user != nil {
                     // User is found, go to home screen
-                    self.performSegue(withIdentifier: "goToHome", sender: self)
+                    self.performSegue(withIdentifier: "goToUpdateUserData", sender: self)
                 } else {
                     // Error: check error and show message
                 }
@@ -72,7 +74,7 @@ class ViewController: UIViewController {
                     
                     if  user != nil {
                         // User is found, go to home screen
-                        self.performSegue(withIdentifier: "goToHome", sender: self)
+                        self.performSegue(withIdentifier: "goToUpdateUserData", sender: self)
                     }
                 }
                     
