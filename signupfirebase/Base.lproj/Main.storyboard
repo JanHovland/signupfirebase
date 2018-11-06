@@ -131,7 +131,7 @@
         <!--Update userdata-->
         <scene sceneID="sjW-1t-WAY">
             <objects>
-                <tableViewController id="nhA-xf-W66" customClass="TableViewController" customModule="signupfirebase" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="nhA-xf-W66" customClass="UpdateTableViewController" customModule="signupfirebase" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="v9w-dM-QW3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -160,7 +160,31 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="jMj-U0-HFM" kind="show" id="4JQ-SZ-NHx"/>
+                                            <segue destination="jMj-U0-HFM" kind="show" id="sNt-4q-3U4"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Xyu-Be-I3U" imageView="Pa0-f2-QlG" style="IBUITableViewCellStyleDefault" id="jbq-Rr-SCg">
+                                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jbq-Rr-SCg" id="EaA-00-M2U">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xyu-Be-I3U">
+                                                    <rect key="frame" x="75" y="0.0" width="265" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="firebaselogo" id="Pa0-f2-QlG">
+                                                    <rect key="frame" x="16" y="0.0" width="44" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="2El-f4-8UE" kind="show" id="zPe-4A-o08"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -177,20 +201,37 @@
             </objects>
             <point key="canvasLocation" x="832.79999999999995" y="-126.38680659670166"/>
         </scene>
-        <!--View Controller-->
+        <!--User-->
+        <scene sceneID="ffJ-QF-Ihx">
+            <objects>
+                <viewController id="2El-f4-8UE" customClass="UserViewController" customModule="signupfirebase" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ioj-9o-oIe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ncP-wT-jQ7"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="User" id="c4F-9b-Jx4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x7o-AH-tpg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1617" y="85"/>
+        </scene>
+        <!--eMail-->
         <scene sceneID="2E7-Fn-7tm">
             <objects>
-                <viewController id="jMj-U0-HFM" sceneMemberID="viewController">
+                <viewController id="jMj-U0-HFM" customClass="eMailViewController" customModule="signupfirebase" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8pq-Vc-bna">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ulc-KM-2cY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="eMail" id="Lq8-VN-oP9"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gdd-vX-lHE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1546" y="-134"/>
+            <point key="canvasLocation" x="1618" y="-596"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XXp-aT-bTx">

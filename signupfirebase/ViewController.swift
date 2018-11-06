@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     @IBAction func signInSelectorChanged(_ sender: Any) {
         
         // Flip the boolean
-        // isSignIn = !isSignIn
+        isSignIn = !isSignIn
         
     }
     
