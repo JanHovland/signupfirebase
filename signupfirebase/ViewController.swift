@@ -9,12 +9,22 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import CoreData
 
 class ViewController: UIViewController {
 
     var isSignIn : Bool = true
     
+    var ePost : String = ""
+    var passOrd : String = ""
+    
     override func viewDidLoad() {
+        
+        getData()
+
+        emailTextField.text = ePost
+        passwordTextField.text = passOrd
+
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -41,6 +51,7 @@ class ViewController: UIViewController {
     
     @IBAction func signInButtonTapped(_ sender: UIButton) {
         
+        
         // TODO: Do some validation on the email and password
         // print(emailTextField.text as Any)
         //
@@ -59,6 +70,23 @@ class ViewController: UIViewController {
                     
                 if  user != nil {
                     // User is found, go to home screen
+                    
+                    // let eMail = self.emailTextField.text
+                    
+                    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+                    let entity =  NSEntityDescription.entity(forEntityName: "Entity", in: context)
+                    
+                    let newEntity = NSManagedObject(entity: entity!, insertInto: context)
+                    newEntity.setValue(self.emailTextField.text, forKey: "eMail")
+                    newEntity.setValue(self.passwordTextField.text, forKey: "passWord")
+
+                    do {
+                        try context.save()
+                        print("Saved")
+                    } catch {
+                        print("Failed saving")
+                    }
+                    
                     self.performSegue(withIdentifier: "goToUpdateUserData", sender: self)
                 } else {
                     // Error: check error and show message
@@ -98,7 +126,81 @@ class ViewController: UIViewController {
         
     }
     
+    func saveData(_ sender: Any) {
+        
+       let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+       let entity =  NSEntityDescription.entity(forEntityName: "entity", in: context)
+        
+        let newEntity = NSManagedObject(entity: entity!, insertInto: context)
+        newEntity.setValue(emailTextField.text, forKey: "eMail")
+        newEntity.setValue(passwordTextField.text, forKey: "passWord")
+
+        
+        do {
+            try context.save()
+            print("Saved")
+        } catch {
+            print("Failed saving")
+        }
+        
+    }
     
+    func getData() {
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Entity")
+        request.returnsObjectsAsFaults = false
+        
+        do {
+            let result = try context.fetch(request)
+            for data in result as! [NSManagedObject]
+            {
+                
+                if data.value(forKey: "eMail") != nil {
+                    ePost = data.value(forKey: "eMail") as! String
+                }
+                
+                if data.value(forKey: "passWord") != nil {
+                    passOrd = data.value(forKey: "passWord") as! String
+                }
+               
+            }
+        
+        } catch {
+            print("Failed")
+        }
     
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
