@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		14B6C7D5AD5979888331B70D /* Pods_signupfirebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FA6AF44DDF6A6C8562A35A /* Pods_signupfirebase.framework */; };
-		D1118D45218CCA2300EB33B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1118D44218CCA2200EB33B3 /* GoogleService-Info.plist */; };
 		D11E2BD8219470D90075BD11 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D11E2BD6219470D90075BD11 /* Model.xcdatamodeld */; };
 		D15A0DD321909AFC00FBB286 /* UpdateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15A0DD221909AFC00FBB286 /* UpdateTableViewController.swift */; };
 		D15A0DD521909BFE00FBB286 /* eMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15A0DD421909BFE00FBB286 /* eMailViewController.swift */; };
 		D1A8671A21919BCB00E0567D /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A8671921919BCB00E0567D /* UserViewController.swift */; };
+		D1B3049421962151006C1319 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1B3049321962151006C1319 /* GoogleService-Info.plist */; };
 		D1C7F2E1218C98C800481E48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C7F2E0218C98C800481E48 /* AppDelegate.swift */; };
 		D1C7F2E3218C98C800481E48 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C7F2E2218C98C800481E48 /* ViewController.swift */; };
 		D1C7F2E6218C98C800481E48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1C7F2E4218C98C800481E48 /* Main.storyboard */; };
@@ -23,11 +23,11 @@
 /* Begin PBXFileReference section */
 		08126B0DA4D29A97D8D93FE5 /* Pods-signupfirebase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-signupfirebase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-signupfirebase/Pods-signupfirebase.debug.xcconfig"; sourceTree = "<group>"; };
 		893C897689365B2F237CCE21 /* Pods-signupfirebase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-signupfirebase.release.xcconfig"; path = "Pods/Target Support Files/Pods-signupfirebase/Pods-signupfirebase.release.xcconfig"; sourceTree = "<group>"; };
-		D1118D44218CCA2200EB33B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D11E2BD7219470D90075BD11 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		D15A0DD221909AFC00FBB286 /* UpdateTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTableViewController.swift; sourceTree = "<group>"; };
 		D15A0DD421909BFE00FBB286 /* eMailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eMailViewController.swift; sourceTree = "<group>"; };
 		D1A8671921919BCB00E0567D /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		D1B3049321962151006C1319 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D1C7F2DD218C98C800481E48 /* signupfirebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = signupfirebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1C7F2E0218C98C800481E48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1C7F2E2218C98C800481E48 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 				D1C7F2E7218C98C900481E48 /* Assets.xcassets */,
 				D1C7F2E9218C98C900481E48 /* LaunchScreen.storyboard */,
 				D1C7F2EC218C98C900481E48 /* Info.plist */,
-				D1118D44218CCA2200EB33B3 /* GoogleService-Info.plist */,
+				D1B3049321962151006C1319 /* GoogleService-Info.plist */,
 				D1C7F2E2218C98C800481E48 /* ViewController.swift */,
 				D15A0DD221909AFC00FBB286 /* UpdateTableViewController.swift */,
 				D15A0DD421909BFE00FBB286 /* eMailViewController.swift */,
@@ -164,7 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1C7F2EB218C98C900481E48 /* LaunchScreen.storyboard in Resources */,
-				D1118D45218CCA2300EB33B3 /* GoogleService-Info.plist in Resources */,
+				D1B3049421962151006C1319 /* GoogleService-Info.plist in Resources */,
 				D1C7F2E8218C98C900481E48 /* Assets.xcassets in Resources */,
 				D1C7F2E6218C98C800481E48 /* Main.storyboard in Resources */,
 			);
