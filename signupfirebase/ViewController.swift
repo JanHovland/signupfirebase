@@ -24,6 +24,9 @@ class ViewController: UIViewController {
 
         emailTextField.text = ePost
         passwordTextField.text = passOrd
+        
+        let navn = Auth.auth().currentUser!.displayName!
+        print(navn)
 
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -66,6 +69,7 @@ class ViewController: UIViewController {
                 // Sign in the user with Firebase
                 
                 Auth.auth().signIn(withEmail: email, password: pass) { (user, error) in
+                    
                 // Check that user isn't nil
                     
                 if  user != nil {
@@ -82,7 +86,7 @@ class ViewController: UIViewController {
 
                     do {
                         try context.save()
-                        print("Saved")
+                        print("Saved email and password")
                     } catch {
                         print("Failed saving")
                     }
@@ -102,6 +106,19 @@ class ViewController: UIViewController {
                     
                     if  user != nil {
                         // User is found, go to home screen
+                        
+                        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                        changeRequest?.displayName = "Jan Hovland"
+                        
+                        changeRequest?.commitChanges { error in
+                            if error == nil {
+                                print("User display name changed!")
+                                self.dismiss(animated: false, completion: nil)
+                            } else {
+                                print("Error: \(error!.localizedDescription)")
+                            }
+                        }
+                        
                         self.performSegue(withIdentifier: "goToUpdateUserData", sender: self)
                     }
                 }
