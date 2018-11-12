@@ -25,8 +25,8 @@ class ViewController: UIViewController {
         emailTextField.text = ePost
         passwordTextField.text = passOrd
         
-        let navn = Auth.auth().currentUser!.displayName!
-        print(navn)
+        // let navn = Auth.auth().currentUser!.displayName!
+        // print(navn)
 
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -50,7 +50,6 @@ class ViewController: UIViewController {
         isSignIn = !isSignIn
         
     }
-    
     
     @IBAction func signInButtonTapped(_ sender: UIButton) {
         
@@ -91,7 +90,7 @@ class ViewController: UIViewController {
                         print("Failed saving")
                     }
                     
-                    self.performSegue(withIdentifier: "goToUpdateUserData", sender: self)
+//                     self.performSegue(withIdentifier: "goToUpdateUserData", sender: self)
                 } else {
                     // Error: check error and show message
                 }
@@ -119,7 +118,7 @@ class ViewController: UIViewController {
                             }
                         }
                         
-                        self.performSegue(withIdentifier: "goToUpdateUserData", sender: self)
+//                        self.performSegue(withIdentifier: "goToUpdateUserData", sender: self)
                     }
                 }
                     
