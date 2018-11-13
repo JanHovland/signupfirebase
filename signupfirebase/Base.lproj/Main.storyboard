@@ -88,7 +88,7 @@
                                                 <rect key="frame" x="80.5" y="0.0" width="274.5" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done" textContentType="email"/>
                                                 <connections>
                                                     <action selector="eMailText:" destination="tT3-9a-LwM" eventType="editingDidBegin" id="Nlj-Ph-ZPw"/>
                                                 </connections>
@@ -108,7 +108,7 @@
                                                 <rect key="frame" x="82" y="0.0" width="273" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                                                 <connections>
                                                     <action selector="eMailText:" destination="tT3-9a-LwM" eventType="editingDidBegin" id="Mzr-CR-Qwg"/>
                                                 </connections>
@@ -138,7 +138,7 @@
                         <outlet property="eMailLoginTextField" destination="cBQ-w6-FZy" id="Qyq-nY-P5i"/>
                         <outlet property="passwordTextField" destination="k82-w8-ML8" id="uYt-2h-p5q"/>
                         <segue destination="V07-a3-pap" kind="show" identifier="CreateAccount" id="yr6-f7-FDw"/>
-                        <segue destination="nhA-xf-W66" kind="show" identifier="goToUpdateUserData" id="5S0-Bs-tdn"/>
+                        <segue destination="nhA-xf-W66" kind="show" identifier="UpdateUserDataFromLoginEmail" id="5S0-Bs-tdn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RMv-VS-8be" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -169,7 +169,7 @@
                                                 <rect key="frame" x="80.5" y="0.0" width="274.5" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -186,7 +186,7 @@
                                                 <rect key="frame" x="81" y="0.0" width="274" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" textContentType="name"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -203,7 +203,7 @@
                                                 <rect key="frame" x="82" y="0.0" width="273" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -221,19 +221,20 @@
                     <navigationItem key="navigationItem" title="Create account" id="htX-Sm-RkV">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="5IO-mA-9m4">
                             <connections>
-                                <segue destination="nhA-xf-W66" kind="show" id="YHQ-i1-dMQ"/>
+                                <action selector="SaveAccount:" destination="V07-a3-pap" id="875-cN-TVo"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="eMailCreateAccount" destination="cye-m2-p8o" id="nkA-Rd-MTg"/>
-                        <outlet property="nameCreateAccount" destination="zCV-c9-g6t" id="i7o-uX-9AN"/>
-                        <outlet property="passwordCreateAccount" destination="xJw-FX-p9o" id="3FS-DY-7V0"/>
+                        <outlet property="eMailCreateAccountTextField" destination="cye-m2-p8o" id="7Og-LI-FdD"/>
+                        <outlet property="nameCreateAccountTextField" destination="zCV-c9-g6t" id="fy6-AM-3lo"/>
+                        <outlet property="passwordCreateAccountTextField" destination="xJw-FX-p9o" id="PtZ-Hi-g0p"/>
+                        <segue destination="nhA-xf-W66" kind="show" identifier="UpdateUserDataFromCreateAccount" id="L1U-ae-97o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kDZ-z0-WkU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="716" y="455"/>
+            <point key="canvasLocation" x="529" y="372"/>
         </scene>
         <!--Update userdata-->
         <scene sceneID="sjW-1t-WAY">
@@ -306,7 +307,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pgR-wM-cad" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1311" y="-365"/>
+            <point key="canvasLocation" x="1369" y="-207"/>
         </scene>
         <!--User-->
         <scene sceneID="ffJ-QF-Ihx">
@@ -363,6 +364,6 @@
         <image name="firebaselogo" width="180" height="180"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5S0-Bs-tdn"/>
+        <segue reference="L1U-ae-97o"/>
     </inferredMetricsTieBreakers>
 </document>
