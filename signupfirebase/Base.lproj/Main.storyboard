@@ -130,7 +130,6 @@
                         <barButtonItem key="rightBarButtonItem" title="Next" id="OwC-MY-Gvl" userLabel="Next Button">
                             <connections>
                                 <action selector="NextButtonTapped:" destination="tT3-9a-LwM" id="e7K-gg-Uum"/>
-                                <segue destination="nhA-xf-W66" kind="show" identifier="goToUpdateUserData" id="KSp-bB-9DX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -139,6 +138,7 @@
                         <outlet property="eMailLoginTextField" destination="cBQ-w6-FZy" id="Qyq-nY-P5i"/>
                         <outlet property="passwordTextField" destination="k82-w8-ML8" id="uYt-2h-p5q"/>
                         <segue destination="V07-a3-pap" kind="show" id="yr6-f7-FDw"/>
+                        <segue destination="nhA-xf-W66" kind="show" identifier="goToUpdateUserData" id="5S0-Bs-tdn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RMv-VS-8be" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -363,6 +363,6 @@
         <image name="firebaselogo" width="180" height="180"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KSp-bB-9DX"/>
+        <segue reference="5S0-Bs-tdn"/>
     </inferredMetricsTieBreakers>
 </document>
