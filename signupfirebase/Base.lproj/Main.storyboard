@@ -137,7 +137,7 @@
                         <outlet property="NextButton" destination="OwC-MY-Gvl" id="IJ1-pC-eKk"/>
                         <outlet property="eMailLoginTextField" destination="cBQ-w6-FZy" id="Qyq-nY-P5i"/>
                         <outlet property="passwordTextField" destination="k82-w8-ML8" id="uYt-2h-p5q"/>
-                        <segue destination="V07-a3-pap" kind="show" id="yr6-f7-FDw"/>
+                        <segue destination="V07-a3-pap" kind="show" identifier="CreateAccount" id="yr6-f7-FDw"/>
                         <segue destination="nhA-xf-W66" kind="show" identifier="goToUpdateUserData" id="5S0-Bs-tdn"/>
                     </connections>
                 </viewController>
