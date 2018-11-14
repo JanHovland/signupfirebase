@@ -25,8 +25,21 @@ class CreateAccountViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         
     }
+       
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // Dismiss the keyboard when the view is tapped on
+        eMailCreateAccountTextField.resignFirstResponder()
+        nameCreateAccountTextField.resignFirstResponder()
+        passwordCreateAccountTextField.resignFirstResponder()
+    }
     
     @IBAction func SaveAccount(_ sender: UIBarButtonItem) {
+
+        // Dismiss the keyboard when the Save button is tapped on
+        eMailCreateAccountTextField.resignFirstResponder()
+        nameCreateAccountTextField.resignFirstResponder()
+        passwordCreateAccountTextField.resignFirstResponder()
+
         
         let email = eMailCreateAccountTextField.text
         let name = nameCreateAccountTextField.text

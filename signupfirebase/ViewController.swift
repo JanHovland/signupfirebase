@@ -52,7 +52,7 @@ var spinner = UIActivityIndicatorView()
     override func viewDidAppear(_ animated: Bool) {
         spinner.stopAnimating()
     }
-
+    
 //    @IBOutlet weak var signInSelector: UISegmentedControl!
 //    @IBOutlet weak var emailTextField: UITextField!
 //    @IBOutlet weak var passwordTextField: UITextField!
