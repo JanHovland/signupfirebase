@@ -117,9 +117,17 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Passordet må være minimum 6 tegn langt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eG4-UJ-Wc4">
+                                <rect key="frame" x="91" y="227" width="200.5" height="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="eG4-UJ-Wc4" firstAttribute="leading" secondItem="dej-9k-aAA" secondAttribute="leading" constant="91" id="4LX-T5-FE3"/>
+                            <constraint firstItem="eG4-UJ-Wc4" firstAttribute="top" secondItem="pq7-iK-ExR" secondAttribute="bottom" constant="5" id="A9R-Rn-80Z"/>
                             <constraint firstItem="pq7-iK-ExR" firstAttribute="top" secondItem="dej-9k-aAA" secondAttribute="top" constant="75" id="X2C-9X-qtp"/>
                             <constraint firstItem="dej-9k-aAA" firstAttribute="trailing" secondItem="pq7-iK-ExR" secondAttribute="trailing" constant="10" id="abD-O7-fpx"/>
                             <constraint firstItem="pq7-iK-ExR" firstAttribute="leading" secondItem="dej-9k-aAA" secondAttribute="leading" constant="10" id="qIv-Zp-NEb"/>
@@ -209,11 +217,19 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Passordet må være minimum 6 tegn langt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8h-H3-5cv">
+                                <rect key="frame" x="91" y="237" width="187" height="12"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Oie-pQ-z8x" firstAttribute="top" secondItem="E8g-AH-kKg" secondAttribute="top" constant="60" id="9id-PE-lIz"/>
                             <constraint firstItem="E8g-AH-kKg" firstAttribute="trailing" secondItem="Oie-pQ-z8x" secondAttribute="trailing" constant="10" id="Z13-qP-KxT"/>
+                            <constraint firstItem="P8h-H3-5cv" firstAttribute="leading" secondItem="E8g-AH-kKg" secondAttribute="leading" constant="91" id="b2Y-xt-R8f"/>
+                            <constraint firstItem="P8h-H3-5cv" firstAttribute="top" secondItem="Oie-pQ-z8x" secondAttribute="bottom" constant="5" id="gwY-gh-Fuf"/>
                             <constraint firstItem="Oie-pQ-z8x" firstAttribute="leading" secondItem="E8g-AH-kKg" secondAttribute="leading" constant="10" id="qRd-C2-Hfk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="E8g-AH-kKg"/>
@@ -268,7 +284,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="jMj-U0-HFM" kind="show" identifier="goToUpdateUserData" id="sNt-4q-3U4"/>
+                                            <segue destination="jMj-U0-HFM" kind="show" identifier="goToUpdateEmail" id="N1q-bj-FUI"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Xyu-Be-I3U" imageView="Pa0-f2-QlG" style="IBUITableViewCellStyleDefault" id="jbq-Rr-SCg">
@@ -292,7 +308,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="2El-f4-8UE" kind="show" id="zPe-4A-o08"/>
+                                            <segue destination="2El-f4-8UE" kind="show" identifier="goToUpdateUser" id="tbh-sY-XlO"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>

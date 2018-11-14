@@ -23,9 +23,7 @@ class CreateAccountViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        eMailCreateAccountTextField.text = ""
-        nameCreateAccountTextField.text = ""
-        passwordCreateAccountTextField.text = ""
+        
     }
     
     @IBAction func SaveAccount(_ sender: UIBarButtonItem) {
