@@ -62,9 +62,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-262" y="-54"/>
+            <point key="canvasLocation" x="-223" y="-54"/>
         </scene>
-        <!--Login eMail-->
+        <!--Login-->
         <scene sceneID="JrS-MZ-r5N">
             <objects>
                 <viewController id="tT3-9a-LwM" customClass="LogInViewController" customModule="signupfirebase" customModuleProvider="target" sceneMemberID="viewController">
@@ -126,7 +126,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dej-9k-aAA"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Login eMail" id="9MW-dn-yMZ">
+                    <navigationItem key="navigationItem" title="Login" id="9MW-dn-yMZ">
                         <barButtonItem key="rightBarButtonItem" title="Next" id="OwC-MY-Gvl" userLabel="Next Button">
                             <connections>
                                 <action selector="NextButtonTapped:" destination="tT3-9a-LwM" id="e7K-gg-Uum"/>
@@ -143,7 +143,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RMv-VS-8be" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="530" y="-345"/>
+            <point key="canvasLocation" x="529" y="-353"/>
         </scene>
         <!--Create account-->
         <scene sceneID="Wd0-nJ-YAL">
@@ -364,6 +364,6 @@
         <image name="firebaselogo" width="180" height="180"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="L1U-ae-97o"/>
+        <segue reference="5S0-Bs-tdn"/>
     </inferredMetricsTieBreakers>
 </document>

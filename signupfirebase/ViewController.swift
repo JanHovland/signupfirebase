@@ -13,6 +13,9 @@ import CoreData
 
 class ViewController: UIViewController {
 
+var spinner = UIActivityIndicatorView()
+    
+    
 //    var isSignIn : Bool = true
 //
 //    var ePost : String = ""
@@ -30,6 +33,24 @@ class ViewController: UIViewController {
 
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        spinner.style = .gray
+        spinner.hidesWhenStopped = true
+        view.addSubview(spinner)
+        
+        // Define layout constraints for the spinner
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([spinner.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 150.0),
+                                     spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor)])
+        
+        // Activate the spinner
+        
+        spinner.startAnimating()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        spinner.stopAnimating()
     }
 
 //    @IBOutlet weak var signInSelector: UISegmentedControl!
