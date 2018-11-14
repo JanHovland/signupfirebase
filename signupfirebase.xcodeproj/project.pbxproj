@@ -19,6 +19,7 @@
 		D1C7F2E6218C98C800481E48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1C7F2E4218C98C800481E48 /* Main.storyboard */; };
 		D1C7F2E8218C98C900481E48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1C7F2E7218C98C900481E48 /* Assets.xcassets */; };
 		D1C7F2EB218C98C900481E48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1C7F2E9218C98C900481E48 /* LaunchScreen.storyboard */; };
+		D1CF583F219C6811000A3497 /* Create iOS Icons.jsx in Resources */ = {isa = PBXBuildFile; fileRef = D1CF583E219C6811000A3497 /* Create iOS Icons.jsx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		D1C7F2E7218C98C900481E48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1C7F2EA218C98C900481E48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D1C7F2EC218C98C900481E48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1CF583E219C6811000A3497 /* Create iOS Icons.jsx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Create iOS Icons.jsx"; sourceTree = "<group>"; };
 		D8FA6AF44DDF6A6C8562A35A /* Pods_signupfirebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_signupfirebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -95,6 +97,7 @@
 				D1C7F2E7218C98C900481E48 /* Assets.xcassets */,
 				D1C7F2E9218C98C900481E48 /* LaunchScreen.storyboard */,
 				D1C7F2EC218C98C900481E48 /* Info.plist */,
+				D1CF583E219C6811000A3497 /* Create iOS Icons.jsx */,
 				D1B3049321962151006C1319 /* GoogleService-Info.plist */,
 				D1C7F2E2218C98C800481E48 /* ViewController.swift */,
 				D15A0DD221909AFC00FBB286 /* UpdateTableViewController.swift */,
@@ -168,6 +171,7 @@
 			files = (
 				D1C7F2EB218C98C900481E48 /* LaunchScreen.storyboard in Resources */,
 				D1B3049421962151006C1319 /* GoogleService-Info.plist in Resources */,
+				D1CF583F219C6811000A3497 /* Create iOS Icons.jsx in Resources */,
 				D1C7F2E8218C98C900481E48 /* Assets.xcassets in Resources */,
 				D1C7F2E6218C98C800481E48 /* Main.storyboard in Resources */,
 			);
