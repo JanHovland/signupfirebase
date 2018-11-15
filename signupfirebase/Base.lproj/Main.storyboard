@@ -117,17 +117,23 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Passordet må være minimum 6 tegn langt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eG4-UJ-Wc4">
-                                <rect key="frame" x="91" y="227" width="200.5" height="12"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Passordet må ha minimum 6 tegn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eG4-UJ-Wc4">
+                                <rect key="frame" x="93" y="227" width="198.5" height="11"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="sy5-nA-8Lg">
+                                <rect key="frame" x="177.5" y="89" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="eG4-UJ-Wc4" firstAttribute="leading" secondItem="dej-9k-aAA" secondAttribute="leading" constant="91" id="4LX-T5-FE3"/>
+                            <constraint firstItem="sy5-nA-8Lg" firstAttribute="centerX" secondItem="vji-Wu-4q1" secondAttribute="centerX" id="3bJ-Kp-4IM"/>
+                            <constraint firstItem="eG4-UJ-Wc4" firstAttribute="leading" secondItem="dej-9k-aAA" secondAttribute="leading" constant="93" id="4LX-T5-FE3"/>
                             <constraint firstItem="eG4-UJ-Wc4" firstAttribute="top" secondItem="pq7-iK-ExR" secondAttribute="bottom" constant="5" id="A9R-Rn-80Z"/>
+                            <constraint firstItem="dej-9k-aAA" firstAttribute="trailing" secondItem="eG4-UJ-Wc4" secondAttribute="trailing" constant="83.5" id="KAN-ZY-g0U"/>
+                            <constraint firstItem="sy5-nA-8Lg" firstAttribute="top" secondItem="dej-9k-aAA" secondAttribute="top" constant="25" id="NxU-M6-Jxh"/>
                             <constraint firstItem="pq7-iK-ExR" firstAttribute="top" secondItem="dej-9k-aAA" secondAttribute="top" constant="75" id="X2C-9X-qtp"/>
                             <constraint firstItem="dej-9k-aAA" firstAttribute="trailing" secondItem="pq7-iK-ExR" secondAttribute="trailing" constant="10" id="abD-O7-fpx"/>
                             <constraint firstItem="pq7-iK-ExR" firstAttribute="leading" secondItem="dej-9k-aAA" secondAttribute="leading" constant="10" id="qIv-Zp-NEb"/>
@@ -143,6 +149,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="NextButton" destination="OwC-MY-Gvl" id="IJ1-pC-eKk"/>
+                        <outlet property="activity" destination="sy5-nA-8Lg" id="0xs-Wg-VBy"/>
                         <outlet property="eMailLoginTextField" destination="cBQ-w6-FZy" id="Qyq-nY-P5i"/>
                         <outlet property="passwordTextField" destination="k82-w8-ML8" id="uYt-2h-p5q"/>
                         <segue destination="V07-a3-pap" kind="show" identifier="CreateAccount" id="yr6-f7-FDw"/>
@@ -151,7 +158,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RMv-VS-8be" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="556" y="-355"/>
+            <point key="canvasLocation" x="567" y="-341"/>
         </scene>
         <!--Create account-->
         <scene sceneID="Wd0-nJ-YAL">
@@ -217,9 +224,9 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Passordet må være minimum 6 tegn langt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8h-H3-5cv">
-                                <rect key="frame" x="91" y="237" width="187" height="12"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Passordet må ha minimum 6 tegn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8h-H3-5cv">
+                                <rect key="frame" x="93" y="237" width="272" height="10.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="9"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -227,9 +234,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Oie-pQ-z8x" firstAttribute="top" secondItem="E8g-AH-kKg" secondAttribute="top" constant="60" id="9id-PE-lIz"/>
+                            <constraint firstItem="P8h-H3-5cv" firstAttribute="leading" secondItem="E8g-AH-kKg" secondAttribute="leading" constant="93" id="JpT-N2-OQ5"/>
+                            <constraint firstItem="P8h-H3-5cv" firstAttribute="top" secondItem="Oie-pQ-z8x" secondAttribute="bottom" constant="5" id="PPF-ac-jOj"/>
                             <constraint firstItem="E8g-AH-kKg" firstAttribute="trailing" secondItem="Oie-pQ-z8x" secondAttribute="trailing" constant="10" id="Z13-qP-KxT"/>
-                            <constraint firstItem="P8h-H3-5cv" firstAttribute="leading" secondItem="E8g-AH-kKg" secondAttribute="leading" constant="91" id="b2Y-xt-R8f"/>
-                            <constraint firstItem="P8h-H3-5cv" firstAttribute="top" secondItem="Oie-pQ-z8x" secondAttribute="bottom" constant="5" id="gwY-gh-Fuf"/>
+                            <constraint firstItem="E8g-AH-kKg" firstAttribute="trailing" secondItem="P8h-H3-5cv" secondAttribute="trailing" constant="10" id="bJb-te-tW5"/>
                             <constraint firstItem="Oie-pQ-z8x" firstAttribute="leading" secondItem="E8g-AH-kKg" secondAttribute="leading" constant="10" id="qRd-C2-Hfk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="E8g-AH-kKg"/>

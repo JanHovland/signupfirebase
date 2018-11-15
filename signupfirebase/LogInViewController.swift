@@ -15,7 +15,7 @@ var passOrd : String = ""
 
 class LogInViewController: UIViewController {
     
-    
+    @IBOutlet weak var activity: UIActivityIndicatorView!
     @IBOutlet weak var NextButton: UIBarButtonItem!
     
     @IBOutlet weak var eMailLoginTextField: UITextField!
@@ -28,12 +28,20 @@ class LogInViewController: UIViewController {
        
     override func viewDidLoad() {
        super.viewDidLoad()
+       activity?.isHidden = true
         
        // Deaktiverer NextButton ved oppstart
        NextButton.isEnabled  = false
        
+        
+       activity?.isHidden = false
+       activity?.startAnimating()
+        
        // Henter sist brukte eMail og Password
        getData()
+        
+       activity?.isHidden = true
+       activity?.stopAnimating()
         
        if ePost.count > 0 {
           eMailLoginTextField.text = ePost
@@ -70,22 +78,31 @@ class LogInViewController: UIViewController {
         if email!.count > 0,
             pass!.count >= 6 {
             
+            self.activity?.isHidden = false
+            self.activity?.startAnimating()
+            
             Auth.auth().signIn(withEmail: email!, password: pass!) { (user, error) in
             
-                // Check that user isn't nil
+                // Check that error isn't nil
                 
                 if error == nil {
-                    
+       
                     // Lagrer epost og passord i Coredata
                     self.saveData()
                     
+                    self.activity?.isHidden = true
+                    self.activity?.stopAnimating()
+                   
                     self.performSegue(withIdentifier: "UpdateUserDataFromLoginEmail", sender: self)
                 } else {
-                      self.presentAlertChoise(withTitle: "Error", message: error!.localizedDescription as Any)
+                      self.presentAlertOption(withTitle: "Error", message: error!.localizedDescription as Any)
                 }
                 
             }
             
+            self.activity?.isHidden = true
+            self.activity?.stopAnimating()
+
         }
     }
 }
@@ -102,7 +119,7 @@ extension UIViewController {
 
 extension UIViewController {
 
-    func presentAlertChoise(withTitle title: String, message : Any) {
+    func presentAlertOption(withTitle title: String, message : Any) {
         let alertController = UIAlertController(title: title, message: "\(message)", preferredStyle: .alert)
 
         alertController.addAction(UIAlertAction(title: "Try again", style: .default, handler: nil))
