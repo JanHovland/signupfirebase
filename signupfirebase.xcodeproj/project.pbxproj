@@ -10,8 +10,8 @@
 		14B6C7D5AD5979888331B70D /* Pods_signupfirebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FA6AF44DDF6A6C8562A35A /* Pods_signupfirebase.framework */; };
 		D11E2BD8219470D90075BD11 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D11E2BD6219470D90075BD11 /* Model.xcdatamodeld */; };
 		D1266D692199A72C00593984 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1266D682199A72C00593984 /* CreateAccountViewController.swift */; };
-		D1486B43219838AD0050D804 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1486B42219838AD0050D804 /* LogInViewController.swift */; };
 		D15A0DD321909AFC00FBB286 /* UpdateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15A0DD221909AFC00FBB286 /* UpdateTableViewController.swift */; };
+		D1A486E9219E0BA8004D41BE /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A486E8219E0BA8004D41BE /* LogInViewController.swift */; };
 		D1A8671A21919BCB00E0567D /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A8671921919BCB00E0567D /* UserViewController.swift */; };
 		D1B3049421962151006C1319 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1B3049321962151006C1319 /* GoogleService-Info.plist */; };
 		D1C7F2E1218C98C800481E48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C7F2E0218C98C800481E48 /* AppDelegate.swift */; };
@@ -27,8 +27,8 @@
 		893C897689365B2F237CCE21 /* Pods-signupfirebase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-signupfirebase.release.xcconfig"; path = "Pods/Target Support Files/Pods-signupfirebase/Pods-signupfirebase.release.xcconfig"; sourceTree = "<group>"; };
 		D11E2BD7219470D90075BD11 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		D1266D682199A72C00593984 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
-		D1486B42219838AD0050D804 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LogInViewController.swift; path = ../../LogInViewController.swift; sourceTree = "<group>"; };
 		D15A0DD221909AFC00FBB286 /* UpdateTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTableViewController.swift; sourceTree = "<group>"; };
+		D1A486E8219E0BA8004D41BE /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		D1A8671921919BCB00E0567D /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		D1B3049321962151006C1319 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D1C7F2DD218C98C800481E48 /* signupfirebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = signupfirebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,7 +103,7 @@
 				D15A0DD221909AFC00FBB286 /* UpdateTableViewController.swift */,
 				D1A8671921919BCB00E0567D /* UserViewController.swift */,
 				D11E2BD6219470D90075BD11 /* Model.xcdatamodeld */,
-				D1486B42219838AD0050D804 /* LogInViewController.swift */,
+				D1A486E8219E0BA8004D41BE /* LogInViewController.swift */,
 				D1266D682199A72C00593984 /* CreateAccountViewController.swift */,
 			);
 			path = signupfirebase;
@@ -240,7 +240,7 @@
 				D15A0DD321909AFC00FBB286 /* UpdateTableViewController.swift in Sources */,
 				D1A8671A21919BCB00E0567D /* UserViewController.swift in Sources */,
 				D1C7F2E3218C98C800481E48 /* ViewController.swift in Sources */,
-				D1486B43219838AD0050D804 /* LogInViewController.swift in Sources */,
+				D1A486E9219E0BA8004D41BE /* LogInViewController.swift in Sources */,
 				D1266D692199A72C00593984 /* CreateAccountViewController.swift in Sources */,
 				D1C7F2E1218C98C800481E48 /* AppDelegate.swift in Sources */,
 				D11E2BD8219470D90075BD11 /* Model.xcdatamodeld in Sources */,

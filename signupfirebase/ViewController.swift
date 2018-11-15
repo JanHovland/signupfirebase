@@ -34,23 +34,23 @@ var spinner = UIActivityIndicatorView()
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        spinner.style = .gray
-        spinner.hidesWhenStopped = true
-        view.addSubview(spinner)
-        
-        // Define layout constraints for the spinner
-        spinner.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([spinner.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 150.0),
-                                     spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor)])
-        
-        // Activate the spinner
-        
-        spinner.startAnimating()
-        
+//        spinner.style = .gray
+//        spinner.hidesWhenStopped = true
+//        view.addSubview(spinner)
+//
+//        // Define layout constraints for the spinner
+//        spinner.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([spinner.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 150.0),
+//                                     spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor)])
+//
+//        // Activate the spinner
+//
+//        spinner.startAnimating()
+//
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        spinner.stopAnimating()
+//        spinner.stopAnimating()
     }
     
 //    @IBOutlet weak var signInSelector: UISegmentedControl!
@@ -155,51 +155,6 @@ var spinner = UIActivityIndicatorView()
 //
 //    }
 //
-//    func saveData(_ sender: Any) {
-//
-//       let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-//       let entity =  NSEntityDescription.entity(forEntityName: "entity", in: context)
-//
-//        let newEntity = NSManagedObject(entity: entity!, insertInto: context)
-//        newEntity.setValue(emailTextField.text, forKey: "eMail")
-//        newEntity.setValue(passwordTextField.text, forKey: "passWord")
-//
-//
-//        do {
-//            try context.save()
-//            print("Saved")
-//        } catch {
-//            print("Failed saving")
-//        }
-//
-//    }
-//
-//    func getData() {
-//
-//        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-//        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Entity")
-//        request.returnsObjectsAsFaults = false
-//
-//        do {
-//            let result = try context.fetch(request)
-//            for data in result as! [NSManagedObject]
-//            {
-//
-//                if data.value(forKey: "eMail") != nil {
-//                    ePost = data.value(forKey: "eMail") as! String
-//                }
-//
-//                if data.value(forKey: "passWord") != nil {
-//                    passOrd = data.value(forKey: "passWord") as! String
-//                }
-//
-//            }
-//
-//        } catch {
-//            print("Failed")
-//        }
-//
-//    }
 }
 
 
