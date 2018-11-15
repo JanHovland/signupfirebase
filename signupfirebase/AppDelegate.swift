@@ -22,13 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         
-        
         // CoreData:
-        // file:///Users/jho/Library/Developer/CoreSimulator/Devices/172A9496-F24C-4A07-A8B6-07126CD1CFD9/
-        //       data/Containers/Data/Application/3F3DA05A-1B36-4BF2-A5E7-08580D6CC9B3/Documents/
+        // file:///Users/jho/Library/Developer/CoreSimulator/Devices/172A9496-F24C-4A07-A8B6-07126CD1CFD9/data/Containers/Data/Application/124FBD3D-B252-4F18-BDE6-6AC08EB43D8A/Documents/
         // Åpne Finder med Shift + Cmd + G :
-        // /Users/jho/Library/Developer/CoreSimulator/Devices/172A9496-F24C-4A07-A8B6-07126CD1CFD9/data/Containers/Data/
-        //       Application/3F3DA05A-1B36-4BF2-A5E7-08580D6CC9B3/Library/Application Support/Model.sqlite
+        //        /Users/jho/Library/Developer/CoreSimulator/Devices/172A9496-F24C-4A07-A8B6-07126CD1CFD9/data/Containers/Data/Application/124FBD3D-B252-4F18-BDE6-6AC08EB43D8A/Library/Application Support/Model.sqlite
+        // Åpnes med programmet "Datum"
         
         let urls  = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         print(urls[urls.count-1] as URL )
