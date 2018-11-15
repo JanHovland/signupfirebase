@@ -21,7 +21,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kz5-Zy-90j">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="firebase" translatesAutoresizingMaskIntoConstraints="NO" id="QX1-6g-BT4">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="firebase_logo" translatesAutoresizingMaskIntoConstraints="NO" id="QX1-6g-BT4">
                                         <rect key="frame" x="151" y="30" width="73" height="67"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="73" id="Wpi-a3-z9d"/>
@@ -386,7 +386,7 @@
     </scenes>
     <resources>
         <image name="Icon-20" width="20" height="20"/>
-        <image name="firebase" width="245.75999450683594" height="245.75999450683594"/>
+        <image name="firebase_logo" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="L1U-ae-97o"/>
