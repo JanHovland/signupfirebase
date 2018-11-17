@@ -148,10 +148,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="NextButton" destination="OwC-MY-Gvl" id="IJ1-pC-eKk"/>
                         <outlet property="activity" destination="sy5-nA-8Lg" id="0xs-Wg-VBy"/>
                         <outlet property="eMailLoginTextField" destination="cBQ-w6-FZy" id="Qyq-nY-P5i"/>
-                        <outlet property="passwordTextField" destination="k82-w8-ML8" id="uYt-2h-p5q"/>
+                        <outlet property="passwordTextField" destination="k82-w8-ML8" id="tIr-3x-uDz"/>
                         <segue destination="V07-a3-pap" kind="show" identifier="CreateAccount" id="yr6-f7-FDw"/>
                         <segue destination="nhA-xf-W66" kind="show" identifier="UpdateUserDataFromLoginEmail" id="5S0-Bs-tdn"/>
                     </connections>
@@ -289,8 +288,8 @@
                                                     <rect key="frame" x="16" y="11" width="20" height="20"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="eMail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gUw-Dv-Bgg">
-                                                    <rect key="frame" x="51" y="25.5" width="30" height="14.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="checkedInEmail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gUw-Dv-Bgg">
+                                                    <rect key="frame" x="51" y="25.5" width="88.5" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -386,7 +385,7 @@
                     <navigationItem key="navigationItem" title="Settings" id="tSB-Wf-nFh" userLabel="Update user data"/>
                     <connections>
                         <outlet property="settingsEmail" destination="gUw-Dv-Bgg" id="wdP-E5-MaQ"/>
-                        <outlet property="settingsUser" destination="Xyu-Be-I3U" id="sDu-sN-5rK"/>
+                        <outlet property="settingsUserName" destination="Xyu-Be-I3U" id="jBP-NH-FMu"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pgR-wM-cad" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -16,23 +16,14 @@ var passOrd : String = ""
 class LogInViewController: UIViewController {
     
     @IBOutlet weak var activity: UIActivityIndicatorView!
-    @IBOutlet weak var NextButton: UIBarButtonItem!
     
     @IBOutlet weak var eMailLoginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    // Aktiverer NextButton ved: "Editing Did Begin"
-    @IBAction func eMailText(_ sender: Any) {
-        NextButton.isEnabled  = true
-    }
-       
+    
     override func viewDidLoad() {
        super.viewDidLoad()
        activity?.isHidden = true
-        
-       // Deaktiverer NextButton ved oppstart
-       NextButton.isEnabled  = false
-       
         
        activity?.isHidden = false
        activity?.startAnimating()
@@ -57,11 +48,7 @@ class LogInViewController: UIViewController {
            passwordTextField.text = passOrd
        }
     
-       print("Verdien til ePost: \(ePost)")
-
     }
-    
-    
     
     // Når en kommer tilbake til skjermbildet
     override func viewWillAppear(_ animated: Bool) {

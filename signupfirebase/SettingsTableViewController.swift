@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import Firebase
 
 class SettingsTableViewController: UITableViewController {
 
     @IBOutlet weak var settingsEmail: UILabel!
     
-    @IBOutlet weak var settingsUser: UILabel!
+    @IBOutlet weak var settingsUserName: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +23,12 @@ class SettingsTableViewController: UITableViewController {
         settingsEmail.text = ePost
         
         // Henter brukernavn fra FireBase
-        
-        
+        let user = Auth.auth().currentUser
+        if let user = user {
+            
+            settingsUserName.text = user.displayName
+            
+        }
         
     }
     
