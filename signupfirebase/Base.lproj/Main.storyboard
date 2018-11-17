@@ -263,7 +263,7 @@
         <!--Settings-->
         <scene sceneID="sjW-1t-WAY">
             <objects>
-                <tableViewController id="nhA-xf-W66" customClass="SettingsViewController" customModule="signupfirebase" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="nhA-xf-W66" customClass="SettingsTableViewController" customModule="signupfirebase" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="v9w-dM-QW3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -385,7 +385,8 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="tSB-Wf-nFh" userLabel="Update user data"/>
                     <connections>
-                        <outlet property="LogInEmail" destination="gUw-Dv-Bgg" id="2E9-lX-mo0"/>
+                        <outlet property="settingsEmail" destination="gUw-Dv-Bgg" id="wdP-E5-MaQ"/>
+                        <outlet property="settingsUser" destination="Xyu-Be-I3U" id="sDu-sN-5rK"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pgR-wM-cad" userLabel="First Responder" sceneMemberID="firstResponder"/>
