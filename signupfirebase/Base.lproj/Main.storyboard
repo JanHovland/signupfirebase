@@ -89,9 +89,6 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done" textContentType="email"/>
-                                                <connections>
-                                                    <action selector="eMailText:" destination="tT3-9a-LwM" eventType="editingDidBegin" id="Nlj-Ph-ZPw"/>
-                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -109,9 +106,6 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
-                                                <connections>
-                                                    <action selector="eMailText:" destination="tT3-9a-LwM" eventType="editingDidBegin" id="Mzr-CR-Qwg"/>
-                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -392,7 +386,7 @@
             </objects>
             <point key="canvasLocation" x="1356" y="-207"/>
         </scene>
-        <!--User-->
+        <!--Add user name-->
         <scene sceneID="ffJ-QF-Ihx">
             <objects>
                 <viewController id="2El-f4-8UE" customClass="CreateAccountViewController" customModule="signupfirebase" customModuleProvider="target" sceneMemberID="viewController">
@@ -402,7 +396,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ncP-wT-jQ7"/>
                     </view>
-                    <navigationItem key="navigationItem" title="User" id="c4F-9b-Jx4"/>
+                    <navigationItem key="navigationItem" title="Add user name" id="c4F-9b-Jx4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x7o-AH-tpg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -418,13 +412,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="mCI-e3-85m"/>
                     </view>
-                    <navigationItem key="navigationItem" title="List user names" id="sww-Yf-63g"/>
+                    <navigationItem key="navigationItem" title="List all user names" id="sww-Yf-63g"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U4x-e9-skH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1356" y="501"/>
         </scene>
-        <!--eMail-->
+        <!--Change eMail-->
         <scene sceneID="2E7-Fn-7tm">
             <objects>
                 <viewController id="jMj-U0-HFM" customClass="eMailViewController" customModule="signupfirebase" customModuleProvider="target" sceneMemberID="viewController">
@@ -434,7 +428,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ulc-KM-2cY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="eMail" id="Lq8-VN-oP9"/>
+                    <navigationItem key="navigationItem" title="Change eMail" id="Lq8-VN-oP9"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gdd-vX-lHE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -464,6 +458,6 @@
         <image name="firebase_logo" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5S0-Bs-tdn"/>
+        <segue reference="L1U-ae-97o"/>
     </inferredMetricsTieBreakers>
 </document>
