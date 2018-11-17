@@ -37,8 +37,14 @@ class LogInViewController: UIViewController {
        activity?.isHidden = false
        activity?.startAnimating()
         
-       // Henter sist brukte eMail og Password
-       getData()
+        // Henter sist brukte eMail og Password
+        getData()
+        
+        print("Verdien til ePost fra getData: \(ePost)")
+
+        
+        // Sletter alle postene i databasen
+        deleteAllData()
         
        activity?.isHidden = true
        activity?.stopAnimating()
@@ -50,8 +56,12 @@ class LogInViewController: UIViewController {
        if passOrd.count > 0 {
            passwordTextField.text = passOrd
        }
-        
+    
+       print("Verdien til ePost: \(ePost)")
+
     }
+    
+    
     
     // Når en kommer tilbake til skjermbildet
     override func viewWillAppear(_ animated: Bool) {
@@ -87,11 +97,17 @@ class LogInViewController: UIViewController {
                 
                 if error == nil {
        
-                    // Lagrer epost og passord i Coredata
-                    self.saveData()
+                        // Sletter alle data i CoreData
+                        self.deleteAllData()
                     
-                    self.activity?.isHidden = true
-                    self.activity?.stopAnimating()
+                        ePost = self.eMailLoginTextField.text!
+                        passOrd = self.passwordTextField.text!
+                    
+                        // Lagrer epost og passord i Coredata
+                        self.saveData()
+                    
+                        self.activity?.isHidden = true
+                        self.activity?.stopAnimating()
                    
                     self.performSegue(withIdentifier: "UpdateUserDataFromLoginEmail", sender: self)
                 } else {
@@ -103,6 +119,11 @@ class LogInViewController: UIViewController {
             self.activity?.isHidden = true
             self.activity?.stopAnimating()
 
+        } else {
+            
+            let melding = "eMail må ha en verdi.\nPassword må være minst 6 tegn langt"
+            
+            self.presentAlert(withTitle: "Error", message: melding)
         }
     }
 }
@@ -145,8 +166,10 @@ extension UIViewController {
         let entity =  NSEntityDescription.entity(forEntityName: "Entity", in: context)
         
         let newEntity = NSManagedObject(entity: entity!, insertInto: context)
+        
         newEntity.setValue(ePost, forKey: "eMail")
         newEntity.setValue(passOrd, forKey: "passWord")
+
         do {
             try context.save()
             print("Saved email and password")
@@ -154,6 +177,24 @@ extension UIViewController {
             print("Failed saving")
         }
         
+    }
+    
+    func deleteAllData() {
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Entity")
+        request.returnsObjectsAsFaults = false
+   
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: request)
+        
+        do {
+           print("deleting all content")
+           try context.execute(deleteRequest)
+            
+        } catch {
+            print(error.localizedDescription)
+        }
+ 
     }
     
     func getData() {
@@ -183,7 +224,7 @@ extension UIViewController {
         }
         
     }
-
+    
  }
 
 

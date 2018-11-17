@@ -8,24 +8,21 @@
 
 import UIKit
 
-class UpdateTableViewController: UITableViewController {
+class SettingsViewController: UITableViewController {
 
+    @IBOutlet weak var LogInEmail: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+        // Henter fra den globale "ePost"
+        LogInEmail.text = ePost
         
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // Henter brukernavn fra Firebase
         
-        return 3
+        
+        
+        
     }
     
 }

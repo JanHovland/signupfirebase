@@ -55,6 +55,13 @@ class CreateAccountViewController: UIViewController {
 
               if error == nil {
                 
+                  // Lagre epost og  passord
+                
+                  ePost = email!
+                  passOrd = pass!
+                
+                  self.saveData()
+                
                   // Legg inn Navnet på brukeren
                   let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
                   changeRequest?.displayName = name
