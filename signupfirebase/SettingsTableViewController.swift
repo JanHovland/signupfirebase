@@ -18,18 +18,27 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Henter epost fra Firebase
+        // Henter epost pg passord fra Firebase
         getData()
         settingsEmail.text = ePost
         
         // Henter brukernavn fra FireBase
-        let user = Auth.auth().currentUser
-        if let user = user {
-            
-            settingsUserName.text = user.displayName
-            
-        }
         
+        Auth.auth().signIn(withEmail: ePost, password: passOrd) { (user, error) in
+            
+            // Check that error isn't nil
+            
+            if error == nil {
+                
+                let user = Auth.auth().currentUser
+                
+                if let user = user {
+                    
+                    self.settingsUserName.text = user.displayName
+                    
+                }
+            }
+        }
     }
     
 }

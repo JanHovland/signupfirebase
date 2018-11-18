@@ -66,9 +66,11 @@ class LogInViewController: UIViewController {
         // Dismiss the keyboard when the Next button is tapped on
         eMailLoginTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
+
+        ePost = eMailLoginTextField.text!
+        passOrd = passwordTextField.text!
         
         // Sjekk om eposten er registrert på en bruker
-        
         let email = eMailLoginTextField.text
         let pass = passwordTextField.text
         
@@ -98,7 +100,11 @@ class LogInViewController: UIViewController {
                    
                     self.performSegue(withIdentifier: "UpdateUserDataFromLoginEmail", sender: self)
                 } else {
-                      self.presentAlertOption(withTitle: "Error", message: error!.localizedDescription as Any)
+                    
+                    ePost = self.eMailLoginTextField.text!
+                    passOrd = self.passwordTextField.text!
+                    
+                    self.presentAlertOption(withTitle: "Error", message: error!.localizedDescription as Any)
                 }
                 
             }
@@ -142,6 +148,7 @@ extension UIViewController {
         
         // Denne funksjonen må være deklarert inne i "extension"
         func CreateAccount() {
+            
             self.performSegue(withIdentifier: "CreateAccount", sender: self)
         }
 

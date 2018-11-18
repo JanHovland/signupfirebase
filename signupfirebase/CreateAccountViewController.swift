@@ -19,7 +19,10 @@ class CreateAccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Start")
 
+        eMailCreateAccountTextField.text = ePost
+        passwordCreateAccountTextField.text = passOrd
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -87,9 +90,9 @@ class CreateAccountViewController: UIViewController {
         } else {
             
             if pass!.count < 6 {
-                self.presentAlert(withTitle: "Error", message: "Du må legge inn Epost, Navn. Passordet må ha minst 6 tegn")
-            } else {
-                self.presentAlert(withTitle: "Error", message: "Du må legge inn Epost og Navn")
+                self.presentAlert(withTitle: "Error", message: "Legg inn i alle feltene. \nPassordet må ha minst 6 tegn")
+            } else { 
+                self.presentAlert(withTitle: "Error", message: "Legg inn i alle feltene")
             }
             
         }
