@@ -12,9 +12,11 @@ import FirebaseAuth
 import CoreData
 
 class CreateAccountViewController: UIViewController {
-
-    @IBOutlet weak var eMailCreateAccountTextField: UITextField!
+    
+    
     @IBOutlet weak var nameCreateAccountTextField: UITextField!
+    @IBOutlet weak var eMailCreateAccountTextField: UITextField!
+    @IBOutlet weak var phoneCreateAccountTextField: UITextField!
     @IBOutlet weak var passwordCreateAccountTextField: UITextField!
     
     override func viewDidLoad() {
@@ -90,9 +92,9 @@ class CreateAccountViewController: UIViewController {
         } else {
             
             if pass!.count < 6 {
-                self.presentAlert(withTitle: "Error", message: "Legg inn i alle feltene. \nPassordet må ha minst 6 tegn")
+                self.presentAlert(withTitle: "Error", message: "Legg inn verdier i alle feltene. \nPassordet må ha minst 6 tegn")
             } else { 
-                self.presentAlert(withTitle: "Error", message: "Legg inn i alle feltene")
+                self.presentAlert(withTitle: "Error", message: "Legg inn verdier i alle feltene")
             }
             
         }

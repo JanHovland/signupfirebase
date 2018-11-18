@@ -23,6 +23,7 @@
 		D1C96A1421A1C97900C5DA7A /* UpdatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C96A1321A1C97900C5DA7A /* UpdatePasswordViewController.swift */; };
 		D1C96A1621A1CA3600C5DA7A /* UpdateeMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C96A1521A1CA3600C5DA7A /* UpdateeMailViewController.swift */; };
 		D1C96A1821A1CB0F00C5DA7A /* UpdateUserNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C96A1721A1CB0F00C5DA7A /* UpdateUserNameViewController.swift */; };
+		D1C96A1A21A1CE0400C5DA7A /* UpdatePhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C96A1921A1CE0400C5DA7A /* UpdatePhoneNumberViewController.swift */; };
 		D1CF583F219C6811000A3497 /* Create iOS Icons.jsx in Resources */ = {isa = PBXBuildFile; fileRef = D1CF583E219C6811000A3497 /* Create iOS Icons.jsx */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		D1C96A1321A1C97900C5DA7A /* UpdatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordViewController.swift; sourceTree = "<group>"; };
 		D1C96A1521A1CA3600C5DA7A /* UpdateeMailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateeMailViewController.swift; sourceTree = "<group>"; };
 		D1C96A1721A1CB0F00C5DA7A /* UpdateUserNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserNameViewController.swift; sourceTree = "<group>"; };
+		D1C96A1921A1CE0400C5DA7A /* UpdatePhoneNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePhoneNumberViewController.swift; sourceTree = "<group>"; };
 		D1CF583E219C6811000A3497 /* Create iOS Icons.jsx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Create iOS Icons.jsx"; sourceTree = "<group>"; };
 		D8FA6AF44DDF6A6C8562A35A /* Pods_signupfirebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_signupfirebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -117,6 +119,7 @@
 				D1C96A1321A1C97900C5DA7A /* UpdatePasswordViewController.swift */,
 				D1C96A1521A1CA3600C5DA7A /* UpdateeMailViewController.swift */,
 				D1C96A1721A1CB0F00C5DA7A /* UpdateUserNameViewController.swift */,
+				D1C96A1921A1CE0400C5DA7A /* UpdatePhoneNumberViewController.swift */,
 			);
 			path = signupfirebase;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				D1A486E9219E0BA8004D41BE /* LogInViewController.swift in Sources */,
 				D1041605219ED73E00C7662F /* ListUserNameViewController.swift in Sources */,
 				D1266D692199A72C00593984 /* CreateAccountViewController.swift in Sources */,
+				D1C96A1A21A1CE0400C5DA7A /* UpdatePhoneNumberViewController.swift in Sources */,
 				D1C7F2E1218C98C800481E48 /* AppDelegate.swift in Sources */,
 				D11E2BD8219470D90075BD11 /* Model.xcdatamodeld in Sources */,
 			);
