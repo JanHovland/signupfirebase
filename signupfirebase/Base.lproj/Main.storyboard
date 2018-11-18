@@ -146,7 +146,7 @@
                         <outlet property="eMailLoginTextField" destination="cBQ-w6-FZy" id="Qyq-nY-P5i"/>
                         <outlet property="passwordTextField" destination="k82-w8-ML8" id="tIr-3x-uDz"/>
                         <segue destination="V07-a3-pap" kind="show" identifier="CreateAccount" id="yr6-f7-FDw"/>
-                        <segue destination="nhA-xf-W66" kind="show" identifier="UpdateUserDataFromLoginEmail" id="5S0-Bs-tdn"/>
+                        <segue destination="nhA-xf-W66" kind="show" identifier="UpdateUserDataFromLogin" id="5S0-Bs-tdn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RMv-VS-8be" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -261,6 +261,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="5Kc-zy-85Y">
+                            <rect key="frame" x="0.0" y="276" width="375" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </activityIndicatorView>
                         <sections>
                             <tableViewSection headerTitle=" " id="Hlp-Ao-XeV">
                                 <cells>
@@ -271,8 +275,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Checked in User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xyu-Be-I3U">
-                                                    <rect key="frame" x="51" y="5" width="126" height="20.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xyu-Be-I3U">
+                                                    <rect key="frame" x="51" y="5" width="45" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -282,8 +286,8 @@
                                                     <rect key="frame" x="16" y="11" width="20" height="20"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="checkedInEmail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gUw-Dv-Bgg">
-                                                    <rect key="frame" x="51" y="25.5" width="88.5" height="14.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gUw-Dv-Bgg" userLabel="eMail">
+                                                    <rect key="frame" x="51" y="25.5" width="30.5" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -303,7 +307,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Change eMail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zh3-iO-7t7">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Update eMail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zh3-iO-7t7" userLabel="Update eMail">
                                                     <rect key="frame" x="51" y="0.0" width="289" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -317,7 +321,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="jMj-U0-HFM" kind="show" identifier="gotoEmail" id="IP6-Ds-RH1"/>
+                                            <segue destination="jMj-U0-HFM" kind="show" identifier="gotoUpdateEmail" id="IP6-Ds-RH1"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="99T-f0-Rez" imageView="vG9-dh-toa" style="IBUITableViewCellStyleDefault" id="KbW-7H-AeV">
@@ -327,7 +331,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Add user name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="99T-f0-Rez">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Update user name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="99T-f0-Rez" userLabel="Update user name">
                                                     <rect key="frame" x="51" y="0.0" width="289" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -341,7 +345,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="2El-f4-8UE" kind="show" identifier="gotoUser" id="cWZ-ic-qCY"/>
+                                            <segue destination="2El-f4-8UE" kind="show" identifier="gotoUpdateUserName" id="cWZ-ic-qCY"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="cG7-Qa-eYZ" imageView="Rac-ug-Rcg" style="IBUITableViewCellStyleDefault" id="rkc-7a-eWW">
@@ -351,7 +355,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="List all user names" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cG7-Qa-eYZ">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Update password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cG7-Qa-eYZ" userLabel="Uodate password">
                                                     <rect key="frame" x="51" y="0.0" width="289" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -365,7 +369,31 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="WCE-qe-P2J" kind="show" identifier="gotoListUserNames" id="flp-tG-oRM"/>
+                                            <segue destination="YCG-6O-Q9u" kind="show" identifier="gotoUpdatePassword" id="Lde-Ab-MFu"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="iS0-jL-FCb" imageView="GZT-qf-7SQ" style="IBUITableViewCellStyleDefault" id="n6z-oa-2nh">
+                                        <rect key="frame" x="0.0" y="232" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="n6z-oa-2nh" id="lsI-vz-Lxk">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="List all users" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iS0-jL-FCb" userLabel="List all users">
+                                                    <rect key="frame" x="51" y="0.0" width="289" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="Icon-20" id="GZT-qf-7SQ">
+                                                    <rect key="frame" x="16" y="11" width="20" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="WCE-qe-P2J" kind="show" identifier="gotoListAllUsers" id="CYX-f3-MgN"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -378,6 +406,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="tSB-Wf-nFh" userLabel="Update user data"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="5Kc-zy-85Y" id="h8m-lJ-J6k"/>
                         <outlet property="settingsEmail" destination="gUw-Dv-Bgg" id="wdP-E5-MaQ"/>
                         <outlet property="settingsUserName" destination="Xyu-Be-I3U" id="jBP-NH-FMu"/>
                     </connections>
@@ -386,17 +415,17 @@
             </objects>
             <point key="canvasLocation" x="1356" y="-207"/>
         </scene>
-        <!--Add user name-->
+        <!--Update user name-->
         <scene sceneID="ffJ-QF-Ihx">
             <objects>
-                <viewController id="2El-f4-8UE" customClass="CreateAccountViewController" customModule="signupfirebase" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2El-f4-8UE" customClass="UpdateUserNameViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ioj-9o-oIe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ncP-wT-jQ7"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add user name" id="c4F-9b-Jx4"/>
+                    <navigationItem key="navigationItem" title="Update user name" id="c4F-9b-Jx4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x7o-AH-tpg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -412,27 +441,43 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="mCI-e3-85m"/>
                     </view>
-                    <navigationItem key="navigationItem" title="List all user names" id="sww-Yf-63g"/>
+                    <navigationItem key="navigationItem" title="List all users" id="sww-Yf-63g"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U4x-e9-skH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1356" y="501"/>
+            <point key="canvasLocation" x="1356" y="564"/>
         </scene>
-        <!--Change eMail-->
+        <!--Update password-->
+        <scene sceneID="514-fI-xD2">
+            <objects>
+                <viewController id="YCG-6O-Q9u" customClass="UpdatePasswordViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xSh-DD-mOm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="6kX-PT-Pbv"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Update password" id="vHt-CU-cWy"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fFP-2K-yqY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2124" y="564"/>
+        </scene>
+        <!--Update eMail-->
         <scene sceneID="2E7-Fn-7tm">
             <objects>
-                <viewController id="jMj-U0-HFM" customClass="eMailViewController" customModule="signupfirebase" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jMj-U0-HFM" customClass="UpdateeMailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8pq-Vc-bna">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ulc-KM-2cY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Change eMail" id="Lq8-VN-oP9"/>
+                    <navigationItem key="navigationItem" title="Update eMail" id="Lq8-VN-oP9"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gdd-vX-lHE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2124" y="-871"/>
+            <point key="canvasLocation" x="2124" y="-869"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XXp-aT-bTx">
@@ -458,6 +503,6 @@
         <image name="firebase_logo" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="L1U-ae-97o"/>
+        <segue reference="5S0-Bs-tdn"/>
     </inferredMetricsTieBreakers>
 </document>

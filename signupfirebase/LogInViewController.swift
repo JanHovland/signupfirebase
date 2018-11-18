@@ -98,7 +98,7 @@ class LogInViewController: UIViewController {
                         self.activity?.isHidden = true
                         self.activity?.stopAnimating()
                    
-                    self.performSegue(withIdentifier: "UpdateUserDataFromLoginEmail", sender: self)
+                    self.performSegue(withIdentifier: "UpdateUserDataFromLogin", sender: self)
                 } else {
                     
                     ePost = self.eMailLoginTextField.text!

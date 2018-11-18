@@ -20,6 +20,9 @@
 		D1C7F2E6218C98C800481E48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1C7F2E4218C98C800481E48 /* Main.storyboard */; };
 		D1C7F2E8218C98C900481E48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1C7F2E7218C98C900481E48 /* Assets.xcassets */; };
 		D1C7F2EB218C98C900481E48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1C7F2E9218C98C900481E48 /* LaunchScreen.storyboard */; };
+		D1C96A1421A1C97900C5DA7A /* UpdatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C96A1321A1C97900C5DA7A /* UpdatePasswordViewController.swift */; };
+		D1C96A1621A1CA3600C5DA7A /* UpdateeMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C96A1521A1CA3600C5DA7A /* UpdateeMailViewController.swift */; };
+		D1C96A1821A1CB0F00C5DA7A /* UpdateUserNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C96A1721A1CB0F00C5DA7A /* UpdateUserNameViewController.swift */; };
 		D1CF583F219C6811000A3497 /* Create iOS Icons.jsx in Resources */ = {isa = PBXBuildFile; fileRef = D1CF583E219C6811000A3497 /* Create iOS Icons.jsx */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +43,9 @@
 		D1C7F2E7218C98C900481E48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1C7F2EA218C98C900481E48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D1C7F2EC218C98C900481E48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1C96A1321A1C97900C5DA7A /* UpdatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordViewController.swift; sourceTree = "<group>"; };
+		D1C96A1521A1CA3600C5DA7A /* UpdateeMailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateeMailViewController.swift; sourceTree = "<group>"; };
+		D1C96A1721A1CB0F00C5DA7A /* UpdateUserNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserNameViewController.swift; sourceTree = "<group>"; };
 		D1CF583E219C6811000A3497 /* Create iOS Icons.jsx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Create iOS Icons.jsx"; sourceTree = "<group>"; };
 		D8FA6AF44DDF6A6C8562A35A /* Pods_signupfirebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_signupfirebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -108,6 +114,9 @@
 				D1A486E8219E0BA8004D41BE /* LogInViewController.swift */,
 				D1266D682199A72C00593984 /* CreateAccountViewController.swift */,
 				D1041604219ED73E00C7662F /* ListUserNameViewController.swift */,
+				D1C96A1321A1C97900C5DA7A /* UpdatePasswordViewController.swift */,
+				D1C96A1521A1CA3600C5DA7A /* UpdateeMailViewController.swift */,
+				D1C96A1721A1CB0F00C5DA7A /* UpdateUserNameViewController.swift */,
 			);
 			path = signupfirebase;
 			sourceTree = "<group>";
@@ -240,8 +249,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1C96A1821A1CB0F00C5DA7A /* UpdateUserNameViewController.swift in Sources */,
+				D1C96A1621A1CA3600C5DA7A /* UpdateeMailViewController.swift in Sources */,
 				D15A0DD321909AFC00FBB286 /* SettingsTableViewController.swift in Sources */,
 				D1A8671A21919BCB00E0567D /* UserViewController.swift in Sources */,
+				D1C96A1421A1C97900C5DA7A /* UpdatePasswordViewController.swift in Sources */,
 				D1C7F2E3218C98C800481E48 /* ViewController.swift in Sources */,
 				D1A486E9219E0BA8004D41BE /* LogInViewController.swift in Sources */,
 				D1041605219ED73E00C7662F /* ListUserNameViewController.swift in Sources */,
