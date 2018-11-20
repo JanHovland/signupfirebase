@@ -110,15 +110,15 @@
 				D1CF583E219C6811000A3497 /* Create iOS Icons.jsx */,
 				D1B3049321962151006C1319 /* GoogleService-Info.plist */,
 				D1C7F2E2218C98C800481E48 /* ViewController.swift */,
-				D15A0DD221909AFC00FBB286 /* SettingsTableViewController.swift */,
 				D1A8671921919BCB00E0567D /* UserViewController.swift */,
 				D11E2BD6219470D90075BD11 /* Model.xcdatamodeld */,
 				D1A486E8219E0BA8004D41BE /* LogInViewController.swift */,
+				D15A0DD221909AFC00FBB286 /* SettingsTableViewController.swift */,
 				D1266D682199A72C00593984 /* CreateAccountViewController.swift */,
 				D1041604219ED73E00C7662F /* ListUserNameViewController.swift */,
+				D1C96A1721A1CB0F00C5DA7A /* UpdateUserNameViewController.swift */,
 				D1C96A1321A1C97900C5DA7A /* UpdatePasswordViewController.swift */,
 				D1C96A1521A1CA3600C5DA7A /* UpdateeMailViewController.swift */,
-				D1C96A1721A1CB0F00C5DA7A /* UpdateUserNameViewController.swift */,
 				D1C96A1921A1CE0400C5DA7A /* UpdatePhoneNumberViewController.swift */,
 			);
 			path = signupfirebase;

@@ -18,7 +18,7 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         activityIndicator.hidesWhenStopped = true
         activityIndicator.style = .gray
         view.addSubview(activityIndicator)
@@ -34,18 +34,47 @@ class SettingsTableViewController: UITableViewController {
         
         Auth.auth().signIn(withEmail: ePost, password: passOrd) { (user, error) in
             
-            // Check that error isn't nil
+            if error == nil {
+                
+                // Finner det gamle navnet
+                
+                let user = Auth.auth().currentUser
+                
+                if let user = user {
+                    self.settingsUserName.text = user.displayName
+                    self.settingsEmail.text = user.email
+                } else {
+                    // Håndtere error
+                }
+            }
+            
+        }
+        
+        activityIndicator.stopAnimating()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        activityIndicator.startAnimating()
+        
+        // Finner det gamle navnet
+        
+        Auth.auth().signIn(withEmail: ePost, password: passOrd) { (user, error) in
             
             if error == nil {
                 
                 let user = Auth.auth().currentUser
                 
                 if let user = user {
-                    
                     self.settingsUserName.text = user.displayName
                     self.settingsEmail.text = user.email
+                } else {
+                    // Håndtere error
                 }
+            } else {
+                // Håndtere error
             }
+            
         }
         
         activityIndicator.stopAnimating()
