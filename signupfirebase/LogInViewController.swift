@@ -16,30 +16,29 @@ var passOrd : String = ""
 class LogInViewController: UIViewController {
     
     @IBOutlet weak var activity: UIActivityIndicatorView!
-    
+   
     @IBOutlet weak var eMailLoginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    
     override func viewDidLoad() {
-       super.viewDidLoad()
-       activity?.isHidden = true
+        super.viewDidLoad()
         
-       activity?.isHidden = false
-       activity?.startAnimating()
+        activity.hidesWhenStopped = true
+        activity.style = .gray
+        view.addSubview(activity)
         
+        activity.startAnimating()
+
         // Henter sist brukte eMail og Password
         getData()
         
         print("Verdien til ePost fra getData: \(ePost)")
-
         
         // Sletter alle postene i databasen
         deleteAllData()
         
-       activity?.isHidden = true
-       activity?.stopAnimating()
-        
+       activity.stopAnimating()
+
        if ePost.count > 0 {
           eMailLoginTextField.text = ePost
        }
@@ -47,7 +46,7 @@ class LogInViewController: UIViewController {
        if passOrd.count > 0 {
            passwordTextField.text = passOrd
        }
-    
+  
     }
     
     // Når en kommer tilbake til skjermbildet
@@ -77,8 +76,7 @@ class LogInViewController: UIViewController {
         if email!.count > 0,
             pass!.count >= 6 {
             
-            self.activity?.isHidden = false
-            self.activity?.startAnimating()
+            self.activity.startAnimating()
             
             Auth.auth().signIn(withEmail: email!, password: pass!) { (user, error) in
             
@@ -95,8 +93,8 @@ class LogInViewController: UIViewController {
                         // Lagrer epost og passord i Coredata
                         self.saveData()
                     
-                        self.activity?.isHidden = true
-                        self.activity?.stopAnimating()
+                        self.activity.isHidden = true
+                        self.activity.stopAnimating()
                    
                     self.performSegue(withIdentifier: "UpdateUserDataFromLogin", sender: self)
                 } else {
@@ -109,8 +107,7 @@ class LogInViewController: UIViewController {
                 
             }
             
-            self.activity?.isHidden = true
-            self.activity?.stopAnimating()
+            self.activity.stopAnimating()
 
         } else {
             
@@ -129,9 +126,6 @@ extension UIViewController {
         self.present(alertController, animated: true, completion: nil)
         
     }
-}
-
-extension UIViewController {
 
     func presentAlertOption(withTitle title: String, message : Any) {
         let alertController = UIAlertController(title: title, message: "\(message)", preferredStyle: .alert)
@@ -144,12 +138,12 @@ extension UIViewController {
         }))
 
         self.present(alertController, animated: true, completion: nil)
-
         
         // Denne funksjonen må være deklarert inne i "extension"
         func CreateAccount() {
             
             self.performSegue(withIdentifier: "CreateAccount", sender: self)
+      
         }
 
     }

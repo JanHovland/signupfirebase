@@ -11,7 +11,7 @@ import Firebase
 
 class SettingsTableViewController: UITableViewController {
 
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var activity: UIActivityIndicatorView!
     
     @IBOutlet weak var settingsEmail: UILabel!
     @IBOutlet weak var settingsUserName: UILabel!
@@ -19,16 +19,11 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.style = .gray
-        view.addSubview(activityIndicator)
+        activity.hidesWhenStopped = true
+        activity.style = .gray
+        view.addSubview(activity)
         
-        // Define layout constraint for the activityIndicator
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([activityIndicator.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 25.0),
-                                     activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor)])
-        
-        activityIndicator.startAnimating()
+        activity.startAnimating()
         
         // Henter brukernavn og passord fra FireBase
         
@@ -50,12 +45,12 @@ class SettingsTableViewController: UITableViewController {
             
         }
         
-        activityIndicator.stopAnimating()
+        activity.stopAnimating()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         
-        activityIndicator.startAnimating()
+        activity.startAnimating()
         
         // Finner det gamle navnet
         
@@ -77,7 +72,7 @@ class SettingsTableViewController: UITableViewController {
             
         }
         
-        activityIndicator.stopAnimating()
+        activity.stopAnimating()
     }
     
 }

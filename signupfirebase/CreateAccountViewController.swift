@@ -8,21 +8,25 @@
 
 import UIKit
 import Firebase
-import FirebaseAuth
+// import FirebaseAuth
 import CoreData
 
 class CreateAccountViewController: UIViewController {
-    
+ 
+    @IBOutlet weak var activity: UIActivityIndicatorView!
     
     @IBOutlet weak var nameCreateAccountTextField: UITextField!
     @IBOutlet weak var eMailCreateAccountTextField: UITextField!
-    @IBOutlet weak var phoneCreateAccountTextField: UITextField!
     @IBOutlet weak var passwordCreateAccountTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Start")
 
+        activity.hidesWhenStopped = true
+        activity.style = .gray
+        view.addSubview(activity)
+        
         eMailCreateAccountTextField.text = ePost
         passwordCreateAccountTextField.text = passOrd
     }
@@ -40,6 +44,8 @@ class CreateAccountViewController: UIViewController {
     
     @IBAction func SaveAccount(_ sender: UIBarButtonItem) {
 
+        activity.startAnimating()
+        
         // Dismiss the keyboard when the Save button is tapped on
         eMailCreateAccountTextField.resignFirstResponder()
         nameCreateAccountTextField.resignFirstResponder()
@@ -98,7 +104,10 @@ class CreateAccountViewController: UIViewController {
             }
             
         }
+        
+        activity.stopAnimating()
     }
+    
     
 }
 

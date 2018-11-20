@@ -11,24 +11,29 @@ import Firebase
 
 class UpdateUserNameViewController: UIViewController {
 
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var activity: UIActivityIndicatorView!
     
-    @IBOutlet weak var OldNameTextField: UITextField!
+    @IBOutlet weak var OldNameLabel: UILabel!
     @IBOutlet weak var NewNameTextField: UITextField!
+    
+    var myTimer: Timer!
+    
+    // Setter en forsinkelse etter at en trykker på "Save" 
+    let forsinkelse = 3
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.style = .gray
-        view.addSubview(activityIndicator)
+        activity.hidesWhenStopped = true
+        activity.style = .gray
+        view.addSubview(activity)
         
         // Define layout constraint for the activityIndicator
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([(activityIndicator.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 25.0)),
-                                     (activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor))])
+        activity.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([(activity.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 25.0)),
+                                     (activity.centerXAnchor.constraint(equalTo: view.centerXAnchor))])
         
-        activityIndicator.startAnimating()
+        activity.startAnimating()
       
         Auth.auth().signIn(withEmail: ePost, password: passOrd) { (user, error) in
             
@@ -39,7 +44,7 @@ class UpdateUserNameViewController: UIViewController {
                 let user = Auth.auth().currentUser
                 
                 if let user = user {
-                    self.OldNameTextField.text = user.displayName
+                    self.OldNameLabel.text = user.displayName
                 }
             } else {
                 // Håndtere error
@@ -47,14 +52,14 @@ class UpdateUserNameViewController: UIViewController {
             }
         }
         
-        activityIndicator.stopAnimating()
+        activity.stopAnimating()
     }
     
     @IBAction func SaveNewName(_ sender: UIBarButtonItem) {
     
         if (self.NewNameTextField.text?.count)! > 0 {
             
-            activityIndicator.startAnimating()
+            activity.startAnimating()
             
             Auth.auth().signIn(withEmail: ePost, password: passOrd) { (user, error) in
 
@@ -66,7 +71,7 @@ class UpdateUserNameViewController: UIViewController {
                     changeRequest?.commitChanges { (error) in
                         
                         if error == nil {
-                            self.OldNameTextField.text = self.NewNameTextField.text
+                            self.OldNameLabel.text = self.NewNameTextField.text
                         } else {
                             // Håndtere error
                             self.presentAlert(withTitle: "Error", message: error?.localizedDescription as Any)
@@ -79,7 +84,10 @@ class UpdateUserNameViewController: UIViewController {
                 }
             }
             
-            activityIndicator.stopAnimating()
+            activity.stopAnimating()
+ 
+            // Legg inn en liten forsinkelse før funksjonen "returnToSettings" kalles
+            myTimer = Timer.scheduledTimer(timeInterval: TimeInterval(forsinkelse), target: self, selector: #selector(returnToSettings), userInfo: nil, repeats: false)
             
         } else {
             // Legge ut varsel
@@ -87,6 +95,11 @@ class UpdateUserNameViewController: UIViewController {
             self.presentAlert(withTitle: "Tomt navn", message: melding)
 
         }
+    }
+    
+    @objc func returnToSettings() {
+        performSegue(withIdentifier: "BackToSettingsTableViewController", sender: self)
+        myTimer.invalidate()
     }
     
 }
