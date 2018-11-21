@@ -33,12 +33,12 @@ class UpdateMailViewController: UIViewController {
             
             if error == nil {
                 
-                // Finner det gamle navnet
+                // Setter inn den gamle eposten
                 
                 let user = Auth.auth().currentUser
                 
-                if let user = user {
-                    self.oldEmailLabel.text = user.email
+                if user != nil {
+                    self.oldEmailLabel.text = user!.email
                 }
             } else {
                 // Håndtere error

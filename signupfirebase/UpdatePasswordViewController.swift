@@ -7,24 +7,56 @@
 //
 
 import UIKit
+import Firebase
+
+// gotoSettingsFromUpdatePassword
 
 class UpdatePasswordViewController: UIViewController {
 
+    @IBOutlet weak var activity: UIActivityIndicatorView!
+    @IBOutlet weak var oldPasswordTextField: UITextField!
+    @IBOutlet weak var newPasswordTextField: UITextField!
+    
+    var myTimer: Timer!
+    
+    // Setter en "constant" forsinkelse etter at en trykker på "Save"
+    let forsinkelse = 3
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.activity.hidesWhenStopped = true
+        self.activity.style = .gray
+        view.addSubview(activity)
+        
+        self.activity.startAnimating()
+        
+        Auth.auth().signIn(withEmail: ePost, password: passOrd) { (user, error) in
+            
+            if error == nil {
+                
+                // Finner epost
+                
+                let user = Auth.auth().currentUser
+                
+                if user != nil {
+                    self.oldPasswordTextField.isSecureTextEntry = true
+                    self.oldPasswordTextField.borderStyle = .none
+                    self.oldPasswordTextField.text = passOrd
+                }
+            } else {
+                // Håndtere error
+                self.presentAlert(withTitle: "Error", message: error?.localizedDescription as Any)
+            }
+            
+            self.activity.stopAnimating()
+        }
+        
+    }
+
+    @IBAction func SaveNewPassword(_ sender: UIBarButtonItem) {
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }
