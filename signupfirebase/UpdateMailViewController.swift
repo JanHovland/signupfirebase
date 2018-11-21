@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class UpdateMailViewController: UIViewController {
+class UpdateMailViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var activity: UIActivityIndicatorView!
     @IBOutlet weak var oldEmailLabel: UILabel!
@@ -22,6 +22,8 @@ class UpdateMailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        newEmailTextField.delegate = self
         
         self.activity.hidesWhenStopped = true
         self.activity.style = .gray
@@ -93,6 +95,11 @@ class UpdateMailViewController: UIViewController {
         performSegue(withIdentifier: "BackToLoginViewController", sender: self)
         myTimer.invalidate()
         print(ePost)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        newEmailTextField.resignFirstResponder()
+        return true
     }
     
 }

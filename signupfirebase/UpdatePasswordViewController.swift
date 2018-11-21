@@ -11,7 +11,7 @@ import Firebase
 
 // gotoSettingsFromUpdatePassword
 
-class UpdatePasswordViewController: UIViewController {
+class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var activity: UIActivityIndicatorView!
     @IBOutlet weak var oldPasswordTextField: UITextField!
@@ -24,6 +24,8 @@ class UpdatePasswordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        newPasswordTextField.delegate = self
 
         self.activity.hidesWhenStopped = true
         self.activity.style = .gray
@@ -54,9 +56,10 @@ class UpdatePasswordViewController: UIViewController {
         
     }
 
-    @IBAction func SaveNewPassword(_ sender: UIBarButtonItem) {
-        
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        newPasswordTextField.resignFirstResponder()
+        return true
     }
-    
+
     
 }

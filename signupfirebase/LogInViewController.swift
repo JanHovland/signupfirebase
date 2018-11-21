@@ -13,7 +13,8 @@ import CoreData
 var ePost : String = ""
 var passOrd : String = ""
 
-class LogInViewController: UIViewController {
+class LogInViewController: UIViewController, UITextFieldDelegate {
+
     
     @IBOutlet weak var activity: UIActivityIndicatorView!
    
@@ -22,6 +23,9 @@ class LogInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        eMailLoginTextField.delegate = self
+        passwordTextField.delegate = self
         
         activity.hidesWhenStopped = true
         activity.style = .gray
@@ -112,6 +116,13 @@ class LogInViewController: UIViewController {
             self.presentAlert(withTitle: "Error", message: melding)
         }
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        eMailLoginTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        return true
+    }
+    
 }
 
 extension UIViewController {
@@ -208,7 +219,7 @@ extension UIViewController {
         }
         
     }
-    
+   
  }
 
 

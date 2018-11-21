@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class UpdateUserNameViewController: UIViewController {
+class UpdateUserNameViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var activity: UIActivityIndicatorView!
     
@@ -23,6 +23,8 @@ class UpdateUserNameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NewNameTextField.delegate = self
         
         activity.hidesWhenStopped = true
         activity.style = .gray
@@ -96,5 +98,13 @@ class UpdateUserNameViewController: UIViewController {
         performSegue(withIdentifier: "BackToSettingsTableViewController", sender: self)
         myTimer.invalidate()
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        NewNameTextField.resignFirstResponder()
+        return true
+    }
+    
+    
+    
     
 }
