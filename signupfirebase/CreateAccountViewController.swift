@@ -21,7 +21,6 @@ class CreateAccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Start")
 
         activity.hidesWhenStopped = true
         activity.style = .gray

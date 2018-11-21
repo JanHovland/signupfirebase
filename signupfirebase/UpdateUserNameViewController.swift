@@ -18,7 +18,7 @@ class UpdateUserNameViewController: UIViewController {
     
     var myTimer: Timer!
     
-    // Setter en forsinkelse etter at en trykker på "Save" 
+    // Setter en "constant" forsinkelse etter at en trykker på "Save"
     let forsinkelse = 3
     
     override func viewDidLoad() {
@@ -27,11 +27,6 @@ class UpdateUserNameViewController: UIViewController {
         activity.hidesWhenStopped = true
         activity.style = .gray
         view.addSubview(activity)
-        
-        // Define layout constraint for the activityIndicator
-        activity.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([(activity.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 25.0)),
-                                     (activity.centerXAnchor.constraint(equalTo: view.centerXAnchor))])
         
         activity.startAnimating()
       

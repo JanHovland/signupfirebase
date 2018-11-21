@@ -31,30 +31,26 @@ class LogInViewController: UIViewController {
 
         // Henter sist brukte eMail og Password
         getData()
-        
-        print("Verdien til ePost fra getData: \(ePost)")
-        
-        // Sletter alle postene i databasen
-        deleteAllData()
-        
-       activity.stopAnimating()
 
-       if ePost.count > 0 {
-          eMailLoginTextField.text = ePost
-       }
+        eMailLoginTextField.text = ePost
+        passwordTextField.text = passOrd
+        
+        print("Verdien til ePost fra viewDidLoad: \(ePost)")
+        
+        activity.stopAnimating()
+
+        if ePost.count > 0 {
+            eMailLoginTextField.text = ePost
+        }
  
-       if passOrd.count > 0 {
-           passwordTextField.text = passOrd
-       }
+        if passOrd.count > 0 {
+            passwordTextField.text = passOrd
+        }
   
     }
     
-    // Når en kommer tilbake til skjermbildet
-    override func viewWillAppear(_ animated: Bool) {
-        
-    }
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+
         // Dismiss the keyboard when the view is tapped on
         eMailLoginTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
