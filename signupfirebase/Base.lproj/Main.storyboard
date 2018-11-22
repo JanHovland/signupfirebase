@@ -462,7 +462,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="RrP-Zn-fjE">
-                                <rect key="frame" x="10" y="50" width="355" height="85.5"/>
+                                <rect key="frame" x="10" y="94" width="355" height="85.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="tfi-Qq-XNg">
                                         <rect key="frame" x="0.0" y="0.0" width="355" height="85.5"/>
@@ -560,16 +560,66 @@
                     <view key="view" contentMode="scaleToFill" id="O8x-u9-ZyO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Sb8-Bk-Xf0">
+                                <rect key="frame" x="10" y="94" width="355" height="90"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Fv2-ka-brS">
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Old password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8h-rW-qYS">
+                                                <rect key="frame" x="0.0" y="0.0" width="105" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f50-uk-cIk" userLabel="Old password Text Field">
+                                                <rect key="frame" x="118" y="0.0" width="237" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8hS-aZ-cRa">
+                                        <rect key="frame" x="0.0" y="60" width="355" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZ1-aB-GyF">
+                                                <rect key="frame" x="0.0" y="0.0" width="112.5" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B4y-FU-lHp" userLabel="New password Text Field">
+                                                <rect key="frame" x="120.5" y="0.0" width="234.5" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Sb8-Bk-Xf0" firstAttribute="top" secondItem="8EE-tD-yuR" secondAttribute="top" constant="30" id="5vM-fx-N23"/>
+                            <constraint firstItem="8EE-tD-yuR" firstAttribute="trailing" secondItem="Sb8-Bk-Xf0" secondAttribute="trailing" constant="10" id="VWM-iX-xtE"/>
+                            <constraint firstItem="Sb8-Bk-Xf0" firstAttribute="leading" secondItem="O8x-u9-ZyO" secondAttribute="leading" constant="10" id="arF-TZ-BmJ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="8EE-tD-yuR"/>
                     </view>
                     <navigationItem key="navigationItem" title="Reset password by mail" id="TtJ-w1-K6f">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="hnt-D0-Tf0"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="hnt-D0-Tf0">
+                            <connections>
+                                <action selector="SendPasswordResetByMail:" destination="RIq-no-RdP" id="dza-53-kgl"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DdS-xN-Djy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2719" y="-377"/>
+            <point key="canvasLocation" x="2710" y="-377"/>
         </scene>
         <!--Update password-->
         <scene sceneID="514-fI-xD2">
@@ -582,37 +632,37 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="8xC-VF-dSP">
                                 <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
                             </activityIndicatorView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="SDb-rZ-hZH">
-                                <rect key="frame" x="10" y="50" width="355" height="80.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="yum-OL-rq6">
+                                <rect key="frame" x="10" y="94" width="355" height="80.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="-108" translatesAutoresizingMaskIntoConstraints="NO" id="hlQ-dR-0ib">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="evm-vo-qWh" userLabel="Old Password Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="355" height="20.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Old password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3M-sf-tUf">
-                                                <rect key="frame" x="0.0" y="0.0" width="231.5" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="Old password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3M-sf-tUf">
+                                                <rect key="frame" x="0.0" y="0.0" width="112.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SDh-xd-JQC">
-                                                <rect key="frame" x="123.5" y="0.0" width="231.5" height="20.5"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BZr-4m-Cpg" userLabel="Old password Text Field">
+                                                <rect key="frame" x="121.5" y="0.0" width="233.5" height="20.5"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xjE-AG-Z1w">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="Hc3-yO-uZg" userLabel="New Password Stack View">
                                         <rect key="frame" x="0.0" y="50.5" width="355" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hJ-Lm-MAE">
-                                                <rect key="frame" x="0.0" y="5" width="112.5" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="112.5" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ldy-nV-UGC" userLabel="New password Text Field">
-                                                <rect key="frame" x="122.5" y="0.0" width="232.5" height="30"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ukx-Ml-vwL" userLabel="New password Text Field">
+                                                <rect key="frame" x="121.5" y="0.0" width="233.5" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
@@ -620,35 +670,38 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="7hJ-Lm-MAE" firstAttribute="width" secondItem="h3M-sf-tUf" secondAttribute="width" id="jvN-Pt-rWb"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="8xC-VF-dSP" firstAttribute="centerX" secondItem="xSh-DD-mOm" secondAttribute="centerX" id="DmO-Iu-5ZI"/>
-                            <constraint firstItem="SDb-rZ-hZH" firstAttribute="top" secondItem="6kX-PT-Pbv" secondAttribute="top" constant="30" id="GMM-z5-8Ky"/>
-                            <constraint firstItem="SDb-rZ-hZH" firstAttribute="leading" secondItem="6kX-PT-Pbv" secondAttribute="leading" constant="10" id="Hhp-MD-mdh"/>
+                            <constraint firstItem="yum-OL-rq6" firstAttribute="leading" secondItem="6kX-PT-Pbv" secondAttribute="leading" constant="10" id="Mtu-VD-Fjf"/>
                             <constraint firstItem="8xC-VF-dSP" firstAttribute="centerY" secondItem="xSh-DD-mOm" secondAttribute="centerY" id="TSq-6B-MtQ"/>
-                            <constraint firstItem="6kX-PT-Pbv" firstAttribute="trailing" secondItem="SDb-rZ-hZH" secondAttribute="trailing" constant="10" id="YWa-gg-gIS"/>
+                            <constraint firstItem="yum-OL-rq6" firstAttribute="top" secondItem="6kX-PT-Pbv" secondAttribute="top" constant="30" id="eXJ-nf-dZf"/>
+                            <constraint firstItem="6kX-PT-Pbv" firstAttribute="trailing" secondItem="yum-OL-rq6" secondAttribute="trailing" constant="10" id="ubk-bC-ETJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6kX-PT-Pbv"/>
                     </view>
                     <navigationItem key="navigationItem" title="Update password" id="vHt-CU-cWy">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="sdJ-xG-RVd">
                             <connections>
-                                <action selector="SaveNewPassword:" destination="YCG-6O-Q9u" id="iii-JG-13G"/>
+                                <action selector="SaveNewPassword:" destination="YCG-6O-Q9u" id="VM7-cb-Bti"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="activity" destination="8xC-VF-dSP" id="gbh-k6-3kF"/>
-                        <outlet property="newPasswordTextField" destination="Ldy-nV-UGC" id="gbf-Ez-KS3"/>
-                        <outlet property="oldPasswordTextField" destination="SDh-xd-JQC" id="VRx-OK-RCj"/>
+                        <outlet property="newPasswordTextField" destination="ukx-Ml-vwL" id="Tbm-fT-bBo"/>
+                        <outlet property="oldPasswordTextField" destination="BZr-4m-Cpg" id="dSz-k6-uZo"/>
                         <segue destination="nhA-xf-W66" kind="show" identifier="gotoSettingsFromUpdatePassword" id="Rbd-Te-GOw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fFP-2K-yqY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2058" y="-377"/>
+            <point key="canvasLocation" x="2004" y="-377"/>
         </scene>
         <!--Update eMail-->
         <scene sceneID="2E7-Fn-7tm">
@@ -659,7 +712,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="Kg7-mC-7Z6">
-                                <rect key="frame" x="10" y="50" width="355" height="85.5"/>
+                                <rect key="frame" x="10" y="94" width="355" height="85.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="center" distribution="fillEqually" alignment="center" spacing="-172" translatesAutoresizingMaskIntoConstraints="NO" id="Eku-oW-ypY">
                                         <rect key="frame" x="0.0" y="0.0" width="355" height="20.5"/>
@@ -753,8 +806,7 @@
         <image name="firebase_logo" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Itl-Ga-WxC"/>
-        <segue reference="Rbd-Te-GOw"/>
+        <segue reference="L1U-ae-97o"/>
         <segue reference="iSy-UT-ZzF"/>
     </inferredMetricsTieBreakers>
 </document>

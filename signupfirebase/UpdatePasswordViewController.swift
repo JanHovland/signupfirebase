@@ -56,6 +56,12 @@ class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
         
     }
 
+    @IBAction func SaveNewPassword(_ sender: Any) {
+    
+    
+    
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         newPasswordTextField.resignFirstResponder()
         return true

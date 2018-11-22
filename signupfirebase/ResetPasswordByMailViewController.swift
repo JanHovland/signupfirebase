@@ -16,7 +16,10 @@ class ResetPasswordByMailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func SendPasswordResetByMail(_ sender: UIBarButtonItem) {
+        
+    }
+    
 //    Send a password reset email
 //
 //    You can send a password reset email to a user with the sendPasswordResetWithEmail:completion: method. For example:
