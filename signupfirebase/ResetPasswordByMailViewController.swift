@@ -7,37 +7,89 @@
 //
 
 import UIKit
+import Firebase
 
-class ResetPasswordByMailViewController: UIViewController {
+class ResetPasswordByMailViewController: UIViewController, UITextFieldDelegate { 
 
+    @IBOutlet weak var SendEmailToReceiver: UITextField!
+    @IBOutlet weak var activity: UIActivityIndicatorView!
+    
+    var myTimer: Timer!
+    
+    // Setter en "constant" forsinkelse etter at en trykker på "Save"
+    let forsinkelse = 3
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
+        SendEmailToReceiver.delegate = self
     
-    @IBAction func SendPasswordResetByMail(_ sender: UIBarButtonItem) {
+        activity.hidesWhenStopped = true
+        self.activity.style = .gray
+        view.addSubview(activity)
+    
+        self.activity.startAnimating()
+    
+        Auth.auth().signIn(withEmail: ePost, password: passOrd) { (user, error) in
+    
+            if error == nil {
+    
+                // Setter inn epost som det skal sendes til
+                let user = Auth.auth().currentUser
+    
+                if user != nil {
+                    self.SendEmailToReceiver.text = user!.email
+                } else {
+                    // Håndtere error
+                    self.presentAlert(withTitle: "Error", message: error?.localizedDescription as Any)
+                }
+    
+            }
+        }
+        
+        self.activity.stopAnimating()
         
     }
     
-//    Send a password reset email
+    @IBAction func SendPasswordResetByMail(_ sender: UIBarButtonItem) {
+
+        //    Auth.auth().languageCode = "fr"
+        //    // To apply the default app language instead of explicitly setting it.
+        //    Auth.auth().useAppLanguage()
+
+        Auth.auth().languageCode = "no"
+        Auth.auth().sendPasswordReset(withEmail: SendEmailToReceiver.text!) { (error) in
+            if error == nil {
+                
+                
+//                noreply@signupfirebase-236b9.firebaseapp.com
+//                Tilbakestill passordet ditt for project-211156156416
+//                Til: Jan Hovland <jan.hovland@lyse.net>
 //
-//    You can send a password reset email to a user with the sendPasswordResetWithEmail:completion: method. For example:
 //
-//    SWIFTOBJECTIVE-C
-//    Auth.auth().sendPasswordReset(withEmail: email) { (error) in
-//    // ...
-//    }
-//    You can customize the email template that is used in Authentication section of the Firebase console, on the Email Templates page. See Email Templates in Firebase Help Center.
+//                Hei!
 //
-//    It is also possible to pass state via a continue URL to redirect back to the app when sending a password reset email.
+//                Følg denne linken for å tilbakestille passordet ditt for project-211156156416 for jan.hovland@lyse.net-kontoen din.
 //
-//    Additionally you can localize the password reset email by updating the language code on the Auth instance before sending the email. For example:
+//                https://signupfirebase-236b9.firebaseapp.com/__/auth/action?mode=resetPassword&oobCode=cbM_F1SDClyXPTcM3Q0O0YFmgqi8luQ_WopFeulUubwAAAFnPQpx6g&apiKey=AIzaSyDw7qNj9OPW9NUH5TWva1z8mwbYpSNUdC4&lang=no
 //
-//    SWIFTOBJECTIVE-C
-//    Auth.auth().languageCode = "fr"
-//    // To apply the default app language instead of explicitly setting it.
-//    // Auth.auth().useAppLanguage()
-//    You ca
+//                Hvis du ikke har bedt om å tilbakestille passordet, kan du ignorere denne e-posten.
+//
+//                Vennlig hilsen
+//
+//                project-211156156416-teamet
+    
+            } else {
+                self.presentAlert(withTitle: "Error", message: error?.localizedDescription as Any)
+            }
+
+        }
+    }
+
+    @objc func returnToLogin() {
+        performSegue(withIdentifier: "BackToLoginViewController", sender: self)
+        myTimer.invalidate()
+        print(ePost)
+    }
 
 }

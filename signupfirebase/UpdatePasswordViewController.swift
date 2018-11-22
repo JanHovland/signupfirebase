@@ -9,8 +9,6 @@
 import UIKit
 import Firebase
 
-// gotoSettingsFromUpdatePassword
-
 class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var activity: UIActivityIndicatorView!
