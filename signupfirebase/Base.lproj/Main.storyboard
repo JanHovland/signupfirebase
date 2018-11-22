@@ -73,7 +73,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pq7-iK-ExR">
-                                <rect key="frame" x="10" y="95" width="355" height="80"/>
+                                <rect key="frame" x="10" y="139" width="355" height="80"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="jXF-vF-VRA">
                                         <rect key="frame" x="0.0" y="0.0" width="355" height="30"/>
@@ -112,7 +112,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Passordet må ha minimum 6 tegn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="eG4-UJ-Wc4">
-                                <rect key="frame" x="93" y="180" width="198.5" height="12"/>
+                                <rect key="frame" x="93" y="224" width="198.5" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="1" green="0.0094184072553792353" blue="0.093197561855207223" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -162,13 +162,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Passordet må ha minimum 6 tegn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="P8h-H3-5cv">
-                                <rect key="frame" x="94" y="182" width="271" height="12"/>
+                                <rect key="frame" x="94" y="226" width="271" height="12"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
                                 <color key="textColor" red="1" green="0.0094184072550000004" blue="0.09319756186" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="91B-1g-Grh">
-                                <rect key="frame" x="10" y="50" width="355" height="130"/>
+                                <rect key="frame" x="10" y="94" width="355" height="130"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="Bgh-ij-rcS" userLabel="Stack View Name">
                                         <rect key="frame" x="0.0" y="0.0" width="355" height="30"/>
@@ -382,26 +382,29 @@
                                             <segue destination="YCG-6O-Q9u" kind="show" identifier="gotoUpdatePassword" id="Itl-Ga-WxC"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="4E0-QM-SBS" imageView="bqj-si-pEU" style="IBUITableViewCellStyleDefault" id="PTu-pR-D1g" userLabel="Update eMaill">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="9cy-7H-JXc" imageView="SxM-Hb-NLr" style="IBUITableViewCellStyleDefault" id="Doc-px-vsm" userLabel="Reset password by mail">
                                         <rect key="frame" x="0.0" y="260" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PTu-pR-D1g" id="gX4-sx-aZA">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Doc-px-vsm" id="jJP-Qj-wmu">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Update password by mail " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4E0-QM-SBS" userLabel="Update password by eMail">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Reset password by mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9cy-7H-JXc" userLabel="Reset password  by mail">
                                                     <rect key="frame" x="51" y="0.0" width="289" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="Icon-20" id="bqj-si-pEU">
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="Icon-20" id="SxM-Hb-NLr">
                                                     <rect key="frame" x="16" y="11" width="20" height="20"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="RIq-no-RdP" kind="show" identifier="gotoResetPasswordByMail" id="qie-YG-c26"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -550,6 +553,24 @@
             </objects>
             <point key="canvasLocation" x="1356" y="614"/>
         </scene>
+        <!--Reset password by mail-->
+        <scene sceneID="C8U-SC-gNn">
+            <objects>
+                <viewController id="RIq-no-RdP" customClass="ResetPasswordByMailViewController" customModule="signupfirebase" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="O8x-u9-ZyO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="8EE-tD-yuR"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Reset password by mail" id="TtJ-w1-K6f">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="hnt-D0-Tf0"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DdS-xN-Djy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2719" y="-377"/>
+        </scene>
         <!--Update password-->
         <scene sceneID="514-fI-xD2">
             <objects>
@@ -627,7 +648,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fFP-2K-yqY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2356" y="-227"/>
+            <point key="canvasLocation" x="2058" y="-377"/>
         </scene>
         <!--Update eMail-->
         <scene sceneID="2E7-Fn-7tm">
@@ -734,6 +755,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="Itl-Ga-WxC"/>
         <segue reference="Rbd-Te-GOw"/>
-        <segue reference="aXx-NI-uaB"/>
+        <segue reference="iSy-UT-ZzF"/>
     </inferredMetricsTieBreakers>
 </document>
