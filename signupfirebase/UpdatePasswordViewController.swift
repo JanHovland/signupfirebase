@@ -58,8 +58,36 @@ class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func SaveNewPassword(_ sender: Any) {
     
+        self.activity.startAnimating()
+       
+        Auth.auth().currentUser?.updatePassword(to: newPasswordTextField.text!) { (error) in
+            
+            if error != nil {
+                self.presentAlertOption(withTitle: "Error", message: error!.localizedDescription as Any)
+            } else {
+                
+                // Sletter CoreData
+                self.deleteAllData()
+                
+                // Lagrer passord i Coredata
+                passOrd = self.newPasswordTextField.text!
+                
+                self.saveData()
+                
+                // Legg inn en liten forsinkelse før funksjonen "returnToLogin" kalles
+                self.myTimer = Timer.scheduledTimer(timeInterval: TimeInterval(self.forsinkelse), target: self, selector: #selector(self.returnToLogin), userInfo: nil, repeats: false)
+
+            }
+            
+        }
     
+        self.activity.stopAnimating()
+    }
     
+    @objc func returnToLogin() {
+        performSegue(withIdentifier: "BackToLoginViewController", sender: self)
+        myTimer.invalidate()
+        print(ePost)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

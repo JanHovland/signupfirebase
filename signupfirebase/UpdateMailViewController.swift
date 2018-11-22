@@ -58,25 +58,16 @@ class UpdateMailViewController: UIViewController, UITextFieldDelegate {
             
             self.activity.startAnimating()
             
-            Auth.auth().signIn(withEmail: ePost, password: passOrd) { (user, error) in
-
-                if error == nil {
-
-                    // Legger inn det nye navnet
-                    Auth.auth().currentUser?.updateEmail(to: self.newEmailTextField.text!)
-                        print("Oppdatert epost")
-                        ePost = self.newEmailTextField.text!
+            // Legger inn ny opost
+            Auth.auth().currentUser?.updateEmail(to: self.newEmailTextField.text!)
+            print("Oppdatert epost")
+            ePost = self.newEmailTextField.text!
                     
-                        self.deleteAllData()
-                    
-                        // Lagrer epost og passord i Coredata
-                        self.saveData()
+            self.deleteAllData()
+            
+            // Lagrer epost og passord i Coredata
+            self.saveData()
 
-                    } else {
-                        let melding = "Kan ikke oppdatere eposten."
-                        self.presentAlert(withTitle: "ePost", message: melding)
-                    }
-            }
             self.activity.stopAnimating()
             
             // Legg inn en liten forsinkelse før funksjonen "returnToLogin" kalles
@@ -84,7 +75,7 @@ class UpdateMailViewController: UIViewController, UITextFieldDelegate {
             
         } else {
             // Legge ut varsel
-            let melding = "Den nye eposten kan ikke være tomt."
+            let melding = "Den nye eposten kan ikke være tom."
             self.presentAlert(withTitle: "Tomt navn", message: melding)
             
         }
