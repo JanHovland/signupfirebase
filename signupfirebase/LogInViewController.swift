@@ -24,6 +24,30 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /*
+            Istedet for å bruke getData og deleteData gjøres det endringer
+         
+            Entity : endres til user
+            Det legges inn ekstra kolonner:
+                - loggedIn (som viser hvem som er innlogget
+                - Name
+         
+            loggedIn    eMail                     Navn           Passord
+                   1    jan.hovland@lyse.net      Jan Hovland    qwerty
+                   0    jho.gmail.com             Jan Hovland    qwerty
+         
+            Logges det på med jho.gmail.com:
+                   0    jan.hovland@lyse.net      Jan Hovland    qwerty
+                   1    jho.gmail.com             Jan Hovland    qwerty
+         
+            Dermed vil CoreData inneholde oversikt over aktuelle brukere
+            hentData(email: "jan.hovland@lyse.net") vil da kunne endres til å hente uid fra Auth.auth().currentUser?.uid
+         
+        */
+        
+        let test = hentData(email: "jan.hovland@lyse.net")
+        print(test)
+        
         eMailLoginTextField.delegate = self
         passwordTextField.delegate = self
         
@@ -219,7 +243,38 @@ extension UIViewController {
         }
         
     }
-   
+
+    func hentData(email: String) -> String {
+
+        //As we know that container is set up in the AppDelegates so we need to refer that container.
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return "" }
+
+        //We need to create a context from this container
+        let managedContext = appDelegate.persistentContainer.viewContext
+
+        //Prepare the request of type NSFetchRequest  for the entity
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Entity")
+        fetchRequest.predicate = NSPredicate(format: "eMail = %@", email)
+
+        //        fetchRequest.fetchLimit = 1
+        //        fetchRequest.predicate = NSPredicate(format: "username = %@", "Ankur")
+        //        fetchRequest.sortDescriptors = [NSSortDescriptor.init(key: "email", ascending: false)]
+        //
+
+        do {
+            let result = try managedContext.fetch(fetchRequest)
+            for data in result as! [NSManagedObject] {
+                print(data.value(forKey: "eMail") as! String)
+            }
+
+        } catch {
+
+            print("Failed")
+        }
+
+        return ("2349824938980jmlmm")
+    }
+    
  }
 
 
