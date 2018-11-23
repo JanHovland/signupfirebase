@@ -40,13 +40,15 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                    0    jan.hovland@lyse.net      Jan Hovland    qwerty
                    1    jho.gmail.com             Jan Hovland    qwerty
          
+            Det må lages en func updateData som gjør dette
+         
             Dermed vil CoreData inneholde oversikt over aktuelle brukere og det vil kun være en post for hver eMail
-            hentData(email: "jan.hovland@lyse.net") vil da kunne endres til å hente uid fra Auth.auth().currentUser?.uid
+            hentData(email: "jan.hovland@lyse.net") vil da kunne *** endres *** til å hente uid fra Auth.auth().currentUser?.uid
          
         */
         
         let test = hentData(email: "jan.hovland@lyse.net")
-        print(test)
+        print("Verdien til ePost fra CoreData via hentData(): \(test)")
         
         eMailLoginTextField.delegate = self
         passwordTextField.delegate = self
@@ -265,6 +267,7 @@ extension UIViewController {
             let result = try managedContext.fetch(fetchRequest)
             for data in result as! [NSManagedObject] {
                 print(data.value(forKey: "eMail") as! String)
+                return (data.value(forKey: "eMail") as! String)
             }
 
         } catch {
@@ -272,9 +275,9 @@ extension UIViewController {
             print("Failed")
         }
 
-        return ("2349824938980jmlmm")
+        return ""
+        
     }
-    
  }
 
 
