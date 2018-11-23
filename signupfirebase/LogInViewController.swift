@@ -40,7 +40,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                    0    jan.hovland@lyse.net      Jan Hovland    qwerty
                    1    jho.gmail.com             Jan Hovland    qwerty
          
-            Dermed vil CoreData inneholde oversikt over aktuelle brukere
+            Dermed vil CoreData inneholde oversikt over aktuelle brukere og det vil kun være en post for hver eMail
             hentData(email: "jan.hovland@lyse.net") vil da kunne endres til å hente uid fra Auth.auth().currentUser?.uid
          
         */
