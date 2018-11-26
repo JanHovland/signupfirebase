@@ -12,6 +12,7 @@ import CoreData
 
 var ePost : String = ""
 var passOrd : String = ""
+var uid: String = ""
 
 class LogInViewController: UIViewController, UITextFieldDelegate {
 
@@ -47,9 +48,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
          
         */
         
-        let test = hentData(email: "jan.hovland@lyse.net")
-        print("Verdien til ePost fra CoreData via hentData(): \(test)")
-        
         eMailLoginTextField.delegate = self
         passwordTextField.delegate = self
         
@@ -76,7 +74,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         if passOrd.count > 0 {
             passwordTextField.text = passOrd
         }
-  
+
+        let t = hentUID(eMail: ePost, passWord: passOrd)
+        print("Verdien til uid fra hentUID(): \(t)")
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -246,38 +247,18 @@ extension UIViewController {
         
     }
 
-    func hentData(email: String) -> String {
+    
+    func hentUID(eMail: String, passWord: String) -> (String) {
 
-        //As we know that container is set up in the AppDelegates so we need to refer that container.
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return "" }
-
-        //We need to create a context from this container
-        let managedContext = appDelegate.persistentContainer.viewContext
-
-        //Prepare the request of type NSFetchRequest  for the entity
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Entity")
-        fetchRequest.predicate = NSPredicate(format: "eMail = %@", email)
-
-        //        fetchRequest.fetchLimit = 1
-        //        fetchRequest.predicate = NSPredicate(format: "username = %@", "Ankur")
-        //        fetchRequest.sortDescriptors = [NSSortDescriptor.init(key: "email", ascending: false)]
-        //
-
-        do {
-            let result = try managedContext.fetch(fetchRequest)
-            for data in result as! [NSManagedObject] {
-                print(data.value(forKey: "eMail") as! String)
-                return (data.value(forKey: "eMail") as! String)
-            }
-
-        } catch {
-
-            print("Failed")
-        }
-
-        return ""
+        Auth.auth().signIn(withEmail: eMail, password: passWord)
         
-    }
+        uid = Auth.auth().currentUser?.uid ?? ""
+
+        return uid
+        
+     }
+
+
  }
 
 
