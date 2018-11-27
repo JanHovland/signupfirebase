@@ -26,8 +26,8 @@ class CreateAccountViewController: UIViewController {
         activity.style = .gray
         view.addSubview(activity)
         
-        eMailCreateAccountTextField.text = ePost
-        passwordCreateAccountTextField.text = passOrd
+//        eMailCreateAccountTextField.text = ePost
+//        passwordCreateAccountTextField.text = passOrd
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,10 +67,10 @@ class CreateAccountViewController: UIViewController {
                 
                   // Lagre epost og  passord
                 
-                  ePost = email!
-                  passOrd = pass!
-                
-                  self.saveData()
+//                  ePost = email!
+//                  passOrd = pass!
+//                
+                  // self.saveData()
                 
                   // Legg inn Navnet på brukeren
                   let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()

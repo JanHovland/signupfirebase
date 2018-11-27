@@ -31,27 +31,27 @@ class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
         
         self.activity.startAnimating()
         
-        Auth.auth().signIn(withEmail: ePost, password: passOrd) { (user, error) in
-            
-            if error == nil {
-                
-                // Finner epost
-                
-                let user = Auth.auth().currentUser
-                
-                if user != nil {
-                    self.oldPasswordTextField.isSecureTextEntry = true
-                    self.oldPasswordTextField.borderStyle = .none
-                    self.oldPasswordTextField.text = passOrd
-                }
-            } else {
-                // Håndtere error
-                self.presentAlert(withTitle: "Error", message: error?.localizedDescription as Any)
-            }
-            
-            self.activity.stopAnimating()
-        }
-        
+//        Auth.auth().signIn(withEmail: ePost, password: passOrd) { (user, error) in
+//
+//            if error == nil {
+//
+//                // Finner epost
+//
+//                let user = Auth.auth().currentUser
+//
+//                if user != nil {
+//                    self.oldPasswordTextField.isSecureTextEntry = true
+//                    self.oldPasswordTextField.borderStyle = .none
+//                    self.oldPasswordTextField.text = passOrd
+//                }
+//            } else {
+//                // Håndtere error
+//                self.presentAlert(withTitle: "Error", message: error?.localizedDescription as Any)
+//            }
+//
+//            self.activity.stopAnimating()
+//        }
+//
     }
 
     @IBAction func SaveNewPassword(_ sender: Any) {
@@ -65,12 +65,12 @@ class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
             } else {
                 
                 // Sletter CoreData
-                self.deleteAllData()
+//                self.deleteAllData()
                 
                 // Lagrer passord i Coredata
-                passOrd = self.newPasswordTextField.text!
+//                passOrd = self.newPasswordTextField.text!
                 
-                self.saveData()
+                // self.saveData()
                 
                 // Legg inn en liten forsinkelse før funksjonen "returnToLogin" kalles
                 self.myTimer = Timer.scheduledTimer(timeInterval: TimeInterval(self.forsinkelse), target: self, selector: #selector(self.returnToLogin), userInfo: nil, repeats: false)
@@ -85,7 +85,7 @@ class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
     @objc func returnToLogin() {
         performSegue(withIdentifier: "BackToLoginViewController", sender: self)
         myTimer.invalidate()
-        print(ePost)
+//        print(ePost)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

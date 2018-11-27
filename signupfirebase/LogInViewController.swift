@@ -10,13 +10,13 @@ import UIKit
 import Firebase
 import CoreData
 
-var ePost : String = ""
-var passOrd : String = ""
-var uid: String = ""
-
 class LogInViewController: UIViewController, UITextFieldDelegate {
 
-    
+    // For å finne uid, må du først logge inn med epost og passord.
+    // Derfor kan du ikke lage en funksjon som henter uid!
+    //   uid for      jho.hovland@gmail.com = MnYNNQNIJUgSXZhpKlk3TZaT2YJ3
+    //   uid for      jan.hovland@lyse.net  = dT1YafDXgshYq6kAiIphTabMLwH2
+
     @IBOutlet weak var activity: UIActivityIndicatorView!
    
     @IBOutlet weak var eMailLoginTextField: UITextField!
@@ -24,29 +24,23 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        let ePost = "jan.hovland@lyse.net"
+        let passOrd = "qwerty"
         
-        /*
-            Istedet for å bruke getData og deleteData gjøres det endringer
-         
-            Entity : endres til user
-            Det legges inn ekstra kolonner:
-                - loggedIn (som viser hvem som er innlogget
-                - Name
-         
-            loggedIn    eMail                     Navn           Passord
-                   1    jan.hovland@lyse.net      Jan Hovland    qwerty
-                   0    jho.gmail.com             Jan Hovland    qwerty
-         
-            Logges det på med jho.gmail.com:
-                   0    jan.hovland@lyse.net      Jan Hovland    qwerty
-                   1    jho.gmail.com             Jan Hovland    qwerty
-         
-            Det må lages en func updateData som gjør dette
-         
-            Dermed vil CoreData inneholde oversikt over aktuelle brukere og det vil kun være en post for hver eMail
-            hentData(email: "jan.hovland@lyse.net") vil da kunne *** endres *** til å hente uid fra Auth.auth().currentUser?.uid
-         
-        */
+        // Test for å finne antall
+        let antall = finnPost(withEpost: ePost)
+        print(antall)
+
+        // Test for å oppdatere en email med
+        let ok = updateData(withEpost: ePost, withLoggedIn: true)
+        print(ok)
+        
+        // Test for å lagre en post
+        let ePost1 = "jho.hovland@gmail.com"
+        let uid1 = "MnYNNQNIJUgSXZhpKlk3TZaT2YJ3"
+        let ok1 = saveData(withEpost: ePost1, withPassord: passOrd, withUid : uid1, withLoggedIn: false)
+        print("ok fra saveData: \(ok1)")
         
         eMailLoginTextField.delegate = self
         passwordTextField.delegate = self
@@ -57,11 +51,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         
         activity.startAnimating()
 
-        // Henter sist brukte eMail og Password
-        getData()
+        // Henter sist brukte eMail og Password der CoreData sin "loggedIn" = true
+//         getData(ResetLoggedIn: true)
 
         eMailLoginTextField.text = ePost
-        passwordTextField.text = passOrd
+//        passwordTextField.text = passOrd
         
         print("Verdien til ePost fra viewDidLoad: \(ePost)")
         
@@ -71,13 +65,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             eMailLoginTextField.text = ePost
         }
  
-        if passOrd.count > 0 {
-            passwordTextField.text = passOrd
-        }
+//        if passOrd.count > 0 {
+//            passwordTextField.text = passOrd
+//        }
 
-        let t = hentUID(eMail: ePost, passWord: passOrd)
-        print("Verdien til uid fra hentUID(): \(t)")
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -93,13 +84,13 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         eMailLoginTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
 
-        ePost = eMailLoginTextField.text!
-        passOrd = passwordTextField.text!
+//        ePost = eMailLoginTextField.text!
+//        passOrd = passwordTextField.text!
         
         // Sjekk om eposten er registrert på en bruker
         let email = eMailLoginTextField.text
         let pass = passwordTextField.text
-        
+
         if email!.count > 0,
             pass!.count >= 6 {
             
@@ -111,23 +102,47 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 
                 if error == nil {
        
-                        // Sletter alle data i CoreData
-                        self.deleteAllData()
+                    // Sletter alle data i CoreData
+                    // self.deleteAllData()
+     
+                    // Sjekk om en skal legge inn en ny post i CoreData
                     
-                        ePost = self.eMailLoginTextField.text!
-                        passOrd = self.passwordTextField.text!
+//                     self.getData(ResetLoggedIn: true)
+                    
+                    
+                    
+                    
+//                    if ePost != self.eMailLoginTextField.text! {
+
+//                    print(ePost)
+//                        ePost = self.eMailLoginTextField.text!
+//                        passOrd = self.passwordTextField.text!
+//                        uid = self.hentUID(eMail: ePost, passWord: passOrd)
+                    
+                        self.getData(ResetLoggedIn: true)
+                    
+//                        loggedIn = true
+
+                    
+// Sjekk om denne ePost finner fra før -> update()
+// Sjekk om denne ePost ikke finnes fra før -> saveData
+                    
+//                       print(ePost)
                     
                         // Lagrer epost og passord i Coredata
-                        self.saveData()
-                    
-                        self.activity.isHidden = true
+//                       self.saveData()
+//                        self.updateData()
+                        
                         self.activity.stopAnimating()
-                   
+                        
+//                    }
+                    
                     self.performSegue(withIdentifier: "UpdateUserDataFromLogin", sender: self)
+                    
                 } else {
                     
-                    ePost = self.eMailLoginTextField.text!
-                    passOrd = self.passwordTextField.text!
+//                    ePost = self.eMailLoginTextField.text!
+//                    passOrd = self.passwordTextField.text!
                     
                     self.presentAlertOption(withTitle: "Error", message: error!.localizedDescription as Any)
                 }
@@ -182,84 +197,170 @@ extension UIViewController {
 
     }
     
-    func saveData() {
+    func saveData(withEpost: String, withPassord: String, withUid : String, withLoggedIn: Bool) -> Bool {
 
+        var ok: Bool = false
+        
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let entity =  NSEntityDescription.entity(forEntityName: "Entity", in: context)
+        let entity =  NSEntityDescription.entity(forEntityName: "User", in: context)
         
         let newEntity = NSManagedObject(entity: entity!, insertInto: context)
         
-        newEntity.setValue(ePost, forKey: "eMail")
-        newEntity.setValue(passOrd, forKey: "passWord")
+        newEntity.setValue(withEpost, forKey: "email")
+        newEntity.setValue(withPassord, forKey: "password")
+        newEntity.setValue(withUid, forKey: "uid")
+        newEntity.setValue(withLoggedIn, forKey: "loggedin")
 
         do {
             try context.save()
-            print("Saved email and password")
+            print("Saved ePost, passOrd, uid og loggedIn")
+            ok = true
         } catch {
-            print("Failed saving")
+            print(error.localizedDescription)
         }
+        
+        return ok
         
     }
     
-    func deleteAllData() {
+    func getData(ResetLoggedIn: Bool) {
+        
+        // Finner alle postene hvor "loggedin = true"
+        // Dersom ResetLoggedIn = true, settes alle "loggedin" til false
+        
         
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Entity")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         request.returnsObjectsAsFaults = false
-   
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: request)
+        request.predicate = NSPredicate(format: "loggedin = true")
         
         do {
-           print("deleting all content")
-           try context.execute(deleteRequest)
+            let result = try context.fetch(request)
+            
+            if result.count > 0 {
+            
+                for data in result as! [NSManagedObject] {
+                
+                    if data.value(forKey: "email") != nil {
+//                        ePost = (data.value(forKey: "email") as? String)!
+                    }
+                
+                    if data.value(forKey: "password") != nil {
+//                        passOrd = data.value(forKey: "password") as! String
+                    }
+                
+                    if data.value(forKey: "uid") != nil {
+//                        uid = data.value(forKey: "uid") as! String
+                    }
+                
+                    if data.value(forKey: "loggedin") != nil {
+//                        loggedIn = data.value(forKey: "loggedin") as! Bool
+                    }
+                    
+                    if ResetLoggedIn == true {
+                        
+//                        loggedIn = false
+//                         updateData()
+                        
+                    }
+                    
+                }
+            }
             
         } catch {
             print(error.localizedDescription)
         }
- 
+        
     }
-    
-    func getData() {
+
+    func updateData(withEpost: String, withLoggedIn: Bool) -> Bool {
         
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Entity")
-        request.returnsObjectsAsFaults = false
+        var ok: Bool = false
         
-        do {
-            let result = try context.fetch(request)
-            for data in result as! [NSManagedObject]
-            {
+        //As we know that container is set up in the AppDelegates so we need to refer that container.
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return false}
+        
+        //We need to create a context from this container
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+            request.predicate = NSPredicate(format: "email =  %@", withEpost)
+        do
+        {
+            let results = try context.fetch(request)
+            if results.count > 0 {
+                ok = true
+                for result in results as![NSManagedObject] {
+                    if let email = result.value(forKey: "email") as? String {
+                        print(email)
+                        if let loggedin = result.value(forKey: "loggedin") as? Bool {
+                            if loggedin != withLoggedIn {
+                                result.setValue(withLoggedIn, forKey: "loggedin")
+                                do {
+                                    try context.save()
+                                }
+                                catch {
+                                    print(error.localizedDescription)
+                                }
+                            }
+                        }
+                    }
                 
-                if data.value(forKey: "eMail") != nil {
-                    ePost = (data.value(forKey: "eMail") as? String)!
-                    
                 }
-                
-                if data.value(forKey: "passWord") != nil {
-                    passOrd = data.value(forKey: "passWord") as! String
-                }
-                
             }
-            
-        } catch {
-            print("Failed")
+        }
+        catch
+        {
+            print(error.localizedDescription)
         }
         
+        return ok
+        
+    }
+    
+    func finnPost(withEpost: String) -> Int {
+        
+        var antall: Int = 0
+        
+        //As we know that container is set up in the AppDelegates so we need to refer that container.
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return 0 }
+        
+        //We need to create a context from this container
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        request.predicate = NSPredicate(format: "email =  %@", withEpost)
+        
+        do
+        {
+            let results = try context.fetch(request)
+            antall = results.count
+       }
+        catch {
+            print(error.localizedDescription)
+        }
+
+        return antall
+
     }
 
-    
-    func hentUID(eMail: String, passWord: String) -> (String) {
+    func deleteAllData() {
 
-        Auth.auth().signIn(withEmail: eMail, password: passWord)
-        
-        uid = Auth.auth().currentUser?.uid ?? ""
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        request.returnsObjectsAsFaults = false
 
-        return uid
-        
-     }
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: request)
 
+        do {
+           print("deleting all content")
+           try context.execute(deleteRequest)
 
- }
+        } catch {
+            print(error.localizedDescription)
+        }
 
+    }
 
+}
 

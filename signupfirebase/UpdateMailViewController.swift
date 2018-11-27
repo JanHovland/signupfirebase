@@ -31,25 +31,25 @@ class UpdateMailViewController: UIViewController, UITextFieldDelegate {
         
         self.activity.startAnimating()
         
-        Auth.auth().signIn(withEmail: ePost, password: passOrd) { (user, error) in
-            
-            if error == nil {
-                
-                // Setter inn den gamle eposten
-                
-                let user = Auth.auth().currentUser
-                
-                if user != nil {
-                    self.oldEmailLabel.text = user!.email
-                }
-            } else {
-                // Håndtere error
-                self.presentAlert(withTitle: "Error", message: error?.localizedDescription as Any)
-            }
-            
-            self.activity.stopAnimating()
-        }
-        
+//        Auth.auth().signIn(withEmail: ePost, password: passOrd) { (user, error) in
+//
+//            if error == nil {
+//
+//                // Setter inn den gamle eposten
+//
+//                let user = Auth.auth().currentUser
+//
+//                if user != nil {
+//                    self.oldEmailLabel.text = user!.email
+//                }
+//            } else {
+//                // Håndtere error
+//                self.presentAlert(withTitle: "Error", message: error?.localizedDescription as Any)
+//            }
+//
+//            self.activity.stopAnimating()
+//        }
+//
     }
  
     @IBAction func SaveNewEmail(_ sender: Any) {
@@ -61,12 +61,12 @@ class UpdateMailViewController: UIViewController, UITextFieldDelegate {
             // Legger inn ny opost
             Auth.auth().currentUser?.updateEmail(to: self.newEmailTextField.text!)
             print("Oppdatert epost")
-            ePost = self.newEmailTextField.text!
-                    
-            self.deleteAllData()
+//            ePost = self.newEmailTextField.text!
+            
+//            self.deleteAllData()
             
             // Lagrer epost og passord i Coredata
-            self.saveData()
+            // self.saveData()
 
             self.activity.stopAnimating()
             
@@ -85,7 +85,7 @@ class UpdateMailViewController: UIViewController, UITextFieldDelegate {
     @objc func returnToLogin() {
         performSegue(withIdentifier: "BackToLoginViewController", sender: self)
         myTimer.invalidate()
-        print(ePost)
+//        print(ePost)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

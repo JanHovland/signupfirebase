@@ -30,23 +30,23 @@ class ResetPasswordByMailViewController: UIViewController, UITextFieldDelegate {
     
         self.activity.startAnimating()
     
-        Auth.auth().signIn(withEmail: ePost, password: passOrd) { (user, error) in
-    
-            if error == nil {
-    
-                // Setter inn epost som det skal sendes til
-                let user = Auth.auth().currentUser
-    
-                if user != nil {
-                    self.SendEmailToReceiver.text = user!.email
-                } else {
-                    // Håndtere error
-                    self.presentAlert(withTitle: "Error", message: error?.localizedDescription as Any)
-                }
-    
-            }
-        }
-        
+//        Auth.auth().signIn(withEmail: ePost, password: passOrd) { (user, error) in
+//
+//            if error == nil {
+//
+//                // Setter inn epost som det skal sendes til
+//                let user = Auth.auth().currentUser
+//
+//                if user != nil {
+//                    self.SendEmailToReceiver.text = user!.email
+//                } else {
+//                    // Håndtere error
+//                    self.presentAlert(withTitle: "Error", message: error?.localizedDescription as Any)
+//                }
+//
+//            }
+//        }
+//
         self.activity.stopAnimating()
         
     }
@@ -86,10 +86,10 @@ class ResetPasswordByMailViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
-    @objc func returnToLogin() {
-        performSegue(withIdentifier: "BackToLoginViewController", sender: self)
-        myTimer.invalidate()
-        print(ePost)
-    }
+//    @objc func returnToLogin() {
+//        performSegue(withIdentifier: "BackToLoginViewController", sender: self)
+//        myTimer.invalidate()
+//        print(ePost)
+//    }
 
 }

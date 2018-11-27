@@ -32,23 +32,23 @@ class UpdateUserNameViewController: UIViewController, UITextFieldDelegate {
         
         activity.startAnimating()
       
-        Auth.auth().signIn(withEmail: ePost, password: passOrd) { (user, error) in
-            
-            if error == nil {
-                
-                // Finner det gamle navnet
-                
-                let user = Auth.auth().currentUser
-                
-                if let user = user {
-                    self.OldNameLabel.text = user.displayName
-                }
-            } else {
-                // Håndtere error
-                self.presentAlert(withTitle: "Error", message: error?.localizedDescription as Any)
-            }
-        }
-        
+//        Auth.auth().signIn(withEmail: ePost, password: passOrd) { (user, error) in
+//
+//            if error == nil {
+//
+//                // Finner det gamle navnet
+//
+//                let user = Auth.auth().currentUser
+//
+//                if let user = user {
+//                    self.OldNameLabel.text = user.displayName
+//                }
+//            } else {
+//                // Håndtere error
+//                self.presentAlert(withTitle: "Error", message: error?.localizedDescription as Any)
+//            }
+//        }
+//
         activity.stopAnimating()
     }
     
@@ -58,28 +58,28 @@ class UpdateUserNameViewController: UIViewController, UITextFieldDelegate {
             
             activity.startAnimating()
             
-            Auth.auth().signIn(withEmail: ePost, password: passOrd) { (user, error) in
-
-                if error == nil {
-                    
-                    // Legger inn det nye navnet
-                    let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-                    changeRequest?.displayName = self.NewNameTextField.text
-                    changeRequest?.commitChanges { (error) in
-                        
-                        if error == nil {
-                            self.OldNameLabel.text = self.NewNameTextField.text
-                        } else {
-                            // Håndtere error
-                            self.presentAlert(withTitle: "Error", message: error?.localizedDescription as Any)
-                        }
-                        
-                    }
-                } else {
-                    // Håndtere error
-                    self.presentAlert(withTitle: "Error", message: error?.localizedDescription as Any)
-                }
-            }
+//            Auth.auth().signIn(withEmail: ePost, password: passOrd) { (user, error) in
+//
+//                if error == nil {
+//                    
+//                    // Legger inn det nye navnet
+//                    let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+//                    changeRequest?.displayName = self.NewNameTextField.text
+//                    changeRequest?.commitChanges { (error) in
+//                        
+//                        if error == nil {
+//                            self.OldNameLabel.text = self.NewNameTextField.text
+//                        } else {
+//                            // Håndtere error
+//                            self.presentAlert(withTitle: "Error", message: error?.localizedDescription as Any)
+//                        }
+//                        
+//                    }
+//                } else {
+//                    // Håndtere error
+//                    self.presentAlert(withTitle: "Error", message: error?.localizedDescription as Any)
+//                }
+//            }
             
             activity.stopAnimating()
  
