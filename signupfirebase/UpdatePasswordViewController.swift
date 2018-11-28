@@ -6,31 +6,30 @@
 //  Copyright © 2018 Jan . All rights reserved.
 //
 
-import UIKit
 import Firebase
+import UIKit
 
 class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
+    @IBOutlet var activity: UIActivityIndicatorView!
+    @IBOutlet var oldPasswordTextField: UITextField!
+    @IBOutlet var newPasswordTextField: UITextField!
 
-    @IBOutlet weak var activity: UIActivityIndicatorView!
-    @IBOutlet weak var oldPasswordTextField: UITextField!
-    @IBOutlet weak var newPasswordTextField: UITextField!
-    
     var myTimer: Timer!
-    
+
     // Setter en "constant" forsinkelse etter at en trykker på "Save"
     let forsinkelse = 3
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         newPasswordTextField.delegate = self
 
-        self.activity.hidesWhenStopped = true
-        self.activity.style = .gray
+        activity.hidesWhenStopped = true
+        activity.style = .gray
         view.addSubview(activity)
-        
-        self.activity.startAnimating()
-        
+
+        activity.startAnimating()
+
 //        Auth.auth().signIn(withEmail: ePost, password: passOrd) { (user, error) in
 //
 //            if error == nil {
@@ -55,43 +54,37 @@ class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func SaveNewPassword(_ sender: Any) {
-    
-        self.activity.startAnimating()
-       
-        Auth.auth().currentUser?.updatePassword(to: newPasswordTextField.text!) { (error) in
-            
+        activity.startAnimating()
+
+        Auth.auth().currentUser?.updatePassword(to: newPasswordTextField.text!) { error in
+
             if error != nil {
                 self.presentAlertOption(withTitle: "Error", message: error!.localizedDescription as Any)
             } else {
-                
                 // Sletter CoreData
 //                self.deleteAllData()
-                
+
                 // Lagrer passord i Coredata
 //                passOrd = self.newPasswordTextField.text!
-                
+
                 // self.saveData()
-                
+
                 // Legg inn en liten forsinkelse før funksjonen "returnToLogin" kalles
                 self.myTimer = Timer.scheduledTimer(timeInterval: TimeInterval(self.forsinkelse), target: self, selector: #selector(self.returnToLogin), userInfo: nil, repeats: false)
-
             }
-            
         }
-    
-        self.activity.stopAnimating()
+
+        activity.stopAnimating()
     }
-    
+
     @objc func returnToLogin() {
         performSegue(withIdentifier: "BackToLoginViewController", sender: self)
         myTimer.invalidate()
 //        print(ePost)
     }
-    
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         newPasswordTextField.resignFirstResponder()
         return true
     }
-
-    
 }

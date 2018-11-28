@@ -6,107 +6,148 @@
 //  Copyright © 2018 Jan . All rights reserved.
 //
 
-import UIKit
-import Firebase
 // import FirebaseAuth
 import CoreData
+import Firebase
+import UIKit
 
 class CreateAccountViewController: UIViewController {
- 
-    @IBOutlet weak var activity: UIActivityIndicatorView!
-    
-    @IBOutlet weak var nameCreateAccountTextField: UITextField!
-    @IBOutlet weak var eMailCreateAccountTextField: UITextField!
-    @IBOutlet weak var passwordCreateAccountTextField: UITextField!
-    
+    @IBOutlet var activity: UIActivityIndicatorView!
+
+    @IBOutlet var nameCreateAccountTextField: UITextField!
+    @IBOutlet var eMailCreateAccountTextField: UITextField!
+    @IBOutlet var passwordCreateAccountTextField: UITextField!
+
+    // Disse 2 variable som får verdier via segue "gotoCreateAccount" i LogInViewController.swift
+    var createEmail: String = ""
+    var createPassord: String = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Setter inn variablene fra LogInViewController.swift
+        eMailCreateAccountTextField.text = createEmail
+        passwordCreateAccountTextField.text = createPassord
+
+        // Init av activity
         activity.hidesWhenStopped = true
         activity.style = .gray
         view.addSubview(activity)
-        
-//        eMailCreateAccountTextField.text = ePost
-//        passwordCreateAccountTextField.text = passOrd
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
-        
     }
-       
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // Dismiss the keyboard when the view is tapped on
         eMailCreateAccountTextField.resignFirstResponder()
         nameCreateAccountTextField.resignFirstResponder()
         passwordCreateAccountTextField.resignFirstResponder()
     }
-    
+
     @IBAction func SaveAccount(_ sender: UIBarButtonItem) {
+        var ok: Bool = false
+        var ok1: Bool = false
+        var uid: String = ""
 
         activity.startAnimating()
-        
+
         // Dismiss the keyboard when the Save button is tapped on
         eMailCreateAccountTextField.resignFirstResponder()
         nameCreateAccountTextField.resignFirstResponder()
         passwordCreateAccountTextField.resignFirstResponder()
 
-        
-        let email = eMailCreateAccountTextField.text
-        let name = nameCreateAccountTextField.text
-        let pass = passwordCreateAccountTextField.text
-        
-        if email!.count > 0,
-           name!.count > 0,
-           pass!.count >= 6 {
-        
-           // Register the user with Firebase
-            Auth.auth().createUser(withEmail: email!, password: pass!) {
-              (user, error) in
+        if eMailCreateAccountTextField.text!.count > 0,
+            nameCreateAccountTextField.text!.count > 0,
+            passwordCreateAccountTextField.text!.count >= 6 {
+            // Register the user with Firebase
+            Auth.auth().createUser(withEmail: eMailCreateAccountTextField.text!,
+                                   password: passwordCreateAccountTextField.text!) { user, error in
 
-              if error == nil {
-                
-                  // Lagre epost og  passord
-                
-//                  ePost = email!
-//                  passOrd = pass!
-//                
-                  // self.saveData()
-                
-                  // Legg inn Navnet på brukeren
-                  let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-                  changeRequest?.displayName = name
-                
-                  changeRequest?.commitChanges { error in
-                     if error == nil {
-                        print("User display name changed!")
-                        self.dismiss(animated: false, completion: nil)
-                     } else {
-                        print("Error: \(error!.localizedDescription)")
-                     }
-                   }
-                
-                   self.performSegue(withIdentifier: "UpdateUserDataFromCreateAccount", sender: self)
+                if error == nil {
+                    
+                    // Brukeren er nå opprettet i Firebase
+                    
+                    uid = Auth.auth().currentUser?.uid ?? ""
+                    print("uid fra SaveAccount: \(uid)")
 
-              } else {
-                
-                  self.presentAlert(withTitle: "Error", message: error!.localizedDescription as Any)
-                
-              }
-           }
+                    // Resetter alle postene som hvor loggedin == true
+                    ok = self.resetLoggedIinCoreData()
+
+                    if ok == true {
+                        // Sjekk om brukeren finnes i CoreData
+                        // Hvis ikke, lagre brukeren i CoreData
+                        ok = self.findCoreData(withEpost: self.eMailCreateAccountTextField.text!)
+
+                        if ok == false {
+                            ok1 = self.saveCoreData(withEpost: self.eMailCreateAccountTextField.text!,
+                                                    withPassord: self.passwordCreateAccountTextField.text!,
+                                                    withUid: uid,
+                                                    withLoggedIn: true)
+
+                            if ok1 == false {
+                                let melding = "Kan ikke lagre en ny post i CoreData."
+                                self.presentAlert(withTitle: "Feil", message: melding)
+                            } else {
+                                
+                                // Legg inn Navnet på brukeren
+                                let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                                changeRequest?.displayName = self.nameCreateAccountTextField.text!
+
+                                changeRequest?.commitChanges { error in
+                                    if error == nil {
+                                        print("Lagret navn på brukeren!")
+                                        self.dismiss(animated: false, completion: nil)
+                                    } else {
+                                        print("Error: \(error!.localizedDescription)")
+                                    }
+                                }
+                            }
+
+                        } else {
+                            // oppdaterer CoreData med loggedin == true
+                            ok = self.updateCoreData(withEpost: self.eMailCreateAccountTextField.text!, withLoggedIn: true)
+
+                            if ok == false {
+                                let melding = "Kan ikke oppdatere en post i CoreData."
+                                self.presentAlert(withTitle: "Feil", message: melding)
+                            } else {
+                                // Legg inn Navnet på brukeren
+                                let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                                changeRequest?.displayName = self.nameCreateAccountTextField.text!
+
+                                changeRequest?.commitChanges { error in
+                                    if error == nil {
+                                        print("Lagret navn på brukeren!")
+                                        self.dismiss(animated: false, completion: nil)
+                                    } else {
+                                        print("Error: \(error!.localizedDescription)")
+                                    }
+                                }
+                            }
+                        }
+
+                        // Går til
+                        self.performSegue(withIdentifier: "UpdateUserDataFromCreateAccount", sender: self)
+
+                    } else {
+                        let melding = "Kan ikke oppdatere en post(er) i CoreData."
+                        self.presentAlert(withTitle: "Feil", message: melding)
+                    }
+
+                } else {
+                    self.presentAlert(withTitle: "Error", message: error!.localizedDescription as Any)
+                }
+            }
 
         } else {
-            
-            if pass!.count < 6 {
-                self.presentAlert(withTitle: "Error", message: "Legg inn verdier i alle feltene. \nPassordet må ha minst 6 tegn")
-            } else { 
-                self.presentAlert(withTitle: "Error", message: "Legg inn verdier i alle feltene")
+            if passwordCreateAccountTextField.text!.count < 6 {
+                presentAlert(withTitle: "Feil", message: "Alle feltene må ha verdi. \nPassordet må ha minst 6 tegn")
+            } else {
+                presentAlert(withTitle: "Feil", message: "Alle feltene må ha verdi.")
             }
-            
         }
-        
+
         activity.stopAnimating()
     }
-    
-    
 }
-

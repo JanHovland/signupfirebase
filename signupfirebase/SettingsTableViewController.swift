@@ -6,33 +6,26 @@
 //  Copyright © 2018 Jan . All rights reserved.
 //
 
-import UIKit
 import Firebase
+import UIKit
 
 class SettingsTableViewController: UITableViewController {
+    @IBOutlet var activity: UIActivityIndicatorView!
 
-    @IBOutlet weak var activity: UIActivityIndicatorView!
-    
-    @IBOutlet weak var settingsEmail: UILabel!
-    @IBOutlet weak var settingsUserName: UILabel!
-    
+    @IBOutlet var settingsEmail: UILabel!
+    @IBOutlet var settingsUserName: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let user = Auth.auth().currentUser
-        
-        let uid = user?.uid
-        
-        print(uid as Any)
-        
+
         activity.hidesWhenStopped = true
         activity.style = .gray
         view.addSubview(activity)
-        
+
         activity.startAnimating()
-        
+
         // Henter brukernavn og passord fra FireBase
-        
+
 //        Auth.auth().signIn(withEmail: ePost, password: passOrd) { (user, error) in
 //
 //            if error == nil {
@@ -53,13 +46,12 @@ class SettingsTableViewController: UITableViewController {
 //
         activity.stopAnimating()
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
-        
         activity.startAnimating()
-        
+
         // Finner det gamle navnet
-        
+
 //        Auth.auth().signIn(withEmail: ePost, password: passOrd) { (user, error) in
 //
 //            if error == nil {
@@ -80,6 +72,4 @@ class SettingsTableViewController: UITableViewController {
 //
         activity.stopAnimating()
     }
-    
 }
-

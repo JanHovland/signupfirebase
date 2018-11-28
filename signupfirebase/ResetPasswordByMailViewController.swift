@@ -6,30 +6,29 @@
 //  Copyright © 2018 Jan . All rights reserved.
 //
 
-import UIKit
 import Firebase
+import UIKit
 
-class ResetPasswordByMailViewController: UIViewController, UITextFieldDelegate { 
+class ResetPasswordByMailViewController: UIViewController, UITextFieldDelegate {
+    @IBOutlet var SendEmailToReceiver: UITextField!
+    @IBOutlet var activity: UIActivityIndicatorView!
 
-    @IBOutlet weak var SendEmailToReceiver: UITextField!
-    @IBOutlet weak var activity: UIActivityIndicatorView!
-    
     var myTimer: Timer!
-    
+
     // Setter en "constant" forsinkelse etter at en trykker på "Save"
     let forsinkelse = 3
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         SendEmailToReceiver.delegate = self
-    
+
         activity.hidesWhenStopped = true
-        self.activity.style = .gray
+        activity.style = .gray
         view.addSubview(activity)
-    
-        self.activity.startAnimating()
-    
+
+        activity.startAnimating()
+
 //        Auth.auth().signIn(withEmail: ePost, password: passOrd) { (user, error) in
 //
 //            if error == nil {
@@ -47,21 +46,17 @@ class ResetPasswordByMailViewController: UIViewController, UITextFieldDelegate {
 //            }
 //        }
 //
-        self.activity.stopAnimating()
-        
+        activity.stopAnimating()
     }
-    
-    @IBAction func SendPasswordResetByMail(_ sender: UIBarButtonItem) {
 
+    @IBAction func SendPasswordResetByMail(_ sender: UIBarButtonItem) {
         //    Auth.auth().languageCode = "fr"
         //    // To apply the default app language instead of explicitly setting it.
         //    Auth.auth().useAppLanguage()
 
         Auth.auth().languageCode = "no"
-        Auth.auth().sendPasswordReset(withEmail: SendEmailToReceiver.text!) { (error) in
+        Auth.auth().sendPasswordReset(withEmail: SendEmailToReceiver.text!) { error in
             if error == nil {
-                
-                
 //                noreply@signupfirebase-236b9.firebaseapp.com
 //                Tilbakestill passordet ditt for project-211156156416
 //                Til: Jan Hovland <jan.hovland@lyse.net>
@@ -78,11 +73,10 @@ class ResetPasswordByMailViewController: UIViewController, UITextFieldDelegate {
 //                Vennlig hilsen
 //
 //                project-211156156416-teamet
-    
+
             } else {
                 self.presentAlert(withTitle: "Error", message: error?.localizedDescription as Any)
             }
-
         }
     }
 
@@ -91,5 +85,4 @@ class ResetPasswordByMailViewController: UIViewController, UITextFieldDelegate {
 //        myTimer.invalidate()
 //        print(ePost)
 //    }
-
 }
