@@ -6,34 +6,31 @@
 //  Copyright © 2018 Jan . All rights reserved.
 //
 
-import UIKit
-import FirebaseAuth
-import Firebase
 import CoreData
+import Firebase
+import FirebaseAuth
+import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
-    
-    
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        
+
         // CoreData:
         // file:///Users/jho/Library/Developer/CoreSimulator/Devices/172A9496-F24C-4A07-A8B6-07126CD1CFD9/data/Containers/Data/Application/124FBD3D-B252-4F18-BDE6-6AC08EB43D8A/Documents/
         // Åpne Finder med Shift + Cmd + G :
         //        /Users/jho/Library/Developer/CoreSimulator/Devices/172A9496-F24C-4A07-A8B6-07126CD1CFD9/data/Containers/Data/Application/124FBD3D-B252-4F18-BDE6-6AC08EB43D8A/Library/Application Support/Model.sqlite
         // Åpnes med programmet "Datum"
-        
-        let urls  = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        print(urls[urls.count-1] as URL )
-        
+
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        print(urls[urls.count - 1] as URL)
+
         return true
     }
-    
+
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -57,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     // MARK: - Core Data stack
-    
+
     lazy var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
@@ -66,11 +63,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          error conditions that could cause the creation of the store to fail.
          */
         let container = NSPersistentContainer(name: "Model")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        container.loadPersistentStores(completionHandler: { _, error in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                
+
                 /*
                  Typical reasons for an error here include:
                  * The parent directory does not exist, cannot be created, or disallows writing.
@@ -84,10 +81,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         return container
     }()
-    
+
     // MARK: - Core Data Saving support
-    
-    func saveContext () {
+
+    func saveContext() {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
@@ -100,6 +97,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
 }
-

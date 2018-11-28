@@ -60,7 +60,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             activity.startAnimating()
 
             // Sjekk om eposten og passordet er registrert som bruker i Firebase
-            Auth.auth().signIn(withEmail: eMailLoginTextField.text!, password: passwordTextField.text!) { user, error in
+            Auth.auth().signIn(withEmail: eMailLoginTextField.text!, password: passwordTextField.text!) { _, error in
 
                 if error == nil {
                     uid = Auth.auth().currentUser?.uid ?? ""
@@ -70,11 +70,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                     ok = self.resetLoggedIinCoreData()
 
                     if ok == true {
-                        
                         // Sjekk om brukeren finnes i CoreData
                         // Hvis ikke, lagre brukeren i CoreData
                         ok = self.findCoreData(withEpost: self.eMailLoginTextField.text!)
-                        
+
                         if ok == false {
                             ok1 = self.saveCoreData(withEpost: self.eMailLoginTextField.text!,
                                                     withPassord: self.passwordTextField.text!,
@@ -87,7 +86,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                             }
 
                         } else {
-                            
                             // oppdaterer CoreData med loggedin == true
                             ok = self.updateCoreData(withEpost: self.eMailLoginTextField.text!, withLoggedIn: true)
 
@@ -96,7 +94,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                                 self.presentAlert(withTitle: "Feil", message: melding)
                             }
                         }
-                        
+
                         // Går til Settings bildet
                         self.performSegue(withIdentifier: "gotoSettingsFromLogin", sender: self)
 
@@ -132,30 +130,27 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         vc.createEmail = eMailLoginTextField.text!
         vc.createPassord = passwordTextField.text!
     }
-    
 }
 
 extension UIViewController {
-    
     func presentAlert(withTitle title: String, message: Any) {
         let alertController = UIAlertController(title: title, message: "\(message)", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alertController, animated: true, completion: nil)
     }
-    
+
     func presentAlertOption(withTitle title: String, message: Any) {
         let alertController = UIAlertController(title: title, message: "\(message)", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Prøv en gang til", style: .default, handler: nil))
-        alertController.addAction(UIAlertAction(title: "Registrer en ny bruker", style: .default, handler: { _ in CreateAccount()  }))
+        alertController.addAction(UIAlertAction(title: "Registrer en ny bruker", style: .default, handler: { _ in CreateAccount() }))
         present(alertController, animated: true, completion: nil)
-        
+
         // Denne funksjonen må være deklarert inne i "extension"
         func CreateAccount() {
             performSegue(withIdentifier: "gotoCreateAccount", sender: self)
         }
-        
     }
-    
+
     func saveCoreData(withEpost: String, withPassord: String, withUid: String, withLoggedIn: Bool) -> Bool {
         var ok: Bool = false
 
@@ -316,7 +311,7 @@ extension UIViewController {
             } else {
                 ok = true
             }
-            
+
         } catch {
             print(error.localizedDescription)
         }

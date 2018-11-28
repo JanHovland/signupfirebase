@@ -62,12 +62,11 @@ class CreateAccountViewController: UIViewController {
             passwordCreateAccountTextField.text!.count >= 6 {
             // Register the user with Firebase
             Auth.auth().createUser(withEmail: eMailCreateAccountTextField.text!,
-                                   password: passwordCreateAccountTextField.text!) { user, error in
+                                   password: passwordCreateAccountTextField.text!) { _, error in
 
                 if error == nil {
-                    
                     // Brukeren er nå opprettet i Firebase
-                    
+
                     uid = Auth.auth().currentUser?.uid ?? ""
                     print("uid fra SaveAccount: \(uid)")
 
@@ -89,7 +88,6 @@ class CreateAccountViewController: UIViewController {
                                 let melding = "Kan ikke lagre en ny post i CoreData."
                                 self.presentAlert(withTitle: "Feil", message: melding)
                             } else {
-                                
                                 // Legg inn Navnet på brukeren
                                 let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
                                 changeRequest?.displayName = self.nameCreateAccountTextField.text!
