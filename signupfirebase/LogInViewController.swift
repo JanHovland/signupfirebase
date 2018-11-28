@@ -13,7 +13,7 @@ import CoreData
 class LogInViewController: UIViewController, UITextFieldDelegate {
 
     // For å finne uid, må du først logge inn med epost og passord.
-    // Derfor kan du ikke lage en funksjon som henter uid!
+    // Derfor kan du ikke lage en generell funksjon som henter uid!
     //   uid for      jho.hovland@gmail.com = MnYNNQNIJUgSXZhpKlk3TZaT2YJ3
     //   uid for      jan.hovland@lyse.net  = dT1YafDXgshYq6kAiIphTabMLwH2
 
@@ -25,49 +25,47 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        let ePost = "jan.hovland@lyse.net"
-        let passOrd = "qwerty"
+/*
+        // Testing:
+        let ePost0 = "jan.hovland@lyse.net"
+        let passOrd0 = "qwerty"
         
         // Test for å finne antall
-        let antall = finnPost(withEpost: ePost)
-        print(antall)
+        let ok = findCoreData(withEpost: ePost0)
+        print("ok fra findCoreData: \(ok)")
 
         // Test for å oppdatere en email med
-        let ok = updateData(withEpost: ePost, withLoggedIn: true)
-        print(ok)
-        
+        let ok1 = updateData(withEpost: ePost0, withLoggedIn: true)
+        print("ok fra updateData: \(ok1)")
+   
         // Test for å lagre en post
         let ePost1 = "jho.hovland@gmail.com"
         let uid1 = "MnYNNQNIJUgSXZhpKlk3TZaT2YJ3"
-        let ok1 = saveData(withEpost: ePost1, withPassord: passOrd, withUid : uid1, withLoggedIn: false)
-        print("ok fra saveData: \(ok1)")
         
+        let ok2 = saveData(withEpost: ePost1, withPassord: passOrd0, withUid : uid1, withLoggedIn: false)
+        print("ok fra saveData: \(ok2)")
+*/
+ 
+        // For å kunne avslutte visning av tastatur når en trykker "Ferdig" på tastauuret
         eMailLoginTextField.delegate = self
         passwordTextField.delegate = self
         
+        // Initierer UIActivityIndicatorView
         activity.hidesWhenStopped = true
         activity.style = .gray
         view.addSubview(activity)
         
+        // Start activity
         activity.startAnimating()
 
         // Henter sist brukte eMail og Password der CoreData sin "loggedIn" = true
-//         getData(ResetLoggedIn: true)
-
-        eMailLoginTextField.text = ePost
-//        passwordTextField.text = passOrd
         
-        print("Verdien til ePost fra viewDidLoad: \(ePost)")
+        let value = getData()
+        
+        eMailLoginTextField.text = value.0
+        passwordTextField.text = value.1
         
         activity.stopAnimating()
-
-        if ePost.count > 0 {
-            eMailLoginTextField.text = ePost
-        }
- 
-//        if passOrd.count > 0 {
-//            passwordTextField.text = passOrd
-//        }
 
     }
     
@@ -119,7 +117,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
 //                        passOrd = self.passwordTextField.text!
 //                        uid = self.hentUID(eMail: ePost, passWord: passOrd)
                     
-                        self.getData(ResetLoggedIn: true)
+//                        self.getData(ResetLoggedIn: true)
                     
 //                        loggedIn = true
 
@@ -213,7 +211,6 @@ extension UIViewController {
 
         do {
             try context.save()
-            print("Saved ePost, passOrd, uid og loggedIn")
             ok = true
         } catch {
             print(error.localizedDescription)
@@ -223,11 +220,10 @@ extension UIViewController {
         
     }
     
-    func getData(ResetLoggedIn: Bool) {
-        
-        // Finner alle postene hvor "loggedin = true"
-        // Dersom ResetLoggedIn = true, settes alle "loggedin" til false
-        
+    func getData() -> (String, String) {
+
+        var ePost: String = ""
+        var passWord: String = ""
         
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
@@ -242,34 +238,21 @@ extension UIViewController {
                 for data in result as! [NSManagedObject] {
                 
                     if data.value(forKey: "email") != nil {
-//                        ePost = (data.value(forKey: "email") as? String)!
+                        ePost = (data.value(forKey: "email") as? String)!
                     }
                 
                     if data.value(forKey: "password") != nil {
-//                        passOrd = data.value(forKey: "password") as! String
+                        passWord = data.value(forKey: "password") as! String
                     }
-                
-                    if data.value(forKey: "uid") != nil {
-//                        uid = data.value(forKey: "uid") as! String
-                    }
-                
-                    if data.value(forKey: "loggedin") != nil {
-//                        loggedIn = data.value(forKey: "loggedin") as! Bool
-                    }
-                    
-                    if ResetLoggedIn == true {
-                        
-//                        loggedIn = false
-//                         updateData()
-                        
-                    }
-                    
+                   
                 }
             }
             
         } catch {
             print(error.localizedDescription)
         }
+        
+        return (ePost, passWord)
         
     }
 
@@ -291,8 +274,7 @@ extension UIViewController {
             if results.count > 0 {
                 ok = true
                 for result in results as![NSManagedObject] {
-                    if let email = result.value(forKey: "email") as? String {
-                        print(email)
+                    if (result.value(forKey: "email") as? String) != nil {
                         if let loggedin = result.value(forKey: "loggedin") as? Bool {
                             if loggedin != withLoggedIn {
                                 result.setValue(withLoggedIn, forKey: "loggedin")
@@ -318,12 +300,12 @@ extension UIViewController {
         
     }
     
-    func finnPost(withEpost: String) -> Int {
+    func findCoreData(withEpost: String) -> Bool {
         
-        var antall: Int = 0
+        var ok: Bool = false
         
         //As we know that container is set up in the AppDelegates so we need to refer that container.
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return 0 }
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return false }
         
         //We need to create a context from this container
         let context = appDelegate.persistentContainer.viewContext
@@ -334,13 +316,15 @@ extension UIViewController {
         do
         {
             let results = try context.fetch(request)
-            antall = results.count
+            if results.count > 0 {
+                ok = true
+            }
        }
         catch {
             print(error.localizedDescription)
         }
 
-        return antall
+        return ok
 
     }
 
