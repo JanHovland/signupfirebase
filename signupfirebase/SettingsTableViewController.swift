@@ -25,51 +25,9 @@ class SettingsTableViewController: UITableViewController {
         activity.startAnimating()
 
         // Henter brukernavn og passord fra FireBase
+        settingsEmail.text = Auth.auth().currentUser?.email
+        settingsUserName.text = Auth.auth().currentUser?.displayName
 
-//        Auth.auth().signIn(withEmail: ePost, password: passOrd) { (user, error) in
-//
-//            if error == nil {
-//
-//                // Finner det gamle navnet
-//
-//                let user = Auth.auth().currentUser
-//
-//                if let user = user {
-//                    self.settingsUserName.text = user.displayName
-//                    self.settingsEmail.text = user.email
-//                } else {
-//                    // Håndtere error
-//                }
-//            }
-//
-//        }
-//
-        activity.stopAnimating()
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        activity.startAnimating()
-
-        // Finner det gamle navnet
-
-//        Auth.auth().signIn(withEmail: ePost, password: passOrd) { (user, error) in
-//
-//            if error == nil {
-//
-//                let user = Auth.auth().currentUser
-//
-//                if let user = user {
-//                    self.settingsUserName.text = user.displayName
-//                    self.settingsEmail.text = user.email
-//                } else {
-//                    // Håndtere error
-//                }
-//            } else {
-//                // Håndtere error
-//            }
-//
-//        }
-//
         activity.stopAnimating()
     }
 }

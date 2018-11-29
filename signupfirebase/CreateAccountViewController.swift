@@ -6,7 +6,6 @@
 //  Copyright © 2018 Jan . All rights reserved.
 //
 
-// import FirebaseAuth
 import CoreData
 import Firebase
 import UIKit
@@ -49,6 +48,7 @@ class CreateAccountViewController: UIViewController {
         var ok: Bool = false
         var ok1: Bool = false
         var uid: String = ""
+        var navn: String = ""
 
         activity.startAnimating()
 
@@ -69,6 +69,8 @@ class CreateAccountViewController: UIViewController {
 
                     uid = Auth.auth().currentUser?.uid ?? ""
                     print("uid fra SaveAccount: \(uid)")
+                    
+                    navn = self.nameCreateAccountTextField.text!
 
                     // Resetter alle postene som hvor loggedin == true
                     ok = self.resetLoggedIinCoreData()
@@ -82,13 +84,14 @@ class CreateAccountViewController: UIViewController {
                             ok1 = self.saveCoreData(withEpost: self.eMailCreateAccountTextField.text!,
                                                     withPassord: self.passwordCreateAccountTextField.text!,
                                                     withUid: uid,
-                                                    withLoggedIn: true)
+                                                    withLoggedIn: true,
+                                                    withName: navn)
 
                             if ok1 == false {
                                 let melding = "Kan ikke lagre en ny post i CoreData."
                                 self.presentAlert(withTitle: "Feil", message: melding)
                             } else {
-                                // Legg inn Navnet på brukeren
+                                // Legg inn Navnet på brukeren i Firebase
                                 let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
                                 changeRequest?.displayName = self.nameCreateAccountTextField.text!
 

@@ -50,6 +50,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         var ok: Bool = false
         var ok1: Bool = false
         var uid: String = ""
+        var navn: String = ""
 
         // Dismiss the keyboard when the Next button is tapped on
         eMailLoginTextField.resignFirstResponder()
@@ -65,6 +66,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 if error == nil {
                     uid = Auth.auth().currentUser?.uid ?? ""
                     print("uid fra NextButtonTapped: \(uid)")
+                    
+                    navn = Auth.auth().currentUser?.displayName ?? ""
 
                     // Resetter alle postene som hvor loggedin == true
                     ok = self.resetLoggedIinCoreData()
@@ -78,7 +81,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                             ok1 = self.saveCoreData(withEpost: self.eMailLoginTextField.text!,
                                                     withPassord: self.passwordTextField.text!,
                                                     withUid: uid,
-                                                    withLoggedIn: true)
+                                                    withLoggedIn: true,
+                                                    withName: navn)
 
                             if ok1 == false {
                                 let melding = "Kan ikke lagre en ny post i CoreData."
@@ -123,12 +127,18 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // prepare kjøre etter: performSegue(withIdentifier: "gotoCreateAccount", sender: self)
-        let vc = segue.destination as! CreateAccountViewController
+        // prepare kjøres etter hvilken som helst segue.
+        // Skal bare kjøres etter: performSegue(withIdentifier: "gotoCreateAccount", sender: self)
+        
+        print(segue.identifier as Any)
+        
+        if (segue.identifier! == "gotoCreateAccount") {
+            let vc = segue.destination as! CreateAccountViewController
 
-        // createEmail og createPassord er variabler som er definert i CreateAccountViewController.swift
-        vc.createEmail = eMailLoginTextField.text!
-        vc.createPassord = passwordTextField.text!
+            // createEmail og createPassord er variabler som er definert i CreateAccountViewController.swift
+            vc.createEmail = eMailLoginTextField.text!
+            vc.createPassord = passwordTextField.text!
+        }
     }
 }
 
@@ -151,7 +161,7 @@ extension UIViewController {
         }
     }
 
-    func saveCoreData(withEpost: String, withPassord: String, withUid: String, withLoggedIn: Bool) -> Bool {
+    func saveCoreData(withEpost: String, withPassord: String, withUid: String, withLoggedIn: Bool, withName: String) -> Bool {
         var ok: Bool = false
 
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -163,7 +173,8 @@ extension UIViewController {
         newEntity.setValue(withPassord, forKey: "password")
         newEntity.setValue(withUid, forKey: "uid")
         newEntity.setValue(withLoggedIn, forKey: "loggedin")
-
+        newEntity.setValue(withName, forKey: "name")
+   
         do {
             try context.save()
             ok = true
@@ -266,6 +277,40 @@ extension UIViewController {
         return ok
     }
 
+    func updateNameCoreData(withEpost: String, withNavn: String) -> Bool {
+        var ok: Bool = false
+        
+        // As we know that container is set up in the AppDelegates so we need to refer that container.
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return false }
+        
+        // We need to create a context from this container
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        request.predicate = NSPredicate(format: "email =  %@", withEpost)
+        do {
+            let results = try context.fetch(request)
+            if results.count > 0 {
+                ok = true
+                for result in results as! [NSManagedObject] {
+                    if (result.value(forKey: "name") as? String) != nil {
+                        result.setValue(withNavn, forKey: "name")
+                        do {
+                            try context.save()
+                        } catch {
+                                print(error.localizedDescription)
+                        }
+                    }
+                }
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        return ok
+    }
+
+    
     func deleteAllCoreData() {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
