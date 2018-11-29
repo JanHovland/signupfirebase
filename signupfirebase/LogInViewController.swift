@@ -66,7 +66,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 if error == nil {
                     uid = Auth.auth().currentUser?.uid ?? ""
                     print("uid fra NextButtonTapped: \(uid)")
-                    
+
                     navn = Auth.auth().currentUser?.displayName ?? ""
 
                     // Resetter alle postene som hvor loggedin == true
@@ -129,10 +129,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // prepare kjøres etter hvilken som helst segue.
         // Skal bare kjøres etter: performSegue(withIdentifier: "gotoCreateAccount", sender: self)
-        
+
         print(segue.identifier as Any)
-        
-        if (segue.identifier! == "gotoCreateAccount") {
+
+        if segue.identifier! == "gotoCreateAccount" {
             let vc = segue.destination as! CreateAccountViewController
 
             // createEmail og createPassord er variabler som er definert i CreateAccountViewController.swift
@@ -174,7 +174,7 @@ extension UIViewController {
         newEntity.setValue(withUid, forKey: "uid")
         newEntity.setValue(withLoggedIn, forKey: "loggedin")
         newEntity.setValue(withName, forKey: "name")
-   
+
         do {
             try context.save()
             ok = true
@@ -277,15 +277,43 @@ extension UIViewController {
         return ok
     }
 
-    func updateNameCoreData(withEpost: String, withNavn: String) -> Bool {
-        var ok: Bool = false
-        
+    func findPasswordCoreData(withEpost: String) -> String {
+        var password: String = ""
+
         // As we know that container is set up in the AppDelegates so we need to refer that container.
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return false }
-        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return "" }
+
         // We need to create a context from this container
         let context = appDelegate.persistentContainer.viewContext
-        
+
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        request.predicate = NSPredicate(format: "email =  %@", withEpost)
+
+        do {
+            let results = try context.fetch(request)
+            if results.count > 0 {
+                for result in results as! [NSManagedObject] {
+                    if (result.value(forKey: "password") as? String) != nil {
+                        password = result.value(forKey: "password") as! String
+                    }
+                }
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+
+        return password
+    }
+
+    func updateNameCoreData(withEpost: String, withNavn: String) -> Bool {
+        var ok: Bool = false
+
+        // As we know that container is set up in the AppDelegates so we need to refer that container.
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return false }
+
+        // We need to create a context from this container
+        let context = appDelegate.persistentContainer.viewContext
+
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         request.predicate = NSPredicate(format: "email =  %@", withEpost)
         do {
@@ -306,22 +334,55 @@ extension UIViewController {
         } catch {
             print(error.localizedDescription)
         }
-        
+
         return ok
     }
-    
-    func updateEpostCoreData(withOldEpost: String, withNewEpost: String) -> Bool {
+
+    func updatePasswordCoreData(withEpost: String, withPassWord: String) -> Bool {
         var ok: Bool = false
-        
+
         // As we know that container is set up in the AppDelegates so we need to refer that container.
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return false }
-        
+
         // We need to create a context from this container
         let context = appDelegate.persistentContainer.viewContext
-        
+
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        request.predicate = NSPredicate(format: "email =  %@", withEpost)
+        do {
+            let results = try context.fetch(request)
+            if results.count > 0 {
+                ok = true
+                for result in results as! [NSManagedObject] {
+                    if (result.value(forKey: "password") as? String) != nil {
+                        result.setValue(withPassWord, forKey: "password")
+                        do {
+                            try context.save()
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                    }
+                }
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+
+        return ok
+    }
+
+    func updateEpostCoreData(withOldEpost: String, withNewEpost: String) -> Bool {
+        var ok: Bool = false
+
+        // As we know that container is set up in the AppDelegates so we need to refer that container.
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return false }
+
+        // We need to create a context from this container
+        let context = appDelegate.persistentContainer.viewContext
+
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         request.predicate = NSPredicate(format: "email =  %@", withOldEpost)
-        
+
         do {
             let results = try context.fetch(request)
             if results.count > 0 {
@@ -340,7 +401,7 @@ extension UIViewController {
         } catch {
             print(error.localizedDescription)
         }
-        
+
         return ok
     }
 

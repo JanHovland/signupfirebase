@@ -62,7 +62,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-223" y="-54"/>
+            <point key="canvasLocation" x="-159" y="112"/>
         </scene>
         <!--Login-->
         <scene sceneID="JrS-MZ-r5N">
@@ -151,7 +151,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RMv-VS-8be" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="566" y="-763"/>
+            <point key="canvasLocation" x="615" y="-207"/>
         </scene>
         <!--Create account-->
         <scene sceneID="Wd0-nJ-YAL">
@@ -257,7 +257,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kDZ-z0-WkU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="566" y="410"/>
+            <point key="canvasLocation" x="614" y="546"/>
         </scene>
         <!--Settings-->
         <scene sceneID="sjW-1t-WAY">
@@ -453,7 +453,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pgR-wM-cad" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1356" y="-207"/>
+            <point key="canvasLocation" x="1380" y="-207"/>
         </scene>
         <!--Update user name-->
         <scene sceneID="ffJ-QF-Ihx">
@@ -537,7 +537,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x7o-AH-tpg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2390" y="-1056"/>
+            <point key="canvasLocation" x="2102" y="-207"/>
         </scene>
         <!--List user names-->
         <scene sceneID="LuP-Xz-gEk">
@@ -553,7 +553,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U4x-e9-skH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1356" y="614"/>
+            <point key="canvasLocation" x="2102" y="546"/>
         </scene>
         <!--Reset password by mail-->
         <scene sceneID="C8U-SC-gNn">
@@ -566,23 +566,26 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Sb8-Bk-Xf0">
                                 <rect key="frame" x="10" y="94" width="355" height="22"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8hS-aZ-cRa">
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8hS-aZ-cRa">
                                         <rect key="frame" x="0.0" y="0.0" width="355" height="22"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eMail address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZ1-aB-GyF">
-                                                <rect key="frame" x="0.0" y="0.0" width="106" height="22"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Epost:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZ1-aB-GyF">
+                                                <rect key="frame" x="0.0" y="1" width="48.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="eMail address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B4y-FU-lHp" userLabel="eMail address Text Field">
-                                                <rect key="frame" x="114" y="0.0" width="211" height="22"/>
+                                                <rect key="frame" x="56.5" y="2.5" width="268.5" height="17"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="password"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D9V-n4-Wca">
                                                 <rect key="frame" x="333" y="0.0" width="22" height="22"/>
+                                                <connections>
+                                                    <action selector="info:" destination="RIq-no-RdP" eventType="touchUpInside" id="2oC-0P-a7w"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -591,19 +594,48 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="0h0-dC-fSp">
                                 <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
                             </activityIndicatorView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwD-cF-rlL" userLabel="Info Text View">
+                                <rect key="frame" x="5" y="156" width="365" height="240"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="WY8-A9-iKK"/>
+                                </constraints>
+                                <string key="text">Etter at du har bedt Firebase om å resette passordet ditt,
+vil du motta en epost omtrent som denne: 
+
+Hei!
+
+Følg denne linken for å tilbakestille passordet ditt for project-211156156416 for kontoen din.
+
+https://signupfirebase-236b9.firebaseapp.com ...
+
+Hvis du ikke har bedt om å tilbakestille passordet, kan du ignorere denne e-posten.
+
+Vennlig hilsen
+
+project-211156156416-teamet</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="0h0-dC-fSp" firstAttribute="centerX" secondItem="O8x-u9-ZyO" secondAttribute="centerX" id="0xa-Ax-qnh"/>
                             <constraint firstItem="Sb8-Bk-Xf0" firstAttribute="top" secondItem="8EE-tD-yuR" secondAttribute="top" constant="30" id="5vM-fx-N23"/>
+                            <constraint firstItem="hwD-cF-rlL" firstAttribute="top" secondItem="Sb8-Bk-Xf0" secondAttribute="bottom" constant="40" id="8RL-Eb-Ftu"/>
                             <constraint firstItem="8EE-tD-yuR" firstAttribute="trailing" secondItem="Sb8-Bk-Xf0" secondAttribute="trailing" constant="10" id="VWM-iX-xtE"/>
+                            <constraint firstItem="8EE-tD-yuR" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="hwD-cF-rlL" secondAttribute="trailing" constant="10" id="aXM-Zh-jrG"/>
                             <constraint firstItem="Sb8-Bk-Xf0" firstAttribute="leading" secondItem="O8x-u9-ZyO" secondAttribute="leading" constant="10" id="arF-TZ-BmJ"/>
+                            <constraint firstItem="hwD-cF-rlL" firstAttribute="centerX" secondItem="O8x-u9-ZyO" secondAttribute="centerX" id="bf2-Aq-bnM"/>
+                            <constraint firstItem="hwD-cF-rlL" firstAttribute="leading" secondItem="8EE-tD-yuR" secondAttribute="leading" constant="5" id="fve-O2-iPS"/>
+                            <constraint firstItem="8EE-tD-yuR" firstAttribute="trailing" secondItem="hwD-cF-rlL" secondAttribute="trailing" constant="5" id="otX-dQ-br3"/>
                             <constraint firstItem="0h0-dC-fSp" firstAttribute="centerY" secondItem="O8x-u9-ZyO" secondAttribute="centerY" id="qXE-Si-vQ8"/>
+                            <constraint firstItem="8EE-tD-yuR" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="hwD-cF-rlL" secondAttribute="trailing" constant="10" id="x5L-9f-TLC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8EE-tD-yuR"/>
                     </view>
                     <navigationItem key="navigationItem" title="Reset password by mail" id="TtJ-w1-K6f">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="hnt-D0-Tf0">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="hnt-D0-Tf0">
                             <connections>
                                 <action selector="SendPasswordResetByMail:" destination="RIq-no-RdP" id="OW7-VZ-UgV"/>
                             </connections>
@@ -612,11 +644,13 @@
                     <connections>
                         <outlet property="SendEmailToReceiver" destination="B4y-FU-lHp" id="Gzj-IZ-ncU"/>
                         <outlet property="activity" destination="0h0-dC-fSp" id="kjB-F8-0Z1"/>
+                        <outlet property="infoTextView" destination="hwD-cF-rlL" id="Z9h-pg-Ygu"/>
+                        <segue destination="tT3-9a-LwM" kind="show" identifier="BackToLoginViewController" id="Dt9-Nc-72v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DdS-xN-Djy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2710" y="-377"/>
+            <point key="canvasLocation" x="3486" y="546"/>
         </scene>
         <!--Update password-->
         <scene sceneID="514-fI-xD2">
@@ -645,7 +679,7 @@
                                                 <rect key="frame" x="121.5" y="0.0" width="233.5" height="20.5"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="password"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -698,7 +732,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fFP-2K-yqY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2004" y="-377"/>
+            <point key="canvasLocation" x="3486" y="-207"/>
         </scene>
         <!--Update eMail-->
         <scene sceneID="2E7-Fn-7tm">
@@ -777,7 +811,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gdd-vX-lHE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4092" y="-386"/>
+            <point key="canvasLocation" x="2818" y="-207"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XXp-aT-bTx">
@@ -795,7 +829,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AK4-Pc-bie" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1308" y="-54"/>
+            <point key="canvasLocation" x="-956" y="112"/>
         </scene>
     </scenes>
     <resources>
@@ -803,7 +837,7 @@
         <image name="firebase_logo" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5S0-Bs-tdn"/>
+        <segue reference="L1U-ae-97o"/>
         <segue reference="iSy-UT-ZzF"/>
     </inferredMetricsTieBreakers>
 </document>

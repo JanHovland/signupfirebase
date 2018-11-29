@@ -9,11 +9,16 @@
 import Firebase
 import UIKit
 
-class ResetPasswordByMailViewController: UIViewController, UITextFieldDelegate {
+class ResetPasswordByMailViewController: UIViewController {
     @IBOutlet var SendEmailToReceiver: UITextField!
     @IBOutlet var activity: UIActivityIndicatorView!
+    @IBOutlet var infoTextView: UITextView!
 
     var myTimer: Timer!
+
+    var teller: Int = 0
+
+    var status: Bool = true
 
     // Setter en "constant" forsinkelse etter at en trykker på "Save"
     let forsinkelse = 3
@@ -21,7 +26,7 @@ class ResetPasswordByMailViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        SendEmailToReceiver.delegate = self
+        infoTextView.isHidden = true
 
         activity.hidesWhenStopped = true
         activity.style = .gray
@@ -29,60 +34,45 @@ class ResetPasswordByMailViewController: UIViewController, UITextFieldDelegate {
 
         activity.startAnimating()
 
-//        Auth.auth().signIn(withEmail: ePost, password: passOrd) { (user, error) in
-//
-//            if error == nil {
-//
-//                // Setter inn epost som det skal sendes til
-//                let user = Auth.auth().currentUser
-//
-//                if user != nil {
-//                    self.SendEmailToReceiver.text = user!.email
-//                } else {
-//                    // Håndtere error
-//                    self.presentAlert(withTitle: "Error", message: error?.localizedDescription as Any)
-//                }
-//
-//            }
-//        }
-//
+        SendEmailToReceiver.text! = (Auth.auth().currentUser?.email)!
+
         activity.stopAnimating()
+
+        if SendEmailToReceiver.text?.count == 0 {
+            let melding = "Kan ikke hente eposten fra Firebase."
+            presentAlert(withTitle: "Feil", message: melding)
+        }
+    }
+
+    @IBAction func info(_ sender: UIButton) {
+        status = !status
+
+        infoTextView.isHidden = status
     }
 
     @IBAction func SendPasswordResetByMail(_ sender: UIBarButtonItem) {
-        //    Auth.auth().languageCode = "fr"
-        //    // To apply the default app language instead of explicitly setting it.
-        //    Auth.auth().useAppLanguage()
+        activity.startAnimating()
 
+        // Sender eposten på norsk:
         Auth.auth().languageCode = "no"
         Auth.auth().sendPasswordReset(withEmail: SendEmailToReceiver.text!) { error in
             if error == nil {
-//                noreply@signupfirebase-236b9.firebaseapp.com
-//                Tilbakestill passordet ditt for project-211156156416
-//                Til: Jan Hovland <jan.hovland@lyse.net>
-//
-//
-//                Hei!
-//
-//                Følg denne linken for å tilbakestille passordet ditt for project-211156156416 for jan.hovland@lyse.net-kontoen din.
-//
-//                https://signupfirebase-236b9.firebaseapp.com/__/auth/action?mode=resetPassword&oobCode=cbM_F1SDClyXPTcM3Q0O0YFmgqi8luQ_WopFeulUubwAAAFnPQpx6g&apiKey=AIzaSyDw7qNj9OPW9NUH5TWva1z8mwbYpSNUdC4&lang=no
-//
-//                Hvis du ikke har bedt om å tilbakestille passordet, kan du ignorere denne e-posten.
-//
-//                Vennlig hilsen
-//
-//                project-211156156416-teamet
+                // Legg inn en liten forsinkelse før funksjonen "returnToLogin" kalles
+                self.myTimer = Timer.scheduledTimer(timeInterval: TimeInterval(self.forsinkelse),
+                                                    target: self,
+                                                    selector: #selector(self.returnToLogin),
+                                                    userInfo: nil, repeats: false)
 
             } else {
                 self.presentAlert(withTitle: "Error", message: error?.localizedDescription as Any)
             }
         }
+
+        activity.stopAnimating()
     }
 
-//    @objc func returnToLogin() {
-//        performSegue(withIdentifier: "BackToLoginViewController", sender: self)
-//        myTimer.invalidate()
-//        print(ePost)
-//    }
+    @objc func returnToLogin() {
+        performSegue(withIdentifier: "BackToLoginViewController", sender: self)
+        myTimer.invalidate()
+    }
 }
