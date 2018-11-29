@@ -30,40 +30,26 @@ class UpdateMailViewController: UIViewController, UITextFieldDelegate {
 
         activity.startAnimating()
 
-//        Auth.auth().signIn(withEmail: ePost, password: passOrd) { (user, error) in
-//
-//            if error == nil {
-//
-//                // Setter inn den gamle eposten
-//
-//                let user = Auth.auth().currentUser
-//
-//                if user != nil {
-//                    self.oldEmailLabel.text = user!.email
-//                }
-//            } else {
-//                // Håndtere error
-//                self.presentAlert(withTitle: "Error", message: error?.localizedDescription as Any)
-//            }
-//
-//            self.activity.stopAnimating()
-//        }
-//
+        oldEmailLabel.text = Auth.auth().currentUser?.email
+
+        activity.stopAnimating()
     }
 
     @IBAction func SaveNewEmail(_ sender: Any) {
         if (newEmailTextField.text?.count)! > 0 {
             activity.startAnimating()
 
-            // Legger inn ny opost
+            // Legger inn ny opost i Firebase
             Auth.auth().currentUser?.updateEmail(to: newEmailTextField.text!)
             print("Oppdatert epost")
-//            ePost = self.newEmailTextField.text!
 
-//            self.deleteAllData()
+            // Legger inn den nye eposten i CoreData
 
-            // Lagrer epost og passord i Coredata
-            // self.saveData()
+            let ok = updateEpostCoreData(withOldEpost: oldEmailLabel.text!, withNewEpost: newEmailTextField.text!)
+
+            if ok == false {
+                presentAlert(withTitle: "Feil", message: "Kan ikke oppdatere eposten til brukeren i CoreData.")
+            }
 
             activity.stopAnimating()
 
@@ -73,14 +59,13 @@ class UpdateMailViewController: UIViewController, UITextFieldDelegate {
         } else {
             // Legge ut varsel
             let melding = "Den nye eposten kan ikke være tom."
-            presentAlert(withTitle: "Tomt navn", message: melding)
+            presentAlert(withTitle: "ePost", message: melding)
         }
     }
 
     @objc func returnToLogin() {
         performSegue(withIdentifier: "BackToLoginViewController", sender: self)
         myTimer.invalidate()
-//        print(ePost)
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

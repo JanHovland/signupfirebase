@@ -298,7 +298,41 @@ extension UIViewController {
                         do {
                             try context.save()
                         } catch {
-                                print(error.localizedDescription)
+                            print(error.localizedDescription)
+                        }
+                    }
+                }
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        return ok
+    }
+    
+    func updateEpostCoreData(withOldEpost: String, withNewEpost: String) -> Bool {
+        var ok: Bool = false
+        
+        // As we know that container is set up in the AppDelegates so we need to refer that container.
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return false }
+        
+        // We need to create a context from this container
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        request.predicate = NSPredicate(format: "email =  %@", withOldEpost)
+        
+        do {
+            let results = try context.fetch(request)
+            if results.count > 0 {
+                ok = true
+                for result in results as! [NSManagedObject] {
+                    if (result.value(forKey: "email") as? String) != nil {
+                        result.setValue(withNewEpost, forKey: "email")
+                        do {
+                            try context.save()
+                        } catch {
+                            print(error.localizedDescription)
                         }
                     }
                 }
@@ -310,7 +344,6 @@ extension UIViewController {
         return ok
     }
 
-    
     func deleteAllCoreData() {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
