@@ -580,6 +580,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="nhA-xf-W66" kind="show" identifier="ReturnToSettingsFromResetPasswordInCoreData" id="lhq-Yf-xpc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BPM-S8-U8x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
