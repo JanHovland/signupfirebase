@@ -268,7 +268,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="5Kc-zy-85Y">
-                            <rect key="frame" x="0.0" y="376" width="375" height="20"/>
+                            <rect key="frame" x="0.0" y="420" width="375" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </activityIndicatorView>
                         <sections>
@@ -365,7 +365,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Update password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KYc-I2-FZP" userLabel="Uodate password">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Update password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KYc-I2-FZP">
                                                     <rect key="frame" x="51" y="0.0" width="289" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -406,12 +406,36 @@
                                             <segue destination="RIq-no-RdP" kind="show" identifier="gotoResetPasswordByMail" id="qie-YG-c26"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="bT4-Ft-h1k" imageView="K1t-d2-kTQ" style="IBUITableViewCellStyleDefault" id="FxN-6c-Jte" userLabel="Set the reset password in CoreData">
+                                        <rect key="frame" x="0.0" y="304" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FxN-6c-Jte" id="NB7-kg-Rmx">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Reset password in CoreData" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bT4-Ft-h1k">
+                                                    <rect key="frame" x="51" y="0.0" width="289" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="Icon-20" id="K1t-d2-kTQ">
+                                                    <rect key="frame" x="16" y="11" width="20" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="qbU-Y9-ExM" kind="show" id="lmC-M1-1h5"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle=" " id="i9u-M5-VyI">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="pgs-XU-08G" imageView="7h5-Vp-PPs" style="IBUITableViewCellStyleDefault" id="xn3-xi-Isj" userLabel="List all users">
-                                        <rect key="frame" x="0.0" y="332" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="376" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xn3-xi-Isj" id="gpw-9n-1H4">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
@@ -537,7 +561,29 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x7o-AH-tpg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2102" y="-207"/>
+            <point key="canvasLocation" x="2143" y="-207"/>
+        </scene>
+        <!--Reset password CD-->
+        <scene sceneID="354-SQ-Bvh">
+            <objects>
+                <viewController id="qbU-Y9-ExM" customClass="SetTheResetPasswordInCoreDataViewController" customModule="signupfirebase" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4SL-Xw-oYZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="oab-NL-LXt"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Reset password CD" id="yFe-ek-dkm">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Qsv-8L-msd">
+                            <connections>
+                                <action selector="ResetPasswordInCoreData:" destination="qbU-Y9-ExM" id="J1i-Af-ej4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BPM-S8-U8x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1422" y="526"/>
         </scene>
         <!--List user names-->
         <scene sceneID="LuP-Xz-gEk">
@@ -549,11 +595,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="mCI-e3-85m"/>
                     </view>
-                    <navigationItem key="navigationItem" title="List all users" id="sww-Yf-63g"/>
+                    <navigationItem key="navigationItem" title="List all users" id="sww-Yf-63g">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="yE3-8t-7E7"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U4x-e9-skH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2102" y="546"/>
+            <point key="canvasLocation" x="2127" y="520"/>
         </scene>
         <!--Reset password by mail-->
         <scene sceneID="C8U-SC-gNn">
@@ -811,7 +859,7 @@ project-211156156416-teamet</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gdd-vX-lHE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2818" y="-207"/>
+            <point key="canvasLocation" x="3311" y="-207"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XXp-aT-bTx">
@@ -837,7 +885,7 @@ project-211156156416-teamet</string>
         <image name="firebase_logo" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="L1U-ae-97o"/>
+        <segue reference="5S0-Bs-tdn"/>
         <segue reference="iSy-UT-ZzF"/>
     </inferredMetricsTieBreakers>
 </document>
