@@ -612,7 +612,6 @@
                     <connections>
                         <outlet property="ResetPassword" destination="rmh-a2-Hgt" id="7jd-rP-mD1"/>
                         <outlet property="activity" destination="HhK-5u-o0B" id="q0q-dn-2Rq"/>
-                        <segue destination="nhA-xf-W66" kind="show" identifier="ReturnToSettingsFromResetPasswordInCoreData" id="lhq-Yf-xpc"/>
                         <segue destination="tT3-9a-LwM" kind="show" identifier="BackToLoginViewControllerFromResetPasswordInCoreDara" id="yRU-J5-NO7"/>
                     </connections>
                 </viewController>
