@@ -703,7 +703,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="TkN-Mq-g0c"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="zXj-SQ-ZHx" id="MdV-jY-mam"/>
+                        <outlet property="tableView" destination="zXj-SQ-ZHx" id="iYk-zy-VlH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="70g-Bo-HMF" userLabel="First Responder" sceneMemberID="firstResponder"/>

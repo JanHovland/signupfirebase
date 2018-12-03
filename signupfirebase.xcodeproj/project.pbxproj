@@ -28,6 +28,7 @@
 		D1CF583F219C6811000A3497 /* Create iOS Icons.jsx in Resources */ = {isa = PBXBuildFile; fileRef = D1CF583E219C6811000A3497 /* Create iOS Icons.jsx */; };
 		D1F7F28521B46EFE0063B7F6 /* ListUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F7F28421B46EFD0063B7F6 /* ListUserTableViewController.swift */; };
 		D1F7F28721B482D40063B7F6 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F7F28621B482D40063B7F6 /* ListViewController.swift */; };
+		D1F7F28921B56FFD0063B7F6 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F7F28821B56FFD0063B7F6 /* ListTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		D1CF583E219C6811000A3497 /* Create iOS Icons.jsx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Create iOS Icons.jsx"; sourceTree = "<group>"; };
 		D1F7F28421B46EFD0063B7F6 /* ListUserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListUserTableViewController.swift; path = ../../../.Trash/ListUserTableViewController.swift; sourceTree = "<group>"; };
 		D1F7F28621B482D40063B7F6 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		D1F7F28821B56FFD0063B7F6 /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		D8FA6AF44DDF6A6C8562A35A /* Pods_signupfirebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_signupfirebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -129,6 +131,7 @@
 				D1F7F28421B46EFD0063B7F6 /* ListUserTableViewController.swift */,
 				D1B9562921B3F3E1003F5937 /* CoreDataTableViewCell.swift */,
 				D1F7F28621B482D40063B7F6 /* ListViewController.swift */,
+				D1F7F28821B56FFD0063B7F6 /* ListTableViewController.swift */,
 			);
 			path = signupfirebase;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				D1F7F28721B482D40063B7F6 /* ListViewController.swift in Sources */,
 				D1A486E9219E0BA8004D41BE /* LogInViewController.swift in Sources */,
 				D1B9562A21B3F3E1003F5937 /* CoreDataTableViewCell.swift in Sources */,
+				D1F7F28921B56FFD0063B7F6 /* ListTableViewController.swift in Sources */,
 				D1266D692199A72C00593984 /* CreateAccountViewController.swift in Sources */,
 				D1C7F2E1218C98C800481E48 /* AppDelegate.swift in Sources */,
 				D13BBB1721A5756D00E806BE /* UpdateMailViewController.swift in Sources */,
