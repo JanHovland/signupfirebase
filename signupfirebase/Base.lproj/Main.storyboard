@@ -652,17 +652,17 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="187" translatesAutoresizingMaskIntoConstraints="NO" id="IT8-tC-flw">
-                                                            <rect key="frame" x="0.0" y="19" width="245.5" height="16"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="IT8-tC-flw">
+                                                            <rect key="frame" x="0.0" y="19" width="343" height="16"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2c-Wq-DdE">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="25" height="16"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2c-Wq-DdE">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="259.5" height="16"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxa-gd-Fmh">
-                                                                    <rect key="frame" x="212" y="0.0" width="33.5" height="16"/>
+                                                                    <rect key="frame" x="309.5" y="0.0" width="33.5" height="16"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -670,6 +670,9 @@
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="IT8-tC-flw" secondAttribute="trailing" constant="12" id="0oh-kO-cBB"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
@@ -685,10 +688,6 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="hqp-7t-xWr" id="hSM-Mn-qiw"/>
-                                    <outlet property="delegate" destination="hqp-7t-xWr" id="WZl-0d-jTl"/>
-                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -703,6 +702,9 @@
                     <navigationItem key="navigationItem" title="List all users" id="0N6-2O-yY3">
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="TkN-Mq-g0c"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="zXj-SQ-ZHx" id="MdV-jY-mam"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="70g-Bo-HMF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

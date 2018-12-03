@@ -9,15 +9,22 @@
 import UIKit
 import CoreData
 
-//How To Create Custom Tableview Cells In Xcode 8 (Swift 3.0)
-
-
 class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var listItems = [NSManagedObject]()
     
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        // Alternativ måte er
+        // Ctrl drag from TableView til den øverste gule iconen
+        // Merk av delegate og dataSource
+        
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         
