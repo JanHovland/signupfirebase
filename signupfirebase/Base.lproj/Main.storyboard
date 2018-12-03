@@ -688,6 +688,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="hqp-7t-xWr" id="IbE-LI-XFX"/>
+                                    <outlet property="delegate" destination="hqp-7t-xWr" id="Ybz-jt-tUl"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
