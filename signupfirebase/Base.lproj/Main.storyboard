@@ -455,7 +455,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="WCE-qe-P2J" kind="show" identifier="gotoListAllUsers" id="kOm-bw-ejr"/>
+                                            <segue destination="hqp-7t-xWr" kind="show" id="7BE-uC-Ho2"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -619,23 +619,94 @@
             </objects>
             <point key="canvasLocation" x="1398" y="546"/>
         </scene>
-        <!--List user names-->
-        <scene sceneID="LuP-Xz-gEk">
+        <!--List all users-->
+        <scene sceneID="Fk1-LX-stK">
             <objects>
-                <viewController title="List user names" id="WCE-qe-P2J" customClass="ListUserNameViewController" customModule="signupfirebase" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="1LW-Pp-Ztl">
+                <viewController id="hqp-7t-xWr" customClass="ListViewController" customModule="signupfirebase" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oEG-gL-sQ2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zXj-SQ-ZHx">
+                                <rect key="frame" x="0.0" y="20" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="MNK-qb-bSu" customClass="CoreDataTableViewCell" customModule="signupfirebase" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MNK-qb-bSu" id="eWM-fI-pLt">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="sCQ-8S-0H9">
+                                                    <rect key="frame" x="10" y="0.0" width="355" height="35"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gNE-5j-Vma">
+                                                            <rect key="frame" x="0.0" y="0.0" width="21" height="18"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="uid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDX-UJ-J83">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="21" height="18"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="187" translatesAutoresizingMaskIntoConstraints="NO" id="IT8-tC-flw">
+                                                            <rect key="frame" x="0.0" y="19" width="245.5" height="16"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2c-Wq-DdE">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="25" height="16"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxa-gd-Fmh">
+                                                                    <rect key="frame" x="212" y="0.0" width="33.5" height="16"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="sCQ-8S-0H9" firstAttribute="leading" secondItem="eWM-fI-pLt" secondAttribute="leading" constant="10" id="2P4-Rn-lBk"/>
+                                                <constraint firstItem="sCQ-8S-0H9" firstAttribute="top" secondItem="eWM-fI-pLt" secondAttribute="top" id="ZbL-FK-7Re"/>
+                                                <constraint firstAttribute="trailing" secondItem="sCQ-8S-0H9" secondAttribute="trailing" constant="10" id="egz-bJ-VwN"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="mailLabel" destination="r2c-Wq-DdE" id="KBV-wd-9NT"/>
+                                            <outlet property="nameLabel" destination="mxa-gd-Fmh" id="wfQ-k1-2uo"/>
+                                            <outlet property="uidLabel" destination="uDX-UJ-J83" id="09B-5h-Gyt"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="hqp-7t-xWr" id="hSM-Mn-qiw"/>
+                                    <outlet property="delegate" destination="hqp-7t-xWr" id="WZl-0d-jTl"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="mCI-e3-85m"/>
+                        <constraints>
+                            <constraint firstItem="Nop-V9-sE5" firstAttribute="bottom" secondItem="zXj-SQ-ZHx" secondAttribute="bottom" id="HGw-b1-3V2"/>
+                            <constraint firstItem="zXj-SQ-ZHx" firstAttribute="leading" secondItem="Nop-V9-sE5" secondAttribute="leading" id="LvZ-i9-Brh"/>
+                            <constraint firstItem="Nop-V9-sE5" firstAttribute="trailing" secondItem="zXj-SQ-ZHx" secondAttribute="trailing" id="Vh1-If-Wes"/>
+                            <constraint firstItem="zXj-SQ-ZHx" firstAttribute="top" secondItem="Nop-V9-sE5" secondAttribute="top" id="Ztw-IE-zEq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Nop-V9-sE5"/>
                     </view>
-                    <navigationItem key="navigationItem" title="List all users" id="sww-Yf-63g">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="yE3-8t-7E7"/>
+                    <navigationItem key="navigationItem" title="List all users" id="0N6-2O-yY3">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="TkN-Mq-g0c"/>
                     </navigationItem>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="U4x-e9-skH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="70g-Bo-HMF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2127" y="520"/>
+            <point key="canvasLocation" x="2206" y="645"/>
         </scene>
         <!--Reset password by mail-->
         <scene sceneID="C8U-SC-gNn">
@@ -924,7 +995,7 @@ project-211156156416-teamet</string>
         <image name="firebase_logo" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="L1U-ae-97o"/>
-        <segue reference="yRU-J5-NO7"/>
+        <segue reference="5S0-Bs-tdn"/>
+        <segue reference="Dt9-Nc-72v"/>
     </inferredMetricsTieBreakers>
 </document>
