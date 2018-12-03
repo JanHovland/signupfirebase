@@ -14,9 +14,16 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var listItems = [NSManagedObject]()
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activity: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        activity.hidesWhenStopped = true
+        activity.style = .gray
+        view.addSubview(activity)
+
+        activity.startAnimating()
         
         // For å få dette til å virke: må @IBOutlet weak var tableView: UITableView! være aktiv
         tableView.delegate = self
@@ -38,7 +45,8 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
             print("Error")
         }
  
-    }
+        activity.stopAnimating()
+  }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listItems.count
@@ -62,6 +70,9 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        activity.startAnimating()
+        
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         
@@ -72,6 +83,8 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         catch {
             print("Error")
         }
+        activity.stopAnimating()
+        
     }
 
 }

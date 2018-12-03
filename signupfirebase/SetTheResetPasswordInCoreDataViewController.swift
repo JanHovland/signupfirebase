@@ -20,6 +20,11 @@ class SetTheResetPasswordInCoreDataViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        activity.hidesWhenStopped = true
+        activity.style = .gray
+        view.addSubview(activity)
+        
     }
 
     @IBAction func ResetPasswordInCoreData(_ sender: UIBarButtonItem) {

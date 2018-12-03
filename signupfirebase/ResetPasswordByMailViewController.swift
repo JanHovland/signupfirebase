@@ -11,9 +11,9 @@ import UIKit
 
 class ResetPasswordByMailViewController: UIViewController {
     @IBOutlet var SendEmailToReceiver: UITextField!
-    @IBOutlet var activity: UIActivityIndicatorView!
     @IBOutlet var infoTextView: UITextView!
-
+    @IBOutlet weak var activity: UIActivityIndicatorView!
+    
     var myTimer: Timer!
 
     var teller: Int = 0
@@ -31,7 +31,8 @@ class ResetPasswordByMailViewController: UIViewController {
         activity.hidesWhenStopped = true
         activity.style = .gray
         view.addSubview(activity)
-
+        activity.isHidden = true
+        
         activity.startAnimating()
 
         SendEmailToReceiver.text! = (Auth.auth().currentUser?.email)!
