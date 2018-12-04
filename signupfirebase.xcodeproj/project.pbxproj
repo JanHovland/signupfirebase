@@ -10,10 +10,9 @@
 		14B6C7D5AD5979888331B70D /* Pods_signupfirebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FA6AF44DDF6A6C8562A35A /* Pods_signupfirebase.framework */; };
 		D11E2BD8219470D90075BD11 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D11E2BD6219470D90075BD11 /* Model.xcdatamodeld */; };
 		D1266D692199A72C00593984 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1266D682199A72C00593984 /* CreateAccountViewController.swift */; };
+		D135787921B693BB0057140D /* ResetPWByMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D135787821B693BB0057140D /* ResetPWByMailViewController.swift */; };
 		D13BBB1721A5756D00E806BE /* UpdateMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13BBB1621A5756D00E806BE /* UpdateMailViewController.swift */; };
-		D13BBB1921A6B23100E806BE /* ResetPasswordByMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13BBB1821A6B23100E806BE /* ResetPasswordByMailViewController.swift */; };
 		D15A0DD321909AFC00FBB286 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15A0DD221909AFC00FBB286 /* SettingsTableViewController.swift */; };
-		D18C3C2121B151A700C8E213 /* SetTheResetPasswordInCoreDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18C3C2021B151A700C8E213 /* SetTheResetPasswordInCoreDataViewController.swift */; };
 		D1A486E9219E0BA8004D41BE /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A486E8219E0BA8004D41BE /* LogInViewController.swift */; };
 		D1A8671A21919BCB00E0567D /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A8671921919BCB00E0567D /* UserViewController.swift */; };
 		D1B3049421962151006C1319 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1B3049321962151006C1319 /* GoogleService-Info.plist */; };
@@ -34,10 +33,9 @@
 		893C897689365B2F237CCE21 /* Pods-signupfirebase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-signupfirebase.release.xcconfig"; path = "Pods/Target Support Files/Pods-signupfirebase/Pods-signupfirebase.release.xcconfig"; sourceTree = "<group>"; };
 		D11E2BD7219470D90075BD11 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		D1266D682199A72C00593984 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		D135787821B693BB0057140D /* ResetPWByMailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPWByMailViewController.swift; sourceTree = "<group>"; };
 		D13BBB1621A5756D00E806BE /* UpdateMailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateMailViewController.swift; sourceTree = "<group>"; };
-		D13BBB1821A6B23100E806BE /* ResetPasswordByMailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordByMailViewController.swift; sourceTree = "<group>"; };
 		D15A0DD221909AFC00FBB286 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
-		D18C3C2021B151A700C8E213 /* SetTheResetPasswordInCoreDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTheResetPasswordInCoreDataViewController.swift; sourceTree = "<group>"; };
 		D1A486E8219E0BA8004D41BE /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		D1A8671921919BCB00E0567D /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		D1B3049321962151006C1319 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -122,10 +120,9 @@
 				D1C96A1721A1CB0F00C5DA7A /* UpdateUserNameViewController.swift */,
 				D13BBB1621A5756D00E806BE /* UpdateMailViewController.swift */,
 				D1C96A1321A1C97900C5DA7A /* UpdatePasswordViewController.swift */,
-				D13BBB1821A6B23100E806BE /* ResetPasswordByMailViewController.swift */,
-				D18C3C2021B151A700C8E213 /* SetTheResetPasswordInCoreDataViewController.swift */,
 				D1B9562921B3F3E1003F5937 /* CoreDataTableViewCell.swift */,
 				D1F7F28621B482D40063B7F6 /* ListViewController.swift */,
+				D135787821B693BB0057140D /* ResetPWByMailViewController.swift */,
 			);
 			path = signupfirebase;
 			sourceTree = "<group>";
@@ -258,14 +255,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D18C3C2121B151A700C8E213 /* SetTheResetPasswordInCoreDataViewController.swift in Sources */,
 				D1C96A1821A1CB0F00C5DA7A /* UpdateUserNameViewController.swift in Sources */,
 				D15A0DD321909AFC00FBB286 /* SettingsTableViewController.swift in Sources */,
-				D13BBB1921A6B23100E806BE /* ResetPasswordByMailViewController.swift in Sources */,
 				D1A8671A21919BCB00E0567D /* UserViewController.swift in Sources */,
 				D1C96A1421A1C97900C5DA7A /* UpdatePasswordViewController.swift in Sources */,
 				D1C7F2E3218C98C800481E48 /* ViewController.swift in Sources */,
 				D1F7F28721B482D40063B7F6 /* ListViewController.swift in Sources */,
+				D135787921B693BB0057140D /* ResetPWByMailViewController.swift in Sources */,
 				D1A486E9219E0BA8004D41BE /* LogInViewController.swift in Sources */,
 				D1B9562A21B3F3E1003F5937 /* CoreDataTableViewCell.swift in Sources */,
 				D1266D692199A72C00593984 /* CreateAccountViewController.swift in Sources */,

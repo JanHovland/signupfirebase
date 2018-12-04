@@ -90,11 +90,26 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                             }
 
                         } else {
+                            
+                            // Finn passordet fra CoreData, dersom dette er forskjellig fra Firedata, oppdater CoreData
+                            if self.findPasswordCoreData(withEpost: self.eMailLoginTextField.text!) != self.passwordTextField.text! {
+                            
+                                // Legger det nye passordet inn i CoreData
+                                ok = self.updatePasswordCoreData(withEpost: self.eMailLoginTextField.text!,
+                                                                 withPassWord: self.passwordTextField.text!)
+                                
+                                if ok == false {
+                                    let melding = "Kan ikke oppdatere passordet i CoreData."
+                                    self.presentAlert(withTitle: "Feil", message: melding)
+                                }
+
+                            }
+                            
                             // oppdaterer CoreData med loggedin == true
                             ok = self.updateCoreData(withEpost: self.eMailLoginTextField.text!, withLoggedIn: true)
 
                             if ok == false {
-                                let melding = "Kan ikke oppdatere en post i CoreData."
+                                let melding = "Kan ikke oppdatere 'loggedin' i CoreData."
                                 self.presentAlert(withTitle: "Feil", message: melding)
                             }
                         }
