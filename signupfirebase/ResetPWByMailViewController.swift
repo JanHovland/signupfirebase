@@ -6,8 +6,8 @@
 //  Copyright © 2018 Jan . All rights reserved.
 //
 
-import UIKit
 import Firebase
+import UIKit
 
 class ResetPWByMailViewController: UIViewController {
     @IBOutlet var activity: UIActivityIndicatorView!
@@ -17,10 +17,10 @@ class ResetPWByMailViewController: UIViewController {
     var myTimer: Timer!
     var teller: Int = 0
     var status: Bool = true
-    
+
     // Setter en "constant" forsinkelse etter at en trykker på "Save"
     let forsinkelse = 3
- 
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,7 +29,7 @@ class ResetPWByMailViewController: UIViewController {
         activity.hidesWhenStopped = true
         activity.style = .gray
         view.addSubview(activity)
- 
+
         activity.startAnimating()
         SendEmailToReceiver.text! = (Auth.auth().currentUser?.email)!
         activity.stopAnimating()
@@ -44,10 +44,10 @@ class ResetPWByMailViewController: UIViewController {
         status = !status
         infoTextView.isHidden = status
     }
-    
+
     @IBAction func resetByMail(_ sender: UIBarButtonItem) {
         activity.startAnimating()
-        
+
         // Sender eposten på norsk:
         Auth.auth().languageCode = "no"
         Auth.auth().sendPasswordReset(withEmail: SendEmailToReceiver.text!) { error in
@@ -57,18 +57,17 @@ class ResetPWByMailViewController: UIViewController {
                                                     target: self,
                                                     selector: #selector(self.returnToLogin),
                                                     userInfo: nil, repeats: false)
-                
+
             } else {
                 self.presentAlert(withTitle: "Error", message: error?.localizedDescription as Any)
             }
         }
-        
+
         activity.stopAnimating()
     }
-    
+
     @objc func returnToLogin() {
         performSegue(withIdentifier: "BackToLoginViewController", sender: self)
         myTimer.invalidate()
     }
-    
 }

@@ -15,7 +15,6 @@
 		D15A0DD321909AFC00FBB286 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15A0DD221909AFC00FBB286 /* SettingsTableViewController.swift */; };
 		D1859F7321B7C38500E1D518 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1859F7221B7C38500E1D518 /* ListTableViewController.swift */; };
 		D1A486E9219E0BA8004D41BE /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A486E8219E0BA8004D41BE /* LogInViewController.swift */; };
-		D1A8671A21919BCB00E0567D /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A8671921919BCB00E0567D /* UserViewController.swift */; };
 		D1B3049421962151006C1319 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1B3049321962151006C1319 /* GoogleService-Info.plist */; };
 		D1B9562A21B3F3E1003F5937 /* CoreDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B9562921B3F3E1003F5937 /* CoreDataTableViewCell.swift */; };
 		D1C7F2E1218C98C800481E48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C7F2E0218C98C800481E48 /* AppDelegate.swift */; };
@@ -38,7 +37,6 @@
 		D15A0DD221909AFC00FBB286 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		D1859F7221B7C38500E1D518 /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		D1A486E8219E0BA8004D41BE /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
-		D1A8671921919BCB00E0567D /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		D1B3049321962151006C1319 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D1B9562921B3F3E1003F5937 /* CoreDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewCell.swift; sourceTree = "<group>"; };
 		D1C7F2DD218C98C800481E48 /* signupfirebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = signupfirebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,15 +112,14 @@
 				D11E2BD6219470D90075BD11 /* Model.xcdatamodeld */,
 				D1B9562921B3F3E1003F5937 /* CoreDataTableViewCell.swift */,
 				D1C7F2E2218C98C800481E48 /* ViewController.swift */,
-				D1A8671921919BCB00E0567D /* UserViewController.swift */,
 				D1A486E8219E0BA8004D41BE /* LogInViewController.swift */,
-				D15A0DD221909AFC00FBB286 /* SettingsTableViewController.swift */,
 				D1266D682199A72C00593984 /* CreateAccountViewController.swift */,
 				D1C96A1721A1CB0F00C5DA7A /* UpdateUserNameViewController.swift */,
 				D13BBB1621A5756D00E806BE /* UpdateMailViewController.swift */,
 				D1C96A1321A1C97900C5DA7A /* UpdatePasswordViewController.swift */,
 				D135787821B693BB0057140D /* ResetPWByMailViewController.swift */,
 				D1859F7221B7C38500E1D518 /* ListTableViewController.swift */,
+				D15A0DD221909AFC00FBB286 /* SettingsTableViewController.swift */,
 			);
 			path = signupfirebase;
 			sourceTree = "<group>";
@@ -257,7 +254,6 @@
 			files = (
 				D1C96A1821A1CB0F00C5DA7A /* UpdateUserNameViewController.swift in Sources */,
 				D15A0DD321909AFC00FBB286 /* SettingsTableViewController.swift in Sources */,
-				D1A8671A21919BCB00E0567D /* UserViewController.swift in Sources */,
 				D1C96A1421A1C97900C5DA7A /* UpdatePasswordViewController.swift in Sources */,
 				D1C7F2E3218C98C800481E48 /* ViewController.swift in Sources */,
 				D135787921B693BB0057140D /* ResetPWByMailViewController.swift in Sources */,

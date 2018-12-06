@@ -17,7 +17,7 @@ class SettingsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Setter switchPassWord til av
         if (UserDefaults.standard.bool(forKey: "SHOWPASSWORD")) == true {
             switchPassWord.isOn = true
@@ -37,10 +37,8 @@ class SettingsTableViewController: UITableViewController {
 
         activity.stopAnimating()
     }
-   
-    
+
     @IBAction func showPassword(_ sender: UISwitch) {
-        
         if (UserDefaults.standard.bool(forKey: "SHOWPASSWORD")) == true {
             UserDefaults.standard.set(false, forKey: "SHOWPASSWORD")
             switchPassWord.isOn = false
@@ -48,9 +46,7 @@ class SettingsTableViewController: UITableViewController {
             UserDefaults.standard.set(true, forKey: "SHOWPASSWORD")
             switchPassWord.isOn = true
         }
-        
-        
     }
-    
-    @IBOutlet weak var switchPassWord: UISwitch!
+
+    @IBOutlet var switchPassWord: UISwitch!
 }

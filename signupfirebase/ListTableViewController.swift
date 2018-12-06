@@ -66,6 +66,7 @@ class ListTableViewController: UITableViewController {
         cell.uidLabel?.text = item.value(forKey: "uid") as? String
         cell.mailLabel?.text = item.value(forKey: "email") as? String
         cell.nameLabel?.text = item.value(forKey: "name") as? String
+        cell.passwordLabel?.text = item.value(forKey: "password") as? String
 
         print(cell.uidLabel?.text as Any)
 

@@ -39,6 +39,9 @@ class UpdateMailViewController: UIViewController, UITextFieldDelegate {
         if (newEmailTextField.text?.count)! > 0 {
             activity.startAnimating()
 
+            // Sender eposten på norsk:
+            Auth.auth().languageCode = "no"
+
             // Legger inn ny opost i Firebase
             Auth.auth().currentUser?.updateEmail(to: newEmailTextField.text!)
             print("Oppdatert epost")

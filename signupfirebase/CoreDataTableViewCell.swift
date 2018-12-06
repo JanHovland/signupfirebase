@@ -9,11 +9,11 @@
 import UIKit
 
 class CoreDataTableViewCell: UITableViewCell {
-
     @IBOutlet var uidLabel: UILabel!
     @IBOutlet var mailLabel: UILabel!
     @IBOutlet var nameLabel: UILabel!
-    
+    @IBOutlet var passwordLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,5 +24,4 @@ class CoreDataTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }

@@ -40,6 +40,9 @@ class UpdateUserNameViewController: UIViewController, UITextFieldDelegate {
         if (NewNameTextField.text?.count)! > 0 {
             activity.startAnimating()
 
+            // Sender eposten på norsk:
+            Auth.auth().languageCode = "no"
+
             // Legger inn det nye navnet i Firebase
             let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
             changeRequest?.displayName = NewNameTextField.text

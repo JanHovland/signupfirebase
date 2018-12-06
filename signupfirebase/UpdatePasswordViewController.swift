@@ -35,18 +35,21 @@ class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
 
         // Finner passordet fra CoreData
         oldPasswordTextField.text! = findPasswordCoreData(withEpost: email!)
-        
+
         if (UserDefaults.standard.bool(forKey: "SHOWPASSWORD")) == true {
             oldPasswordTextField.isSecureTextEntry = false
         } else {
             oldPasswordTextField.isSecureTextEntry = true
         }
-        
+
         activity.stopAnimating()
     }
 
     @IBAction func SaveNewPassword(_ sender: Any) {
         activity.startAnimating()
+
+        // Sender eposten på norsk:
+        Auth.auth().languageCode = "no"
 
         // Oppdaterer passordet i Firebase
         Auth.auth().currentUser?.updatePassword(to: newPasswordTextField.text!) { error in
@@ -54,6 +57,9 @@ class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
             if error != nil {
                 self.presentAlertOption(withTitle: "Error", message: error!.localizedDescription as Any)
             } else {
+                // Sender eposten på norsk:
+                Auth.auth().languageCode = "no"
+
                 // Lagrer passord i Coredata
                 let ok = self.updatePasswordCoreData(withEpost: (Auth.auth().currentUser?.email!)!,
                                                      withPassWord: self.newPasswordTextField.text!)

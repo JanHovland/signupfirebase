@@ -60,6 +60,9 @@ class CreateAccountViewController: UIViewController {
         if eMailCreateAccountTextField.text!.count > 0,
             nameCreateAccountTextField.text!.count > 0,
             passwordCreateAccountTextField.text!.count >= 6 {
+            // Sender eposten på norsk:
+            Auth.auth().languageCode = "no"
+
             // Register the user with Firebase
             Auth.auth().createUser(withEmail: eMailCreateAccountTextField.text!,
                                    password: passwordCreateAccountTextField.text!) { _, error in
@@ -69,7 +72,7 @@ class CreateAccountViewController: UIViewController {
 
                     uid = Auth.auth().currentUser?.uid ?? ""
                     print("uid fra SaveAccount: \(uid)")
-                    
+
                     navn = self.nameCreateAccountTextField.text!
 
                     // Resetter alle postene som hvor loggedin == true
@@ -91,6 +94,9 @@ class CreateAccountViewController: UIViewController {
                                 let melding = "Kan ikke lagre en ny post i CoreData."
                                 self.presentAlert(withTitle: "Feil", message: melding)
                             } else {
+                                // Sender eposten på norsk:
+                                Auth.auth().languageCode = "no"
+
                                 // Legg inn Navnet på brukeren i Firebase
                                 let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
                                 changeRequest?.displayName = self.nameCreateAccountTextField.text!
@@ -114,6 +120,10 @@ class CreateAccountViewController: UIViewController {
                                 self.presentAlert(withTitle: "Feil", message: melding)
                             } else {
                                 // Legg inn Navnet på brukeren
+
+                                // Sender eposten på norsk:
+                                Auth.auth().languageCode = "no"
+
                                 let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
                                 changeRequest?.displayName = self.nameCreateAccountTextField.text!
 

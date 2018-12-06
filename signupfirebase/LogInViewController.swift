@@ -21,7 +21,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
 
         // Setter "SHOWPASSWORD" til false
         UserDefaults.standard.set(false, forKey: "SHOWPASSWORD")
-        
+
         // For å kunne avslutte visning av tastatur når en trykker "Ferdig" på tastauuret
         eMailLoginTextField.delegate = self
         passwordTextField.delegate = self
@@ -50,7 +50,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func NextButtonTapped(_ sender: UIBarButtonItem) {
-        
         var ok: Bool = false
         var ok1: Bool = false
         var uid: String = ""
@@ -63,6 +62,9 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         if eMailLoginTextField.text!.count > 0,
             passwordTextField.text!.count >= 6 {
             activity.startAnimating()
+
+            // Sender eposten på norsk:
+            Auth.auth().languageCode = "no"
 
             // Sjekk om eposten og passordet er registrert som bruker i Firebase
             Auth.auth().signIn(withEmail: eMailLoginTextField.text!, password: passwordTextField.text!) { _, error in
@@ -94,21 +96,18 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                             }
 
                         } else {
-                            
                             // Finn passordet fra CoreData, dersom dette er forskjellig fra Firedata, oppdater CoreData
                             if self.findPasswordCoreData(withEpost: self.eMailLoginTextField.text!) != self.passwordTextField.text! {
-                            
                                 // Legger det nye passordet inn i CoreData
                                 ok = self.updatePasswordCoreData(withEpost: self.eMailLoginTextField.text!,
                                                                  withPassWord: self.passwordTextField.text!)
-                                
+
                                 if ok == false {
                                     let melding = "Kan ikke oppdatere passordet i CoreData."
                                     self.presentAlert(withTitle: "Feil", message: melding)
                                 }
-
                             }
-                            
+
                             // oppdaterer CoreData med loggedin == true
                             ok = self.updateCoreData(withEpost: self.eMailLoginTextField.text!, withLoggedIn: true)
 
