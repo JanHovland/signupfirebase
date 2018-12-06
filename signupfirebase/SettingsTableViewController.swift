@@ -17,6 +17,13 @@ class SettingsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Setter switchPassWord til av
+        if (UserDefaults.standard.bool(forKey: "SHOWPASSWORD")) == true {
+            switchPassWord.isOn = true
+        } else {
+            switchPassWord.isOn = false
+        }
 
         activity.hidesWhenStopped = true
         activity.style = .gray
@@ -30,4 +37,20 @@ class SettingsTableViewController: UITableViewController {
 
         activity.stopAnimating()
     }
+   
+    
+    @IBAction func showPassword(_ sender: UISwitch) {
+        
+        if (UserDefaults.standard.bool(forKey: "SHOWPASSWORD")) == true {
+            UserDefaults.standard.set(false, forKey: "SHOWPASSWORD")
+            switchPassWord.isOn = false
+        } else {
+            UserDefaults.standard.set(true, forKey: "SHOWPASSWORD")
+            switchPassWord.isOn = true
+        }
+        
+        
+    }
+    
+    @IBOutlet weak var switchPassWord: UISwitch!
 }

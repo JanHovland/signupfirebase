@@ -35,8 +35,13 @@ class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
 
         // Finner passordet fra CoreData
         oldPasswordTextField.text! = findPasswordCoreData(withEpost: email!)
-        oldPasswordTextField.isSecureTextEntry = true
-
+        
+        if (UserDefaults.standard.bool(forKey: "SHOWPASSWORD")) == true {
+            oldPasswordTextField.isSecureTextEntry = false
+        } else {
+            oldPasswordTextField.isSecureTextEntry = true
+        }
+        
         activity.stopAnimating()
     }
 

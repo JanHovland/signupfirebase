@@ -19,6 +19,9 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Setter "SHOWPASSWORD" til false
+        UserDefaults.standard.set(false, forKey: "SHOWPASSWORD")
+        
         // For å kunne avslutte visning av tastatur når en trykker "Ferdig" på tastauuret
         eMailLoginTextField.delegate = self
         passwordTextField.delegate = self
@@ -47,6 +50,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func NextButtonTapped(_ sender: UIBarButtonItem) {
+        
         var ok: Bool = false
         var ok1: Bool = false
         var uid: String = ""

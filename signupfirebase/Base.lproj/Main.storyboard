@@ -438,18 +438,19 @@
                             </tableViewSection>
                             <tableViewSection headerTitle=" " id="Tb1-zK-Lpo">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="L6K-cT-jjw">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="12" id="L6K-cT-jjw">
                                         <rect key="frame" x="0.0" y="404" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L6K-cT-jjw" id="df3-6L-uVw">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="140" translatesAutoresizingMaskIntoConstraints="NO" id="Ri3-eY-g6B">
-                                                    <rect key="frame" x="16" y="11" width="336" height="31"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="143" translatesAutoresizingMaskIntoConstraints="NO" id="2d8-rg-l5x">
+                                                    <rect key="frame" x="20" y="6" width="342.5" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Nlg-Wr-o9D">
-                                                            <rect key="frame" x="0.0" y="0.0" width="147" height="31"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Hn8-IH-UbA">
+                                                            <rect key="frame" x="0.0" y="0.0" width="150.5" height="31"/>
                                                             <subviews>
                                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" image="Icon-20" translatesAutoresizingMaskIntoConstraints="NO" id="nds-79-Es2">
                                                                     <rect key="frame" x="0.0" y="0.0" width="20" height="31"/>
@@ -458,32 +459,27 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="va4-Zc-PIa">
-                                                                    <rect key="frame" x="32" y="0.0" width="115" height="31"/>
+                                                                    <rect key="frame" x="30" y="0.0" width="120.5" height="31"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HUW-TP-Zbc">
-                                                            <rect key="frame" x="287" y="0.0" width="49" height="31"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cgc-0A-aEl">
+                                                            <rect key="frame" x="293.5" y="0.0" width="49" height="31"/>
                                                             <subviews>
-                                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="fill" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rgX-yG-ZgC">
+                                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="fill" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rgX-yG-ZgC">
                                                                     <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                                                    <connections>
+                                                                        <action selector="showPassword:" destination="nhA-xf-W66" eventType="valueChanged" id="FTr-nQ-nYx"/>
+                                                                    </connections>
                                                                 </switch>
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="HUW-TP-Zbc" firstAttribute="leading" secondItem="Ri3-eY-g6B" secondAttribute="leading" constant="287" id="MiQ-sF-cHY"/>
-                                                    </constraints>
                                                 </stackView>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Ri3-eY-g6B" firstAttribute="leading" secondItem="df3-6L-uVw" secondAttribute="leading" constant="16" id="7e1-G0-Wb1"/>
-                                                <constraint firstItem="Ri3-eY-g6B" firstAttribute="top" secondItem="df3-6L-uVw" secondAttribute="topMargin" id="h7t-jZ-7SB"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Ri3-eY-g6B" secondAttribute="bottom" constant="-9" id="sKC-M7-B3i"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -501,11 +497,12 @@
                         <outlet property="activity" destination="5Kc-zy-85Y" id="qVs-l3-UL2"/>
                         <outlet property="settingsEmail" destination="gUw-Dv-Bgg" id="wdP-E5-MaQ"/>
                         <outlet property="settingsUserName" destination="Xyu-Be-I3U" id="jBP-NH-FMu"/>
+                        <outlet property="switchPassWord" destination="rgX-yG-ZgC" id="3TK-s7-R4d"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pgR-wM-cad" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1380" y="-207.34632683658174"/>
+            <point key="canvasLocation" x="1396" y="-207"/>
         </scene>
         <!--Update user name-->
         <scene sceneID="ffJ-QF-Ihx">
@@ -660,7 +657,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="awl-X6-eIh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1340" y="954.87256371814101"/>
+            <point key="canvasLocation" x="1396" y="546"/>
         </scene>
         <!--Reset password by mail-->
         <scene sceneID="PxX-s2-G0Y">
