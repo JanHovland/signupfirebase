@@ -66,9 +66,18 @@ class ListTableViewController: UITableViewController {
         cell.uidLabel?.text = item.value(forKey: "uid") as? String
         cell.mailLabel?.text = item.value(forKey: "email") as? String
         cell.nameLabel?.text = item.value(forKey: "name") as? String
-        cell.passwordLabel?.text = item.value(forKey: "password") as? String
-
-        print(cell.uidLabel?.text as Any)
+        
+        cell.passwordTextField?.isEnabled = false
+        
+        // Setter switchPassWord til av
+        if (UserDefaults.standard.bool(forKey: "SHOWPASSWORD")) == true {
+            cell.passwordTextField.isSecureTextEntry = false
+        }
+        else {
+            cell.passwordTextField.isSecureTextEntry = true
+        }
+        
+        cell.passwordTextField?.text = item.value(forKey: "password") as? String
 
         return cell
     }

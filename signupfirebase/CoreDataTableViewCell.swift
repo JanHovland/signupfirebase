@@ -12,7 +12,7 @@ class CoreDataTableViewCell: UITableViewCell {
     @IBOutlet var uidLabel: UILabel!
     @IBOutlet var mailLabel: UILabel!
     @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var passwordLabel: UILabel!
+    @IBOutlet weak var passwordTextField: UITextField!
 
     override func awakeFromNib() {
         super.awakeFromNib()
