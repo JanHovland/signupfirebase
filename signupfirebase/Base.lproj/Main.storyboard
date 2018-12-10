@@ -74,9 +74,10 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="t9s-Fr-1Bk">
-                                <rect key="frame" x="10" y="282" width="355" height="217"/>
+                                <rect key="frame" x="10" y="282" width="355" height="272"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">For å kunne logge inn, må eMail inneholde en lovlig mailadresse.
+
 Passordet må inneholde minimum 6 tegn.
 
 Sjekk av innloggingen skjer når en trykker &lt;Ferdig&gt; på tastaturet til Password.</string>
@@ -97,9 +98,9 @@ Sjekk av innloggingen skjer når en trykker &lt;Ferdig&gt; på tastaturet til Pa
                             <constraint firstItem="UOa-JQ-smh" firstAttribute="top" secondItem="dej-9k-aAA" secondAttribute="top" constant="30" id="OOg-KI-h73"/>
                             <constraint firstItem="pq7-iK-ExR" firstAttribute="top" secondItem="dej-9k-aAA" secondAttribute="top" constant="75" id="X2C-9X-qtp"/>
                             <constraint firstItem="t9s-Fr-1Bk" firstAttribute="top" secondItem="sy5-nA-8Lg" secondAttribute="bottom" constant="22" id="XnX-9j-7mr"/>
+                            <constraint firstItem="dej-9k-aAA" firstAttribute="bottom" secondItem="t9s-Fr-1Bk" secondAttribute="bottom" constant="20" id="YWP-Cm-jvm"/>
                             <constraint firstItem="dej-9k-aAA" firstAttribute="trailing" secondItem="pq7-iK-ExR" secondAttribute="trailing" constant="10" id="abD-O7-fpx"/>
                             <constraint firstItem="pq7-iK-ExR" firstAttribute="leading" secondItem="dej-9k-aAA" secondAttribute="leading" constant="10" id="qIv-Zp-NEb"/>
-                            <constraint firstItem="dej-9k-aAA" firstAttribute="bottom" secondItem="t9s-Fr-1Bk" secondAttribute="bottom" constant="75" id="tf7-m7-JZe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dej-9k-aAA"/>
                     </view>
