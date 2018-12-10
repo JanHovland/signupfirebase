@@ -233,9 +233,10 @@ extension UIViewController {
         return ok
     }
 
-    func getCoreData() -> (String, String) {
+    func getCoreData() -> (String, String,String) {
         var ePost: String = ""
         var passWord: String = ""
+        var name: String = ""
 
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
@@ -254,6 +255,11 @@ extension UIViewController {
                     if data.value(forKey: "password") != nil {
                         passWord = data.value(forKey: "password") as! String
                     }
+                    
+                    if data.value(forKey: "name") != nil {
+                        name = data.value(forKey: "name") as! String
+                    }
+                    
                 }
             }
 
@@ -261,7 +267,7 @@ extension UIViewController {
             print(error.localizedDescription)
         }
 
-        return (ePost, passWord)
+        return (ePost, passWord,name)
     }
 
     func updateCoreData(withEpost: String, withLoggedIn: Bool) -> Bool {
