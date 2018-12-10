@@ -11,21 +11,30 @@ import Firebase
 import UIKit
 
 class LogInViewController: UIViewController, UITextFieldDelegate {
+    
     @IBOutlet var activity: UIActivityIndicatorView!
-
     @IBOutlet var eMailLoginTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
-
+    @IBOutlet var infoTextView: UITextView!
+    
+    var status: Bool = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        infoTextView.isHidden = true
+        
         // Setter "SHOWPASSWORD" til false
         UserDefaults.standard.set(false, forKey: "SHOWPASSWORD")
+        
+        // Listen for keyboard events
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: NSNotification.Name(rawValue: UIResponder.description()), object: nil)
 
         // For å kunne avslutte visning av tastatur når en trykker "Ferdig" på tastauuret
         eMailLoginTextField.delegate = self
         passwordTextField.delegate = self
-
+        
         // Initierer UIActivityIndicatorView
         activity.hidesWhenStopped = true
         activity.style = .gray
@@ -41,15 +50,36 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.text = value.1
 
         activity.stopAnimating()
+        
+    }
+    
+    @objc func keyboardWillChange(notification: Notification) {
+        
+        if passwordTextField.isFirstResponder == true,
+            passwordTextField.text!.count > 0,
+            eMailLoginTextField.text!.count > 0 {
+            CheckLogin()
+        }
+        
     }
 
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // Dismiss the keyboard when the view is tapped on
         eMailLoginTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
     }
 
-    @IBAction func NextButtonTapped(_ sender: UIBarButtonItem) {
+    @IBAction func info(_ sender: UIButton) {
+        status = !status
+        infoTextView.isHidden = status
+    }
+    
+    func CheckLogin() {
+        
         var ok: Bool = false
         var ok1: Bool = false
         var uid: String = ""
@@ -118,7 +148,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                         }
 
                         // Går til Settings bildet
-                        self.performSegue(withIdentifier: "gotoSettingsFromLogin", sender: self)
+//                        self.performSegue(withIdentifier: "gotoSettingsFromLogin", sender: self)
 
                     } else {
                         let melding = "Kan ikke oppdatere en post(er) i CoreData."
