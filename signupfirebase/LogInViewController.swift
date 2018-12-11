@@ -15,18 +15,17 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var activity: UIActivityIndicatorView!
     @IBOutlet var eMailLoginTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
-    @IBOutlet var infoTextView: UITextView!
+    @IBOutlet weak var loginStatus: UITextField!
     
     var status: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        infoTextView.isHidden = true
-        
         // Setter "SHOWPASSWORD" til false
         UserDefaults.standard.set(false, forKey: "SHOWPASSWORD")
         
+        // Brukes ikke lenger, men beholdes for å vise bruk av keyboard events
         // Listen for keyboard events
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: NSNotification.Name(rawValue: UIResponder.description()), object: nil)
@@ -53,12 +52,17 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+    }
+    
     @objc func keyboardWillChange(notification: Notification) {
+        
+        // Ikke i bruk lenger.
         
         if passwordTextField.isFirstResponder == true,
             passwordTextField.text!.count > 0,
             eMailLoginTextField.text!.count > 0 {
-            CheckLogin()
+            // CheckLogin()
         }
         
     }
@@ -73,9 +77,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.resignFirstResponder()
     }
 
-    @IBAction func info(_ sender: UIButton) {
-        status = !status
-        infoTextView.isHidden = status
+    @IBAction func LogIn(_ sender: UIBarButtonItem) {
+        CheckLogin()
     }
     
     func CheckLogin() {
@@ -144,11 +147,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                             if ok == false {
                                 let melding = "Kan ikke oppdatere 'loggedin' i CoreData."
                                 self.presentAlert(withTitle: "Feil", message: melding)
+                            } else {
+                                self.loginStatus.text = navn + " is logged in."
                             }
                         }
-
-                        // Går til Settings bildet
-//                        self.performSegue(withIdentifier: "gotoSettingsFromLogin", sender: self)
 
                     } else {
                         let melding = "Kan ikke oppdatere en post(er) i CoreData."
@@ -177,8 +179,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // prepare kjøres etter hvilken som helst segue.
         // Skal bare kjøres etter: performSegue(withIdentifier: "gotoCreateAccount", sender: self)
-
-        print(segue.identifier as Any)
 
         if segue.identifier! == "gotoCreateAccount" {
             let vc = segue.destination as! CreateAccountViewController

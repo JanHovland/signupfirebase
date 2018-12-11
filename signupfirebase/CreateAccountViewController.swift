@@ -139,7 +139,7 @@ class CreateAccountViewController: UIViewController {
                         }
 
                         // Går til
-                        self.performSegue(withIdentifier: "UpdateUserDataFromCreateAccount", sender: self)
+                        // self.performSegue(withIdentifier: "UpdateUserDataFromCreateAccount", sender: self)
 
                     } else {
                         let melding = "Kan ikke oppdatere en post(er) i CoreData."

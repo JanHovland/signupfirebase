@@ -29,29 +29,16 @@ class SettingsTableViewController: UITableViewController {
         activity.style = .gray
         view.addSubview(activity)
 
-        activity.startAnimating()
-
-        // Henter brukernavn og passord fra FireBase
-        // settingsEmail.text = Auth.auth().currentUser?.email
-        let value = getCoreData()
-        settingsEmail.text = value.0
-        settingsUserName.text = value.2
-        
-        print(value.0)
-        print(value.1)
-        print(value.2)
-        
-        activity.stopAnimating()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let value = getCoreData()
-        settingsEmail.text = value.0
-        settingsUserName.text = value.2
+        activity.startAnimating()
         
-        print(value.0)
-        print(value.1)
-        print(value.2)
+        // Henter brukernavn og passord fra FireBase
+        settingsEmail.text = Auth.auth().currentUser?.email
+        settingsUserName.text = Auth.auth().currentUser?.displayName
+        
+        activity.stopAnimating()
     }
 
     @IBAction func showPassword(_ sender: UISwitch) {

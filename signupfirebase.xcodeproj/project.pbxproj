@@ -18,7 +18,6 @@
 		D1B3049421962151006C1319 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1B3049321962151006C1319 /* GoogleService-Info.plist */; };
 		D1B9562A21B3F3E1003F5937 /* CoreDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B9562921B3F3E1003F5937 /* CoreDataTableViewCell.swift */; };
 		D1C7F2E1218C98C800481E48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C7F2E0218C98C800481E48 /* AppDelegate.swift */; };
-		D1C7F2E3218C98C800481E48 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C7F2E2218C98C800481E48 /* ViewController.swift */; };
 		D1C7F2E6218C98C800481E48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1C7F2E4218C98C800481E48 /* Main.storyboard */; };
 		D1C7F2E8218C98C900481E48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1C7F2E7218C98C900481E48 /* Assets.xcassets */; };
 		D1C7F2EB218C98C900481E48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1C7F2E9218C98C900481E48 /* LaunchScreen.storyboard */; };
@@ -41,7 +40,6 @@
 		D1B9562921B3F3E1003F5937 /* CoreDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewCell.swift; sourceTree = "<group>"; };
 		D1C7F2DD218C98C800481E48 /* signupfirebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = signupfirebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1C7F2E0218C98C800481E48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D1C7F2E2218C98C800481E48 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D1C7F2E5218C98C800481E48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D1C7F2E7218C98C900481E48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1C7F2EA218C98C900481E48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -111,7 +109,6 @@
 				D1B3049321962151006C1319 /* GoogleService-Info.plist */,
 				D11E2BD6219470D90075BD11 /* Model.xcdatamodeld */,
 				D1B9562921B3F3E1003F5937 /* CoreDataTableViewCell.swift */,
-				D1C7F2E2218C98C800481E48 /* ViewController.swift */,
 				D1A486E8219E0BA8004D41BE /* LogInViewController.swift */,
 				D1266D682199A72C00593984 /* CreateAccountViewController.swift */,
 				D1C96A1721A1CB0F00C5DA7A /* UpdateUserNameViewController.swift */,
@@ -255,7 +252,6 @@
 				D1C96A1821A1CB0F00C5DA7A /* UpdateUserNameViewController.swift in Sources */,
 				D15A0DD321909AFC00FBB286 /* SettingsTableViewController.swift in Sources */,
 				D1C96A1421A1C97900C5DA7A /* UpdatePasswordViewController.swift in Sources */,
-				D1C7F2E3218C98C800481E48 /* ViewController.swift in Sources */,
 				D135787921B693BB0057140D /* ResetPWByMailViewController.swift in Sources */,
 				D1A486E9219E0BA8004D41BE /* LogInViewController.swift in Sources */,
 				D1B9562A21B3F3E1003F5937 /* CoreDataTableViewCell.swift in Sources */,

@@ -6,6 +6,8 @@
 //  Copyright © 2018 Jan . All rights reserved.
 //
 
+//  Navigationbar < = backIndicatorImage   teksten = backBarButtonItem
+
 import Firebase
 import UIKit
 
@@ -21,7 +23,7 @@ class UpdateMailViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         newEmailTextField.delegate = self
 
         activity.hidesWhenStopped = true
@@ -35,6 +37,9 @@ class UpdateMailViewController: UIViewController, UITextFieldDelegate {
         activity.stopAnimating()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+    }
+    
     @IBAction func SaveNewEmail(_ sender: Any) {
         if (newEmailTextField.text?.count)! > 0 {
             activity.startAnimating()
@@ -57,7 +62,7 @@ class UpdateMailViewController: UIViewController, UITextFieldDelegate {
             activity.stopAnimating()
 
             // Legg inn en liten forsinkelse før funksjonen "returnToLogin" kalles
-            myTimer = Timer.scheduledTimer(timeInterval: TimeInterval(forsinkelse), target: self, selector: #selector(returnToLogin), userInfo: nil, repeats: false)
+            myTimer = Timer.scheduledTimer(timeInterval: TimeInterval(forsinkelse), target: self, selector: #selector(statusChange), userInfo: nil, repeats: false)
 
         } else {
             // Legge ut varsel
@@ -66,8 +71,9 @@ class UpdateMailViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
-    @objc func returnToLogin() {
-        performSegue(withIdentifier: "BackToLoginViewController", sender: self)
+    @objc func statusChange() {
+        
+        print("statusChange")
         myTimer.invalidate()
     }
 
