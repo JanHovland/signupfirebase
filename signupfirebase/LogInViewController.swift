@@ -53,6 +53,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        loginStatus.text = showUserInfo(startUp: true)
     }
     
     @objc func keyboardWillChange(notification: Notification) {
@@ -511,4 +512,23 @@ extension UIViewController {
 
         return ok
     }
+    
+    func showUserInfo(startUp: Bool) -> String {
+        let value = getCoreData()
+        let email = value.0
+        let name = value.2
+        
+        if email.count > 0,
+            name.count > 0 {
+            if startUp == false {
+                return name +  " (" + email + ")."
+            } else {
+                return "Please log in to Firebase."
+            }
+        } else {
+            return ""
+        }
+    }
+    
+    
 }

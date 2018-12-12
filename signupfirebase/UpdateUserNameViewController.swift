@@ -11,10 +11,9 @@ import UIKit
 
 class UpdateUserNameViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var activity: UIActivityIndicatorView!
-
     @IBOutlet var OldNameLabel: UILabel!
     @IBOutlet var NewNameTextField: UITextField!
-
+    @IBOutlet weak var visUserInfo: UILabel!
     var myTimer: Timer!
 
     // Setter en "constant" forsinkelse etter at en trykker på "Save"
@@ -23,6 +22,8 @@ class UpdateUserNameViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        showUserInformation()
+        
         NewNameTextField.delegate = self
 
         activity.hidesWhenStopped = true
@@ -66,7 +67,7 @@ class UpdateUserNameViewController: UIViewController, UITextFieldDelegate {
             activity.stopAnimating()
 
             // Legg inn en liten forsinkelse før funksjonen "returnToSettings" kalles
-            myTimer = Timer.scheduledTimer(timeInterval: TimeInterval(forsinkelse), target: self, selector: #selector(returnToSettings), userInfo: nil, repeats: false)
+            myTimer = Timer.scheduledTimer(timeInterval: TimeInterval(forsinkelse), target: self, selector: #selector(showUserInformation), userInfo: nil, repeats: false)
 
         } else {
             // Legge ut varsel
@@ -75,9 +76,8 @@ class UpdateUserNameViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
-    @objc func returnToSettings() {
-        performSegue(withIdentifier: "BackToSettingsTableViewController", sender: self)
-        myTimer.invalidate()
+    @objc func showUserInformation() {
+        visUserInfo.text = showUserInfo(startUp: false)
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

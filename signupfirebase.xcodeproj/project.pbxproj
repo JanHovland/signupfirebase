@@ -11,7 +11,6 @@
 		D11E2BD8219470D90075BD11 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D11E2BD6219470D90075BD11 /* Model.xcdatamodeld */; };
 		D1266D692199A72C00593984 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1266D682199A72C00593984 /* CreateAccountViewController.swift */; };
 		D135787921B693BB0057140D /* ResetPWByMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D135787821B693BB0057140D /* ResetPWByMailViewController.swift */; };
-		D13BBB1721A5756D00E806BE /* UpdateMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13BBB1621A5756D00E806BE /* UpdateMailViewController.swift */; };
 		D15A0DD321909AFC00FBB286 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15A0DD221909AFC00FBB286 /* SettingsTableViewController.swift */; };
 		D1859F7321B7C38500E1D518 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1859F7221B7C38500E1D518 /* ListTableViewController.swift */; };
 		D1A486E9219E0BA8004D41BE /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A486E8219E0BA8004D41BE /* LogInViewController.swift */; };
@@ -32,7 +31,6 @@
 		D11E2BD7219470D90075BD11 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		D1266D682199A72C00593984 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		D135787821B693BB0057140D /* ResetPWByMailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPWByMailViewController.swift; sourceTree = "<group>"; };
-		D13BBB1621A5756D00E806BE /* UpdateMailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateMailViewController.swift; sourceTree = "<group>"; };
 		D15A0DD221909AFC00FBB286 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		D1859F7221B7C38500E1D518 /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		D1A486E8219E0BA8004D41BE /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -112,7 +110,6 @@
 				D1A486E8219E0BA8004D41BE /* LogInViewController.swift */,
 				D1266D682199A72C00593984 /* CreateAccountViewController.swift */,
 				D1C96A1721A1CB0F00C5DA7A /* UpdateUserNameViewController.swift */,
-				D13BBB1621A5756D00E806BE /* UpdateMailViewController.swift */,
 				D1C96A1321A1C97900C5DA7A /* UpdatePasswordViewController.swift */,
 				D135787821B693BB0057140D /* ResetPWByMailViewController.swift */,
 				D1859F7221B7C38500E1D518 /* ListTableViewController.swift */,
@@ -257,7 +254,6 @@
 				D1B9562A21B3F3E1003F5937 /* CoreDataTableViewCell.swift in Sources */,
 				D1266D692199A72C00593984 /* CreateAccountViewController.swift in Sources */,
 				D1C7F2E1218C98C800481E48 /* AppDelegate.swift in Sources */,
-				D13BBB1721A5756D00E806BE /* UpdateMailViewController.swift in Sources */,
 				D11E2BD8219470D90075BD11 /* Model.xcdatamodeld in Sources */,
 				D1859F7321B7C38500E1D518 /* ListTableViewController.swift in Sources */,
 			);

@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pq7-iK-ExR">
-                                <rect key="frame" x="10" y="139" width="355" height="80"/>
+                                <rect key="frame" x="10" y="286.5" width="355" height="80"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="jXF-vF-VRA">
                                         <rect key="frame" x="0.0" y="0.0" width="355" height="30"/>
@@ -58,20 +58,33 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Passordet må ha minimum 6 tegn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="eG4-UJ-Wc4">
-                                <rect key="frame" x="93" y="224" width="198.5" height="12"/>
+                                <rect key="frame" x="93" y="371.5" width="198.5" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="1" green="0.0094184072553792353" blue="0.093197561855207223" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="sy5-nA-8Lg">
-                                <rect key="frame" x="177.5" y="240" width="20" height="20"/>
+                                <rect key="frame" x="177.5" y="399.5" width="20" height="20"/>
                             </activityIndicatorView>
-                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Please log in, thank you." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kdi-Jg-uOD">
-                                <rect key="frame" x="10" y="94" width="355" height="17"/>
+                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kdi-Jg-uOD">
+                                <rect key="frame" x="10" y="242.5" width="355" height="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done" textContentType="email"/>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="firebase_logo" translatesAutoresizingMaskIntoConstraints="NO" id="4t0-yd-TFq">
+                                <rect key="frame" x="148" y="81" width="79" height="79"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="79" id="ZVD-hh-c59"/>
+                                    <constraint firstAttribute="width" secondItem="4t0-yd-TFq" secondAttribute="height" multiplier="1:1" id="wyp-xa-kSX"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firebase" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TVT-Q6-5x8">
+                                <rect key="frame" x="13" y="168" width="349" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -79,13 +92,18 @@
                             <constraint firstItem="eG4-UJ-Wc4" firstAttribute="leading" secondItem="dej-9k-aAA" secondAttribute="leading" constant="93" id="4LX-T5-FE3"/>
                             <constraint firstItem="eG4-UJ-Wc4" firstAttribute="top" secondItem="pq7-iK-ExR" secondAttribute="bottom" constant="5" id="A9R-Rn-80Z"/>
                             <constraint firstItem="dej-9k-aAA" firstAttribute="trailing" secondItem="eG4-UJ-Wc4" secondAttribute="trailing" constant="83.5" id="KAN-ZY-g0U"/>
-                            <constraint firstItem="sy5-nA-8Lg" firstAttribute="top" secondItem="eG4-UJ-Wc4" secondAttribute="bottom" constant="4" id="L0r-Ca-e22"/>
-                            <constraint firstItem="pq7-iK-ExR" firstAttribute="top" secondItem="dej-9k-aAA" secondAttribute="top" constant="75" id="X2C-9X-qtp"/>
+                            <constraint firstItem="sy5-nA-8Lg" firstAttribute="top" secondItem="eG4-UJ-Wc4" secondAttribute="bottom" constant="16" id="L0r-Ca-e22"/>
+                            <constraint firstItem="4t0-yd-TFq" firstAttribute="centerX" secondItem="vji-Wu-4q1" secondAttribute="centerX" id="WJk-Ew-KAs"/>
+                            <constraint firstItem="pq7-iK-ExR" firstAttribute="top" secondItem="Kdi-Jg-uOD" secondAttribute="bottom" constant="27" id="X2C-9X-qtp"/>
                             <constraint firstItem="dej-9k-aAA" firstAttribute="trailing" secondItem="pq7-iK-ExR" secondAttribute="trailing" constant="10" id="abD-O7-fpx"/>
+                            <constraint firstItem="TVT-Q6-5x8" firstAttribute="leading" secondItem="dej-9k-aAA" secondAttribute="leading" constant="13" id="bi2-mS-RMq"/>
+                            <constraint firstItem="TVT-Q6-5x8" firstAttribute="centerX" secondItem="vji-Wu-4q1" secondAttribute="centerX" id="ctv-sC-9nC"/>
                             <constraint firstItem="dej-9k-aAA" firstAttribute="trailing" secondItem="Kdi-Jg-uOD" secondAttribute="trailing" constant="10" id="hJf-ZM-gBx"/>
-                            <constraint firstItem="Kdi-Jg-uOD" firstAttribute="top" secondItem="dej-9k-aAA" secondAttribute="top" constant="30" id="kmb-TN-bLh"/>
+                            <constraint firstItem="4t0-yd-TFq" firstAttribute="top" secondItem="vji-Wu-4q1" secondAttribute="top" constant="81" id="jAU-lj-wdE"/>
+                            <constraint firstItem="Kdi-Jg-uOD" firstAttribute="top" secondItem="TVT-Q6-5x8" secondAttribute="bottom" constant="58.5" id="kmb-TN-bLh"/>
                             <constraint firstItem="pq7-iK-ExR" firstAttribute="leading" secondItem="dej-9k-aAA" secondAttribute="leading" constant="10" id="qIv-Zp-NEb"/>
                             <constraint firstItem="Kdi-Jg-uOD" firstAttribute="leading" secondItem="dej-9k-aAA" secondAttribute="leading" constant="10" id="rig-T3-3P6"/>
+                            <constraint firstItem="TVT-Q6-5x8" firstAttribute="top" secondItem="4t0-yd-TFq" secondAttribute="bottom" constant="8" id="utE-sh-jOM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dej-9k-aAA"/>
                     </view>
@@ -224,7 +242,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="5Kc-zy-85Y">
-                            <rect key="frame" x="0.0" y="448" width="375" height="20"/>
+                            <rect key="frame" x="0.0" y="404" width="375" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </activityIndicatorView>
                         <sections>
@@ -286,36 +304,12 @@
                                             <segue destination="2El-f4-8UE" kind="show" id="jmJ-Ei-CuI"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="zh3-iO-7t7" imageView="NWg-ID-q7Q" style="IBUITableViewCellStyleDefault" id="js6-LK-XAw" userLabel="Update eMaill">
-                                        <rect key="frame" x="0.0" y="144" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="js6-LK-XAw" id="xyw-G7-QpK">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Update eMail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zh3-iO-7t7" userLabel="Update eMail">
-                                                    <rect key="frame" x="51" y="0.0" width="289" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="Icon-20" id="NWg-ID-q7Q">
-                                                    <rect key="frame" x="16" y="11" width="20" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </imageView>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="jMj-U0-HFM" kind="show" id="MZ0-gz-byU"/>
-                                        </connections>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle=" " id="ztu-GZ-onZ">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="KYc-I2-FZP" imageView="UEY-Qq-wJa" style="IBUITableViewCellStyleDefault" id="kev-ub-tUK" userLabel="Update password">
-                                        <rect key="frame" x="0.0" y="216" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="172" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kev-ub-tUK" id="M2h-L8-LHv">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
@@ -339,7 +333,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="9cy-7H-JXc" imageView="SxM-Hb-NLr" style="IBUITableViewCellStyleDefault" id="Doc-px-vsm" userLabel="Reset password by mail">
-                                        <rect key="frame" x="0.0" y="260" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="216" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Doc-px-vsm" id="jJP-Qj-wmu">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
@@ -367,7 +361,7 @@
                             <tableViewSection headerTitle=" " id="i9u-M5-VyI">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="pgs-XU-08G" imageView="7h5-Vp-PPs" style="IBUITableViewCellStyleDefault" id="xn3-xi-Isj" userLabel="List all users">
-                                        <rect key="frame" x="0.0" y="332" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="288" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xn3-xi-Isj" id="gpw-9n-1H4">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
@@ -395,7 +389,7 @@
                             <tableViewSection headerTitle=" " id="Tb1-zK-Lpo">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="12" id="L6K-cT-jjw">
-                                        <rect key="frame" x="0.0" y="404" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="360" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L6K-cT-jjw" id="df3-6L-uVw">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -469,7 +463,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="RrP-Zn-fjE">
-                                <rect key="frame" x="10" y="94" width="355" height="85.5"/>
+                                <rect key="frame" x="10" y="189.5" width="355" height="85.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="tfi-Qq-XNg">
                                         <rect key="frame" x="0.0" y="0.0" width="355" height="85.5"/>
@@ -515,11 +509,20 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="70R-BC-BgB">
                                 <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="userInfo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6JU-Nt-wdO">
+                                <rect key="frame" x="10" y="99" width="355" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ncP-wT-jQ7" firstAttribute="trailing" secondItem="RrP-Zn-fjE" secondAttribute="trailing" constant="10" id="A4T-j9-B2k"/>
-                            <constraint firstItem="RrP-Zn-fjE" firstAttribute="top" secondItem="ncP-wT-jQ7" secondAttribute="top" constant="30" id="ec5-ua-5i7"/>
+                            <constraint firstItem="ncP-wT-jQ7" firstAttribute="trailing" secondItem="6JU-Nt-wdO" secondAttribute="trailing" constant="10" id="Kh2-P5-LML"/>
+                            <constraint firstItem="6JU-Nt-wdO" firstAttribute="top" secondItem="ncP-wT-jQ7" secondAttribute="top" constant="35" id="MoT-Su-qdd"/>
+                            <constraint firstItem="6JU-Nt-wdO" firstAttribute="leading" secondItem="ncP-wT-jQ7" secondAttribute="leading" constant="10" id="aFB-lc-tHC"/>
+                            <constraint firstItem="RrP-Zn-fjE" firstAttribute="top" secondItem="6JU-Nt-wdO" secondAttribute="bottom" constant="70" id="ec5-ua-5i7"/>
                             <constraint firstItem="RrP-Zn-fjE" firstAttribute="leading" secondItem="Ioj-9o-oIe" secondAttribute="leading" constant="10" id="nvJ-pr-THA"/>
                             <constraint firstItem="70R-BC-BgB" firstAttribute="centerX" secondItem="Ioj-9o-oIe" secondAttribute="centerX" id="qUZ-jR-7QK"/>
                             <constraint firstItem="70R-BC-BgB" firstAttribute="centerY" secondItem="Ioj-9o-oIe" secondAttribute="centerY" id="xtK-xm-ZVr"/>
@@ -537,12 +540,12 @@
                         <outlet property="NewNameTextField" destination="F8a-QL-d5l" id="TQb-QI-52x"/>
                         <outlet property="OldNameLabel" destination="Ydh-cs-QuT" id="FBs-QW-UFT"/>
                         <outlet property="activity" destination="70R-BC-BgB" id="cOZ-rX-tZF"/>
-                        <segue destination="nhA-xf-W66" kind="show" identifier="BackToSettingsTableViewController" id="qN0-MB-68S"/>
+                        <outlet property="visUserInfo" destination="6JU-Nt-wdO" id="CuX-HP-HJD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x7o-AH-tpg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2156" y="-178"/>
+            <point key="canvasLocation" x="-2337" y="-471"/>
         </scene>
         <!--List Table View Controller-->
         <scene sceneID="kCf-Mh-aWN">
@@ -826,85 +829,6 @@ NB! Husk at linken i eposten er tidsbegrenset!</string>
             </objects>
             <point key="canvasLocation" x="-3350" y="627"/>
         </scene>
-        <!--Update eMail-->
-        <scene sceneID="2E7-Fn-7tm">
-            <objects>
-                <viewController id="jMj-U0-HFM" customClass="UpdateMailViewController" customModule="signupfirebase" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8pq-Vc-bna">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="Kg7-mC-7Z6">
-                                <rect key="frame" x="10" y="128" width="355" height="85.5"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="center" distribution="fillEqually" alignment="center" spacing="-172" translatesAutoresizingMaskIntoConstraints="NO" id="Eku-oW-ypY">
-                                        <rect key="frame" x="0.0" y="0.0" width="355" height="20.5"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Old eMail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hM-vO-kba">
-                                                <rect key="frame" x="0.0" y="0.0" width="263.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Old eMail Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tJA-7q-bqU" userLabel="Old email Label">
-                                                <rect key="frame" x="91.5" y="2" width="263.5" height="17"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="Hln-Dd-U1X">
-                                        <rect key="frame" x="0.0" y="55.5" width="355" height="30"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New eMail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sLT-aB-Pba">
-                                                <rect key="frame" x="0.0" y="0.0" width="79.5" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e2c-bG-Y2E" userLabel="New eMail  Text Field">
-                                                <rect key="frame" x="90.5" y="0.0" width="264.5" height="30"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="email"/>
-                                            </textField>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="uGS-Fy-0gz">
-                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
-                            </activityIndicatorView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="uGS-Fy-0gz" firstAttribute="centerX" secondItem="8pq-Vc-bna" secondAttribute="centerX" id="Yjn-nN-9qW"/>
-                            <constraint firstItem="Kg7-mC-7Z6" firstAttribute="top" secondItem="ulc-KM-2cY" secondAttribute="top" constant="30" id="cF9-4J-6Jr"/>
-                            <constraint firstItem="Kg7-mC-7Z6" firstAttribute="leading" secondItem="ulc-KM-2cY" secondAttribute="leading" constant="10" id="eU4-gc-RHC"/>
-                            <constraint firstItem="ulc-KM-2cY" firstAttribute="trailing" secondItem="Kg7-mC-7Z6" secondAttribute="trailing" constant="10" id="luK-mB-Nlg"/>
-                            <constraint firstItem="uGS-Fy-0gz" firstAttribute="centerY" secondItem="8pq-Vc-bna" secondAttribute="centerY" id="uDh-f2-3Iz"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="ulc-KM-2cY"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Update eMail" prompt="  " id="Lq8-VN-oP9">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="amU-nL-Fvu">
-                            <connections>
-                                <action selector="SaveNewEmail:" destination="jMj-U0-HFM" id="icW-zE-Klj"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="activity" destination="uGS-Fy-0gz" id="eqa-IF-x0G"/>
-                        <outlet property="newEmailTextField" destination="e2c-bG-Y2E" id="GqJ-A7-RXa"/>
-                        <outlet property="oldEmailLabel" destination="tJA-7q-bqU" id="2br-zk-pZw"/>
-                        <segue destination="tT3-9a-LwM" kind="show" identifier="BackToLoginViewController" id="0yI-rJ-6Gb"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Gdd-vX-lHE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2156" y="-866"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="TWG-IN-rUm">
             <objects>
@@ -1005,9 +929,9 @@ NB! Husk at linken i eposten er tidsbegrenset!</string>
     </scenes>
     <resources>
         <image name="Icon-20" width="20" height="20"/>
+        <image name="firebase_logo" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kW4-9W-oAh"/>
-        <segue reference="0yI-rJ-6Gb"/>
+        <segue reference="UGA-2W-dJw"/>
     </inferredMetricsTieBreakers>
 </document>
