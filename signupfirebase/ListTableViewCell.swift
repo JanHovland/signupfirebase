@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CoreDataTableViewCell: UITableViewCell {
+class ListTableViewCell: UITableViewCell {
     @IBOutlet var uidLabel: UILabel!
     @IBOutlet var mailLabel: UILabel!
     @IBOutlet var nameLabel: UILabel!
