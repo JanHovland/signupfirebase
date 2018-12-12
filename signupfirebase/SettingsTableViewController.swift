@@ -12,9 +12,8 @@ import UIKit
 class SettingsTableViewController: UITableViewController {
     @IBOutlet var activity: UIActivityIndicatorView!
 
-    @IBOutlet var settingsEmail: UILabel!
-    @IBOutlet var settingsUserName: UILabel!
-
+    @IBOutlet weak var userInfo: UILabel!
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,10 +33,7 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         activity.startAnimating()
         
-        // Henter brukernavn og passord fra FireBase
-        settingsEmail.text = Auth.auth().currentUser?.email
-        settingsUserName.text = Auth.auth().currentUser?.displayName
-        
+        userInfo.text = showUserInfo(startUp: false)
         activity.stopAnimating()
     }
 
