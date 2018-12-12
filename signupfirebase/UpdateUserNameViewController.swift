@@ -13,7 +13,7 @@ class UpdateUserNameViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var activity: UIActivityIndicatorView!
     @IBOutlet var OldNameLabel: UILabel!
     @IBOutlet var NewNameTextField: UITextField!
-    @IBOutlet weak var visUserInfo: UILabel!
+    @IBOutlet weak var userInfo: UILabel!
     var myTimer: Timer!
 
     // Setter en "constant" forsinkelse etter at en trykker på "Save"
@@ -37,6 +37,12 @@ class UpdateUserNameViewController: UIViewController, UITextFieldDelegate {
         activity.stopAnimating()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        activity.startAnimating()
+        userInfo.text = showUserInfo(startUp: false)
+        activity.stopAnimating()
+    }
+    
     @IBAction func SaveNewName(_ sender: UIBarButtonItem) {
         if (NewNameTextField.text?.count)! > 0 {
             activity.startAnimating()
@@ -77,7 +83,7 @@ class UpdateUserNameViewController: UIViewController, UITextFieldDelegate {
     }
 
     @objc func showUserInformation() {
-        visUserInfo.text = showUserInfo(startUp: false)
+        userInfo.text = showUserInfo(startUp: false)
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

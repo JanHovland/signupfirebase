@@ -13,7 +13,8 @@ class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var activity: UIActivityIndicatorView!
     @IBOutlet var oldPasswordTextField: UITextField!
     @IBOutlet var newPasswordTextField: UITextField!
-
+    @IBOutlet var userInfo: UILabel!
+    
     var myTimer: Timer!
 
     // Setter en "constant" forsinkelse etter at en trykker på "Save"
@@ -45,7 +46,15 @@ class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
         activity.stopAnimating()
     }
 
-    @IBAction func SaveNewPassword(_ sender: Any) {
+    override func viewDidAppear(_ animated: Bool) {
+        activity.startAnimating()
+
+        userInfo.text = showUserInfo(startUp: false)
+
+        activity.stopAnimating()
+    }
+
+   @IBAction func SaveNewPassword(_ sender: Any) {
         activity.startAnimating()
 
         // Sender eposten på norsk:
@@ -69,21 +78,23 @@ class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
                 }
 
                 // Legg inn en liten forsinkelse før funksjonen "returnToLogin" kalles
-                self.myTimer = Timer.scheduledTimer(timeInterval: TimeInterval(self.forsinkelse),
-                                                    target: self,
-                                                    selector: #selector(self.returnToLogin),
-                                                    userInfo: nil, repeats: false)
+//                self.myTimer = Timer.scheduledTimer(timeInterval: TimeInterval(self.forsinkelse),
+//                                                    target: self,
+//                                                    selector: #selector(self.showUserInformation),
+//                                                    userInfo: nil, repeats: false)
             }
         }
 
         activity.stopAnimating()
     }
 
-    @objc func returnToLogin() {
-        performSegue(withIdentifier: "BackToLoginViewController", sender: self)
-        myTimer.invalidate()
-    }
-
+//    @objc func showUserInformation() {
+//        activity.startAnimating()
+//        userInfo.text = showUserInfo(startUp: false)
+//        myTimer.invalidate()
+//        activity.stopAnimating()
+//    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         newPasswordTextField.resignFirstResponder()
         return true
