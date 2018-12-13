@@ -39,18 +39,19 @@ class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
 
         if (UserDefaults.standard.bool(forKey: "SHOWPASSWORD")) == true {
             oldPasswordTextField.isSecureTextEntry = false
+            newPasswordTextField.isSecureTextEntry = false
         } else {
             oldPasswordTextField.isSecureTextEntry = true
+            newPasswordTextField.isSecureTextEntry = true
         }
 
         activity.stopAnimating()
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        
         activity.startAnimating()
-
         userInfo.text = showUserInfo(startUp: false)
-
         activity.stopAnimating()
     }
 

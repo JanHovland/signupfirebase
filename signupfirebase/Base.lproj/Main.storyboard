@@ -861,7 +861,7 @@ NB! Husk at linken i eposten er tidsbegrenset!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fFP-2K-yqY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3316" y="573"/>
+            <point key="canvasLocation" x="-3439" y="573"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="TWG-IN-rUm">
