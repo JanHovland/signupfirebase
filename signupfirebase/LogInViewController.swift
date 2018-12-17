@@ -18,6 +18,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginStatus: UITextField!
     
     var status: Bool = true
+    var activeField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +29,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         // Setter "LOGGEDIN" til false
         UserDefaults.standard.set(false, forKey: "LOGGEDIN")
 
-        // Brukes ikke lenger, men beholdes for å vise bruk av keyboard events
-        // Listen for keyboard events
+        // Observe keyboard change
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: NSNotification.Name(rawValue: UIResponder.description()), object: nil)
-
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        
         // For å kunne avslutte visning av tastatur når en trykker "Ferdig" på tastauuret
         eMailLoginTextField.delegate = self
         passwordTextField.delegate = self
@@ -64,20 +65,45 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @objc func keyboardWillChange(notification: Notification) {
+    deinit {
+        // Remove observers
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    @objc func keyboardWillChange(notification: NSNotification) {
         
-        // Ikke i bruk lenger.
-        
-        if passwordTextField.isFirstResponder == true,
-            passwordTextField.text!.count > 0,
-            eMailLoginTextField.text!.count > 0 {
-            // CheckLogin()
+        guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+            return
         }
         
+        let distanceToBottom = view.frame.size.height - (activeField?.frame.origin.y)! - (activeField?.frame.size.height)!
+        
+        //        print("distanceToBottom = \(distanceToBottom)")
+        //        print("keyboardRect = \(keyboardRect)")
+        
+        if keyboardRect.height > distanceToBottom {
+            
+            if notification.name == UIResponder.keyboardWillShowNotification ||
+                notification.name == UIResponder.keyboardWillChangeFrameNotification {
+                view.frame.origin.y = -(keyboardRect.height - distanceToBottom)
+            } else {
+                view.frame.origin.y = 0
+            }
+            
+        }
     }
-
-    deinit {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        activeField = textField
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        activeField?.resignFirstResponder()
+        activeField = nil
+        return true
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -181,12 +207,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             let melding = "eMail må ha en verdi.\nPassword må være minst 6 tegn langt"
             presentAlert(withTitle: "Feil", message: melding)
         }
-    }
-
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        eMailLoginTextField.resignFirstResponder()
-        passwordTextField.resignFirstResponder()
-        return true
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
