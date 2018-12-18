@@ -48,7 +48,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         // Setter "LOGGEDIN" til false
         UserDefaults.standard.set(false, forKey: "LOGGEDIN")
 
-        // Observe keyboard change
+        // Observe keyboard change, disse er aktive i alle applikasjonene i prosjektet
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
@@ -98,9 +98,9 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         }
 
         let distanceToBottom = view.frame.size.height - (activeField?.frame.origin.y)! - (activeField?.frame.size.height)!
-
-        //        print("distanceToBottom = \(distanceToBottom)")
-        //        print("keyboardRect = \(keyboardRect)")
+        
+        print("distanceToBottom = \(distanceToBottom)")
+        print("keyboardRect = \(keyboardRect.height)")
 
         if keyboardRect.height > distanceToBottom {
 
