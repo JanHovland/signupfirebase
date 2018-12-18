@@ -6,6 +6,12 @@
 //  Copyright © 2018 Jan . All rights reserved.
 //
 
+/*
+    For å få Switch password til å komme i riktig posisjon, må du ikke bruke Stack View!
+    Bruk kun constraints på avstandene mellom elementene!
+ 
+ */
+
 import Firebase
 import UIKit
 
@@ -28,6 +34,10 @@ class SettingsTableViewController: UITableViewController {
         activity.style = .gray
         view.addSubview(activity)
 
+    }
+    
+    override open var shouldAutorotate: Bool {
+        return false
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -10,6 +10,25 @@ import CoreData
 import Firebase
 import UIKit
 
+/*
+ For å få Switch password til å komme i riktig posisjon, må du ikke bruke Stack View!
+ Bruk kun constraints på avstandene mellom elementene!
+ 
+ FEIL:
+ 
+ 1. Kommer opp blanke verdier på epost og passord, selv om det ligger verdier i CoreData
+    Løsning: Det viste seg at CoreData var tom
+ 
+ 
+ 2. keyboardWillChange fungerer ikke ved Stack view
+    Løsning: Bruk kun constraints på avstandene mellom elementene i hele skjermbildet!
+ 
+ 3.
+    Løsning:
+ 
+ */
+
+
 class LogInViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var activity: UIActivityIndicatorView!
@@ -34,10 +53,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         
-        // For å kunne avslutte visning av tastatur når en trykker "Ferdig" på tastauuret
-        eMailLoginTextField.delegate = self
-        passwordTextField.delegate = self
-        
         // Initierer UIActivityIndicatorView
         activity.hidesWhenStopped = true
         activity.style = .gray
@@ -53,6 +68,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.text = value.1
 
         activity.stopAnimating()
+        
+        // For å kunne avslutte visning av tastatur når en trykker "Ferdig" på tastaturet
+        eMailLoginTextField.delegate = self
+        passwordTextField.delegate = self
         
     }
     
@@ -77,21 +96,21 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
             return
         }
-        
+
         let distanceToBottom = view.frame.size.height - (activeField?.frame.origin.y)! - (activeField?.frame.size.height)!
-        
+
         //        print("distanceToBottom = \(distanceToBottom)")
         //        print("keyboardRect = \(keyboardRect)")
-        
+
         if keyboardRect.height > distanceToBottom {
-            
+
             if notification.name == UIResponder.keyboardWillShowNotification ||
                 notification.name == UIResponder.keyboardWillChangeFrameNotification {
                 view.frame.origin.y = -(keyboardRect.height - distanceToBottom)
             } else {
                 view.frame.origin.y = 0
             }
-            
+
         }
     }
     
