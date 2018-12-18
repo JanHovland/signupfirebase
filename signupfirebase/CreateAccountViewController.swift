@@ -10,6 +10,20 @@ import CoreData
 import Firebase
 import UIKit
 
+/*
+ 
+ For å få Switch password til å komme i riktig posisjon, må du ikke bruke Stack View!
+ Bruk kun constraints på avstandene mellom elementene!
+ 
+ Det samme gjelder alle applikasjoner med text field og tastatur
+ 
+ Kjente feil som må rettes
+ 
+ 1.
+ Løsning:
+ 
+ */
+
 class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var activity: UIActivityIndicatorView!
 
@@ -32,9 +46,9 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
         self.passwordCreateAccountTextField.delegate = self
         
         // Observe keyboard change
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeCreateAccount(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeCreateAccount(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeCreateAccount(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         
         // Setter inn variablene fra LogInViewController.swift
         eMailCreateAccountTextField.text = createEmail
@@ -44,38 +58,29 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
         activity.hidesWhenStopped = true
         activity.style = .gray
         view.addSubview(activity)
+        
     }
 
-    deinit {
-        // Remove observers
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
     }
 
-    @objc func keyboardWillChange(notification: NSNotification) {
+    @objc func keyboardWillChangeCreateAccount(notification: NSNotification) {
         
         guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
             return
         }
-        
+
         let distanceToBottom = view.frame.size.height - (activeField?.frame.origin.y)! - (activeField?.frame.size.height)!
-        
-        //        print("distanceToBottom = \(distanceToBottom)")
-        //        print("keyboardRect = \(keyboardRect)")
-        
+
         if keyboardRect.height > distanceToBottom {
-            
+
             if notification.name == UIResponder.keyboardWillShowNotification ||
                 notification.name == UIResponder.keyboardWillChangeFrameNotification {
                 view.frame.origin.y = -(keyboardRect.height - distanceToBottom)
             } else {
                 view.frame.origin.y = 0
             }
-            
+
         }
     }
     
@@ -214,4 +219,12 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
 
         activity.stopAnimating()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        // Remove observers
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
 }

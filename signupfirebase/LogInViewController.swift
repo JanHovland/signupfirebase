@@ -11,23 +11,18 @@ import Firebase
 import UIKit
 
 /*
+ 
  For å få Switch password til å komme i riktig posisjon, må du ikke bruke Stack View!
  Bruk kun constraints på avstandene mellom elementene!
  
- FEIL:
+ Det samme gjelder alle applikasjoner med text field og tastatur
  
- 1. Kommer opp blanke verdier på epost og passord, selv om det ligger verdier i CoreData
-    Løsning: Det viste seg at CoreData var tom
+ Kjente feil som må rettes
  
- 
- 2. keyboardWillChange fungerer ikke ved Stack view
-    Løsning: Bruk kun constraints på avstandene mellom elementene i hele skjermbildet!
- 
- 3.
+ 1.
     Løsning:
  
  */
-
 
 class LogInViewController: UIViewController, UITextFieldDelegate {
     
@@ -48,10 +43,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         // Setter "LOGGEDIN" til false
         UserDefaults.standard.set(false, forKey: "LOGGEDIN")
 
-        // Observe keyboard change, disse er aktive i alle applikasjonene i prosjektet
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        // Observe keyboard change
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeLogin(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeLogin(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeLogin(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         
         // Initierer UIActivityIndicatorView
         activity.hidesWhenStopped = true
@@ -82,23 +77,22 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         } else {
             loginStatus.text = showUserInfo(startUp: true)
         }
+        
     }
     
-    deinit {
-        // Remove observers
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-    }
-    
-    @objc func keyboardWillChange(notification: NSNotification) {
+    @objc func keyboardWillChangeLogin(notification: NSNotification) {
         
         guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
             return
         }
 
-        let distanceToBottom = view.frame.size.height - (activeField?.frame.origin.y)! - (activeField?.frame.size.height)!
+        print(view.frame.size.height)
+        print((activeField?.frame.size.height)!)
         
+        print((activeField?.frame.origin.y)!)
+        
+        let distanceToBottom = view.frame.size.height - (activeField?.frame.origin.y)! - (activeField?.frame.size.height)!
+
         print("distanceToBottom = \(distanceToBottom)")
         print("keyboardRect = \(keyboardRect.height)")
 
@@ -115,11 +109,13 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        activeField = textField
+        print("LogInView1")
+       activeField = textField
         return true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("LogInView2")
         activeField?.resignFirstResponder()
         activeField = nil
         return true
@@ -240,4 +236,12 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             vc.createPassord = passwordTextField.text!
         }
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        // Remove observers
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+
 }
