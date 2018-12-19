@@ -360,7 +360,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="List all users" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pgs-XU-08G" userLabel="List all users">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="List all users in Coredata" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pgs-XU-08G" userLabel="List all users">
                                                     <rect key="frame" x="51" y="0.0" width="289" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -523,7 +523,7 @@
             </objects>
             <point key="canvasLocation" x="-2085.5999999999999" y="-705.69715142428788"/>
         </scene>
-        <!--List all users-->
+        <!--List all users in Coredata-->
         <scene sceneID="kCf-Mh-aWN">
             <objects>
                 <tableViewController id="boW-XG-6jl" customClass="ListTableViewController" customModule="signupfirebase" customModuleProvider="target" sceneMemberID="viewController">
@@ -593,7 +593,7 @@
                             <outlet property="delegate" destination="boW-XG-6jl" id="ehW-Pa-Y75"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="List all users" id="iac-mu-xdT"/>
+                    <navigationItem key="navigationItem" title="List all users in Coredata" id="iac-mu-xdT"/>
                     <connections>
                         <outlet property="activity" destination="VI4-ru-b2u" id="aXk-TD-A5i"/>
                     </connections>

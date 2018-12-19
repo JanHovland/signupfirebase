@@ -100,22 +100,18 @@ class ListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Slett") { (action, sourceView, completionHandler) in
-            // Delete the row from the data store
-//            if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
-//                let context = appDelegate.persistentContainer.viewContext
-//                let restaurantToDelete = self.fetchResultController.object(at: indexPath)
-//                context.delete(restaurantToDelete)
-//
-//                appDelegate.saveContext()
-//            }
-            
-            // Call completion handler with true to indicate
+
+            let item = self.listItems[indexPath.row]
+            let userEmail = item.value(forKey: "email") as? String
+
+            if self.deleteUserCoreData(UserEmail: String(describing: userEmail!))  == true {
+            } else {
+                print("Unable to delete: \(userEmail!)")
+            }
+
+           // Call completion handler with true to indicate
             completionHandler(true)
         }
-        
-                // Set the icon and background color for the actions
-//        deleteAction.backgroundColor = UIColor(red: 231, green: 76, blue: 60)
-//        deleteAction.image = UIImage(named: "delete")
         
         let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction])
         

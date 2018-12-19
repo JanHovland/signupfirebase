@@ -295,6 +295,27 @@ extension UIViewController {
         }
     }
     
+    func deleteUserCoreData(UserEmail: String) -> Bool {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        
+        request.predicate = NSPredicate(format: "email =  %@", UserEmail)
+        
+        request.returnsObjectsAsFaults = false
+        
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: request)
+        
+        do {
+            print("deleting user with epost: \(UserEmail)")
+            try context.execute(deleteRequest)
+            return true
+            
+        } catch {
+            print(error.localizedDescription)
+            return false
+        }
+    }
+    
     func resetLoggedIinCoreData() -> Bool {
         var ok: Bool = false
         
