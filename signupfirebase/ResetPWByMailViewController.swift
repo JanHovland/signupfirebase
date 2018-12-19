@@ -14,6 +14,8 @@ class ResetPWByMailViewController: UIViewController {
     @IBOutlet var SendEmailToReceiver: UITextField!
     @IBOutlet var infoTextView: UITextView!
 
+    @IBOutlet weak var userInfo: UILabel!
+    
     var myTimer: Timer!
     var teller: Int = 0
     var status: Bool = true
@@ -23,6 +25,8 @@ class ResetPWByMailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        showUserInformation()
 
         infoTextView.isHidden = true
 
@@ -70,4 +74,10 @@ class ResetPWByMailViewController: UIViewController {
         performSegue(withIdentifier: "BackToLoginViewController", sender: self)
         myTimer.invalidate()
     }
+    
+    @objc func showUserInformation() {
+        userInfo.text = showUserInfo(startUp: false)
+    }
+    
+    
 }
