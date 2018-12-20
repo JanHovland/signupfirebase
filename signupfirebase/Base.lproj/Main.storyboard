@@ -883,7 +883,7 @@ NB! Husk at linken i eposten er tidsbegrenset!</string>
         <scene sceneID="VHf-0J-Mtg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Dat-Y6-O14" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" id="ayy-xj-Vfm"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="user-group-man-man" id="ayy-xj-Vfm"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HTd-yr-5zH">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="32"/>
@@ -902,7 +902,7 @@ NB! Husk at linken i eposten er tidsbegrenset!</string>
         <scene sceneID="D01-zG-A2w">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lBq-GC-ei6" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Login" id="Gl8-LX-VoP"/>
+                    <tabBarItem key="tabBarItem" title="Login" image="user-group-man-man" id="Gl8-LX-VoP"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Wd0-PE-ULq">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="32"/>
@@ -915,13 +915,13 @@ NB! Husk at linken i eposten er tidsbegrenset!</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zbI-Oj-uhC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5055" y="-878"/>
+            <point key="canvasLocation" x="-5061" y="-1052"/>
         </scene>
         <!--Persondata-->
         <scene sceneID="ghM-mS-ISs">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UBz-Xe-NQ7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Persondata" id="lgM-n1-dX0" userLabel="Persondata"/>
+                    <tabBarItem key="tabBarItem" title="Persondata" image="user-group-man-man" id="lgM-n1-dX0" userLabel="Persondata"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="C2G-6H-61b">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="32"/>
@@ -940,5 +940,6 @@ NB! Husk at linken i eposten er tidsbegrenset!</string>
     <resources>
         <image name="Icon-20" width="20" height="20"/>
         <image name="firebase_logo" width="1024" height="1024"/>
+        <image name="user-group-man-man" width="75" height="75"/>
     </resources>
 </document>
