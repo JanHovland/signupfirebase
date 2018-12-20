@@ -63,6 +63,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         // Hvis det ikke finnes noen post med loggedin = true, blankes eMailLoginTextField og passwordTextField
         let value = getCoreData()
         eMailLoginTextField.text = value.0
+        
         passwordTextField.text = value.1
 
         activity.stopAnimating()
@@ -79,6 +80,12 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             loginStatus.text = showUserInfo(startUp: false)
         } else {
             loginStatus.text = showUserInfo(startUp: true)
+        }
+        
+        if (UserDefaults.standard.bool(forKey: "SHOWPASSWORD")) == true {
+            self.passwordTextField.isSecureTextEntry = false
+        } else {
+            self.passwordTextField.isSecureTextEntry = true
         }
         
     }
