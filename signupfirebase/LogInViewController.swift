@@ -37,6 +37,9 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Skjule tabBar
+        self.tabBarController?.tabBar.isHidden = true
+        
         // Setter "SHOWPASSWORD" til false
         UserDefaults.standard.set(false, forKey: "SHOWPASSWORD")
         
@@ -199,10 +202,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                                 self.presentAlert(withTitle: "Feil", message: melding)
                             } else {
                                 UserDefaults.standard.set(true, forKey: "LOGGEDIN")
-                                
-                                
-                                
                                 self.loginStatus.text = navn + " is logged in."
+                                
+                                // Viser tabBar
+                                self.tabBarController?.tabBar.isHidden = false
+                                
                             }
                         }
 
