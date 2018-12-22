@@ -23,7 +23,7 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Setter switchPassWord til av
+        // Setter switchPassWord til inaktive
         if (UserDefaults.standard.bool(forKey: "SHOWPASSWORD")) == true {
             switchPassWord.isOn = true
         } else {
@@ -42,7 +42,6 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         activity.startAnimating()
-        
         userInfo.text = showUserInfo(startUp: false)
         activity.stopAnimating()
     }

@@ -10,6 +10,7 @@
 		14B6C7D5AD5979888331B70D /* Pods_signupfirebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FA6AF44DDF6A6C8562A35A /* Pods_signupfirebase.framework */; };
 		D11E2BD8219470D90075BD11 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D11E2BD6219470D90075BD11 /* Model.xcdatamodeld */; };
 		D1266D692199A72C00593984 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1266D682199A72C00593984 /* CreateAccountViewController.swift */; };
+		D134821521CE3CAD00F9F944 /* CvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D134821421CE3CAD00F9F944 /* CvViewController.swift */; };
 		D135787921B693BB0057140D /* ResetPWByMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D135787821B693BB0057140D /* ResetPWByMailViewController.swift */; };
 		D15A0DD321909AFC00FBB286 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15A0DD221909AFC00FBB286 /* SettingsTableViewController.swift */; };
 		D1859F7321B7C38500E1D518 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1859F7221B7C38500E1D518 /* ListTableViewController.swift */; };
@@ -31,6 +32,7 @@
 		893C897689365B2F237CCE21 /* Pods-signupfirebase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-signupfirebase.release.xcconfig"; path = "Pods/Target Support Files/Pods-signupfirebase/Pods-signupfirebase.release.xcconfig"; sourceTree = "<group>"; };
 		D11E2BD7219470D90075BD11 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		D1266D682199A72C00593984 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		D134821421CE3CAD00F9F944 /* CvViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CvViewController.swift; sourceTree = "<group>"; };
 		D135787821B693BB0057140D /* ResetPWByMailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPWByMailViewController.swift; sourceTree = "<group>"; };
 		D15A0DD221909AFC00FBB286 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		D1859F7221B7C38500E1D518 /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				D1859F7221B7C38500E1D518 /* ListTableViewController.swift */,
 				D15A0DD221909AFC00FBB286 /* SettingsTableViewController.swift */,
 				D1EAAB8421C1178A005D2656 /* DataBaseExtension.swift */,
+				D134821421CE3CAD00F9F944 /* CvViewController.swift */,
 			);
 			path = signupfirebase;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				D1B9562A21B3F3E1003F5937 /* ListTableViewCell.swift in Sources */,
 				D1266D692199A72C00593984 /* CreateAccountViewController.swift in Sources */,
 				D1C7F2E1218C98C800481E48 /* AppDelegate.swift in Sources */,
+				D134821521CE3CAD00F9F944 /* CvViewController.swift in Sources */,
 				D11E2BD8219470D90075BD11 /* Model.xcdatamodeld in Sources */,
 				D1859F7321B7C38500E1D518 /* ListTableViewController.swift in Sources */,
 			);
