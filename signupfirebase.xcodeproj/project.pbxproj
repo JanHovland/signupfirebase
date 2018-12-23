@@ -11,6 +11,7 @@
 		D11E2BD8219470D90075BD11 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D11E2BD6219470D90075BD11 /* Model.xcdatamodeld */; };
 		D1266D692199A72C00593984 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1266D682199A72C00593984 /* CreateAccountViewController.swift */; };
 		D134821521CE3CAD00F9F944 /* CvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D134821421CE3CAD00F9F944 /* CvViewController.swift */; };
+		D134821721CE463200F9F944 /* cv.txt in Resources */ = {isa = PBXBuildFile; fileRef = D134821621CE463200F9F944 /* cv.txt */; };
 		D135787921B693BB0057140D /* ResetPWByMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D135787821B693BB0057140D /* ResetPWByMailViewController.swift */; };
 		D15A0DD321909AFC00FBB286 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15A0DD221909AFC00FBB286 /* SettingsTableViewController.swift */; };
 		D1859F7321B7C38500E1D518 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1859F7221B7C38500E1D518 /* ListTableViewController.swift */; };
@@ -33,6 +34,7 @@
 		D11E2BD7219470D90075BD11 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		D1266D682199A72C00593984 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		D134821421CE3CAD00F9F944 /* CvViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CvViewController.swift; sourceTree = "<group>"; };
+		D134821621CE463200F9F944 /* cv.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cv.txt; sourceTree = "<group>"; };
 		D135787821B693BB0057140D /* ResetPWByMailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPWByMailViewController.swift; sourceTree = "<group>"; };
 		D15A0DD221909AFC00FBB286 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		D1859F7221B7C38500E1D518 /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				D15A0DD221909AFC00FBB286 /* SettingsTableViewController.swift */,
 				D1EAAB8421C1178A005D2656 /* DataBaseExtension.swift */,
 				D134821421CE3CAD00F9F944 /* CvViewController.swift */,
+				D134821621CE463200F9F944 /* cv.txt */,
 			);
 			path = signupfirebase;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 				D1CF583F219C6811000A3497 /* Create iOS Icons.jsx in Resources */,
 				D1C7F2E8218C98C900481E48 /* Assets.xcassets in Resources */,
 				D1C7F2E6218C98C800481E48 /* Main.storyboard in Resources */,
+				D134821721CE463200F9F944 /* cv.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

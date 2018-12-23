@@ -1,0 +1,22 @@
+
+Programmerings oppgaver:
+
+1. Xcode:
+    a) Opprette lisens hos Apple
+    b) Bli kjent med Xcode miljøet
+
+2. Swift:
+   a) Lære det nye programmeringsspråket
+
+3. CoreData
+   a) Lære CoreData
+
+4. UserDefault
+   a) Lære UserDefault
+      . Her lagres brukerspesifikke verdier. for eksempel "Show Password"
+
+5. Firebase
+   a) Lære databasen Firebase fra Google         	 
+      . Insert
+      . Delete
+      . Update
