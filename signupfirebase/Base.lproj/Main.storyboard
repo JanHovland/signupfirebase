@@ -575,7 +575,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1650" id="4xP-pt-sH4"/>
                                                 </constraints>
-                                                <string key="text">
+                                                <mutableString key="text">
 Programmerings oppgaver:
 
 1. Xcode:
@@ -586,18 +586,26 @@ Programmerings oppgaver:
    a) Lære det nye programmeringsspråket
 
 3. CoreData
-   a) Lære CoreData
+   a) Oppdatere AppDelegate slik at directory vises
+   a) Vise data medhjelp av applikasjonen "Datum"
+   b) Lære CoreData
+      . Insert
+      . Delete
+      . Update
 
 4. UserDefault
    a) Lære UserDefault
       . Her lagres brukerspesifikke verdier. for eksempel "Show Password"
 
 5. Firebase
-   a) Lære databasen Firebase fra Google         	 
+   a) Finnes på:
+      https://console.firebase.google.com/project/signupfirebase-236b9/database/firestore/data~2Fhttps://console.firebase.google.com/project/signupfirebase-236b9/database/firestore/data~2F
+   b) Authentication
+   c) Lære å brukes databasen Firebase fra Google
       . Insert
       . Delete
       . Update
-</string>
+</mutableString>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
@@ -855,7 +863,7 @@ NB! Husk at linken i eposten er tidsbegrenset!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wrR-qK-zNm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4130" y="840"/>
+            <point key="canvasLocation" x="-4130" y="842"/>
         </scene>
         <!--Update password-->
         <scene sceneID="514-fI-xD2">
@@ -977,19 +985,20 @@ NB! Husk at linken i eposten er tidsbegrenset!</string>
         <!--Persondata-->
         <scene sceneID="hlT-3f-9IB">
             <objects>
-                <viewController id="4y3-m1-4aQ" userLabel="Persondata" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="1dz-m8-ww6">
+                <viewController id="4y3-m1-4aQ" userLabel="Persondata" customClass="MainPersonDataViewController" customModule="signupfirebase" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="htD-3M-bLr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="rHn-xn-t2w"/>
+                        <viewLayoutGuide key="safeArea" id="4ul-89-7dc"/>
                     </view>
-                    <navigationItem key="navigationItem" id="nOT-1s-GV1">
-                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="Qvp-ID-wO6"/>
+                    <navigationItem key="navigationItem" title="Persondata" id="9Ow-F6-RLa">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xsh-78-dGE">
+                            <connections>
+                                <segue destination="rxh-wi-pm3" kind="show" id="gYJ-L2-bgL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="rxh-wi-pm3" kind="show" identifier="23456" id="bHb-0F-Xsh"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ImV-FR-H8L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

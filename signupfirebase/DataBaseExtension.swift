@@ -370,5 +370,34 @@ extension UIViewController {
         }
     }
     
+    // Firebase database
+    
+    func SavePostFiredata(uid: String, username: String, photoURL: String, text: String) {
+    
+        let dataBase = Database.database().reference().child("posts").childByAutoId()
+    
+        let postObject = [
+                         "author": [
+                         "uid": uid,
+                         "username": username,
+                         "photoURL": photoURL
+            ],
+            "text":  text,
+            "timestamp": [".sv": "timestamp"]
+            ] as [String: Any]
+    
+        dataBase.setValue(postObject, withCompletionBlock: { error, ref in
+            if error == nil {
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                print(error as! String)
+            }
+        })
+        
+    }
+
+    
+    
+    
     
 }
