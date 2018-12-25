@@ -87,7 +87,9 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                 
             }
             
+            // Oppdaterer posts array
             self.posts = tempPosts
+            
             // Fyller ut table view
             self.tableView.reloadData()
             
