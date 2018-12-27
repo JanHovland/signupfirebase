@@ -62,9 +62,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         // Henter sist brukte eMail og Password der CoreData sin "loggedIn" = true
         // Hvis det ikke finnes noen post med loggedin = true, blankes eMailLoginTextField og passwordTextField
         let value = getCoreData()
-        eMailLoginTextField.text = value.0
         
-        passwordTextField.text = value.1
+        //  0 = uid  1 = ePost  2 = name  3 = passWord)
+        
+        eMailLoginTextField.text = value.1
+        passwordTextField.text = value.3
 
         activity.stopAnimating()
         

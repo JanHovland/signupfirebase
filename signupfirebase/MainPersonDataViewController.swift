@@ -21,17 +21,38 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         tableView.delegate = self
         tableView.dataSource = self
         
+        // Henter pålogget bruker
+        //  0 = uid  1 = ePost  2 = name  3 = passWord)
+        let value = getCoreData()
+        
         // Test av lagring av data i Firedata
-//        SavePostFiredata(uid: "567890",
-//                         username: "Jan Hovland",
-//                         photoURL: "google.no",
-//                         text: "Dette er en test av 3. lagring")
+        SavePostFiredata(uid: value.0,
+                         username: value.2,
+                         email: value.1,
+                         text: "Dette er en test av 5. lagring")
         
         // Henter postene fra Firebase
         ReadPostFiredata()
         
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        // Henter pålogget bruker
+        //  0 = uid  1 = ePost  2 = name  3 = passWord)
+        let value = getCoreData()
+        
+        // Test av lagring av data i Firedata
+        SavePostFiredata(uid: value.0,
+                         username: value.2,
+                         email: value.1,
+                         text: "Dette er en test av 6. lagring")
+        
+        // Henter postene fra Firebase
+        ReadPostFiredata()
+        
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
     }
@@ -44,18 +65,18 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
          
          Standard table view cell:
          
-         When using table view cell of type "Basic" :
-         cell?.textLabel?.text          :  "returns the label used for the main textual content of the table cell"
+            When using table view cell of type "Basic" :
+            cell?.textLabel?.text          :  "returns the label used for the main textual content of the table cell"
          
          
-         When using table view cell of type "Right detail", "Left detail" and "Subtitle :
-         cell?.textLabel?.text          :  "returns the label used for the main textual content of the table cell"
-         cell?.detailTextLabel?.text    :  "returns the secondary label of the table cell if one exists
+            When using table view cell of type "Right detail", "Left detail" and "Subtitle :
+            cell?.textLabel?.text          :  "returns the label used for the main textual content of the table cell"
+            cell?.detailTextLabel?.text    :  "returns the secondary label of the table cell if one exists
         
          */
         
         cell?.textLabel?.text = posts[indexPath.row].text
-        cell?.detailTextLabel?.text = posts[indexPath.row].id
+        cell?.detailTextLabel?.text = posts[indexPath.row].author.username
         
         return cell!
 
@@ -64,8 +85,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     func ReadPostFiredata() {
         let postsRef = Database.database().reference().child("posts")
         
-        postsRef.observe(.value, with: { snapshot in
-            
+        postsRef.observe(.value, with : { snapshot in
+        
             var tempPosts = [Post]()
             
             for child in snapshot.children {
@@ -74,13 +95,13 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                     let author = dict["author"] as? [String:Any],
                     let uid = author["uid"] as? String,
                     let username = author["username"] as? String,
-                    let photoURL = author["photoURL"] as? String,
-                    let url = URL(string:photoURL),
+                    let email = author["email"] as? String,
                     let text = dict["text"] as? String,
                     let timestamp = dict["timestamp"] as? Double {
                     
-                    let userProfile = UserProfile(uid: uid, username: username, photoURL: url)
+                    let userProfile = UserProfile(uid: uid, username: username, email: email)
                     let post = Post(id: childSnapshot.key, author: userProfile, text: text, timestamp:timestamp)
+                    
                     tempPosts.append(post)
                     
                 }

@@ -53,10 +53,11 @@ extension UIViewController {
         return ok
     }
     
-    func getCoreData() -> (String, String,String) {
+    func getCoreData() -> (String, String, String, String) {
         var ePost: String = ""
         var passWord: String = ""
         var name: String = ""
+        var uid: String = ""
         
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
@@ -68,17 +69,24 @@ extension UIViewController {
             
             if result.count > 0 {
                 for data in result as! [NSManagedObject] {
+                    
+                    if data.value(forKey: "uid") != nil {
+                        uid = data.value(forKey: "uid") as! String
+                    }
+                    
                     if data.value(forKey: "email") != nil {
                         ePost = (data.value(forKey: "email") as? String)!
+                    }
+                    
+                    if data.value(forKey: "name") != nil {
+                        name = data.value(forKey: "name") as! String
                     }
                     
                     if data.value(forKey: "password") != nil {
                         passWord = data.value(forKey: "password") as! String
                     }
                     
-                    if data.value(forKey: "name") != nil {
-                        name = data.value(forKey: "name") as! String
-                    }
+                    
                     
                 }
             }
@@ -87,7 +95,7 @@ extension UIViewController {
             print(error.localizedDescription)
         }
         
-        return (ePost, passWord,name)
+        return (uid, ePost, name, passWord)
     }
     
     func updateCoreData(withEpost: String, withLoggedIn: Bool) -> Bool {
@@ -353,9 +361,13 @@ extension UIViewController {
         return ok
     }
     
+    
     func showUserInfo(startUp: Bool) -> String {
+        
+        //  0 = uid  1 = ePost  2 = name  3 = passWord)
         let value = getCoreData()
-        let email = value.0
+        
+        let email = value.1
         let name = value.2
         
         if email.count > 0,
@@ -372,15 +384,15 @@ extension UIViewController {
     
     // Firebase database
     
-    func SavePostFiredata(uid: String, username: String, photoURL: String, text: String) {
+    func SavePostFiredata(uid: String, username: String, email: String, text: String) {
     
         let dataBase = Database.database().reference().child("posts").childByAutoId()
     
         let postObject = [
                          "author": [
-                         "uid": uid,
-                         "username": username,
-                         "photoURL": photoURL
+                                    "uid": uid,
+                                    "username": username,
+                                    "email": email
             ],
             "text":  text,
             "timestamp": [".sv": "timestamp"]
