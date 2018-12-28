@@ -12,7 +12,6 @@
 		D1266D692199A72C00593984 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1266D682199A72C00593984 /* CreateAccountViewController.swift */; };
 		D134821521CE3CAD00F9F944 /* CvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D134821421CE3CAD00F9F944 /* CvViewController.swift */; };
 		D134821721CE463200F9F944 /* cv.txt in Resources */ = {isa = PBXBuildFile; fileRef = D134821621CE463200F9F944 /* cv.txt */; };
-		D134821D21CF83BB00F9F944 /* PersonDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D134821C21CF83BB00F9F944 /* PersonDataTableViewCell.swift */; };
 		D134822721CF922900F9F944 /* MainPersonDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D134822621CF922900F9F944 /* MainPersonDataViewController.swift */; };
 		D135787921B693BB0057140D /* ResetPWByMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D135787821B693BB0057140D /* ResetPWByMailViewController.swift */; };
 		D136492821D0E9250039BDC6 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136492721D0E9240039BDC6 /* Person.swift */; };
@@ -29,6 +28,8 @@
 		D1C96A1421A1C97900C5DA7A /* UpdatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C96A1321A1C97900C5DA7A /* UpdatePasswordViewController.swift */; };
 		D1C96A1821A1CB0F00C5DA7A /* UpdateUserNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C96A1721A1CB0F00C5DA7A /* UpdateUserNameViewController.swift */; };
 		D1CF583F219C6811000A3497 /* Create iOS Icons.jsx in Resources */ = {isa = PBXBuildFile; fileRef = D1CF583E219C6811000A3497 /* Create iOS Icons.jsx */; };
+		D1E95C8E21D6899400B40EE9 /* AddPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E95C8D21D6899400B40EE9 /* AddPersonViewController.swift */; };
+		D1E95C9021D6BB6E00B40EE9 /* PersonDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E95C8F21D6BB6E00B40EE9 /* PersonDataTableViewCell.swift */; };
 		D1EAAB8521C1178A005D2656 /* DataBaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAAB8421C1178A005D2656 /* DataBaseExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,7 +40,6 @@
 		D1266D682199A72C00593984 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		D134821421CE3CAD00F9F944 /* CvViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CvViewController.swift; sourceTree = "<group>"; };
 		D134821621CE463200F9F944 /* cv.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cv.txt; sourceTree = "<group>"; };
-		D134821C21CF83BB00F9F944 /* PersonDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDataTableViewCell.swift; sourceTree = "<group>"; };
 		D134822621CF922900F9F944 /* MainPersonDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPersonDataViewController.swift; sourceTree = "<group>"; };
 		D135787821B693BB0057140D /* ResetPWByMailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPWByMailViewController.swift; sourceTree = "<group>"; };
 		D136492721D0E9240039BDC6 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
@@ -58,6 +58,8 @@
 		D1C96A1321A1C97900C5DA7A /* UpdatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordViewController.swift; sourceTree = "<group>"; };
 		D1C96A1721A1CB0F00C5DA7A /* UpdateUserNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserNameViewController.swift; sourceTree = "<group>"; };
 		D1CF583E219C6811000A3497 /* Create iOS Icons.jsx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Create iOS Icons.jsx"; sourceTree = "<group>"; };
+		D1E95C8D21D6899400B40EE9 /* AddPersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPersonViewController.swift; sourceTree = "<group>"; };
+		D1E95C8F21D6BB6E00B40EE9 /* PersonDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDataTableViewCell.swift; sourceTree = "<group>"; };
 		D1EAAB8421C1178A005D2656 /* DataBaseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseExtension.swift; sourceTree = "<group>"; };
 		D8FA6AF44DDF6A6C8562A35A /* Pods_signupfirebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_signupfirebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -130,11 +132,12 @@
 				D15A0DD221909AFC00FBB286 /* SettingsTableViewController.swift */,
 				D1EAAB8421C1178A005D2656 /* DataBaseExtension.swift */,
 				D134821421CE3CAD00F9F944 /* CvViewController.swift */,
-				D134822621CF922900F9F944 /* MainPersonDataViewController.swift */,
-				D134821C21CF83BB00F9F944 /* PersonDataTableViewCell.swift */,
 				D136492721D0E9240039BDC6 /* Person.swift */,
 				D136492921D0E96D0039BDC6 /* UserProfile.swift */,
 				D134821621CE463200F9F944 /* cv.txt */,
+				D134822621CF922900F9F944 /* MainPersonDataViewController.swift */,
+				D1E95C8D21D6899400B40EE9 /* AddPersonViewController.swift */,
+				D1E95C8F21D6BB6E00B40EE9 /* PersonDataTableViewCell.swift */,
 			);
 			path = signupfirebase;
 			sourceTree = "<group>";
@@ -268,16 +271,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1E95C9021D6BB6E00B40EE9 /* PersonDataTableViewCell.swift in Sources */,
 				D1C96A1821A1CB0F00C5DA7A /* UpdateUserNameViewController.swift in Sources */,
 				D134822721CF922900F9F944 /* MainPersonDataViewController.swift in Sources */,
 				D15A0DD321909AFC00FBB286 /* SettingsTableViewController.swift in Sources */,
 				D1C96A1421A1C97900C5DA7A /* UpdatePasswordViewController.swift in Sources */,
 				D135787921B693BB0057140D /* ResetPWByMailViewController.swift in Sources */,
-				D134821D21CF83BB00F9F944 /* PersonDataTableViewCell.swift in Sources */,
 				D1EAAB8521C1178A005D2656 /* DataBaseExtension.swift in Sources */,
 				D136492821D0E9250039BDC6 /* Person.swift in Sources */,
 				D1A486E9219E0BA8004D41BE /* LogInViewController.swift in Sources */,
 				D1B9562A21B3F3E1003F5937 /* ListTableViewCell.swift in Sources */,
+				D1E95C8E21D6899400B40EE9 /* AddPersonViewController.swift in Sources */,
 				D1266D692199A72C00593984 /* CreateAccountViewController.swift in Sources */,
 				D1C7F2E1218C98C800481E48 /* AppDelegate.swift in Sources */,
 				D136492A21D0E96D0039BDC6 /* UserProfile.swift in Sources */,

@@ -53,7 +53,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "postCell")
+        let cellIdentifier = "Cell"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PersonDataTableViewCell
         
         /*
          
@@ -69,10 +70,10 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         
          */
         
-        cell?.textLabel?.text = persons[indexPath.row].name
-        cell?.detailTextLabel?.text = persons[indexPath.row].author.username
+        cell.nameLabel?.text = persons[indexPath.row].name
+        cell.addressLabel?.text = persons[indexPath.row].address
         
-        return cell!
+        return cell
 
     }
     
