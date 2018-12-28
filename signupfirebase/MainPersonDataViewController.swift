@@ -13,7 +13,7 @@ import FirebaseDatabase
 class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    var posts = [Post]()
+    var persons = [Person]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,40 +21,34 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         tableView.delegate = self
         tableView.dataSource = self
         
-        // Henter pålogget bruker
-        //  0 = uid  1 = ePost  2 = name  3 = passWord)
-        let value = getCoreData()
-        
-        // Test av lagring av data i Firedata
-        SavePostFiredata(uid: value.0,
-                         username: value.2,
-                         email: value.1,
-                         text: "Dette er en test av 5. lagring")
-        
         // Henter postene fra Firebase
-        ReadPostFiredata()
-        
+        ReadPersonsFiredata()
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
         
-        // Henter pålogget bruker
-        //  0 = uid  1 = ePost  2 = name  3 = passWord)
-        let value = getCoreData()
-        
-        // Test av lagring av data i Firedata
-        SavePostFiredata(uid: value.0,
-                         username: value.2,
-                         email: value.1,
-                         text: "Dette er en test av 6. lagring")
-        
-        // Henter postene fra Firebase
-        ReadPostFiredata()
+//        // Henter pålogget bruker
+//        //  0 = uid  1 = ePost  2 = name  3 = passWord)
+//        let value = getCoreData()
+//
+//        // Test av lagring av data i Firedata
+//        SavePersonFiredata(uid: value.0,
+//                           username: value.2,
+//                           email: value.1,
+//                           name: "Ole Olsen",
+//                           address: "Uelandsgata 2",
+//                           dateOfBirth: "01.01.1980",
+//                           gender: "M"
+//        )
+//
+//        // Henter postene fra Firebase
+//        ReadPersonsFiredata()
         
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
+        return persons.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -75,19 +69,19 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         
          */
         
-        cell?.textLabel?.text = posts[indexPath.row].text
-        cell?.detailTextLabel?.text = posts[indexPath.row].author.username
+        cell?.textLabel?.text = persons[indexPath.row].name
+        cell?.detailTextLabel?.text = persons[indexPath.row].author.username
         
         return cell!
 
     }
     
-    func ReadPostFiredata() {
-        let postsRef = Database.database().reference().child("posts")
+    func ReadPersonsFiredata() {
+        let personsRef = Database.database().reference().child("person")
         
-        postsRef.observe(.value, with : { snapshot in
+        personsRef.observe(.value, with : { snapshot in
         
-            var tempPosts = [Post]()
+            var tempPersons = [Person]()
             
             for child in snapshot.children {
                 if let childSnapshot = child as? DataSnapshot,
@@ -96,20 +90,29 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                     let uid = author["uid"] as? String,
                     let username = author["username"] as? String,
                     let email = author["email"] as? String,
-                    let text = dict["text"] as? String,
+                    let name = dict["name"] as? String,
+                    let address = dict["address"] as? String,
+                    let dateOfBirth = dict["dateOfBirth"] as? String,
+                    let gender = dict["gender"] as? String,
                     let timestamp = dict["timestamp"] as? Double {
                     
                     let userProfile = UserProfile(uid: uid, username: username, email: email)
-                    let post = Post(id: childSnapshot.key, author: userProfile, text: text, timestamp:timestamp)
+                    let person = Person(id: childSnapshot.key,
+                                        author: userProfile,
+                                        name: name,
+                                        address: address,
+                                        dateOfBirth: dateOfBirth,
+                                        gender: gender,
+                                        timestamp:timestamp)
                     
-                    tempPosts.append(post)
+                    tempPersons.append(person)
                     
                 }
                 
             }
             
             // Oppdaterer posts array
-            self.posts = tempPosts
+            self.persons = tempPersons
             
             // Fyller ut table view
             self.tableView.reloadData()
