@@ -15,9 +15,74 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var dateOfBirthInput: UITextField!
     @IBOutlet weak var genderInput: UISegmentedControl!
     
+    @IBOutlet weak var loginStatus: UITextField!
+
+    var status: Bool = true
+    var activeField: UITextField!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // Observe keyboard change
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeLogin(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeLogin(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeLogin(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        
+        // For å kunne avslutte visning av tastatur når en trykker "Ferdig" på tastaturet
+        nameInput.delegate = self
+        addressInput.delegate = self
+        dateOfBirthInput.delegate = self
+        
+    }
+  
+    @objc func keyboardWillChangeLogin(notification: NSNotification) {
+        
+        guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+            return
+        }
+        
+        print(view.frame.size.height)
+        print((activeField?.frame.size.height)!)
+        
+        print((activeField?.frame.origin.y)!)
+        
+        let distanceToBottom = view.frame.size.height - (activeField?.frame.origin.y)! - (activeField?.frame.size.height)!
+        
+        print("distanceToBottom = \(distanceToBottom)")
+        print("keyboardRect = \(keyboardRect.height)")
+        
+        if keyboardRect.height > distanceToBottom {
+            
+            if notification.name == UIResponder.keyboardWillShowNotification ||
+                notification.name == UIResponder.keyboardWillChangeFrameNotification {
+                view.frame.origin.y = -(keyboardRect.height - distanceToBottom)
+            } else {
+                view.frame.origin.y = 0
+            }
+            
+        }
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        print("LogInView1")
+        activeField = textField
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("LogInView2")
+        activeField?.resignFirstResponder()
+        activeField = nil
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // Dismiss the keyboard when the view is tapped on
+        
+        nameInput.resignFirstResponder()
+        addressInput.resignFirstResponder()
+        dateOfBirthInput.resignFirstResponder()
     }
     
     @IBAction func SaveNewPerson(_ sender: Any) {
@@ -29,7 +94,7 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
         let name = nameInput.text ?? ""
         let address = addressInput.text ?? ""
         let dateOfBirth = dateOfBirthInput.text ?? ""
-        let gender = "Mann"  // genderInput somen streng 
+        let gender = "Mann"  // genderInput som en streng 
         
         SavePersonFiredata(uid: value.0,
                            username: value.2,
