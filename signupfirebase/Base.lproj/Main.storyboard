@@ -962,6 +962,7 @@ NB! Husk at linken i eposten er tidsbegrenset!</string>
                         <outlet property="addressInput" destination="G8Y-tl-1cT" id="lFY-pS-oRE"/>
                         <outlet property="dateOfBirthInput" destination="ntB-2c-9zR" id="Ooh-XH-7Zi"/>
                         <outlet property="genderInput" destination="Z83-Gy-QZ9" id="PA6-m9-1Ld"/>
+                        <outlet property="loginStatus" destination="dcI-Iv-SZx" id="Ygc-t0-fqe"/>
                         <outlet property="nameInput" destination="uy3-05-bWG" id="aHl-z6-Ypu"/>
                     </connections>
                 </viewController>

@@ -15,7 +15,7 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var dateOfBirthInput: UITextField!
     @IBOutlet weak var genderInput: UISegmentedControl!
     
-    @IBOutlet weak var loginStatus: UITextField!
+    @IBOutlet weak var loginStatus: UILabel!
 
     var status: Bool = true
     var activeField: UITextField!
@@ -33,6 +33,16 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
         nameInput.delegate = self
         addressInput.delegate = self
         dateOfBirthInput.delegate = self
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if (UserDefaults.standard.bool(forKey: "LOGGEDIN")) == true {
+            loginStatus.text = showUserInfo(startUp: false)
+        } else {
+            loginStatus.text = showUserInfo(startUp: true)
+        }
         
     }
   
@@ -94,7 +104,7 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
         let name = nameInput.text ?? ""
         let address = addressInput.text ?? ""
         let dateOfBirth = dateOfBirthInput.text ?? ""
-        let gender = "Mann"  // genderInput som en streng 
+        let gender = "Mann"  // genderInput som en streng
         
         SavePersonFiredata(uid: value.0,
                            username: value.2,
