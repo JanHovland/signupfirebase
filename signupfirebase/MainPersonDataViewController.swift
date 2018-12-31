@@ -13,7 +13,9 @@ import FirebaseDatabase
 class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    
     var persons = [Person]()
+    var activeField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,10 +43,9 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
 //                           dateOfBirth: "01.01.1980",
 //                           gender: "M"
 //        )
-//
-//        // Henter postene fra Firebase
-//        ReadPersonsFiredata()
-        
+
+        // Henter postene fra Firebase
+        ReadPersonsFiredata()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -122,6 +123,13 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         })
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        // Remove observers
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
 }
 
 

@@ -45,11 +45,6 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
         self.eMailCreateAccountTextField.delegate = self
         self.passwordCreateAccountTextField.delegate = self
         
-        // Observe keyboard change
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeCreateAccount(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeCreateAccount(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeCreateAccount(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-        
         // Setter inn variablene fra LogInViewController.swift
         eMailCreateAccountTextField.text = createEmail
         passwordCreateAccountTextField.text = createPassord
@@ -61,9 +56,17 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
         
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        // Observe keyboard change
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeCreateAccount(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeCreateAccount(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeCreateAccount(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
     }
-
+    
     @objc func keyboardWillChangeCreateAccount(notification: NSNotification) {
         
         guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {

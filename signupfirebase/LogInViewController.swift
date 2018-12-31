@@ -46,11 +46,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         // Setter "LOGGEDIN" til false
         UserDefaults.standard.set(false, forKey: "LOGGEDIN")
 
-        // Observe keyboard change
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeLogin(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeLogin(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeLogin(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-        
         // Initierer UIActivityIndicatorView
         activity.hidesWhenStopped = true
         activity.style = .gray
@@ -78,6 +73,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         
+        // Observe keyboard change
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeLogin(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeLogin(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeLogin(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        
         if (UserDefaults.standard.bool(forKey: "LOGGEDIN")) == true {
             loginStatus.text = showUserInfo(startUp: false)
         } else {
@@ -89,6 +89,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         } else {
             self.passwordTextField.isSecureTextEntry = true
         }
+        
+        // For å kunne avslutte visning av tastatur når en trykker "Ferdig" på tastaturet
+        eMailLoginTextField.delegate = self
+        passwordTextField.delegate = self
         
     }
     

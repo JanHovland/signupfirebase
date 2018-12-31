@@ -39,11 +39,12 @@ class SettingsTableViewController: UITableViewController {
     override open var shouldAutorotate: Bool {
         return false
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         activity.startAnimating()
         userInfo.text = showUserInfo(startUp: false)
         activity.stopAnimating()
+        
     }
 
     @IBAction func showPassword(_ sender: UISwitch) {
@@ -55,6 +56,6 @@ class SettingsTableViewController: UITableViewController {
             switchPassWord.isOn = true
         }
     }
-
+    
     @IBOutlet var switchPassWord: UISwitch!
 }

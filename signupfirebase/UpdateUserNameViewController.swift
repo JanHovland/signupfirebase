@@ -40,11 +40,6 @@ class UpdateUserNameViewController: UIViewController, UITextFieldDelegate {
 
         self.NewNameTextField.delegate = self
         
-        // Observe keyboard change
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeUpdateName(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeUpdateName(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeUpdateName(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-        
         showUserInformation()
 
         // For å kunne avslutte visning av tastatur når en trykker "Ferdig" på tastaturet
@@ -66,6 +61,11 @@ class UpdateUserNameViewController: UIViewController, UITextFieldDelegate {
         activity.startAnimating()
         userInfo.text = showUserInfo(startUp: false)
         activity.stopAnimating()
+        // Observe keyboard change
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeUpdateName(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeUpdateName(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeUpdateName(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        
     }
     
     @objc func keyboardWillChangeUpdateName(notification: NSNotification) {

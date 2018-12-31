@@ -19,15 +19,9 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
 
     var status: Bool = true
     var activeField: UITextField!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Observe keyboard change
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeLogin(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeLogin(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeLogin(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         
         // For å kunne avslutte visning av tastatur når en trykker "Ferdig" på tastaturet
         nameInput.delegate = self
@@ -38,15 +32,20 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         
+        // Observe keyboard change
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeAddPerson(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeAddPerson(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeAddPerson(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        
         if (UserDefaults.standard.bool(forKey: "LOGGEDIN")) == true {
             loginStatus.text = showUserInfo(startUp: false)
         } else {
             loginStatus.text = showUserInfo(startUp: true)
         }
-        
+      
     }
   
-    @objc func keyboardWillChangeLogin(notification: NSNotification) {
+    @objc func keyboardWillChangeAddPerson(notification: NSNotification) {
         
         guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
             return
@@ -117,4 +116,11 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        // Remove observers
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+
 }

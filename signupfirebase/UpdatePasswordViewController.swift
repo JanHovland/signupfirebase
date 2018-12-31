@@ -38,11 +38,6 @@ class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Observe keyboard change
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeUpdatePassword(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeUpdatePassword(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeUpdatePassword(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-        
         showUserInformation()
 
         // For å kunne avslutte visning av tastatur når en trykker "Ferdig" på tastaturet
@@ -76,6 +71,12 @@ class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
         activity.startAnimating()
         userInfo.text = showUserInfo(startUp: false)
         activity.stopAnimating()
+        
+        // Observe keyboard change
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeUpdatePassword(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeUpdatePassword(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeUpdatePassword(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        
     }
 
     @objc func keyboardWillChangeUpdatePassword(notification: NSNotification) {
