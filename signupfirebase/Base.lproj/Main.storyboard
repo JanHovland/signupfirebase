@@ -752,7 +752,7 @@ Programmerings oppgaver:
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="9kH-AM-w15"/>
                                 </constraints>
-                                <string key="text">Etter at du har bedt Firebase om å resette passordet ditt, vil du motta en epost omtrent som denne: 
+                                <string key="text">Etter at du har bedt Firebase om å resette passordet ditt, vil du motta en epost tilsvarende denne: 
 
 Hei!
 Følg denne linken for å tilbakestille passordet ditt for project-211156156416 for kontoen din.
@@ -894,7 +894,7 @@ NB! Husk at linken i eposten er tidsbegrenset!</string>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nbz-eB-NWH">
                                 <rect key="frame" x="15" y="370" width="57" height="20.5"/>

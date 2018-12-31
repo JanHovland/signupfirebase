@@ -15,6 +15,8 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var dateOfBirthInput: UITextField!
     @IBOutlet weak var genderInput: UISegmentedControl!
     
+    let datoValg = UIDatePicker()
+    
     @IBOutlet weak var loginStatus: UILabel!
 
     var status: Bool = true
@@ -43,6 +45,9 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
             loginStatus.text = showUserInfo(startUp: true)
         }
       
+        // Legg inn fra datovalg
+        hentFraDatoValg()             // Gjelder fødselsdato
+        
     }
   
     @objc func keyboardWillChangeAddPerson(notification: NSNotification) {
@@ -115,6 +120,33 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
         )
         
     }
+    
+    func hentFraDatoValg() {
+        let toolBarDatoValg = UIToolbar()
+        toolBarDatoValg.sizeToFit()
+        
+        let flexibleSpaceDatoValg = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace,                                                target: nil, action: nil)
+        
+        let ferdigButtonDatoValg = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done,
+                                                   target: self, action: #selector(self.skjulDatoValg))
+        
+        toolBarDatoValg.setItems([flexibleSpaceDatoValg, ferdigButtonDatoValg], animated: false)
+        
+        dateOfBirthInput.inputAccessoryView = toolBarDatoValg
+        dateOfBirthInput.inputView = datoValg
+        datoValg.datePickerMode = .date
+    }
+    
+    @objc func skjulDatoValg() {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle = .none
+        let datoString = formatter.string(from: datoValg.date)
+        dateOfBirthInput.text = "\(datoString)"
+        self.view.endEditing(true)
+    }
+
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         // Remove observers
