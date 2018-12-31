@@ -17,6 +17,8 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
     
     let datoValg = UIDatePicker()
     
+    var gender: String = "Mann"
+    
     @IBOutlet weak var loginStatus: UILabel!
 
     var status: Bool = true
@@ -145,8 +147,6 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
         dateOfBirthInput.text = "\(datoString)"
         self.view.endEditing(true)
     }
-
-    
     
     override func viewWillDisappear(_ animated: Bool) {
         // Remove observers
@@ -155,4 +155,13 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
 
+    @IBAction func velgeKjonn(_ sender: UISegmentedControl) {
+        
+        switch genderInput.selectedSegmentIndex  {
+        case 0: gender = "Mann"
+        case 1: gender = "Kvinne"
+        default: return
+        }
+        
+    }
 }

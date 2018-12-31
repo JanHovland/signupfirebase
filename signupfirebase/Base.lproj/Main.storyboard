@@ -908,6 +908,9 @@ NB! Husk at linken i eposten er tidsbegrenset!</string>
                                     <segment title="Mann"/>
                                     <segment title="Kvinne"/>
                                 </segments>
+                                <connections>
+                                    <action selector="velgeKjonn:" destination="rxh-wi-pm3" eventType="valueChanged" id="ysi-vl-GXC"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

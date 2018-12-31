@@ -16,97 +16,93 @@ extension UIViewController {
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alertController, animated: true, completion: nil)
     }
-    
+
     func presentAlertOption(withTitle title: String, message: Any) {
         let alertController = UIAlertController(title: title, message: "\(message)", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Prøv en gang til", style: .default, handler: nil))
         alertController.addAction(UIAlertAction(title: "Registrer en ny bruker", style: .default, handler: { _ in CreateAccount() }))
         present(alertController, animated: true, completion: nil)
-        
+
         // Denne funksjonen må være deklarert inne i "extension"
         func CreateAccount() {
             performSegue(withIdentifier: "gotoCreateAccount", sender: self)
         }
     }
-    
+
     func saveCoreData(withEpost: String, withPassord: String, withUid: String, withLoggedIn: Bool, withName: String) -> Bool {
         var ok: Bool = false
-        
+
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "User", in: context)
-        
+
         let newEntity = NSManagedObject(entity: entity!, insertInto: context)
-        
+
         newEntity.setValue(withEpost, forKey: "email")
         newEntity.setValue(withPassord, forKey: "password")
         newEntity.setValue(withUid, forKey: "uid")
         newEntity.setValue(withLoggedIn, forKey: "loggedin")
         newEntity.setValue(withName, forKey: "name")
-        
+
         do {
             try context.save()
             ok = true
         } catch {
             print(error.localizedDescription)
         }
-        
+
         return ok
     }
-    
+
     func getCoreData() -> (String, String, String, String) {
         var ePost: String = ""
         var passWord: String = ""
         var name: String = ""
         var uid: String = ""
-        
+
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         request.returnsObjectsAsFaults = false
         request.predicate = NSPredicate(format: "loggedin = true")
-        
+
         do {
             let result = try context.fetch(request)
-            
+
             if result.count > 0 {
                 for data in result as! [NSManagedObject] {
-                    
                     if data.value(forKey: "uid") != nil {
                         uid = data.value(forKey: "uid") as! String
                     }
-                    
+
                     if data.value(forKey: "email") != nil {
                         ePost = (data.value(forKey: "email") as? String)!
                     }
-                    
+
                     if data.value(forKey: "name") != nil {
                         name = data.value(forKey: "name") as! String
                     }
-                    
+
                     if data.value(forKey: "password") != nil {
                         passWord = data.value(forKey: "password") as! String
                     }
-                    
-                    
-                    
                 }
             }
-            
+
         } catch {
             print(error.localizedDescription)
         }
-        
+
         return (uid, ePost, name, passWord)
     }
-    
+
     func updateCoreData(withEpost: String, withLoggedIn: Bool) -> Bool {
         var ok: Bool = false
-        
+
         // As we know that container is set up in the AppDelegates so we need to refer that container.
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return false }
-        
+
         // We need to create a context from this container
         let context = appDelegate.persistentContainer.viewContext
-        
+
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         request.predicate = NSPredicate(format: "email =  %@", withEpost)
         do {
@@ -131,22 +127,22 @@ extension UIViewController {
         } catch {
             print(error.localizedDescription)
         }
-        
+
         return ok
     }
-    
+
     func findCoreData(withEpost: String) -> Bool {
         var ok: Bool = false
-        
+
         // As we know that container is set up in the AppDelegates so we need to refer that container.
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return false }
-        
+
         // We need to create a context from this container
         let context = appDelegate.persistentContainer.viewContext
-        
+
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         request.predicate = NSPredicate(format: "email =  %@", withEpost)
-        
+
         do {
             let results = try context.fetch(request)
             if results.count > 0 {
@@ -155,22 +151,22 @@ extension UIViewController {
         } catch {
             print(error.localizedDescription)
         }
-        
+
         return ok
     }
-    
+
     func findPasswordCoreData(withEpost: String) -> String {
         var password: String = ""
-        
+
         // As we know that container is set up in the AppDelegates so we need to refer that container.
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return "" }
-        
+
         // We need to create a context from this container
         let context = appDelegate.persistentContainer.viewContext
-        
+
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         request.predicate = NSPredicate(format: "email =  %@", withEpost)
-        
+
         do {
             let results = try context.fetch(request)
             if results.count > 0 {
@@ -183,19 +179,19 @@ extension UIViewController {
         } catch {
             print(error.localizedDescription)
         }
-        
+
         return password
     }
-    
+
     func updateNameCoreData(withEpost: String, withNavn: String) -> Bool {
         var ok: Bool = false
-        
+
         // As we know that container is set up in the AppDelegates so we need to refer that container.
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return false }
-        
+
         // We need to create a context from this container
         let context = appDelegate.persistentContainer.viewContext
-        
+
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         request.predicate = NSPredicate(format: "email =  %@", withEpost)
         do {
@@ -216,19 +212,19 @@ extension UIViewController {
         } catch {
             print(error.localizedDescription)
         }
-        
+
         return ok
     }
-    
+
     func updatePasswordCoreData(withEpost: String, withPassWord: String) -> Bool {
         var ok: Bool = false
-        
+
         // As we know that container is set up in the AppDelegates so we need to refer that container.
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return false }
-        
+
         // We need to create a context from this container
         let context = appDelegate.persistentContainer.viewContext
-        
+
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         request.predicate = NSPredicate(format: "email =  %@", withEpost)
         do {
@@ -249,22 +245,22 @@ extension UIViewController {
         } catch {
             print(error.localizedDescription)
         }
-        
+
         return ok
     }
-    
+
     func updateEpostCoreData(withOldEpost: String, withNewEpost: String) -> Bool {
         var ok: Bool = false
-        
+
         // As we know that container is set up in the AppDelegates so we need to refer that container.
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return false }
-        
+
         // We need to create a context from this container
         let context = appDelegate.persistentContainer.viewContext
-        
+
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         request.predicate = NSPredicate(format: "email =  %@", withOldEpost)
-        
+
         do {
             let results = try context.fetch(request)
             if results.count > 0 {
@@ -283,59 +279,59 @@ extension UIViewController {
         } catch {
             print(error.localizedDescription)
         }
-        
+
         return ok
     }
-    
+
     func deleteAllCoreData() {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         request.returnsObjectsAsFaults = false
-        
+
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: request)
-        
+
         do {
             print("deleting all content")
             try context.execute(deleteRequest)
-            
+
         } catch {
             print(error.localizedDescription)
         }
     }
-    
+
     func deleteUserCoreData(UserEmail: String) -> Bool {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-        
+
         request.predicate = NSPredicate(format: "email =  %@", UserEmail)
-        
+
         request.returnsObjectsAsFaults = false
-        
+
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: request)
-        
+
         do {
             print("deleting user with epost: \(UserEmail)")
             try context.execute(deleteRequest)
             return true
-            
+
         } catch {
             print(error.localizedDescription)
             return false
         }
     }
-    
+
     func resetLoggedIinCoreData() -> Bool {
         var ok: Bool = false
-        
+
         // As we know that container is set up in the AppDelegates so we need to refer that container.
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return false }
-        
+
         // We need to create a context from this container
         let context = appDelegate.persistentContainer.viewContext
-        
+
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         request.predicate = NSPredicate(format: "loggedin = true")
-        
+
         do {
             let results = try context.fetch(request)
             if results.count > 0 {
@@ -353,27 +349,25 @@ extension UIViewController {
             } else {
                 ok = true
             }
-            
+
         } catch {
             print(error.localizedDescription)
         }
-        
+
         return ok
     }
-    
-    
+
     func showUserInfo(startUp: Bool) -> String {
-        
         //  0 = uid  1 = ePost  2 = name  3 = passWord)
         let value = getCoreData()
-        
+
         let email = value.1
         let name = value.2
-        
+
         if email.count > 0,
             name.count > 0 {
             if startUp == false {
-                return name +  " (" + email + ")."
+                return name + " (" + email + ")."
             } else {
                 return "Please log in to Firebase."
             }
@@ -381,45 +375,42 @@ extension UIViewController {
             return ""
         }
     }
-    
-    // Firebase database
-    
-    func SavePersonFiredata(uid: String,
-                          username: String,
-                          email: String,
-                          name: String,
-                          address: String,
-                          dateOfBirth: String,
-                          gender: String
-                          ) {
-    
-        let dataBase = Database.database().reference().child("person").childByAutoId()
-    
-        let postObject = [
-                         "author":  [
-                                    "uid": uid,
-                                    "username": username,
-                                    "email": email
-                                    ],
-                         
-                                    "name":  name,
-                                    "address": address,
-                                    "dateOfBirth": dateOfBirth,
-                                    "gender": gender,
-                                    "timestamp": [".sv": "timestamp"]
-            
-                        ] as [String: Any]
-    
-        dataBase.setValue(postObject, withCompletionBlock: { error, ref in
-            if error == nil {
-                self.dismiss(animated: true, completion: nil)
-            } else {
-                print(error as! String)
-            }
-        })
-        
-    }
 
-    
-    
+    // Firebase database
+
+    func SavePersonFiredata(uid: String,
+                            username: String,
+                            email: String,
+                            name: String,
+                            address: String,
+                            dateOfBirth: String,
+                            gender: String) {
+        if 1 == 1 {
+            
+            let dataBase = Database.database().reference().child("person").childByAutoId()
+
+            let postObject = [
+                "author": [
+                    "uid": uid,
+                    "username": username,
+                    "email": email,
+                ],
+
+                "name": name,
+                "address": address,
+                "dateOfBirth": dateOfBirth,
+                "gender": gender,
+                "timestamp": [".sv": "timestamp"],
+
+            ] as [String: Any]
+
+            dataBase.setValue(postObject, withCompletionBlock: { error, _ in
+                if error == nil {
+                    self.dismiss(animated: true, completion: nil)
+                } else {
+                    print(error as! String)
+                }
+            })
+        }
+    }
 }
