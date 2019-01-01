@@ -385,8 +385,13 @@ extension UIViewController {
                             address: String,
                             dateOfBirth: String,
                             gender: String) {
-        if 1 == 1 {
-            
+        if uid.count > 0,
+            username.count > 0,
+            email.count > 0,
+            name.count > 0,
+            address.count > 0,
+            dateOfBirth.count > 0,
+            gender.count > 0 {
             let dataBase = Database.database().reference().child("person").childByAutoId()
 
             let postObject = [
@@ -408,9 +413,12 @@ extension UIViewController {
                 if error == nil {
                     self.dismiss(animated: true, completion: nil)
                 } else {
-                    print(error as! String)
+                    print(error!.localizedDescription)
                 }
             })
+        } else {
+            let melding = "All field must be filled in."
+            self.presentAlert(withTitle: "Error", message: melding)
         }
     }
 }
