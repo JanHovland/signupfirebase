@@ -417,7 +417,7 @@ extension UIViewController {
                 }
             })
         } else {
-            let melding = "\r\nEvery field must have values filled in."
+            let melding = "\r\nEvery field must be filled."
             self.presentAlert(withTitle: "Error", message: melding)
         }
     }
