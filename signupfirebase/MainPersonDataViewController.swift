@@ -77,11 +77,25 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         return cell
 
     }
+//
+//    let userRef = dataBaseRef.child("Registration/").child((FIRAuth.auth()!.currentUser?.uid)!).child("Car")
+//
+//    let userRef1 =  userRef.queryOrderedByChild("car_name")
+//
+//    userRef1.observeEventType(.Value, withBlock: { (snapshot) in
+//    print("SNAPSHOT: ",snapshot.childrenCount)
+//    print("SNAPSHOT: ",snapshot)
+//
+//    )}
+//
+//
+    
     
     func ReadPersonsFiredata() {
-        let personsRef = Database.database().reference().child("person")
+        let personsRef1 = Database.database().reference().child("person")
+        // let personsRef =  personsRef1.queryOrdered(byChild: "name").queryEqual(toValue: "Jan")
         
-        personsRef.observe(.value, with : { snapshot in
+        personsRef1.observe(.value, with : { snapshot in
         
             var tempPersons = [Person]()
             

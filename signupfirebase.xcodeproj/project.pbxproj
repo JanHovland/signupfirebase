@@ -135,9 +135,9 @@
 				D136492721D0E9240039BDC6 /* Person.swift */,
 				D136492921D0E96D0039BDC6 /* UserProfile.swift */,
 				D134821621CE463200F9F944 /* cv.txt */,
+				D1E95C8F21D6BB6E00B40EE9 /* PersonDataTableViewCell.swift */,
 				D134822621CF922900F9F944 /* MainPersonDataViewController.swift */,
 				D1E95C8D21D6899400B40EE9 /* AddPersonViewController.swift */,
-				D1E95C8F21D6BB6E00B40EE9 /* PersonDataTableViewCell.swift */,
 			);
 			path = signupfirebase;
 			sourceTree = "<group>";
