@@ -15,13 +15,13 @@ import UIKit
  Firebase rules:
 
  {
- "rules": {
- "person": {
- ".read": "auth.uid != null",
- ".write": "auth.uid != null",
- ".indexOn" : ["uid", "name", "address", "dateOfBirth"]
- }
- }
+    "rules": {
+          "person": {
+                    ".read": "auth.uid != null",
+                    ".write": "auth.uid != null",
+                    ".indexOn" : ["uid", "name", "address", "dateOfBirth"]
+          }
+    }
  }
 
  */
@@ -37,21 +37,6 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
 
         tableView.delegate = self
         tableView.dataSource = self
-        
-//        // Henter pålogget bruker
-//        //  0 = uid  1 = ePost  2 = name  3 = passWord)
-        let value = getCoreData()
-
-        // Test av lagring av data i Firedata
-        SavePersonFiredata(uid: value.0,
-                           username: value.2,
-                           email: value.1,
-                           name: "Ole Olsen",
-                           address: "Uelandsgata 2",
-                           dateOfBirth: "01.01.1980",
-                           gender: "M"
-    )
-
         
     }
 
@@ -81,8 +66,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
 
          */
 
-        cell.nameLabel?.text = PersonData[indexPath.row].name
-//        cell.addressLabel?.text = persons[indexPath.row].address
+        cell.nameLabel?.text = persons[indexPath.row].personData.name
+        cell.addressLabel?.text = persons[indexPath.row].personData.address
 
         return cell
     }
