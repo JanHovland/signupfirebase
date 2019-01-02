@@ -92,14 +92,20 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     
     
     func ReadPersonsFiredata() {
-        let personsRef1 = Database.database().reference().child("person")
-        // let personsRef =  personsRef1.queryOrdered(byChild: "name").queryEqual(toValue: "Jan")
+        let personsRef = Database.database().reference().child("person")
+        let personsRef1 =  personsRef.queryOrdered(byChild: "name").queryEqual(toValue: "Ole Olsen")
+        
+        
+        
+print("Foran observe")
         
         personsRef1.observe(.value, with : { snapshot in
         
             var tempPersons = [Person]()
             
             for child in snapshot.children {
+   print("child = \(child)")
+                
                 if let childSnapshot = child as? DataSnapshot,
                     let dict = childSnapshot.value as? [String:Any],
                     let author = dict["author"] as? [String:Any],
