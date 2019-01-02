@@ -37,6 +37,22 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
 
         tableView.delegate = self
         tableView.dataSource = self
+        
+//        // Henter pålogget bruker
+//        //  0 = uid  1 = ePost  2 = name  3 = passWord)
+        let value = getCoreData()
+
+        // Test av lagring av data i Firedata
+        SavePersonFiredata(uid: value.0,
+                           username: value.2,
+                           email: value.1,
+                           name: "Ole Olsen",
+                           address: "Uelandsgata 2",
+                           dateOfBirth: "01.01.1980",
+                           gender: "M"
+    )
+
+        
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -65,8 +81,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
 
          */
 
-        cell.nameLabel?.text = persons[indexPath.row].name
-        cell.addressLabel?.text = persons[indexPath.row].address
+        cell.nameLabel?.text = PersonData[indexPath.row].name
+//        cell.addressLabel?.text = persons[indexPath.row].address
 
         return cell
     }
@@ -88,18 +104,26 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                     let uid = author["uid"] as? String,
                     let username = author["username"] as? String,
                     let email = author["email"] as? String,
-                    let name = dict["name"] as? String,
-                    let address = dict["address"] as? String,
-                    let dateOfBirth = dict["dateOfBirth"] as? String,
-                    let gender = dict["gender"] as? String,
+
+                    let personData = dict["personData"] as? [String: Any],
+                    let name = personData["name"] as? String,
+                    let address = personData["address"] as? String,
+                    let dateOfBirth = personData["dateOfBirth"] as? String,
+                    let gender = personData["gender"] as? String,
+
                     let timestamp = dict["timestamp"] as? Double {
-                    let userProfile = UserProfile(uid: uid, username: username, email: email)
+                    let author = Author(uid: uid,
+                                        username: username,
+                                        email: email)
+
+                    let personData = PersonData(address: address,
+                                                dateOfBirth: dateOfBirth,
+                                                gender: gender,
+                                                name: name)
+
                     let person = Person(id: childSnapshot.key,
-                                        author: userProfile,
-                                        name: name,
-                                        address: address,
-                                        dateOfBirth: dateOfBirth,
-                                        gender: gender,
+                                        author: author,
+                                        personData: personData,
                                         timestamp: timestamp)
 
                     tempPersons.append(person)

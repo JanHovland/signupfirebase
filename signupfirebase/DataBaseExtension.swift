@@ -400,11 +400,14 @@ extension UIViewController {
                     "username": username,
                     "email": email,
                 ],
-
-                "name": name,
-                "address": address,
-                "dateOfBirth": dateOfBirth,
-                "gender": gender,
+                
+                "personData": [
+                    "name": name,
+                    "address": address,
+                    "dateOfBirth": dateOfBirth,
+                    "gender": gender,
+                ],
+                
                 "timestamp": [".sv": "timestamp"],
 
             ] as [String: Any]

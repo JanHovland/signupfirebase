@@ -8,7 +8,7 @@
 
 import Foundation
 
-class UserProfile {
+class Author {
     var uid: String
     var username: String
     var email: String
