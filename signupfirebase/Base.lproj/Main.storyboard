@@ -569,8 +569,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JPJ-5L-faf" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="3360"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cYk-zV-Vpt">
-                                                <rect key="frame" x="10" y="10" width="355" height="1650"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cYk-zV-Vpt">
+                                                <rect key="frame" x="10" y="8" width="355" height="1650"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1650" id="4xP-pt-sH4"/>
@@ -596,7 +596,7 @@ Programmerings oppgaver:
 3. CoreData.
    a) Oppdatere AppDelegate slik at directory vises i AppDelegate.swift
    a) Viser data med hjelp av applikasjonen "Datum"
-   b) Bruke CoreData for å:
+   b) Bruke CoreData for:
       . Insert data
       . Delete data
       . Update data
@@ -609,7 +609,7 @@ Programmerings oppgaver:
       https://console.firebase.google.com/project/signupfirebase-236b9/database/firestore/data~2Fhttps://console.firebase.google.com/project/signupfirebase-236b9/database/firestore/data~2F
    b) Bruke Authentication i Firebase
       . Benytter epost og passord
-   c) Bruke Firebase databasen for å:
+   c) Bruke Firebase databasen for:
       . Insert data
       . Delete data
       . Update data
