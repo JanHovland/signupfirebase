@@ -1,5 +1,5 @@
 //
-//  UpdateTableViewController.swift
+//  SettingsTableViewController.swift
 //  signupfirebase
 //
 //  Created by Jan  on 05/11/2018.
@@ -58,4 +58,10 @@ class SettingsTableViewController: UITableViewController {
     }
     
     @IBOutlet var switchPassWord: UISwitch!
+    
+    
+    
+    
+    
+    
 }

@@ -32,6 +32,7 @@
 		D1E95C9021D6BB6E00B40EE9 /* PersonDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E95C8F21D6BB6E00B40EE9 /* PersonDataTableViewCell.swift */; };
 		D1EAAB8521C1178A005D2656 /* DataBaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAAB8421C1178A005D2656 /* DataBaseExtension.swift */; };
 		D1ED85A921DD332500DBDB82 /* PersonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ED85A821DD332500DBDB82 /* PersonData.swift */; };
+		D1ED85AB21DE601D00DBDB82 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ED85AA21DE601D00DBDB82 /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		D1E95C8F21D6BB6E00B40EE9 /* PersonDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDataTableViewCell.swift; sourceTree = "<group>"; };
 		D1EAAB8421C1178A005D2656 /* DataBaseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseExtension.swift; sourceTree = "<group>"; };
 		D1ED85A821DD332500DBDB82 /* PersonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersonData.swift; path = ../../PersonData.swift; sourceTree = "<group>"; };
+		D1ED85AA21DE601D00DBDB82 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WebViewController.swift; path = ../../WebViewController.swift; sourceTree = "<group>"; };
 		D8FA6AF44DDF6A6C8562A35A /* Pods_signupfirebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_signupfirebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -141,6 +143,7 @@
 				D1E95C8F21D6BB6E00B40EE9 /* PersonDataTableViewCell.swift */,
 				D134822621CF922900F9F944 /* MainPersonDataViewController.swift */,
 				D1E95C8D21D6899400B40EE9 /* AddPersonViewController.swift */,
+				D1ED85AA21DE601D00DBDB82 /* WebViewController.swift */,
 			);
 			path = signupfirebase;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1ED85AB21DE601D00DBDB82 /* WebViewController.swift in Sources */,
 				D1E95C9021D6BB6E00B40EE9 /* PersonDataTableViewCell.swift in Sources */,
 				D1C96A1821A1CB0F00C5DA7A /* UpdateUserNameViewController.swift in Sources */,
 				D134822721CF922900F9F944 /* MainPersonDataViewController.swift in Sources */,

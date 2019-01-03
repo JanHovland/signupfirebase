@@ -242,7 +242,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="5Kc-zy-85Y">
-                            <rect key="frame" x="0.0" y="476" width="375" height="20"/>
+                            <rect key="frame" x="0.0" y="548" width="375" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </activityIndicatorView>
                         <sections>
@@ -452,6 +452,40 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle=" " id="g71-cI-G6O">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="12" editingAccessoryType="disclosureIndicator" focusStyle="custom" id="L2t-RN-pyC">
+                                        <rect key="frame" x="0.0" y="504" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L2t-RN-pyC" id="wPM-Af-piy">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="Icon-20" translatesAutoresizingMaskIntoConstraints="NO" id="385-rH-IxC">
+                                                    <rect key="frame" x="17" y="10" width="20" height="20"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firebase Console" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NU2-zq-KJ6">
+                                                    <rect key="frame" x="52" y="9" width="279" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <rect key="contentStretch" x="0.20000000000000001" y="0.0" width="1" height="1"/>
+                                            <constraints>
+                                                <constraint firstItem="385-rH-IxC" firstAttribute="leading" secondItem="wPM-Af-piy" secondAttribute="leading" constant="17" id="6L8-tw-BJI"/>
+                                                <constraint firstItem="385-rH-IxC" firstAttribute="top" secondItem="wPM-Af-piy" secondAttribute="top" constant="10" id="JMv-Yh-AoW"/>
+                                                <constraint firstItem="NU2-zq-KJ6" firstAttribute="leading" secondItem="385-rH-IxC" secondAttribute="trailing" constant="15" id="Kcu-TX-2fp"/>
+                                                <constraint firstItem="NU2-zq-KJ6" firstAttribute="top" secondItem="wPM-Af-piy" secondAttribute="top" constant="9" id="PMq-bv-WhJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="NU2-zq-KJ6" secondAttribute="trailing" constant="10" id="acB-bT-NRn"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="7vm-zK-TCA" kind="show" identifier="showWebView" id="llF-MF-qiL"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="nhA-xf-W66" id="JAa-pR-xFo"/>
@@ -470,6 +504,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pgR-wM-cad" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3246" y="-3"/>
+        </scene>
+        <!--Firebase Console-->
+        <scene sceneID="7JC-3R-JlT">
+            <objects>
+                <viewController id="7vm-zK-TCA" customClass="WebViewController" customModule="signupfirebase" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="P9a-U8-awG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fJ4-83-yes">
+                                <rect key="frame" x="0.0" y="64" width="375" height="510"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fJ4-83-yes" firstAttribute="leading" secondItem="hgj-ZG-XAp" secondAttribute="leading" id="LbK-gJ-VOO"/>
+                            <constraint firstItem="fJ4-83-yes" firstAttribute="top" secondItem="hgj-ZG-XAp" secondAttribute="top" id="oPt-1H-9Q0"/>
+                            <constraint firstItem="hgj-ZG-XAp" firstAttribute="trailing" secondItem="fJ4-83-yes" secondAttribute="trailing" id="sBQ-cq-k0x"/>
+                            <constraint firstItem="hgj-ZG-XAp" firstAttribute="bottom" secondItem="fJ4-83-yes" secondAttribute="bottom" id="y9u-LR-Bvr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hgj-ZG-XAp"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Firebase Console" id="RsD-9M-gH2"/>
+                    <connections>
+                        <outlet property="view" destination="fJ4-83-yes" id="VLT-qQ-7WI"/>
+                        <outlet property="webView" destination="fJ4-83-yes" id="ndd-Yf-LY9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Vu-pu-AJy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2074" y="100"/>
         </scene>
         <!--Update user name-->
         <scene sceneID="ffJ-QF-Ihx">
@@ -567,9 +637,9 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="1843"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JPJ-5L-faf" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="3360"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="3364"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cYk-zV-Vpt">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cYk-zV-Vpt">
                                                 <rect key="frame" x="10" y="8" width="355" height="1650"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -613,7 +683,7 @@ Programmerings oppgaver:
       . Insert data
       . Delete data
       . Update data
-   d) Oppdatere epost adresssen for autensiering 
+   d) Oppdatere epost for autensiering 
    e) Oppdatere passordet for autensiering
    
  </mutableString>
@@ -623,8 +693,8 @@ Programmerings oppgaver:
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="cYk-zV-Vpt" firstAttribute="top" secondItem="JPJ-5L-faf" secondAttribute="top" constant="10" id="8kZ-wj-zle"/>
-                                            <constraint firstAttribute="bottom" secondItem="cYk-zV-Vpt" secondAttribute="bottom" constant="1700" id="GwZ-Qm-wOP"/>
+                                            <constraint firstItem="cYk-zV-Vpt" firstAttribute="top" secondItem="JPJ-5L-faf" secondAttribute="top" constant="8" id="8kZ-wj-zle"/>
+                                            <constraint firstAttribute="bottom" secondItem="cYk-zV-Vpt" secondAttribute="bottom" constant="1706" id="GwZ-Qm-wOP"/>
                                             <constraint firstItem="cYk-zV-Vpt" firstAttribute="leading" secondItem="JPJ-5L-faf" secondAttribute="leading" constant="10" id="VHN-dP-DJq"/>
                                             <constraint firstAttribute="trailing" secondItem="cYk-zV-Vpt" secondAttribute="trailing" constant="10" id="meq-BD-XCP"/>
                                         </constraints>
