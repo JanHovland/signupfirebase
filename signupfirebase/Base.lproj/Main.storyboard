@@ -569,43 +569,54 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JPJ-5L-faf" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="3360"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cYk-zV-Vpt">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cYk-zV-Vpt">
                                                 <rect key="frame" x="10" y="10" width="355" height="1650"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1650" id="4xP-pt-sH4"/>
                                                 </constraints>
-                                                <string key="text">
+                                                <mutableString key="text">
 Programmerings oppgaver:
 
-1. Xcode:
+1. Xcode.
     a) Opprette lisens hos Apple
-    b) Bli kjent med Xcode miljøet
+    b) Bruke Xcode miljøet til å lage apper
+    c) ViewController
+    d) TableViewController
+    e) TableViewCell
+    f) ScrollView
+    g) Keyboard i mobilen
 
-2. Swift:
-   a) Lære det nye programmeringsspråket
+2. Swift.
+   a) Bruke Swift som programmeringsspråk. 
 
-3. CoreData
-   a) Oppdatere AppDelegate slik at directory vises
-   a) Vise data medhjelp av applikasjonen "Datum"
-   b) Lære CoreData
-      . Insert
-      . Delete
-      . Update
+3. GitHub.
+   a) Lagre og hente kildekode direkte i Xcode 
 
-4. UserDefault
-   a) Lære UserDefault
-      . Her lagres brukerspesifikke verdier. for eksempel "Show Password"
+3. CoreData.
+   a) Oppdatere AppDelegate slik at directory vises i AppDelegate.swift
+   a) Viser data med hjelp av applikasjonen "Datum"
+   b) Bruke CoreData for å:
+      . Insert data
+      . Delete data
+      . Update data
 
-5. Firebase
+4. UserDefault som lagrer brukerspesifikke verdier.
+      . "Show Password"
+
+5. Real time databasen Firebase fra Google.
    a) Finnes på:
       https://console.firebase.google.com/project/signupfirebase-236b9/database/firestore/data~2Fhttps://console.firebase.google.com/project/signupfirebase-236b9/database/firestore/data~2F
-   b) Authentication
-   c) Lære å brukes databasen Firebase fra Google
-      . Insert
-      . Delete
-      . Update
-</string>
+   b) Bruke Authentication i Firebase
+      . Benytter epost og passord
+   c) Bruke Firebase databasen for å:
+      . Insert data
+      . Delete data
+      . Update data
+   d) Oppdatere epost adresssen for autensiering 
+   e) Oppdatere passordet for autensiering
+   
+ </mutableString>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>

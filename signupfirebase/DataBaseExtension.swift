@@ -415,6 +415,7 @@ extension UIViewController {
             dataBase.setValue(postObject, withCompletionBlock: { error, _ in
                 if error == nil {
                     self.dismiss(animated: true, completion: nil)
+                    self.presentAlert(withTitle: "Saving in Firebase", message: "\r\nData are saved in Firebase.")
                 } else {
                     print(error!.localizedDescription)
                 }
