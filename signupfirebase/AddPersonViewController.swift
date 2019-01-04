@@ -112,23 +112,31 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
     func hentFraDatoValg() {
         let toolBarDatoValg = UIToolbar()
         toolBarDatoValg.sizeToFit()
-
+        
         let flexibleSpaceDatoValg = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
 
         let ferdigButtonDatoValg = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done,
-                                                   target: self, action: #selector(skjulDatoValg))
-
+                                                   target: self, action: #selector(hentDatoValg))
+        
         toolBarDatoValg.setItems([flexibleSpaceDatoValg, ferdigButtonDatoValg], animated: false)
 
         dateOfBirthInput.inputAccessoryView = toolBarDatoValg
         dateOfBirthInput.inputView = datoValg
         datoValg.datePickerMode = .date
+        
+        let currentLocale = NSLocale.current.regionCode             //  <-------- returnerer "NO"
+        datoValg.locale = NSLocale.init(localeIdentifier: currentLocale!) as Locale
+        
     }
 
-    @objc func skjulDatoValg() {
+    @objc func hentDatoValg() {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
         formatter.timeStyle = .none
+        let currentLocale = NSLocale.current.regionCode
+        
+        formatter.locale = NSLocale.init(localeIdentifier: currentLocale!) as Locale
+        
         let datoString = formatter.string(from: datoValg.date)
         dateOfBirthInput.text = "\(datoString)"
         view.endEditing(true)
