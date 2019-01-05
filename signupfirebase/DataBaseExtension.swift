@@ -11,25 +11,53 @@ import Firebase
 import UIKit
 
 extension UIViewController {
-    func presentAlert(withTitle title: String, message: Any) {
-        let alertController = UIAlertController(title: title, message: "\(message)", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alertController, animated: true, completion: nil)
+    func presentAlert(withTitle title: String,
+                      message: Any) {
+        
+        let alertController = UIAlertController(title: title,
+                                                message: "\(message)",
+                                                preferredStyle: .alert)
+        
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"),
+                                                style: .default,
+                                                handler: nil))
+        
+        present(alertController,
+                animated: true,
+                completion: nil)
     }
 
-    func presentAlertOption(withTitle title: String, message: Any) {
-        let alertController = UIAlertController(title: title, message: "\(message)", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Prøv en gang til", style: .default, handler: nil))
-        alertController.addAction(UIAlertAction(title: "Registrer en ny bruker", style: .default, handler: { _ in CreateAccount() }))
-        present(alertController, animated: true, completion: nil)
+    func presentAlertOption(withTitle title: String,
+                            message: Any) {
+        
+        let alertController = UIAlertController(title: title,
+                                                message: "\(message)",
+                                                preferredStyle: .alert)
+        
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Prøv en gang til", comment: "Prøv en gang til"),
+                                                style: .default,
+                                                handler: nil))
+        
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Registrer en ny bruker", comment: "Registrer en ny bruker"),
+                                                style: .default,
+                                                handler: { _ in CreateAccount() }))
+        
+        present(alertController,
+                animated: true,
+                completion: nil)
 
         // Denne funksjonen må være deklarert inne i "extension"
         func CreateAccount() {
-            performSegue(withIdentifier: "gotoCreateAccount", sender: self)
+            performSegue(withIdentifier: "gotoCreateAccount",
+                         sender: self)
         }
     }
 
-    func saveCoreData(withEpost: String, withPassord: String, withUid: String, withLoggedIn: Bool, withName: String) -> Bool {
+    func saveCoreData(withEpost: String,
+                      withPassord: String,
+                      withUid: String,
+                      withLoggedIn: Bool,
+                      withName: String) -> Bool {
         var ok: Bool = false
 
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -369,7 +397,8 @@ extension UIViewController {
             if startUp == false {
                 return name + " (" + email + ")."
             } else {
-                return "Please log in to Firebase."
+                return NSLocalizedString("Please log in to Firebase.", comment: "Please log in to Firebase.")
+                
             }
         } else {
             return ""
@@ -415,13 +444,14 @@ extension UIViewController {
             dataBase.setValue(postObject, withCompletionBlock: { error, _ in
                 if error == nil {
                     self.dismiss(animated: true, completion: nil)
-                    self.presentAlert(withTitle: "Saving in Firebase", message: "\r\nData are saved in Firebase.")
+                    self.presentAlert(withTitle: NSLocalizedString("Saving in Firebase", comment: "Saving in Firebase"),
+                                      message: NSLocalizedString("\r\nData are saved in Firebase.", comment: "\r\nData are saved in Firebase."))
                 } else {
                     print(error!.localizedDescription)
                 }
             })
         } else {
-            let melding = "\r\nEvery field must be filled."
+            let melding = NSLocalizedString("\r\nEvery field must be filled.", comment: "\r\nEvery field must be filled.")
             self.presentAlert(withTitle: "Error", message: melding)
         }
     }

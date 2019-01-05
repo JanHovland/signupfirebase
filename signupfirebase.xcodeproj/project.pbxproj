@@ -62,6 +62,7 @@
 		D1C96A1321A1C97900C5DA7A /* UpdatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordViewController.swift; sourceTree = "<group>"; };
 		D1C96A1721A1CB0F00C5DA7A /* UpdateUserNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserNameViewController.swift; sourceTree = "<group>"; };
 		D1CF583E219C6811000A3497 /* Create iOS Icons.jsx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Create iOS Icons.jsx"; sourceTree = "<group>"; };
+		D1E32FBA21E118EE0022BFB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		D1E95C8D21D6899400B40EE9 /* AddPersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPersonViewController.swift; sourceTree = "<group>"; };
 		D1E95C8F21D6BB6E00B40EE9 /* PersonDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDataTableViewCell.swift; sourceTree = "<group>"; };
 		D1EAAB8421C1178A005D2656 /* DataBaseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseExtension.swift; sourceTree = "<group>"; };
@@ -309,6 +310,7 @@
 			children = (
 				D1C7F2E5218C98C800481E48 /* Base */,
 				D127A36421DFD0FB0050BBD4 /* nb */,
+				D1E32FBA21E118EE0022BFB3 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
