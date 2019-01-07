@@ -650,7 +650,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1650" id="4xP-pt-sH4"/>
                                                 </constraints>
-                                                <string key="text">
+                                                <mutableString key="text">
 Programmerings oppgaver:
 
 1. Xcode.
@@ -661,6 +661,7 @@ Programmerings oppgaver:
     e) TableViewCell
     f) ScrollView
     g) Keyboard i mobilen
+    h) Localization via nb.xcloc
 
 2. Swift.
    a) Bruke Swift som programmeringsspråk. 
@@ -688,10 +689,11 @@ Programmerings oppgaver:
       . Insert data
       . Delete data
       . Update data
-   d) Oppdatere epost for autensiering 
-   e) Oppdatere passordet for autensiering
+   d) Autensiering:
+      . epost 
+      . passord
    
- </string>
+ </mutableString>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
