@@ -125,13 +125,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        print("LogInView1")
        activeField = textField
         return true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("LogInView2")
         activeField?.resignFirstResponder()
         activeField = nil
         return true
@@ -170,8 +168,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
 
                 if error == nil {
                     uid = Auth.auth().currentUser?.uid ?? ""
-                    print("uid fra NextButtonTapped: \(uid)")
-
                     navn = Auth.auth().currentUser?.displayName ?? ""
 
                     // Resetter alle postene som hvor loggedin == true
@@ -190,8 +186,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                                                     withName: navn)
 
                             if ok1 == false {
-                                let melding = "Kan ikke lagre en ny post i CoreData."
-                                self.presentAlert(withTitle: "Feil", message: melding)
+                                let melding = NSLocalizedString("Unable to store data in FireBase.",
+                                                       comment: "LoginViewVontroller.swift CheckLogin")
+                                self.presentAlert(withTitle: NSLocalizedString("Error.",
+                                                                               comment: "LoginViewVontroller.swift CheckLogin"), message: melding)
                             }
 
                         } else {
@@ -202,8 +200,12 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                                                                  withPassWord: self.passwordTextField.text!)
 
                                 if ok == false {
-                                    let melding = "Kan ikke oppdatere passordet i CoreData."
-                                    self.presentAlert(withTitle: "Feil", message: melding)
+                                    let melding = NSLocalizedString("Unable to update the password in FireBase.",
+                                                                    comment: "LoginViewVontroller.swift CheckLogin")
+                                    
+                                    self.presentAlert(withTitle: NSLocalizedString("Error.",
+                                                                                   comment: "LoginViewVontroller.swift CheckLogin updatepassword"),
+                                                     message: melding)
                                 }
                             }
 
@@ -211,11 +213,16 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                             ok = self.updateCoreData(withEpost: self.eMailLoginTextField.text!, withLoggedIn: true)
 
                             if ok == false {
-                                let melding = "Kan ikke oppdatere 'loggedin' i CoreData."
-                                self.presentAlert(withTitle: "Feil", message: melding)
+                                let melding = NSLocalizedString("Unable to update 'loggedin' in FireBase.",
+                                                                comment: "LoginViewVontroller.swift CheckLogin 'loggedin'")
+                                
+                                self.presentAlert(withTitle: NSLocalizedString("Error.",
+                                                                               comment: "LoginViewVontroller.swift CheckLogin error"),
+                                                  message: melding)
                             } else {
                                 UserDefaults.standard.set(true, forKey: "LOGGEDIN")
-                                self.loginStatus.text = navn + " is logged in."
+                                self.loginStatus.text = navn + NSLocalizedString(" is logged in.",
+                                                                                 comment:"LoginViewVontroller.swift CheckLogin 'loggedin'")
                                 
                                 // Viser tabBar
                                 self.tabBarController?.tabBar.isHidden = false
@@ -224,20 +231,32 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                         }
 
                     } else {
-                        let melding = "Kan ikke oppdatere en post(er) i CoreData."
-                        self.presentAlert(withTitle: "Feil", message: melding)
+                        let melding = NSLocalizedString("Unable to update CoreData.",
+                                                        comment: "LoginViewVontroller.swift CheckLogin 'update'")
+                        
+                        self.presentAlert(withTitle: NSLocalizedString("Error",
+                                                                       comment: "LoginViewVontroller.swift CheckLogin error"),
+                                          message: melding)
+                        
                     }
 
                 } else {
-                    self.presentAlertOption(withTitle: "Feil", message: error!.localizedDescription as Any)
+                    self.presentAlertOption(withTitle: NSLocalizedString("Error",
+                                                                         comment: "LoginViewVontroller.swift CheckLogin 'error'"),
+                                            message: error!.localizedDescription as Any)
                 }
             }
 
             activity.stopAnimating()
 
         } else {
-            let melding = "eMail må ha en verdi.\nPassword må være minst 6 tegn langt"
-            presentAlert(withTitle: "Feil", message: melding)
+            let melding = NSLocalizedString("eMail must have a value.\r\nThe password must contain minimum 6 characters",
+                                            comment: "LoginViewVontroller.swift CheckLogin verdi")
+            
+            self.presentAlert(withTitle: NSLocalizedString("Error",
+                                                           comment: "LoginViewVontroller.swift CheckLogin 'error'"),
+                              message: melding)
+            
         }
     }
 

@@ -106,7 +106,11 @@ class ListTableViewController: UITableViewController {
 
             if self.deleteUserCoreData(UserEmail: String(describing: userEmail!))  == true {
             } else {
-                print("Unable to delete: \(userEmail!)")
+                let melding = NSLocalizedString("Unable to delete data in CoreData: ", comment: "ListTableViewController trailingSwipeActionsConfigurationForRowAt ")
+                    + userEmail!
+                
+                self.presentAlert(withTitle: NSLocalizedString("Error", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword "),
+                                  message: melding)
             }
 
            // Call completion handler with true to indicate

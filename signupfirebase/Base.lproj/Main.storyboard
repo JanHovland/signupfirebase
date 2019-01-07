@@ -65,8 +65,8 @@
                                     <constraint firstAttribute="height" constant="60" id="7Ly-O7-66H"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Passordet må ha minimum 6 tegn" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="eG4-UJ-Wc4">
-                                <rect key="frame" x="54" y="327" width="250" height="12"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The password must have at least 6 characters" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="eG4-UJ-Wc4">
+                                <rect key="frame" x="93" y="327" width="217" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="1" green="0.0094184072553792353" blue="0.093197561855207223" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -90,7 +90,7 @@
                             <constraint firstItem="Kdi-Jg-uOD" firstAttribute="top" secondItem="4t0-yd-TFq" secondAttribute="bottom" constant="35" id="Q52-04-XIT"/>
                             <constraint firstItem="k82-w8-ML8" firstAttribute="leading" secondItem="dej-9k-aAA" secondAttribute="leading" constant="90" id="T3x-dt-L1D"/>
                             <constraint firstItem="vH1-YR-EwT" firstAttribute="leading" secondItem="dej-9k-aAA" secondAttribute="leading" constant="88.5" id="T53-8S-iNp"/>
-                            <constraint firstItem="dej-9k-aAA" firstAttribute="trailing" secondItem="eG4-UJ-Wc4" secondAttribute="trailing" constant="71" id="TWG-9Y-A5a">
+                            <constraint firstItem="dej-9k-aAA" firstAttribute="trailing" secondItem="eG4-UJ-Wc4" secondAttribute="trailing" constant="65" id="TWG-9Y-A5a">
                                 <variation key="heightClass=compact-widthClass=compact" constant="362"/>
                             </constraint>
                             <constraint firstItem="IZ3-hb-Xl4" firstAttribute="top" secondItem="Kdi-Jg-uOD" secondAttribute="bottom" constant="30" id="TXv-H0-WIv"/>
@@ -100,7 +100,7 @@
                             <constraint firstItem="dej-9k-aAA" firstAttribute="trailing" secondItem="Kdi-Jg-uOD" secondAttribute="trailing" constant="10" id="Ys3-G1-gL6"/>
                             <constraint firstItem="dej-9k-aAA" firstAttribute="trailing" secondItem="vH1-YR-EwT" secondAttribute="trailing" constant="10" id="chn-o4-1XB"/>
                             <constraint firstItem="eG4-UJ-Wc4" firstAttribute="top" secondItem="k82-w8-ML8" secondAttribute="bottom" constant="8" id="d3v-9P-5gW"/>
-                            <constraint firstItem="eG4-UJ-Wc4" firstAttribute="leading" secondItem="dej-9k-aAA" secondAttribute="leading" constant="54" id="e7S-0r-215"/>
+                            <constraint firstItem="eG4-UJ-Wc4" firstAttribute="leading" secondItem="dej-9k-aAA" secondAttribute="leading" constant="93" id="e7S-0r-215"/>
                             <constraint firstItem="I0q-5V-oWR" firstAttribute="leading" secondItem="dej-9k-aAA" secondAttribute="leading" constant="10" id="fNO-rj-pgD"/>
                             <constraint firstItem="vH1-YR-EwT" firstAttribute="top" secondItem="Kdi-Jg-uOD" secondAttribute="bottom" constant="30" id="iEI-Cz-WON"/>
                             <constraint firstItem="dej-9k-aAA" firstAttribute="trailing" secondItem="k82-w8-ML8" secondAttribute="trailing" constant="10" id="nO4-3g-hyU"/>
@@ -142,13 +142,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boK-pG-XnU">
-                                <rect key="frame" x="10" y="94" width="45" height="30"/>
+                                <rect key="frame" x="10" y="94" width="48" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter user name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zCV-c9-g6t">
-                                <rect key="frame" x="85" y="94" width="280" height="30"/>
+                                <rect key="frame" x="88" y="94" width="277" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="name"/>
@@ -180,8 +180,8 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="gMX-lB-Kvb">
                                 <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
                             </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Passordet må ha minimum 6 tegn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="P8h-H3-5cv">
-                                <rect key="frame" x="101" y="254.5" width="264" height="12"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The password must have at least 6 characters" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="P8h-H3-5cv">
+                                <rect key="frame" x="98" y="254.5" width="267" height="12"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
                                 <color key="textColor" red="1" green="0.0094184072550000004" blue="0.09319756186" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -194,13 +194,13 @@
                             <constraint firstItem="E8g-AH-kKg" firstAttribute="trailing" secondItem="P8h-H3-5cv" secondAttribute="trailing" constant="10" id="BIw-1t-vhQ"/>
                             <constraint firstItem="cye-m2-p8o" firstAttribute="centerY" secondItem="csI-ws-1c2" secondAttribute="centerY" id="Bhb-vT-Px9"/>
                             <constraint firstItem="boK-pG-XnU" firstAttribute="top" secondItem="E8g-AH-kKg" secondAttribute="top" constant="30" id="CRA-LE-Z0v"/>
-                            <constraint firstItem="P8h-H3-5cv" firstAttribute="leading" secondItem="E8g-AH-kKg" secondAttribute="leading" constant="101" id="F24-t6-Sji"/>
+                            <constraint firstItem="P8h-H3-5cv" firstAttribute="leading" secondItem="E8g-AH-kKg" secondAttribute="leading" constant="98" id="F24-t6-Sji"/>
                             <constraint firstItem="gMX-lB-Kvb" firstAttribute="centerY" secondItem="9C3-XC-2hl" secondAttribute="centerY" id="JxW-xp-cGR"/>
                             <constraint firstItem="gMX-lB-Kvb" firstAttribute="centerY" secondItem="9C3-XC-2hl" secondAttribute="centerY" id="Kg1-2t-89t"/>
                             <constraint firstItem="cye-m2-p8o" firstAttribute="leading" secondItem="E8g-AH-kKg" secondAttribute="leading" constant="89.5" id="LKk-Yk-9ZU"/>
                             <constraint firstItem="sTZ-Fn-8Km" firstAttribute="top" secondItem="cye-m2-p8o" secondAttribute="bottom" constant="30" id="M8O-U6-ITG"/>
                             <constraint firstItem="X3x-Cl-KO1" firstAttribute="leading" secondItem="E8g-AH-kKg" secondAttribute="leading" constant="10" id="O5F-2A-kE8"/>
-                            <constraint firstItem="cye-m2-p8o" firstAttribute="leading" secondItem="csI-ws-1c2" secondAttribute="trailing" constant="39" id="Od7-kw-7wh"/>
+                            <constraint firstItem="cye-m2-p8o" firstAttribute="leading" secondItem="E8g-AH-kKg" secondAttribute="trailing" constant="-285.5" id="Od7-kw-7wh"/>
                             <constraint firstItem="zCV-c9-g6t" firstAttribute="centerY" secondItem="boK-pG-XnU" secondAttribute="centerY" id="OeB-3R-ZRU"/>
                             <constraint firstAttribute="trailing" secondItem="cye-m2-p8o" secondAttribute="trailing" constant="10" id="PtP-gO-qxu"/>
                             <constraint firstItem="E8g-AH-kKg" firstAttribute="trailing" secondItem="zCV-c9-g6t" secondAttribute="trailing" constant="10" id="TFS-62-Mho"/>
@@ -212,7 +212,8 @@
                             <constraint firstItem="X3x-Cl-KO1" firstAttribute="top" secondItem="cye-m2-p8o" secondAttribute="bottom" constant="33.5" id="gj5-ps-hGj"/>
                             <constraint firstItem="zCV-c9-g6t" firstAttribute="leading" secondItem="boK-pG-XnU" secondAttribute="trailing" constant="30" id="hF8-XP-ga7"/>
                             <constraint firstItem="csI-ws-1c2" firstAttribute="leading" secondItem="E8g-AH-kKg" secondAttribute="leading" constant="10" id="j7n-WJ-vdY"/>
-                            <constraint firstItem="zCV-c9-g6t" firstAttribute="leading" secondItem="E8g-AH-kKg" secondAttribute="leading" constant="85" id="nmN-EA-DCN"/>
+                            <constraint firstItem="cye-m2-p8o" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="csI-ws-1c2" secondAttribute="trailing" constant="8" symbolic="YES" id="jhR-yX-fnQ"/>
+                            <constraint firstItem="zCV-c9-g6t" firstAttribute="leading" secondItem="E8g-AH-kKg" secondAttribute="leading" constant="88" id="nmN-EA-DCN"/>
                             <constraint firstItem="gMX-lB-Kvb" firstAttribute="centerX" secondItem="9C3-XC-2hl" secondAttribute="centerX" id="nxz-MC-xDn"/>
                             <constraint firstItem="sTZ-Fn-8Km" firstAttribute="firstBaseline" secondItem="X3x-Cl-KO1" secondAttribute="firstBaseline" id="qtD-nZ-8XX"/>
                             <constraint firstItem="sTZ-Fn-8Km" firstAttribute="leading" secondItem="E8g-AH-kKg" secondAttribute="leading" constant="91" id="top-lo-y2z"/>
@@ -1083,8 +1084,8 @@ NB! Husk at linken i eposten er tidsbegrenset!</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Passordet må ha minimum 6 tegn" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="RZP-WN-Mao">
-                                <rect key="frame" x="105" y="280" width="238" height="12"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The password must have at least 6 characters" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="RZP-WN-Mao">
+                                <rect key="frame" x="143" y="280" width="228" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="1" green="0.0094184072550000004" blue="0.09319756186" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1122,7 +1123,7 @@ NB! Husk at linken i eposten er tidsbegrenset!</string>
                             <constraint firstItem="RZP-WN-Mao" firstAttribute="top" secondItem="rwH-ai-eqx" secondAttribute="bottom" constant="5" id="Ffk-XG-Qv3"/>
                             <constraint firstItem="n7R-xi-RP1" firstAttribute="top" secondItem="6kX-PT-Pbv" secondAttribute="top" constant="35" id="Ky2-zh-XgS"/>
                             <constraint firstItem="kdG-1D-nVg" firstAttribute="top" secondItem="n7R-xi-RP1" secondAttribute="bottom" constant="68.5" id="NLt-RM-Pmg"/>
-                            <constraint firstItem="6kX-PT-Pbv" firstAttribute="trailing" secondItem="RZP-WN-Mao" secondAttribute="trailing" constant="32" id="NNb-cY-YeP">
+                            <constraint firstItem="6kX-PT-Pbv" firstAttribute="trailing" secondItem="RZP-WN-Mao" secondAttribute="trailing" constant="4" id="NNb-cY-YeP">
                                 <variation key="heightClass=compact-widthClass=compact" constant="322"/>
                             </constraint>
                             <constraint firstItem="rwH-ai-eqx" firstAttribute="centerY" secondItem="9zI-2b-8nF" secondAttribute="centerY" id="Nu0-cv-dWZ"/>
@@ -1130,7 +1131,7 @@ NB! Husk at linken i eposten er tidsbegrenset!</string>
                             <constraint firstItem="9zI-2b-8nF" firstAttribute="leading" secondItem="rwH-ai-eqx" secondAttribute="trailing" constant="9" id="XvE-mu-yBG"/>
                             <constraint firstItem="6kX-PT-Pbv" firstAttribute="trailing" secondItem="n7R-xi-RP1" secondAttribute="trailing" constant="10" id="bzt-7o-w0N"/>
                             <constraint firstItem="h3M-sf-tUf" firstAttribute="top" secondItem="n7R-xi-RP1" secondAttribute="bottom" constant="70" id="h6W-cp-Phx"/>
-                            <constraint firstItem="RZP-WN-Mao" firstAttribute="leading" secondItem="6kX-PT-Pbv" secondAttribute="leading" constant="105" id="hnz-ai-PbY"/>
+                            <constraint firstItem="RZP-WN-Mao" firstAttribute="leading" secondItem="6kX-PT-Pbv" secondAttribute="leading" constant="143" id="hnz-ai-PbY"/>
                             <constraint firstItem="rwH-ai-eqx" firstAttribute="leading" secondItem="6kX-PT-Pbv" secondAttribute="leading" constant="15" id="ihb-Kj-hCe"/>
                             <constraint firstItem="rwH-ai-eqx" firstAttribute="width" secondItem="h3M-sf-tUf" secondAttribute="width" id="jMP-xD-bT8"/>
                             <constraint firstItem="rwH-ai-eqx" firstAttribute="leading" secondItem="6kX-PT-Pbv" secondAttribute="leading" constant="15" id="meg-iM-PKa"/>

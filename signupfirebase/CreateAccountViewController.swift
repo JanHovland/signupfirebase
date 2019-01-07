@@ -132,8 +132,6 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                     // Brukeren er nå opprettet i Firebase
 
                     uid = Auth.auth().currentUser?.uid ?? ""
-                    print("uid fra SaveAccount: \(uid)")
-
                     navn = self.nameCreateAccountTextField.text!
 
                     // Resetter alle postene som hvor loggedin == true
@@ -152,8 +150,13 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                                                     withName: navn)
 
                             if ok1 == false {
-                                let melding = "Kan ikke lagre en ny post i CoreData."
-                                self.presentAlert(withTitle: "Feil", message: melding)
+                                let melding = NSLocalizedString("Unable to store data in CoreData.",
+                                                                comment: "CreateAccountViewVontroller.swift CheckLogin verdi")
+                                
+                                self.presentAlert(withTitle: NSLocalizedString("Error",
+                                                                               comment: "LoginViewVontroller.swift SaveAccount "),
+                                                  message: melding)
+                                
                             } else {
                                 // Sender eposten på norsk:
                                 Auth.auth().languageCode = "no"
@@ -164,7 +167,6 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
 
                                 changeRequest?.commitChanges { error in
                                     if error == nil {
-                                        print("Lagret navn på brukeren!")
                                         self.dismiss(animated: false, completion: nil)
                                     } else {
                                         print("Error: \(error!.localizedDescription)")
@@ -177,8 +179,13 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                             ok = self.updateCoreData(withEpost: self.eMailCreateAccountTextField.text!, withLoggedIn: true)
 
                             if ok == false {
-                                let melding = "Kan ikke oppdatere en post i CoreData."
-                                self.presentAlert(withTitle: "Feil", message: melding)
+                                let melding = NSLocalizedString("Unable to store data in CoreData.",
+                                                                comment: "CreateAccountViewVontroller.swift CheckLogin verdi")
+                                
+                                self.presentAlert(withTitle: NSLocalizedString("Error",
+                                                                               comment: "LoginViewVontroller.swift SaveAccount "),
+                                                  message: melding)
+                                
                             } else {
                                 // Legg inn Navnet på brukeren
 
@@ -190,7 +197,6 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
 
                                 changeRequest?.commitChanges { error in
                                     if error == nil {
-                                        print("Lagret navn på brukeren!")
                                         self.dismiss(animated: false, completion: nil)
                                     } else {
                                         print("Error: \(error!.localizedDescription)")
@@ -203,20 +209,30 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                         // self.performSegue(withIdentifier: "UpdateUserDataFromCreateAccount", sender: self)
 
                     } else {
-                        let melding = "Kan ikke oppdatere en post(er) i CoreData."
-                        self.presentAlert(withTitle: "Feil", message: melding)
+                        let melding = NSLocalizedString("Unable to store data in CoreData.",
+                                                        comment: "CreateAccountViewVontroller.swift CheckLogin verdi")
+                        
+                        self.presentAlert(withTitle: NSLocalizedString("Error",
+                                                                       comment: "LoginViewVontroller.swift SaveAccount "),
+                                          message: melding)
+                        
                     }
 
                 } else {
-                    self.presentAlert(withTitle: "Error", message: error!.localizedDescription as Any)
+                    self.presentAlert(withTitle: NSLocalizedString("Error", comment: "LoginViewVontroller.swift SaveAccount"),
+                                      message: error!.localizedDescription as Any)
                 }
             }
 
         } else {
             if passwordCreateAccountTextField.text!.count < 6 {
-                presentAlert(withTitle: "Feil", message: "Alle feltene må ha verdi. \nPassordet må ha minst 6 tegn")
+                let melding = NSLocalizedString("Every field must have a value. \r\nThe password must contain minimum 6 characters", comment: "LoginViewVontroller.swift SaveAccount ")
+                presentAlert(withTitle: NSLocalizedString("Error", comment: "LoginViewVontroller.swift SaveAccount"),
+                             message: melding)
             } else {
-                presentAlert(withTitle: "Feil", message: "Alle feltene må ha verdi.")
+                let melding = NSLocalizedString("Every field must have a value", comment: "LoginViewVontroller.swift SaveAccount")
+                presentAlert(withTitle: NSLocalizedString("Error", comment: "LoginViewVontroller.swift SaveAccount"),
+                             message: melding)
             }
         }
 

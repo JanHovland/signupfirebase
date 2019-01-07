@@ -39,8 +39,9 @@ class ResetPWByMailViewController: UIViewController {
         activity.stopAnimating()
 
         if SendEmailToReceiver.text?.count == 0 {
-            let melding = "Kan ikke hente eposten fra Firebase."
-            presentAlert(withTitle: "Feil", message: melding)
+           let melding = NSLocalizedString("Unable to recall the eMail from Firebase.", comment: "ResetPWByMailViewController.swift viewDidLoad ")
+           presentAlert(withTitle: NSLocalizedString("Error", comment: "ResetPWByMailViewController.swift viewDidLoad "),
+                        message: melding)
         }
     }
 
@@ -63,7 +64,8 @@ class ResetPWByMailViewController: UIViewController {
                                                     userInfo: nil, repeats: false)
 
             } else {
-                self.presentAlert(withTitle: "Error", message: error?.localizedDescription as Any)
+                self.presentAlert(withTitle: NSLocalizedString("Error", comment: "AddPersonViewVontroller.swift velgeKjonn "),
+                                  message: error?.localizedDescription as Any)
             }
         }
 

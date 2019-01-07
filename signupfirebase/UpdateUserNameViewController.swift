@@ -121,15 +121,19 @@ class UpdateUserNameViewController: UIViewController, UITextFieldDelegate {
                     self.OldNameTextField.text = self.NewNameTextField.text
                 } else {
                     // Håndtere error
-                    self.presentAlert(withTitle: "Error", message: error?.localizedDescription as Any)
-                }
+                    self.presentAlert(withTitle: NSLocalizedString("Error",
+                                                                   comment: "UpdateUserNameViewVontroller.swift SaveNewName "),
+                                      message: error?.localizedDescription as Any)
+                    }
             }
 
             // Legger det nye navnet inn i CoreData
             let ok = updateNameCoreData(withEpost: (Auth.auth().currentUser?.email)!, withNavn: NewNameTextField.text!)
 
             if ok == false {
-                presentAlert(withTitle: "Feil", message: "Kan ikke oppdatere navnet på brukeren i CoreData.")
+                let melding = "Unable to update the username in CoreData."
+                presentAlert(withTitle: NSLocalizedString("Error", comment: "UpdateUserNameViewVontroller.swift SaveNewName "),
+                             message: melding)
             }
 
             activity.stopAnimating()
@@ -139,8 +143,9 @@ class UpdateUserNameViewController: UIViewController, UITextFieldDelegate {
 
         } else {
             // Legge ut varsel
-            let melding = "Det nye navnet må ha en verdi."
-            presentAlert(withTitle: "Tomt navn", message: melding)
+            let melding = NSLocalizedString("The username must have a value.", comment: "UpdateUserNameViewVontroller.swift SaveNewName ")
+            presentAlert(withTitle: NSLocalizedString("Empty name", comment: "UpdateUserNameViewVontroller.swift SaveNewName "),
+                         message: melding)
         }
     }
 

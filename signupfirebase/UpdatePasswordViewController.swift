@@ -125,8 +125,9 @@ class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
         Auth.auth().currentUser?.updatePassword(to: newPasswordTextField.text!) { error in
 
             if error != nil {
-                self.presentAlertOption(withTitle: "Error", message: error!.localizedDescription as Any)
-            } else {
+                self.presentAlertOption(withTitle: NSLocalizedString("Error", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword "),
+                                        message: error!.localizedDescription as Any)
+              } else {
                 // Sender eposten på norsk:
                 Auth.auth().languageCode = "no"
 
@@ -135,7 +136,10 @@ class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
                                                      withPassWord: self.newPasswordTextField.text!)
 
                 if ok == false {
-                    self.presentAlert(withTitle: "Feil", message: "Kan ikke oppdatere passordet til brukeren i CoreData.")
+                    let melding = NSLocalizedString("Unable to update the password for the user in CoreData.", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword ")
+                    
+                    self.presentAlert(withTitle: NSLocalizedString("Error", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword "),
+                                      message: melding)
                 }
 
             }

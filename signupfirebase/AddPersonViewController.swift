@@ -151,9 +151,10 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func velgeKjonn(_ sender: UISegmentedControl) {
         switch genderInput.selectedSegmentIndex {
-        case 0: gender = "Mann"
-        case 1: gender = "Kvinne"
-        default: return
+            case 0: gender = NSLocalizedString("Man",   comment: "AddPersonViewVontroller.swift velgeKjonn ")
+            case 1: gender = NSLocalizedString("WoMan",   comment: "AddPersonViewVontroller.swift velgeKjonn ")
+            default: return
         }
     }
 }
+

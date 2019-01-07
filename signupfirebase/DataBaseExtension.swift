@@ -34,11 +34,13 @@ extension UIViewController {
                                                 message: "\(message)",
                                                 preferredStyle: .alert)
         
-        alertController.addAction(UIAlertAction(title: NSLocalizedString("Prøv en gang til", comment: "Prøv en gang til"),
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Try one more time",
+                                                comment: "DataBaseExtension.swift presentAlertOption"),
                                                 style: .default,
                                                 handler: nil))
         
-        alertController.addAction(UIAlertAction(title: NSLocalizedString("Registrer en ny bruker", comment: "Registrer en ny bruker"),
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Add a new user",
+                                                comment: "DataBaseExtension.swift presentAlertOption"),
                                                 style: .default,
                                                 handler: { _ in CreateAccount() }))
         
@@ -397,8 +399,8 @@ extension UIViewController {
             if startUp == false {
                 return name + " (" + email + ")."
             } else {
-                return NSLocalizedString("Please log in to Firebase.", comment: "Please log in to Firebase.")
-                
+                return NSLocalizedString("Please log in to Firebase.",
+                                         comment: "DataBaseExtension.swift showUserInfo.")
             }
         } else {
             return ""
@@ -444,15 +446,21 @@ extension UIViewController {
             dataBase.setValue(postObject, withCompletionBlock: { error, _ in
                 if error == nil {
                     self.dismiss(animated: true, completion: nil)
-                    self.presentAlert(withTitle: NSLocalizedString("Saving in Firebase", comment: "Saving in Firebase"),
-                                      message: NSLocalizedString("\r\nData are saved in Firebase.", comment: "\r\nData are saved in Firebase."))
+                    self.presentAlert(withTitle: NSLocalizedString("Saving in Firebase",
+                                                                   comment: "DataBaseExtension.swift SavePersonFiredata"),
+                                      message: "\r\n" + NSLocalizedString("Data are saved in Firebase.",
+                                                                   comment: "DataBaseExtension.swift SavePersonFiredata"))
                 } else {
                     print(error!.localizedDescription)
                 }
             })
         } else {
-            let melding = NSLocalizedString("\r\nEvery field must be filled.", comment: "\r\nEvery field must be filled.")
-            self.presentAlert(withTitle: "Error", message: melding)
+            let melding = "\r\n" + NSLocalizedString("Every field must be filled.",
+                                            comment: "DataBaseExtension.swift SavePersonFiredata")
+            
+            self.presentAlert(withTitle: NSLocalizedString("Error",
+                                                           comment: "DataBaseExtension.swift SavePersonFiredata"),
+                                                           message: melding)
         }
     }
 }

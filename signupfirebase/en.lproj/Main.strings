@@ -59,14 +59,8 @@
 /* Class = "UILabel"; text = "Firebase Console"; ObjectID = "LhK-JZ-jSX"; */
 "LhK-JZ-jSX.text" = "Firebase Console";
 
-/* Class = "UILabel"; text = "Passordet må ha minimum 6 tegn"; ObjectID = "P8h-H3-5cv"; */
-"P8h-H3-5cv.text" = "Passordet må ha minimum 6 tegn";
-
 /* Class = "UILabel"; text = "Address"; ObjectID = "PJT-Cn-HsF"; */
 "PJT-Cn-HsF.text" = "Address";
-
-/* Class = "UILabel"; text = "Passordet må ha minimum 6 tegn"; ObjectID = "RZP-WN-Mao"; */
-"RZP-WN-Mao.text" = "Passordet må ha minimum 6 tegn";
 
 /* Class = "UILabel"; text = "List all users in Coredata"; ObjectID = "Rd9-pB-LRE"; */
 "Rd9-pB-LRE.text" = "List all users in Coredata";
@@ -130,9 +124,6 @@
 
 /* Class = "UILabel"; text = "userInfo"; ObjectID = "dcI-Iv-SZx"; */
 "dcI-Iv-SZx.text" = "userInfo";
-
-/* Class = "UILabel"; text = "Passordet må ha minimum 6 tegn"; ObjectID = "eG4-UJ-Wc4"; */
-"eG4-UJ-Wc4.text" = "Passordet må ha minimum 6 tegn";
 
 /* Class = "UILabel"; text = "mail"; ObjectID = "ftW-zQ-P6W"; */
 "ftW-zQ-P6W.text" = "mail";
