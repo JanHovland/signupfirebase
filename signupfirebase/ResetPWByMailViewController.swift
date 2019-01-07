@@ -54,7 +54,10 @@ class ResetPWByMailViewController: UIViewController {
         activity.startAnimating()
 
         // Sender eposten på norsk:
-        Auth.auth().languageCode = "no"
+        
+        let region = NSLocale.current.regionCode             //  <-------- returnerer "NO"
+        Auth.auth().languageCode = region!.lowercased()
+        
         Auth.auth().sendPasswordReset(withEmail: SendEmailToReceiver.text!) { error in
             if error == nil {
                 // Legg inn en liten forsinkelse før funksjonen "returnToLogin" kalles
@@ -64,7 +67,7 @@ class ResetPWByMailViewController: UIViewController {
                                                     userInfo: nil, repeats: false)
 
             } else {
-                self.presentAlert(withTitle: NSLocalizedString("Error", comment: "AddPersonViewVontroller.swift velgeKjonn "),
+                self.presentAlert(withTitle: NSLocalizedString("Error", comment: "ResetPWByMailViewController.swift velgeKjonn "),
                                   message: error?.localizedDescription as Any)
             }
         }

@@ -189,7 +189,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                                 let melding = NSLocalizedString("Unable to store data in FireBase.",
                                                        comment: "LoginViewVontroller.swift CheckLogin")
                                 self.presentAlert(withTitle: NSLocalizedString("Error.",
-                                                                               comment: "LoginViewVontroller.swift CheckLogin"), message: melding)
+                                                                               comment: "LoginViewVontroller.swift CheckLogin"),
+                                                  message: melding)
                             }
 
                         } else {
@@ -250,8 +251,13 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             activity.stopAnimating()
 
         } else {
-            let melding = NSLocalizedString("eMail must have a value.\r\nThe password must contain minimum 6 characters",
-                                            comment: "LoginViewVontroller.swift CheckLogin verdi")
+            let melding1 = NSLocalizedString("eMail must have a value.",
+                                             comment: "LoginViewVontroller.swift CheckLogin verdi")
+            
+            let melding2 = NSLocalizedString("The password must contain minimum 6 characters",
+                                             comment: "LoginViewVontroller.swift CheckLogin verdi")
+            
+            let melding = melding1 + "\r\n" + melding2
             
             self.presentAlert(withTitle: NSLocalizedString("Error",
                                                            comment: "LoginViewVontroller.swift CheckLogin 'error'"),

@@ -918,6 +918,7 @@ NB! Husk at linken i eposten er tidsbegrenset!</string>
                         <outlet property="activity" destination="flT-yl-U8B" id="Vca-te-qtv"/>
                         <outlet property="infoTextView" destination="oUD-4Y-Phw" id="CHh-ha-Enc"/>
                         <outlet property="userInfo" destination="WJH-PP-AVI" id="1hh-7k-3bU"/>
+                        <segue destination="tT3-9a-LwM" kind="show" identifier="BackToLoginViewController" id="HHx-uR-c6E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y3g-OR-Jc8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1154,6 +1155,7 @@ NB! Husk at linken i eposten er tidsbegrenset!</string>
                         <outlet property="newPasswordTextField" destination="9zI-2b-8nF" id="1Rx-CL-dVj"/>
                         <outlet property="oldPasswordTextField" destination="kdG-1D-nVg" id="rUD-by-YIL"/>
                         <outlet property="userInfo" destination="n7R-xi-RP1" id="blU-Hn-Qvt"/>
+                        <segue destination="tT3-9a-LwM" kind="show" identifier="BackToLoginViewController" id="O1x-ds-s6d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fFP-2K-yqY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1317,4 +1319,7 @@ NB! Husk at linken i eposten er tidsbegrenset!</string>
         <image name="personer-33" width="29" height="29"/>
         <image name="settings-32" width="29" height="29"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="O1x-ds-s6d"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -154,7 +154,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                                                                 comment: "CreateAccountViewVontroller.swift CheckLogin verdi")
                                 
                                 self.presentAlert(withTitle: NSLocalizedString("Error",
-                                                                               comment: "LoginViewVontroller.swift SaveAccount "),
+                                                                               comment: "CreateAccountViewVontroller.swift SaveAccount "),
                                                   message: melding)
                                 
                             } else {
@@ -183,7 +183,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                                                                 comment: "CreateAccountViewVontroller.swift CheckLogin verdi")
                                 
                                 self.presentAlert(withTitle: NSLocalizedString("Error",
-                                                                               comment: "LoginViewVontroller.swift SaveAccount "),
+                                                                               comment: "CreateAccountViewVontroller.swift SaveAccount "),
                                                   message: melding)
                                 
                             } else {
@@ -213,25 +213,28 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                                                         comment: "CreateAccountViewVontroller.swift CheckLogin verdi")
                         
                         self.presentAlert(withTitle: NSLocalizedString("Error",
-                                                                       comment: "LoginViewVontroller.swift SaveAccount "),
+                                                                       comment: "CreateAccountViewVontroller.swift SaveAccount "),
                                           message: melding)
                         
                     }
 
                 } else {
-                    self.presentAlert(withTitle: NSLocalizedString("Error", comment: "LoginViewVontroller.swift SaveAccount"),
+                    self.presentAlert(withTitle: NSLocalizedString("Error", comment: "CreateAccountViewVontroller.swift SaveAccount"),
                                       message: error!.localizedDescription as Any)
                 }
             }
 
         } else {
             if passwordCreateAccountTextField.text!.count < 6 {
-                let melding = NSLocalizedString("Every field must have a value. \r\nThe password must contain minimum 6 characters", comment: "LoginViewVontroller.swift SaveAccount ")
-                presentAlert(withTitle: NSLocalizedString("Error", comment: "LoginViewVontroller.swift SaveAccount"),
+                let melding1 = NSLocalizedString("Every field must have a value.", comment: "CreateAccountViewVontroller.swift SaveAccount ")
+                let melding2 = NSLocalizedString("The password must contain minimum 6 characters", comment: "CreateAccountViewVontroller.swift SaveAccount ")
+                let melding = melding1 + "\r\n" + melding2
+                
+                presentAlert(withTitle: NSLocalizedString("Error", comment: "CreateAccountViewVontroller.swift SaveAccount"),
                              message: melding)
             } else {
                 let melding = NSLocalizedString("Every field must have a value", comment: "LoginViewVontroller.swift SaveAccount")
-                presentAlert(withTitle: NSLocalizedString("Error", comment: "LoginViewVontroller.swift SaveAccount"),
+                presentAlert(withTitle: NSLocalizedString("Error", comment: "CreateAccountViewVontroller.swift SaveAccount"),
                              message: melding)
             }
         }

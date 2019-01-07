@@ -118,36 +118,54 @@ class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
    @IBAction func SaveNewPassword(_ sender: Any) {
         activity.startAnimating()
 
-        // Sender eposten på norsk:
-        Auth.auth().languageCode = "no"
+        if newPasswordTextField.text!.count >= 6 {
+    
+            let region = NSLocale.current.regionCode
+            Auth.auth().languageCode = region!.lowercased()
+        
+            Auth.auth().currentUser?.updatePassword(to: newPasswordTextField.text!) { error in
 
-        // Oppdaterer passordet i Firebase
-        Auth.auth().currentUser?.updatePassword(to: newPasswordTextField.text!) { error in
-
-            if error != nil {
-                self.presentAlertOption(withTitle: NSLocalizedString("Error", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword "),
-                                        message: error!.localizedDescription as Any)
-              } else {
-                // Sender eposten på norsk:
-                Auth.auth().languageCode = "no"
-
-                // Lagrer passord i Coredata
-                let ok = self.updatePasswordCoreData(withEpost: (Auth.auth().currentUser?.email!)!,
-                                                     withPassWord: self.newPasswordTextField.text!)
-
-                if ok == false {
-                    let melding = NSLocalizedString("Unable to update the password for the user in CoreData.", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword ")
-                    
+                if error != nil {
                     self.presentAlert(withTitle: NSLocalizedString("Error", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword "),
-                                      message: melding)
+                                      message: error!.localizedDescription as Any)
+                    
+                  } else {
+                    let region = NSLocale.current.regionCode
+                    Auth.auth().languageCode = region!.lowercased()
+                    
+                    // Lagrer passord i Coredata
+                    let ok = self.updatePasswordCoreData(withEpost: (Auth.auth().currentUser?.email!)!,
+                                                         withPassWord: self.newPasswordTextField.text!)
+
+                    if ok == false {
+                        let melding = NSLocalizedString("Unable to update the password for the user in CoreData.", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword ")
+                        
+                        self.presentAlert(withTitle: NSLocalizedString("Error", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword "),
+                                          message: melding)
+                    } else {
+                        self.myTimer = Timer.scheduledTimer(timeInterval: TimeInterval(self.forsinkelse),
+                                                                    target: self,
+                                                                    selector: #selector(self.returnToLogin),
+                                                                    userInfo: nil, repeats: false)
+                    }
+
                 }
-
             }
+        } else {
+            let melding = NSLocalizedString("The password must contain minimum 6 characters", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword" )
+                
+            self.presentAlert(withTitle: NSLocalizedString("Error", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword "),
+                              message: melding)
         }
-
+    
         activity.stopAnimating()
     }
 
+    @objc func returnToLogin() {
+        performSegue(withIdentifier: "BackToLoginViewController", sender: self)
+        myTimer.invalidate()
+    }
+    
     @objc func showUserInformation() {
         userInfo.text = showUserInfo(startUp: false)
     }

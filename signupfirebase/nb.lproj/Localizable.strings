@@ -7,15 +7,18 @@
 /* DataBaseExtension.swift SavePersonFiredata */
 "Data are saved in Firebase." = "Dataene er lagret i Firebase.";
 
+/* LoginViewVontroller.swift CheckLogin verdi */
+"eMail must have a value." = "ePosten må ha en verdi.";
+
 /* UpdateUserNameViewVontroller.swift SaveNewName */
 "Empty name" = "Tomt navn";
 
 /* AddPersonViewVontroller.swift velgeKjonn 
+   CreateAccountViewVontroller.swift SaveAccount
+   CreateAccountViewVontroller.swift SaveAccount 
    DataBaseExtension.swift SavePersonFiredata
    LoginViewVontroller.swift CheckLogin 'error'
    LoginViewVontroller.swift CheckLogin error
-   LoginViewVontroller.swift SaveAccount
-   LoginViewVontroller.swift SaveAccount 
    ResetPWByMailViewController.swift viewDidLoad 
    UpdatePasswordViewVontroller.swift SaveNewPassword 
    UpdateUserNameViewVontroller.swift SaveNewName */
@@ -32,6 +35,9 @@
 /* LoginViewVontroller.swift SaveAccount */
 "Every field must have a value" = "Alle feltene må ha en verdi";
 
+/* LoginViewVontroller.swift SaveAccount */
+"Every field must have a value." = "Alle feltene må ha en verdi.";
+
 /* AddPersonViewVontroller.swift velgeKjonn */
 "Man" = "Mann";
 
@@ -43,6 +49,11 @@
 
 /* DataBaseExtension.swift SavePersonFiredata */
 "Saving in Firebase" = "Lagrer data i Firebase.";
+
+/* LoginViewVontroller.swift CheckLogin verdi
+   LoginViewVontroller.swift SaveAccount 
+   UpdatePasswordViewVontroller.swift SaveNewPassword */
+"The password must contain minimum 6 characters" = "Passordet må inneholde minimum 6 tegn";
 
 /* UpdateUserNameViewVontroller.swift SaveNewName */
 "The username must have a value." = "Navnet til brukeren kan ikke være tomt.";
