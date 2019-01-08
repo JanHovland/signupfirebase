@@ -43,50 +43,6 @@
 /* Class = "UITextField"; placeholder = "Enter user eMail"; ObjectID = "cye-m2-p8o"; */
 "cye-m2-p8o.placeholder" = "ePost adressen til brukeren";
 
-/* Class = "UITextView"; text = "\nProgrammerings oppgaver:\n\n1. Xcode.\n    a) Opprette lisens hos Apple\n    b) Bruke Xcode miljøet til å lage apper\n    c) ViewController\n    d) TableViewController\n    e) TableViewCell\n    f) ScrollView\n    g) Keyboard i mobilen\n    h) Localization via nb.xcloc\n\n2. Swift.\n   a) Bruke Swift som programmeringsspråk. \n\n3. GitHub.\n   a) Lagre og hente kildekode direkte i Xcode \n\n3. CoreData.\n   a) Oppdatere AppDelegate slik at directory vises i AppDelegate.swift\n   a) Viser data med hjelp av applikasjonen \"Datum\"\n   b) Bruke CoreData for:\n      . Insert data\n      . Delete data\n      . Update data\n\n4. UserDefault som lagrer brukerspesifikke verdier.\n      . \"Show Password\"\n\n5. Real time databasen Firebase fra Google.\n   a) Finnes på:\n      https://console.firebase.google.com/project/signupfirebase-236b9/database/firestore/data~2Fhttps://console.firebase.google.com/project/signupfirebase-236b9/database/firestore/data~2F\n   b) Bruke Authentication i Firebase\n      . Benytter epost og passord\n   c) Bruke Firebase databasen for:\n      . Insert data\n      . Delete data\n      . Update data\n   d) Autensiering:\n      . epost \n      . passord\n   \n "; ObjectID = "cYk-zV-Vpt"; */
-"cYk-zV-Vpt.text" = "
-Programmerings oppgaver:
-
-1. Xcode.
-    a) Opprette lisens hos Apple
-    b) Bruke Xcode miljøet til å lage apper
-    c) ViewController
-    d) TableViewController
-    e) TableViewCell
-    f) ScrollView
-    g) Keyboard i mobilen
-
-2. Swift.
-   a) Bruke Swift som programmeringsspråk. 
-
-3. GitHub.
-   a) Lagre og hente kildekode direkte i Xcode 
-
-3. CoreData.
-   a) Oppdatere AppDelegate slik at directory vises i AppDelegate.swift
-   a) Viser data med hjelp av applikasjonen \"Datum\"
-   b) Bruke CoreData for:
-      . Insert data
-      . Delete data
-      . Update data
-
-4. UserDefault som lagrer brukerspesifikke verdier.
-      . \"Show Password\"
-
-5. Real time databasen Firebase fra Google.
-   a) Finnes på:
-      https://console.firebase.google.com/project/signupfirebase-236b9/database/firestore/data~2Fhttps://console.firebase.google.com/project/signupfirebase-236b9/database/firestore/data~2F
-   b) Bruke Authentication i Firebase
-      . Benytter epost og passord
-   c) Bruke Firebase databasen for:
-      . Insert data
-      . Delete data
-      . Update data
-   d) Oppdatere epost for autensiering 
-   e) Oppdatere passordet for autensiering
-   
- ";
-
 /* Class = "UILabel"; text = "Curriculum vitae"; ObjectID = "d16-8N-6Gd"; */
 "d16-8N-6Gd.text" = "Curriculum vitae";
 
