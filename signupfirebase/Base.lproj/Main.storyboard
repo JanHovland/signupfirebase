@@ -834,23 +834,6 @@ Programmerings oppgaver:
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="flT-yl-U8B">
                                 <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
                             </activityIndicatorView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oUD-4Y-Phw">
-                                <rect key="frame" x="10" y="233" width="355" height="300"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="9kH-AM-w15"/>
-                                </constraints>
-                                <string key="text">Etter at du har bedt Firebase om å resette passordet ditt, vil du motta en epost tilsvarende denne: 
-
-Hei!
-Følg denne linken for å tilbakestille passordet ditt for project-211156156416 for kontoen din.
-https://signupfirebase-236b9.firebaseapp.com ... Hvis du ikke har bedt om å tilbakestille passordet, kan du ignorere denne e-posten.
-Vennlig hilsen project-211156156416-teamet
-
-NB! Husk at linken i eposten er tidsbegrenset!</string>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="06z-eZ-cfk">
                                 <rect key="frame" x="343" y="138.5" width="22" height="22"/>
                                 <constraints>
@@ -869,15 +852,26 @@ NB! Husk at linken i eposten er tidsbegrenset!</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="faZ-y8-avB">
+                                <rect key="frame" x="15" y="219" width="345" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="kWg-xd-tdu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="faZ-y8-avB" firstAttribute="top" secondItem="X7L-7g-bF5" secondAttribute="bottom" constant="56" id="1Yf-jp-rXh"/>
                             <constraint firstItem="06z-eZ-cfk" firstAttribute="top" secondItem="WJH-PP-AVI" secondAttribute="bottom" constant="21.5" id="4uf-Zt-xHM">
                                 <variation key="heightClass=compact-widthClass=compact" constant="21.5"/>
                             </constraint>
-                            <constraint firstItem="N7z-Y8-Vaq" firstAttribute="trailing" secondItem="oUD-4Y-Phw" secondAttribute="trailing" constant="10" id="BAo-M9-anN"/>
+                            <constraint firstItem="faZ-y8-avB" firstAttribute="leading" secondItem="N7z-Y8-Vaq" secondAttribute="leading" constant="15" id="6sF-4v-Le6"/>
                             <constraint firstItem="WJH-PP-AVI" firstAttribute="leading" secondItem="N7z-Y8-Vaq" secondAttribute="leading" constant="10" id="Cvv-0g-Voz"/>
                             <constraint firstItem="flT-yl-U8B" firstAttribute="centerX" secondItem="xuf-1A-VUn" secondAttribute="centerX" id="DOx-Ja-nSG"/>
+                            <constraint firstItem="N7z-Y8-Vaq" firstAttribute="trailing" secondItem="faZ-y8-avB" secondAttribute="trailing" constant="15" id="H2Y-MG-d0I"/>
                             <constraint firstItem="WJH-PP-AVI" firstAttribute="top" secondItem="N7z-Y8-Vaq" secondAttribute="top" constant="35" id="Hup-ij-n9y">
                                 <variation key="heightClass=compact-widthClass=compact" constant="15"/>
                             </constraint>
@@ -890,18 +884,11 @@ NB! Husk at linken i eposten er tidsbegrenset!</string>
                             <constraint firstItem="flT-yl-U8B" firstAttribute="centerY" secondItem="xuf-1A-VUn" secondAttribute="centerY" id="L9Z-D0-ssw"/>
                             <constraint firstItem="WJH-PP-AVI" firstAttribute="leading" secondItem="N7z-Y8-Vaq" secondAttribute="leading" constant="10" id="WUu-mO-vEa"/>
                             <constraint firstItem="N7z-Y8-Vaq" firstAttribute="trailing" secondItem="WJH-PP-AVI" secondAttribute="trailing" constant="10" id="Xff-l8-Zbi"/>
-                            <constraint firstItem="oUD-4Y-Phw" firstAttribute="leading" secondItem="N7z-Y8-Vaq" secondAttribute="leading" constant="10" id="XqP-EI-gar">
-                                <variation key="heightClass=compact-widthClass=compact" constant="16"/>
-                            </constraint>
                             <constraint firstItem="X7L-7g-bF5" firstAttribute="leading" secondItem="xuf-1A-VUn" secondAttribute="leadingMargin" id="Y43-Ue-yGn"/>
                             <constraint firstItem="N7z-Y8-Vaq" firstAttribute="trailing" secondItem="SEC-94-hh0" secondAttribute="trailing" constant="10" id="dKS-Iz-Hxm"/>
-                            <constraint firstItem="oUD-4Y-Phw" firstAttribute="top" secondItem="X7L-7g-bF5" secondAttribute="bottom" constant="70" id="dS6-GO-2pn">
-                                <variation key="heightClass=compact-widthClass=compact" constant="12"/>
-                            </constraint>
                             <constraint firstItem="SEC-94-hh0" firstAttribute="leading" secondItem="X7L-7g-bF5" secondAttribute="trailing" constant="6" id="dTo-rX-uIo"/>
                             <constraint firstItem="X7L-7g-bF5" firstAttribute="top" secondItem="WJH-PP-AVI" secondAttribute="bottom" constant="21" id="iTf-Ca-NEh"/>
                             <constraint firstItem="SEC-94-hh0" firstAttribute="centerY" secondItem="X7L-7g-bF5" secondAttribute="centerY" id="jTl-l0-Grd"/>
-                            <constraint firstItem="N7z-Y8-Vaq" firstAttribute="trailing" secondItem="oUD-4Y-Phw" secondAttribute="trailing" constant="10" id="o9C-GL-Wcu"/>
                             <constraint firstItem="N7z-Y8-Vaq" firstAttribute="trailing" secondItem="SEC-94-hh0" secondAttribute="trailing" constant="10" id="wyB-C8-Ytj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="N7z-Y8-Vaq"/>
@@ -918,14 +905,14 @@ NB! Husk at linken i eposten er tidsbegrenset!</string>
                     <connections>
                         <outlet property="SendEmailToReceiver" destination="SEC-94-hh0" id="5Lg-jR-0hp"/>
                         <outlet property="activity" destination="flT-yl-U8B" id="Vca-te-qtv"/>
-                        <outlet property="infoTextView" destination="oUD-4Y-Phw" id="CHh-ha-Enc"/>
+                        <outlet property="infoTextView" destination="faZ-y8-avB" id="V1W-nO-XLS"/>
                         <outlet property="userInfo" destination="WJH-PP-AVI" id="1hh-7k-3bU"/>
                         <segue destination="tT3-9a-LwM" kind="show" identifier="BackToLoginViewController" id="HHx-uR-c6E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y3g-OR-Jc8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2735" y="847"/>
+            <point key="canvasLocation" x="-2748" y="845"/>
         </scene>
         <!--Add person-->
         <scene sceneID="RhZ-ME-R8x">
@@ -1328,6 +1315,6 @@ NB! Husk at linken i eposten er tidsbegrenset!</string>
         <image name="settings-32" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="O1x-ds-s6d"/>
+        <segue reference="HHx-uR-c6E"/>
     </inferredMetricsTieBreakers>
 </document>

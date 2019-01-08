@@ -4,6 +4,9 @@
 /* DataBaseExtension.swift presentAlertOption */
 "Add a new user" = "Legg inn en ny bruker";
 
+/* ResetPWByMailViewController.swift viewDidLoad */
+"After you have asked Firebase to reset your password, you will receive an eMail with istruction. Please note that the included link is time limited!" = "Etter at du har bedt Firebase om å resette passordet ditt, vil du motta en ePost med instruksjoner. Legg merke til at linken i ePosten er tidsbegrenset! ";
+
 /* DataBaseExtension.swift SavePersonFiredata */
 "Data are saved in Firebase." = "Dataene er lagret i Firebase.";
 

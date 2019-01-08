@@ -162,16 +162,6 @@ Programmerings oppgaver:
 /* Class = "UITextField"; placeholder = "Enter the date of birth "; ObjectID = "ntB-2c-9zR"; */
 "ntB-2c-9zR.placeholder" = "Legg inn fødselsdato ";
 
-/* Class = "UITextView"; text = "Etter at du har bedt Firebase om å resette passordet ditt, vil du motta en epost tilsvarende denne: \n\nHei!\nFølg denne linken for å tilbakestille passordet ditt for project-211156156416 for kontoen din.\nhttps://signupfirebase-236b9.firebaseapp.com ... Hvis du ikke har bedt om å tilbakestille passordet, kan du ignorere denne e-posten.\nVennlig hilsen project-211156156416-teamet\n\nNB! Husk at linken i eposten er tidsbegrenset!"; ObjectID = "oUD-4Y-Phw"; */
-"oUD-4Y-Phw.text" = "Etter at du har bedt Firebase om å resette passordet ditt, vil du motta en epost tilsvarende denne: 
-
-Hei!
-Følg denne linken for å tilbakestille passordet ditt for project-211156156416 for kontoen din.
-https://signupfirebase-236b9.firebaseapp.com ... Hvis du ikke har bedt om å tilbakestille passordet, kan du ignorere denne e-posten.
-Vennlig hilsen project-211156156416-teamet
-
-NB! Husk at linken i eposten er tidsbegrenset!";
-
 /* Class = "UILabel"; text = "The password must have at least 6 characters"; ObjectID = "P8h-H3-5cv"; */
 "P8h-H3-5cv.text" = "Passordet må ha inneholde minimum 6 tegn";
 

@@ -25,6 +25,9 @@ class ResetPWByMailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        infoTextView.text = NSLocalizedString("After you have asked Firebase to reset your password, you will receive an eMail with istruction. Please note that the included link is time limited!",
+                                             comment: "ResetPWByMailViewController.swift viewDidLoad ")
+        
         showUserInformation()
 
         infoTextView.isHidden = true
