@@ -25,8 +25,13 @@ class ResetPWByMailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        infoTextView.text = NSLocalizedString("After you have asked Firebase to reset your password, you will receive an eMail with istruction. Please note that the included link is time limited!",
-                                             comment: "ResetPWByMailViewController.swift viewDidLoad ")
+        let melding1 = NSLocalizedString("After you have asked Firebase to reset your password, you will receive an eMail with istruction.",
+                                                             comment: "ResetPWByMailViewController.swift viewDidLoad ")
+        
+        let melding2 = NSLocalizedString("Please note that the included link is time limited!",
+                                                             comment: "ResetPWByMailViewController.swift viewDidLoad ")
+        
+        infoTextView.text = melding1 + "\n\n" + melding2
         
         showUserInformation()
 
