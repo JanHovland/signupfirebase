@@ -6,20 +6,6 @@
 //  Copyright © 2018 Jan . All rights reserved.
 //
 
-/*
- 
- For å få Switch password til å komme i riktig posisjon, må du ikke bruke Stack View!
- Bruk kun constraints på avstandene mellom elementene!
- 
- Det samme gjelder alle applikasjoner med text field og tastatur
- 
- Kjente feil som må rettes
- 
- 1.
- Løsning:
- 
- */
-
 import Firebase
 import UIKit
 
@@ -32,7 +18,6 @@ class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
     var myTimer: Timer!
     var activeField: UITextField!
 
-    // Setter en "constant" forsinkelse etter at en trykker på "Save"
     let forsinkelse = 3
 
     override func viewDidLoad() {
@@ -40,7 +25,7 @@ class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
 
         showUserInformation()
 
-        // For å kunne avslutte visning av tastatur når en trykker "Ferdig" på tastaturet
+        // Turn off keyboard when you press "Return"
         self.newPasswordTextField.delegate = self
         
         activity.hidesWhenStopped = true
@@ -49,10 +34,10 @@ class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
 
         activity.startAnimating()
 
-        // Finner aktuell epost fra Firebase
+        // Find eMail from Firebase
         let email = Auth.auth().currentUser?.email!
 
-        // Finner passordet fra CoreData
+        // Find password from CoreData
         oldPasswordTextField.text! = findPasswordCoreData(withEpost: email!)
 
         if (UserDefaults.standard.bool(forKey: "SHOWPASSWORD")) == true {
@@ -133,7 +118,7 @@ class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
                     let region = NSLocale.current.regionCode
                     Auth.auth().languageCode = region!.lowercased()
                     
-                    // Lagrer passord i Coredata
+                    // Store the password in Coredata
                     let ok = self.updatePasswordCoreData(withEpost: (Auth.auth().currentUser?.email!)!,
                                                          withPassWord: self.newPasswordTextField.text!)
 

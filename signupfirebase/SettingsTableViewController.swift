@@ -6,12 +6,6 @@
 //  Copyright © 2018 Jan . All rights reserved.
 //
 
-/*
-    For å få Switch password til å komme i riktig posisjon, må du ikke bruke Stack View!
-    Bruk kun constraints på avstandene mellom elementene!
- 
- */
-
 import Firebase
 import UIKit
 
@@ -23,7 +17,7 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Setter switchPassWord til inaktive
+        // Set the 'switchPassWord' to inaktive
         if (UserDefaults.standard.bool(forKey: "SHOWPASSWORD")) == true {
             switchPassWord.isOn = true
         } else {

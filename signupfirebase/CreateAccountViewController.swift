@@ -10,20 +10,6 @@ import CoreData
 import Firebase
 import UIKit
 
-/*
- 
- For å få Switch password til å komme i riktig posisjon, må du ikke bruke Stack View!
- Bruk kun constraints på avstandene mellom elementene!
- 
- Det samme gjelder alle applikasjoner med text field og tastatur
- 
- Kjente feil som må rettes
- 
- 1.
- Løsning:
- 
- */
-
 class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var activity: UIActivityIndicatorView!
 
@@ -33,23 +19,23 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     
     var activeField: UITextField!
 
-    // Disse 2 variable som får verdier via segue "gotoCreateAccount" i LogInViewController.swift
+    // These 2 variables get their values via segue "gotoCreateAccount" in LogInViewController.swift
     var createEmail: String = ""
     var createPassord: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // For å kunne avslutte visning av tastatur når en trykker "Ferdig" på tastaturet
+        // Turn off keyboard when you press "Return"
         self.nameCreateAccountTextField.delegate = self
         self.eMailCreateAccountTextField.delegate = self
         self.passwordCreateAccountTextField.delegate = self
         
-        // Setter inn variablene fra LogInViewController.swift
+        // Insert the values from LogInViewController.swift
         eMailCreateAccountTextField.text = createEmail
         passwordCreateAccountTextField.text = createPassord
 
-        // Init av activity
+        // Initialize the activity
         activity.hidesWhenStopped = true
         activity.style = .gray
         view.addSubview(activity)
@@ -121,25 +107,26 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
         if eMailCreateAccountTextField.text!.count > 0,
             nameCreateAccountTextField.text!.count > 0,
             passwordCreateAccountTextField.text!.count >= 6 {
-            // Sender eposten på norsk:
-            Auth.auth().languageCode = "no"
+            
+            let region = NSLocale.current.regionCode?.lowercased()  // Returns the local region
+            Auth.auth().languageCode = region!
 
             // Register the user with Firebase
             Auth.auth().createUser(withEmail: eMailCreateAccountTextField.text!,
                                    password: passwordCreateAccountTextField.text!) { _, error in
 
                 if error == nil {
-                    // Brukeren er nå opprettet i Firebase
+                    // The user is stored in Firebase
 
                     uid = Auth.auth().currentUser?.uid ?? ""
                     navn = self.nameCreateAccountTextField.text!
 
-                    // Resetter alle postene som hvor loggedin == true
+                    // Reset all posts where 'loggedin' == true
                     ok = self.resetLoggedIinCoreData()
 
                     if ok == true {
-                        // Sjekk om brukeren finnes i CoreData
-                        // Hvis ikke, lagre brukeren i CoreData
+                        // Check if the user exists in CoreData
+                        // Else, store the user in CoreData
                         ok = self.findCoreData(withEpost: self.eMailCreateAccountTextField.text!)
 
                         if ok == false {
@@ -158,10 +145,10 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                                                   message: melding)
                                 
                             } else {
-                                // Sender eposten på norsk:
-                                Auth.auth().languageCode = "no"
+                                let region = NSLocale.current.regionCode?.lowercased()  // Returns the local region
+                                 Auth.auth().languageCode = region!
 
-                                // Legg inn Navnet på brukeren i Firebase
+                                // Store the name of the user in Firebase
                                 let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
                                 changeRequest?.displayName = self.nameCreateAccountTextField.text!
 
@@ -175,7 +162,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                             }
 
                         } else {
-                            // oppdaterer CoreData med loggedin == true
+                            // Update CoreData with 'loggedin' == true
                             ok = self.updateCoreData(withEpost: self.eMailCreateAccountTextField.text!, withLoggedIn: true)
 
                             if ok == false {
@@ -187,10 +174,8 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                                                   message: melding)
                                 
                             } else {
-                                // Legg inn Navnet på brukeren
-
-                                // Sender eposten på norsk:
-                                Auth.auth().languageCode = "no"
+                                let region = NSLocale.current.regionCode?.lowercased()  // Returns the local region
+                                Auth.auth().languageCode = region!
 
                                 let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
                                 changeRequest?.displayName = self.nameCreateAccountTextField.text!
@@ -204,9 +189,6 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                                 }
                             }
                         }
-
-                        // Går til
-                        // self.performSegue(withIdentifier: "UpdateUserDataFromCreateAccount", sender: self)
 
                     } else {
                         let melding = NSLocalizedString("Unable to store data in CoreData.",

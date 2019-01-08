@@ -7,7 +7,7 @@
 //
 
 /*
-    Litt spesielt å sette opp ScrollView korrekt, se YouTube:
+    To set up ScrollView correctly, see YouTube:
     Create a UIScrollView using Auto Layout in Storyboard for Xcode 9
     Paul Solt
 */

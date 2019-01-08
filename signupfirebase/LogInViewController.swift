@@ -10,20 +10,6 @@ import CoreData
 import Firebase
 import UIKit
 
-/*
- 
- For å få Switch password til å komme i riktig posisjon, må du ikke bruke Stack View!
- Bruk kun constraints på avstandene mellom elementene!
- 
- Det samme gjelder alle applikasjoner med text field og tastatur
- 
- Kjente feil som må rettes
- 
- 1.
-    Løsning:
- 
- */
-
 class LogInViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var activity: UIActivityIndicatorView!
@@ -37,16 +23,16 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Skjule tabBar
+        // Hide the tabBar
         self.tabBarController?.tabBar.isHidden = true
         
-        // Setter "SHOWPASSWORD" til false
+        // Set "SHOWPASSWORD" to false
         UserDefaults.standard.set(false, forKey: "SHOWPASSWORD")
         
-        // Setter "LOGGEDIN" til false
+        // Set "LOGGEDIN" to false
         UserDefaults.standard.set(false, forKey: "LOGGEDIN")
 
-        // Initierer UIActivityIndicatorView
+        // Initialize the UIActivityIndicatorView
         activity.hidesWhenStopped = true
         activity.style = .gray
         view.addSubview(activity)
@@ -54,18 +40,17 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         // Start activity
         activity.startAnimating()
 
-        // Henter sist brukte eMail og Password der CoreData sin "loggedIn" = true
-        // Hvis det ikke finnes noen post med loggedin = true, blankes eMailLoginTextField og passwordTextField
+        // Get the last used eMail and password from CoreData where "loggedIn" = true
+        // If no value, blank eMailLoginTextField and passwordTextField
         let value = getCoreData()
         
         //  0 = uid  1 = ePost  2 = name  3 = passWord)
-        
         eMailLoginTextField.text = value.1
         passwordTextField.text = value.3
 
         activity.stopAnimating()
         
-        // For å kunne avslutte visning av tastatur når en trykker "Ferdig" på tastaturet
+        // Turn off keyboard when you press "Return"
         eMailLoginTextField.delegate = self
         passwordTextField.delegate = self
         
@@ -90,7 +75,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             self.passwordTextField.isSecureTextEntry = true
         }
         
-        // For å kunne avslutte visning av tastatur når en trykker "Ferdig" på tastaturet
+        // Turn off keyboard when you press "Return"
         eMailLoginTextField.delegate = self
         passwordTextField.delegate = self
         
@@ -160,22 +145,22 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             passwordTextField.text!.count >= 6 {
             activity.startAnimating()
 
-            // Sender eposten på norsk:
-            Auth.auth().languageCode = "no"
-
-            // Sjekk om eposten og passordet er registrert som bruker i Firebase
+            let region = NSLocale.current.regionCode  // Returns the local region
+            Auth.auth().languageCode = region
+            
+            // Check if eMail and password exist in Firebase
             Auth.auth().signIn(withEmail: eMailLoginTextField.text!, password: passwordTextField.text!) { _, error in
 
                 if error == nil {
                     uid = Auth.auth().currentUser?.uid ?? ""
                     navn = Auth.auth().currentUser?.displayName ?? ""
 
-                    // Resetter alle postene som hvor loggedin == true
+                    // Reset all posts where 'loggedin' == true
                     ok = self.resetLoggedIinCoreData()
 
                     if ok == true {
-                        // Sjekk om brukeren finnes i CoreData
-                        // Hvis ikke, lagre brukeren i CoreData
+                        // Check if the user exists in CoreData
+                        // If not, store the user in CoreData
                         ok = self.findCoreData(withEpost: self.eMailLoginTextField.text!)
 
                         if ok == false {
@@ -194,9 +179,9 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                             }
 
                         } else {
-                            // Finn passordet fra CoreData, dersom dette er forskjellig fra Firedata, oppdater CoreData
+                            // Find the password from CoreData, if it is differenr from Firedata, Update CoreData
                             if self.findPasswordCoreData(withEpost: self.eMailLoginTextField.text!) != self.passwordTextField.text! {
-                                // Legger det nye passordet inn i CoreData
+                                // Store the new password in CoreData
                                 ok = self.updatePasswordCoreData(withEpost: self.eMailLoginTextField.text!,
                                                                  withPassWord: self.passwordTextField.text!)
 
@@ -210,7 +195,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                                 }
                             }
 
-                            // oppdaterer CoreData med loggedin == true
+                            // Update CoreData with 'loggedin' == true
                             ok = self.updateCoreData(withEpost: self.eMailLoginTextField.text!, withLoggedIn: true)
 
                             if ok == false {
@@ -225,7 +210,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                                 self.loginStatus.text = navn + NSLocalizedString(" is logged in.",
                                                                                  comment:"LoginViewVontroller.swift CheckLogin 'loggedin'")
                                 
-                                // Viser tabBar
+                                // Show the tabBar
                                 self.tabBarController?.tabBar.isHidden = false
                                 
                             }
@@ -267,8 +252,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // prepare kjøres etter hvilken som helst segue.
-        // Skal bare kjøres etter: performSegue(withIdentifier: "gotoCreateAccount", sender: self)
+        // 'prepare' will run after every segue.
+        // Here it shall only run after : performSegue(withIdentifier: "gotoCreateAccount", sender: self)
 
         if segue.identifier! == "gotoCreateAccount" {
             let vc = segue.destination as! CreateAccountViewController

@@ -1001,6 +1001,9 @@ NB! Husk at linken i eposten er tidsbegrenset!</string>
                                     <action selector="velgeKjonn:" destination="rxh-wi-pm3" eventType="valueChanged" id="ysi-vl-GXC"/>
                                 </connections>
                             </segmentedControl>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="GMW-ld-i1x">
+                                <rect key="frame" x="177.5" y="444" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -1011,6 +1014,7 @@ NB! Husk at linken i eposten er tidsbegrenset!</string>
                             <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="G8Y-tl-1cT" secondAttribute="trailing" constant="15" id="34e-Ai-A75"/>
                             <constraint firstItem="nbz-eB-NWH" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="15" id="4d4-iO-jdG"/>
                             <constraint firstItem="Z83-Gy-QZ9" firstAttribute="leading" secondItem="nbz-eB-NWH" secondAttribute="trailing" constant="44" id="4dD-N0-LkM"/>
+                            <constraint firstItem="GMW-ld-i1x" firstAttribute="centerX" secondItem="ebU-ou-lpj" secondAttribute="centerX" id="94X-56-XrA"/>
                             <constraint firstItem="PJT-Cn-HsF" firstAttribute="top" secondItem="UZn-5p-0rk" secondAttribute="bottom" constant="35" id="Bsl-6K-4qi"/>
                             <constraint firstItem="dcI-Iv-SZx" firstAttribute="top" secondItem="O6w-2j-OOB" secondAttribute="top" constant="35" id="DKu-SD-uWp"/>
                             <constraint firstItem="dcI-Iv-SZx" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="10" id="GWK-93-eDs"/>
@@ -1026,6 +1030,7 @@ NB! Husk at linken i eposten er tidsbegrenset!</string>
                             <constraint firstItem="uy3-05-bWG" firstAttribute="centerY" secondItem="UZn-5p-0rk" secondAttribute="centerY" id="ZNm-r8-bLe"/>
                             <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="Z83-Gy-QZ9" secondAttribute="trailing" constant="15" id="ZYG-Z3-8lB"/>
                             <constraint firstItem="G8Y-tl-1cT" firstAttribute="leading" secondItem="PJT-Cn-HsF" secondAttribute="trailing" constant="36" id="aMO-w2-sD1"/>
+                            <constraint firstItem="GMW-ld-i1x" firstAttribute="top" secondItem="Z83-Gy-QZ9" secondAttribute="bottom" constant="49" id="bC7-yx-xgx"/>
                             <constraint firstItem="ntB-2c-9zR" firstAttribute="height" secondItem="G8Y-tl-1cT" secondAttribute="height" id="dll-Nm-4yG"/>
                             <constraint firstItem="ntB-2c-9zR" firstAttribute="height" secondItem="Z83-Gy-QZ9" secondAttribute="height" id="eU6-yu-vlb"/>
                             <constraint firstItem="mZW-Vq-ZeJ" firstAttribute="centerY" secondItem="ntB-2c-9zR" secondAttribute="centerY" constant="-1.5" id="j1b-eX-stg"/>
@@ -1054,6 +1059,7 @@ NB! Husk at linken i eposten er tidsbegrenset!</string>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activity" destination="GMW-ld-i1x" id="yGu-eH-Wyz"/>
                         <outlet property="addressInput" destination="G8Y-tl-1cT" id="lFY-pS-oRE"/>
                         <outlet property="dateOfBirthInput" destination="ntB-2c-9zR" id="Ooh-XH-7Zi"/>
                         <outlet property="genderInput" destination="Z83-Gy-QZ9" id="PA6-m9-1Ld"/>
@@ -1063,7 +1069,7 @@ NB! Husk at linken i eposten er tidsbegrenset!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wrR-qK-zNm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4130" y="860"/>
+            <point key="canvasLocation" x="-4230" y="855"/>
         </scene>
         <!--Update password-->
         <scene sceneID="514-fI-xD2">

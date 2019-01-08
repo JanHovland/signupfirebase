@@ -20,7 +20,6 @@ class ResetPWByMailViewController: UIViewController {
     var teller: Int = 0
     var status: Bool = true
 
-    // Setter en "constant" forsinkelse etter at en trykker på "Save"
     let forsinkelse = 3
 
     override func viewDidLoad() {
@@ -53,14 +52,14 @@ class ResetPWByMailViewController: UIViewController {
     @IBAction func resetByMail(_ sender: UIBarButtonItem) {
         activity.startAnimating()
 
-        // Sender eposten på norsk:
+        // Send the eMail on the local region
         
-        let region = NSLocale.current.regionCode             //  <-------- returnerer "NO"
-        Auth.auth().languageCode = region!.lowercased()
+        let region = NSLocale.current.regionCode?.lowercased()
+        Auth.auth().languageCode = region!
         
         Auth.auth().sendPasswordReset(withEmail: SendEmailToReceiver.text!) { error in
             if error == nil {
-                // Legg inn en liten forsinkelse før funksjonen "returnToLogin" kalles
+                // Set a short delay before the function "returnToLogin" is called
                 self.myTimer = Timer.scheduledTimer(timeInterval: TimeInterval(self.forsinkelse),
                                                     target: self,
                                                     selector: #selector(self.returnToLogin),

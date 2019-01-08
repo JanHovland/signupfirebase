@@ -14,6 +14,8 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var dateOfBirthInput: UITextField!
     @IBOutlet var genderInput: UISegmentedControl!
 
+    @IBOutlet weak var activity: UIActivityIndicatorView!
+    
     let datoValg = UIDatePicker()
 
     var gender: String = NSLocalizedString("Man",   comment: "AddPersonViewVontroller.swift velgeKjonn ")
@@ -26,10 +28,16 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // For å kunne avslutte visning av tastatur når en trykker "Ferdig" på tastaturet
+        // Turn off keyboard when you press "Return"
         nameInput.delegate = self
         addressInput.delegate = self
         dateOfBirthInput.delegate = self
+        
+        // Initierer UIActivityIndicatorView
+        activity.hidesWhenStopped = true
+        activity.style = .gray
+        view.addSubview(activity)
+        
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -44,7 +52,7 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
             loginStatus.text = showUserInfo(startUp: true)
         }
 
-        // Legg inn fra datovalg
+        // Get the selected date
         hentFraDatoValg()
     }
 
@@ -52,12 +60,6 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
         guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
             return
         }
-
-//        print(view.frame.size.height)
-//        print((activeField?.frame.size.height)!)
-//        print((activeField?.frame.origin.y)!)
-//        print("distanceToBottom = \(distanceToBottom)")
-//        print("keyboardRect = \(keyboardRect.height)")
 
         let distanceToBottom = view.frame.size.height - (activeField?.frame.origin.y)! - (activeField?.frame.size.height)!
 
@@ -90,23 +92,27 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func SaveNewPerson(_ sender: Any) {
-        // Henter pålogget bruker
+        // Get the user who has logged in
         //  0 = uid  1 = ePost  2 = name  3 = passWord)
         let value = getCoreData()
 
         let name = nameInput.text ?? ""
         let address = addressInput.text ?? ""
         let dateOfBirth = dateOfBirthInput.text ?? ""
-        let gender = "Mann" // genderInput som en streng
+        let gender = "Mann"
 
+        activity.startAnimating()
+        
         SavePersonFiredata(uid: value.0,
                            username: value.2,
                            email: value.1,
                            name: name,
                            address: address,
                            dateOfBirth: dateOfBirth,
-                           gender: gender
-        )
+                           gender: gender)
+            
+        activity.stopAnimating()
+        
     }
 
     func hentFraDatoValg() {
@@ -124,8 +130,8 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
         dateOfBirthInput.inputView = datoValg
         datoValg.datePickerMode = .date
         
-        let currentLocale = NSLocale.current.regionCode             //  <-------- returnerer "NO"
-        datoValg.locale = NSLocale.init(localeIdentifier: currentLocale!) as Locale
+        let region = NSLocale.current.regionCode?.lowercased()  // Returns the local region
+        datoValg.locale = NSLocale.init(localeIdentifier: region!) as Locale
         
     }
 
@@ -133,9 +139,9 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
         formatter.timeStyle = .none
-        let currentLocale = NSLocale.current.regionCode
         
-        formatter.locale = NSLocale.init(localeIdentifier: currentLocale!) as Locale
+        let region  = NSLocale.current.regionCode?.lowercased()
+        formatter.locale = NSLocale.init(localeIdentifier: region!) as Locale
         
         let datoString = formatter.string(from: datoValg.date)
         dateOfBirthInput.text = "\(datoString)"
@@ -151,8 +157,8 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func velgeKjonn(_ sender: UISegmentedControl) {
         switch genderInput.selectedSegmentIndex {
-            case 0: gender = NSLocalizedString("Man",   comment: "AddPersonViewVontroller.swift velgeKjonn ")
-            case 1: gender = NSLocalizedString("Woman",   comment: "AddPersonViewVontroller.swift velgeKjonn ")
+            case 0: gender = NSLocalizedString("Man", comment: "AddPersonViewVontroller.swift velgeKjonn ")
+            case 1: gender = NSLocalizedString("Woman", comment: "AddPersonViewVontroller.swift velgeKjonn ")
             default: return
         }
     }

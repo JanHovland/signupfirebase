@@ -6,20 +6,6 @@
 //  Copyright © 2018 Jan . All rights reserved.
 //
 
-/*
- 
- For å få Switch password til å komme i riktig posisjon, må du ikke bruke Stack View!
- Bruk kun constraints på avstandene mellom elementene!
- 
- Det samme gjelder alle applikasjoner med text field og tastatur
- 
- Kjente feil som må rettes
- 
- 1.
- Løsning:
- 
- */
-
 import Firebase
 import UIKit
 
@@ -32,7 +18,6 @@ class UpdateUserNameViewController: UIViewController, UITextFieldDelegate {
     var myTimer: Timer!
     var activeField: UITextField!
 
-    // Setter en "constant" forsinkelse etter at en trykker på "Save"
     let forsinkelse = 3
 
     override func viewDidLoad() {
@@ -42,7 +27,7 @@ class UpdateUserNameViewController: UIViewController, UITextFieldDelegate {
         
         showUserInformation()
 
-        // For å kunne avslutte visning av tastatur når en trykker "Ferdig" på tastaturet
+        /// Turn off keyboard when you press "Return"
         self.NewNameTextField.delegate = self
         self.OldNameTextField.delegate = self
 
@@ -109,10 +94,10 @@ class UpdateUserNameViewController: UIViewController, UITextFieldDelegate {
         if (NewNameTextField.text?.count)! > 0 {
             activity.startAnimating()
 
-            // Sender eposten på norsk:
-            Auth.auth().languageCode = "no"
+            let region = NSLocale.current.regionCode?.lowercased()  // Returns the local region
+            Auth.auth().languageCode = region!
 
-            // Legger inn det nye navnet i Firebase
+            // Store the new username in Firebase
             let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
             changeRequest?.displayName = NewNameTextField.text
             changeRequest?.commitChanges { error in
@@ -120,14 +105,14 @@ class UpdateUserNameViewController: UIViewController, UITextFieldDelegate {
                 if error == nil {
                     self.OldNameTextField.text = self.NewNameTextField.text
                 } else {
-                    // Håndtere error
+                    // Handle error
                     self.presentAlert(withTitle: NSLocalizedString("Error",
                                                                    comment: "UpdateUserNameViewVontroller.swift SaveNewName "),
                                       message: error?.localizedDescription as Any)
                     }
             }
 
-            // Legger det nye navnet inn i CoreData
+            // Store the new username in CoreData
             let ok = updateNameCoreData(withEpost: (Auth.auth().currentUser?.email)!, withNavn: NewNameTextField.text!)
 
             if ok == false {
@@ -138,11 +123,10 @@ class UpdateUserNameViewController: UIViewController, UITextFieldDelegate {
 
             activity.stopAnimating()
 
-            // Legg inn en liten forsinkelse før funksjonen "returnToSettings" kalles
+            // Insert a short delay before the function "returnToSettings" is called
             myTimer = Timer.scheduledTimer(timeInterval: TimeInterval(forsinkelse), target: self, selector: #selector(showUserInformation), userInfo: nil, repeats: false)
 
         } else {
-            // Legge ut varsel
             let melding = NSLocalizedString("The username must have a value.", comment: "UpdateUserNameViewVontroller.swift SaveNewName ")
             presentAlert(withTitle: NSLocalizedString("Empty name", comment: "UpdateUserNameViewVontroller.swift SaveNewName "),
                          message: melding)

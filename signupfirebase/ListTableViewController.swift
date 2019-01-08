@@ -22,17 +22,6 @@ class ListTableViewController: UITableViewController {
 
         activity.startAnimating()
 
-        // Dette er ikke nødvendig når class er subclass av UITableViewController
-
-        // For å få dette til å virke: må @IBOutlet weak var tableView: UITableView! være aktiv
-        //        tableView.delegate = self
-        //        tableView.dataSource = self
-
-        // Alternativ måte er
-        // Ctrl drag from TableView til den øverste gule iconen
-        // Merk av delegate og dataSource
-        // Da trengs ikke:  @IBOutlet weak var tableView: UITableView!
-
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
 
@@ -45,8 +34,6 @@ class ListTableViewController: UITableViewController {
 
         activity.stopAnimating()
     }
-
-    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -69,7 +56,7 @@ class ListTableViewController: UITableViewController {
         
         cell.passwordTextField?.isEnabled = false
         
-        // Setter switchPassWord til av
+        // Set the 'switchPassWord' to OFF
         if (UserDefaults.standard.bool(forKey: "SHOWPASSWORD")) == true {
             cell.passwordTextField.isSecureTextEntry = false
         }

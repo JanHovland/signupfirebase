@@ -24,6 +24,8 @@ import UIKit
     }
  }
 
+ 
+ // let personsRef1 =  personsRef.queryOrdered(byChild: "name").queryEqual(toValue: "Ole Olsen")
  */
 
 class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -41,7 +43,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        // Henter postene fra Firebase
+        // Get the posts from Firebase
         ReadPersonsFiredata()
     }
 
@@ -53,19 +55,6 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         let cellIdentifier = "Cell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PersonDataTableViewCell
 
-        /*
-
-         Standard table view cell:
-
-         When using table view cell of type "Basic" :
-         cell?.textLabel?.text          :  "returns the label used for the main textual content of the table cell"
-
-         When using table view cell of type "Right detail", "Left detail" and "Subtitle :
-         cell?.textLabel?.text          :  "returns the label used for the main textual content of the table cell"
-         cell?.detailTextLabel?.text    :  "returns the secondary label of the table cell if one exists
-
-         */
-
         cell.nameLabel?.text = persons[indexPath.row].personData.name
         cell.addressLabel?.text = persons[indexPath.row].personData.address
 
@@ -74,7 +63,6 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
 
     func ReadPersonsFiredata() {
         let personsRef = Database.database().reference().child("person")
-        // let personsRef1 =  personsRef.queryOrdered(byChild: "name").queryEqual(toValue: "Ole Olsen")
 
         personsRef.observe(.value, with: { snapshot in
 
@@ -115,10 +103,10 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                 }
             }
 
-            // Oppdaterer posts array
+            // Update the posts array
             self.persons = tempPersons
 
-            // Fyller ut table view
+            // Fill the table view
             self.tableView.reloadData()
 
         })
