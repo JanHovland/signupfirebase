@@ -650,7 +650,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1650" id="4xP-pt-sH4"/>
                                                 </constraints>
-                                                <mutableString key="text">
+                                                <string key="text">
 Programmerings oppgaver:
 
 1. Xcode.
@@ -693,7 +693,7 @@ Programmerings oppgaver:
       . epost 
       . passord
    
- </mutableString>
+ </string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
@@ -994,8 +994,8 @@ NB! Husk at linken i eposten er tidsbegrenset!</string>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Z83-Gy-QZ9">
                                 <rect key="frame" x="120" y="365" width="240" height="31"/>
                                 <segments>
-                                    <segment title="Mann"/>
-                                    <segment title="Kvinne"/>
+                                    <segment title="Man"/>
+                                    <segment title="Woman"/>
                                 </segments>
                                 <connections>
                                     <action selector="velgeKjonn:" destination="rxh-wi-pm3" eventType="valueChanged" id="ysi-vl-GXC"/>

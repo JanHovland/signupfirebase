@@ -16,7 +16,7 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
 
     let datoValg = UIDatePicker()
 
-    var gender: String = "Mann"
+    var gender: String = NSLocalizedString("Man",   comment: "AddPersonViewVontroller.swift velgeKjonn ")
 
     @IBOutlet var loginStatus: UILabel!
 
@@ -152,7 +152,7 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
     @IBAction func velgeKjonn(_ sender: UISegmentedControl) {
         switch genderInput.selectedSegmentIndex {
             case 0: gender = NSLocalizedString("Man",   comment: "AddPersonViewVontroller.swift velgeKjonn ")
-            case 1: gender = NSLocalizedString("WoMan",   comment: "AddPersonViewVontroller.swift velgeKjonn ")
+            case 1: gender = NSLocalizedString("Woman",   comment: "AddPersonViewVontroller.swift velgeKjonn ")
             default: return
         }
     }

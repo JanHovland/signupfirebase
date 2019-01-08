@@ -92,12 +92,6 @@
 /* Class = "UILabel"; text = "Send to"; ObjectID = "X7L-7g-bF5"; */
 "X7L-7g-bF5.text" = "Send to";
 
-/* Class = "UISegmentedControl"; Z83-Gy-QZ9.segmentTitles[0] = "Mann"; ObjectID = "Z83-Gy-QZ9"; */
-"Z83-Gy-QZ9.segmentTitles[0]" = "Mann";
-
-/* Class = "UISegmentedControl"; Z83-Gy-QZ9.segmentTitles[1] = "Kvinne"; ObjectID = "Z83-Gy-QZ9"; */
-"Z83-Gy-QZ9.segmentTitles[1]" = "Kvinne";
-
 /* Class = "UITabBarItem"; title = "Settings"; ObjectID = "ayy-xj-Vfm"; */
 "ayy-xj-Vfm.title" = "Settings";
 

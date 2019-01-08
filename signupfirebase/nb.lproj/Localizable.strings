@@ -13,12 +13,13 @@
 /* UpdateUserNameViewVontroller.swift SaveNewName */
 "Empty name" = "Tomt navn";
 
-/* AddPersonViewVontroller.swift velgeKjonn 
-   CreateAccountViewVontroller.swift SaveAccount
+/* CreateAccountViewVontroller.swift SaveAccount
    CreateAccountViewVontroller.swift SaveAccount 
    DataBaseExtension.swift SavePersonFiredata
+   ListTableViewController.swift SaveNewPassword 
    LoginViewVontroller.swift CheckLogin 'error'
    LoginViewVontroller.swift CheckLogin error
+   ResetPWByMailViewController.swift velgeKjonn 
    ResetPWByMailViewController.swift viewDidLoad 
    UpdatePasswordViewVontroller.swift SaveNewPassword 
    UpdateUserNameViewVontroller.swift SaveNewName */
@@ -35,7 +36,7 @@
 /* LoginViewVontroller.swift SaveAccount */
 "Every field must have a value" = "Alle feltene må ha en verdi";
 
-/* LoginViewVontroller.swift SaveAccount */
+/* CreateAccountViewVontroller.swift SaveAccount */
 "Every field must have a value." = "Alle feltene må ha en verdi.";
 
 /* AddPersonViewVontroller.swift velgeKjonn */
@@ -50,8 +51,8 @@
 /* DataBaseExtension.swift SavePersonFiredata */
 "Saving in Firebase" = "Lagrer data i Firebase.";
 
-/* LoginViewVontroller.swift CheckLogin verdi
-   LoginViewVontroller.swift SaveAccount 
+/* CreateAccountViewVontroller.swift SaveAccount 
+   LoginViewVontroller.swift CheckLogin verdi
    UpdatePasswordViewVontroller.swift SaveNewPassword */
 "The password must contain minimum 6 characters" = "Passordet må inneholde minimum 6 tegn";
 
@@ -61,7 +62,7 @@
 /* DataBaseExtension.swift presentAlertOption */
 "Try one more time" = "Prøv en gang til.";
 
-/* ListTableViewController trailingSwipeActionsConfigurationForRowAt */
+/* ListTableViewController.swift trailingSwipeActionsConfigurationForRowAt */
 "Unable to delete data in CoreData: " = "Kan ikke slette data i CoreData: ";
 
 /* ResetPWByMailViewController.swift viewDidLoad */
@@ -86,5 +87,5 @@
 "Unable to update the password in FireBase." = "Kan ikke oppdatere passordet i FireBase.";
 
 /* AddPersonViewVontroller.swift velgeKjonn */
-"WoMan" = "Kvinne";
+"Woman" = "Kvinne";
 

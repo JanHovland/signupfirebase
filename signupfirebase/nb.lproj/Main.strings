@@ -43,7 +43,7 @@
 /* Class = "UITextField"; placeholder = "Enter user eMail"; ObjectID = "cye-m2-p8o"; */
 "cye-m2-p8o.placeholder" = "ePost adressen til brukeren";
 
-/* Class = "UITextView"; text = "\nProgrammerings oppgaver:\n\n1. Xcode.\n    a) Opprette lisens hos Apple\n    b) Bruke Xcode miljøet til å lage apper\n    c) ViewController\n    d) TableViewController\n    e) TableViewCell\n    f) ScrollView\n    g) Keyboard i mobilen\n\n2. Swift.\n   a) Bruke Swift som programmeringsspråk. \n\n3. GitHub.\n   a) Lagre og hente kildekode direkte i Xcode \n\n3. CoreData.\n   a) Oppdatere AppDelegate slik at directory vises i AppDelegate.swift\n   a) Viser data med hjelp av applikasjonen \"Datum\"\n   b) Bruke CoreData for:\n      . Insert data\n      . Delete data\n      . Update data\n\n4. UserDefault som lagrer brukerspesifikke verdier.\n      . \"Show Password\"\n\n5. Real time databasen Firebase fra Google.\n   a) Finnes på:\n      https://console.firebase.google.com/project/signupfirebase-236b9/database/firestore/data~2Fhttps://console.firebase.google.com/project/signupfirebase-236b9/database/firestore/data~2F\n   b) Bruke Authentication i Firebase\n      . Benytter epost og passord\n   c) Bruke Firebase databasen for:\n      . Insert data\n      . Delete data\n      . Update data\n   d) Oppdatere epost for autensiering \n   e) Oppdatere passordet for autensiering\n   \n "; ObjectID = "cYk-zV-Vpt"; */
+/* Class = "UITextView"; text = "\nProgrammerings oppgaver:\n\n1. Xcode.\n    a) Opprette lisens hos Apple\n    b) Bruke Xcode miljøet til å lage apper\n    c) ViewController\n    d) TableViewController\n    e) TableViewCell\n    f) ScrollView\n    g) Keyboard i mobilen\n    h) Localization via nb.xcloc\n\n2. Swift.\n   a) Bruke Swift som programmeringsspråk. \n\n3. GitHub.\n   a) Lagre og hente kildekode direkte i Xcode \n\n3. CoreData.\n   a) Oppdatere AppDelegate slik at directory vises i AppDelegate.swift\n   a) Viser data med hjelp av applikasjonen \"Datum\"\n   b) Bruke CoreData for:\n      . Insert data\n      . Delete data\n      . Update data\n\n4. UserDefault som lagrer brukerspesifikke verdier.\n      . \"Show Password\"\n\n5. Real time databasen Firebase fra Google.\n   a) Finnes på:\n      https://console.firebase.google.com/project/signupfirebase-236b9/database/firestore/data~2Fhttps://console.firebase.google.com/project/signupfirebase-236b9/database/firestore/data~2F\n   b) Bruke Authentication i Firebase\n      . Benytter epost og passord\n   c) Bruke Firebase databasen for:\n      . Insert data\n      . Delete data\n      . Update data\n   d) Autensiering:\n      . epost \n      . passord\n   \n "; ObjectID = "cYk-zV-Vpt"; */
 "cYk-zV-Vpt.text" = "
 Programmerings oppgaver:
 
@@ -238,10 +238,10 @@ NB! Husk at linken i eposten er tidsbegrenset!";
 /* Class = "UILabel"; text = "Old name"; ObjectID = "yMP-nw-ghX"; */
 "yMP-nw-ghX.text" = "Navn";
 
-/* Class = "UISegmentedControl"; Z83-Gy-QZ9.segmentTitles[0] = "Mann"; ObjectID = "Z83-Gy-QZ9"; */
+/* Class = "UISegmentedControl"; Z83-Gy-QZ9.segmentTitles[0] = "Man"; ObjectID = "Z83-Gy-QZ9"; */
 "Z83-Gy-QZ9.segmentTitles[0]" = "Mann";
 
-/* Class = "UISegmentedControl"; Z83-Gy-QZ9.segmentTitles[1] = "Kvinne"; ObjectID = "Z83-Gy-QZ9"; */
+/* Class = "UISegmentedControl"; Z83-Gy-QZ9.segmentTitles[1] = "Woman"; ObjectID = "Z83-Gy-QZ9"; */
 "Z83-Gy-QZ9.segmentTitles[1]" = "Kvinne";
 
 /* Class = "UITextField"; placeholder = "Enter user name"; ObjectID = "zCV-c9-g6t"; */
