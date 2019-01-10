@@ -105,8 +105,9 @@ class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func SaveNewPassword(_ sender: Any) {
-        activity.startAnimating()
-
+        
+        newPasswordTextField.resignFirstResponder()
+        
         if newPasswordTextField.text!.count >= 6 {
             let region = NSLocale.current.regionCode
             Auth.auth().languageCode = region!.lowercased()

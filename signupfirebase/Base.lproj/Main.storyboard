@@ -561,7 +561,7 @@
                                 <rect key="frame" x="104" y="252" width="261" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="name"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="name"/>
                             </textField>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="70R-BC-BgB">
                                 <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
@@ -649,7 +649,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1650" id="4xP-pt-sH4"/>
                                                 </constraints>
-                                                <string key="text">
+                                                <mutableString key="text">
 Programmerings oppgaver:
 
 1. Xcode.
@@ -661,6 +661,10 @@ Programmerings oppgaver:
     f) ScrollView
     g) Keyboard i mobilen
     h) Localization via nb.xcloc
+    i) SwipeTrailing og SwipeLeading
+       . "Height" på  View må være &gt; 90 for å kunne legge inn både tekst og icon
+       . Bruk imageLiteral for å finne en icon
+       . Bruk colorLiteral for å finne en farge
 
 2. Swift.
    a) Bruke Swift som programmeringsspråk. 
@@ -676,14 +680,14 @@ Programmerings oppgaver:
       . Delete data
       . Update data
 
-4. UserDefault som lagrer brukerspesifikke verdier.
+4. UserDefault lagrer brukerspesifikke verdier.
       . "Show Password"
 
 5. Real time databasen Firebase fra Google.
    a) Finnes på:
       https://console.firebase.google.com/project/signupfirebase-236b9/database/firestore/data~2Fhttps://console.firebase.google.com/project/signupfirebase-236b9/database/firestore/data~2F
    b) Bruke Authentication i Firebase
-      . Benytter epost og passord
+      . Benytter epost og passord for pålogging
    c) Bruke Firebase databasen for:
       . Insert data
       . Delete data
@@ -692,7 +696,7 @@ Programmerings oppgaver:
       . epost 
       . passord
    
- </string>
+ </mutableString>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>

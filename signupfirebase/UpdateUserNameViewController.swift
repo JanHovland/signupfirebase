@@ -91,6 +91,10 @@ class UpdateUserNameViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func SaveNewName(_ sender: UIBarButtonItem) {
+        
+        NewNameTextField.resignFirstResponder()
+        OldNameTextField.resignFirstResponder()
+        
         if (NewNameTextField.text?.count)! > 0 {
             activity.startAnimating()
 
