@@ -10,7 +10,41 @@ import CoreData
 import Firebase
 import UIKit
 
+//var timer:Timer?
+//var timeLeft = 0
+
 extension UIViewController {
+    
+//    func countDownTimer(seconds: Int) {
+//        
+//        timeLeft = seconds
+//        
+//        // The timer doesn’t start immediately. Until it starts, the timer property is nil.
+//        // At some point the game has started, and we start the timer:
+//    
+//        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(onTimerFires), userInfo: nil, repeats: true)
+//   
+//        print("timeLeft = \(timeLeft)")
+//        
+//
+//    }
+//
+//    @objc func onTimerFires()
+//    {
+//        timeLeft -= 1
+//        
+//        if timeLeft <= 0 {
+//            timer!.invalidate()
+//            timer = nil
+//        }
+//        
+//    }
+//
+    
+    
+    
+    
+    
     func presentAlert(withTitle title: String,
                       message: Any) {
         

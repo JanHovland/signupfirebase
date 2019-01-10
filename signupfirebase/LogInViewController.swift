@@ -19,7 +19,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     var status: Bool = true
     var activeField: UITextField!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -57,6 +57,9 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+     
+        // Hide the BackButton when returning from change/reset password
+        self.navigationItem.setHidesBackButton(true, animated: false)
         
         // Observe keyboard change
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeLogin(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -110,7 +113,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-       activeField = textField
+        activeField = textField
         return true
     }
     

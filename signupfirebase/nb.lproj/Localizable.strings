@@ -1,6 +1,9 @@
 /* LoginViewVontroller.swift CheckLogin 'loggedin' */
 " is logged in." = " er pålogget.";
 
+/* UpdatePasswordViewVontroller.swift SaveNewPassword */
+" seconds" = " sekunder";
+
 /* DataBaseExtension.swift presentAlertOption */
 "Add a new user" = "Legg inn en ny bruker";
 
@@ -9,6 +12,9 @@
 
 /* DataBaseExtension.swift SavePersonFiredata */
 "Data are saved in Firebase." = "Dataene er lagret i Firebase.";
+
+/* MainPersonDataViewController trailingSwipeActionsConfigurationForRowAt */
+"Delete" = "Slett";
 
 /* LoginViewVontroller.swift CheckLogin verdi */
 "eMail must have a value." = "ePosten må ha en verdi.";
@@ -22,7 +28,7 @@
    ListTableViewController.swift SaveNewPassword 
    LoginViewVontroller.swift CheckLogin 'error'
    LoginViewVontroller.swift CheckLogin error
-   ResetPWByMailViewController.swift velgeKjonn 
+   ResetPWByMailViewController.swift resetByMail 
    ResetPWByMailViewController.swift viewDidLoad 
    UpdatePasswordViewVontroller.swift SaveNewPassword 
    UpdateUserNameViewVontroller.swift SaveNewName */
@@ -53,6 +59,9 @@
 
 /* ResetPWByMailViewController.swift viewDidLoad */
 "Please note that the included link is time limited!" = "Legg merke til at linken i ePosten er tidsbegrenset!";
+
+/* UpdatePasswordViewVontroller.swift SaveNewPassword */
+"Return to login in: " = "Retur til login om: ";
 
 /* DataBaseExtension.swift SavePersonFiredata */
 "Saving in Firebase" = "Lagrer data i Firebase.";

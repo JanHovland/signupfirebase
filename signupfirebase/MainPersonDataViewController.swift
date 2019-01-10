@@ -60,7 +60,44 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
 
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+       // In order to show both the icon and the text, the height of the tableViewCell must be > 91
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "") {
+            (action, sourceView, completionHandler) in
 
+//            let record = self.personData[indexPath.row]
+//            self.database.delete(withRecordID: record.recordID) { (recordID, error) in
+//                DispatchQueue.main.async {
+//                    if (error != nil) {
+//                        print ("error")
+//                    } else {
+//                        print ("Posten er slettet")
+//                        self.personData.remove(at: indexPath.row)
+//                        self.tableView.deleteRows(at: [indexPath], with: .fade )
+//
+//                    }
+//                }
+//            }
+
+        }
+
+        // Customize the action buttons
+        deleteAction.title =  NSLocalizedString("Delete", comment: "MainPersonDataViewController trailingSwipeActionsConfigurationForRowAt")
+
+        //        deleteAction.image = #imageLiteral(resourceName: "slett")
+        //        deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.08195901584, blue: 0.1369091124, alpha: 1)
+
+        deleteAction.image = #imageLiteral(resourceName: "delete")
+        deleteAction.backgroundColor = .red
+        
+        let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction])
+
+        return swipeConfiguration
+    }
+    
     func ReadPersonsFiredata() {
         let personsRef = Database.database().reference().child("person")
 
