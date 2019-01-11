@@ -2,7 +2,7 @@
 " is logged in." = " er pålogget.";
 
 /* UpdatePasswordViewVontroller.swift SaveNewPassword */
-" seconds" = " sekunder";
+" second(s)" = " sekund(er)";
 
 /* DataBaseExtension.swift presentAlertOption */
 "Add a new user" = "Legg inn en ny bruker";
@@ -61,7 +61,7 @@
 "Please note that the included link is time limited!" = "Legg merke til at linken i ePosten er tidsbegrenset!";
 
 /* UpdatePasswordViewVontroller.swift SaveNewPassword */
-"Return to login in: " = "Retur til login om: ";
+"Return to login in " = "Retur til login om ";
 
 /* DataBaseExtension.swift SavePersonFiredata */
 "Saving in Firebase" = "Lagrer data i Firebase.";

@@ -133,8 +133,8 @@ class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
                                           message: melding)
                     } else {
 
-                        self.melding1 = NSLocalizedString("Return to login in: ", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword ")
-                        self.melding2 = NSLocalizedString(" seconds", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword ")
+                        self.melding1 = NSLocalizedString("Return to login in ", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword ")
+                        self.melding2 = NSLocalizedString(" second(s)", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword ")
                         
                         self.melding = self.melding1 + String(self.seconds) + self.melding2
                         self.secondsLeft.isHidden = false
