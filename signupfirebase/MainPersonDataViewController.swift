@@ -15,16 +15,15 @@ import UIKit
  Firebase rules:
 
  {
-    "rules": {
-          "person": {
-                    ".read": "auth.uid != null",
-                    ".write": "auth.uid != null",
-                    ".indexOn" : ["uid", "name", "address", "dateOfBirth"]
-          }
-    }
+ "rules": {
+ "person": {
+ ".read": "auth.uid != null",
+ ".write": "auth.uid != null",
+ ".indexOn" : ["uid", "name", "address", "dateOfBirth"]
+ }
+ }
  }
 
- 
  // let personsRef1 =  personsRef.queryOrdered(byChild: "name").queryEqual(toValue: "Ole Olsen")
  */
 
@@ -39,7 +38,6 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
 
         tableView.delegate = self
         tableView.dataSource = self
-        
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -60,44 +58,77 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
 
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
-       // In order to show both the icon and the text, the height of the tableViewCell must be > 91
-        
+        // In order to show both the icon and the text, the height of the tableViewCell must be > 91
+
         let deleteAction = UIContextualAction(style: .destructive, title: "") {
-            (action, sourceView, completionHandler) in
+           (action, sourceView, completionHandler) in
 
-//            let record = self.personData[indexPath.row]
-//            self.database.delete(withRecordID: record.recordID) { (recordID, error) in
-//                DispatchQueue.main.async {
-//                    if (error != nil) {
-//                        print ("error")
-//                    } else {
-//                        print ("Posten er slettet")
-//                        self.personData.remove(at: indexPath.row)
-//                        self.tableView.deleteRows(at: [indexPath], with: .fade )
-//
-//                    }
-//                }
-//            }
-
+            //            let record = self.personData[indexPath.row]
+            //            self.database.delete(withRecordID: record.recordID) { (recordID, error) in
+            //                DispatchQueue.main.async {
+            //                    if (error != nil) {
+            //                        print ("error")
+            //                    } else {
+            //                        print ("Posten er slettet")
+            //                        self.personData.remove(at: indexPath.row)
+            //                        self.tableView.deleteRows(at: [indexPath], with: .fade )
+            //
+            //                    }
+            //                }
+            //            }
         }
 
         // Customize the action buttons
-        deleteAction.title =  NSLocalizedString("Delete", comment: "MainPersonDataViewController trailingSwipeActionsConfigurationForRowAt")
+        deleteAction.title = NSLocalizedString("Delete", comment: "MainPersonDataViewController trailingSwipeActionsConfigurationForRowAt")
 
         //        deleteAction.image = #imageLiteral(resourceName: "slett")
         //        deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.08195901584, blue: 0.1369091124, alpha: 1)
 
         deleteAction.image = #imageLiteral(resourceName: "delete")
         deleteAction.backgroundColor = .red
-        
+
         let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction])
 
         return swipeConfiguration
     }
-    
+
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        // In order to show both the icon and the text, the height of the tableViewCell must be > 91
+
+        let updateAction = UIContextualAction(style: .normal, title: "") {
+            (action, sourceView, completionHandler) in
+
+            //            let record = self.personData[indexPath.row]
+            //            self.database.delete(withRecordID: record.recordID) { (recordID, error) in
+            //                DispatchQueue.main.async {
+            //                    if (error != nil) {
+            //                        print ("error")
+            //                    } else {
+            //                        print ("Posten er slettet")
+            //                        self.personData.remove(at: indexPath.row)
+            //                        self.tableView.deleteRows(at: [indexPath], with: .fade )
+            //
+            //                    }
+            //                }
+            //            }
+        }
+
+        // Customize the action buttons
+        updateAction.title = NSLocalizedString("Update", comment: "MainPersonDataViewController leadingSwipeActionsConfigurationForRowAt")
+
+        //        deleteAction.image = #imageLiteral(resourceName: "slett")
+        //        deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.08195901584, blue: 0.1369091124, alpha: 1)
+
+        updateAction.image = #imageLiteral(resourceName: "settings-32")
+        updateAction.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+
+        let swipeConfiguration = UISwipeActionsConfiguration(actions: [updateAction])
+
+        return swipeConfiguration
+    }
+
     func ReadPersonsFiredata() {
         let personsRef = Database.database().reference().child("person")
 

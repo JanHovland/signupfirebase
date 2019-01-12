@@ -105,6 +105,9 @@
 /* LoginViewVontroller.swift CheckLogin */
 "Unable to update the password in FireBase." = "Kan ikke oppdatere passordet i FireBase.";
 
+/* MainPersonDataViewController leadingSwipeActionsConfigurationForRowAt */
+"Update" = "Oppdater";
+
 /* AddPersonViewVontroller.swift velgeKjonn */
 "Woman" = "Kvinne";
 
