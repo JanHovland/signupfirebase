@@ -21,7 +21,8 @@ class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
     var melding = ""
     var melding1 = ""
     var melding2 = ""
-    
+    var melding3 = ""
+
     let forsinkelse = 1
     var seconds = 3
 
@@ -134,7 +135,8 @@ class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
                     } else {
 
                         self.melding1 = NSLocalizedString("Return to login in ", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword ")
-                        self.melding2 = NSLocalizedString(" second(s)", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword ")
+                        self.melding2 = NSLocalizedString(" seconds", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword ")
+                        self.melding3 = NSLocalizedString(" second", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword ")
                         
                         self.melding = self.melding1 + String(self.seconds) + self.melding2
                         self.secondsLeft.isHidden = false
@@ -165,7 +167,11 @@ class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
             myTimer.invalidate()
             performSegue(withIdentifier: "BackToLoginViewController", sender: self)
         } else {
-            secondsLeft.text = melding1 + String(self.seconds) + melding2
+            if seconds == 2 {
+                secondsLeft.text = melding1 + String(self.seconds) + melding2       // seconds
+            } else {
+                secondsLeft.text = melding1 + String(self.seconds) + melding3       // second
+            }
             seconds -= 1
         }
     }

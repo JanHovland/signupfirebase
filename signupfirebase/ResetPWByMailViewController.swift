@@ -23,7 +23,8 @@ class ResetPWByMailViewController: UIViewController {
     var melding = ""
     var melding1 = ""
     var melding2 = ""
-    
+    var melding3 = ""
+
     let forsinkelse = 1
     var seconds = 3
 
@@ -78,7 +79,8 @@ class ResetPWByMailViewController: UIViewController {
             if error == nil {
                 
                 self.melding1 = NSLocalizedString("Return to login in ", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword ")
-                self.melding2 = NSLocalizedString(" second(s)", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword ")
+                self.melding2 = NSLocalizedString(" seconds", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword ")
+                self.melding3 = NSLocalizedString(" second", comment: "ResetPWByMailViewController.swift SaveNewPassword ")
                 
                 self.melding = self.melding1 + String(self.seconds) + self.melding2
                 self.secondsLeft.isHidden = false
@@ -105,7 +107,11 @@ class ResetPWByMailViewController: UIViewController {
             myTimer.invalidate()
             performSegue(withIdentifier: "BackToLoginViewController", sender: self)
         } else {
-            secondsLeft.text = melding1 + String(seconds) + melding2
+            if seconds == 2 {
+                secondsLeft.text = melding1 + String(self.seconds) + melding2       // seconds
+            } else {
+                secondsLeft.text = melding1 + String(self.seconds) + melding3       // second
+            }
             seconds -= 1
         }
     }

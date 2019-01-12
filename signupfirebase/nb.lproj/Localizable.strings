@@ -1,8 +1,12 @@
 /* LoginViewVontroller.swift CheckLogin 'loggedin' */
 " is logged in." = " er pålogget.";
 
+/* ResetPWByMailViewController.swift SaveNewPassword 
+   UpdatePasswordViewVontroller.swift SaveNewPassword */
+" second" = " sekund";
+
 /* UpdatePasswordViewVontroller.swift SaveNewPassword */
-" second(s)" = " sekund(er)";
+" seconds" = " seconder";
 
 /* DataBaseExtension.swift presentAlertOption */
 "Add a new user" = "Legg inn en ny bruker";
