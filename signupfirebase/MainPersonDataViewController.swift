@@ -86,7 +86,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         //        deleteAction.image = #imageLiteral(resourceName: "slett")
         //        deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.08195901584, blue: 0.1369091124, alpha: 1)
 
-        deleteAction.image = #imageLiteral(resourceName: "delete")
+        deleteAction.image = #imageLiteral(resourceName: "trash-35")
         deleteAction.backgroundColor = .red
 
         let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction])
@@ -121,7 +121,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         //        deleteAction.image = #imageLiteral(resourceName: "slett")
         //        deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.08195901584, blue: 0.1369091124, alpha: 1)
 
-        updateAction.image = #imageLiteral(resourceName: "update-3")
+        updateAction.image = #imageLiteral(resourceName: "update-35")
         updateAction.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
 
         let swipeConfiguration = UISwipeActionsConfiguration(actions: [updateAction])

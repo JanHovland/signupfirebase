@@ -665,6 +665,7 @@ Programmerings oppgaver:
        . "Height" på  View må være &gt; 90 for å kunne legge inn både tekst og icon
        . Bruk imageLiteral for å finne en icon
        . Bruk colorLiteral for å finne en farge
+       . Bilde størrelse 35 x 35 bilde punkter ser OK ut
 
 2. Swift.
    a) Bruke Swift som programmeringsspråk. 
