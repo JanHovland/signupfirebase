@@ -1,11 +1,20 @@
 /* Class = "UINavigationItem"; title = "Add person"; ObjectID = "1me-Mz-xNe"; */
 "1me-Mz-xNe.title" = "Legg inn ny person";
 
+/* Class = "UILabel"; text = "Address"; ObjectID = "2sS-NR-HPv"; */
+"2sS-NR-HPv.text" = "Adresse";
+
 /* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "5IO-mA-9m4"; */
 "5IO-mA-9m4.title" = "Save";
 
+/* Class = "UINavigationItem"; title = "Person overview"; ObjectID = "5tn-Wh-zJV"; */
+"5tn-Wh-zJV.title" = "Person oversikt";
+
 /* Class = "UILabel"; text = "userInfo"; ObjectID = "6JU-Nt-wdO"; */
 "6JU-Nt-wdO.text" = "userInfo";
+
+/* Class = "UILabel"; text = "Gender"; ObjectID = "7im-hZ-D61"; */
+"7im-hZ-D61.text" = "Kjønn";
 
 /* Class = "UILabel"; text = "Reset password by mail"; ObjectID = "9cy-7H-JXc"; */
 "9cy-7H-JXc.text" = "Tilbakestill passordet via ePost";
@@ -72,6 +81,12 @@
 
 /* Class = "UILabel"; text = "Old password"; ObjectID = "h3M-sf-tUf"; */
 "h3M-sf-tUf.text" = "Password";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "hDN-QC-KOd"; */
+"hDN-QC-KOd.text" = "Navn";
+
+/* Class = "UIBarButtonItem"; title = "Update"; ObjectID = "HHU-cf-G3U"; */
+"HHU-cf-G3U.title" = "Oppdater";
 
 /* Class = "UITableViewSection"; headerTitle = " "; ObjectID = "Hlp-Ao-XeV"; */
 "Hlp-Ao-XeV.headerTitle" = " ";
@@ -157,6 +172,12 @@
 /* Class = "UINavigationItem"; title = "Curriculum vitae"; ObjectID = "u3m-jt-SeF"; */
 "u3m-jt-SeF.title" = "Curriculum vitae";
 
+/* Class = "UISegmentedControl"; unI-sG-CyJ.segmentTitles[0] = "Man"; ObjectID = "unI-sG-CyJ"; */
+"unI-sG-CyJ.segmentTitles[0]" = "Mann";
+
+/* Class = "UISegmentedControl"; unI-sG-CyJ.segmentTitles[1] = "Woman"; ObjectID = "unI-sG-CyJ"; */
+"unI-sG-CyJ.segmentTitles[1]" = "Kvinne";
+
 /* Class = "UILabel"; text = "name"; ObjectID = "Ure-hL-M78"; */
 "Ure-hL-M78.text" = "navn";
 
@@ -183,6 +204,9 @@
 
 /* Class = "UILabel"; text = "Old name"; ObjectID = "yMP-nw-ghX"; */
 "yMP-nw-ghX.text" = "Navn";
+
+/* Class = "UILabel"; text = "Date of birth"; ObjectID = "z18-mO-ls1"; */
+"z18-mO-ls1.text" = "Fødselsdato";
 
 /* Class = "UISegmentedControl"; Z83-Gy-QZ9.segmentTitles[0] = "Man"; ObjectID = "Z83-Gy-QZ9"; */
 "Z83-Gy-QZ9.segmentTitles[0]" = "Mann";

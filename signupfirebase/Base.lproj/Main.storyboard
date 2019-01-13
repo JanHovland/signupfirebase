@@ -239,6 +239,112 @@
             </objects>
             <point key="canvasLocation" x="-5042.3999999999996" y="572.56371814092961"/>
         </scene>
+        <!--Person overview-->
+        <scene sceneID="T2R-Dc-jKp">
+            <objects>
+                <viewController id="g3F-27-I4s" customClass="DetailPersonDataViewController" customModule="signupfirebase" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Bag-dG-VLx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hDN-QC-KOd">
+                                <rect key="frame" x="15" y="185" width="45" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sS-NR-HPv">
+                                <rect key="frame" x="15" y="250" width="63" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w9t-AI-b9v">
+                                <rect key="frame" x="115" y="185" width="245" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pQ8-7U-v0a">
+                                <rect key="frame" x="118" y="245" width="242" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j06-sO-s9p">
+                                <rect key="frame" x="120" y="305" width="240" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="userInfo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UEI-gv-oEW">
+                                <rect key="frame" x="10" y="99" width="355" height="18"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of birth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z18-mO-ls1">
+                                <rect key="frame" x="15" y="308" width="97" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7im-hZ-D61">
+                                <rect key="frame" x="15" y="365.5" width="57" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="unI-sG-CyJ">
+                                <rect key="frame" x="117" y="365" width="243" height="29"/>
+                                <segments>
+                                    <segment title="Man"/>
+                                    <segment title="Woman"/>
+                                </segments>
+                                <connections>
+                                    <action selector="velgeKjonn:" destination="rxh-wi-pm3" eventType="valueChanged" id="d2h-Gv-nwe"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="unI-sG-CyJ" firstAttribute="top" secondItem="j06-sO-s9p" secondAttribute="bottom" constant="30" id="58s-DZ-euo"/>
+                            <constraint firstItem="j06-sO-s9p" firstAttribute="leading" secondItem="z18-mO-ls1" secondAttribute="trailing" constant="8" id="9Uh-SG-IFw"/>
+                            <constraint firstItem="z18-mO-ls1" firstAttribute="top" secondItem="2sS-NR-HPv" secondAttribute="bottom" constant="37" id="A9g-lV-urd"/>
+                            <constraint firstItem="j06-sO-s9p" firstAttribute="leading" secondItem="z18-mO-ls1" secondAttribute="trailing" constant="8" id="BS4-y4-BhX"/>
+                            <constraint firstItem="w9t-AI-b9v" firstAttribute="leading" secondItem="hDN-QC-KOd" secondAttribute="trailing" constant="55" id="Ce5-XD-LTL"/>
+                            <constraint firstItem="pQ8-7U-v0a" firstAttribute="top" secondItem="w9t-AI-b9v" secondAttribute="bottom" constant="30" id="DF7-Xc-lFa"/>
+                            <constraint firstItem="LKS-Pq-SLM" firstAttribute="trailing" secondItem="pQ8-7U-v0a" secondAttribute="trailing" constant="15" id="HkH-8t-tZP"/>
+                            <constraint firstItem="z18-mO-ls1" firstAttribute="leading" secondItem="LKS-Pq-SLM" secondAttribute="leading" constant="15" id="HmO-uD-ocB"/>
+                            <constraint firstItem="LKS-Pq-SLM" firstAttribute="trailing" secondItem="UEI-gv-oEW" secondAttribute="trailing" constant="10" id="NFQ-ER-IFW"/>
+                            <constraint firstItem="unI-sG-CyJ" firstAttribute="leading" secondItem="7im-hZ-D61" secondAttribute="trailing" constant="45" id="PQY-fn-MKE"/>
+                            <constraint firstItem="2sS-NR-HPv" firstAttribute="leading" secondItem="LKS-Pq-SLM" secondAttribute="leading" constant="15" id="Tga-cC-sND"/>
+                            <constraint firstItem="w9t-AI-b9v" firstAttribute="top" secondItem="UEI-gv-oEW" secondAttribute="bottom" constant="68" id="Tt2-fm-8Mm"/>
+                            <constraint firstItem="2sS-NR-HPv" firstAttribute="top" secondItem="w9t-AI-b9v" secondAttribute="bottom" constant="35" id="XSR-ti-nGG"/>
+                            <constraint firstItem="j06-sO-s9p" firstAttribute="top" secondItem="pQ8-7U-v0a" secondAttribute="bottom" constant="30" id="Y5y-G9-Fg5"/>
+                            <constraint firstItem="LKS-Pq-SLM" firstAttribute="trailing" secondItem="j06-sO-s9p" secondAttribute="trailing" constant="15" id="Zj4-oi-ayi"/>
+                            <constraint firstItem="LKS-Pq-SLM" firstAttribute="trailing" secondItem="unI-sG-CyJ" secondAttribute="trailing" constant="15" id="dZR-T7-ewl"/>
+                            <constraint firstItem="7im-hZ-D61" firstAttribute="top" secondItem="z18-mO-ls1" secondAttribute="bottom" constant="37" id="eVr-FB-br1"/>
+                            <constraint firstItem="hDN-QC-KOd" firstAttribute="leading" secondItem="LKS-Pq-SLM" secondAttribute="leading" constant="15" id="etG-PC-3hT"/>
+                            <constraint firstItem="UEI-gv-oEW" firstAttribute="top" secondItem="LKS-Pq-SLM" secondAttribute="top" constant="35" id="f1Y-lv-xdk"/>
+                            <constraint firstItem="pQ8-7U-v0a" firstAttribute="leading" secondItem="2sS-NR-HPv" secondAttribute="trailing" constant="40" id="sLG-Yo-Iqi"/>
+                            <constraint firstItem="UEI-gv-oEW" firstAttribute="leading" secondItem="Bag-dG-VLx" secondAttribute="leading" constant="10" id="sUL-UB-qQr"/>
+                            <constraint firstItem="7im-hZ-D61" firstAttribute="leading" secondItem="LKS-Pq-SLM" secondAttribute="leading" constant="15" id="tfx-aI-QjQ"/>
+                            <constraint firstItem="LKS-Pq-SLM" firstAttribute="trailing" secondItem="w9t-AI-b9v" secondAttribute="trailing" constant="15" id="ucH-cr-md4"/>
+                            <constraint firstItem="hDN-QC-KOd" firstAttribute="top" secondItem="UEI-gv-oEW" secondAttribute="bottom" constant="68" id="vG7-1C-HTq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="LKS-Pq-SLM"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Person overview" id="5tn-Wh-zJV">
+                        <barButtonItem key="rightBarButtonItem" title="Update" id="HHU-cf-G3U"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="userInfo" destination="UEI-gv-oEW" id="5pY-tk-nff"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z2b-0a-fJ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3428" y="153"/>
+        </scene>
         <!--Settings-->
         <scene sceneID="sjW-1t-WAY">
             <objects>
@@ -505,7 +611,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pgR-wM-cad" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3247.1999999999998" y="-3.1484257871064472"/>
+            <point key="canvasLocation" x="-2790" y="-127"/>
         </scene>
         <!--Firebase Console-->
         <scene sceneID="7JC-3R-JlT">
@@ -541,7 +647,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Vu-pu-AJy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2383" y="12"/>
+            <point key="canvasLocation" x="-2086" y="-127"/>
         </scene>
         <!--Update user name-->
         <scene sceneID="ffJ-QF-Ihx">
@@ -649,7 +755,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1650" id="4xP-pt-sH4"/>
                                                 </constraints>
-                                                <mutableString key="text">
+                                                <string key="text">
 Programmerings oppgaver:
 
 1. Xcode.
@@ -697,7 +803,7 @@ Programmerings oppgaver:
       . epost 
       . passord
    
- </mutableString>
+ </string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
@@ -814,7 +920,7 @@ Programmerings oppgaver:
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="awl-X6-eIh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2009" y="836"/>
+            <point key="canvasLocation" x="-1124" y="822"/>
         </scene>
         <!--Reset password by mail-->
         <scene sceneID="PxX-s2-G0Y">
@@ -929,7 +1035,7 @@ Programmerings oppgaver:
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y3g-OR-Jc8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2831" y="852"/>
+            <point key="canvasLocation" x="-2337" y="791"/>
         </scene>
         <!--Add person-->
         <scene sceneID="RhZ-ME-R8x">
@@ -954,13 +1060,16 @@ Programmerings oppgaver:
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="name"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZn-5p-0rk">
-                                <rect key="frame" x="15" y="189.5" width="52" height="21"/>
+                                <rect key="frame" x="15" y="185" width="52" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJT-Cn-HsF">
-                                <rect key="frame" x="15" y="245.5" width="69" height="22"/>
+                                <rect key="frame" x="15" y="245" width="69" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="plT-Tz-3jl"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -975,7 +1084,10 @@ Programmerings oppgaver:
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="street-address"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of birth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZW-Vq-ZeJ">
-                                <rect key="frame" x="15" y="297.5" width="97" height="42.5"/>
+                                <rect key="frame" x="15" y="308" width="97" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="k7h-hc-OwT"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -990,7 +1102,7 @@ Programmerings oppgaver:
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nbz-eB-NWH">
-                                <rect key="frame" x="15" y="370" width="61" height="20.5"/>
+                                <rect key="frame" x="15" y="359" width="61" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1019,7 +1131,7 @@ Programmerings oppgaver:
                             <constraint firstItem="nbz-eB-NWH" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="15" id="4d4-iO-jdG"/>
                             <constraint firstItem="Z83-Gy-QZ9" firstAttribute="leading" secondItem="nbz-eB-NWH" secondAttribute="trailing" constant="44" id="4dD-N0-LkM"/>
                             <constraint firstItem="GMW-ld-i1x" firstAttribute="centerX" secondItem="ebU-ou-lpj" secondAttribute="centerX" id="94X-56-XrA"/>
-                            <constraint firstItem="PJT-Cn-HsF" firstAttribute="top" secondItem="UZn-5p-0rk" secondAttribute="bottom" constant="35" id="Bsl-6K-4qi"/>
+                            <constraint firstItem="PJT-Cn-HsF" firstAttribute="top" secondItem="UZn-5p-0rk" secondAttribute="bottom" constant="30" id="Bsl-6K-4qi"/>
                             <constraint firstItem="dcI-Iv-SZx" firstAttribute="top" secondItem="O6w-2j-OOB" secondAttribute="top" constant="35" id="DKu-SD-uWp"/>
                             <constraint firstItem="dcI-Iv-SZx" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="10" id="GWK-93-eDs"/>
                             <constraint firstItem="PJT-Cn-HsF" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="15" id="Gcc-U1-6HH"/>
@@ -1030,13 +1142,13 @@ Programmerings oppgaver:
                             <constraint firstItem="uy3-05-bWG" firstAttribute="leading" secondItem="UZn-5p-0rk" secondAttribute="trailing" constant="53" id="S7F-DQ-RTg"/>
                             <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="ntB-2c-9zR" secondAttribute="trailing" constant="15" id="TRW-e8-kuJ"/>
                             <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="uy3-05-bWG" secondAttribute="trailing" constant="15" id="UBb-7B-nIl"/>
-                            <constraint firstItem="mZW-Vq-ZeJ" firstAttribute="top" secondItem="PJT-Cn-HsF" secondAttribute="bottom" constant="30" id="X5q-xO-anE"/>
                             <constraint firstItem="uy3-05-bWG" firstAttribute="centerY" secondItem="UZn-5p-0rk" secondAttribute="centerY" id="ZNm-r8-bLe"/>
                             <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="Z83-Gy-QZ9" secondAttribute="trailing" constant="15" id="ZYG-Z3-8lB"/>
                             <constraint firstItem="G8Y-tl-1cT" firstAttribute="leading" secondItem="PJT-Cn-HsF" secondAttribute="trailing" constant="36" id="aMO-w2-sD1"/>
                             <constraint firstItem="GMW-ld-i1x" firstAttribute="top" secondItem="Z83-Gy-QZ9" secondAttribute="bottom" constant="49" id="bC7-yx-xgx"/>
                             <constraint firstItem="ntB-2c-9zR" firstAttribute="height" secondItem="G8Y-tl-1cT" secondAttribute="height" id="dll-Nm-4yG"/>
                             <constraint firstItem="ntB-2c-9zR" firstAttribute="height" secondItem="Z83-Gy-QZ9" secondAttribute="height" id="eU6-yu-vlb"/>
+                            <constraint firstItem="G8Y-tl-1cT" firstAttribute="top" secondItem="PJT-Cn-HsF" secondAttribute="top" id="gG0-vx-nQT"/>
                             <constraint firstItem="mZW-Vq-ZeJ" firstAttribute="centerY" secondItem="ntB-2c-9zR" secondAttribute="centerY" constant="-1.5" id="j1b-eX-stg"/>
                             <constraint firstItem="ntB-2c-9zR" firstAttribute="width" secondItem="G8Y-tl-1cT" secondAttribute="width" id="lmf-wf-b9a"/>
                             <constraint firstItem="uy3-05-bWG" firstAttribute="width" secondItem="G8Y-tl-1cT" secondAttribute="width" id="p3V-UT-oev"/>
@@ -1073,7 +1185,7 @@ Programmerings oppgaver:
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wrR-qK-zNm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4230" y="855"/>
+            <point key="canvasLocation" x="-4241" y="892"/>
         </scene>
         <!--Update password-->
         <scene sceneID="514-fI-xD2">
@@ -1185,7 +1297,7 @@ Programmerings oppgaver:
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fFP-2K-yqY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3479.1999999999998" y="853.22338830584715"/>
+            <point key="canvasLocation" x="-3276" y="859"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="TWG-IN-rUm">
@@ -1253,6 +1365,7 @@ Programmerings oppgaver:
                                         <connections>
                                             <outlet property="addressLabel" destination="GoA-hY-uI8" id="hHM-Zt-F7O"/>
                                             <outlet property="nameLabel" destination="bfO-dL-I5s" id="uVs-qe-EAZ"/>
+                                            <segue destination="g3F-27-I4s" kind="show" identifier="gotoPersonOverview" id="7Kz-uk-sGs"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1348,6 +1461,6 @@ Programmerings oppgaver:
         <image name="settings-32" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="O1x-ds-s6d"/>
+        <segue reference="HHx-uR-c6E"/>
     </inferredMetricsTieBreakers>
 </document>
