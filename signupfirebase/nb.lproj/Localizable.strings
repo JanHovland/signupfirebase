@@ -65,9 +65,12 @@
 /* CreateAccountViewVontroller.swift SaveAccount */
 "Every field must have a value." = "Alle feltene må ha en verdi.";
 
-/* AddPersonViewVontroller.swift velgeKjonn 
-   DetailPersonDataViewController viewDidAppear */
+/* DetailPersonDataViewController viewDidAppear 
+   PersonViewVontroller.swift velgeKjonn */
 "Man" = "Mann";
+
+/* MainPersonDataViewController.swift prepare */
+"New Person" = "Ny Person";
 
 /* OK */
 "OK" = "OK";
@@ -122,7 +125,10 @@
 /* MainPersonDataViewController leadingSwipeActionsConfigurationForRowAt */
 "Update" = "Oppdater";
 
-/* AddPersonViewVontroller.swift velgeKjonn 
-   DetailPersonDataViewController viewDidAppear */
+/* MainPersonDataViewController.swift prepare */
+"Update Person" = "Oppdater Person";
+
+/* DetailPersonDataViewController viewDidAppear 
+   PersonViewVontroller.swift velgeKjonn */
 "Woman" = "Kvinne";
 

@@ -1,5 +1,5 @@
 //
-//  AddPersonViewController.swift
+//  PersonViewController.swift
 //  signupfirebase
 //
 //  Created by Jan  on 28/12/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddPersonViewController: UIViewController, UITextFieldDelegate {
+class PersonViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var nameInput: UITextField!
     @IBOutlet var addressInput: UITextField!
     @IBOutlet var dateOfBirthInput: UITextField!
@@ -16,9 +16,16 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var activity: UIActivityIndicatorView!
     
+    // These vaiables get their values from MainPersonDataViewController.swift
+    var PersonNameText = ""
+    var PersonAddressText = ""
+    var PersonDateOfBirthText = ""
+    var PersonGenderInt = 0
+    var titlePerson = ""
+    
     let datoValg = UIDatePicker()
 
-    var gender: String = NSLocalizedString("Man",   comment: "AddPersonViewVontroller.swift velgeKjonn ")
+    var gender: String = NSLocalizedString("Man",   comment: "PersonViewVontroller.swift velgeKjonn ")
 
     @IBOutlet var loginStatus: UILabel!
 
@@ -28,6 +35,9 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Change the title of navigationBar
+        self.navigationItem.title = titlePerson
+        
         // Turn off keyboard when you press "Return"
         nameInput.delegate = self
         addressInput.delegate = self
@@ -52,6 +62,18 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
             loginStatus.text = showUserInfo(startUp: true)
         }
 
+        nameInput.text = PersonNameText
+        addressInput.text = PersonAddressText
+        dateOfBirthInput.text = PersonDateOfBirthText
+        
+        if PersonGenderInt == 0 {
+            genderInput.setTitle("Man", forSegmentAt: PersonGenderInt)
+        } else if PersonGenderInt == 1 {
+            genderInput.setTitle("Woman", forSegmentAt: PersonGenderInt)
+        }
+        
+        genderInput.selectedSegmentIndex = PersonGenderInt
+        
         // Get the selected date
         hentFraDatoValg()
     }
@@ -157,8 +179,8 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func velgeKjonn(_ sender: UISegmentedControl) {
         switch genderInput.selectedSegmentIndex {
-            case 0: gender = NSLocalizedString("Man", comment: "AddPersonViewVontroller.swift velgeKjonn ")
-            case 1: gender = NSLocalizedString("Woman", comment: "AddPersonViewVontroller.swift velgeKjonn ")
+            case 0: gender = NSLocalizedString("Man", comment: "PersonViewVontroller.swift velgeKjonn ")
+            case 1: gender = NSLocalizedString("Woman", comment: "PersonViewVontroller.swift velgeKjonn ")
             default: return
         }
     }

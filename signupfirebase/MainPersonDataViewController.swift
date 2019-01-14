@@ -180,16 +180,24 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // 'prepare' will run after every segue.
-
-        if segue.identifier! == "gotoPersonOverview" {
+        
+        if segue.identifier! == "gotoUpdatePerson" {
             // Find the indexPath.row for the cell which is selected
             if let indexPath = tableView.indexPathForSelectedRow {
-                let vc = segue.destination as! DetailPersonDataViewController
-                vc.detailPersonNameText = persons[indexPath.row].personData.name
-                vc.detailPersonAddressText = persons[indexPath.row].personData.address
-                vc.detailPersonDateOfBirthText = persons[indexPath.row].personData.dateOfBirth
-                vc.detailPersonGenderInt = persons[indexPath.row].personData.gender
+                let vc = segue.destination as! PersonViewController
+                vc.PersonNameText = persons[indexPath.row].personData.name
+                vc.PersonAddressText = persons[indexPath.row].personData.address
+                vc.PersonDateOfBirthText = persons[indexPath.row].personData.dateOfBirth
+                vc.PersonGenderInt = persons[indexPath.row].personData.gender
+                vc.titlePerson = NSLocalizedString("Update Person", comment: "MainPersonDataViewController.swift prepare")
             }
+        } else if segue.identifier! == "gotoAddPerson" {
+            let vc = segue.destination as! PersonViewController
+            vc.PersonNameText = ""
+            vc.PersonAddressText = ""
+            vc.PersonDateOfBirthText = ""
+            vc.PersonGenderInt = 0
+            vc.titlePerson = NSLocalizedString("New Person", comment: "MainPersonDataViewController.swift prepare")
         }
     }
 
