@@ -476,14 +476,27 @@ extension UIViewController {
                 "timestamp": [".sv": "timestamp"],
 
             ] as [String: Any]
-
+            
             dataBase.setValue(postObject, withCompletionBlock: { error, _ in
                 if error == nil {
                     self.dismiss(animated: true, completion: nil)
                     self.presentAlert(withTitle: NSLocalizedString("Saving in Firebase",
                                                                    comment: "DataBaseExtension.swift SavePersonFiredata"),
                                       message: "\r\n" + NSLocalizedString("Data are saved in Firebase.",
-                                                                   comment: "DataBaseExtension.swift SavePersonFiredata"))
+                                                                          comment: "DataBaseExtension.swift SavePersonFiredata"))
+                } else {
+                    let melding = error!.localizedDescription
+                    self.presentAlert(withTitle: NSLocalizedString("Error", comment: "DataBaseExtension.swift SavePersonFiredata"),
+                                      message: melding)
+                }
+            })
+            dataBase.setValue(postObject, withCompletionBlock: { error, _ in
+                if error == nil {
+                    self.dismiss(animated: true, completion: nil)
+                    self.presentAlert(withTitle: NSLocalizedString("Saving in Firebase",
+                                                                   comment: "DataBaseExtension.swift SavePersonFiredata"),
+                                      message: "\r\n" + NSLocalizedString("Data are saved in Firebase.",
+                                                                          comment: "DataBaseExtension.swift SavePersonFiredata"))
                 } else {
                     let melding = error!.localizedDescription
                     self.presentAlert(withTitle: NSLocalizedString("Error", comment: "DataBaseExtension.swift SavePersonFiredata"),
