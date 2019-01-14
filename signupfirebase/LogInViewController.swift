@@ -90,15 +90,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             return
         }
 
-        print(view.frame.size.height)
-        print((activeField?.frame.size.height)!)
-        
-        print((activeField?.frame.origin.y)!)
-        
         let distanceToBottom = view.frame.size.height - (activeField?.frame.origin.y)! - (activeField?.frame.size.height)!
-
-        print("distanceToBottom = \(distanceToBottom)")
-        print("keyboardRect = \(keyboardRect.height)")
 
         if keyboardRect.height > distanceToBottom {
 

@@ -156,7 +156,9 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                                     if error == nil {
                                         self.dismiss(animated: false, completion: nil)
                                     } else {
-                                        print("Error: \(error!.localizedDescription)")
+                                        let melding = error!.localizedDescription
+                                        self.presentAlert(withTitle: NSLocalizedString("Error", comment: "CreateAccountViewVontroller.swift SaveAccount"),
+                                                          message: melding)
                                     }
                                 }
                             }
@@ -184,7 +186,9 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                                     if error == nil {
                                         self.dismiss(animated: false, completion: nil)
                                     } else {
-                                        print("Error: \(error!.localizedDescription)")
+                                        let melding = error!.localizedDescription
+                                        self.presentAlert(withTitle: NSLocalizedString("Error", comment: "CreateAccountViewVontroller.swift SaveAccount"),
+                                                     message: melding)
                                     }
                                 }
                             }

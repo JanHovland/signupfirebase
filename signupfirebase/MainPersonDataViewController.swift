@@ -6,7 +6,6 @@
 //  Copyright © 2018 Jan . All rights reserved.
 //
 
-import CoreData
 import FirebaseDatabase
 import UIKit
 
@@ -63,7 +62,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         // In order to show both the icon and the text, the height of the tableViewCell must be > 91
 
         let deleteAction = UIContextualAction(style: .destructive, title: "") {
-           (action, sourceView, completionHandler) in
+            (action, sourceView, completionHandler) in
 
             //            let record = self.personData[indexPath.row]
             //            self.database.delete(withRecordID: record.recordID) { (recordID, error) in
@@ -137,7 +136,6 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             var tempPersons = [Person]()
 
             for child in snapshot.children {
-                print("child = \(child)")
 
                 if let childSnapshot = child as? DataSnapshot,
                     let dict = childSnapshot.value as? [String: Any],
@@ -150,7 +148,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                     let name = personData["name"] as? String,
                     let address = personData["address"] as? String,
                     let dateOfBirth = personData["dateOfBirth"] as? String,
-                    let gender = personData["gender"] as? String,
+                    let gender = personData["gender"] as? Int,
 
                     let timestamp = dict["timestamp"] as? Double {
                     let author = Author(uid: uid,
@@ -178,6 +176,21 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             self.tableView.reloadData()
 
         })
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // 'prepare' will run after every segue.
+
+        if segue.identifier! == "gotoPersonOverview" {
+            // Find the indexPath.row for the cell which is selected
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let vc = segue.destination as! DetailPersonDataViewController
+                vc.detailPersonNameText = persons[indexPath.row].personData.name
+                vc.detailPersonAddressText = persons[indexPath.row].personData.address
+                vc.detailPersonDateOfBirthText = persons[indexPath.row].personData.dateOfBirth
+                vc.detailPersonGenderInt = persons[indexPath.row].personData.gender
+            }
+        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {

@@ -29,7 +29,11 @@ class ListTableViewController: UITableViewController {
             let result = try context.fetch(request)
             listItems = result as! [NSManagedObject]
         } catch {
-            print("Error")
+            
+            let melding = error.localizedDescription
+            self.presentAlert(withTitle: NSLocalizedString("Error", comment: "ListTableViewController viewDidLoad"),
+                              message: melding)
+
         }
 
         activity.stopAnimating()
@@ -79,7 +83,10 @@ class ListTableViewController: UITableViewController {
             let result = try context.fetch(request)
             listItems = result as! [NSManagedObject]
         } catch {
-            print("Error")
+            
+            let melding = error.localizedDescription
+            self.presentAlert(withTitle: NSLocalizedString("Error", comment: "ListTableViewController viewWillAppear"),
+                              message: melding)
         }
         activity.stopAnimating()
     }
