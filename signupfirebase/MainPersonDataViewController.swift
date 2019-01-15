@@ -42,6 +42,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidAppear(_ animated: Bool) {
         // Get the posts from Firebase
         ReadPersonsFiredata()
+        
+//        print(persons.)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -165,13 +167,18 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                                         personData: personData,
                                         timestamp: timestamp)
 
+//                    (lldb) po person.id
+//                    "-LVFN4rg6Mp7i0TsEnv_"
+                    
+                    
                     tempPersons.append(person)
                 }
             }
 
             // Update the posts array
             self.persons = tempPersons
-
+            
+                            
             // Fill the table view
             self.tableView.reloadData()
 
@@ -189,7 +196,9 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                 vc.PersonAddressText = persons[indexPath.row].personData.address
                 vc.PersonDateOfBirthText = persons[indexPath.row].personData.dateOfBirth
                 vc.PersonGenderInt = persons[indexPath.row].personData.gender
-                vc.titlePerson = NSLocalizedString("Update Person", comment: "MainPersonDataViewController.swift prepare")
+                vc.PersonIdText = persons[indexPath.row].id
+                vc.PersonOption = 1
+                vc.PersonTitle = NSLocalizedString("Update Person", comment: "MainPersonDataViewController.swift prepare")
             }
         } else if segue.identifier! == "gotoAddPerson" {
             let vc = segue.destination as! PersonViewController
@@ -197,7 +206,9 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             vc.PersonAddressText = ""
             vc.PersonDateOfBirthText = ""
             vc.PersonGenderInt = 0
-            vc.titlePerson = NSLocalizedString("New Person", comment: "MainPersonDataViewController.swift prepare")
+            vc.PersonIdText = ""
+            vc.PersonOption = 0
+            vc.PersonTitle = NSLocalizedString("New Person", comment: "MainPersonDataViewController.swift prepare")
         }
     }
 

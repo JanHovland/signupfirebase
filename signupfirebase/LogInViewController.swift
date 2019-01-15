@@ -22,7 +22,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Hide the tabBar
         self.tabBarController?.tabBar.isHidden = true
         

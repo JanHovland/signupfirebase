@@ -10,9 +10,6 @@ import CoreData
 import Firebase
 import UIKit
 
-//var timer:Timer?
-//var timeLeft = 0
-
 extension UIViewController {
     
     func presentAlert(withTitle title: String,
@@ -440,25 +437,40 @@ extension UIViewController {
             return ""
         }
     }
-
-    // Firebase database
-
-    func SavePersonFiredata(uid: String,
-                            username: String,
-                            email: String,
-                            name: String,
-                            address: String,
-                            dateOfBirth: String,
-                            gender: String) {
+   
+    func updatePersonFiredata(id: String,
+                              uid: String,
+                              username: String,
+                              email: String,
+                              name: String,
+                              address: String,
+                              dateOfBirth: String,
+                              gender: Int) {
         if uid.count > 0,
             username.count > 0,
             email.count > 0,
             name.count > 0,
             address.count > 0,
-            dateOfBirth.count > 0,
-            gender.count > 0 {
-            let dataBase = Database.database().reference().child("person").childByAutoId()
-
+            dateOfBirth.count > 0 {
+            
+            //        let ref = Database.database().reference()
+            //
+            //        let id = "-LVNZ9Xo3dypph1V7vI-"
+            //
+            //
+            //        let id1 = "person" + "/" + id + "/" + "personData" + "/" + "address"
+            //
+            //        ref.child(id1).setValue("Lilleveien 21 4362 Lyebyen")
+            //
+            //        //        ref.child(id).setValue(["name" : "XKnut",
+            //        //                                  "age" : 771,
+            //        //                                  "role" : "bruker"])
+            //
+            
+            // let id1 = "person" + "/" + id
+            
+            let dataBase = Database.database().reference().child("person" + "/" + id)
+            
             let postObject = [
                 "author": [
                     "uid": uid,
@@ -474,42 +486,85 @@ extension UIViewController {
                 ],
                 
                 "timestamp": [".sv": "timestamp"],
-
-            ] as [String: Any]
+                
+                ] as [String: Any]
             
             dataBase.setValue(postObject, withCompletionBlock: { error, _ in
                 if error == nil {
                     self.dismiss(animated: true, completion: nil)
                     self.presentAlert(withTitle: NSLocalizedString("Saving in Firebase",
-                                                                   comment: "DataBaseExtension.swift SavePersonFiredata"),
+                                                                   comment: "DataBaseExtension.swift savePersonFiredata"),
                                       message: "\r\n" + NSLocalizedString("Data are saved in Firebase.",
-                                                                          comment: "DataBaseExtension.swift SavePersonFiredata"))
+                                                                          comment: "DataBaseExtension.swift savePersonFiredata"))
                 } else {
                     let melding = error!.localizedDescription
-                    self.presentAlert(withTitle: NSLocalizedString("Error", comment: "DataBaseExtension.swift SavePersonFiredata"),
-                                      message: melding)
-                }
-            })
-            dataBase.setValue(postObject, withCompletionBlock: { error, _ in
-                if error == nil {
-                    self.dismiss(animated: true, completion: nil)
-                    self.presentAlert(withTitle: NSLocalizedString("Saving in Firebase",
-                                                                   comment: "DataBaseExtension.swift SavePersonFiredata"),
-                                      message: "\r\n" + NSLocalizedString("Data are saved in Firebase.",
-                                                                          comment: "DataBaseExtension.swift SavePersonFiredata"))
-                } else {
-                    let melding = error!.localizedDescription
-                    self.presentAlert(withTitle: NSLocalizedString("Error", comment: "DataBaseExtension.swift SavePersonFiredata"),
+                    self.presentAlert(withTitle: NSLocalizedString("Error", comment: "DataBaseExtension.swift savePersonFiredata"),
                                       message: melding)
                 }
             })
         } else {
             let melding = "\r\n" + NSLocalizedString("Every field must be filled.",
-                                            comment: "DataBaseExtension.swift SavePersonFiredata")
+                                                     comment: "DataBaseExtension.swift savePersonFiredata")
             
             self.presentAlert(withTitle: NSLocalizedString("Error",
-                                                           comment: "DataBaseExtension.swift SavePersonFiredata"),
-                                                           message: melding)
+                                                           comment: "DataBaseExtension.swift savePersonFiredata"),
+                              message: melding)
+        }
+    }
+    
+    func savePersonFiredata(uid: String,
+                            username: String,
+                            email: String,
+                            name: String,
+                            address: String,
+                            dateOfBirth: String,
+                            gender: Int) {
+        if uid.count > 0,
+            username.count > 0,
+            email.count > 0,
+            name.count > 0,
+            address.count > 0,
+            dateOfBirth.count > 0 {
+            let dataBase = Database.database().reference().child("person").childByAutoId()
+            
+            let postObject = [
+                "author": [
+                    "uid": uid,
+                    "username": username,
+                    "email": email,
+                ],
+                
+                "personData": [
+                    "name": name,
+                    "address": address,
+                    "dateOfBirth": dateOfBirth,
+                    "gender": gender,
+                ],
+                
+                "timestamp": [".sv": "timestamp"],
+                
+                ] as [String: Any]
+            
+            dataBase.setValue(postObject, withCompletionBlock: { error, _ in
+                if error == nil {
+                    self.dismiss(animated: true, completion: nil)
+                    self.presentAlert(withTitle: NSLocalizedString("Saving in Firebase",
+                                                                   comment: "DataBaseExtension.swift savePersonFiredata"),
+                                      message: "\r\n" + NSLocalizedString("Data are saved in Firebase.",
+                                                                          comment: "DataBaseExtension.swift savePersonFiredata"))
+                } else {
+                    let melding = error!.localizedDescription
+                    self.presentAlert(withTitle: NSLocalizedString("Error", comment: "DataBaseExtension.swift savePersonFiredata"),
+                                      message: melding)
+                }
+            })
+        } else {
+            let melding = "\r\n" + NSLocalizedString("Every field must be filled.",
+                                                     comment: "DataBaseExtension.swift savePersonFiredata")
+            
+            self.presentAlert(withTitle: NSLocalizedString("Error",
+                                                           comment: "DataBaseExtension.swift savePersonFiredata"),
+                              message: melding)
         }
     }
 }

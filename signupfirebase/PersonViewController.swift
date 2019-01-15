@@ -21,7 +21,9 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
     var PersonAddressText = ""
     var PersonDateOfBirthText = ""
     var PersonGenderInt = 0
-    var titlePerson = ""
+    var PersonIdText = ""
+    var PersonTitle = ""
+    var PersonOption = 0                 // 0 = save 1 = update
     
     let datoValg = UIDatePicker()
 
@@ -36,7 +38,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         // Change the title of navigationBar
-        self.navigationItem.title = titlePerson
+        self.navigationItem.title = PersonTitle
         
         // Turn off keyboard when you press "Return"
         nameInput.delegate = self
@@ -121,18 +123,29 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         let name = nameInput.text ?? ""
         let address = addressInput.text ?? ""
         let dateOfBirth = dateOfBirthInput.text ?? ""
-        let gender = "Mann"
-
+        let gender = PersonGenderInt
+        
         activity.startAnimating()
         
-        SavePersonFiredata(uid: value.0,
-                           username: value.2,
-                           email: value.1,
-                           name: name,
-                           address: address,
-                           dateOfBirth: dateOfBirth,
-                           gender: gender)
-            
+        if PersonOption == 0 {
+            savePersonFiredata(uid: value.0,
+                               username: value.2,
+                               email: value.1,
+                               name: name,
+                               address: address,
+                               dateOfBirth: dateOfBirth,
+                               gender: gender)
+        } else if PersonOption == 1 {
+            updatePersonFiredata(id: PersonIdText,
+                                 uid: value.0,
+                                 username: value.2,
+                                 email: value.1,
+                                 name: name,
+                                 address: address,
+                                 dateOfBirth: dateOfBirth,
+                                 gender: gender)
+        }
+        
         activity.stopAnimating()
         
     }
