@@ -24,7 +24,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
     var PersonIdText = ""
     var PersonTitle = ""
     var PersonOption = 0                 // 0 = save 1 = update
-    
+
     let datoValg = UIDatePicker()
 
     var gender: String = NSLocalizedString("Man",   comment: "PersonViewVontroller.swift velgeKjonn ")
@@ -115,7 +115,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         dateOfBirthInput.resignFirstResponder()
     }
 
-    @IBAction func SaveNewPerson(_ sender: Any) {
+    @IBAction func SaveOrUpdatePerson(_ sender: Any) {
         // Get the user who has logged in
         //  0 = uid  1 = ePost  2 = name  3 = passWord)
         let value = getCoreData()
@@ -123,7 +123,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         let name = nameInput.text ?? ""
         let address = addressInput.text ?? ""
         let dateOfBirth = dateOfBirthInput.text ?? ""
-        let gender = PersonGenderInt
+        let gender = genderInput.selectedSegmentIndex
         
         activity.startAnimating()
         

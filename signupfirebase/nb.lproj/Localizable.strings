@@ -14,8 +14,11 @@
 /* ResetPWByMailViewController.swift viewDidLoad */
 "After you have asked Firebase to reset your password, you will receive an eMail with istruction." = "Etter at du har bedt Firebase om å resette passordet ditt, vil du motta en ePost med instruksjoner.";
 
-/* DataBaseExtension.swift SavePersonFiredata */
-"Data are saved in Firebase." = "Dataene er lagret i Firebase.";
+/* DataBaseExtension.swift savePersonFiredata */
+"Data are now saved in Firebase." = "Data er nå lagret i Firebase.";
+
+/* DataBaseExtension.swift updatePersonFiredata */
+"Data are now updated in Firebase." = "Data er nå oppdatert i Firebase.";
 
 /* MainPersonDataViewController trailingSwipeActionsConfigurationForRowAt */
 "Delete" = "Slett";
@@ -28,6 +31,7 @@
 
 /* CreateAccountViewVontroller.swift SaveAccount
    CreateAccountViewVontroller.swift SaveAccount 
+   DataBaseExtension.swift  savePersonFiredata
    DataBaseExtension.swift deleteAllCoreData
    DataBaseExtension.swift deleteUserCoreData
    DataBaseExtension.swift findCoreData
@@ -35,11 +39,12 @@
    DataBaseExtension.swift getCoreData
    DataBaseExtension.swift resetLoggedInCoreData
    DataBaseExtension.swift saveCoreData
-   DataBaseExtension.swift SavePersonFiredata
+   DataBaseExtension.swift savePersonFiredata
    DataBaseExtension.swift updateCoreData
    DataBaseExtension.swift updateEpostCoreData
    DataBaseExtension.swift updateNameCoreData
    DataBaseExtension.swift updatePasswordCoreData
+   DataBaseExtension.swiftt savePersonFiredata
    ListTableViewController viewDidLoad
    ListTableViewController viewWillAppear
    ListTableViewController.swift SaveNewPassword 
@@ -56,7 +61,7 @@
    LoginViewVontroller.swift CheckLogin updatepassword */
 "Error." = "Feil.";
 
-/* DataBaseExtension.swift SavePersonFiredata */
+/* DataBaseExtension.swift savePersonFiredata */
 "Every field must be filled." = "Alle feltene må fylles ut.";
 
 /* LoginViewVontroller.swift SaveAccount */
@@ -65,8 +70,7 @@
 /* CreateAccountViewVontroller.swift SaveAccount */
 "Every field must have a value." = "Alle feltene må ha en verdi.";
 
-/* DetailPersonDataViewController viewDidAppear 
-   PersonViewVontroller.swift velgeKjonn */
+/* PersonViewVontroller.swift velgeKjonn */
 "Man" = "Mann";
 
 /* MainPersonDataViewController.swift prepare */
@@ -84,8 +88,8 @@
 /* UpdatePasswordViewVontroller.swift SaveNewPassword */
 "Return to login in " = "Retur til login om ";
 
-/* DataBaseExtension.swift SavePersonFiredata */
-"Saving in Firebase" = "Lagrer data i Firebase.";
+/* DataBaseExtension.swift savePersonFiredata */
+"Save in Firebase" = "Lagre i Firebase";
 
 /* CreateAccountViewVontroller.swift SaveAccount 
    LoginViewVontroller.swift CheckLogin verdi
@@ -125,10 +129,12 @@
 /* MainPersonDataViewController leadingSwipeActionsConfigurationForRowAt */
 "Update" = "Oppdater";
 
+/* DataBaseExtension.swift updatePersonFiredata */
+"Update in Firebase" = "Oppdatering Firebase";
+
 /* MainPersonDataViewController.swift prepare */
 "Update Person" = "Oppdater Person";
 
-/* DetailPersonDataViewController viewDidAppear 
-   PersonViewVontroller.swift velgeKjonn */
+/* PersonViewVontroller.swift velgeKjonn */
 "Woman" = "Kvinne";
 

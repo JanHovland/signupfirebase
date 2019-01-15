@@ -224,7 +224,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 } else {
                     self.presentAlertOption(withTitle: NSLocalizedString("Error",
                                                                          comment: "LoginViewVontroller.swift CheckLogin 'error'"),
-                                            message: error!.localizedDescription as Any)
+                                            message: error!.localizedDescription as String)
                 }
             }
 

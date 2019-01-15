@@ -206,7 +206,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
 
                 } else {
                     self.presentAlert(withTitle: NSLocalizedString("Error", comment: "CreateAccountViewVontroller.swift SaveAccount"),
-                                      message: error!.localizedDescription as Any)
+                                      message: error!.localizedDescription as String)
                 }
             }
 

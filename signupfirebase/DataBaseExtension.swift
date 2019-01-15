@@ -453,22 +453,6 @@ extension UIViewController {
             address.count > 0,
             dateOfBirth.count > 0 {
             
-            //        let ref = Database.database().reference()
-            //
-            //        let id = "-LVNZ9Xo3dypph1V7vI-"
-            //
-            //
-            //        let id1 = "person" + "/" + id + "/" + "personData" + "/" + "address"
-            //
-            //        ref.child(id1).setValue("Lilleveien 21 4362 Lyebyen")
-            //
-            //        //        ref.child(id).setValue(["name" : "XKnut",
-            //        //                                  "age" : 771,
-            //        //                                  "role" : "bruker"])
-            //
-            
-            // let id1 = "person" + "/" + id
-            
             let dataBase = Database.database().reference().child("person" + "/" + id)
             
             let postObject = [
@@ -492,13 +476,12 @@ extension UIViewController {
             dataBase.setValue(postObject, withCompletionBlock: { error, _ in
                 if error == nil {
                     self.dismiss(animated: true, completion: nil)
-                    self.presentAlert(withTitle: NSLocalizedString("Saving in Firebase",
-                                                                   comment: "DataBaseExtension.swift savePersonFiredata"),
-                                      message: "\r\n" + NSLocalizedString("Data are saved in Firebase.",
-                                                                          comment: "DataBaseExtension.swift savePersonFiredata"))
+                    let title = NSLocalizedString("Update in Firebase",comment: "DataBaseExtension.swift updatePersonFiredata")
+                    let message = "\r\n" + NSLocalizedString("Data are now updated in Firebase.", comment: "DataBaseExtension.swift updatePersonFiredata")
+                    self.presentAlert(withTitle: title, message: message)
                 } else {
                     let melding = error!.localizedDescription
-                    self.presentAlert(withTitle: NSLocalizedString("Error", comment: "DataBaseExtension.swift savePersonFiredata"),
+                    self.presentAlert(withTitle: NSLocalizedString("Error", comment: "DataBaseExtension.swiftt savePersonFiredata"),
                                       message: melding)
                 }
             })
@@ -507,7 +490,7 @@ extension UIViewController {
                                                      comment: "DataBaseExtension.swift savePersonFiredata")
             
             self.presentAlert(withTitle: NSLocalizedString("Error",
-                                                           comment: "DataBaseExtension.swift savePersonFiredata"),
+                                                           comment: "DataBaseExtension.swift  savePersonFiredata"),
                               message: melding)
         }
     }
@@ -548,10 +531,9 @@ extension UIViewController {
             dataBase.setValue(postObject, withCompletionBlock: { error, _ in
                 if error == nil {
                     self.dismiss(animated: true, completion: nil)
-                    self.presentAlert(withTitle: NSLocalizedString("Saving in Firebase",
-                                                                   comment: "DataBaseExtension.swift savePersonFiredata"),
-                                      message: "\r\n" + NSLocalizedString("Data are saved in Firebase.",
-                                                                          comment: "DataBaseExtension.swift savePersonFiredata"))
+                    let title = NSLocalizedString("Save in Firebase",comment: "DataBaseExtension.swift savePersonFiredata")
+                    let message = "\r\n" + NSLocalizedString("Data are now saved in Firebase.", comment: "DataBaseExtension.swift savePersonFiredata")
+                    self.presentAlert(withTitle: title, message: message)
                 } else {
                     let melding = error!.localizedDescription
                     self.presentAlert(withTitle: NSLocalizedString("Error", comment: "DataBaseExtension.swift savePersonFiredata"),

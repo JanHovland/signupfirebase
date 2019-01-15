@@ -1067,12 +1067,12 @@ Programmerings oppgaver:
                     <navigationItem key="navigationItem" id="1me-Mz-xNe">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="0PL-v6-EcA">
                             <connections>
-                                <action selector="SaveNewPerson:" destination="rxh-wi-pm3" id="Q6E-5J-TPQ"/>
+                                <action selector="SaveOrUpdatePerson:" destination="rxh-wi-pm3" id="543-xK-mlo"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="activity" destination="GMW-ld-i1x" id="yGu-eH-Wyz"/>
+                        <outlet property="activity" destination="GMW-ld-i1x" id="NJi-mP-D90"/>
                         <outlet property="addressInput" destination="G8Y-tl-1cT" id="lFY-pS-oRE"/>
                         <outlet property="dateOfBirthInput" destination="ntB-2c-9zR" id="Ooh-XH-7Zi"/>
                         <outlet property="genderInput" destination="Z83-Gy-QZ9" id="PA6-m9-1Ld"/>
@@ -1359,6 +1359,6 @@ Programmerings oppgaver:
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gYJ-L2-bgL"/>
-        <segue reference="HHx-uR-c6E"/>
+        <segue reference="O1x-ds-s6d"/>
     </inferredMetricsTieBreakers>
 </document>

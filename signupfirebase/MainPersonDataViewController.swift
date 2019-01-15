@@ -23,7 +23,6 @@ import UIKit
  }
  }
 
- // let personsRef1 =  personsRef.queryOrdered(byChild: "name").queryEqual(toValue: "Ole Olsen")
  */
 
 class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -31,6 +30,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
 
     var persons = [Person]()
     var activeField: UITextField!
+    
+    var indexRowUpdateSwipe  = -1
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,8 +43,6 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidAppear(_ animated: Bool) {
         // Get the posts from Firebase
         ReadPersonsFiredata()
-        
-//        print(persons.)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -100,27 +99,28 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
 
         let updateAction = UIContextualAction(style: .normal, title: "") {
             (action, sourceView, completionHandler) in
+            
+            self.indexRowUpdateSwipe = indexPath.row
+            
+            self.performSegue(withIdentifier: "gotoUpdatePerson", sender: nil)
+            
+//            let vc = segue.destination = PersonViewController
+//            
+//            if let indexPath = tableView.indexPathForSelectedRow {
+//                let vc = segue.destination as! PersonViewController
+//                vc.PersonNameText = persons[indexPath.row].personData.name
+//                vc.PersonAddressText = persons[indexPath.row].personData.address
+//                vc.PersonDateOfBirthText = persons[indexPath.row].personData.dateOfBirth
+//                vc.PersonGenderInt = persons[indexPath.row].personData.gender
+//                vc.PersonIdText = persons[indexPath.row].id
+//                vc.PersonOption = 1         // Update == 1
+//                vc.PersonTitle = NSLocalizedString("Update Person", comment: "MainPersonDataViewController.swift prepare")
+//            }
 
-            //            let record = self.personData[indexPath.row]
-            //            self.database.delete(withRecordID: record.recordID) { (recordID, error) in
-            //                DispatchQueue.main.async {
-            //                    if (error != nil) {
-            //                        print ("error")
-            //                    } else {
-            //                        print ("Posten er slettet")
-            //                        self.personData.remove(at: indexPath.row)
-            //                        self.tableView.deleteRows(at: [indexPath], with: .fade )
-            //
-            //                    }
-            //                }
-            //            }
-        }
+             }
 
         // Customize the action buttons
         updateAction.title = NSLocalizedString("Update", comment: "MainPersonDataViewController leadingSwipeActionsConfigurationForRowAt")
-
-        //        deleteAction.image = #imageLiteral(resourceName: "slett")
-        //        deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.08195901584, blue: 0.1369091124, alpha: 1)
 
         updateAction.image = #imageLiteral(resourceName: "update-35")
         updateAction.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
@@ -167,10 +167,6 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                                         personData: personData,
                                         timestamp: timestamp)
 
-//                    (lldb) po person.id
-//                    "-LVFN4rg6Mp7i0TsEnv_"
-                    
-                    
                     tempPersons.append(person)
                 }
             }
@@ -189,6 +185,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         // 'prepare' will run after every segue.
         
         if segue.identifier! == "gotoUpdatePerson" {
+            
             // Find the indexPath.row for the cell which is selected
             if let indexPath = tableView.indexPathForSelectedRow {
                 let vc = segue.destination as! PersonViewController
@@ -197,9 +194,23 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                 vc.PersonDateOfBirthText = persons[indexPath.row].personData.dateOfBirth
                 vc.PersonGenderInt = persons[indexPath.row].personData.gender
                 vc.PersonIdText = persons[indexPath.row].id
-                vc.PersonOption = 1
+                vc.PersonOption = 1         // Update == 1
                 vc.PersonTitle = NSLocalizedString("Update Person", comment: "MainPersonDataViewController.swift prepare")
+            } else {
+            
+                // indexRowUpdateSwipe is initiated at leadingSwipeActionsConfigurationForRowAt's "Update'
+                
+                let vc = segue.destination as! PersonViewController
+                vc.PersonNameText = persons[indexRowUpdateSwipe].personData.name
+                vc.PersonAddressText = persons[indexRowUpdateSwipe].personData.address
+                vc.PersonDateOfBirthText = persons[indexRowUpdateSwipe].personData.dateOfBirth
+                vc.PersonGenderInt = persons[indexRowUpdateSwipe].personData.gender
+                vc.PersonIdText = persons[indexRowUpdateSwipe].id
+                vc.PersonOption = 1         // Update == 1
+                vc.PersonTitle = NSLocalizedString("Update Person", comment: "MainPersonDataViewController.swift prepare")
+                
             }
+            
         } else if segue.identifier! == "gotoAddPerson" {
             let vc = segue.destination as! PersonViewController
             vc.PersonNameText = ""
@@ -207,8 +218,9 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             vc.PersonDateOfBirthText = ""
             vc.PersonGenderInt = 0
             vc.PersonIdText = ""
-            vc.PersonOption = 0
+            vc.PersonOption = 0             // Save new person == 0
             vc.PersonTitle = NSLocalizedString("New Person", comment: "MainPersonDataViewController.swift prepare")
+        
         }
     }
 
