@@ -60,64 +60,41 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     }
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        // In order to show both the icon and the text, the height of the tableViewCell must be > 91
 
-        let deleteAction = UIContextualAction(style: .destructive, title: "") {
+       // In order to show both the icon and the text, the height of the tableViewCell must be > 91
+       let deleteAction = UIContextualAction(style: .destructive, title: "") {
             (action, sourceView, completionHandler) in
 
-            //            let record = self.personData[indexPath.row]
-            //            self.database.delete(withRecordID: record.recordID) { (recordID, error) in
-            //                DispatchQueue.main.async {
-            //                    if (error != nil) {
-            //                        print ("error")
-            //                    } else {
-            //                        print ("Posten er slettet")
-            //                        self.personData.remove(at: indexPath.row)
-            //                        self.tableView.deleteRows(at: [indexPath], with: .fade )
-            //
-            //                    }
-            //                }
-            //            }
-        }
+            // Find the id of the post
+            let id = self.persons[indexPath.row].id
 
+            let dataBase = Database.database().reference().child("person" + "/" + id)
+     
+            dataBase.setValue(nil)
+    
+        }
+        
         // Customize the action buttons
         deleteAction.title = NSLocalizedString("Delete", comment: "MainPersonDataViewController trailingSwipeActionsConfigurationForRowAt")
 
-        //        deleteAction.image = #imageLiteral(resourceName: "slett")
-        //        deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.08195901584, blue: 0.1369091124, alpha: 1)
-
         deleteAction.image = #imageLiteral(resourceName: "trash-35")
         deleteAction.backgroundColor = .red
-
+      
         let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction])
 
         return swipeConfiguration
     }
 
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
         // In order to show both the icon and the text, the height of the tableViewCell must be > 91
-
         let updateAction = UIContextualAction(style: .normal, title: "") {
             (action, sourceView, completionHandler) in
             
             self.indexRowUpdateSwipe = indexPath.row
-            
             self.performSegue(withIdentifier: "gotoUpdatePerson", sender: nil)
-            
-//            let vc = segue.destination = PersonViewController
-//            
-//            if let indexPath = tableView.indexPathForSelectedRow {
-//                let vc = segue.destination as! PersonViewController
-//                vc.PersonNameText = persons[indexPath.row].personData.name
-//                vc.PersonAddressText = persons[indexPath.row].personData.address
-//                vc.PersonDateOfBirthText = persons[indexPath.row].personData.dateOfBirth
-//                vc.PersonGenderInt = persons[indexPath.row].personData.gender
-//                vc.PersonIdText = persons[indexPath.row].id
-//                vc.PersonOption = 1         // Update == 1
-//                vc.PersonTitle = NSLocalizedString("Update Person", comment: "MainPersonDataViewController.swift prepare")
-//            }
-
-             }
+  
+        }
 
         // Customize the action buttons
         updateAction.title = NSLocalizedString("Update", comment: "MainPersonDataViewController leadingSwipeActionsConfigurationForRowAt")
