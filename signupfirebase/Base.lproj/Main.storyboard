@@ -649,7 +649,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1650" id="4xP-pt-sH4"/>
                                                 </constraints>
-                                                <mutableString key="text">
+                                                <string key="text">
 Programmerings oppgaver:
 
 1. Xcode.
@@ -716,7 +716,7 @@ Programmerings oppgaver:
        . Lese .csv og legg inn i CoreData (Firebase)     
     c) Legge inn Bilde i PersonViewController
     d) Legge inn Kart i PersonViewController 
-    e) Oppdatere security i Firebase </mutableString>
+    e) Oppdatere security i Firebase </string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
@@ -1243,7 +1243,7 @@ Programmerings oppgaver:
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="91" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Eww-gv-xQI">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="498"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="cS6-PV-nqK" customClass="PersonDataTableViewCell" customModule="signupfirebase" customModuleProvider="target">
@@ -1286,12 +1286,23 @@ Programmerings oppgaver:
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <searchBar contentMode="redraw" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="92V-9z-yz6">
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="92V-9z-yz6" firstAttribute="leading" secondItem="4ul-89-7dc" secondAttribute="leading" id="AmP-6H-5bo"/>
                             <constraint firstItem="4ul-89-7dc" firstAttribute="trailing" secondItem="Eww-gv-xQI" secondAttribute="trailing" id="GJE-df-Jom"/>
                             <constraint firstItem="4ul-89-7dc" firstAttribute="bottom" secondItem="Eww-gv-xQI" secondAttribute="bottom" id="JmQ-vl-dth"/>
-                            <constraint firstItem="Eww-gv-xQI" firstAttribute="top" secondItem="4ul-89-7dc" secondAttribute="top" id="YtR-sx-sVt"/>
+                            <constraint firstItem="92V-9z-yz6" firstAttribute="trailing" secondItem="4ul-89-7dc" secondAttribute="trailing" id="L55-sm-77T"/>
+                            <constraint firstItem="92V-9z-yz6" firstAttribute="top" secondItem="4ul-89-7dc" secondAttribute="top" id="RIY-fJ-rp3"/>
+                            <constraint firstItem="Eww-gv-xQI" firstAttribute="top" secondItem="92V-9z-yz6" secondAttribute="bottom" id="YtR-sx-sVt"/>
                             <constraint firstItem="Eww-gv-xQI" firstAttribute="leading" secondItem="4ul-89-7dc" secondAttribute="leading" id="h33-4u-ik0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4ul-89-7dc"/>
