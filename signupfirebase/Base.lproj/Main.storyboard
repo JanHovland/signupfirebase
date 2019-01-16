@@ -649,7 +649,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1650" id="4xP-pt-sH4"/>
                                                 </constraints>
-                                                <string key="text">
+                                                <mutableString key="text">
 Programmerings oppgaver:
 
 1. Xcode.
@@ -669,6 +669,7 @@ Programmerings oppgaver:
 
 2. Swift.
    a) Bruke Swift som programmeringsspråk. 
+   b) Bruke debugger
 
 3. GitHub.
    a) Lagre og hente kildekode direkte i Xcode 
@@ -697,7 +698,14 @@ Programmerings oppgaver:
       . epost 
       . passord
    
- </string>
+ 6. Endringer
+    a) Update i Firebase
+      . Via swipeLeading ved indirekte segue to PersonViewController
+      . Via direkte segue to PersonViewController
+    b) Delete i Forebase
+      . via swipeTrailing
+    c) Sette dateValg.date = PersonDateOfBirthText  
+    d)   </mutableString>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
