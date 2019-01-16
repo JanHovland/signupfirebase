@@ -55,7 +55,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
 
     override func viewDidAppear(_ animated: Bool) {
         // Get the posts from Firebase
-        ReadPersonsFiredata()
+        ReadPersonsFiredata(search: false, searchValue: "") 
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -120,9 +120,17 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         return swipeConfiguration
     }
 
-    func ReadPersonsFiredata() {
-        let personsRef1 = Database.database().reference().child("person")
-        let personsRef =  personsRef1.queryOrdered(byChild: "personData/name").queryEqual(toValue: "Astrid Hovland")
+    func ReadPersonsFiredata(search: Bool, searchValue: String) {
+        
+        var personsRef: DatabaseReference!
+        var personsRef1 : DatabaseReference!
+        
+        if search {
+            personsRef1 = Database.database().reference().child("person")
+            personsRef =  (personsRef1.queryOrdered(byChild: "personData/name").queryEqual(toValue: searchValue) as! DatabaseReference)
+        } else {
+            personsRef = Database.database().reference().child("person")
+        }
         
         personsRef.observe(.value, with: { snapshot in
 
