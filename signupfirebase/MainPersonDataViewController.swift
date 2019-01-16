@@ -6,7 +6,7 @@
 //  Copyright © 2018 Jan . All rights reserved.
 //
 
-import FirebaseDatabase
+import Firebase         // Database
 import UIKit
 
 /*
@@ -23,6 +23,19 @@ import UIKit
  }
  }
 
+ This is working:
+ 
+ {
+ "rules": {
+ "person": {
+ ".read": "auth.uid != null",
+ ".write": "auth.uid != null",
+ ".indexOn" : "personData/name"
+ }
+ }
+ }
+ 
+ 
  */
 
 class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -108,12 +121,12 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     }
 
     func ReadPersonsFiredata() {
-        let personsRef = Database.database().reference().child("person")
-
+        let personsRef1 = Database.database().reference().child("person")
+        let personsRef =  personsRef1.queryOrdered(byChild: "personData/name").queryEqual(toValue: "Astrid Hovland")
+        
         personsRef.observe(.value, with: { snapshot in
 
             var tempPersons = [Person]()
-
             for child in snapshot.children {
 
                 if let childSnapshot = child as? DataSnapshot,
