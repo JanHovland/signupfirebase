@@ -710,8 +710,9 @@ Programmerings oppgaver:
  7. Nye oppgaver (ikke fullført)
     a) Legge inn postnr i PersonViewController
     b) Legge inn poststed i PersonViewController
-    c) Legge inn Bilde i PersonViewController
-    d) Legge inn Kart i PersonViewController  </mutableString>
+    c) Søkefunksjon i PersonViewController
+    d) Legge inn Bilde i PersonViewController
+    e) Legge inn Kart i PersonViewController  </mutableString>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
