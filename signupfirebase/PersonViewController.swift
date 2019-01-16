@@ -14,8 +14,8 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var dateOfBirthInput: UITextField!
     @IBOutlet var genderInput: UISegmentedControl!
 
-    @IBOutlet weak var activity: UIActivityIndicatorView!
-    
+    @IBOutlet var activity: UIActivityIndicatorView!
+
     // These vaiables get their values from MainPersonDataViewController.swift
     var PersonNameText = ""
     var PersonAddressText = ""
@@ -23,11 +23,11 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
     var PersonGenderInt = 0
     var PersonIdText = ""
     var PersonTitle = ""
-    var PersonOption = 0                 // 0 = save 1 = update
+    var PersonOption = 0 // 0 = save 1 = update
 
     let datoValg = UIDatePicker()
 
-    var gender: String = NSLocalizedString("Man",   comment: "PersonViewVontroller.swift velgeKjonn ")
+    var gender: String = NSLocalizedString("Man", comment: "PersonViewVontroller.swift velgeKjonn ")
 
     @IBOutlet var loginStatus: UILabel!
 
@@ -38,18 +38,17 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         // Change the title of navigationBar
-        self.navigationItem.title = PersonTitle
-        
+        navigationItem.title = PersonTitle
+
         // Turn off keyboard when you press "Return"
         nameInput.delegate = self
         addressInput.delegate = self
         dateOfBirthInput.delegate = self
-        
+
         // Initierer UIActivityIndicatorView
         activity.hidesWhenStopped = true
         activity.style = .gray
         view.addSubview(activity)
-        
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -67,17 +66,31 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         nameInput.text = PersonNameText
         addressInput.text = PersonAddressText
         dateOfBirthInput.text = PersonDateOfBirthText
-        
+
         if PersonGenderInt == 0 {
             genderInput.setTitle("Man", forSegmentAt: PersonGenderInt)
         } else if PersonGenderInt == 1 {
             genderInput.setTitle("Woman", forSegmentAt: PersonGenderInt)
         }
-        
+
         genderInput.selectedSegmentIndex = PersonGenderInt
+
+        // Convert PersonDateOfBirthText to the initial datoValg.date
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle = .none
+        let region = NSLocale.current.regionCode?.lowercased()
+        formatter.locale = NSLocale(localeIdentifier: region!) as Locale
+        if (PersonDateOfBirthText.count > 0) {
+            let date = formatter.date(from: PersonDateOfBirthText)
+            if date != nil {
+                datoValg.date = date!
+            }
+        }
         
-        // Get the selected date
+        // Get the selected date from the DatePicker
         hentFraDatoValg()
+        
     }
 
     @objc func keyboardWillChangeAddPerson(notification: NSNotification) {
@@ -124,9 +137,9 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         let address = addressInput.text ?? ""
         let dateOfBirth = dateOfBirthInput.text ?? ""
         let gender = genderInput.selectedSegmentIndex
-        
+
         activity.startAnimating()
-        
+
         if PersonOption == 0 {
             savePersonFiredata(uid: value.0,
                                username: value.2,
@@ -145,28 +158,27 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
                                  dateOfBirth: dateOfBirth,
                                  gender: gender)
         }
-        
+
         activity.stopAnimating()
-        
     }
 
     func hentFraDatoValg() {
+
         let toolBarDatoValg = UIToolbar()
         toolBarDatoValg.sizeToFit()
-        
+
         let flexibleSpaceDatoValg = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
 
         let ferdigButtonDatoValg = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done,
                                                    target: self, action: #selector(hentDatoValg))
-        
+
         toolBarDatoValg.setItems([flexibleSpaceDatoValg, ferdigButtonDatoValg], animated: false)
 
         dateOfBirthInput.inputAccessoryView = toolBarDatoValg
         dateOfBirthInput.inputView = datoValg
         datoValg.datePickerMode = .date
-        
-        let region = NSLocale.current.regionCode?.lowercased()  // Returns the local region
-        datoValg.locale = NSLocale.init(localeIdentifier: region!) as Locale
+        let region = NSLocale.current.regionCode?.lowercased()
+        datoValg.locale = NSLocale(localeIdentifier: region!) as Locale
         
     }
 
@@ -174,10 +186,10 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
         formatter.timeStyle = .none
-        
-        let region  = NSLocale.current.regionCode?.lowercased()
-        formatter.locale = NSLocale.init(localeIdentifier: region!) as Locale
-        
+
+        let region = NSLocale.current.regionCode?.lowercased()
+        formatter.locale = NSLocale(localeIdentifier: region!) as Locale
+
         let datoString = formatter.string(from: datoValg.date)
         dateOfBirthInput.text = "\(datoString)"
         view.endEditing(true)
@@ -192,10 +204,9 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func velgeKjonn(_ sender: UISegmentedControl) {
         switch genderInput.selectedSegmentIndex {
-            case 0: gender = NSLocalizedString("Man", comment: "PersonViewVontroller.swift velgeKjonn ")
-            case 1: gender = NSLocalizedString("Woman", comment: "PersonViewVontroller.swift velgeKjonn ")
-            default: return
+        case 0: gender = NSLocalizedString("Man", comment: "PersonViewVontroller.swift velgeKjonn ")
+        case 1: gender = NSLocalizedString("Woman", comment: "PersonViewVontroller.swift velgeKjonn ")
+        default: return
         }
     }
 }
-
