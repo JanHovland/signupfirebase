@@ -712,7 +712,8 @@ Programmerings oppgaver:
     b) Legge inn poststed i PersonViewController
     c) Søkefunksjon i PersonViewController
     d) Legge inn Bilde i PersonViewController
-    e) Legge inn Kart i PersonViewController  </mutableString>
+    e) Legge inn Kart i PersonViewController 
+    f) Oppdatere security i Firebase </mutableString>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
