@@ -16,6 +16,9 @@
 /* Class = "UINavigationItem"; title = "Firebase"; ObjectID = "36M-OI-ehN"; */
 "36M-OI-ehN.title" = "Firebase";
 
+/* Class = "UISearchBar"; placeholder = "Search for a person by name"; ObjectID = "92V-9z-yz6"; */
+"92V-9z-yz6.placeholder" = "Søk etter en person med navn";
+
 /* Class = "UILabel"; text = "Update user name"; ObjectID = "99T-f0-Rez"; */
 "99T-f0-Rez.text" = "Oppdater brukernavn";
 
@@ -60,6 +63,9 @@
 
 /* Class = "UITableViewSection"; headerTitle = " "; ObjectID = "g71-cI-G6O"; */
 "g71-cI-G6O.headerTitle" = " ";
+
+/* Class = "UIButton"; normalTitle = "Search"; ObjectID = "gkV-zQ-oY1"; */
+"gkV-zQ-oY1.normalTitle" = "Søk";
 
 /* Class = "UITabBarItem"; title = "Login"; ObjectID = "Gl8-LX-VoP"; */
 "Gl8-LX-VoP.title" = "Logg inn";

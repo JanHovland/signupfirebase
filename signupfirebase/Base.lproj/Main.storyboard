@@ -649,7 +649,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1650" id="4xP-pt-sH4"/>
                                                 </constraints>
-                                                <mutableString key="text">
+                                                <string key="text">
 Programmerings oppgaver:
 
 1. Xcode.
@@ -719,7 +719,7 @@ Programmerings oppgaver:
     e) Oppdatere security i Firebase 
     f) Firestore
        . https://firebase.google.com/docs/firestore/data-model
-       . Har gode queries</mutableString>
+       . Har gode queries</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
@@ -1259,10 +1259,10 @@ Programmerings oppgaver:
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="1rH-2X-JJ2">
                                                     <rect key="frame" x="15" y="10" width="345" height="65.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfO-dL-I5s">
+                                                        <label autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfO-dL-I5s">
                                                             <rect key="frame" x="0.0" y="0.0" width="345" height="44.5"/>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GoA-hY-uI8">
@@ -1289,9 +1289,9 @@ Programmerings oppgaver:
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="92V-9z-yz6">
-                                <rect key="frame" x="0.0" y="64" width="317" height="56"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="go"/>
+                            <searchBar contentMode="redraw" placeholder="Search for a person by name" translatesAutoresizingMaskIntoConstraints="NO" id="92V-9z-yz6">
+                                <rect key="frame" x="0.0" y="64" width="320" height="56"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="search"/>
                                 <scopeButtonTitles>
                                     <string>Title</string>
                                 </scopeButtonTitles>
@@ -1299,14 +1299,13 @@ Programmerings oppgaver:
                                     <outlet property="delegate" destination="4y3-m1-4aQ" id="gmN-dS-EQo"/>
                                 </connections>
                             </searchBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxh-ZR-c8Z">
-                                <rect key="frame" x="325" y="81" width="22" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </button>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gkV-zQ-oY1">
-                                <rect key="frame" x="322" y="78" width="47" height="28"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="Search"/>
+                            <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gkV-zQ-oY1" userLabel="Search Button">
+                                <rect key="frame" x="314" y="64" width="61" height="56"/>
+                                <color key="backgroundColor" red="0.78819876909255981" green="0.78790247440338135" blue="0.80865675210952759" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="searchBarTapped:" destination="4y3-m1-4aQ" eventType="touchUpInside" id="Oiy-HO-Zbe"/>
                                 </connections>
@@ -1314,16 +1313,17 @@ Programmerings oppgaver:
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="gkV-zQ-oY1" firstAttribute="leading" secondItem="92V-9z-yz6" secondAttribute="trailing" constant="5" id="2H8-f6-uEl"/>
+                            <constraint firstItem="gkV-zQ-oY1" firstAttribute="leading" secondItem="92V-9z-yz6" secondAttribute="trailing" constant="-6" id="2H8-f6-uEl"/>
                             <constraint firstItem="92V-9z-yz6" firstAttribute="leading" secondItem="4ul-89-7dc" secondAttribute="leading" id="AmP-6H-5bo"/>
                             <constraint firstItem="4ul-89-7dc" firstAttribute="trailing" secondItem="Eww-gv-xQI" secondAttribute="trailing" id="GJE-df-Jom"/>
                             <constraint firstItem="4ul-89-7dc" firstAttribute="bottom" secondItem="Eww-gv-xQI" secondAttribute="bottom" id="JmQ-vl-dth"/>
-                            <constraint firstItem="92V-9z-yz6" firstAttribute="trailing" secondItem="4ul-89-7dc" secondAttribute="trailing" constant="-58" id="L55-sm-77T"/>
-                            <constraint firstItem="gkV-zQ-oY1" firstAttribute="trailing" secondItem="4ul-89-7dc" secondAttribute="trailing" constant="-6" id="MGA-kQ-hpn"/>
+                            <constraint firstItem="92V-9z-yz6" firstAttribute="trailing" secondItem="4ul-89-7dc" secondAttribute="trailing" constant="-55" id="L55-sm-77T"/>
+                            <constraint firstItem="gkV-zQ-oY1" firstAttribute="trailing" secondItem="4ul-89-7dc" secondAttribute="trailing" id="MGA-kQ-hpn"/>
+                            <constraint firstItem="Eww-gv-xQI" firstAttribute="top" secondItem="gkV-zQ-oY1" secondAttribute="bottom" id="PFk-Dj-qLD"/>
                             <constraint firstItem="92V-9z-yz6" firstAttribute="top" secondItem="4ul-89-7dc" secondAttribute="top" id="RIY-fJ-rp3"/>
                             <constraint firstItem="Eww-gv-xQI" firstAttribute="top" secondItem="92V-9z-yz6" secondAttribute="bottom" id="YtR-sx-sVt"/>
                             <constraint firstItem="Eww-gv-xQI" firstAttribute="leading" secondItem="4ul-89-7dc" secondAttribute="leading" id="h33-4u-ik0"/>
-                            <constraint firstItem="gkV-zQ-oY1" firstAttribute="top" secondItem="4ul-89-7dc" secondAttribute="top" constant="14" id="lSq-fV-MiR"/>
+                            <constraint firstItem="gkV-zQ-oY1" firstAttribute="top" secondItem="4ul-89-7dc" secondAttribute="top" id="lSq-fV-MiR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4ul-89-7dc"/>
                     </view>
