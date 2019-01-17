@@ -35,12 +35,14 @@ import UIKit
  }
  }
  
- 
- */
+*/
 
-class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate  {
+    
     @IBOutlet var tableView: UITableView!
 
+    @IBOutlet weak var searchBarPerson: UISearchBar!
+    
     var persons = [Person]()
     var activeField: UITextField!
     
@@ -51,11 +53,13 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
 
         tableView.delegate = self
         tableView.dataSource = self
+        searchBarPerson.delegate = self
     }
 
     override func viewDidAppear(_ animated: Bool) {
         // Get the posts from Firebase
-        ReadPersonsFiredata(search: false, searchValue: "") 
+        ReadPersonsFiredata(search: false, searchValue: "")
+        
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -122,61 +126,114 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
 
     func ReadPersonsFiredata(search: Bool, searchValue: String) {
         
-        var personsRef: DatabaseReference!
-        var personsRef1 : DatabaseReference!
+        var db: DatabaseReference!
+        var personsRef: DatabaseQuery!
+        
+        print("searchValue = \(searchValue)")
+        
+        db = Database.database().reference().child("person")
         
         if search {
-            personsRef1 = Database.database().reference().child("person")
-            personsRef =  (personsRef1.queryOrdered(byChild: "personData/name").queryEqual(toValue: searchValue) as! DatabaseReference)
-        } else {
-            personsRef = Database.database().reference().child("person")
-        }
-        
-        personsRef.observe(.value, with: { snapshot in
-
-            var tempPersons = [Person]()
-            for child in snapshot.children {
-
-                if let childSnapshot = child as? DataSnapshot,
-                    let dict = childSnapshot.value as? [String: Any],
-                    let author = dict["author"] as? [String: Any],
-                    let uid = author["uid"] as? String,
-                    let username = author["username"] as? String,
-                    let email = author["email"] as? String,
-
-                    let personData = dict["personData"] as? [String: Any],
-                    let name = personData["name"] as? String,
-                    let address = personData["address"] as? String,
-                    let dateOfBirth = personData["dateOfBirth"] as? String,
-                    let gender = personData["gender"] as? Int,
-
-                    let timestamp = dict["timestamp"] as? Double {
-                    let author = Author(uid: uid,
-                                        username: username,
-                                        email: email)
-
-                    let personData = PersonData(address: address,
-                                                dateOfBirth: dateOfBirth,
-                                                gender: gender,
-                                                name: name)
-
-                    let person = Person(id: childSnapshot.key,
-                                        author: author,
-                                        personData: personData,
-                                        timestamp: timestamp)
-
-                    tempPersons.append(person)
-                }
-            }
-
-            // Update the posts array
-            self.persons = tempPersons
+            personsRef =  db.queryOrdered(byChild: "personData/name").queryEqual(toValue: searchValue)
             
-                            
-            // Fill the table view
-            self.tableView.reloadData()
+            personsRef.observe(.value, with: { snapshot in
 
-        })
+                var tempPersons = [Person]()
+                for child in snapshot.children {
+
+                    if let childSnapshot = child as? DataSnapshot,
+                        let dict = childSnapshot.value as? [String: Any],
+                        let author = dict["author"] as? [String: Any],
+                        let uid = author["uid"] as? String,
+                        let username = author["username"] as? String,
+                        let email = author["email"] as? String,
+
+                        let personData = dict["personData"] as? [String: Any],
+                        let name = personData["name"] as? String,
+                        let address = personData["address"] as? String,
+                        let dateOfBirth = personData["dateOfBirth"] as? String,
+                        let gender = personData["gender"] as? Int,
+
+                        let timestamp = dict["timestamp"] as? Double {
+                        let author = Author(uid: uid,
+                                            username: username,
+                                            email: email)
+
+                        let personData = PersonData(address: address,
+                                                    dateOfBirth: dateOfBirth,
+                                                    gender: gender,
+                                                    name: name)
+
+                        let person = Person(id: childSnapshot.key,
+                                            author: author,
+                                            personData: personData,
+                                            timestamp: timestamp)
+
+                        tempPersons.append(person)
+                    }
+                }
+
+                // Update the posts array
+                self.persons = tempPersons
+                
+                
+                // Fill the table view
+                self.tableView.reloadData()
+
+            })
+            
+        } else {
+            
+            db.observe(.value, with: { snapshot in
+                
+                var tempPersons = [Person]()
+                for child in snapshot.children {
+                    
+                    if let childSnapshot = child as? DataSnapshot,
+                        let dict = childSnapshot.value as? [String: Any],
+                        let author = dict["author"] as? [String: Any],
+                        let uid = author["uid"] as? String,
+                        let username = author["username"] as? String,
+                        let email = author["email"] as? String,
+                        
+                        let personData = dict["personData"] as? [String: Any],
+                        let name = personData["name"] as? String,
+                        let address = personData["address"] as? String,
+                        let dateOfBirth = personData["dateOfBirth"] as? String,
+                        let gender = personData["gender"] as? Int,
+                        
+                        let timestamp = dict["timestamp"] as? Double {
+                        let author = Author(uid: uid,
+                                            username: username,
+                                            email: email)
+                        
+                        let personData = PersonData(address: address,
+                                                    dateOfBirth: dateOfBirth,
+                                                    gender: gender,
+                                                    name: name)
+                        
+                        let person = Person(id: childSnapshot.key,
+                                            author: author,
+                                            personData: personData,
+                                            timestamp: timestamp)
+                        
+                        tempPersons.append(person)
+                    }
+                }
+                
+                // Update the posts array
+                self.persons = tempPersons
+                
+                
+                // Fill the table view
+                self.tableView.reloadData()
+                
+            })
+
+            
+            
+        }
+            
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -228,4 +285,20 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
+    
+    
+    @IBAction func searchBarTapped(_ sender: UIButton) {
+        
+        // Get the persons for the query from Firebase
+        print("searchBarPerson.text = \(searchBarPerson.text!)")
+        
+        
+        ReadPersonsFiredata(search: true, searchValue: searchBarPerson.text!)
+        searchBarPerson.endEditing(true)
+        searchBarPerson.text = ""
+        
+    }
+    
+    
+    
 }
