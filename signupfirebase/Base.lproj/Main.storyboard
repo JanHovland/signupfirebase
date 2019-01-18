@@ -649,7 +649,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1650" id="4xP-pt-sH4"/>
                                                 </constraints>
-                                                <string key="text">
+                                                <mutableString key="text">
 Programmerings oppgaver:
 
 1. Xcode.
@@ -704,12 +704,12 @@ Programmerings oppgaver:
       . Via direkte segue to PersonViewController
     b) Delete i Forebase
       . via swipeTrailing
-    c) Sette dateValg.date = PersonDateOfBirthText  
-    d)   
+    c) Sette dateValg.date = PersonDateOfBirthTextslik at riktig dateValg vises  
+    d) Søkefunksjon i PersonViewController (må nå søke på hele navnet)  
     
  7. Nye oppgaver (ikke fullført)
-    a) Søkefunksjon i PersonViewController (må nå søke på hele navnet)
-    b) Erstatte Navn med Fornavn og Etternavn
+    a) Erstatte Navn med Fornavn og Etternavn
+    b) Søkefunksjon i PersonViewController (kan søke på fornavn, både for- og etternavn)
     c) Legge inn postnr og poststed inn i PersonViewController
        . https://www.bring.no/radgivning/sende-noe/adressetjenester/postnummer/
        . Hent .Excel format (xlsx)
@@ -721,7 +721,7 @@ Programmerings oppgaver:
     f) Oppdatere security i Firebase 
     g) Firestore 
        . https://firebase.google.com/docs/firestore/data-model
-       . Har gode queries</string>
+       . Har gode queries</mutableString>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>

@@ -129,8 +129,6 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         var db: DatabaseReference!
         var personsRef: DatabaseQuery!
         
-        print("searchValue = \(searchValue)")
-        
         db = Database.database().reference().child("person")
         
         if search {
@@ -242,7 +240,12 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     // Uses the search button in the online keyboard
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         // Get the persons for the query from Firebase
-        ReadPersonsFiredata(search: true, searchValue: searchBarPerson.text!)
+        if searchBarPerson.text!.count > 0 {
+            ReadPersonsFiredata(search: true, searchValue: searchBarPerson.text!)
+        } else {
+            ReadPersonsFiredata(search: false, searchValue: searchBarPerson.text!)
+        }
+            
         searchBarPerson.endEditing(true)
         searchBarPerson.text = ""
 
