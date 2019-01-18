@@ -238,14 +238,14 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
-    
-    @IBAction func searchBarTapped(_ sender: UIButton) {
-        
+    // Get the persons for the query from Firebase
+    // Uses the search button in the online keyboard
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         // Get the persons for the query from Firebase
         ReadPersonsFiredata(search: true, searchValue: searchBarPerson.text!)
         searchBarPerson.endEditing(true)
         searchBarPerson.text = ""
-        
+
     }
     
 }
