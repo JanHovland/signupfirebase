@@ -672,7 +672,7 @@ Programmerings oppgaver:
    b) Bruke debugger
 
 3. GitHub.
-   a) Lagre og hente kildekode direkte i Xcode via menypunktet Source Control
+   a) Lagre og hente kildekode direkte i Xcode via menypunktet Source Control/Commit
 
 3. CoreData.
    a) Oppdatere AppDelegate slik at directory vises i AppDelegate.swift
