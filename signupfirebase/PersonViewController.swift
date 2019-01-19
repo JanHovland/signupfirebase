@@ -9,18 +9,28 @@
 import UIKit
 
 class PersonViewController: UIViewController, UITextFieldDelegate {
-    @IBOutlet var nameInput: UITextField!
-    @IBOutlet var addressInput: UITextField!
-    @IBOutlet var dateOfBirthInput: UITextField!
-    @IBOutlet var genderInput: UISegmentedControl!
+    @IBOutlet weak var firstNameInput: UITextField!
+    @IBOutlet weak var lastNameInput: UITextField!
+    @IBOutlet weak var addressInput: UITextField!
+    @IBOutlet weak var phoneNumberInput: UITextField!
+    @IBOutlet weak var zipCodeInput: UITextField!
+    @IBOutlet weak var cityInput: UITextField!
+    @IBOutlet weak var dateOfBirthInput: UITextField!
+    @IBOutlet weak var genderInput: UISegmentedControl!
 
     @IBOutlet var activity: UIActivityIndicatorView!
 
     // These vaiables get their values from MainPersonDataViewController.swift
-    var PersonNameText = ""
+    var PersonFirstNameText = ""
+    var PersonLastNameText = ""
     var PersonAddressText = ""
+    var PersonPhoneNumberInput: UITextField!
+    var PersonZipCodeInput: UITextField!
+    var PersonCityInput: UITextField!
+
     var PersonDateOfBirthText = ""
     var PersonGenderInt = 0
+    
     var PersonIdText = ""
     var PersonTitle = ""
     var PersonOption = 0 // 0 = save 1 = update
@@ -41,7 +51,8 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         navigationItem.title = PersonTitle
 
         // Turn off keyboard when you press "Return"
-        nameInput.delegate = self
+        firstNameInput.delegate = self
+        lastNameInput.delegate = self
         addressInput.delegate = self
         dateOfBirthInput.delegate = self
 
@@ -63,7 +74,8 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
             loginStatus.text = showUserInfo(startUp: true)
         }
 
-        nameInput.text = PersonNameText
+        firstNameInput.text = PersonFirstNameText
+        lastNameInput.text = PersonLastNameText
         addressInput.text = PersonAddressText
         dateOfBirthInput.text = PersonDateOfBirthText
 
@@ -123,7 +135,8 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // Dismiss the keyboard when the view is tapped on
-        nameInput.resignFirstResponder()
+        firstNameInput.resignFirstResponder()
+        lastNameInput.resignFirstResponder()
         addressInput.resignFirstResponder()
         dateOfBirthInput.resignFirstResponder()
     }
@@ -133,7 +146,9 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         //  0 = uid  1 = ePost  2 = name  3 = passWord)
         let value = getCoreData()
 
-        let name = nameInput.text ?? ""
+        let firstName = firstNameInput.text ?? ""
+        let lastName = lastNameInput.text ?? ""
+        
         let address = addressInput.text ?? ""
         let dateOfBirth = dateOfBirthInput.text ?? ""
         let gender = genderInput.selectedSegmentIndex
@@ -144,7 +159,8 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
             savePersonFiredata(uid: value.0,
                                username: value.2,
                                email: value.1,
-                               name: name,
+                               firstName: firstName,
+                               lastName: lastName,
                                address: address,
                                dateOfBirth: dateOfBirth,
                                gender: gender)
@@ -153,7 +169,8 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
                                  uid: value.0,
                                  username: value.2,
                                  email: value.1,
-                                 name: name,
+                                 firstName: firstName,
+                                 lastName: lastName,
                                  address: address,
                                  dateOfBirth: dateOfBirth,
                                  gender: gender)

@@ -70,7 +70,10 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         let cellIdentifier = "Cell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PersonDataTableViewCell
 
-        cell.nameLabel?.text = persons[indexPath.row].personData.name
+        // If you change a label in a viewCell, check Main.storyboard and delete the old value of the label
+        
+        cell.nameLabel?.text = persons[indexPath.row].personData.firstName + " " +
+                               persons[indexPath.row].personData.lastName
         cell.addressLabel?.text = persons[indexPath.row].personData.address
 
         return cell
@@ -132,7 +135,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         db = Database.database().reference().child("person")
         
         if search {
-            personsRef =  db.queryOrdered(byChild: "personData/name").queryEqual(toValue: searchValue)
+            personsRef =  db.queryOrdered(byChild: "personData/firstName").queryEqual(toValue: searchValue)
         } else {
             personsRef =  db
         }
@@ -150,7 +153,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                     let email = author["email"] as? String,
 
                     let personData = dict["personData"] as? [String: Any],
-                    let name = personData["name"] as? String,
+                    let firstName = personData["firstName"] as? String,
+                    let lastName = personData["lastName"] as? String,
                     let address = personData["address"] as? String,
                     let dateOfBirth = personData["dateOfBirth"] as? String,
                     let gender = personData["gender"] as? Int,
@@ -163,7 +167,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                     let personData = PersonData(address: address,
                                                 dateOfBirth: dateOfBirth,
                                                 gender: gender,
-                                                name: name)
+                                                firstName: firstName,
+                                                lastName: lastName)
 
                     let person = Person(id: childSnapshot.key,
                                         author: author,
@@ -194,7 +199,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             // Find the indexPath.row for the cell which is selected
             if let indexPath = tableView.indexPathForSelectedRow {
                 let vc = segue.destination as! PersonViewController
-                vc.PersonNameText = persons[indexPath.row].personData.name
+                vc.PersonFirstNameText = persons[indexPath.row].personData.firstName
+                vc.PersonLastNameText = persons[indexPath.row].personData.lastName
                 vc.PersonAddressText = persons[indexPath.row].personData.address
                 vc.PersonDateOfBirthText = persons[indexPath.row].personData.dateOfBirth
                 vc.PersonGenderInt = persons[indexPath.row].personData.gender
@@ -206,7 +212,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                 // indexRowUpdateSwipe is initiated at leadingSwipeActionsConfigurationForRowAt's "Update'
                 
                 let vc = segue.destination as! PersonViewController
-                vc.PersonNameText = persons[indexRowUpdateSwipe].personData.name
+                vc.PersonFirstNameText = persons[indexRowUpdateSwipe].personData.firstName
+                vc.PersonLastNameText = persons[indexRowUpdateSwipe].personData.lastName
                 vc.PersonAddressText = persons[indexRowUpdateSwipe].personData.address
                 vc.PersonDateOfBirthText = persons[indexRowUpdateSwipe].personData.dateOfBirth
                 vc.PersonGenderInt = persons[indexRowUpdateSwipe].personData.gender
@@ -218,7 +225,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             
         } else if segue.identifier! == "gotoAddPerson" {
             let vc = segue.destination as! PersonViewController
-            vc.PersonNameText = ""
+            vc.PersonFirstNameText = ""
+            vc.PersonLastNameText = ""
             vc.PersonAddressText = ""
             vc.PersonDateOfBirthText = ""
             vc.PersonGenderInt = 0

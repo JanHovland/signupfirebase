@@ -116,21 +116,4 @@ class ListTableViewController: UITableViewController {
         return swipeConfiguration
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }

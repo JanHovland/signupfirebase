@@ -442,14 +442,16 @@ extension UIViewController {
                               uid: String,
                               username: String,
                               email: String,
-                              name: String,
+                              firstName: String,
+                              lastName: String,
                               address: String,
                               dateOfBirth: String,
                               gender: Int) {
         if uid.count > 0,
             username.count > 0,
             email.count > 0,
-            name.count > 0,
+            firstName.count > 0,
+            lastName.count > 0,
             address.count > 0,
             dateOfBirth.count > 0 {
             
@@ -463,7 +465,8 @@ extension UIViewController {
                 ],
                 
                 "personData": [
-                    "name": name,
+                    "firstName": firstName,
+                    "lastName": lastName,
                     "address": address,
                     "dateOfBirth": dateOfBirth,
                     "gender": gender,
@@ -498,14 +501,17 @@ extension UIViewController {
     func savePersonFiredata(uid: String,
                             username: String,
                             email: String,
-                            name: String,
+                            firstName: String,
+                            lastName: String,
+                       
                             address: String,
                             dateOfBirth: String,
                             gender: Int) {
         if uid.count > 0,
             username.count > 0,
             email.count > 0,
-            name.count > 0,
+            firstName.count > 0,
+            lastName.count > 0,
             address.count > 0,
             dateOfBirth.count > 0 {
             let dataBase = Database.database().reference().child("person").childByAutoId()
@@ -518,7 +524,8 @@ extension UIViewController {
                 ],
                 
                 "personData": [
-                    "name": name,
+                    "firstName": firstName,
+                    "lastName": lastName,
                     "address": address,
                     "dateOfBirth": dateOfBirth,
                     "gender": gender,
