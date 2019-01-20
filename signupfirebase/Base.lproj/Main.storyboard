@@ -770,7 +770,7 @@ Programmerings oppgaver:
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FsK-HZ-W4V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1513" y="-739"/>
+            <point key="canvasLocation" x="-1193" y="-755"/>
         </scene>
         <!--List all users in Coredata-->
         <scene sceneID="kCf-Mh-aWN">
@@ -883,16 +883,17 @@ Programmerings oppgaver:
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X7L-7g-bF5">
-                                <rect key="frame" x="16" y="138" width="72" height="117"/>
+                                <rect key="frame" x="16" y="186" width="72" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="72" id="0lu-Vc-bjX"/>
+                                    <constraint firstAttribute="height" constant="21" id="3oX-A5-aVU"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="faZ-y8-avB">
-                                <rect key="frame" x="15" y="311" width="345" height="200"/>
+                                <rect key="frame" x="15" y="263" width="345" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="kWg-xd-tdu"/>
@@ -938,7 +939,6 @@ Programmerings oppgaver:
                             <constraint firstItem="1i4-xe-1xr" firstAttribute="centerX" secondItem="xuf-1A-VUn" secondAttribute="centerX" id="cUG-2i-Xhu"/>
                             <constraint firstItem="N7z-Y8-Vaq" firstAttribute="trailing" secondItem="SEC-94-hh0" secondAttribute="trailing" constant="10" id="dKS-Iz-Hxm"/>
                             <constraint firstItem="SEC-94-hh0" firstAttribute="leading" secondItem="X7L-7g-bF5" secondAttribute="trailing" constant="6" id="dTo-rX-uIo"/>
-                            <constraint firstItem="X7L-7g-bF5" firstAttribute="top" secondItem="WJH-PP-AVI" secondAttribute="bottom" constant="21" id="iTf-Ca-NEh"/>
                             <constraint firstItem="SEC-94-hh0" firstAttribute="centerY" secondItem="X7L-7g-bF5" secondAttribute="centerY" id="jTl-l0-Grd"/>
                             <constraint firstItem="N7z-Y8-Vaq" firstAttribute="trailing" secondItem="SEC-94-hh0" secondAttribute="trailing" constant="10" id="wyB-C8-Ytj"/>
                         </constraints>
@@ -964,7 +964,7 @@ Programmerings oppgaver:
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y3g-OR-Jc8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2337" y="791"/>
+            <point key="canvasLocation" x="-2338.4000000000001" y="790.25487256371821"/>
         </scene>
         <!--Person View Controller-->
         <scene sceneID="RhZ-ME-R8x">
@@ -1049,7 +1049,7 @@ Programmerings oppgaver:
                                 <rect key="frame" x="121.5" y="327" width="238.5" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="tel"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="yes" textContentType="tel"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the postal code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uy3-05-bWG" userLabel="City Text Field">
                                 <rect key="frame" x="121.5" y="387" width="238.5" height="30"/>
@@ -1317,16 +1317,16 @@ Programmerings oppgaver:
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="1rH-2X-JJ2">
-                                                    <rect key="frame" x="15" y="10" width="637" height="65.5"/>
+                                                    <rect key="frame" x="15" y="10" width="345" height="65.5"/>
                                                     <subviews>
                                                         <label autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfO-dL-I5s" userLabel="First Name Label">
-                                                            <rect key="frame" x="0.0" y="0.0" width="637" height="44.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="345" height="44.5"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GoA-hY-uI8">
-                                                            <rect key="frame" x="0.0" y="47.5" width="637" height="18"/>
+                                                            <rect key="frame" x="0.0" y="47.5" width="345" height="18"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1456,6 +1456,6 @@ Programmerings oppgaver:
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gYJ-L2-bgL"/>
-        <segue reference="O1x-ds-s6d"/>
+        <segue reference="HHx-uR-c6E"/>
     </inferredMetricsTieBreakers>
 </document>

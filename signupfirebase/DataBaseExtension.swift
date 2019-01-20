@@ -428,7 +428,8 @@ extension UIViewController {
         if email.count > 0,
             name.count > 0 {
             if startUp == false {
-                return name + " (" + email + ")."
+            //     return name + " (" + email + ")."
+                return email
             } else {
                 return NSLocalizedString("Please log in to Firebase.",
                                          comment: "DataBaseExtension.swift showUserInfo.")
@@ -573,4 +574,23 @@ extension UIViewController {
                               message: melding)
         }
     }
+    
+    func formatPhone(phone: String) -> String {
+        
+        if phone.count == 8 {
+            let index2 = phone.index(phone.startIndex, offsetBy: 2)
+            let index3 = phone.index(phone.startIndex, offsetBy: 3)
+            let index4 = phone.index(phone.startIndex, offsetBy: 4)
+            let index5 = phone.index(phone.startIndex, offsetBy: 5)
+            
+            return String(phone[...index2]) + " " +
+                   String(phone[index3...index4]) + " " +
+                   String(phone[index5...])
+        } else if phone.count == 10 {
+            return phone
+        }
+        
+        return ""
+    }
+    
 }

@@ -22,6 +22,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+//        let message = formatPhone(phone: "400 05 430")
+//
+//        print(message)
         
         // Hide the tabBar
         self.tabBarController?.tabBar.isHidden = true

@@ -90,7 +90,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         lastNameInput.text = PersonLastNameText
         
         cityInput.text = PersonCityText
-        phoneNumberInput.text = PersonPhoneNumberText
+        phoneNumberInput.text = formatPhone(phone: PersonPhoneNumberText)
         postalCodeNumberInput.text = PersonPostalCodeNumberText
         
         // Convert PersonDateOfBirthText to the initial datoValg.date
@@ -141,10 +141,17 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // Dismiss the keyboard when the view is tapped on
-        firstNameInput.resignFirstResponder()
-        lastNameInput.resignFirstResponder()
         addressInput.resignFirstResponder()
+        cityInput.resignFirstResponder()
+        firstNameInput.resignFirstResponder()
         dateOfBirthInput.resignFirstResponder()
+        lastNameInput.resignFirstResponder()
+        phoneNumberInput.resignFirstResponder()
+        phoneNumberInput.text = formatPhone(phone: phoneNumberInput.text!)
+        
+        
+        
+        postalCodeNumberInput.resignFirstResponder()
     }
 
     @IBAction func SaveOrUpdatePerson(_ sender: Any) {
@@ -158,7 +165,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         let firstName = firstNameInput.text ?? ""
         let gender = genderInput.selectedSegmentIndex
         let lastName = lastNameInput.text ?? ""
-        let phoneNumber = phoneNumberInput.text ?? ""
+        let phoneNumber = formatPhone(phone: phoneNumberInput.text!)
         let postalCodeNumber = postalCodeNumberInput.text ?? ""
 
         activity.startAnimating()
@@ -241,4 +248,6 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         default: return
         }
     }
+    
+   
 }
