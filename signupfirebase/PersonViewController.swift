@@ -134,6 +134,8 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        phoneNumberInput.text = formatPhone(phone: phoneNumberInput.text!)
+        
         activeField?.resignFirstResponder()
         activeField = nil
         return true
@@ -148,9 +150,6 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         lastNameInput.resignFirstResponder()
         phoneNumberInput.resignFirstResponder()
         phoneNumberInput.text = formatPhone(phone: phoneNumberInput.text!)
-        
-        
-        
         postalCodeNumberInput.resignFirstResponder()
     }
 
