@@ -143,6 +143,10 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         personsRef.observe(.value, with: { snapshot in
 
             var tempPersons = [Person]()
+            
+            
+            print("snapshot.children = \(snapshot.children)")
+            
             for child in snapshot.children {
 
                 if let childSnapshot = child as? DataSnapshot,
@@ -151,24 +155,28 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                     let uid = author["uid"] as? String,
                     let username = author["username"] as? String,
                     let email = author["email"] as? String,
-
                     let personData = dict["personData"] as? [String: Any],
-                    let firstName = personData["firstName"] as? String,
-                    let lastName = personData["lastName"] as? String,
                     let address = personData["address"] as? String,
+                    let city = personData["city"] as? String,
                     let dateOfBirth = personData["dateOfBirth"] as? String,
+                    let firstName = personData["firstName"] as? String,
                     let gender = personData["gender"] as? Int,
-
+                    let lastName = personData["lastName"] as? String,
+                    let phoneNumber = personData["phoneNumber"] as? String,
+                    let postalCodeNumber = personData["postalCodeNumber"] as? String,
                     let timestamp = dict["timestamp"] as? Double {
                     let author = Author(uid: uid,
                                         username: username,
                                         email: email)
 
                     let personData = PersonData(address: address,
+                                                city : city,
                                                 dateOfBirth: dateOfBirth,
-                                                gender: gender,
                                                 firstName: firstName,
-                                                lastName: lastName)
+                                                gender: gender,
+                                                lastName: lastName,
+                                                phoneNumber : phoneNumber,
+                                                postalCodeNumber : postalCodeNumber)
 
                     let person = Person(id: childSnapshot.key,
                                         author: author,
@@ -176,6 +184,10 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                                         timestamp: timestamp)
 
                     tempPersons.append(person)
+                    
+                    
+                    print("firstName = \(firstName)")
+                    
                 }
             }
 
@@ -199,12 +211,16 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             // Find the indexPath.row for the cell which is selected
             if let indexPath = tableView.indexPathForSelectedRow {
                 let vc = segue.destination as! PersonViewController
-                vc.PersonFirstNameText = persons[indexPath.row].personData.firstName
-                vc.PersonLastNameText = persons[indexPath.row].personData.lastName
-                vc.PersonAddressText = persons[indexPath.row].personData.address
-                vc.PersonDateOfBirthText = persons[indexPath.row].personData.dateOfBirth
-                vc.PersonGenderInt = persons[indexPath.row].personData.gender
                 vc.PersonIdText = persons[indexPath.row].id
+                vc.PersonAddressText = persons[indexPath.row].personData.address
+                vc.PersonCityText = persons[indexPath.row].personData.city
+                vc.PersonDateOfBirthText = persons[indexPath.row].personData.dateOfBirth
+                vc.PersonFirstNameText = persons[indexPath.row].personData.firstName
+                vc.PersonGenderInt = persons[indexPath.row].personData.gender
+                vc.PersonLastNameText = persons[indexPath.row].personData.lastName
+                vc.PersonPhoneNumberText = persons[indexPath.row].personData.phoneNumber
+                vc.PersonPostalCodeNumberText = persons[indexPath.row].personData.postalCodeNumber
+                
                 vc.PersonOption = 1         // Update == 1
                 vc.PersonTitle = NSLocalizedString("Update Person", comment: "MainPersonDataViewController.swift prepare")
             } else {
@@ -212,12 +228,16 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                 // indexRowUpdateSwipe is initiated at leadingSwipeActionsConfigurationForRowAt's "Update'
                 
                 let vc = segue.destination as! PersonViewController
-                vc.PersonFirstNameText = persons[indexRowUpdateSwipe].personData.firstName
-                vc.PersonLastNameText = persons[indexRowUpdateSwipe].personData.lastName
-                vc.PersonAddressText = persons[indexRowUpdateSwipe].personData.address
-                vc.PersonDateOfBirthText = persons[indexRowUpdateSwipe].personData.dateOfBirth
-                vc.PersonGenderInt = persons[indexRowUpdateSwipe].personData.gender
                 vc.PersonIdText = persons[indexRowUpdateSwipe].id
+                vc.PersonAddressText = persons[indexRowUpdateSwipe].personData.address
+                vc.PersonCityText = persons[indexRowUpdateSwipe].personData.city
+                vc.PersonDateOfBirthText = persons[indexRowUpdateSwipe].personData.dateOfBirth
+                vc.PersonFirstNameText = persons[indexRowUpdateSwipe].personData.firstName
+                vc.PersonGenderInt = persons[indexRowUpdateSwipe].personData.gender
+                vc.PersonLastNameText = persons[indexRowUpdateSwipe].personData.lastName
+                vc.PersonPhoneNumberText = persons[indexRowUpdateSwipe].personData.phoneNumber
+                vc.PersonPostalCodeNumberText = persons[indexRowUpdateSwipe].personData.postalCodeNumber
+
                 vc.PersonOption = 1         // Update == 1
                 vc.PersonTitle = NSLocalizedString("Update Person", comment: "MainPersonDataViewController.swift prepare")
                 
@@ -225,12 +245,16 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             
         } else if segue.identifier! == "gotoAddPerson" {
             let vc = segue.destination as! PersonViewController
-            vc.PersonFirstNameText = ""
-            vc.PersonLastNameText = ""
-            vc.PersonAddressText = ""
-            vc.PersonDateOfBirthText = ""
-            vc.PersonGenderInt = 0
             vc.PersonIdText = ""
+            vc.PersonAddressText = ""
+            vc.PersonCityText  = ""
+            vc.PersonDateOfBirthText = ""
+            vc.PersonFirstNameText = ""
+            vc.PersonGenderInt = 0
+            vc.PersonLastNameText = ""
+            vc.PersonPhoneNumberText = ""
+            vc.PersonPostalCodeNumberText = ""
+                
             vc.PersonOption = 0             // Save new person == 0
             vc.PersonTitle = NSLocalizedString("New Person", comment: "MainPersonDataViewController.swift prepare")
         

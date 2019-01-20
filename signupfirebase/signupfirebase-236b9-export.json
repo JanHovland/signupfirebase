@@ -1,0 +1,58 @@
+{
+  "person" : {
+    "-LVFN4rg6Mp7i0TsEnv_" : {
+      "author" : {
+        "email" : "jan.hovland@lyse.net",
+        "uid" : "dT1YafDXgshYq6kAiIphTabMLwH2",
+        "username" : "Jan Lyse Hovland"
+      },
+      "personData" : {
+        "address" : "Uelandsgata 2",
+        "city" : "Varhaug",
+        "dateOfBirth" : "28. mars 1948",
+        "firstName" : "Jan",
+        "gender" : 0,
+        "lastName" : "Hovland",
+        "phoneNumber" : "40005430", 
+        "postalCodeNumber" : 4360
+      },
+      "timestamp" : 1547764212958
+    },
+    "-LVFNtSH0ou1VF7lfvAR" : {
+      "author" : {
+        "email" : "jan.hovland@lyse.net",
+        "uid" : "dT1YafDXgshYq6kAiIphTabMLwH2",
+        "username" : "Jan Lyse Hovland"
+      },
+      "personData" : {
+        "address" : "Strandgata 159",
+        "city" : "Haugesund",
+        "dateOfBirth" : "14. juli 1984",
+        "firstName" : "Per",
+        "gender" : 0,
+        "lastName" : "Persen",
+        "phoneNumber" : "12345678",
+        "postalCodeNumber" : 5500
+      },
+      "timestamp" : 1547644149783
+    },
+    "-LVNZ9Xo3dypph1V7vI-" : {
+      "author" : {
+        "email" : "jan.hovland@lyse.net",
+        "uid" : "dT1YafDXgshYq6kAiIphTabMLwH2",
+        "username" : "Jan Lyse Hovland"
+      },
+      "personData" : {
+        "address" : "Lilleveien 21",
+        "city" : "Lyebyen",
+        "dateOfBirth" : "3. april 1980",
+        "firstName" : "Astrid",
+        "gender" : 1,
+        "lastName" : "Hovland",
+        "phoneNumber" : "87654321",
+        "postalCodeNumber" : 4362
+      },
+      "timestamp" : 1547813131908
+    }
+  }
+}

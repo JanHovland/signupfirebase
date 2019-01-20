@@ -61,8 +61,8 @@
 /* Class = "UILabel"; text = "The password must have at least 6 characters"; ObjectID = "eG4-UJ-Wc4"; */
 "eG4-UJ-Wc4.text" = "Passordet må ha inneholde minimum 6 tegn";
 
-/* Class = "UILabel"; text = "Phone number"; ObjectID = "eJK-ho-8MV"; */
-"eJK-ho-8MV.text" = "Telefon nummer";
+/* Class = "UILabel"; text = "Phone "; ObjectID = "eJK-ho-8MV"; */
+"eJK-ho-8MV.text" = "Telefon";
 
 /* Class = "UITextField"; placeholder = "Enter new name"; ObjectID = "F8a-QL-d5l"; */
 "F8a-QL-d5l.placeholder" = "Legg inn nytt navn";
@@ -178,10 +178,10 @@
 /* Class = "UILabel"; text = "name"; ObjectID = "Ure-hL-M78"; */
 "Ure-hL-M78.text" = "navn";
 
-/* Class = "UITextField"; placeholder = "Enter the zip code"; ObjectID = "uy3-05-bWG"; */
+/* Class = "UITextField"; placeholder = "Enter the postal code"; ObjectID = "uy3-05-bWG"; */
 "uy3-05-bWG.placeholder" = "Legg inn postnummeret";
 
-/* Class = "UILabel"; text = "Zip code"; ObjectID = "UZn-5p-0rk"; */
+/* Class = "UILabel"; text = "Postal code"; ObjectID = "UZn-5p-0rk"; */
 "UZn-5p-0rk.text" = "Postnummer";
 
 /* Class = "UITextField"; placeholder = "Enter email address"; ObjectID = "vH1-YR-EwT"; */

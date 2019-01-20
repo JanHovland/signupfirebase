@@ -9,29 +9,28 @@
 import UIKit
 
 class PersonViewController: UIViewController, UITextFieldDelegate {
-    @IBOutlet weak var firstNameInput: UITextField!
-    @IBOutlet weak var lastNameInput: UITextField!
     @IBOutlet weak var addressInput: UITextField!
-    @IBOutlet weak var phoneNumberInput: UITextField!
-    @IBOutlet weak var zipCodeInput: UITextField!
     @IBOutlet weak var cityInput: UITextField!
     @IBOutlet weak var dateOfBirthInput: UITextField!
+    @IBOutlet weak var firstNameInput: UITextField!
     @IBOutlet weak var genderInput: UISegmentedControl!
-
+    @IBOutlet weak var lastNameInput: UITextField!
+    @IBOutlet weak var phoneNumberInput: UITextField!
+    @IBOutlet weak var postalCodeNumberInput: UITextField!
+    
     @IBOutlet var activity: UIActivityIndicatorView!
 
     // These vaiables get their values from MainPersonDataViewController.swift
-    var PersonFirstNameText = ""
-    var PersonLastNameText = ""
-    var PersonAddressText = ""
-    var PersonPhoneNumberInput: UITextField!
-    var PersonZipCodeInput: UITextField!
-    var PersonCityInput: UITextField!
-
-    var PersonDateOfBirthText = ""
-    var PersonGenderInt = 0
-    
     var PersonIdText = ""
+    var PersonAddressText = ""
+    var PersonCityText  = ""
+    var PersonDateOfBirthText = ""
+    var PersonFirstNameText = ""
+    var PersonGenderInt = 0
+    var PersonLastNameText = ""
+    var PersonPhoneNumberText = ""
+    var PersonPostalCodeNumberText = ""
+    
     var PersonTitle = ""
     var PersonOption = 0 // 0 = save 1 = update
 
@@ -51,10 +50,13 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         navigationItem.title = PersonTitle
 
         // Turn off keyboard when you press "Return"
-        firstNameInput.delegate = self
-        lastNameInput.delegate = self
         addressInput.delegate = self
+        cityInput.delegate = self
+        firstNameInput.delegate = self
         dateOfBirthInput.delegate = self
+        lastNameInput.delegate = self
+        phoneNumberInput.delegate = self
+        postalCodeNumberInput.delegate = self
 
         // Initierer UIActivityIndicatorView
         activity.hidesWhenStopped = true
@@ -74,10 +76,9 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
             loginStatus.text = showUserInfo(startUp: true)
         }
 
-        firstNameInput.text = PersonFirstNameText
-        lastNameInput.text = PersonLastNameText
         addressInput.text = PersonAddressText
         dateOfBirthInput.text = PersonDateOfBirthText
+        firstNameInput.text = PersonFirstNameText
 
         if PersonGenderInt == 0 {
             genderInput.setTitle("Man", forSegmentAt: PersonGenderInt)
@@ -86,7 +87,12 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         }
 
         genderInput.selectedSegmentIndex = PersonGenderInt
-
+        lastNameInput.text = PersonLastNameText
+        
+        cityInput.text = PersonCityText
+        phoneNumberInput.text = PersonPhoneNumberText
+        postalCodeNumberInput.text = PersonPostalCodeNumberText
+        
         // Convert PersonDateOfBirthText to the initial datoValg.date
         let formatter = DateFormatter()
         formatter.dateStyle = .long
@@ -146,12 +152,14 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         //  0 = uid  1 = ePost  2 = name  3 = passWord)
         let value = getCoreData()
 
-        let firstName = firstNameInput.text ?? ""
-        let lastName = lastNameInput.text ?? ""
-        
         let address = addressInput.text ?? ""
+        let city = cityInput.text ?? ""
         let dateOfBirth = dateOfBirthInput.text ?? ""
+        let firstName = firstNameInput.text ?? ""
         let gender = genderInput.selectedSegmentIndex
+        let lastName = lastNameInput.text ?? ""
+        let phoneNumber = phoneNumberInput.text ?? ""
+        let postalCodeNumber = postalCodeNumberInput.text ?? ""
 
         activity.startAnimating()
 
@@ -159,22 +167,29 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
             savePersonFiredata(uid: value.0,
                                username: value.2,
                                email: value.1,
-                               firstName: firstName,
-                               lastName: lastName,
                                address: address,
+                               city: city,
                                dateOfBirth: dateOfBirth,
-                               gender: gender)
+                               firstName: firstName,
+                               gender: gender,
+                               lastName: lastName,
+                               phoneNumber: phoneNumber,
+                               postalCodeNumber: postalCodeNumber)
+            
         } else if PersonOption == 1 {
             updatePersonFiredata(id: PersonIdText,
                                  uid: value.0,
                                  username: value.2,
                                  email: value.1,
-                                 firstName: firstName,
-                                 lastName: lastName,
                                  address: address,
+                                 city: city,
                                  dateOfBirth: dateOfBirth,
-                                 gender: gender)
-        }
+                                 firstName: firstName,
+                                 gender: gender,
+                                 lastName: lastName,
+                                 phoneNumber: phoneNumber,
+                                 postalCodeNumber: postalCodeNumber)
+       }
 
         activity.stopAnimating()
     }

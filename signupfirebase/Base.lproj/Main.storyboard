@@ -649,7 +649,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1650" id="4xP-pt-sH4"/>
                                                 </constraints>
-                                                <mutableString key="text">
+                                                <string key="text">
 Programmerings oppgaver:
 
 1. Xcode.
@@ -732,7 +732,7 @@ Programmerings oppgaver:
     g) Oppdatere security i Firebase 
     h) Firestore 
        . https://firebase.google.com/docs/firestore/data-model
-       . Har gode queries</mutableString>
+       . Har gode queries</string>
                                                 <fontDescription key="fontDescription" name=".SFNSText" family=".SF NS Text" pointSize="12"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
@@ -980,97 +980,97 @@ Programmerings oppgaver:
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggZ-By-2Qr">
-                                <rect key="frame" x="15" y="147" width="81" height="21"/>
+                                <rect key="frame" x="15" y="147" width="80" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOJ-Dz-Kpx">
-                                <rect key="frame" x="15" y="207" width="81" height="21"/>
+                                <rect key="frame" x="15" y="207" width="80" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UG6-zK-qDH">
-                                <rect key="frame" x="15" y="267" width="66" height="21"/>
+                                <rect key="frame" x="15" y="267" width="111" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJK-ho-8MV">
-                                <rect key="frame" x="15" y="327" width="112" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJK-ho-8MV">
+                                <rect key="frame" x="15" y="327" width="111" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zip code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZn-5p-0rk">
-                                <rect key="frame" x="15" y="387" width="68" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Postal code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZn-5p-0rk">
+                                <rect key="frame" x="15" y="387" width="111" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJT-Cn-HsF">
-                                <rect key="frame" x="15" y="447" width="32" height="21"/>
+                                <rect key="frame" x="15" y="447" width="111" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of birth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZW-Vq-ZeJ">
-                                <rect key="frame" x="15" y="507" width="101" height="27"/>
+                                <rect key="frame" x="15" y="507" width="100" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nbz-eB-NWH">
-                                <rect key="frame" x="15" y="571" width="77" height="20.5"/>
+                                <rect key="frame" x="15" y="571" width="76" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the first name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yLv-nX-tNx" userLabel="First Name Text Field">
-                                <rect key="frame" x="136" y="147" width="224" height="30"/>
+                                <rect key="frame" x="135" y="147" width="225" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="name"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the last name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BCQ-eL-2pN" userLabel="Last Name Text Field">
-                                <rect key="frame" x="136" y="207" width="224" height="30"/>
+                                <rect key="frame" x="135" y="207" width="225" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="name"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RkK-Je-Gn2" userLabel="Address Text Field">
-                                <rect key="frame" x="136" y="267" width="224" height="30"/>
+                                <rect key="frame" x="135" y="267" width="225" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="name"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YyV-Jf-Wrw" userLabel="Phone Text Field">
-                                <rect key="frame" x="136" y="327" width="224" height="30"/>
+                                <rect key="frame" x="135" y="327" width="225" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="name"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="tel"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the zip code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uy3-05-bWG" userLabel="City Text Field">
-                                <rect key="frame" x="136" y="387" width="224" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the postal code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uy3-05-bWG" userLabel="City Text Field">
+                                <rect key="frame" x="135" y="387" width="225" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="name"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="postal-code"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the city" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a2Y-E5-2Cp" userLabel="City Text Field">
-                                <rect key="frame" x="136" y="447" width="224" height="30"/>
+                                <rect key="frame" x="135" y="447" width="225" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="name"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="address-level2"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the date of birth " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ntB-2c-9zR">
-                                <rect key="frame" x="136" y="507" width="224" height="30"/>
+                                <rect key="frame" x="135" y="507" width="225" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Z83-Gy-QZ9">
-                                <rect key="frame" x="136" y="567" width="224" height="29"/>
+                                <rect key="frame" x="135" y="567" width="225" height="29"/>
                                 <segments>
                                     <segment title="Man"/>
                                     <segment title="Woman"/>
@@ -1087,7 +1087,8 @@ Programmerings oppgaver:
                         <constraints>
                             <constraint firstItem="nbz-eB-NWH" firstAttribute="centerY" secondItem="Z83-Gy-QZ9" secondAttribute="centerY" id="04c-m8-Gvh"/>
                             <constraint firstItem="ntB-2c-9zR" firstAttribute="trailing" secondItem="dcI-Iv-SZx" secondAttribute="trailing" id="1D3-SA-C39"/>
-                            <constraint firstItem="a2Y-E5-2Cp" firstAttribute="leading" secondItem="PJT-Cn-HsF" secondAttribute="trailing" constant="89" id="3fM-BU-UcV"/>
+                            <constraint firstItem="a2Y-E5-2Cp" firstAttribute="leading" secondItem="yLv-nX-tNx" secondAttribute="leading" id="1g7-Xz-YWW"/>
+                            <constraint firstItem="BCQ-eL-2pN" firstAttribute="leading" secondItem="yLv-nX-tNx" secondAttribute="leading" id="2EL-qK-rJf"/>
                             <constraint firstItem="nbz-eB-NWH" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="15" id="4d4-iO-jdG"/>
                             <constraint firstItem="Z83-Gy-QZ9" firstAttribute="leading" secondItem="nbz-eB-NWH" secondAttribute="trailing" constant="44" id="4dD-N0-LkM"/>
                             <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="a2Y-E5-2Cp" secondAttribute="trailing" constant="15" id="5XB-mp-eiV"/>
@@ -1099,25 +1100,29 @@ Programmerings oppgaver:
                             <constraint firstItem="GMW-ld-i1x" firstAttribute="top" secondItem="O6w-2j-OOB" secondAttribute="top" constant="56" id="AXD-gh-KxO"/>
                             <constraint firstItem="dcI-Iv-SZx" firstAttribute="top" secondItem="O6w-2j-OOB" secondAttribute="top" constant="35" id="DKu-SD-uWp"/>
                             <constraint firstItem="Z83-Gy-QZ9" firstAttribute="leading" secondItem="yLv-nX-tNx" secondAttribute="leading" id="DWJ-Ed-Pwk"/>
+                            <constraint firstItem="YyV-Jf-Wrw" firstAttribute="leading" secondItem="yLv-nX-tNx" secondAttribute="leading" id="DWc-RP-cZE"/>
                             <constraint firstItem="BCQ-eL-2pN" firstAttribute="leading" secondItem="cOJ-Dz-Kpx" secondAttribute="trailing" constant="40" id="EWp-Mh-rjd"/>
                             <constraint firstItem="dcI-Iv-SZx" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="10" id="GWK-93-eDs"/>
                             <constraint firstItem="PJT-Cn-HsF" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="15" id="Gcc-U1-6HH"/>
                             <constraint firstItem="Z83-Gy-QZ9" firstAttribute="leading" secondItem="yLv-nX-tNx" secondAttribute="leading" id="H5t-lE-Ynx"/>
+                            <constraint firstItem="eJK-ho-8MV" firstAttribute="width" secondItem="UZn-5p-0rk" secondAttribute="width" id="Hgp-9a-Sdu"/>
                             <constraint firstItem="YyV-Jf-Wrw" firstAttribute="top" secondItem="eJK-ho-8MV" secondAttribute="top" id="Jtk-Dt-QbV"/>
-                            <constraint firstItem="uy3-05-bWG" firstAttribute="leading" secondItem="UZn-5p-0rk" secondAttribute="trailing" constant="53" id="K5Q-LO-n0G"/>
                             <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="uy3-05-bWG" secondAttribute="trailing" constant="15" id="MI2-IR-cN7"/>
                             <constraint firstItem="yLv-nX-tNx" firstAttribute="top" secondItem="ggZ-By-2Qr" secondAttribute="top" id="MM0-ea-CRv"/>
                             <constraint firstItem="BCQ-eL-2pN" firstAttribute="top" secondItem="cOJ-Dz-Kpx" secondAttribute="top" id="Mrj-Cp-Zns"/>
+                            <constraint firstItem="a2Y-E5-2Cp" firstAttribute="leading" secondItem="PJT-Cn-HsF" secondAttribute="trailing" constant="9" id="Op4-Df-txC"/>
+                            <constraint firstItem="eJK-ho-8MV" firstAttribute="height" secondItem="UZn-5p-0rk" secondAttribute="height" id="Q7B-qd-GjE"/>
                             <constraint firstItem="Z83-Gy-QZ9" firstAttribute="leading" secondItem="nbz-eB-NWH" secondAttribute="trailing" constant="44" id="QSX-H7-xLd"/>
                             <constraint firstItem="YyV-Jf-Wrw" firstAttribute="top" secondItem="RkK-Je-Gn2" secondAttribute="bottom" constant="30" id="Qhr-XZ-5RT"/>
                             <constraint firstItem="uy3-05-bWG" firstAttribute="top" secondItem="UZn-5p-0rk" secondAttribute="top" id="RCF-zQ-zAY"/>
+                            <constraint firstItem="eJK-ho-8MV" firstAttribute="height" secondItem="UZn-5p-0rk" secondAttribute="height" id="RDu-st-CvM"/>
                             <constraint firstItem="ggZ-By-2Qr" firstAttribute="top" secondItem="dcI-Iv-SZx" secondAttribute="bottom" constant="30" id="RJ5-fS-xhK"/>
                             <constraint firstItem="ntB-2c-9zR" firstAttribute="top" secondItem="a2Y-E5-2Cp" secondAttribute="bottom" constant="30" id="RRy-Oa-I7K"/>
-                            <constraint firstItem="uy3-05-bWG" firstAttribute="leading" secondItem="UZn-5p-0rk" secondAttribute="trailing" constant="53" id="S7F-DQ-RTg"/>
                             <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="ntB-2c-9zR" secondAttribute="trailing" constant="15" id="TRW-e8-kuJ"/>
                             <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="uy3-05-bWG" secondAttribute="trailing" constant="15" id="UBb-7B-nIl"/>
                             <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="BCQ-eL-2pN" secondAttribute="trailing" constant="15" id="Ubd-k2-1yi"/>
                             <constraint firstItem="cOJ-Dz-Kpx" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="15" id="VNj-kJ-I6i"/>
+                            <constraint firstItem="RkK-Je-Gn2" firstAttribute="leading" secondItem="yLv-nX-tNx" secondAttribute="leading" id="Vpg-Ga-bp2"/>
                             <constraint firstItem="RkK-Je-Gn2" firstAttribute="top" secondItem="UG6-zK-qDH" secondAttribute="top" id="Vwl-6q-AMp"/>
                             <constraint firstItem="Z83-Gy-QZ9" firstAttribute="top" secondItem="ntB-2c-9zR" secondAttribute="bottom" constant="30" id="Vyf-Pv-Uhe"/>
                             <constraint firstItem="ntB-2c-9zR" firstAttribute="top" secondItem="mZW-Vq-ZeJ" secondAttribute="top" id="WVx-nG-Rxd"/>
@@ -1126,28 +1131,35 @@ Programmerings oppgaver:
                             <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="ntB-2c-9zR" secondAttribute="trailing" constant="15" id="aUJ-XL-Yhh"/>
                             <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="Z83-Gy-QZ9" secondAttribute="trailing" constant="15" id="bBa-GG-Ttz"/>
                             <constraint firstItem="YyV-Jf-Wrw" firstAttribute="leading" secondItem="eJK-ho-8MV" secondAttribute="trailing" constant="9" id="bxh-nB-OpQ"/>
+                            <constraint firstItem="uy3-05-bWG" firstAttribute="leading" secondItem="yLv-nX-tNx" secondAttribute="leading" id="c3t-05-DRT"/>
                             <constraint firstItem="a2Y-E5-2Cp" firstAttribute="top" secondItem="PJT-Cn-HsF" secondAttribute="top" id="cRw-ZU-czz"/>
+                            <constraint firstItem="ntB-2c-9zR" firstAttribute="leading" secondItem="yLv-nX-tNx" secondAttribute="leading" id="dRq-53-7eW"/>
                             <constraint firstItem="uy3-05-bWG" firstAttribute="leading" secondItem="yLv-nX-tNx" secondAttribute="leading" id="dWN-YK-ZLJ"/>
+                            <constraint firstItem="Z83-Gy-QZ9" firstAttribute="leading" secondItem="yLv-nX-tNx" secondAttribute="leading" id="dql-qW-Enm"/>
                             <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="uy3-05-bWG" secondAttribute="trailing" constant="15" id="f4s-hP-51N"/>
                             <constraint firstItem="BCQ-eL-2pN" firstAttribute="leading" secondItem="cOJ-Dz-Kpx" secondAttribute="trailing" constant="40" id="gSs-T8-TLW"/>
                             <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="BCQ-eL-2pN" secondAttribute="trailing" constant="15" id="gY6-8C-Rfb"/>
                             <constraint firstItem="a2Y-E5-2Cp" firstAttribute="top" secondItem="uy3-05-bWG" secondAttribute="bottom" constant="30" id="i05-IU-D7A"/>
                             <constraint firstItem="ggZ-By-2Qr" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="15" id="iXa-3c-SQm"/>
                             <constraint firstItem="mZW-Vq-ZeJ" firstAttribute="centerY" secondItem="ntB-2c-9zR" secondAttribute="centerY" constant="-1.5" id="j1b-eX-stg"/>
+                            <constraint firstItem="eJK-ho-8MV" firstAttribute="height" secondItem="cOJ-Dz-Kpx" secondAttribute="height" id="kUz-q4-Jd5"/>
                             <constraint firstAttribute="trailing" secondItem="yLv-nX-tNx" secondAttribute="trailing" constant="15" id="l9R-SI-mWd"/>
                             <constraint firstItem="yLv-nX-tNx" firstAttribute="leading" secondItem="ggZ-By-2Qr" secondAttribute="trailing" constant="40" id="mTi-KT-v12"/>
-                            <constraint firstItem="RkK-Je-Gn2" firstAttribute="leading" secondItem="yLv-nX-tNx" secondAttribute="leading" id="mat-B4-O10"/>
-                            <constraint firstItem="RkK-Je-Gn2" firstAttribute="leading" secondItem="UG6-zK-qDH" secondAttribute="trailing" constant="55" id="mkf-7E-tWK"/>
+                            <constraint firstItem="cOJ-Dz-Kpx" firstAttribute="width" secondItem="ggZ-By-2Qr" secondAttribute="width" id="oV6-pm-8VF"/>
                             <constraint firstItem="uy3-05-bWG" firstAttribute="top" secondItem="YyV-Jf-Wrw" secondAttribute="bottom" constant="30" id="pOR-IN-h47"/>
+                            <constraint firstItem="UZn-5p-0rk" firstAttribute="width" secondItem="PJT-Cn-HsF" secondAttribute="width" id="pcv-u8-a1w"/>
                             <constraint firstItem="mZW-Vq-ZeJ" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="15" id="r4m-Qx-bgZ"/>
+                            <constraint firstItem="uy3-05-bWG" firstAttribute="leading" secondItem="UZn-5p-0rk" secondAttribute="trailing" constant="9" id="rDE-eZ-yYf"/>
                             <constraint firstItem="BCQ-eL-2pN" firstAttribute="leading" secondItem="yLv-nX-tNx" secondAttribute="leading" id="ruq-XO-6kM"/>
-                            <constraint firstItem="a2Y-E5-2Cp" firstAttribute="leading" secondItem="yLv-nX-tNx" secondAttribute="leading" id="tKC-jZ-OjH"/>
-                            <constraint firstItem="UZn-5p-0rk" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="15" id="tct-Xh-onq"/>
+                            <constraint firstItem="UZn-5p-0rk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="O6w-2j-OOB" secondAttribute="leading" id="tct-Xh-onq"/>
                             <constraint firstItem="ntB-2c-9zR" firstAttribute="leading" secondItem="mZW-Vq-ZeJ" secondAttribute="trailing" constant="20" id="tgE-to-pdB"/>
+                            <constraint firstItem="RkK-Je-Gn2" firstAttribute="leading" secondItem="UG6-zK-qDH" secondAttribute="trailing" constant="9" id="twH-a4-aEb"/>
                             <constraint firstItem="ntB-2c-9zR" firstAttribute="leading" secondItem="yLv-nX-tNx" secondAttribute="leading" id="vfD-qJ-1rG"/>
                             <constraint firstItem="BCQ-eL-2pN" firstAttribute="top" secondItem="yLv-nX-tNx" secondAttribute="bottom" constant="30" id="wKv-Kl-VDt"/>
+                            <constraint firstItem="PJT-Cn-HsF" firstAttribute="height" secondItem="mZW-Vq-ZeJ" secondAttribute="height" id="wga-Bf-67U"/>
                             <constraint firstItem="GMW-ld-i1x" firstAttribute="centerX" secondItem="ebU-ou-lpj" secondAttribute="centerX" id="z7x-0e-ud8"/>
                             <constraint firstItem="UG6-zK-qDH" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="15" id="zGp-vV-RXW"/>
+                            <constraint firstItem="eJK-ho-8MV" firstAttribute="width" secondItem="UG6-zK-qDH" secondAttribute="width" id="zjT-JV-HYo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O6w-2j-OOB"/>
                     </view>
@@ -1168,12 +1180,12 @@ Programmerings oppgaver:
                         <outlet property="lastNameInput" destination="BCQ-eL-2pN" id="fly-2G-CW1"/>
                         <outlet property="loginStatus" destination="dcI-Iv-SZx" id="Ygc-t0-fqe"/>
                         <outlet property="phoneNumberInput" destination="YyV-Jf-Wrw" id="okO-5o-6OQ"/>
-                        <outlet property="zipCodeInput" destination="uy3-05-bWG" id="o60-ai-117"/>
+                        <outlet property="postalCodeNumberInput" destination="uy3-05-bWG" id="34k-4y-LqZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wrR-qK-zNm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3524" y="170"/>
+            <point key="canvasLocation" x="-3657" y="171"/>
         </scene>
         <!--Update password-->
         <scene sceneID="514-fI-xD2">

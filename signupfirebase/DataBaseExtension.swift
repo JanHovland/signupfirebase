@@ -442,18 +442,24 @@ extension UIViewController {
                               uid: String,
                               username: String,
                               email: String,
-                              firstName: String,
-                              lastName: String,
                               address: String,
+                              city: String,
                               dateOfBirth: String,
-                              gender: Int) {
+                              firstName: String,
+                              gender: Int,
+                              lastName: String,
+                              phoneNumber: String,
+                              postalCodeNumber: String) {
         if uid.count > 0,
             username.count > 0,
             email.count > 0,
+            address.count > 0,
+            city.count > 0,
+            dateOfBirth.count > 0,
             firstName.count > 0,
             lastName.count > 0,
-            address.count > 0,
-            dateOfBirth.count > 0 {
+            phoneNumber.count > 0,
+            postalCodeNumber.count > 0 {
             
             let dataBase = Database.database().reference().child("person" + "/" + id)
             
@@ -465,13 +471,16 @@ extension UIViewController {
                 ],
                 
                 "personData": [
-                    "firstName": firstName,
-                    "lastName": lastName,
                     "address": address,
+                    "city": city,
                     "dateOfBirth": dateOfBirth,
+                    "firstName": firstName,
                     "gender": gender,
+                    "lastName": lastName,
+                    "phoneNumber": phoneNumber,
+                    "postalCodeNumber": postalCodeNumber
                 ],
-                
+
                 "timestamp": [".sv": "timestamp"],
                 
                 ] as [String: Any]
@@ -501,19 +510,24 @@ extension UIViewController {
     func savePersonFiredata(uid: String,
                             username: String,
                             email: String,
-                            firstName: String,
-                            lastName: String,
-                       
                             address: String,
+                            city: String,
                             dateOfBirth: String,
-                            gender: Int) {
+                            firstName: String,
+                            gender: Int,
+                            lastName: String,
+                            phoneNumber: String,
+                            postalCodeNumber: String) {
         if uid.count > 0,
             username.count > 0,
             email.count > 0,
+            address.count > 0,
+            city.count > 0,
+            dateOfBirth.count > 0,
             firstName.count > 0,
             lastName.count > 0,
-            address.count > 0,
-            dateOfBirth.count > 0 {
+            phoneNumber.count > 0 {
+                
             let dataBase = Database.database().reference().child("person").childByAutoId()
             
             let postObject = [
@@ -524,11 +538,14 @@ extension UIViewController {
                 ],
                 
                 "personData": [
-                    "firstName": firstName,
-                    "lastName": lastName,
                     "address": address,
+                    "city": city,
                     "dateOfBirth": dateOfBirth,
+                    "firstName": firstName,
                     "gender": gender,
+                    "lastName": lastName,
+                    "phoneNumber": phoneNumber,
+                    "postalCodeNumber": postalCodeNumber
                 ],
                 
                 "timestamp": [".sv": "timestamp"],
