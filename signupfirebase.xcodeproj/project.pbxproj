@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		14B6C7D5AD5979888331B70D /* Pods_signupfirebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FA6AF44DDF6A6C8562A35A /* Pods_signupfirebase.framework */; };
+		D11114C821F5C30A00835CF4 /* PostalCodeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11114C721F5C30A00835CF4 /* PostalCodeSearchViewController.swift */; };
+		D11114CA21F5C68C00835CF4 /* PostalCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11114C921F5C68C00835CF4 /* PostalCode.swift */; };
 		D11E2BD8219470D90075BD11 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D11E2BD6219470D90075BD11 /* Model.xcdatamodeld */; };
 		D1266D692199A72C00593984 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1266D682199A72C00593984 /* CreateAccountViewController.swift */; };
 		D12BAA6921F3676600B7C166 /* signupfirebase-236b9-export.json in Resources */ = {isa = PBXBuildFile; fileRef = D12BAA6821F3676500B7C166 /* signupfirebase-236b9-export.json */; };
@@ -21,6 +23,7 @@
 		D1859F7321B7C38500E1D518 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1859F7221B7C38500E1D518 /* ListTableViewController.swift */; };
 		D1A486E9219E0BA8004D41BE /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A486E8219E0BA8004D41BE /* LogInViewController.swift */; };
 		D1B3049421962151006C1319 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1B3049321962151006C1319 /* GoogleService-Info.plist */; };
+		D1B6A27621F6580F00D55937 /* Postnummerregister.csv in Resources */ = {isa = PBXBuildFile; fileRef = D1B6A27521F6580E00D55937 /* Postnummerregister.csv */; };
 		D1B9562A21B3F3E1003F5937 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B9562921B3F3E1003F5937 /* ListTableViewCell.swift */; };
 		D1C7F2E1218C98C800481E48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C7F2E0218C98C800481E48 /* AppDelegate.swift */; };
 		D1C7F2E6218C98C800481E48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1C7F2E4218C98C800481E48 /* Main.storyboard */; };
@@ -40,6 +43,8 @@
 /* Begin PBXFileReference section */
 		08126B0DA4D29A97D8D93FE5 /* Pods-signupfirebase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-signupfirebase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-signupfirebase/Pods-signupfirebase.debug.xcconfig"; sourceTree = "<group>"; };
 		893C897689365B2F237CCE21 /* Pods-signupfirebase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-signupfirebase.release.xcconfig"; path = "Pods/Target Support Files/Pods-signupfirebase/Pods-signupfirebase.release.xcconfig"; sourceTree = "<group>"; };
+		D11114C721F5C30A00835CF4 /* PostalCodeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostalCodeSearchViewController.swift; sourceTree = "<group>"; };
+		D11114C921F5C68C00835CF4 /* PostalCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostalCode.swift; sourceTree = "<group>"; };
 		D11E2BD7219470D90075BD11 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		D1266D682199A72C00593984 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		D127A36421DFD0FB0050BBD4 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Main.strings; sourceTree = "<group>"; };
@@ -55,6 +60,7 @@
 		D1859F7221B7C38500E1D518 /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		D1A486E8219E0BA8004D41BE /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		D1B3049321962151006C1319 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D1B6A27521F6580E00D55937 /* Postnummerregister.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Postnummerregister.csv; sourceTree = "<group>"; };
 		D1B9562921B3F3E1003F5937 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		D1C7F2DD218C98C800481E48 /* signupfirebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = signupfirebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1C7F2E0218C98C800481E48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -147,12 +153,15 @@
 				D136492721D0E9240039BDC6 /* Person.swift */,
 				D136492921D0E96D0039BDC6 /* Author.swift */,
 				D1ED85A821DD332500DBDB82 /* PersonData.swift */,
+				D11114C921F5C68C00835CF4 /* PostalCode.swift */,
 				D1E95C8F21D6BB6E00B40EE9 /* PersonDataTableViewCell.swift */,
 				D134822621CF922900F9F944 /* MainPersonDataViewController.swift */,
 				D1ED85AA21DE601D00DBDB82 /* WebViewController.swift */,
 				D1E95C8D21D6899400B40EE9 /* PersonViewController.swift */,
 				D12BAA6821F3676500B7C166 /* signupfirebase-236b9-export.json */,
 				D17C78F121F0C89000DEE649 /* SearchViewController.swift */,
+				D11114C721F5C30A00835CF4 /* PostalCodeSearchViewController.swift */,
+				D1B6A27521F6580E00D55937 /* Postnummerregister.csv */,
 			);
 			path = signupfirebase;
 			sourceTree = "<group>";
@@ -225,6 +234,7 @@
 				D1E32FBD21E1FED50022BFB3 /* Localizable.strings in Resources */,
 				D1C7F2E8218C98C900481E48 /* Assets.xcassets in Resources */,
 				D1C7F2E6218C98C800481E48 /* Main.storyboard in Resources */,
+				D1B6A27621F6580F00D55937 /* Postnummerregister.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +302,7 @@
 				D1E95C9021D6BB6E00B40EE9 /* PersonDataTableViewCell.swift in Sources */,
 				D1C96A1821A1CB0F00C5DA7A /* UpdateUserNameViewController.swift in Sources */,
 				D134822721CF922900F9F944 /* MainPersonDataViewController.swift in Sources */,
+				D11114C821F5C30A00835CF4 /* PostalCodeSearchViewController.swift in Sources */,
 				D15A0DD321909AFC00FBB286 /* SettingsTableViewController.swift in Sources */,
 				D1C96A1421A1C97900C5DA7A /* UpdatePasswordViewController.swift in Sources */,
 				D135787921B693BB0057140D /* ResetPWByMailViewController.swift in Sources */,
@@ -306,6 +317,7 @@
 				D1C7F2E1218C98C800481E48 /* AppDelegate.swift in Sources */,
 				D136492A21D0E96D0039BDC6 /* Author.swift in Sources */,
 				D134821521CE3CAD00F9F944 /* CvViewController.swift in Sources */,
+				D11114CA21F5C68C00835CF4 /* PostalCode.swift in Sources */,
 				D11E2BD8219470D90075BD11 /* Model.xcdatamodeld in Sources */,
 				D1859F7321B7C38500E1D518 /* ListTableViewController.swift in Sources */,
 			);

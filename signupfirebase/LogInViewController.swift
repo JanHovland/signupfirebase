@@ -10,6 +10,10 @@ import CoreData
 import Firebase
 import UIKit
 
+// Stuck in us Keyboard: 
+// Go to Product > Scheme > Edit Scheme...
+
+
 class LogInViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var activity: UIActivityIndicatorView!

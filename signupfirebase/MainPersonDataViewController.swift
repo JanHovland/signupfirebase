@@ -144,9 +144,6 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
 
             var tempPersons = [Person]()
             
-            
-            print("snapshot.children = \(snapshot.children)")
-            
             for child in snapshot.children {
 
                 if let childSnapshot = child as? DataSnapshot,
@@ -184,10 +181,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                                         timestamp: timestamp)
 
                     tempPersons.append(person)
-                    
-                    
-                    print("firstName = \(firstName)")
-                    
+                   
                 }
             }
 
