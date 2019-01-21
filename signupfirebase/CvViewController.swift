@@ -16,9 +16,7 @@ import UIKit
 
 class CvViewController: UIViewController {
 
-    // Use ***
     @IBOutlet weak var cvTextView: UITextView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +35,7 @@ class CvViewController: UIViewController {
            e) TableViewCell
            f) ScrollView
            g) Keyboard i mobilen
-           h) Localization via nb.xcloc
+           h) Localization via nb.xcloc (nb = norsk versjon)
            i) SwipeTrailing og SwipeLeading
               . "Height" på  View må være > 90 for å kunne legge inn både tekst og icon
               . Bruk imageLiteral for å finne en icon
