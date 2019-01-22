@@ -1091,7 +1091,7 @@
             </objects>
             <point key="canvasLocation" x="-3414" y="2086"/>
         </scene>
-        <!--Title-->
+        <!--Postal Codes-->
         <scene sceneID="dix-Cr-OYR">
             <objects>
                 <viewController id="9h3-ro-dhs" customClass="PostalCodeSearchViewController" customModule="signupfirebase" customModuleProvider="target" sceneMemberID="viewController">
@@ -1101,7 +1101,11 @@
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="wwm-fT-0XP">
                                 <rect key="frame" x="0.0" y="64" width="375" height="56"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="name"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3aK-06-KUY">
                                 <rect key="frame" x="0.0" y="120" width="375" height="498"/>
@@ -1151,7 +1155,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HcY-A9-lfV"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="Pw2-ly-6Dv">
+                    <navigationItem key="navigationItem" title="Postal Codes" id="Pw2-ly-6Dv">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="sMF-Aa-2sr">
                             <connections>
                                 <action selector="doneButton:" destination="9h3-ro-dhs" id="sWY-HQ-HTc"/>

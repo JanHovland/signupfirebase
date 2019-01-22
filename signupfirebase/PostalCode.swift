@@ -11,15 +11,14 @@ import Foundation
 class PostalCode {
     var code: String
     var city: String
-    var index: Bool
     
-    init(code: String, city: String, index: Bool) {
+    init(code: String, city: String) {
         self.code = code
         self.city = city
-        self.index = index
     }
     
     convenience init() {
-        self.init(code: "", city: "", index: false)
+        self.init(code: "",
+                  city: "")
     }
 }
