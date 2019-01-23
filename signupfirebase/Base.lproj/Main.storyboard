@@ -299,7 +299,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="2El-f4-8UE" kind="show" id="jmJ-Ei-CuI"/>
+                                            <segue destination="2El-f4-8UE" kind="show" identifier="gotoUserName" id="jmJ-Ei-CuI"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -327,7 +327,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="YCG-6O-Q9u" kind="show" identifier="12345" id="fB5-2y-1pF"/>
+                                            <segue destination="YCG-6O-Q9u" kind="show" identifier="gotoUpdatePassword" id="fB5-2y-1pF"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="9cy-7H-JXc" imageView="SxM-Hb-NLr" style="IBUITableViewCellStyleDefault" id="Doc-px-vsm" userLabel="Reset password by mail">
@@ -351,7 +351,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="ivl-bM-ftF" kind="show" id="WbX-GE-xNT"/>
+                                            <segue destination="ivl-bM-ftF" kind="show" identifier="gotoResetPasswordByMail" id="WbX-GE-xNT"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -420,7 +420,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="boW-XG-6jl" kind="show" id="57t-y9-a7W"/>
+                                            <segue destination="boW-XG-6jl" kind="show" identifier="gotoListAllUsersInCoredata" id="57t-y9-a7W"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="12" focusStyle="custom" id="Pcm-xI-jBh">
@@ -450,7 +450,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="YmI-SL-ish" kind="show" id="ha4-J8-d9C"/>
+                                            <segue destination="YmI-SL-ish" kind="show" identifier="gotoCurriculumVitae" id="ha4-J8-d9C"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="12" focusStyle="custom" id="d8M-Qj-Ywo">
@@ -480,7 +480,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="7vm-zK-TCA" kind="show" id="xTK-Xl-jLD"/>
+                                            <segue destination="7vm-zK-TCA" kind="show" identifier="gotoFirebaseConsole" id="xTK-Xl-jLD"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -1005,7 +1005,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yTz-8m-vkd">
                                 <rect key="frame" x="341" y="391" width="29" height="22"/>
                                 <connections>
-                                    <segue destination="9h3-ro-dhs" kind="show" identifier="gotoPostalCode" id="0MD-ul-mkQ"/>
+                                    <segue destination="9h3-ro-dhs" kind="show" identifier="goToPostalCodes" id="2Gx-fd-Cm7"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1072,7 +1072,11 @@
                         <viewLayoutGuide key="safeArea" id="O6w-2j-OOB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Persondata" id="8pS-kN-P3t">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="AUS-Uk-ueY"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="AUS-Uk-ueY">
+                            <connections>
+                                <action selector="SaveOrUpdatePerson:" destination="rxh-wi-pm3" id="GR4-ne-gNP"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="activity" destination="GMW-ld-i1x" id="NJi-mP-D90"/>
@@ -1099,7 +1103,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="wwm-fT-0XP">
+                            <searchBar contentMode="redraw" placeholder="Search ..." translatesAutoresizingMaskIntoConstraints="NO" id="wwm-fT-0XP">
                                 <rect key="frame" x="0.0" y="64" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
                                 <scopeButtonTitles>
@@ -1155,13 +1159,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HcY-A9-lfV"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Postal Codes" id="Pw2-ly-6Dv">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="sMF-Aa-2sr">
-                            <connections>
-                                <action selector="doneButton:" destination="9h3-ro-dhs" id="sWY-HQ-HTc"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Postal Codes" id="Pw2-ly-6Dv"/>
                     <connections>
                         <outlet property="searchPostelCode" destination="wwm-fT-0XP" id="bvB-is-afY"/>
                         <outlet property="tableView" destination="3aK-06-KUY" id="u6m-oh-Y2Z"/>
@@ -1169,7 +1167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y0R-e0-FAU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2636" y="1316"/>
+            <point key="canvasLocation" x="-2634" y="1316"/>
         </scene>
         <!--Update password-->
         <scene sceneID="514-fI-xD2">

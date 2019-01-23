@@ -8,6 +8,11 @@
 
 import UIKit
 
+var city = ""
+var oldCity = ""
+var postalCode = ""
+var oldPostalCode = ""
+
 class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     var postalCodes: [PostalCode] = [
         PostalCode(code: "1311", city: "Høvikodden"),
@@ -21,16 +26,18 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
     var searching = false
     var checked = [Bool]()
     
-    var city = ""
-    var postalCode = ""
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Set all checkmarks to false
         checked = Array(repeating: false, count: postalCodes.count)
-
         searchPostelCode.delegate = self
+        
+        oldCity = city
+        oldPostalCode = postalCode
+        
+        
+        
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -62,17 +69,11 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
         tableView.reloadData()
     }
 
-    @IBAction func doneButton(_ sender: Any) {
-        
+    
+    func searchBarResultsListButtonClicked(_ searchBar: UISearchBar) {
         if city.count > 0 {
-        
-            // Here are the selected values for code and city
-            // Must be passed to Update Person
-            
-            
-            
-            
             print("Antall tegn i city = " + (String(city.count) + " " + postalCode + " " + city) as Any)
+//            performSegue(withIdentifier: "goBackToPersonData", sender: self)
         } else {
             let melding = NSLocalizedString("You must select a postal code with a corresponding city",
                                             comment: "PostalCodeSearchViewController doneButton")
@@ -83,6 +84,27 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
         }
         
     }
+    
+//    @IBAction func doneButton(_ sender: Any) {
+//
+//        if city.count > 0 {
+//
+//            // Here are the selected values for code and city
+//            // Must be passed to Update Person
+//
+//          //            performSegue(withIdentifier: "goBackToPersonData", sender: self)
+//
+//            print("Antall tegn i city = " + (String(city.count) + " " + postalCode + " " + city) as Any)
+//        } else {
+//            let melding = NSLocalizedString("You must select a postal code with a corresponding city",
+//                                            comment: "PostalCodeSearchViewController doneButton")
+//
+//            self.presentAlert(withTitle: NSLocalizedString("Postal Codes",
+//                                                           comment: "PostalCodeSearchViewController doneButton"),
+//                              message: melding)
+//        }
+//
+//    }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -96,7 +118,11 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
                 }
             }
         }
-
+        
+        // Resetter postalCode and city
+        postalCode = ""
+        city = ""
+        
         // Set a checkmark at cellForRow and
         // Store the selected city and postalCode
         if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
@@ -110,6 +136,20 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchPostelCode.endEditing(true)
         searchPostelCode.text = ""
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("Antall tegn i city = " + (String(city.count) + " " + postalCode + " " + city) as Any)
+        
+        if city.count == 0 {
+           city = oldCity
+        }
+        
+        if postalCode.count == 0 {
+           postalCode = oldPostalCode
+        }
+        
     }
     
 }

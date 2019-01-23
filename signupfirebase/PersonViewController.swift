@@ -62,9 +62,15 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         activity.hidesWhenStopped = true
         activity.style = .gray
         view.addSubview(activity)
+        
+        // Set the global variables
+        city = cityInput.text!
+        postalCode = postalCodeNumberInput.text!
+
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        
         // Observe keyboard change
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeAddPerson(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeAddPerson(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -89,10 +95,21 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         genderInput.selectedSegmentIndex = PersonGenderInt
         lastNameInput.text = PersonLastNameText
         
-        cityInput.text = PersonCityText
         phoneNumberInput.text = formatPhone(phone: PersonPhoneNumberText)
+        
+        //
+        
+        cityInput.text = PersonCityText
         postalCodeNumberInput.text = PersonPostalCodeNumberText
         
+        if (city.count > 0) {
+            
+            print("city.count > 0")
+            
+            cityInput.text = city
+            postalCodeNumberInput.text = postalCode
+        }
+
         // Convert PersonDateOfBirthText to the initial datoValg.date
         let formatter = DateFormatter()
         formatter.dateStyle = .long
