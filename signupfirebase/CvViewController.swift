@@ -87,30 +87,46 @@ class CvViewController: UIViewController {
               . via swipeTrailing
            c) Sette dateValg.date = PersonDateOfBirthTextslik at riktig dateValg vises
            d) Søkefunksjon i PersonViewController (må nå søke på hele navnet)
-        
-        7. Nye oppgaver (ikke fullført)
-           a) Erstatte Navn med Fornavn og Etternavn i view
+           e) Erstatte Navn med Fornavn og Etternavn i view
               . Oppdatere Firebase
               . Oppdatere Lagre, oppdatere, hente og slette i Firebase
-           b) Legge inn telefon nummer
-             . Oppdatere Firebase
-             . Oppdatere Lagre, oppdatere, hente og slette i Firebase
-           c) Søkefunksjon i PersonViewController (kan søke på fornavn, både for- og etternavn)
-           d) Legge inn postnr og poststed inn i PersonViewController
+           f) Legge inn telefon nummer
+              , Formattere -> 123 45 678
+              . Oppdatere Firebase
+              . Oppdatere Lagre, oppdatere, hente og slette i Firebase
+           h) Søkefunksjon i PersonViewController (kan kun søke på fornavn)
+        
+        7. Nye oppgaver (ikke fullført)
+           a) Legge inn postnr og poststed inn i PersonViewController
               . https://www.bring.no/radgivning/sende-noe/adressetjenester/postnummer/
               . Hent .Excel format (xlsx)
               . Legg ut som .csv fil via Excel (Problemer med Tab-separerte felter (ANSI))
               . Lese .csv og legg inn i CoreData (Firebase)
               . Eventuelt legge disse inn i et array for raskt søk uten hjelp av database
-           e) Legge inn Bilde i PersonViewController
-           f) Legge inn Kart i PersonViewController
-           g) Oppdatere security i Firebase
-           h) Firestore
+           b) Søkefunksjon i PersonViewController (kan søke på fornavn, både for- og etternavn)
+           c) Legge inn Bilde i PersonViewController
+           d) Legge inn Kart i PersonViewController
+           e) Oppdatere security i Firebase
+           f) Firestore
               . https://firebase.google.com/docs/firestore/data-model
               . Har gode queriesProgrammerings oppgaver:
+        
+        8. Progrmmerings tips
+           a) SearchBar Xcode
+              . Show Search Results Button
+                .. searchBarResultsListButtonClicked()
+              . Show Booksmark Button
+                .. searchBarBookmarkButtonClicked()
+              . Show Cancel Button
+                .. searchBarCancelButtonClicked()
+              . Show scope Button
+                ..
+        
         
         """
         
     }
+    
+    
     
 }
