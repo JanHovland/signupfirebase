@@ -16,8 +16,8 @@
 /* Class = "UINavigationItem"; title = "Firebase"; ObjectID = "36M-OI-ehN"; */
 "36M-OI-ehN.title" = "Firebase";
 
-/* Class = "UISearchBar"; placeholder = "Search for a person by name"; ObjectID = "92V-9z-yz6"; */
-"92V-9z-yz6.placeholder" = "Søk etter en person med navn";
+/* Class = "UISearchBar"; placeholder = "Search for a person ..."; ObjectID = "92V-9z-yz6"; */
+"92V-9z-yz6.placeholder" = "Søk etter en person ...";
 
 /* Class = "UILabel"; text = "Update user name"; ObjectID = "99T-f0-Rez"; */
 "99T-f0-Rez.text" = "Oppdater brukernavn";
@@ -136,6 +136,9 @@
 /* Class = "UILabel"; text = "City"; ObjectID = "PJT-Cn-HsF"; */
 "PJT-Cn-HsF.text" = "By";
 
+/* Class = "UINavigationItem"; title = "Postal Codes"; ObjectID = "Pw2-ly-6Dv"; */
+"Pw2-ly-6Dv.title" = "Postnummer";
+
 /* Class = "UILabel"; text = "New name"; ObjectID = "qQS-3C-C61"; */
 "qQS-3C-C61.text" = "Nytt navn";
 
@@ -192,6 +195,9 @@
 
 /* Class = "UILabel"; text = "userInfo"; ObjectID = "WJH-PP-AVI"; */
 "WJH-PP-AVI.text" = "userInfo";
+
+/* Class = "UISearchBar"; placeholder = "Search for a city ..."; ObjectID = "wwm-fT-0XP"; */
+"wwm-fT-0XP.placeholder" = "Søk etter et sted ...";
 
 /* Class = "UILabel"; text = "Password"; ObjectID = "X3x-Cl-KO1"; */
 "X3x-Cl-KO1.text" = "Passord";

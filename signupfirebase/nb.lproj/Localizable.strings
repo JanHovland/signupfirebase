@@ -85,6 +85,9 @@
 /* ResetPWByMailViewController.swift viewDidLoad */
 "Please note that the included link is time limited!" = "Legg merke til at linken i ePosten er tidsbegrenset!";
 
+/* PostalCodeSearchViewController doneButton */
+"Postal Codes" = "Postnummer";
+
 /* UpdatePasswordViewVontroller.swift SaveNewPassword */
 "Return to login in " = "Retur til login om ";
 
