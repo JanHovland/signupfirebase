@@ -36,8 +36,6 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
         oldCity = city
         oldPostalCode = postalCode
         
-        
-        
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -68,12 +66,10 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
         searching = true
         tableView.reloadData()
     }
-
-    
+   
     func searchBarResultsListButtonClicked(_ searchBar: UISearchBar) {
         if city.count > 0 {
             print("Antall tegn i city = " + (String(city.count) + " " + postalCode + " " + city) as Any)
-//            performSegue(withIdentifier: "goBackToPersonData", sender: self)
         } else {
             let melding = NSLocalizedString("You must select a postal code with a corresponding city",
                                             comment: "PostalCodeSearchViewController doneButton")
@@ -85,27 +81,6 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
         
     }
     
-//    @IBAction func doneButton(_ sender: Any) {
-//
-//        if city.count > 0 {
-//
-//            // Here are the selected values for code and city
-//            // Must be passed to Update Person
-//
-//          //            performSegue(withIdentifier: "goBackToPersonData", sender: self)
-//
-//            print("Antall tegn i city = " + (String(city.count) + " " + postalCode + " " + city) as Any)
-//        } else {
-//            let melding = NSLocalizedString("You must select a postal code with a corresponding city",
-//                                            comment: "PostalCodeSearchViewController doneButton")
-//
-//            self.presentAlert(withTitle: NSLocalizedString("Postal Codes",
-//                                                           comment: "PostalCodeSearchViewController doneButton"),
-//                              message: melding)
-//        }
-//
-//    }
-
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 

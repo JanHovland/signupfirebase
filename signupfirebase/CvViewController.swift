@@ -119,14 +119,11 @@ class CvViewController: UIViewController {
                 .. searchBarBookmarkButtonClicked()
               . Show Cancel Button
                 .. searchBarCancelButtonClicked()
-              . Show scope Button
-                ..
+           b)
         
         
         """
         
     }
-    
-    
     
 }

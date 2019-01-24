@@ -273,7 +273,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         }
             
         searchBarPerson.endEditing(true)
-        searchBarPerson.text = ""
+        // searchBarPerson.text = ""
 
     }
     

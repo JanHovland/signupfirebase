@@ -97,15 +97,10 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         
         phoneNumberInput.text = formatPhone(phone: PersonPhoneNumberText)
         
-        //
-        
         cityInput.text = PersonCityText
         postalCodeNumberInput.text = PersonPostalCodeNumberText
         
         if (city.count > 0) {
-            
-            print("city.count > 0")
-            
             cityInput.text = city
             postalCodeNumberInput.text = postalCode
         }
