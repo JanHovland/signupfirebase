@@ -1222,6 +1222,8 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
         tableView.deselectRow(at: indexPath, animated: true)
 
         // Delete all checkmarks
+        checked = Array(repeating: false, count: postalCodes.count)
+        
         let rowCount = tableView.numberOfRows(inSection: 0)
         for index in 0 ... rowCount {
             if let cell = tableView.cellForRow(at: NSIndexPath(row: index, section: 0) as IndexPath) {
