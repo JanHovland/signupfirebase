@@ -1185,6 +1185,10 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
         oldPostalCode = postalCode
         
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        postalCodes.sort(by: {$0.city < $1.city})
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searching {
