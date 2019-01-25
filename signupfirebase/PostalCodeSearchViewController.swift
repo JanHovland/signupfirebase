@@ -1171,13 +1171,10 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
 
     var searchedPostalCodes = [PostalCode]()
     var searching = false
-    var checked = [Bool]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Set all checkmarks to false
-        checked = Array(repeating: false, count: postalCodes.count)
         searchPostelCode.delegate = self
         
         oldCity = city
@@ -1185,10 +1182,6 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
         
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        checked = Array(repeating: false, count: postalCodes.count)
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searching {
             return searchedPostalCodes.count
@@ -1215,15 +1208,25 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchedPostalCodes = postalCodes.filter({ $0.city.prefix(searchText.count) == searchText })
         searching = true
-        tableView.reloadData()
+        
+        // Delete all checkmarks in the ctive tableView
+        let rowCount = self.tableView.numberOfRows(inSection: 0)
+        for index in 0 ... rowCount {
+            if let cell = self.tableView.cellForRow(at: NSIndexPath(row: index, section: 0) as IndexPath) {
+                if cell.accessoryType == .checkmark {
+                    cell.accessoryType = .none
+                }
+            }
+        }
+        
+        
+        // tableView.reloadData()
     }
    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
-        // Delete all checkmarks
-        checked = Array(repeating: false, count: postalCodes.count)
-        
+        // Delete all checkmarks in the ctive tableView
         let rowCount = tableView.numberOfRows(inSection: 0)
         for index in 0 ... rowCount {
             if let cell = tableView.cellForRow(at: NSIndexPath(row: index, section: 0) as IndexPath) {
@@ -1232,7 +1235,7 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
                 }
             }
         }
-        
+
         // Resetter postalCode and city
         postalCode = ""
         city = ""
@@ -1265,5 +1268,18 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
         }
         
     }
+    
+    // Tell the delegatewhen the scroll view is about to start scrolling the content
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        let rowCount = self.tableView.numberOfRows(inSection: 0)
+        for index in 0 ... rowCount {
+            if let cell = self.tableView.cellForRow(at: NSIndexPath(row: index, section: 0) as IndexPath) {
+                if cell.accessoryType == .checkmark {
+                    cell.accessoryType = .none
+                }
+            }
+        }
+   }
+
     
 }
