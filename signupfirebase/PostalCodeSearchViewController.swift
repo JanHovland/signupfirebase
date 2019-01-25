@@ -14,6 +14,7 @@ var postalCode = ""
 var oldPostalCode = ""
 
 class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+
     var postalCodes: [PostalCode] = [
         PostalCode(code: "0001", city: "Oslo"),
         PostalCode(code: "1300", city: "Sandvika"),
@@ -1175,6 +1176,9 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Sorting the postalCodes array on city
+        postalCodes.sort(by: {$0.city < $1.city})
+        
         searchPostelCode.delegate = self
         
         oldCity = city

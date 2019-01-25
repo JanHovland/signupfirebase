@@ -54,12 +54,12 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         tableView.delegate = self
         tableView.dataSource = self
         searchBarPerson.delegate = self
+        
     }
 
     override func viewDidAppear(_ animated: Bool) {
         // Get the posts from Firebase
         ReadPersonsFiredata(search: false, searchValue: "")
-        
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -188,6 +188,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             // Update the posts array
             self.persons = tempPersons
             
+            // Sorting the persons array on firstName
+            self.persons.sort(by: {$0.personData.firstName < $1.personData.firstName})
             
             // Fill the table view
             self.tableView.reloadData()

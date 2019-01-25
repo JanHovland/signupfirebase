@@ -96,21 +96,25 @@ class CvViewController: UIViewController {
               . Oppdatere Lagre, oppdatere, hente og slette i Firebase
            h) Søkefunksjon i PersonViewController (kan kun søke på fornavn)
            i) Endret høyden på scrollview Curriculum Vitae til 3000
+           j) Ta bort avhukinger etter scroll utenfor view vha func scrollViewWillBeginDragging(_ scrollView: UIScrollView)
+              som kaller deleteAllCheckmarks()
+           k) Sorterer begge array
+              . self.persons.sort(by: {$0.personData.firstName < $1.personData.firstName})
+              . postalCodes.sort(by: {$0.city < $1.city})
         
         7. Nye oppgaver (ikke fullført)
-           a) Ta bort avhukinger etter scroll utenfor view. Må legge inn en status i PostalCode array
-           b) Legge inn postnr og poststed inn i PersonViewController
+           a) Legge inn postnr og poststed inn i PersonViewController
               . Det er problemer med å bruke array, da compileren kun tillater opptil en viss størrelse
               . https://www.bring.no/radgivning/sende-noe/adressetjenester/postnummer/
               . Hent .Excel format (xlsx)
               . Legg ut som .csv fil via Excel (Problemer med Tab-separerte felter (ANSI))
               . Lese .csv og legg inn i CoreData (Firebase)
               . Eventuelt legge disse inn i et array for raskt søk uten hjelp av database
-           c) Søkefunksjon i PersonViewController (kan søke på fornavn, både for- og etternavn)
-           d) Legge inn Bilde i PersonViewController
-           e) Legge inn Kart i PersonViewController
-           f) Oppdatere security i Firebase
-           g) Firestore
+           b) Søkefunksjon i PersonViewController (kan søke på fornavn, både for- og etternavn)
+           c) Legge inn Bilde i PersonViewController
+           d) Legge inn Kart i PersonViewController
+           e) Oppdatere security i Firebase
+           f) Firestore
               . https://firebase.google.com/docs/firestore/data-model
               . Har gode queriesProgrammerings oppgaver:
         
