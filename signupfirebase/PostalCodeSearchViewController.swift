@@ -1205,10 +1205,8 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
         return cell!
     }
 
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchedPostalCodes = postalCodes.filter({ $0.city.prefix(searchText.count) == searchText })
-        searching = true
-        
+    func deleteAllCheckmarks() {
+    
         // Delete all checkmarks in the ctive tableView
         let rowCount = self.tableView.numberOfRows(inSection: 0)
         for index in 0 ... rowCount {
@@ -1218,23 +1216,24 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
                 }
             }
         }
-        
-        
-        // tableView.reloadData()
+       
+        tableView.reloadData()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchedPostalCodes = postalCodes.filter({ $0.city.prefix(searchText.count) == searchText })
+        searching = true
+       
+        // Delete all checkmarks in the ctive tableView
+        deleteAllCheckmarks()
+
     }
    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
         // Delete all checkmarks in the ctive tableView
-        let rowCount = tableView.numberOfRows(inSection: 0)
-        for index in 0 ... rowCount {
-            if let cell = tableView.cellForRow(at: NSIndexPath(row: index, section: 0) as IndexPath) {
-                if cell.accessoryType == .checkmark {
-                    cell.accessoryType = .none
-                }
-            }
-        }
+        deleteAllCheckmarks()
 
         // Resetter postalCode and city
         postalCode = ""
@@ -1271,15 +1270,8 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
     
     // Tell the delegatewhen the scroll view is about to start scrolling the content
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        let rowCount = self.tableView.numberOfRows(inSection: 0)
-        for index in 0 ... rowCount {
-            if let cell = self.tableView.cellForRow(at: NSIndexPath(row: index, section: 0) as IndexPath) {
-                if cell.accessoryType == .checkmark {
-                    cell.accessoryType = .none
-                }
-            }
-        }
+        // Delete all checkmarks in the ctive tableView
+        deleteAllCheckmarks()
    }
-
     
 }
