@@ -9,30 +9,30 @@
 import UIKit
 
 class PersonViewController: UIViewController, UITextFieldDelegate {
-    @IBOutlet weak var addressInput: UITextField!
-    @IBOutlet weak var cityInput: UITextField!
-    @IBOutlet weak var dateOfBirthInput: UITextField!
-    @IBOutlet weak var firstNameInput: UITextField!
-    @IBOutlet weak var genderInput: UISegmentedControl!
-    @IBOutlet weak var lastNameInput: UITextField!
-    @IBOutlet weak var phoneNumberInput: UITextField!
-    @IBOutlet weak var postalCodeNumberInput: UITextField!
-    
+    @IBOutlet var addressInput: UITextField!
+    @IBOutlet var cityInput: UITextField!
+    @IBOutlet var dateOfBirthInput: UITextField!
+    @IBOutlet var firstNameInput: UITextField!
+    @IBOutlet var genderInput: UISegmentedControl!
+    @IBOutlet var lastNameInput: UITextField!
+    @IBOutlet var phoneNumberInput: UITextField!
+    @IBOutlet var postalCodeNumberInput: UITextField!
+
     @IBOutlet var activity: UIActivityIndicatorView!
+
+    var PersonTitle = ""
+    var PersonOption = 0 // 0 = save 1 = update
 
     // These vaiables get their values from MainPersonDataViewController.swift
     var PersonIdText = ""
     var PersonAddressText = ""
-    var PersonCityText  = ""
+    var PersonCityText = ""
     var PersonDateOfBirthText = ""
     var PersonFirstNameText = ""
     var PersonGenderInt = 0
     var PersonLastNameText = ""
     var PersonPhoneNumberText = ""
     var PersonPostalCodeNumberText = ""
-    
-    var PersonTitle = ""
-    var PersonOption = 0 // 0 = save 1 = update
 
     let datoValg = UIDatePicker()
 
@@ -62,15 +62,20 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         activity.hidesWhenStopped = true
         activity.style = .gray
         view.addSubview(activity)
-        
+
         // Set the global variables
         city = cityInput.text!
         postalCode = postalCodeNumberInput.text!
+    }
 
+    override func viewWillAppear(_ animated: Bool) {
+        // Show the Navigation Bar
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        
+        navigationController?.setNavigationBarHidden(false, animated: true)
+
         // Observe keyboard change
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeAddPerson(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeAddPerson(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -82,25 +87,64 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
             loginStatus.text = showUserInfo(startUp: true)
         }
 
-        addressInput.text = PersonAddressText
-        dateOfBirthInput.text = PersonDateOfBirthText
-        firstNameInput.text = PersonFirstNameText
-
-        if PersonGenderInt == 0 {
-            genderInput.setTitle("Man", forSegmentAt: PersonGenderInt)
-        } else if PersonGenderInt == 1 {
-            genderInput.setTitle("Woman", forSegmentAt: PersonGenderInt)
+        if globalPersonAddressText.count > 0 {
+            addressInput.text = globalPersonAddressText
+        } else {
+            addressInput.text = PersonAddressText
         }
 
-        genderInput.selectedSegmentIndex = PersonGenderInt
-        lastNameInput.text = PersonLastNameText
-        
-        phoneNumberInput.text = formatPhone(phone: PersonPhoneNumberText)
-        
+        if globalPersonDateOfBirthText.count > 0 {
+            dateOfBirthInput.text = globalPersonDateOfBirthText
+        } else {
+            dateOfBirthInput.text = PersonDateOfBirthText
+        }
+
+        // Use the global variables been set in PostalCodeSearchViewController
+        if globalPersonFirstNameText.count > 0 {
+            firstNameInput.text = globalPersonFirstNameText
+        } else {
+            firstNameInput.text = PersonFirstNameText
+        }
+
+        if globalPersonGenderInt != -1 {
+            if globalPersonGenderInt == 0 {
+                genderInput.setTitle(NSLocalizedString("Man", comment: "PersonViewVontroller.swift viewDidAppear "),
+                                     forSegmentAt: globalPersonGenderInt)
+            } else if globalPersonGenderInt == 1 {
+                genderInput.setTitle(NSLocalizedString("Woman", comment: "PersonViewVontroller.swift viewDidAppear "),
+                                     forSegmentAt: globalPersonGenderInt)
+                genderInput.selectedSegmentIndex = globalPersonGenderInt
+            }
+        } else {
+            if PersonGenderInt == 0 {
+                genderInput.setTitle(NSLocalizedString("Man", comment: "PersonViewVontroller.swift viewDidAppear "),
+                                     forSegmentAt: PersonGenderInt)
+            } else if PersonGenderInt == 1 {
+                genderInput.setTitle(NSLocalizedString("Woman", comment: "PersonViewVontroller.swift viewDidAppear "),
+                                     forSegmentAt: PersonGenderInt)
+            }
+            genderInput.selectedSegmentIndex = PersonGenderInt
+        }
+
+        if globalPersonLastNameText.count > 0 {
+            lastNameInput.text = globalPersonLastNameText
+        } else {
+            lastNameInput.text = PersonLastNameText
+        }
+
+        if globalPersonPhoneNumberText.count > 0 {
+            //  phoneNumberInput.text = formatPhone(phone: globalPersonPhoneNumberText)
+            phoneNumberInput.text = globalPersonPhoneNumberText
+
+        } else {
+            //  phoneNumberInput.text = formatPhone(phone: PersonPhoneNumberText)
+            phoneNumberInput.text = PersonPhoneNumberText
+        }
+
         cityInput.text = PersonCityText
         postalCodeNumberInput.text = PersonPostalCodeNumberText
-        
-        if (city.count > 0) {
+
+        if city.count > 0 {
             cityInput.text = city
             postalCodeNumberInput.text = postalCode
         }
@@ -111,16 +155,15 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         formatter.timeStyle = .none
         let region = NSLocale.current.regionCode?.lowercased()
         formatter.locale = NSLocale(localeIdentifier: region!) as Locale
-        if (PersonDateOfBirthText.count > 0) {
+        if PersonDateOfBirthText.count > 0 {
             let date = formatter.date(from: PersonDateOfBirthText)
             if date != nil {
                 datoValg.date = date!
             }
         }
-        
+
         // Get the selected date from the DatePicker
         hentFraDatoValg()
-        
     }
 
     @objc func keyboardWillChangeAddPerson(notification: NSNotification) {
@@ -146,8 +189,9 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        phoneNumberInput.text = formatPhone(phone: phoneNumberInput.text!)
-        
+//        phoneNumberInput.text = formatPhone(phone: phoneNumberInput.text!)
+        phoneNumberInput.text = phoneNumberInput.text!
+
         activeField?.resignFirstResponder()
         activeField = nil
         return true
@@ -161,7 +205,8 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         dateOfBirthInput.resignFirstResponder()
         lastNameInput.resignFirstResponder()
         phoneNumberInput.resignFirstResponder()
-        phoneNumberInput.text = formatPhone(phone: phoneNumberInput.text!)
+//         phoneNumberInput.text = formatPhone(phone: phoneNumberInput.text!)
+        phoneNumberInput.text = phoneNumberInput.text!
         postalCodeNumberInput.resignFirstResponder()
     }
 
@@ -176,7 +221,8 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         let firstName = firstNameInput.text ?? ""
         let gender = genderInput.selectedSegmentIndex
         let lastName = lastNameInput.text ?? ""
-        let phoneNumber = formatPhone(phone: phoneNumberInput.text!)
+//        let phoneNumber = formatPhone(phone: phoneNumberInput.text!)
+        let phoneNumber = phoneNumberInput.text!
         let postalCodeNumber = postalCodeNumberInput.text ?? ""
 
         activity.startAnimating()
@@ -193,7 +239,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
                                lastName: lastName,
                                phoneNumber: phoneNumber,
                                postalCodeNumber: postalCodeNumber)
-            
+
         } else if PersonOption == 1 {
             updatePersonFiredata(id: PersonIdText,
                                  uid: value.0,
@@ -207,13 +253,12 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
                                  lastName: lastName,
                                  phoneNumber: phoneNumber,
                                  postalCodeNumber: postalCodeNumber)
-       }
+        }
 
         activity.stopAnimating()
     }
 
     func hentFraDatoValg() {
-
         let toolBarDatoValg = UIToolbar()
         toolBarDatoValg.sizeToFit()
 
@@ -229,7 +274,6 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         datoValg.datePickerMode = .date
         let region = NSLocale.current.regionCode?.lowercased()
         datoValg.locale = NSLocale(localeIdentifier: region!) as Locale
-        
     }
 
     @objc func hentDatoValg() {
@@ -259,6 +303,25 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         default: return
         }
     }
-    
-   
+
+    @IBAction func buttonPhone(_ sender: Any) {
+        print(phoneNumberInput.text!)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // 'prepare' will run after every segue.
+
+        if segue.identifier! == "goToPostalCodes" {
+            let vc = segue.destination as! PostalCodeSearchViewController
+
+            vc.postalCodeFirstNameText = firstNameInput.text!
+            vc.postalCodeLastNameText = lastNameInput.text!
+            vc.postalCodeAddressText = addressInput.text!
+            vc.postalCodePhoneNumberText = phoneNumberInput.text!
+            vc.postalCodePostalCodeNumberText = postalCodeNumberInput.text!
+            vc.postalCodeCityText = cityInput.text!
+            vc.postalCodeDateOfBirthText = dateOfBirthInput.text!
+            vc.postalCodeGenderInt = PersonGenderInt
+        }
+    }
 }

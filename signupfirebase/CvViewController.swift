@@ -28,6 +28,7 @@ class CvViewController: UIViewController {
         Programmerings oppgaver:
         
         1. Xcode.
+        
            a) Opprette lisens hos Apple
            b) Bruke Xcode miljøet til å lage apper
            c) ViewController
@@ -45,17 +46,21 @@ class CvViewController: UIViewController {
              . Dersom en endrer på en label i en viewCell, sjekk at den gamle ikke ligger igjen i Main.storyboard
         
         2. Xcode editor
+        
            a) trykk alt + return for å legge inn linjeskift i et textField
         
         2. Swift.
+        
            a) Bruke Swift som programmeringsspråk.
            b) Bruke debugger
         
         3. GitHub.
+        
            a) Lagre via menypunktet Source Control/Commit
            b) Hente: https://github.com/JanHovland
         
         3. CoreData.
+        
            a) Oppdatere AppDelegate slik at directory vises i AppDelegate.swift
            b) Viser data med hjelp av applikasjonen "Datum"
            c) Bruke "Datum" for finne resultatet i CoreData av:
@@ -64,11 +69,12 @@ class CvViewController: UIViewController {
               . Update data
         
         4. UserDefault lagrer brukerspesifikke verdier.
+        
            a) "Show Password"
         
         5. Real time databasen Firebase fra Google.
-           a) Finnes på:
-              https://console.firebase.google.com/project/signupfirebase-236b9/database/firestore/data~2Fhttps://console.firebase.google.com/project/signupfirebase-236b9/database/firestore/data~2F
+        
+           a) Finnes på https://console.firebase.google.com/project/signupfirebase-236b9/database/firestore/data~2Fhttps://console.firebase.google.com/project/signupfirebase-236b9/database/firestore/data~2F
            b) Bruke Authentication i Firebase
               . Benytter epost og passord for pålogging
            c) Bruke Firebase databasen for:
@@ -80,6 +86,7 @@ class CvViewController: UIViewController {
              . passord
         
         6. Endringer
+        
            a) Update i Firebase
               . Via swipeLeading ved indirekte segue to PersonViewController
               . Via direkte segue to PersonViewController
@@ -103,6 +110,7 @@ class CvViewController: UIViewController {
               . postalCodes.sort(by: {$0.city < $1.city})
         
         7. Nye oppgaver (ikke fullført)
+        
            a) Legge inn postnr og poststed inn i PersonViewController
               . Det er problemer med å bruke array, da compileren kun tillater opptil en viss størrelse
               . https://www.bring.no/radgivning/sende-noe/adressetjenester/postnummer/
@@ -118,7 +126,8 @@ class CvViewController: UIViewController {
               . https://firebase.google.com/docs/firestore/data-model
               . Har gode queriesProgrammerings oppgaver:
         
-        8. Progrmmerings tips
+        8. Programmerings tips
+        
            a) SearchBar Xcode
               . Show Search Results Button
                 .. searchBarResultsListButtonClicked()
@@ -127,6 +136,15 @@ class CvViewController: UIViewController {
               . Show Cancel Button
                 .. searchBarCancelButtonClicked()
            b)
+        
+        9. Feil som må rettes
+        
+           a) Format av telefon er kommentert bort, må rettes og implementeres
+           b) OK Update: visningen krøller seg til
+                 . Dette skyldes sammenslåing av firstName og lastName, forsvant da jeg splittet til 2 labels
+                   Kan være at den labelName skulle vært satt til "" for nye data leses inn
+           c) Det kan legges inn flere like poster
+        
         
         
         """

@@ -18,24 +18,20 @@ import UIKit
  "person": {
  ".read": "auth.uid != null",
  ".write": "auth.uid != null",
- ".indexOn" : ["uid", "name", "address", "dateOfBirth"]
- }
- }
- }
-
- This is working:
- 
- {
- "rules": {
- "person": {
- ".read": "auth.uid != null",
- ".write": "auth.uid != null",
- ".indexOn" : "personData/name"
+ ".indexOn" : ["personData/firstName", "personData/lastName", "personData/address"]
  }
  }
  }
  
 */
+
+// Global variables
+var globalPersonAddressText =  ""
+var globalPersonDateOfBirthText = ""
+var globalPersonFirstNameText = ""
+var globalPersonGenderInt = -1
+var globalPersonLastNameText = ""
+var globalPersonPhoneNumberText = ""
 
 class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate  {
     
@@ -55,11 +51,16 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         tableView.dataSource = self
         searchBarPerson.delegate = self
         
+        ReadPersonsFiredata(search: false, searchValue: "")
+        
+        tableView.reloadData()
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        
         // Get the posts from Firebase
         ReadPersonsFiredata(search: false, searchValue: "")
+        
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -71,9 +72,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PersonDataTableViewCell
 
         // If you change a label in a viewCell, check Main.storyboard and delete the old value of the label
-        
-        cell.nameLabel?.text = persons[indexPath.row].personData.firstName + " " +
-                               persons[indexPath.row].personData.lastName
+        cell.firstNameLabel?.text = persons[indexPath.row].personData.firstName
+        cell.lastNameLabel?.text = persons[indexPath.row].personData.lastName
         cell.addressLabel?.text = persons[indexPath.row].personData.address
 
         return cell
@@ -181,7 +181,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                                         timestamp: timestamp)
 
                     tempPersons.append(person)
-                   
+
                 }
             }
 
@@ -196,13 +196,19 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
 
         })
         
-            
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // 'prepare' will run after every segue.
-        
         if segue.identifier! == "gotoUpdatePerson" {
+            
+            // Resetter globale variabler
+            globalPersonAddressText =  ""
+            globalPersonDateOfBirthText = ""
+            globalPersonFirstNameText = ""
+            globalPersonGenderInt = -1
+            globalPersonLastNameText = ""
+            globalPersonPhoneNumberText = ""
             
             // Find the indexPath.row for the cell which is selected
             if let indexPath = tableView.indexPathForSelectedRow {
@@ -271,14 +277,11 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         if searchBarPerson.text!.count > 0 {
             ReadPersonsFiredata(search: true, searchValue: searchBarPerson.text!)
         } else {
-            ReadPersonsFiredata(search: false, searchValue: searchBarPerson.text!)
+            ReadPersonsFiredata(search: false, searchValue: "")
         }
             
         searchBarPerson.endEditing(true)
-        // searchBarPerson.text = ""
 
     }
-    
-    
    
 }

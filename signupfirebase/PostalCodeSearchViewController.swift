@@ -1173,6 +1173,15 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
     var searchedPostalCodes = [PostalCode]()
     var searching = false
     
+    var postalCodeAddressText = ""
+    var postalCodeCityText  = ""
+    var postalCodeDateOfBirthText = ""
+    var postalCodeFirstNameText = ""
+    var postalCodeGenderInt = 0
+    var postalCodeLastNameText = ""
+    var postalCodePhoneNumberText = ""
+    var postalCodePostalCodeNumberText = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -1188,6 +1197,11 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
     
     override func viewDidAppear(_ animated: Bool) {
         postalCodes.sort(by: {$0.city < $1.city})
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // Show the Navigation Bar
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -1264,7 +1278,6 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        print("Antall tegn i city = " + (String(city.count) + " " + postalCode + " " + city) as Any)
         
         if city.count == 0 {
            city = oldCity
@@ -1274,7 +1287,14 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
            postalCode = oldPostalCode
         }
         
-    }
+        globalPersonFirstNameText = postalCodeFirstNameText
+        globalPersonLastNameText = postalCodeLastNameText
+        globalPersonAddressText = postalCodeAddressText
+        globalPersonPhoneNumberText = postalCodePhoneNumberText
+        globalPersonDateOfBirthText = postalCodeDateOfBirthText
+        globalPersonGenderInt = postalCodeGenderInt
+        
+   }
     
     // Tell the delegatewhen the scroll view is about to start scrolling the content
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
