@@ -133,11 +133,9 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         }
 
         if globalPersonPhoneNumberText.count > 0 {
-            //  phoneNumberInput.text = formatPhone(phone: globalPersonPhoneNumberText)
             phoneNumberInput.text = globalPersonPhoneNumberText
 
         } else {
-            //  phoneNumberInput.text = formatPhone(phone: PersonPhoneNumberText)
             phoneNumberInput.text = PersonPhoneNumberText
         }
 
@@ -171,14 +169,17 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
             return
         }
 
-        let distanceToBottom = view.frame.size.height - (activeField?.frame.origin.y)! - (activeField?.frame.size.height)!
+        if activeField != nil {
+        
+            let distanceToBottom = view.frame.size.height - (activeField?.frame.origin.y)! - (activeField?.frame.size.height)!
 
-        if keyboardRect.height > distanceToBottom {
-            if notification.name == UIResponder.keyboardWillShowNotification ||
-                notification.name == UIResponder.keyboardWillChangeFrameNotification {
-                view.frame.origin.y = -(keyboardRect.height - distanceToBottom)
-            } else {
-                view.frame.origin.y = 0
+            if keyboardRect.height > distanceToBottom {
+                if notification.name == UIResponder.keyboardWillShowNotification ||
+                    notification.name == UIResponder.keyboardWillChangeFrameNotification {
+                    view.frame.origin.y = -(keyboardRect.height - distanceToBottom)
+                } else {
+                    view.frame.origin.y = 0
+                }
             }
         }
     }
@@ -189,9 +190,11 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        phoneNumberInput.text = formatPhone(phone: phoneNumberInput.text!)
-        phoneNumberInput.text = phoneNumberInput.text!
-
+        // Dismiss the keyboard when the return button on the keyboard is pressed
+        
+        if textField.text! == phoneNumberInput.text! {
+            phoneNumberInput.text = formatPhone(phone: phoneNumberInput.text!)
+        }
         activeField?.resignFirstResponder()
         activeField = nil
         return true
@@ -205,8 +208,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         dateOfBirthInput.resignFirstResponder()
         lastNameInput.resignFirstResponder()
         phoneNumberInput.resignFirstResponder()
-//         phoneNumberInput.text = formatPhone(phone: phoneNumberInput.text!)
-        phoneNumberInput.text = phoneNumberInput.text!
+        phoneNumberInput.text = formatPhone(phone: phoneNumberInput.text!)
         postalCodeNumberInput.resignFirstResponder()
     }
 
@@ -221,8 +223,10 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         let firstName = firstNameInput.text ?? ""
         let gender = genderInput.selectedSegmentIndex
         let lastName = lastNameInput.text ?? ""
-//        let phoneNumber = formatPhone(phone: phoneNumberInput.text!)
-        let phoneNumber = phoneNumberInput.text!
+        
+        // Check the telephone number
+        let phoneNumber = formatPhone(phone: phoneNumberInput.text!)
+ 
         let postalCodeNumber = postalCodeNumberInput.text ?? ""
 
         activity.startAnimating()

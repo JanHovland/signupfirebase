@@ -34,7 +34,7 @@
 /* Class = "UITextField"; placeholder = "Enter the last name"; ObjectID = "BCQ-eL-2pN"; */
 "BCQ-eL-2pN.placeholder" = "Legg inn etternavnet";
 
-/* Class = "UILabel"; text = "Name"; ObjectID = "bfO-dL-I5s"; */
+/* Class = "UILabel"; text = "firstNameLabel"; ObjectID = "bfO-dL-I5s"; */
 "bfO-dL-I5s.text" = "Navn";
 
 /* Class = "UILabel"; text = "Name"; ObjectID = "boK-pG-XnU"; */
@@ -79,7 +79,7 @@
 /* Class = "UITabBarItem"; title = "Login"; ObjectID = "Gl8-LX-VoP"; */
 "Gl8-LX-VoP.title" = "Logg inn";
 
-/* Class = "UILabel"; text = "Address"; ObjectID = "GoA-hY-uI8"; */
+/* Class = "UILabel"; text = "addressLabel"; ObjectID = "GoA-hY-uI8"; */
 "GoA-hY-uI8.text" = "Adresse";
 
 /* Class = "UILabel"; text = "Old password"; ObjectID = "h3M-sf-tUf"; */

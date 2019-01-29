@@ -575,35 +575,104 @@ extension UIViewController {
         }
     }
     
-//    func formatPhone(phone: String) -> String {
-//
-//        if phone.count == 8 {
-//
-//            // Check that there are no spaces
-//
-//            let index2 = phone.index(phone.startIndex, offsetBy: 2)
-//            let index3 = phone.index(phone.startIndex, offsetBy: 3)
-//            let index4 = phone.index(phone.startIndex, offsetBy: 4)
-//            let index5 = phone.index(phone.startIndex, offsetBy: 5)
-//
-//            return String(phone[...index2]) + " " +
-//                   String(phone[index3...index4]) + " " +
-//                   String(phone[index5...])
-//        } else if phone.count == 10 {
-//            // Check the formatting with 2 spaces
-//            return phone
-//        } else {
-//
-//            let melding = "\r\n" + NSLocalizedString("The phone number is not valid.",
-//                                                     comment: "DataBaseExtension.swift formatPhone")
-//
-//            self.presentAlert(withTitle: NSLocalizedString("Error",
-//                                                           comment: "DataBaseExtension.swift formatPhone"),
-//                              message: melding)
-//
-//        }
-//
-//        return ""
-//    }
+    func formatPhone(phone: String) -> String {
+
+        if phone.count == 8 {
+        
+            // Check that there are no spaces
+            if (isNumeric(string: phone)) {
+
+                let index2 = phone.index(phone.startIndex, offsetBy: 2)
+                let index3 = phone.index(phone.startIndex, offsetBy: 3)
+                let index4 = phone.index(phone.startIndex, offsetBy: 4)
+                let index5 = phone.index(phone.startIndex, offsetBy: 5)
+
+                return String(phone[...index2]) + " " +
+                       String(phone[index3...index4]) + " " +
+                       String(phone[index5...])
+            } else {
+              showAlert()
+            }
+            
+        } else if phone.count == 10 {
+            
+            // Check the formatting with 2 spaces
+            
+            let idx2 = phone.index(phone.startIndex, offsetBy: 2)
+            let idx3 = phone.index(phone.startIndex, offsetBy: 3)
+            let idx4 = phone.index(phone.startIndex, offsetBy: 4)
+            let idx5 = phone.index(phone.startIndex, offsetBy: 5)
+            let idx6 = phone.index(phone.startIndex, offsetBy: 6)
+            let idx7 = phone.index(phone.startIndex, offsetBy: 7)
+            
+            let t1 = String(phone[...idx2])
+            
+            print("t1 = \(t1)")
+            
+            if isNumeric(string: t1) == true {
+                
+                let t2 = String(phone[idx3...idx3])
+                
+                print("t2 = \(t2)")
+                
+                if t2 == " " {
+                    let t3 = String(phone[idx4...idx5])
+                    print("t3 = \(t3)")
+                    
+                    if isNumeric(string: t3) == true {
+                        
+                        let t4 = String(phone[idx6...idx6])
+                        
+                        print("t4 = \(t4)")
+                        
+                        if t4 == " " {
+                            let t5 = String(phone[idx7...])
+                            
+                            print("t5 = \(t5)")
+                            
+                            if isNumeric(string: t5) == true {
+                                
+                                print(isNumeric(string: t5))
+                                
+                                return phone
+                                
+                            } else {
+                                  showAlert()
+                            }
+                        } else {
+                          showAlert()
+                        }
+                        
+                    } else {
+                        showAlert()
+                    }
+                } else {
+                    showAlert()
+                }
+            } else {
+                showAlert()
+            }
+            
+        } else {
+          showAlert()
+        }
+
+        return phone
+    }
+    
+    // Returns true if the string is numeric
+    func isNumeric(string: String) -> Bool {
+        return Double(string) != nil
+    }
+    
+    // Show the alert
+    
+    func showAlert() {
+        let melding = "\r\n" + NSLocalizedString("The phonenumber must include 8 digits.\n\nFormat: 123 45 678",
+                                                 comment: "DataBaseExtension.swift formatPhone")
+        self.presentAlert(withTitle: NSLocalizedString("Invalid phone number",
+                                                       comment: "DataBaseExtension.swift formatPhone"),
+                          message: melding)
+    }
     
 }

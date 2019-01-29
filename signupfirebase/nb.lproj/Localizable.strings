@@ -36,7 +36,6 @@
    DataBaseExtension.swift deleteUserCoreData
    DataBaseExtension.swift findCoreData
    DataBaseExtension.swift findPasswordCoreData
-   DataBaseExtension.swift formatPhone
    DataBaseExtension.swift getCoreData
    DataBaseExtension.swift resetLoggedInCoreData
    DataBaseExtension.swift saveCoreData
@@ -71,6 +70,9 @@
 /* CreateAccountViewVontroller.swift SaveAccount */
 "Every field must have a value." = "Alle feltene må ha en verdi.";
 
+/* DataBaseExtension.swift formatPhone */
+"Invalid phone number" = "Feil format telefonnr";
+
 /* PersonViewVontroller.swift velgeKjonn 
    PersonViewVontroller.swift viewDidAppear */
 "Man" = "Mann";
@@ -97,9 +99,6 @@
    LoginViewVontroller.swift CheckLogin verdi
    UpdatePasswordViewVontroller.swift SaveNewPassword */
 "The password must contain minimum 6 characters" = "Passordet må inneholde minimum 6 tegn";
-
-/* DataBaseExtension.swift formatPhone */
-"The phone number is not valid." = "Ugyldig telefon nummer.";
 
 /* UpdateUserNameViewVontroller.swift SaveNewName */
 "The username must have a value." = "Navnet til brukeren kan ikke være tomt.";
