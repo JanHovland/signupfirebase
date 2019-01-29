@@ -36,5 +36,10 @@
       },
       "timestamp" : 1548541972335
     }
+  },
+  "postnr" : {
+    "id" : 12345,
+    "postnummer" : "0001",
+    "poststed" : "Oslo"
   }
 }

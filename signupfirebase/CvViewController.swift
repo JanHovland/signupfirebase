@@ -108,23 +108,22 @@ class CvViewController: UIViewController {
            k) Sorterer begge array
               . self.persons.sort(by: {$0.personData.firstName < $1.personData.firstName})
               . postalCodes.sort(by: {$0.city < $1.city})
-        
-        7. Nye oppgaver (ikke fullført)
-        
-           a) Legge inn postnr og poststed inn i PersonViewController
+           l) Legge inn postnr og poststed inn i PersonViewController
               . Det er problemer med å bruke array, da compileren kun tillater opptil en viss størrelse
               . https://www.bring.no/radgivning/sende-noe/adressetjenester/postnummer/
               . Hent .Excel format (xlsx)
               . Legg ut som .csv fil via Excel (Problemer med Tab-separerte felter (ANSI))
-              . Lese .csv og legg inn i CoreData (Firebase)
-              . Eventuelt legge disse inn i et array for raskt søk uten hjelp av database
-           b) Søkefunksjon i PersonViewController (kan søke på fornavn, både for- og etternavn)
-           c) Legge inn Bilde i PersonViewController
-           d) Legge inn Kart i PersonViewController
-           e) Oppdatere security i Firebase
-           f) Firestore
-              . https://firebase.google.com/docs/firestore/data-model
-              . Har gode queriesProgrammerings oppgaver:
+           m) Legge en del av postnr og poststed inn i et array for raskt søk uten hjelp av database
+           m) Søkefunksjon i PersonViewController på kun fornavn eller etternavn)
+           n) OK Update: visningen krøller seg til
+              . Dette skyldes sammenslåing av firstName og lastName, forsvant da jeg splittet til 2 labels
+                Kan være at den labelName skulle vært satt til "" for nye data leses inn?
+        
+        7. Nye oppgaver (ikke fullført)
+        
+           a) Legge inn Bilde i PersonViewController
+           b) Legge inn Kart i PersonViewController
+           c) Oppdatere security i Firebase (er det samme for Firestore?)
         
         8. Programmerings tips
         
@@ -135,17 +134,19 @@ class CvViewController: UIViewController {
                 .. searchBarBookmarkButtonClicked()
               . Show Cancel Button
                 .. searchBarCancelButtonClicked()
-           b)
+        
+        9. Firestore
+           a) Informasjon
+              . https://firebase.google.com/docs/firestore/data-model
+              . Har gode queriesProgrammerings oppgaver:
+              . Søkefunksjon i Firestore i PersonViewController på både fornavn og/eller etternavn
+           b) Lese .csv filen med postnr og poststed inn i Firestore
         
         9. Feil som må rettes
         
            a) Format av telefon er kommentert bort, må rettes og implementeres
-           b) OK Update: visningen krøller seg til
-                 . Dette skyldes sammenslåing av firstName og lastName, forsvant da jeg splittet til 2 labels
-                   Kan være at den labelName skulle vært satt til "" for nye data leses inn
-           c) Det kan legges inn flere like poster
-        
-        
+              .Test gjenstår
+           b) Det kan legges inn flere like poster
         
         """
         

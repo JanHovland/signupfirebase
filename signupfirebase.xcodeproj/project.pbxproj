@@ -10,10 +10,12 @@
 		14B6C7D5AD5979888331B70D /* Pods_signupfirebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FA6AF44DDF6A6C8562A35A /* Pods_signupfirebase.framework */; };
 		D11114C821F5C30A00835CF4 /* PostalCodeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11114C721F5C30A00835CF4 /* PostalCodeSearchViewController.swift */; };
 		D11114CA21F5C68C00835CF4 /* PostalCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11114C921F5C68C00835CF4 /* PostalCode.swift */; };
-		D111E6A221FA09A700398F88 /* Postnummerregister.csv in Resources */ = {isa = PBXBuildFile; fileRef = D111E6A121FA09A700398F88 /* Postnummerregister.csv */; };
 		D11E2BD8219470D90075BD11 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D11E2BD6219470D90075BD11 /* Model.xcdatamodeld */; };
 		D1266D692199A72C00593984 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1266D682199A72C00593984 /* CreateAccountViewController.swift */; };
-		D12BAA6921F3676600B7C166 /* signupfirebase-236b9-export.json in Resources */ = {isa = PBXBuildFile; fileRef = D12BAA6821F3676500B7C166 /* signupfirebase-236b9-export.json */; };
+		D13172492200DF3500EEB530 /* Postnummerregister-Excel.csv in Resources */ = {isa = PBXBuildFile; fileRef = D13172472200DF3400EEB530 /* Postnummerregister-Excel.csv */; };
+		D131724A2200DF3500EEB530 /* csvjson.json in Resources */ = {isa = PBXBuildFile; fileRef = D13172482200DF3500EEB530 /* csvjson.json */; };
+		D131724C2200E23C00EEB530 /* signupfirebase-236b9-export.json in Resources */ = {isa = PBXBuildFile; fileRef = D131724B2200E23C00EEB530 /* signupfirebase-236b9-export.json */; };
+		D131724E2200E45200EEB530 /* signupfirebase-236b9-export-2.json in Resources */ = {isa = PBXBuildFile; fileRef = D131724D2200E45200EEB530 /* signupfirebase-236b9-export-2.json */; };
 		D134821521CE3CAD00F9F944 /* CvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D134821421CE3CAD00F9F944 /* CvViewController.swift */; };
 		D134822721CF922900F9F944 /* MainPersonDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D134822621CF922900F9F944 /* MainPersonDataViewController.swift */; };
 		D135787921B693BB0057140D /* ResetPWByMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D135787821B693BB0057140D /* ResetPWByMailViewController.swift */; };
@@ -45,12 +47,14 @@
 		893C897689365B2F237CCE21 /* Pods-signupfirebase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-signupfirebase.release.xcconfig"; path = "Pods/Target Support Files/Pods-signupfirebase/Pods-signupfirebase.release.xcconfig"; sourceTree = "<group>"; };
 		D11114C721F5C30A00835CF4 /* PostalCodeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostalCodeSearchViewController.swift; sourceTree = "<group>"; };
 		D11114C921F5C68C00835CF4 /* PostalCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostalCode.swift; sourceTree = "<group>"; };
-		D111E6A121FA09A700398F88 /* Postnummerregister.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Postnummerregister.csv; sourceTree = "<group>"; };
 		D11E2BD7219470D90075BD11 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		D1266D682199A72C00593984 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		D127A36421DFD0FB0050BBD4 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Main.strings; sourceTree = "<group>"; };
 		D127A36521DFD0FC0050BBD4 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		D12BAA6821F3676500B7C166 /* signupfirebase-236b9-export.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "signupfirebase-236b9-export.json"; sourceTree = "<group>"; };
+		D13172472200DF3400EEB530 /* Postnummerregister-Excel.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Postnummerregister-Excel.csv"; sourceTree = "<group>"; };
+		D13172482200DF3500EEB530 /* csvjson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = csvjson.json; sourceTree = "<group>"; };
+		D131724B2200E23C00EEB530 /* signupfirebase-236b9-export.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "signupfirebase-236b9-export.json"; sourceTree = "<group>"; };
+		D131724D2200E45200EEB530 /* signupfirebase-236b9-export-2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "signupfirebase-236b9-export-2.json"; sourceTree = "<group>"; };
 		D134821421CE3CAD00F9F944 /* CvViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CvViewController.swift; sourceTree = "<group>"; };
 		D134822621CF922900F9F944 /* MainPersonDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPersonDataViewController.swift; sourceTree = "<group>"; };
 		D135787821B693BB0057140D /* ResetPWByMailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPWByMailViewController.swift; sourceTree = "<group>"; };
@@ -158,9 +162,11 @@
 				D134822621CF922900F9F944 /* MainPersonDataViewController.swift */,
 				D1ED85AA21DE601D00DBDB82 /* WebViewController.swift */,
 				D1E95C8D21D6899400B40EE9 /* PersonViewController.swift */,
-				D12BAA6821F3676500B7C166 /* signupfirebase-236b9-export.json */,
 				D17C78F121F0C89000DEE649 /* SearchViewController.swift */,
-				D111E6A121FA09A700398F88 /* Postnummerregister.csv */,
+				D131724B2200E23C00EEB530 /* signupfirebase-236b9-export.json */,
+				D131724D2200E45200EEB530 /* signupfirebase-236b9-export-2.json */,
+				D13172482200DF3500EEB530 /* csvjson.json */,
+				D13172472200DF3400EEB530 /* Postnummerregister-Excel.csv */,
 				D11114C721F5C30A00835CF4 /* PostalCodeSearchViewController.swift */,
 			);
 			path = signupfirebase;
@@ -228,14 +234,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D12BAA6921F3676600B7C166 /* signupfirebase-236b9-export.json in Resources */,
 				D1C7F2EB218C98C900481E48 /* LaunchScreen.storyboard in Resources */,
+				D131724C2200E23C00EEB530 /* signupfirebase-236b9-export.json in Resources */,
+				D131724A2200DF3500EEB530 /* csvjson.json in Resources */,
 				D1B3049421962151006C1319 /* GoogleService-Info.plist in Resources */,
 				D1CF583F219C6811000A3497 /* Create iOS Icons.jsx in Resources */,
 				D1E32FBD21E1FED50022BFB3 /* Localizable.strings in Resources */,
 				D1C7F2E8218C98C900481E48 /* Assets.xcassets in Resources */,
 				D1C7F2E6218C98C800481E48 /* Main.storyboard in Resources */,
-				D111E6A221FA09A700398F88 /* Postnummerregister.csv in Resources */,
+				D131724E2200E45200EEB530 /* signupfirebase-236b9-export-2.json in Resources */,
+				D13172492200DF3500EEB530 /* Postnummerregister-Excel.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
