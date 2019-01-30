@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 var city = ""
 var oldCity = ""
@@ -15,7 +16,8 @@ var oldPostalCode = ""
 
 class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
-    var postalCodes: [PostalCode] = [
+    var postalCodes: [PostalCode] = []
+/*
         PostalCode(code: "0001", city: "Oslo"),
         PostalCode(code: "1300", city: "Sandvika"),
         PostalCode(code: "1305", city: "Haslum"),
@@ -1166,7 +1168,8 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
         PostalCode(code: "5994", city: "Vikanes")
                     
     ]
-
+*/
+    
     @IBOutlet var searchPostelCode: UISearchBar!
     @IBOutlet var tableView: UITableView!
 
@@ -1184,7 +1187,10 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // Read postalCode fra Firedata
+        ReadPostalCodeFiredata(search: false, searchValue: "")
+  
         // Sorting the postalCodes array on city
         postalCodes.sort(by: {$0.city < $1.city})
         
@@ -1196,7 +1202,10 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        // Read postalCode fra Firedata
+        ReadPostalCodeFiredata(search: false, searchValue: "")
         postalCodes.sort(by: {$0.city < $1.city})
+        self.tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -1301,5 +1310,61 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
         // Delete all checkmarks in the ctive tableView
         deleteAllCheckmarks()
    }
+    
+    func ReadPostalCodeFiredata(search: Bool, searchValue: String) {
+        
+        var db: DatabaseReference!
+        var postnrRef: DatabaseQuery!
+        
+        db = Database.database().reference().child("postnr")
+        
+        if search {
+            postnrRef =  db.queryOrdered(byChild: "poststed").queryEqual(toValue: searchValue)
+        } else {
+            postnrRef =  db
+        }
+        
+        postnrRef.observe(.value, with: { snapshot in
+            
+            var tempPostnr = [PostalCode]()
+            
+            for child in snapshot.children {
+                
+                if let childSnapshot = child as? DataSnapshot,
+                    let postnr = childSnapshot.value as? [String: Any],
+                    let postnummer = postnr["postnummer"] as? String,
+                    let poststed = postnr["poststed"] as? String {
+                    
+                    let postnr = PostalCode(code: postnummer,
+                                            city: poststed)
+                    
+                    
+                    tempPostnr.append(postnr)
+                    
+                }
+            }
+            
+            // Update the posts array
+            self.postalCodes = tempPostnr
+            
+            // Sorting the persons array on firstName
+            
+            self.postalCodes.sort(by: {$0.city < $1.city})
+            
+            //            // Fill the table view
+            //            self.tableView.reloadData()
+            
+            print(self.postalCodes.count)
+            
+            print("city = \(self.postalCodes[0].city as Any)")
+            print("city = \(self.postalCodes[1].city as Any)")
+            
+        })
+        
+        
+    }
+    
+
+    
     
 }

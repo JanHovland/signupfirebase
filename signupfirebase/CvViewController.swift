@@ -121,9 +121,10 @@ class CvViewController: UIViewController {
         
         7. Nye oppgaver (ikke fullført)
         
-           a) Legge inn Bilde i PersonViewController
+           a) Legge inn nytt punkt "Lagre postnr i Firebase" under "Innstillinger"
+           b) Legge inn Bilde i PersonViewController
            b) Legge inn Kart i PersonViewController
-           c) Oppdatere security i Firebase (er det samme for Firestore?)
+           d) Oppdatere security i Firebase (er det samme for Firestore?)
         
         8. Programmerings tips
         
@@ -144,7 +145,7 @@ class CvViewController: UIViewController {
         
         9. Feil som må rettes
         
-           a) Format av telefon er kommentert bort, må rettes og implementeres
+           a) Format av telefon er kommentert bort, må rettes og implementeres 
               .Test gjenstår
            b) Det kan legges inn flere like poster
         

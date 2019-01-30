@@ -675,4 +675,39 @@ extension UIViewController {
                           message: melding)
     }
     
+    func savePostalCodesFiredata(postnummer: String,
+                                 poststed: String)  {
+        
+        if  postnummer.count > 0,
+            poststed.count > 0 {
+            
+            let dataBase = Database.database().reference().child("postnr").childByAutoId()
+            
+            let postObject = [
+                    "postnummer": postnummer,
+                    "poststed": poststed
+                ] as [String: Any]
+            
+            dataBase.setValue(postObject, withCompletionBlock: { error, _ in
+                if error == nil {
+                    self.dismiss(animated: true, completion: nil)
+                    let title = NSLocalizedString("Save in Firebase",comment: "DataBaseExtension.swift savePostalCodesFiredata")
+                    let message = "\r\n" + NSLocalizedString("Data are now saved in Firebase.", comment: "DataBaseExtension.swift savePostalCodesFiredata")
+                    self.presentAlert(withTitle: title, message: message)
+                } else {
+                    let melding = error!.localizedDescription
+                    self.presentAlert(withTitle: NSLocalizedString("Error", comment: "DataBaseExtension.swift savePostalCodesFiredata"),
+                                      message: melding)
+                }
+            })
+        } else {
+            let melding = "\r\n" + NSLocalizedString("Every field must be filled.",
+                                                     comment: "DataBaseExtension.swift savePostalCodesFiredata")
+            
+            self.presentAlert(withTitle: NSLocalizedString("Error",
+                                                           comment: "DataBaseExtension.swift savePostalCodesFiredata"),
+                              message: melding)
+        }
+    }
+    
 }
