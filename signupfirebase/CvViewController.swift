@@ -121,7 +121,7 @@ class CvViewController: UIViewController {
         
         7. Nye oppgaver (ikke fullført)
         
-           a) Legge inn nytt punkt "Lagre postnr i Firebase" under "Innstillinger"
+           a) Legge inn nytt punkt "Lagre postnummer i Firebase" under "Innstillinger"
            b) Legge inn Bilde i PersonViewController
            b) Legge inn Kart i PersonViewController
            d) Oppdatere security i Firebase (er det samme for Firestore?)

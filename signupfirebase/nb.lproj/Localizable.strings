@@ -15,7 +15,7 @@
 "After you have asked Firebase to reset your password, you will receive an eMail with istruction." = "Etter at du har bedt Firebase om å resette passordet ditt, vil du motta en ePost med instruksjoner.";
 
 /* SavePostalCodesFirebaseTableViewController.swift StorePostalCodes */
-"Cannot store the postal codes." = "Kan ikke lagre postnummer.";
+"Cannot store the Postal Codes in Firebase." = "Kan ikke lagre post nummer i Firebase.";
 
 /* DataBaseExtension.swift savePersonFiredata
    DataBaseExtension.swift savePostalCodesFiredata */
@@ -77,7 +77,7 @@
 "Every field must have a value." = "Alle feltene må ha en verdi.";
 
 /* SavePostalCodesFirebaseTableViewController.swift StorePostalCodes */
-"In order to save Postal Codes, the 'Store postal Codes' button must be enabled." = "For å lagre postnummer, må bryteren 'Lagre postnummer' være aktivert.";
+"In order to save the Postal Codes, the 'Store Postal Codes in Firebase' button must be enabled." = "IFor å lagre postnummer, må bryteren 'Lagre postnummer i Firebase' aktiveres.";
 
 /* DataBaseExtension.swift formatPhone */
 "Invalid phone number" = "Feil format telefonnr";

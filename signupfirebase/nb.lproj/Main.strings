@@ -55,8 +55,8 @@
 /* Class = "UILabel"; text = "Curriculum vitae"; ObjectID = "d16-8N-6Gd"; */
 "d16-8N-6Gd.text" = "Curriculum vitae";
 
-/* Class = "UINavigationItem"; title = "Store Postal Codes"; ObjectID = "dAP-Af-peP"; */
-"dAP-Af-peP.title" = "Lagre postnummer";
+/* Class = "UINavigationItem"; title = "Store Postal Codes in Firebase"; ObjectID = "dAP-Af-peP"; */
+"dAP-Af-peP.title" = "Lagre postnummer i Firebase";
 
 /* Class = "UILabel"; text = "userInfo"; ObjectID = "dcI-Iv-SZx"; */
 "dcI-Iv-SZx.text" = "userInfo";
@@ -145,8 +145,8 @@
 /* Class = "UILabel"; text = "New name"; ObjectID = "qQS-3C-C61"; */
 "qQS-3C-C61.text" = "Nytt navn";
 
-/* Class = "UILabel"; text = "Store Postal Codes"; ObjectID = "qXg-f5-tEB"; */
-"qXg-f5-tEB.text" = "Lagre postnummer";
+/* Class = "UILabel"; text = "Store Postal Codes in Firebase"; ObjectID = "qXg-f5-tEB"; */
+"qXg-f5-tEB.text" = "Lagre postnummer i Firebase";
 
 /* Class = "UILabel"; text = "List all users in Coredata"; ObjectID = "Rd9-pB-LRE"; */
 "Rd9-pB-LRE.text" = "Vis alle brukerne i Coredata";
@@ -178,8 +178,8 @@
 /* Class = "UINavigationItem"; title = "Settings"; ObjectID = "tSB-Wf-nFh"; */
 "tSB-Wf-nFh.title" = "Innstillinger";
 
-/* Class = "UILabel"; text = "Store Postal Codes"; ObjectID = "TTX-tZ-Mqa"; */
-"TTX-tZ-Mqa.text" = "Lagre postnummer";
+/* Class = "UILabel"; text = "Store Postal Codes in Firebase"; ObjectID = "TTX-tZ-Mqa"; */
+"TTX-tZ-Mqa.text" = "Lagre postnummer i Firebase";
 
 /* Class = "UINavigationItem"; title = "Curriculum vitae"; ObjectID = "u3m-jt-SeF"; */
 "u3m-jt-SeF.title" = "Curriculum vitae";

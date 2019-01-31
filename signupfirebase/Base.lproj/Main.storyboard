@@ -490,7 +490,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Store Postal Codes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTX-tZ-Mqa">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Store Postal Codes in Firebase" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTX-tZ-Mqa">
                                                     <rect key="frame" x="52" y="9" width="274" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -537,7 +537,7 @@
             </objects>
             <point key="canvasLocation" x="-2980" y="-127"/>
         </scene>
-        <!--Store Postal Codes-->
+        <!--Store Postal Codes in Firebase-->
         <scene sceneID="4j0-L3-b03">
             <objects>
                 <tableViewController id="eOf-mx-9AX" customClass="SavePostalCodesFirebaseTableViewController" customModule="signupfirebase" customModuleProvider="target" sceneMemberID="viewController">
@@ -584,7 +584,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Np7-QS-GkQ">
-                                                    <rect key="frame" x="15" y="13" width="179" height="20"/>
+                                                    <rect key="frame" x="15" y="13" width="286" height="20"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="253" verticalHuggingPriority="251" image="Icon-20" translatesAutoresizingMaskIntoConstraints="NO" id="kc5-gW-Gfk">
                                                             <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -593,8 +593,8 @@
                                                                 <constraint firstAttribute="width" constant="20" id="unH-GP-ROp"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Store Postal Codes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXg-f5-tEB">
-                                                            <rect key="frame" x="33" y="0.0" width="146" height="20"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Store Postal Codes in Firebase" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXg-f5-tEB">
+                                                            <rect key="frame" x="33" y="0.0" width="253" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -610,7 +610,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="yzb-dl-kJx" secondAttribute="trailing" constant="15" id="1fx-df-ZsP"/>
-                                                <constraint firstItem="yzb-dl-kJx" firstAttribute="leading" secondItem="Np7-QS-GkQ" secondAttribute="trailing" constant="117" id="M67-zb-ejv"/>
+                                                <constraint firstItem="yzb-dl-kJx" firstAttribute="leading" secondItem="Np7-QS-GkQ" secondAttribute="trailing" constant="10" id="M67-zb-ejv"/>
                                                 <constraint firstItem="Np7-QS-GkQ" firstAttribute="bottom" secondItem="G3k-YZ-y2b" secondAttribute="bottomMargin" id="NdN-MX-WZQ"/>
                                                 <constraint firstItem="yzb-dl-kJx" firstAttribute="centerY" secondItem="G3k-YZ-y2b" secondAttribute="centerY" id="aHx-yd-0zZ"/>
                                                 <constraint firstItem="Np7-QS-GkQ" firstAttribute="leading" secondItem="G3k-YZ-y2b" secondAttribute="leading" constant="15" id="mid-OF-2B4"/>
@@ -644,7 +644,7 @@
                             <outlet property="delegate" destination="eOf-mx-9AX" id="RKc-ZW-hPN"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Store Postal Codes" id="dAP-Af-peP">
+                    <navigationItem key="navigationItem" title="Store Postal Codes in Firebase" id="dAP-Af-peP">
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="fZy-7f-shu">
                             <connections>
                                 <action selector="StorePostalCodes:" destination="eOf-mx-9AX" id="PDt-U0-wZw"/>

@@ -58,10 +58,10 @@ class SavePostalCodesFirebaseTableViewController: UITableViewController {
                                     poststed: "Varhaug")
             
         } else {
-            let melding = NSLocalizedString("In order to save Postal Codes, the 'Store postal Codes' button must be enabled.",
+            let melding = NSLocalizedString("In order to save the Postal Codes, the 'Store Postal Codes in Firebase' button must be enabled.",
                                             comment: "SavePostalCodesFirebaseTableViewController.swift StorePostalCodes")
             let melding1 = "\n" + melding
-            self.presentAlert(withTitle: NSLocalizedString("Cannot store the postal codes.",
+            self.presentAlert(withTitle: NSLocalizedString("Cannot store the Postal Codes in Firebase.",
                                                            comment: "SavePostalCodesFirebaseTableViewController.swift StorePostalCodes"),
                               message: melding1)
         }
