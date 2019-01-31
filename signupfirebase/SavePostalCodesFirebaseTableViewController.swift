@@ -48,9 +48,6 @@ class SavePostalCodesFirebaseTableViewController: UITableViewController {
         
         if (UserDefaults.standard.bool(forKey: "SHOWSTOREPOSTALCODES")) == true {
         
-            UserDefaults.standard.set(true, forKey: "SHOWSTOREPOSTALCODES")
-            switchStorePostalCodes.isOn = false
-            
             savePostalCodesFiredata(postnummer: "0001",
                                     poststed: "Oslo")
 
@@ -71,6 +68,9 @@ class SavePostalCodesFirebaseTableViewController: UITableViewController {
         
         activity.stopAnimating()
 
+        UserDefaults.standard.set(true, forKey: "SHOWSTOREPOSTALCODES")
+        switchStorePostalCodes.isOn = false
+        
     }
     
 }
