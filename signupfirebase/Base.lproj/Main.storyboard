@@ -248,7 +248,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="5Kc-zy-85Y">
-                            <rect key="frame" x="0.0" y="492" width="375" height="20"/>
+                            <rect key="frame" x="0.0" y="536" width="375" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </activityIndicatorView>
                         <sections>
@@ -483,6 +483,36 @@
                                             <segue destination="7vm-zK-TCA" kind="show" identifier="gotoFirebaseConsole" id="xTK-Xl-jLD"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="12" focusStyle="custom" id="fPM-lv-xmT">
+                                        <rect key="frame" x="0.0" y="464" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fPM-lv-xmT" id="j53-45-8aQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Store Postal Codes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTX-tZ-Mqa">
+                                                    <rect key="frame" x="52" y="9" width="274" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="253" verticalHuggingPriority="251" image="Icon-20" translatesAutoresizingMaskIntoConstraints="NO" id="ncy-A2-Uwm">
+                                                    <rect key="frame" x="17" y="9" width="20" height="20"/>
+                                                </imageView>
+                                            </subviews>
+                                            <rect key="contentStretch" x="0.20000000000000001" y="0.0" width="1" height="1"/>
+                                            <constraints>
+                                                <constraint firstItem="TTX-tZ-Mqa" firstAttribute="top" secondItem="j53-45-8aQ" secondAttribute="top" constant="9" id="6bl-x2-T5r"/>
+                                                <constraint firstItem="TTX-tZ-Mqa" firstAttribute="leading" secondItem="ncy-A2-Uwm" secondAttribute="trailing" constant="15" id="9Ec-5d-XnT"/>
+                                                <constraint firstItem="ncy-A2-Uwm" firstAttribute="top" secondItem="j53-45-8aQ" secondAttribute="top" constant="9" id="T3c-kx-fMM"/>
+                                                <constraint firstAttribute="trailing" secondItem="TTX-tZ-Mqa" secondAttribute="trailing" constant="15" id="YIi-sc-1Mp"/>
+                                                <constraint firstItem="ncy-A2-Uwm" firstAttribute="leading" secondItem="j53-45-8aQ" secondAttribute="leading" constant="17" id="aqd-8C-w5l"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="eOf-mx-9AX" kind="show" id="FJ7-r9-zst"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle=" " id="g71-cI-G6O">
@@ -505,7 +535,131 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pgR-wM-cad" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2790" y="-127"/>
+            <point key="canvasLocation" x="-2980" y="-127"/>
+        </scene>
+        <!--Store Postal Codes-->
+        <scene sceneID="4j0-L3-b03">
+            <objects>
+                <tableViewController id="eOf-mx-9AX" customClass="SavePostalCodesFirebaseTableViewController" customModule="signupfirebase" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tRv-ou-qOz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="2KC-dj-NOp">
+                            <rect key="frame" x="0.0" y="203" width="375" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </activityIndicatorView>
+                        <sections>
+                            <tableViewSection headerTitle=" " id="adk-Na-4f3">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="31" id="yJH-u6-6r6">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="31"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yJH-u6-6r6" id="RQY-up-rML">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="30.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="userinfo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIz-QL-RMB">
+                                                    <rect key="frame" x="15" y="5" width="345" height="18"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="xIz-QL-RMB" secondAttribute="trailing" constant="15" id="3Ib-xT-2vs"/>
+                                                <constraint firstItem="xIz-QL-RMB" firstAttribute="leading" secondItem="RQY-up-rML" secondAttribute="leading" constant="15" id="b4o-Wq-jkQ"/>
+                                                <constraint firstItem="xIz-QL-RMB" firstAttribute="top" secondItem="RQY-up-rML" secondAttribute="top" constant="5" id="fz1-d8-PRx"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle=" " id="hly-3p-pLr">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="i8e-bi-Bn7">
+                                        <rect key="frame" x="0.0" y="87" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i8e-bi-Bn7" id="G3k-YZ-y2b">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Np7-QS-GkQ">
+                                                    <rect key="frame" x="15" y="13" width="179" height="20"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="253" verticalHuggingPriority="251" image="Icon-20" translatesAutoresizingMaskIntoConstraints="NO" id="kc5-gW-Gfk">
+                                                            <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="20" id="nlB-l2-vwe"/>
+                                                                <constraint firstAttribute="width" constant="20" id="unH-GP-ROp"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Store Postal Codes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXg-f5-tEB">
+                                                            <rect key="frame" x="33" y="0.0" width="146" height="20"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yzb-dl-kJx">
+                                                    <rect key="frame" x="311" y="6.5" width="51" height="30.5"/>
+                                                    <connections>
+                                                        <action selector="showStorePostalCodes:" destination="eOf-mx-9AX" eventType="valueChanged" id="DGt-wp-dz3"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="yzb-dl-kJx" secondAttribute="trailing" constant="15" id="1fx-df-ZsP"/>
+                                                <constraint firstItem="yzb-dl-kJx" firstAttribute="leading" secondItem="Np7-QS-GkQ" secondAttribute="trailing" constant="117" id="M67-zb-ejv"/>
+                                                <constraint firstItem="Np7-QS-GkQ" firstAttribute="bottom" secondItem="G3k-YZ-y2b" secondAttribute="bottomMargin" id="NdN-MX-WZQ"/>
+                                                <constraint firstItem="yzb-dl-kJx" firstAttribute="centerY" secondItem="G3k-YZ-y2b" secondAttribute="centerY" id="aHx-yd-0zZ"/>
+                                                <constraint firstItem="Np7-QS-GkQ" firstAttribute="leading" secondItem="G3k-YZ-y2b" secondAttribute="leading" constant="15" id="mid-OF-2B4"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="yzb-dl-kJx" secondAttribute="bottom" constant="-4" id="yBZ-Yp-dEM"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle=" " id="tXb-3v-Gj3">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="5Ur-Qi-P9w">
+                                        <rect key="frame" x="0.0" y="159" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Ur-Qi-P9w" id="UAl-XQ-fKV">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Rvz-yC-rjr">
+                                                    <rect key="frame" x="15" y="13" width="20" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </stackView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="eOf-mx-9AX" id="BJH-fM-Qpy"/>
+                            <outlet property="delegate" destination="eOf-mx-9AX" id="RKc-ZW-hPN"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Store Postal Codes" id="dAP-Af-peP">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="fZy-7f-shu">
+                            <connections>
+                                <action selector="StorePostalCodes:" destination="eOf-mx-9AX" id="PDt-U0-wZw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="activity" destination="2KC-dj-NOp" id="1A6-B0-bss"/>
+                        <outlet property="switchStorePostalCodes" destination="yzb-dl-kJx" id="ocm-MB-3YR"/>
+                        <outlet property="userInfo" destination="xIz-QL-RMB" id="PUb-86-5pg"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A3g-Gu-jyx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2311" y="-127"/>
         </scene>
         <!--Firebase Console-->
         <scene sceneID="7JC-3R-JlT">
@@ -541,7 +695,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Vu-pu-AJy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2086" y="-127"/>
+            <point key="canvasLocation" x="-604" y="1252"/>
         </scene>
         <!--Update user name-->
         <scene sceneID="ffJ-QF-Ihx">
@@ -690,7 +844,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FsK-HZ-W4V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1298" y="-937"/>
+            <point key="canvasLocation" x="223" y="-973"/>
         </scene>
         <!--List all users in Coredata-->
         <scene sceneID="kCf-Mh-aWN">
@@ -769,7 +923,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="awl-X6-eIh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1454" y="636"/>
+            <point key="canvasLocation" x="-1409" y="1252"/>
         </scene>
         <!--Reset password by mail-->
         <scene sceneID="PxX-s2-G0Y">
@@ -884,7 +1038,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y3g-OR-Jc8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2190" y="636"/>
+            <point key="canvasLocation" x="-2210" y="1252"/>
         </scene>
         <!--Persondata-->
         <scene sceneID="RhZ-ME-R8x">
@@ -1109,7 +1263,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wrR-qK-zNm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3313" y="2021"/>
+            <point key="canvasLocation" x="-4084" y="2006"/>
         </scene>
         <!--Postal Codes-->
         <scene sceneID="dix-Cr-OYR">
@@ -1179,7 +1333,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y0R-e0-FAU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2545" y="2086"/>
+            <point key="canvasLocation" x="-3020" y="2006"/>
         </scene>
         <!--Update password-->
         <scene sceneID="514-fI-xD2">
@@ -1291,7 +1445,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fFP-2K-yqY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2985" y="637"/>
+            <point key="canvasLocation" x="-3020" y="1252"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="TWG-IN-rUm">
@@ -1405,7 +1559,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ImV-FR-H8L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4130" y="1316"/>
+            <point key="canvasLocation" x="-4084" y="1252"/>
         </scene>
         <!--Settings-->
         <scene sceneID="VHf-0J-Mtg">
@@ -1475,6 +1629,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gYJ-L2-bgL"/>
-        <segue reference="HHx-uR-c6E"/>
+        <segue reference="O1x-ds-s6d"/>
     </inferredMetricsTieBreakers>
 </document>

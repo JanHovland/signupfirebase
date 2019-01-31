@@ -14,7 +14,11 @@
 /* ResetPWByMailViewController.swift viewDidLoad */
 "After you have asked Firebase to reset your password, you will receive an eMail with istruction." = "Etter at du har bedt Firebase om å resette passordet ditt, vil du motta en ePost med instruksjoner.";
 
-/* DataBaseExtension.swift savePersonFiredata */
+/* SavePostalCodesFirebaseTableViewController.swift StorePostalCodes */
+"Cannot store the postal codes." = "Kan ikke lagre postnummer.";
+
+/* DataBaseExtension.swift savePersonFiredata
+   DataBaseExtension.swift savePostalCodesFiredata */
 "Data are now saved in Firebase." = "Data er nå lagret i Firebase.";
 
 /* DataBaseExtension.swift updatePersonFiredata */
@@ -40,6 +44,7 @@
    DataBaseExtension.swift resetLoggedInCoreData
    DataBaseExtension.swift saveCoreData
    DataBaseExtension.swift savePersonFiredata
+   DataBaseExtension.swift savePostalCodesFiredata
    DataBaseExtension.swift updateCoreData
    DataBaseExtension.swift updateEpostCoreData
    DataBaseExtension.swift updateNameCoreData
@@ -61,7 +66,8 @@
    LoginViewVontroller.swift CheckLogin updatepassword */
 "Error." = "Feil.";
 
-/* DataBaseExtension.swift savePersonFiredata */
+/* DataBaseExtension.swift savePersonFiredata
+   DataBaseExtension.swift savePostalCodesFiredata */
 "Every field must be filled." = "Alle feltene må fylles ut.";
 
 /* LoginViewVontroller.swift SaveAccount */
@@ -69,6 +75,9 @@
 
 /* CreateAccountViewVontroller.swift SaveAccount */
 "Every field must have a value." = "Alle feltene må ha en verdi.";
+
+/* SavePostalCodesFirebaseTableViewController.swift StorePostalCodes */
+"In order to save Postal Codes, the 'Store postal Codes' button must be enabled." = "For å lagre postnummer, må bryteren 'Lagre postnummer' være aktivert.";
 
 /* DataBaseExtension.swift formatPhone */
 "Invalid phone number" = "Feil format telefonnr";
@@ -92,7 +101,8 @@
 /* UpdatePasswordViewVontroller.swift SaveNewPassword */
 "Return to login in " = "Retur til login om ";
 
-/* DataBaseExtension.swift savePersonFiredata */
+/* DataBaseExtension.swift savePersonFiredata
+   DataBaseExtension.swift savePostalCodesFiredata */
 "Save in Firebase" = "Lagre i Firebase";
 
 /* CreateAccountViewVontroller.swift SaveAccount 

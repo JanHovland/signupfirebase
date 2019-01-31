@@ -27,12 +27,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        savePostalCodesFiredata(postnummer: "0001",
-//                                poststed: "Oslo")
-//
-//        savePostalCodesFiredata(postnummer: "2340",
-//                                poststed: "Løten")
-        
         // Hide the tabBar
         self.tabBarController?.tabBar.isHidden = true
         

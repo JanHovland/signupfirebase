@@ -17,6 +17,7 @@
 		D131724C2200E23C00EEB530 /* signupfirebase-236b9-export.json in Resources */ = {isa = PBXBuildFile; fileRef = D131724B2200E23C00EEB530 /* signupfirebase-236b9-export.json */; };
 		D131724E2200E45200EEB530 /* signupfirebase-236b9-export-2.json in Resources */ = {isa = PBXBuildFile; fileRef = D131724D2200E45200EEB530 /* signupfirebase-236b9-export-2.json */; };
 		D13172502202441300EEB530 /* Postnummerregister-Excel-kopi.csv in Resources */ = {isa = PBXBuildFile; fileRef = D131724F2202441200EEB530 /* Postnummerregister-Excel-kopi.csv */; };
+		D13172542202EF1C00EEB530 /* SavePostalCodesFirebaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13172532202EF1C00EEB530 /* SavePostalCodesFirebaseTableViewController.swift */; };
 		D134821521CE3CAD00F9F944 /* CvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D134821421CE3CAD00F9F944 /* CvViewController.swift */; };
 		D134822721CF922900F9F944 /* MainPersonDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D134822621CF922900F9F944 /* MainPersonDataViewController.swift */; };
 		D135787921B693BB0057140D /* ResetPWByMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D135787821B693BB0057140D /* ResetPWByMailViewController.swift */; };
@@ -57,6 +58,7 @@
 		D131724B2200E23C00EEB530 /* signupfirebase-236b9-export.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "signupfirebase-236b9-export.json"; sourceTree = "<group>"; };
 		D131724D2200E45200EEB530 /* signupfirebase-236b9-export-2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "signupfirebase-236b9-export-2.json"; sourceTree = "<group>"; };
 		D131724F2202441200EEB530 /* Postnummerregister-Excel-kopi.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Postnummerregister-Excel-kopi.csv"; sourceTree = "<group>"; };
+		D13172532202EF1C00EEB530 /* SavePostalCodesFirebaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePostalCodesFirebaseTableViewController.swift; sourceTree = "<group>"; };
 		D134821421CE3CAD00F9F944 /* CvViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CvViewController.swift; sourceTree = "<group>"; };
 		D134822621CF922900F9F944 /* MainPersonDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPersonDataViewController.swift; sourceTree = "<group>"; };
 		D135787821B693BB0057140D /* ResetPWByMailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPWByMailViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				D13172472200DF3400EEB530 /* Postnummerregister-Excel.csv */,
 				D131724F2202441200EEB530 /* Postnummerregister-Excel-kopi.csv */,
 				D11114C721F5C30A00835CF4 /* PostalCodeSearchViewController.swift */,
+				D13172532202EF1C00EEB530 /* SavePostalCodesFirebaseTableViewController.swift */,
 			);
 			path = signupfirebase;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				D136492A21D0E96D0039BDC6 /* Author.swift in Sources */,
 				D134821521CE3CAD00F9F944 /* CvViewController.swift in Sources */,
 				D11114CA21F5C68C00835CF4 /* PostalCode.swift in Sources */,
+				D13172542202EF1C00EEB530 /* SavePostalCodesFirebaseTableViewController.swift in Sources */,
 				D11E2BD8219470D90075BD11 /* Model.xcdatamodeld in Sources */,
 				D1859F7321B7C38500E1D518 /* ListTableViewController.swift in Sources */,
 			);
