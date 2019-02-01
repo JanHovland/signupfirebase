@@ -44,7 +44,8 @@ class SavePostalCodesFirebaseTableViewController: UITableViewController {
     
     @IBAction func StorePostalCodes(_ sender: UIBarButtonItem) {
         activity.startAnimating()
-        print("StorePostalCodes")
+        
+        print(UserDefaults.standard.bool(forKey: "SHOWSTOREPOSTALCODES"))
         
         if (UserDefaults.standard.bool(forKey: "SHOWSTOREPOSTALCODES")) == true {
         
@@ -68,7 +69,7 @@ class SavePostalCodesFirebaseTableViewController: UITableViewController {
         
         activity.stopAnimating()
 
-        UserDefaults.standard.set(true, forKey: "SHOWSTOREPOSTALCODES")
+        UserDefaults.standard.set(false, forKey: "SHOWSTOREPOSTALCODES")
         switchStorePostalCodes.isOn = false
         
     }
