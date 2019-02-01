@@ -625,19 +625,22 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Rvz-yC-rjr">
-                                                    <rect key="frame" x="15" y="13" width="20" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </stackView>
-                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="MqM-Fs-S8W">
-                                                    <rect key="frame" x="169" y="0.0" width="37" height="43.5"/>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="MqM-Fs-S8W">
+                                                    <rect key="frame" x="177.5" y="12" width="20" height="20"/>
                                                 </activityIndicatorView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1O-Xw-v0U">
+                                                    <rect key="frame" x="61" y="0.0" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="MqM-Fs-S8W" firstAttribute="centerX" secondItem="UAl-XQ-fKV" secondAttribute="centerX" id="HUk-Ku-dAl"/>
                                                 <constraint firstItem="MqM-Fs-S8W" firstAttribute="centerY" secondItem="UAl-XQ-fKV" secondAttribute="centerY" id="NUL-vB-auH"/>
-                                                <constraint firstItem="MqM-Fs-S8W" firstAttribute="top" secondItem="UAl-XQ-fKV" secondAttribute="top" id="f3h-QY-o3K"/>
-                                                <constraint firstItem="MqM-Fs-S8W" firstAttribute="centerX" secondItem="UAl-XQ-fKV" secondAttribute="centerX" id="grm-PX-49z"/>
+                                                <constraint firstItem="U1O-Xw-v0U" firstAttribute="top" secondItem="UAl-XQ-fKV" secondAttribute="top" id="Xtf-p6-ujB"/>
+                                                <constraint firstItem="MqM-Fs-S8W" firstAttribute="leading" secondItem="U1O-Xw-v0U" secondAttribute="trailing" constant="74.5" id="YeG-nC-GYh"/>
+                                                <constraint firstItem="U1O-Xw-v0U" firstAttribute="leading" secondItem="UAl-XQ-fKV" secondAttribute="leading" constant="61" id="jQj-aN-2Vh"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -657,7 +660,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="activity" destination="MqM-Fs-S8W" id="YCO-jG-53d"/>
+                        <outlet property="activity" destination="MqM-Fs-S8W" id="t02-hA-6hz"/>
                         <outlet property="switchStorePostalCodes" destination="yzb-dl-kJx" id="ocm-MB-3YR"/>
                         <outlet property="userInfo" destination="xIz-QL-RMB" id="PUb-86-5pg"/>
                     </connections>

@@ -14,16 +14,18 @@ class SavePostalCodesFirebaseTableViewController: UITableViewController, UIDocum
     @IBOutlet weak var switchStorePostalCodes: UISwitch!
     
     @IBOutlet weak var userInfo: UILabel!
-    @IBOutlet weak var activity: UIActivityIndicatorView!
     
+    @IBOutlet weak var activity: UIActivityIndicatorView!
     var inputString = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        activity.hidesWhenStopped = true
+        // activity.hidesWhenStopped = true
+        activity.isHidden = false
         activity.style = .gray
-        view.addSubview(activity)
+        activity.startAnimating()
+        // view.addSubview(activity)
 
         // Set the 'switchStorePostalCodes' to inaktive
         UserDefaults.standard.set(false, forKey: "SHOWSTOREPOSTALCODES")
