@@ -691,9 +691,9 @@ extension UIViewController {
             dataBase.setValue(postObject, withCompletionBlock: { error, _ in
                 if error == nil {
                     self.dismiss(animated: true, completion: nil)
-                    let title = NSLocalizedString("Save in Firebase",comment: "DataBaseExtension.swift savePostalCodesFiredata")
-                    let message = "\r\n" + NSLocalizedString("Data are now saved in Firebase.", comment: "DataBaseExtension.swift savePostalCodesFiredata")
-                    self.presentAlert(withTitle: title, message: message)
+//                    let title = NSLocalizedString("Save in Firebase",comment: "DataBaseExtension.swift savePostalCodesFiredata")
+//                    let message = "\r\n" + NSLocalizedString("Data are now saved in Firebase.", comment: "DataBaseExtension.swift savePostalCodesFiredata")
+//                    self.presentAlert(withTitle: title, message: message)
                 } else {
                     let melding = error!.localizedDescription
                     self.presentAlert(withTitle: NSLocalizedString("Error", comment: "DataBaseExtension.swift savePostalCodesFiredata"),
