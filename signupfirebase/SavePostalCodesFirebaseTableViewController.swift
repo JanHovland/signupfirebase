@@ -45,8 +45,6 @@ class SavePostalCodesFirebaseTableViewController: UITableViewController {
     @IBAction func StorePostalCodes(_ sender: UIBarButtonItem) {
         activity.startAnimating()
         
-        print(UserDefaults.standard.bool(forKey: "SHOWSTOREPOSTALCODES"))
-        
         if (UserDefaults.standard.bool(forKey: "SHOWSTOREPOSTALCODES")) == true {
         
             savePostalCodesFiredata(postnummer: "0001",
