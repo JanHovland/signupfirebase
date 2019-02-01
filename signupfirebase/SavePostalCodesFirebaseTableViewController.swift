@@ -16,8 +16,6 @@ class SavePostalCodesFirebaseTableViewController: UITableViewController, UIDocum
     @IBOutlet weak var userInfo: UILabel!
     @IBOutlet weak var activity: UIActivityIndicatorView!
     
-    @IBOutlet weak var readString: UITextView!
-    
     var inputString = ""
     
     override func viewDidLoad() {
@@ -26,7 +24,7 @@ class SavePostalCodesFirebaseTableViewController: UITableViewController, UIDocum
         activity.hidesWhenStopped = true
         activity.style = .gray
         view.addSubview(activity)
-        
+
         // Set the 'switchStorePostalCodes' to inaktive
         UserDefaults.standard.set(false, forKey: "SHOWSTOREPOSTALCODES")
         switchStorePostalCodes.isOn = false
@@ -50,7 +48,9 @@ class SavePostalCodesFirebaseTableViewController: UITableViewController, UIDocum
     @IBAction func StorePostalCodes(_ sender: UIBarButtonItem) {
 
         if (UserDefaults.standard.bool(forKey: "SHOWSTOREPOSTALCODES")) == true {
-        
+
+            activity.startAnimating()
+            
             let documentPicker = UIDocumentPickerViewController(documentTypes: [kUTTypeCommaSeparatedText as String], in: .import)
             documentPicker.delegate = self
             documentPicker.allowsMultipleSelection = false
@@ -96,7 +96,7 @@ class SavePostalCodesFirebaseTableViewController: UITableViewController, UIDocum
             }
         }
         
-        // Read content of the file
+        // Read content of the sandboxFileURL
         
         let delimiter = ";"
         
@@ -115,8 +115,19 @@ class SavePostalCodesFirebaseTableViewController: UITableViewController, UIDocum
                     // Put the values into the tuple and add it to the items array
                     let item = (Postnummer: values[0], Poststed: values[1], Kommunenummer: values[2], Kommunenavn: values[3], Kategori: values[4])
                     
-                    savePostalCodesFiredata(postnummer: item.Postnummer,
-                                            poststed: item.Poststed)
+                    
+                    // Set namecase to item.Poststed
+                    
+                    let idx0 = item.Poststed.index(item.Poststed.startIndex, offsetBy: 0)
+                    let idx1 = item.Poststed.index(item.Poststed.startIndex, offsetBy: 1)
+                    
+                    let poststed1 = String(item.Poststed[idx0...idx0].uppercased()) +
+                                    String(item.Poststed[idx1...].lowercased())
+                    
+                    let poststed = poststed1.capitalized
+                    
+//                    savePostalCodesFiredata(postnummer: item.Postnummer,
+//                                            poststed: poststed)
                     
                 }
             }
@@ -124,6 +135,10 @@ class SavePostalCodesFirebaseTableViewController: UITableViewController, UIDocum
         } catch {
             print(error)
         }
+        
+        let title = NSLocalizedString("Save in Firebase",comment: "documentPicker.swift savePostalCodesFiredata")
+        let message = "\r\n" + NSLocalizedString("Data are now saved in Firebase.", comment: "documentPicker.swift savePostalCodesFiredata")
+        self.presentAlert(withTitle: title, message: message)
         
         activity.stopAnimating()
         
