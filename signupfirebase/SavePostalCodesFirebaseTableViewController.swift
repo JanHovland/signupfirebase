@@ -7,13 +7,18 @@
 //
 
 import UIKit
+import MobileCoreServices
 
-class SavePostalCodesFirebaseTableViewController: UITableViewController {
+class SavePostalCodesFirebaseTableViewController: UITableViewController, UIDocumentPickerDelegate {
 
     @IBOutlet weak var switchStorePostalCodes: UISwitch!
     
     @IBOutlet weak var userInfo: UILabel!
     @IBOutlet weak var activity: UIActivityIndicatorView!
+    
+    @IBOutlet weak var readString: UITextView!
+    
+    var inputString = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,19 +47,29 @@ class SavePostalCodesFirebaseTableViewController: UITableViewController {
         }
     }
     
+    
+    
+    
     @IBAction func StorePostalCodes(_ sender: UIBarButtonItem) {
         activity.startAnimating()
         
         if (UserDefaults.standard.bool(forKey: "SHOWSTOREPOSTALCODES")) == true {
         
-            savePostalCodesFiredata(postnummer: "0001",
-                                    poststed: "Oslo")
+            let documentPicker = UIDocumentPickerViewController(documentTypes: [kUTTypeCommaSeparatedText as String], in: .import)
+            documentPicker.delegate = self
+            documentPicker.allowsMultipleSelection = false
+            present(documentPicker, animated: true, completion: nil)
 
-            savePostalCodesFiredata(postnummer: "2340",
-                                    poststed: "Løten")
-           
-            savePostalCodesFiredata(postnummer: "4360",
-                                    poststed: "Varhaug")
+            
+            
+//            savePostalCodesFiredata(postnummer: "0001",
+//                                    poststed: "Oslo")
+//
+//            savePostalCodesFiredata(postnummer: "2340",
+//                                    poststed: "Løten")
+//
+//            savePostalCodesFiredata(postnummer: "4360",
+//                                    poststed: "Varhaug")
             
         } else {
             let melding = NSLocalizedString("In order to save the Postal Codes, the 'Store Postal Codes in Firebase' button must be enabled.",
@@ -71,5 +86,48 @@ class SavePostalCodesFirebaseTableViewController: UITableViewController {
         switchStorePostalCodes.isOn = false
         
     }
+    
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        
+        guard let selectedFileURL = urls.first else {
+            return
+        }
+        
+        let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let sandboxFileURL = dir.appendingPathComponent(selectedFileURL.lastPathComponent)
+        
+        if FileManager.default.fileExists(atPath: sandboxFileURL.path) {
+            print("Already exists! Do nothing")
+        }
+        else {
+            
+            do {
+                try FileManager.default.copyItem(at: selectedFileURL, to: sandboxFileURL)
+                
+                print("Copied file!")
+            }
+            catch {
+                print("Error: \(error)")
+            }
+        }
+        
+        // Read content of the file
+        
+        do {
+            inputString = try String(contentsOf: sandboxFileURL)
+            print(inputString as Any)
+            
+        } catch let error as NSError {
+            print("Failed to read file")
+            print(error)
+        }
+        
+        print("Contents of this file: \(inputString)")
+        
+        readString.text = inputString
+        
+    }
+
+    
     
 }
