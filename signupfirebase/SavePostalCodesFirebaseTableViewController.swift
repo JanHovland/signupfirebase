@@ -46,10 +46,7 @@ class SavePostalCodesFirebaseTableViewController: UITableViewController, UIDocum
             switchStorePostalCodes.isOn = true
         }
     }
-    
-    
-    
-    
+   
     @IBAction func StorePostalCodes(_ sender: UIBarButtonItem) {
         activity.startAnimating()
         
@@ -59,17 +56,6 @@ class SavePostalCodesFirebaseTableViewController: UITableViewController, UIDocum
             documentPicker.delegate = self
             documentPicker.allowsMultipleSelection = false
             present(documentPicker, animated: true, completion: nil)
-
-            
-            
-//            savePostalCodesFiredata(postnummer: "0001",
-//                                    poststed: "Oslo")
-//
-//            savePostalCodesFiredata(postnummer: "2340",
-//                                    poststed: "Løten")
-//
-//            savePostalCodesFiredata(postnummer: "4360",
-//                                    poststed: "Varhaug")
             
         } else {
             let melding = NSLocalizedString("In order to save the Postal Codes, the 'Store Postal Codes in Firebase' button must be enabled.",
@@ -125,6 +111,15 @@ class SavePostalCodesFirebaseTableViewController: UITableViewController, UIDocum
         print("Contents of this file: \(inputString)")
         
         readString.text = inputString
+        
+        
+        // Save postalcodes in Firebase
+        
+        // savePostalCodesFiredata(postnummer: "0001",
+        //                         poststed: "Oslo")
+
+        
+        
         
     }
 
