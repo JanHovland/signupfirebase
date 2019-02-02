@@ -80,16 +80,9 @@ class SavePostalCodesFirebaseTableViewController: UITableViewController, UIDocum
         let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let sandboxFileURL = dir.appendingPathComponent(selectedFileURL.lastPathComponent)
         
-//        if FileManager.default.fileExists(atPath: sandboxFileURL.path) {
-//            print("Already exists! Do nothing")
-//        }
-//        else {
         if !FileManager.default.fileExists(atPath: sandboxFileURL.path) {
-            print("Already exists! Do nothing")
             do {
                 try FileManager.default.copyItem(at: selectedFileURL, to: sandboxFileURL)
-
-                print("Copied file!")
             }
             catch {
                 print("Error: \(error)")
@@ -123,17 +116,15 @@ class SavePostalCodesFirebaseTableViewController: UITableViewController, UIDocum
                     let poststed = poststed2.replacingOccurrences(of: " I ", with: " i ")
                     
                     // Set "namecase" to item.Kommune
-                    let kommunenavn1 = item.Kommunenavn.lowercased()
+                    let kommune1 = item.Kommunenavn.lowercased()
+                    
                     // capitalized : All word(s)' first letter will be uppercased()
-                    let kommunenavn = kommunenavn1.capitalized
+                    let kommune = kommune1.capitalized
                     
-                    if poststed.count > 0 {
-                        print(poststed) //  + " ligger i " + kommunenavn + " kommune")
-                    }
-                    
-//                    savePostalCodesFiredata(postnummer: item.Postnummer,
-//                                            poststed: poststed,
-//                                            kommunenavn: kommunenavn)
+                    savePostalCodesFiredata(postnummer: item.Postnummer,
+                                            poststed: poststed,
+                                            kommunenummer: item.Kommunenummer,
+                                            kommune: kommune)
                     
                 }
             }

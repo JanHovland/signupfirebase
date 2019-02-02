@@ -40,7 +40,7 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
         ReadPostalCodeFiredata(search: false, searchValue: "")
   
         // Sorting the postalCodes array on city
-        postalCodes.sort(by: {$0.city < $1.city})
+        postalCodes.sort(by: {$0.poststed < $1.poststed})
         
         searchPostelCode.delegate = self
         
@@ -52,7 +52,7 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
     override func viewDidAppear(_ animated: Bool) {
         // Read postalCode fra Firedata
         ReadPostalCodeFiredata(search: false, searchValue: "")
-        postalCodes.sort(by: {$0.city < $1.city})
+        postalCodes.sort(by: {$0.poststed < $1.poststed})
         self.tableView.reloadData()
     }
     
@@ -74,11 +74,11 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
 
         // Configure the cell
         if searching {
-            cell?.textLabel?.text = searchedPostalCodes[indexPath.row].code
-            cell?.detailTextLabel?.text = searchedPostalCodes[indexPath.row].city
+            cell?.textLabel?.text = searchedPostalCodes[indexPath.row].postnummer
+            cell?.detailTextLabel?.text = searchedPostalCodes[indexPath.row].poststed
         } else {
-            cell?.textLabel?.text = postalCodes[indexPath.row].code
-            cell?.detailTextLabel?.text = postalCodes[indexPath.row].city
+            cell?.textLabel?.text = postalCodes[indexPath.row].postnummer
+            cell?.detailTextLabel?.text = postalCodes[indexPath.row].poststed
         }
 
         return cell!
@@ -100,7 +100,7 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchedPostalCodes = postalCodes.filter({ $0.city.prefix(searchText.count) == searchText })
+        searchedPostalCodes = postalCodes.filter({ $0.poststed.prefix(searchText.count) == searchText })
         searching = true
        
         // Delete all checkmarks in the ctive tableView
@@ -181,11 +181,14 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
                 if let childSnapshot = child as? DataSnapshot,
                     let postnr = childSnapshot.value as? [String: Any],
                     let postnummer = postnr["postnummer"] as? String,
-                    let poststed = postnr["poststed"] as? String {
+                    let poststed = postnr["poststed"] as? String,
+                    let kommunenummer = postnr["kommunenummer"] as? String,
+                    let kommune = postnr["kommune"] as? String {
                     
-                    let postnr = PostalCode(code: postnummer,
-                                            city: poststed)
-                    
+                    let postnr = PostalCode(postnummer: postnummer,
+                                            poststed: poststed,
+                                            kommunenummer: kommunenummer,
+                                            kommune: kommune)
                     
                     tempPostnr.append(postnr)
                     
@@ -197,22 +200,14 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
             
             // Sorting the persons array on firstName
             
-            self.postalCodes.sort(by: {$0.city < $1.city})
+            self.postalCodes.sort(by: {$0.poststed < $1.poststed})
             
-            //            // Fill the table view
-            //            self.tableView.reloadData()
-            
-            print(self.postalCodes.count)
-            
-            print("city = \(self.postalCodes[0].city as Any)")
-            print("city = \(self.postalCodes[1].city as Any)")
+            // Fill the table view
+            self.tableView.reloadData()
             
         })
         
-        
     }
-    
-
     
     
 }

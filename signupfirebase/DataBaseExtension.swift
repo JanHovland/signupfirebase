@@ -677,17 +677,21 @@ extension UIViewController {
     
     func savePostalCodesFiredata(postnummer: String,
                                  poststed: String,
-                                 kommunenavn: String)  {
+                                 kommunenummer: String,
+                                 kommune: String)  {
         
         if  postnummer.count > 0,
             poststed.count > 0 ,
-            kommunenavn.count > 0 {
+            kommunenummer.count > 0,
+            kommune.count > 0 {
             
             let dataBase = Database.database().reference().child("postnr").childByAutoId()
             
             let postObject = [
                     "postnummer": postnummer,
-                    "poststed": poststed
+                    "poststed": poststed,
+                    "kommunenummer": kommunenummer,
+                    "kommune": kommune
                 ] as [String: Any]
             
             dataBase.setValue(postObject, withCompletionBlock: { error, _ in

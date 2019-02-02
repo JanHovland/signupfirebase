@@ -94,7 +94,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             return
         }
 
-        if activeField != nil {
             let distanceToBottom = view.frame.size.height - (activeField?.frame.origin.y)! - (activeField?.frame.size.height)!
 
             if keyboardRect.height > distanceToBottom {
@@ -109,7 +108,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             }
             
         }
-    }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         activeField = textField
