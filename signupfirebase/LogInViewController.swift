@@ -94,17 +94,20 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             return
         }
 
-        let distanceToBottom = view.frame.size.height - (activeField?.frame.origin.y)! - (activeField?.frame.size.height)!
+        if activeField != nil {
+            let distanceToBottom = view.frame.size.height - (activeField?.frame.origin.y)! - (activeField?.frame.size.height)!
 
-        if keyboardRect.height > distanceToBottom {
+            if keyboardRect.height > distanceToBottom {
 
-            if notification.name == UIResponder.keyboardWillShowNotification ||
-                notification.name == UIResponder.keyboardWillChangeFrameNotification {
-                view.frame.origin.y = -(keyboardRect.height - distanceToBottom)
-            } else {
-                view.frame.origin.y = 0
+                if notification.name == UIResponder.keyboardWillShowNotification ||
+                    notification.name == UIResponder.keyboardWillChangeFrameNotification {
+                    view.frame.origin.y = -(keyboardRect.height - distanceToBottom)
+                } else {
+                    view.frame.origin.y = 0
+                }
+
             }
-
+            
         }
     }
     

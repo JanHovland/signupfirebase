@@ -25,7 +25,6 @@ class SavePostalCodesFirebaseTableViewController: UITableViewController, UIDocum
         activity.isHidden = false
         activity.style = .gray
         activity.startAnimating()
-        // view.addSubview(activity)
 
         // Set the 'switchStorePostalCodes' to inaktive
         UserDefaults.standard.set(false, forKey: "SHOWSTOREPOSTALCODES")
@@ -74,8 +73,6 @@ class SavePostalCodesFirebaseTableViewController: UITableViewController, UIDocum
     
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         
-        activity.startAnimating()
-        
         guard let selectedFileURL = urls.first else {
             return
         }
@@ -83,14 +80,15 @@ class SavePostalCodesFirebaseTableViewController: UITableViewController, UIDocum
         let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let sandboxFileURL = dir.appendingPathComponent(selectedFileURL.lastPathComponent)
         
-        if FileManager.default.fileExists(atPath: sandboxFileURL.path) {
+//        if FileManager.default.fileExists(atPath: sandboxFileURL.path) {
+//            print("Already exists! Do nothing")
+//        }
+//        else {
+        if !FileManager.default.fileExists(atPath: sandboxFileURL.path) {
             print("Already exists! Do nothing")
-        }
-        else {
-            
             do {
                 try FileManager.default.copyItem(at: selectedFileURL, to: sandboxFileURL)
-                
+
                 print("Copied file!")
             }
             catch {
@@ -114,22 +112,28 @@ class SavePostalCodesFirebaseTableViewController: UITableViewController, UIDocum
                         values = line.components(separatedBy: delimiter)
                     }
                     
-                    // Put the values into the tuple and add it to the items array
                     let item = (Postnummer: values[0], Poststed: values[1], Kommunenummer: values[2], Kommunenavn: values[3], Kategori: values[4])
                     
+                    // Set "namecase" to item.Poststed
+                    let poststed1 = item.Poststed.lowercased()
+                    // capitalized : All word(s)' first letter will be uppercased()
+                    let poststed2 = poststed1.capitalized
                     
-                    // Set namecase to item.Poststed
+                    //  Replace " I " with " i "
+                    let poststed = poststed2.replacingOccurrences(of: " I ", with: " i ")
                     
-                    let idx0 = item.Poststed.index(item.Poststed.startIndex, offsetBy: 0)
-                    let idx1 = item.Poststed.index(item.Poststed.startIndex, offsetBy: 1)
+                    // Set "namecase" to item.Kommune
+                    let kommunenavn1 = item.Kommunenavn.lowercased()
+                    // capitalized : All word(s)' first letter will be uppercased()
+                    let kommunenavn = kommunenavn1.capitalized
                     
-                    let poststed1 = String(item.Poststed[idx0...idx0].uppercased()) +
-                                    String(item.Poststed[idx1...].lowercased())
-                    
-                    let poststed = poststed1.capitalized
+                    if poststed.count > 0 {
+                        print(poststed) //  + " ligger i " + kommunenavn + " kommune")
+                    }
                     
 //                    savePostalCodesFiredata(postnummer: item.Postnummer,
-//                                            poststed: poststed)
+//                                            poststed: poststed,
+//                                            kommunenavn: kommunenavn)
                     
                 }
             }
@@ -142,6 +146,7 @@ class SavePostalCodesFirebaseTableViewController: UITableViewController, UIDocum
         let message = "\r\n" + NSLocalizedString("Data are now saved in Firebase.", comment: "documentPicker.swift savePostalCodesFiredata")
         self.presentAlert(withTitle: title, message: message)
         
+        activity.isHidden = true
         activity.stopAnimating()
         
     }
