@@ -19,6 +19,11 @@ import UIKit
  ".read": "auth.uid != null",
  ".write": "auth.uid != null",
  ".indexOn" : ["personData/firstName", "personData/lastName", "personData/address"]
+ },
+ 
+ "postnr": {
+ ".read": "auth.uid != null",
+ ".write": "auth.uid != null",
  }
  }
  }
@@ -40,6 +45,10 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var activity: UIActivityIndicatorView!
     
     var persons = [Person]()
+    
+    var searchedPersons = [Person]()
+    var searching = false
+    
     var activeField: UITextField!
     
     var indexRowUpdateSwipe  = -1
@@ -54,15 +63,13 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         activity.style = .gray
         activity.isHidden = false
 
-        tableView.reloadData()
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        
         activity.startAnimating()
         
         // Get the posts from Firebase
-        ReadPersonsFiredata(search: false, searchValue: "")
+        ReadPersonsFiredata()
         
         activity.isHidden = true
         activity.stopAnimating()
@@ -70,7 +77,12 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return persons.count
+        
+        if searching {
+            return searchedPersons.count
+        } else {
+            return persons.count
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -78,13 +90,35 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PersonDataTableViewCell
 
         // If you change a label in a viewCell, check Main.storyboard and delete the old value of the label
-        cell.firstNameLabel?.text = persons[indexPath.row].personData.firstName
-        cell.lastNameLabel?.text = persons[indexPath.row].personData.lastName
-        cell.addressLabel?.text = persons[indexPath.row].personData.address
-
+        
+        // Configure the cell
+        if searching {
+            cell.firstNameLabel?.text = searchedPersons[indexPath.row].personData.firstName
+            cell.lastNameLabel?.text = searchedPersons[indexPath.row].personData.lastName
+            cell.addressLabel?.text = searchedPersons[indexPath.row].personData.address
+        } else {
+            cell.firstNameLabel?.text = persons[indexPath.row].personData.firstName
+            cell.lastNameLabel?.text = persons[indexPath.row].personData.lastName
+            cell.addressLabel?.text = persons[indexPath.row].personData.address
+        }
+        
         return cell
     }
 
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+       searchedPersons = persons.filter({$0.personData.firstName.prefix(searchText.count) == searchText })
+       searching = true
+
+       // Fill the table view
+       self.tableView.reloadData()
+        
+    }
+    
+    // Close yhe onboardkeyboard
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBarPerson.endEditing(true)
+    }
+    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 
        // In order to show both the icon and the text, the height of the tableViewCell must be > 91
@@ -133,20 +167,13 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         return swipeConfiguration
     }
 
-    func ReadPersonsFiredata(search: Bool, searchValue: String) {
+    func ReadPersonsFiredata() {
         
         var db: DatabaseReference!
-        var personsRef: DatabaseQuery!
         
         db = Database.database().reference().child("person")
         
-        if search {
-            personsRef =  db.queryOrdered(byChild: "personData/firstName").queryEqual(toValue: searchValue)
-        } else {
-            personsRef =  db
-        }
-            
-        personsRef.observe(.value, with: { snapshot in
+        db.observe(.value, with: { snapshot in
 
             var tempPersons = [Person]()
             
@@ -199,7 +226,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             
             // Fill the table view
             self.tableView.reloadData()
-
+            
         })
         
     }
@@ -276,22 +303,5 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
-    // Get the persons for the query from Firebase
-    // Uses the search button in the online keyboard
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        // Get the persons for the query from Firebase
-        
-        print("firstName = \(persons[0].personData.firstName)")
-        print("firstName = \(persons[1].personData.firstName)")
-        
-        if searchBarPerson.text!.count > 0 {
-            ReadPersonsFiredata(search: true, searchValue: searchBarPerson.text!)
-        } else {
-            ReadPersonsFiredata(search: false, searchValue: "")
-        }
-            
-        searchBarPerson.endEditing(true)
-
-    }
    
 }

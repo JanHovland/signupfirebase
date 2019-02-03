@@ -51,12 +51,11 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
         activity.startAnimating()
         
         // Read postalCode fra Firedata
-        ReadPostalCodeFiredata(search: false, searchValue: "")
+        ReadPostalCodeFiredata()
         
         activity.isHidden = true
         activity.stopAnimating()
         
-        self.tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -99,7 +98,6 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
             }
         }
        
-        tableView.reloadData()
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -108,6 +106,9 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
        
         // Delete all checkmarks in the ctive tableView
         deleteAllCheckmarks()
+        
+        // Fill the table view
+        tableView.reloadData()
 
     }
    
@@ -133,7 +134,6 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
     // Close the onboard keyboard
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchPostelCode.endEditing(true)
-        searchPostelCode.text = ""
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -162,20 +162,13 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
         deleteAllCheckmarks()
    }
     
-    func ReadPostalCodeFiredata(search: Bool, searchValue: String) {
+    func ReadPostalCodeFiredata() {
         
         var db: DatabaseReference!
-        var postnrRef: DatabaseQuery!
         
         db = Database.database().reference().child("postnr")
         
-        if search {
-            postnrRef =  db.queryOrdered(byChild: "poststed").queryEqual(toValue: searchValue)
-        } else {
-            postnrRef =  db
-        }
-        
-        postnrRef.observe(.value, with: { snapshot in
+        db.observe(.value, with: { snapshot in
             
             var tempPostnr = [PostalCode]()
             
@@ -202,14 +195,12 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
             self.postalCodes = tempPostnr
             
             // Sorting the persons array on firstName
-            
             self.postalCodes.sort(by: {$0.poststed < $1.poststed})
             
             // Fill the table view
             self.tableView.reloadData()
             
         })
-        
     }
     
     
