@@ -16,11 +16,11 @@ var oldPostalCode = ""
 
 class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
-    var postalCodes: [PostalCode] = []
-    
     @IBOutlet var searchPostelCode: UISearchBar!
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var activity: UIActivityIndicatorView!
+    
+    var postalCodes = [PostalCode]()
     
     var searchedPostalCodes = [PostalCode]()
     var searching = false
@@ -40,17 +40,6 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
         activity.style = .gray
         activity.isHidden = false
 
-        activity.startAnimating()
-        
-        // Read postalCode fra Firedata
-        ReadPostalCodeFiredata(search: false, searchValue: "")
-        
-        activity.isHidden = true
-        activity.stopAnimating()
-  
-        // Sorting the postalCodes array on poststed
-        postalCodes.sort(by: {$0.poststed < $1.poststed})
-        
         searchPostelCode.delegate = self
         
         oldCity = city
@@ -59,9 +48,14 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        activity.startAnimating()
+        
         // Read postalCode fra Firedata
         ReadPostalCodeFiredata(search: false, searchValue: "")
-        postalCodes.sort(by: {$0.poststed < $1.poststed})
+        
+        activity.isHidden = true
+        activity.stopAnimating()
+        
         self.tableView.reloadData()
     }
     

@@ -280,6 +280,10 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     // Uses the search button in the online keyboard
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         // Get the persons for the query from Firebase
+        
+        print("firstName = \(persons[0].personData.firstName)")
+        print("firstName = \(persons[1].personData.firstName)")
+        
         if searchBarPerson.text!.count > 0 {
             ReadPersonsFiredata(search: true, searchValue: searchBarPerson.text!)
         } else {
