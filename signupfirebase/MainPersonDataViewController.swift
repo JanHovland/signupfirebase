@@ -36,8 +36,8 @@ var globalPersonPhoneNumberText = ""
 class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate  {
     
     @IBOutlet var tableView: UITableView!
-
     @IBOutlet weak var searchBarPerson: UISearchBar!
+    @IBOutlet weak var activity: UIActivityIndicatorView!
     
     var persons = [Person]()
     var activeField: UITextField!
@@ -51,15 +51,21 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         tableView.dataSource = self
         searchBarPerson.delegate = self
         
-        ReadPersonsFiredata(search: false, searchValue: "")
-        
+        activity.style = .gray
+        activity.isHidden = false
+
         tableView.reloadData()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         
+        activity.startAnimating()
+        
         // Get the posts from Firebase
         ReadPersonsFiredata(search: false, searchValue: "")
+        
+        activity.isHidden = true
+        activity.stopAnimating()
         
     }
 

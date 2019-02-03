@@ -628,19 +628,10 @@
                                                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="MqM-Fs-S8W">
                                                     <rect key="frame" x="177.5" y="12" width="20" height="20"/>
                                                 </activityIndicatorView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1O-Xw-v0U">
-                                                    <rect key="frame" x="61" y="0.0" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="MqM-Fs-S8W" firstAttribute="centerX" secondItem="UAl-XQ-fKV" secondAttribute="centerX" id="HUk-Ku-dAl"/>
                                                 <constraint firstItem="MqM-Fs-S8W" firstAttribute="centerY" secondItem="UAl-XQ-fKV" secondAttribute="centerY" id="NUL-vB-auH"/>
-                                                <constraint firstItem="U1O-Xw-v0U" firstAttribute="top" secondItem="UAl-XQ-fKV" secondAttribute="top" id="Xtf-p6-ujB"/>
-                                                <constraint firstItem="MqM-Fs-S8W" firstAttribute="leading" secondItem="U1O-Xw-v0U" secondAttribute="trailing" constant="74.5" id="YeG-nC-GYh"/>
-                                                <constraint firstItem="U1O-Xw-v0U" firstAttribute="leading" secondItem="UAl-XQ-fKV" secondAttribute="leading" constant="61" id="jQj-aN-2Vh"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1320,21 +1311,27 @@
                                     <outlet property="delegate" destination="9h3-ro-dhs" id="oG2-EX-g3L"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="OjY-aJ-St9">
+                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="HcY-A9-lfV" firstAttribute="bottom" secondItem="3aK-06-KUY" secondAttribute="bottom" id="BTw-Ea-X7O"/>
                             <constraint firstItem="wwm-fT-0XP" firstAttribute="top" secondItem="HcY-A9-lfV" secondAttribute="top" id="CPP-ww-uHs"/>
                             <constraint firstItem="HcY-A9-lfV" firstAttribute="trailing" secondItem="3aK-06-KUY" secondAttribute="trailing" id="Cqi-zY-AOz"/>
+                            <constraint firstItem="OjY-aJ-St9" firstAttribute="centerX" secondItem="vL6-S4-RXv" secondAttribute="centerX" id="MQ8-lT-wpk"/>
                             <constraint firstItem="3aK-06-KUY" firstAttribute="leading" secondItem="HcY-A9-lfV" secondAttribute="leading" id="WeH-7P-kBg"/>
                             <constraint firstItem="3aK-06-KUY" firstAttribute="top" secondItem="wwm-fT-0XP" secondAttribute="bottom" id="awi-le-TSf"/>
                             <constraint firstItem="wwm-fT-0XP" firstAttribute="leading" secondItem="vL6-S4-RXv" secondAttribute="leading" id="bty-hw-ieq"/>
                             <constraint firstItem="HcY-A9-lfV" firstAttribute="trailing" secondItem="wwm-fT-0XP" secondAttribute="trailing" id="eQl-wK-LsB"/>
+                            <constraint firstItem="OjY-aJ-St9" firstAttribute="centerY" secondItem="vL6-S4-RXv" secondAttribute="centerY" id="k0q-rc-Fhp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HcY-A9-lfV"/>
                     </view>
                     <navigationItem key="navigationItem" title="Postal Codes" id="Pw2-ly-6Dv"/>
                     <connections>
+                        <outlet property="activity" destination="OjY-aJ-St9" id="iPz-lJ-r2C"/>
                         <outlet property="searchPostelCode" destination="wwm-fT-0XP" id="bvB-is-afY"/>
                         <outlet property="tableView" destination="3aK-06-KUY" id="u6m-oh-Y2Z"/>
                     </connections>
@@ -1540,6 +1537,9 @@
                                     <outlet property="delegate" destination="4y3-m1-4aQ" id="gmN-dS-EQo"/>
                                 </connections>
                             </searchBar>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="hrj-QZ-ToV">
+                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -1548,7 +1548,9 @@
                             <constraint firstItem="4ul-89-7dc" firstAttribute="bottom" secondItem="Eww-gv-xQI" secondAttribute="bottom" id="JmQ-vl-dth"/>
                             <constraint firstItem="92V-9z-yz6" firstAttribute="trailing" secondItem="4ul-89-7dc" secondAttribute="trailing" id="L55-sm-77T"/>
                             <constraint firstItem="92V-9z-yz6" firstAttribute="top" secondItem="4ul-89-7dc" secondAttribute="top" id="RIY-fJ-rp3"/>
+                            <constraint firstItem="hrj-QZ-ToV" firstAttribute="centerX" secondItem="htD-3M-bLr" secondAttribute="centerX" id="Sh4-7x-Ggx"/>
                             <constraint firstItem="Eww-gv-xQI" firstAttribute="top" secondItem="92V-9z-yz6" secondAttribute="bottom" id="YtR-sx-sVt"/>
+                            <constraint firstItem="hrj-QZ-ToV" firstAttribute="centerY" secondItem="htD-3M-bLr" secondAttribute="centerY" id="fat-qB-Au5"/>
                             <constraint firstItem="Eww-gv-xQI" firstAttribute="leading" secondItem="4ul-89-7dc" secondAttribute="leading" id="h33-4u-ik0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4ul-89-7dc"/>
@@ -1561,6 +1563,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activity" destination="hrj-QZ-ToV" id="B5g-NJ-LXv"/>
                         <outlet property="searchBarPerson" destination="92V-9z-yz6" id="nwx-ox-weJ"/>
                         <outlet property="tableView" destination="Eww-gv-xQI" id="Fzz-eI-Cz8"/>
                     </connections>

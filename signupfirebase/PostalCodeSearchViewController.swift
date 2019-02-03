@@ -20,7 +20,8 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
     
     @IBOutlet var searchPostelCode: UISearchBar!
     @IBOutlet var tableView: UITableView!
-
+    @IBOutlet weak var activity: UIActivityIndicatorView!
+    
     var searchedPostalCodes = [PostalCode]()
     var searching = false
     
@@ -36,10 +37,18 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        activity.style = .gray
+        activity.isHidden = false
+
+        activity.startAnimating()
+        
         // Read postalCode fra Firedata
         ReadPostalCodeFiredata(search: false, searchValue: "")
+        
+        activity.isHidden = true
+        activity.stopAnimating()
   
-        // Sorting the postalCodes array on city
+        // Sorting the postalCodes array on poststed
         postalCodes.sort(by: {$0.poststed < $1.poststed})
         
         searchPostelCode.delegate = self

@@ -576,87 +576,90 @@ extension UIViewController {
     }
     
     func formatPhone(phone: String) -> String {
-
-        if phone.count == 8 {
         
-            // Check that there are no spaces
-            if (isNumeric(string: phone)) {
+        if phone.count > 0 {
+            if phone.count == 8 {
+            
+                // Check that there are no spaces
+                if (isNumeric(string: phone)) {
 
-                let index2 = phone.index(phone.startIndex, offsetBy: 2)
-                let index3 = phone.index(phone.startIndex, offsetBy: 3)
-                let index4 = phone.index(phone.startIndex, offsetBy: 4)
-                let index5 = phone.index(phone.startIndex, offsetBy: 5)
+                    let index2 = phone.index(phone.startIndex, offsetBy: 2)
+                    let index3 = phone.index(phone.startIndex, offsetBy: 3)
+                    let index4 = phone.index(phone.startIndex, offsetBy: 4)
+                    let index5 = phone.index(phone.startIndex, offsetBy: 5)
 
-                return String(phone[...index2]) + " " +
-                       String(phone[index3...index4]) + " " +
-                       String(phone[index5...])
-            } else {
-              showAlert()
-            }
-            
-        } else if phone.count == 10 {
-            
-            // Check the formatting with 2 spaces
-            
-            let idx2 = phone.index(phone.startIndex, offsetBy: 2)
-            let idx3 = phone.index(phone.startIndex, offsetBy: 3)
-            let idx4 = phone.index(phone.startIndex, offsetBy: 4)
-            let idx5 = phone.index(phone.startIndex, offsetBy: 5)
-            let idx6 = phone.index(phone.startIndex, offsetBy: 6)
-            let idx7 = phone.index(phone.startIndex, offsetBy: 7)
-            
-            let t1 = String(phone[...idx2])
-            
-            print("t1 = \(t1)")
-            
-            if isNumeric(string: t1) == true {
+                    return String(phone[...index2]) + " " +
+                           String(phone[index3...index4]) + " " +
+                           String(phone[index5...])
+                } else {
+                  showAlert()
+                }
                 
-                let t2 = String(phone[idx3...idx3])
+            } else if phone.count == 10 {
                 
-                print("t2 = \(t2)")
+                // Check the formatting with 2 spaces
                 
-                if t2 == " " {
-                    let t3 = String(phone[idx4...idx5])
-                    print("t3 = \(t3)")
+                let idx2 = phone.index(phone.startIndex, offsetBy: 2)
+                let idx3 = phone.index(phone.startIndex, offsetBy: 3)
+                let idx4 = phone.index(phone.startIndex, offsetBy: 4)
+                let idx5 = phone.index(phone.startIndex, offsetBy: 5)
+                let idx6 = phone.index(phone.startIndex, offsetBy: 6)
+                let idx7 = phone.index(phone.startIndex, offsetBy: 7)
+                
+                let t1 = String(phone[...idx2])
+                
+                print("t1 = \(t1)")
+                
+                if isNumeric(string: t1) == true {
                     
-                    if isNumeric(string: t3) == true {
+                    let t2 = String(phone[idx3...idx3])
+                    
+                    print("t2 = \(t2)")
+                    
+                    if t2 == " " {
+                        let t3 = String(phone[idx4...idx5])
+                        print("t3 = \(t3)")
                         
-                        let t4 = String(phone[idx6...idx6])
-                        
-                        print("t4 = \(t4)")
-                        
-                        if t4 == " " {
-                            let t5 = String(phone[idx7...])
+                        if isNumeric(string: t3) == true {
                             
-                            print("t5 = \(t5)")
+                            let t4 = String(phone[idx6...idx6])
                             
-                            if isNumeric(string: t5) == true {
+                            print("t4 = \(t4)")
+                            
+                            if t4 == " " {
+                                let t5 = String(phone[idx7...])
                                 
-                                print(isNumeric(string: t5))
+                                print("t5 = \(t5)")
                                 
-                                return phone
-                                
+                                if isNumeric(string: t5) == true {
+                                    
+                                    print(isNumeric(string: t5))
+                                    
+                                    return phone
+                                    
+                                } else {
+                                      showAlert()
+                                }
                             } else {
-                                  showAlert()
+                              showAlert()
                             }
+                            
                         } else {
-                          showAlert()
+                            showAlert()
                         }
-                        
                     } else {
                         showAlert()
                     }
                 } else {
                     showAlert()
                 }
+                
             } else {
-                showAlert()
+              showAlert()
             }
-            
-        } else {
-          showAlert()
-        }
 
+        }
+        
         return phone
     }
     
