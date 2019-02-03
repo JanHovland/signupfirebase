@@ -18,7 +18,7 @@
 "Cannot store the Postal Codes in Firebase." = "Kan ikke lagre post nummer i Firebase.";
 
 /* DataBaseExtension.swift savePersonFiredata
-   DataBaseExtension.swift savePostalCodesFiredata */
+   SavePostalCodesFirebaseTableViewController.swift documentPicker */
 "Data are now saved in Firebase." = "Data er nå lagret i Firebase.";
 
 /* DataBaseExtension.swift updatePersonFiredata */
@@ -57,6 +57,7 @@
    LoginViewVontroller.swift CheckLogin error
    ResetPWByMailViewController.swift resetByMail 
    ResetPWByMailViewController.swift viewDidLoad 
+   SavePostalCodesFirebaseTableViewController.swift  documentPicker
    UpdatePasswordViewVontroller.swift SaveNewPassword 
    UpdateUserNameViewVontroller.swift SaveNewName */
 "Error" = "Feil";
@@ -102,7 +103,7 @@
 "Return to login in " = "Retur til login om ";
 
 /* DataBaseExtension.swift savePersonFiredata
-   DataBaseExtension.swift savePostalCodesFiredata */
+   SavePostalCodesFirebaseTableViewController.swift documentPicker */
 "Save in Firebase" = "Lagre i Firebase";
 
 /* CreateAccountViewVontroller.swift SaveAccount 

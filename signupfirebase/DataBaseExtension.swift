@@ -446,9 +446,8 @@ extension UIViewController {
                               address: String,
                               city: String,
                               dateOfBirth: String,
-                              firstName: String,
+                              name: String,
                               gender: Int,
-                              lastName: String,
                               phoneNumber: String,
                               postalCodeNumber: String) {
         if uid.count > 0,
@@ -457,8 +456,7 @@ extension UIViewController {
             address.count > 0,
             city.count > 0,
             dateOfBirth.count > 0,
-            firstName.count > 0,
-            lastName.count > 0,
+            name.count > 0,
             phoneNumber.count > 0,
             postalCodeNumber.count > 0 {
             
@@ -475,9 +473,8 @@ extension UIViewController {
                     "address": address,
                     "city": city,
                     "dateOfBirth": dateOfBirth,
-                    "firstName": firstName,
+                    "name": name,
                     "gender": gender,
-                    "lastName": lastName,
                     "phoneNumber": phoneNumber,
                     "postalCodeNumber": postalCodeNumber
                 ],
@@ -514,9 +511,8 @@ extension UIViewController {
                             address: String,
                             city: String,
                             dateOfBirth: String,
-                            firstName: String,
+                            name: String,
                             gender: Int,
-                            lastName: String,
                             phoneNumber: String,
                             postalCodeNumber: String) {
         if uid.count > 0,
@@ -525,8 +521,7 @@ extension UIViewController {
             address.count > 0,
             city.count > 0,
             dateOfBirth.count > 0,
-            firstName.count > 0,
-            lastName.count > 0,
+            name.count > 0,
             phoneNumber.count > 0 {
                 
             let dataBase = Database.database().reference().child("person").childByAutoId()
@@ -542,9 +537,8 @@ extension UIViewController {
                     "address": address,
                     "city": city,
                     "dateOfBirth": dateOfBirth,
-                    "firstName": firstName,
+                    "name": name,
                     "gender": gender,
-                    "lastName": lastName,
                     "phoneNumber": phoneNumber,
                     "postalCodeNumber": postalCodeNumber
                 ],
@@ -608,32 +602,21 @@ extension UIViewController {
                 
                 let t1 = String(phone[...idx2])
                 
-                print("t1 = \(t1)")
-                
                 if isNumeric(string: t1) == true {
                     
                     let t2 = String(phone[idx3...idx3])
                     
-                    print("t2 = \(t2)")
-                    
                     if t2 == " " {
                         let t3 = String(phone[idx4...idx5])
-                        print("t3 = \(t3)")
                         
                         if isNumeric(string: t3) == true {
                             
                             let t4 = String(phone[idx6...idx6])
                             
-                            print("t4 = \(t4)")
-                            
                             if t4 == " " {
                                 let t5 = String(phone[idx7...])
                                 
-                                print("t5 = \(t5)")
-                                
                                 if isNumeric(string: t5) == true {
-                                    
-                                    print(isNumeric(string: t5))
                                     
                                     return phone
                                     

@@ -31,10 +31,7 @@
 /* Class = "UITabBarItem"; title = "Settings"; ObjectID = "ayy-xj-Vfm"; */
 "ayy-xj-Vfm.title" = "Innstillinger";
 
-/* Class = "UITextField"; placeholder = "Enter the last name"; ObjectID = "BCQ-eL-2pN"; */
-"BCQ-eL-2pN.placeholder" = "Legg inn etternavnet";
-
-/* Class = "UILabel"; text = "firstNameLabel"; ObjectID = "bfO-dL-I5s"; */
+/* Class = "UILabel"; text = "nameLabel"; ObjectID = "bfO-dL-I5s"; */
 "bfO-dL-I5s.text" = "Navn";
 
 /* Class = "UILabel"; text = "Name"; ObjectID = "boK-pG-XnU"; */
@@ -42,9 +39,6 @@
 
 /* Class = "UINavigationItem"; title = "Update user name"; ObjectID = "c4F-9b-Jx4"; */
 "c4F-9b-Jx4.title" = "Oppdater brukernavn";
-
-/* Class = "UILabel"; text = "Last name"; ObjectID = "cOJ-Dz-Kpx"; */
-"cOJ-Dz-Kpx.text" = "Etternavn";
 
 /* Class = "UILabel"; text = "eMail"; ObjectID = "csI-ws-1c2"; */
 "csI-ws-1c2.text" = "ePost";
@@ -76,8 +70,8 @@
 /* Class = "UITableViewSection"; headerTitle = " "; ObjectID = "g71-cI-G6O"; */
 "g71-cI-G6O.headerTitle" = " ";
 
-/* Class = "UILabel"; text = "First name"; ObjectID = "ggZ-By-2Qr"; */
-"ggZ-By-2Qr.text" = "Fornavn";
+/* Class = "UILabel"; text = "Name"; ObjectID = "ggZ-By-2Qr"; */
+"ggZ-By-2Qr.text" = "Navn";
 
 /* Class = "UITabBarItem"; title = "Login"; ObjectID = "Gl8-LX-VoP"; */
 "Gl8-LX-VoP.title" = "Logg inn";
@@ -214,8 +208,8 @@
 /* Class = "UILabel"; text = "Send to"; ObjectID = "X7L-7g-bF5"; */
 "X7L-7g-bF5.text" = "Send til";
 
-/* Class = "UITextField"; placeholder = "Enter the first name"; ObjectID = "yLv-nX-tNx"; */
-"yLv-nX-tNx.placeholder" = "Legg inn fornavnet";
+/* Class = "UITextField"; placeholder = "Enter the name"; ObjectID = "yLv-nX-tNx"; */
+"yLv-nX-tNx.placeholder" = "Legg inn navnet";
 
 /* Class = "UILabel"; text = "Old name"; ObjectID = "yMP-nw-ghX"; */
 "yMP-nw-ghX.text" = "Navn";

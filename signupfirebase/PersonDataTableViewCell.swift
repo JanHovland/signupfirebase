@@ -10,10 +10,8 @@ import UIKit
 
 class PersonDataTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var firstNameLabel: UILabel!
-    @IBOutlet weak var lastNameLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

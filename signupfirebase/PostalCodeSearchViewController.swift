@@ -28,9 +28,8 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
     var postalCodeAddressText = ""
     var postalCodeCityText  = ""
     var postalCodeDateOfBirthText = ""
-    var postalCodeFirstNameText = ""
+    var postalCodeNameText = ""
     var postalCodeGenderInt = 0
-    var postalCodeLastNameText = ""
     var postalCodePhoneNumberText = ""
     var postalCodePostalCodeNumberText = ""
     
@@ -147,8 +146,7 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
            postalCode = oldPostalCode
         }
         
-        globalPersonFirstNameText = postalCodeFirstNameText
-        globalPersonLastNameText = postalCodeLastNameText
+        globalPersonNameText = postalCodeNameText
         globalPersonAddressText = postalCodeAddressText
         globalPersonPhoneNumberText = postalCodePhoneNumberText
         globalPersonDateOfBirthText = postalCodeDateOfBirthText

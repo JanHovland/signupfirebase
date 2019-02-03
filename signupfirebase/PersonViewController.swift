@@ -12,9 +12,8 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var addressInput: UITextField!
     @IBOutlet var cityInput: UITextField!
     @IBOutlet var dateOfBirthInput: UITextField!
-    @IBOutlet var firstNameInput: UITextField!
+    @IBOutlet var nameInput: UITextField!
     @IBOutlet var genderInput: UISegmentedControl!
-    @IBOutlet var lastNameInput: UITextField!
     @IBOutlet var phoneNumberInput: UITextField!
     @IBOutlet var postalCodeNumberInput: UITextField!
 
@@ -28,9 +27,8 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
     var PersonAddressText = ""
     var PersonCityText = ""
     var PersonDateOfBirthText = ""
-    var PersonFirstNameText = ""
+    var PersonNameText = ""
     var PersonGenderInt = 0
-    var PersonLastNameText = ""
     var PersonPhoneNumberText = ""
     var PersonPostalCodeNumberText = ""
 
@@ -52,9 +50,8 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         // Turn off keyboard when you press "Return"
         addressInput.delegate = self
         cityInput.delegate = self
-        firstNameInput.delegate = self
+        nameInput.delegate = self
         dateOfBirthInput.delegate = self
-        lastNameInput.delegate = self
         phoneNumberInput.delegate = self
         postalCodeNumberInput.delegate = self
 
@@ -100,10 +97,10 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         }
 
         // Use the global variables been set in PostalCodeSearchViewController
-        if globalPersonFirstNameText.count > 0 {
-            firstNameInput.text = globalPersonFirstNameText
+        if globalPersonNameText.count > 0 {
+            nameInput.text = globalPersonNameText
         } else {
-            firstNameInput.text = PersonFirstNameText
+            nameInput.text = PersonNameText
         }
 
         if globalPersonGenderInt != -1 {
@@ -126,10 +123,10 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
             genderInput.selectedSegmentIndex = PersonGenderInt
         }
 
-        if globalPersonLastNameText.count > 0 {
-            lastNameInput.text = globalPersonLastNameText
+        if globalPersonNameText.count > 0 {
+            nameInput.text = globalPersonNameText
         } else {
-            lastNameInput.text = PersonLastNameText
+            nameInput.text = PersonNameText
         }
 
         if globalPersonPhoneNumberText.count > 0 {
@@ -204,9 +201,8 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         // Dismiss the keyboard when the view is tapped on
         addressInput.resignFirstResponder()
         cityInput.resignFirstResponder()
-        firstNameInput.resignFirstResponder()
+        nameInput.resignFirstResponder()
         dateOfBirthInput.resignFirstResponder()
-        lastNameInput.resignFirstResponder()
         phoneNumberInput.resignFirstResponder()
         phoneNumberInput.text = formatPhone(phone: phoneNumberInput.text!)
         postalCodeNumberInput.resignFirstResponder()
@@ -220,9 +216,8 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         let address = addressInput.text ?? ""
         let city = cityInput.text ?? ""
         let dateOfBirth = dateOfBirthInput.text ?? ""
-        let firstName = firstNameInput.text ?? ""
+        let name = nameInput.text ?? ""
         let gender = genderInput.selectedSegmentIndex
-        let lastName = lastNameInput.text ?? ""
         
         // Check the telephone number
         let phoneNumber = formatPhone(phone: phoneNumberInput.text!)
@@ -238,9 +233,8 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
                                address: address,
                                city: city,
                                dateOfBirth: dateOfBirth,
-                               firstName: firstName,
+                               name: name,
                                gender: gender,
-                               lastName: lastName,
                                phoneNumber: phoneNumber,
                                postalCodeNumber: postalCodeNumber)
 
@@ -252,9 +246,8 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
                                  address: address,
                                  city: city,
                                  dateOfBirth: dateOfBirth,
-                                 firstName: firstName,
+                                 name: name,
                                  gender: gender,
-                                 lastName: lastName,
                                  phoneNumber: phoneNumber,
                                  postalCodeNumber: postalCodeNumber)
         }
@@ -318,8 +311,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         if segue.identifier! == "goToPostalCodes" {
             let vc = segue.destination as! PostalCodeSearchViewController
 
-            vc.postalCodeFirstNameText = firstNameInput.text!
-            vc.postalCodeLastNameText = lastNameInput.text!
+            vc.postalCodeNameText = nameInput.text!
             vc.postalCodeAddressText = addressInput.text!
             vc.postalCodePhoneNumberText = phoneNumberInput.text!
             vc.postalCodePostalCodeNumberText = postalCodeNumberInput.text!

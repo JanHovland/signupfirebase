@@ -33,9 +33,8 @@ import UIKit
 // Global variables
 var globalPersonAddressText =  ""
 var globalPersonDateOfBirthText = ""
-var globalPersonFirstNameText = ""
+var globalPersonNameText = ""
 var globalPersonGenderInt = -1
-var globalPersonLastNameText = ""
 var globalPersonPhoneNumberText = ""
 
 class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate  {
@@ -90,15 +89,15 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PersonDataTableViewCell
 
         // If you change a label in a viewCell, check Main.storyboard and delete the old value of the label
+        // When I deleted firstNameLabel, it was still in Main.storyboard:
+        // <outlet property="firstNameLabel" destination="bfO-dL-I5s" id="BBZ-st-hNm"/>
         
         // Configure the cell
         if searching {
-            cell.firstNameLabel?.text = searchedPersons[indexPath.row].personData.firstName
-            cell.lastNameLabel?.text = searchedPersons[indexPath.row].personData.lastName
+            cell.nameLabel?.text = searchedPersons[indexPath.row].personData.name
             cell.addressLabel?.text = searchedPersons[indexPath.row].personData.address
         } else {
-            cell.firstNameLabel?.text = persons[indexPath.row].personData.firstName
-            cell.lastNameLabel?.text = persons[indexPath.row].personData.lastName
+            cell.nameLabel?.text = persons[indexPath.row].personData.name
             cell.addressLabel?.text = persons[indexPath.row].personData.address
         }
         
@@ -106,7 +105,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-       searchedPersons = persons.filter({$0.personData.firstName.contains(searchText)})
+       searchedPersons = persons.filter({$0.personData.name.contains(searchText)})
        searching = true
 
        // Fill the table view
@@ -189,9 +188,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                     let address = personData["address"] as? String,
                     let city = personData["city"] as? String,
                     let dateOfBirth = personData["dateOfBirth"] as? String,
-                    let firstName = personData["firstName"] as? String,
+                    let name = personData["name"] as? String,
                     let gender = personData["gender"] as? Int,
-                    let lastName = personData["lastName"] as? String,
                     let phoneNumber = personData["phoneNumber"] as? String,
                     let postalCodeNumber = personData["postalCodeNumber"] as? String,
                     let timestamp = dict["timestamp"] as? Double {
@@ -202,9 +200,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                     let personData = PersonData(address: address,
                                                 city : city,
                                                 dateOfBirth: dateOfBirth,
-                                                firstName: firstName,
+                                                name: name,
                                                 gender: gender,
-                                                lastName: lastName,
                                                 phoneNumber : phoneNumber,
                                                 postalCodeNumber : postalCodeNumber)
 
@@ -222,7 +219,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             self.persons = tempPersons
             
             // Sorting the persons array on firstName
-            self.persons.sort(by: {$0.personData.firstName < $1.personData.firstName})
+            self.persons.sort(by: {$0.personData.name < $1.personData.name})
             
             // Fill the table view
             self.tableView.reloadData()
@@ -238,9 +235,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             // Resetter globale variabler
             globalPersonAddressText =  ""
             globalPersonDateOfBirthText = ""
-            globalPersonFirstNameText = ""
+            globalPersonNameText = ""
             globalPersonGenderInt = -1
-            globalPersonLastNameText = ""
             globalPersonPhoneNumberText = ""
             
             // Find the indexPath.row for the cell which is selected
@@ -250,9 +246,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                 vc.PersonAddressText = persons[indexPath.row].personData.address
                 vc.PersonCityText = persons[indexPath.row].personData.city
                 vc.PersonDateOfBirthText = persons[indexPath.row].personData.dateOfBirth
-                vc.PersonFirstNameText = persons[indexPath.row].personData.firstName
+                vc.PersonNameText = persons[indexPath.row].personData.name
                 vc.PersonGenderInt = persons[indexPath.row].personData.gender
-                vc.PersonLastNameText = persons[indexPath.row].personData.lastName
                 vc.PersonPhoneNumberText = persons[indexPath.row].personData.phoneNumber
                 vc.PersonPostalCodeNumberText = persons[indexPath.row].personData.postalCodeNumber
                 
@@ -267,9 +262,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                 vc.PersonAddressText = persons[indexRowUpdateSwipe].personData.address
                 vc.PersonCityText = persons[indexRowUpdateSwipe].personData.city
                 vc.PersonDateOfBirthText = persons[indexRowUpdateSwipe].personData.dateOfBirth
-                vc.PersonFirstNameText = persons[indexRowUpdateSwipe].personData.firstName
+                vc.PersonNameText = persons[indexRowUpdateSwipe].personData.name
                 vc.PersonGenderInt = persons[indexRowUpdateSwipe].personData.gender
-                vc.PersonLastNameText = persons[indexRowUpdateSwipe].personData.lastName
                 vc.PersonPhoneNumberText = persons[indexRowUpdateSwipe].personData.phoneNumber
                 vc.PersonPostalCodeNumberText = persons[indexRowUpdateSwipe].personData.postalCodeNumber
 
@@ -284,9 +278,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             vc.PersonAddressText = ""
             vc.PersonCityText  = ""
             vc.PersonDateOfBirthText = ""
-            vc.PersonFirstNameText = ""
+            vc.PersonNameText = ""
             vc.PersonGenderInt = 0
-            vc.PersonLastNameText = ""
             vc.PersonPhoneNumberText = ""
             vc.PersonPostalCodeNumberText = ""
                 
