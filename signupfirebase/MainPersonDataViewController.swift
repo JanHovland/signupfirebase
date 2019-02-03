@@ -105,17 +105,24 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-       searchedPersons = persons.filter({$0.personData.name.contains(searchText)})
-       searching = true
+        
+       if searchText.count > 0 {
+           searchedPersons = persons.filter({$0.personData.name.contains(searchText)})
+           searching = true
+       } else {
+           searching = false
+       }
 
        // Fill the table view
        self.tableView.reloadData()
         
     }
     
-    // Close yhe onboardkeyboard
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    // Close the onboard keyboard
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBarPerson.endEditing(true)
+        searchBarPerson.resignFirstResponder()
+        searchBarPerson.text = ""
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -295,6 +302,6 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
+
     
-   
 }

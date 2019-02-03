@@ -100,9 +100,14 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchedPostalCodes = postalCodes.filter({$0.poststed.contains(searchText.uppercased())})
-        searching = true
-       
+        
+        if searchText.count > 0 {
+            searchedPostalCodes = postalCodes.filter({$0.poststed.contains(searchText.uppercased())})
+            searching = true
+        } else {
+            searching = false
+        }
+           
         // Delete all checkmarks in the ctive tableView
         deleteAllCheckmarks()
         
@@ -131,8 +136,10 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
     }
 
     // Close the onboard keyboard
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchPostelCode.endEditing(true)
+        searchPostelCode.resignFirstResponder()
+        searchPostelCode.text = ""
     }
     
     override func viewWillDisappear(_ animated: Bool) {
