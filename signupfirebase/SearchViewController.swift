@@ -67,3 +67,22 @@ extension ViewController: UISearchBarDelegate {
     
     
 }
+
+/*
+ 
+ // Set "namecase" to item.Poststed
+ let poststed1 = item.Poststed.lowercased()
+ // capitalized : All word(s)' first letter will be uppercased()
+ let poststed2 = poststed1.capitalized
+ 
+ //  Replace " I " with " i "
+ let poststed = poststed2.replacingOccurrences(of: " I ", with: " i ")
+ 
+ // Set "namecase" to item.Kommune
+ let kommune1 = item.Kommunenavn.lowercased()
+ 
+ // capitalized : All word(s)' first letter will be uppercased()
+ let kommune = kommune1.capitalized
+ 
+ 
+*/

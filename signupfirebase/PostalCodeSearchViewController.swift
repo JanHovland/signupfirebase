@@ -80,7 +80,7 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
             cell?.detailTextLabel?.text = searchedPostalCodes[indexPath.row].poststed
         } else {
             cell?.textLabel?.text = postalCodes[indexPath.row].postnummer
-            cell?.detailTextLabel?.text = postalCodes[indexPath.row].poststed
+            cell?.detailTextLabel?.text = postalCodes[indexPath.row].poststed 
         }
 
         return cell!
@@ -101,7 +101,7 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchedPostalCodes = postalCodes.filter({ $0.poststed.prefix(searchText.count) == searchText })
+        searchedPostalCodes = postalCodes.filter({$0.poststed.contains(searchText.uppercased())})
         searching = true
        
         // Delete all checkmarks in the ctive tableView

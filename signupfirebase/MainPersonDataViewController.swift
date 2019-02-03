@@ -106,7 +106,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-       searchedPersons = persons.filter({$0.personData.firstName.prefix(searchText.count) == searchText })
+       searchedPersons = persons.filter({$0.personData.firstName.contains(searchText)})
        searching = true
 
        // Fill the table view

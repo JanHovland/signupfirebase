@@ -97,25 +97,25 @@ class SavePostalCodesFirebaseTableViewController: UITableViewController, UIDocum
 
                     let item = (Postnummer: values[0], Poststed: values[1], Kommunenummer: values[2], Kommunenavn: values[3], Kategori: values[4])
 
-                    // Set "namecase" to item.Poststed
-                    let poststed1 = item.Poststed.lowercased()
-                    // capitalized : All word(s)' first letter will be uppercased()
-                    let poststed2 = poststed1.capitalized
-
-                    //  Replace " I " with " i "
-                    let poststed = poststed2.replacingOccurrences(of: " I ", with: " i ")
-
-                    // Set "namecase" to item.Kommune
-                    let kommune1 = item.Kommunenavn.lowercased()
-
-                    // capitalized : All word(s)' first letter will be uppercased()
-                    let kommune = kommune1.capitalized
+//                    // Set "namecase" to item.Poststed
+//                    let poststed1 = item.Poststed.lowercased()
+//                    // capitalized : All word(s)' first letter will be uppercased()
+//                    let poststed2 = poststed1.capitalized
+//
+//                    //  Replace " I " with " i "
+//                    let poststed = poststed2.replacingOccurrences(of: " I ", with: " i ")
+//
+//                    // Set "namecase" to item.Kommune
+//                    let kommune1 = item.Kommunenavn.lowercased()
+//
+//                    // capitalized : All word(s)' first letter will be uppercased()
+//                    let kommune = kommune1.capitalized
 
                     if item.Postnummer != "Postnummer" {
                         savePostalCodesFiredata(postnummer: item.Postnummer,
-                                                poststed: poststed,
+                                                poststed: item.Poststed,
                                                 kommunenummer: item.Kommunenummer,
-                                                kommune: kommune)
+                                                kommune: item.Kommunenavn)
                     }
                 }
             }
