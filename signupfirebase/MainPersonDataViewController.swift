@@ -107,7 +107,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
        if searchText.count > 0 {
-           searchedPersons = persons.filter({$0.personData.name.contains(searchText)})
+        searchedPersons = persons.filter({$0.personData.name.contains(searchText)})
            searching = true
        } else {
            searching = false

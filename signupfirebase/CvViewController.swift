@@ -127,6 +127,7 @@ class CvViewController: UIViewController {
                 . Lese inn navnene i array i uppercase
                 . Vise i tableView som lettercase
                 . Søke med store bokstaver
+                . ELLER: Legg inn en "Info" om bruk av små og store bokstaver
            b) Legge inn vertical slider i søk på Postnummer
            c) Legge inn Bilde i PersonViewController
            d) Legge inn Kart i PersonViewController
