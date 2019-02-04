@@ -71,10 +71,11 @@ class CvViewController: UIViewController {
         4. UserDefault lagrer brukerspesifikke verdier.
         
            a) "Show Password"
+           b) "Lagre postnummer i Firebase"
         
         5. Real time databasen Firebase fra Google.
         
-           a) Finnes på https://console.firebase.google.com/project/signupfirebase-236b9/database/firestore/data~2Fhttps://console.firebase.google.com/project/signupfirebase-236b9/database/firestore/data~2F
+           a) Finnes på https://console.firebase.google.com
            b) Bruke Authentication i Firebase
               . Benytter epost og passord for pålogging
            c) Bruke Firebase databasen for:
@@ -94,37 +95,44 @@ class CvViewController: UIViewController {
               . via swipeTrailing
            c) Sette dateValg.date = PersonDateOfBirthTextslik at riktig dateValg vises
            d) Søkefunksjon i PersonViewController (må nå søke på hele navnet)
-           e) Erstatte Navn med Fornavn og Etternavn i view
-              . Oppdatere Firebase
-              . Oppdatere Lagre, oppdatere, hente og slette i Firebase
-           f) Legge inn telefon nummer
+           e) Legge inn telefon nummer
               , Formattere -> 123 45 678
               . Oppdatere Firebase
               . Oppdatere Lagre, oppdatere, hente og slette i Firebase
-           h) Søkefunksjon i PersonViewController (kan kun søke på fornavn)
-           i) Endret høyden på scrollview Curriculum Vitae til 3000
-           j) Ta bort avhukinger etter scroll utenfor view vha func scrollViewWillBeginDragging(_ scrollView: UIScrollView)
+           f) Endret høyden på scrollview Curriculum Vitae til 3000
+           g) Ta bort avhukinger etter scroll utenfor view vha func scrollViewWillBeginDragging(_ scrollView: UIScrollView)
               som kaller deleteAllCheckmarks()
-           k) Sorterer begge array
+           h) Sorterer begge array
               . self.persons.sort(by: {$0.personData.firstName < $1.personData.firstName})
               . postalCodes.sort(by: {$0.city < $1.city})
-           l) Legge inn postnr og poststed inn i PersonViewController
+           i) Legge inn postnr og poststed inn i PersonViewController
               . Det er problemer med å bruke array, da compileren kun tillater opptil en viss størrelse
               . https://www.bring.no/radgivning/sende-noe/adressetjenester/postnummer/
               . Hent .Excel format (xlsx)
               . Legg ut som .csv fil via Excel (Problemer med Tab-separerte felter (ANSI))
-           m) Legge en del av postnr og poststed inn i et array for raskt søk uten hjelp av database
-           m) Søkefunksjon i PersonViewController på kun fornavn eller etternavn)
-           n) OK Update: visningen krøller seg til
+           j) Har nå lagt postnummer inn i Firebase og leser derfra inn i postalCodes
+           k) Bruker nå filter({$0.xxxxxxxxx.contains(searchText.uppercased())}) på begge arrayene. Poststed ligger som
+              uppercase og brukes som uppercase. Dermed kan jeg finne alle poststedene som inneholder en søkestreng.
+           l) OK Update: visningen krøller seg til
               . Dette skyldes sammenslåing av firstName og lastName, forsvant da jeg splittet til 2 labels
                 Kan være at den labelName skulle vært satt til "" for nye data leses inn?
+           m) Format av telefon er kommentert bort, må rettes og implementeres
+              .Test OK
+           o) Lagt inn nytt punkt "Lagre postnummer i Firebase" under "Innstillinger"
         
         7. Nye oppgaver (ikke fullført)
         
-           a) Legge inn nytt punkt "Lagre postnummer i Firebase" under "Innstillinger"
-           b) Legge inn Bilde i PersonViewController
-           b) Legge inn Kart i PersonViewController
-           d) Oppdatere security i Firebase (er det samme for Firestore?)
+           a) Bruker nå persons.filter({$0.personData.name.contains(searchText)}) på person arrayet. Persons ligger som
+              lettercase og brukes som lettercase. Når en legger inn en inn en søkestreng må jeg passe på store og små bokstaver.
+              Kan dette endres, slik at en ikke trenger å passe på store og små bokstaver?
+                . Legge ut navnet i uppercase i Firebase
+                . Lese inn navnene i array i uppercase
+                . Vise i tableView som lettercase
+                . Søke med store bokstaver
+           b) Legge inn vertical slider i søk på Postnummer
+           c) Legge inn Bilde i PersonViewController
+           d) Legge inn Kart i PersonViewController
+           e) Oppdatere security i Firebase (er det samme for Firestore?)
         
         8. Programmerings tips
         
@@ -145,9 +153,7 @@ class CvViewController: UIViewController {
         
         9. Feil som må rettes
         
-           a) Format av telefon er kommentert bort, må rettes og implementeres 
-              .Test gjenstår
-           b) Det kan legges inn flere like poster
+           a) Det kan legges inn flere like poster
         
         """
         
