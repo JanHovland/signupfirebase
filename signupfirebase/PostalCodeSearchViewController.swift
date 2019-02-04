@@ -107,7 +107,6 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
             searchedPostalCodes = postalCodes.filter({$0.poststed.contains(searchText.uppercased())})
             searching = true
         } else {
- print("searchText = \(searchText)")
             searching = false
         }
            
