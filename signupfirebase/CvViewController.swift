@@ -106,19 +106,17 @@ class CvViewController: UIViewController {
               . self.persons.sort(by: {$0.personData.firstName < $1.personData.firstName})
               . postalCodes.sort(by: {$0.city < $1.city})
            i) Legge inn postnr og poststed inn i PersonViewController
-              . Det er problemer med å bruke array, da compileren kun tillater opptil en viss størrelse
+              . Det er problemer med å bruke array, da compileren kun tillater opptil en viss størrelse.
+                Legger nå ut postnummer inn i Firebase og leser derfra inn i postalCodes arrayet
               . https://www.bring.no/radgivning/sende-noe/adressetjenester/postnummer/
               . Hent .Excel format (xlsx)
               . Legg ut som .csv fil via Excel (Problemer med Tab-separerte felter (ANSI))
            j) Har nå lagt postnummer inn i Firebase og leser derfra inn i postalCodes
            k) Bruker nå filter({$0.xxxxxxxxx.contains(searchText.uppercased())}) på begge arrayene. Poststed ligger som
               uppercase og brukes som uppercase. Dermed kan jeg finne alle poststedene som inneholder en søkestreng.
-           l) OK Update: visningen krøller seg til
-              . Dette skyldes sammenslåing av firstName og lastName, forsvant da jeg splittet til 2 labels
-                Kan være at den labelName skulle vært satt til "" for nye data leses inn?
-           m) Format av telefon er kommentert bort, må rettes og implementeres
+           l) Format av telefon er kommentert bort, må rettes og implementeres
               .Test OK
-           o) Lagt inn nytt punkt "Lagre postnummer i Firebase" under "Innstillinger"
+           m) Lagt inn nytt punkt "Lagre postnummer i Firebase" under "Innstillinger"
         
         7. Nye oppgaver (ikke fullført)
         
