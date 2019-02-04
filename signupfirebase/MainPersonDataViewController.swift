@@ -118,13 +118,11 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         
     }
     
-    // Close the onboard keyboard
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    // called when keyboard done button pressed
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBarPerson.endEditing(true)
-        searchBarPerson.resignFirstResponder()
-        searchBarPerson.text = ""
     }
-    
+
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 
        // In order to show both the icon and the text, the height of the tableViewCell must be > 91

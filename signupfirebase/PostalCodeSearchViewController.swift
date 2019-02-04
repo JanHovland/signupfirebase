@@ -81,7 +81,9 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
             cell?.textLabel?.text = postalCodes[indexPath.row].postnummer
             cell?.detailTextLabel?.text = postalCodes[indexPath.row].poststed 
         }
-
+//        // Fill the table view
+//        self.tableView.reloadData()
+        
         return cell!
     }
 
@@ -105,6 +107,7 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
             searchedPostalCodes = postalCodes.filter({$0.poststed.contains(searchText.uppercased())})
             searching = true
         } else {
+ print("searchText = \(searchText)")
             searching = false
         }
            
@@ -135,11 +138,9 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
         }
     }
 
-    // Close the onboard keyboard
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    // called when keyboard done button pressed
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchPostelCode.endEditing(true)
-        searchPostelCode.resignFirstResponder()
-        searchPostelCode.text = ""
     }
     
     override func viewWillDisappear(_ animated: Bool) {
