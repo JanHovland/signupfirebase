@@ -6,59 +6,57 @@
 //  Copyright © 2019 Jan . All rights reserved.
 //
 
-import UIKit
 import Firebase
+import UIKit
 
 var city = ""
 var oldCity = ""
 var postalCode = ""
 var oldPostalCode = ""
 
-class PostalCodeSearchTableViewController: UITableViewController {
-
+class PostalCodeSearchTableViewController: UITableViewController, UISearchBarDelegate {
+    
     @IBOutlet var searchPostelCode: UISearchBar!
+    @IBOutlet weak var tableViewSearch: UITableView!
     @IBOutlet weak var activity: UIActivityIndicatorView!
-    
+
     var postalCodes = [PostalCode]()
-    
     var searchedPostalCodes = [PostalCode]()
     var searching = false
-    
+
     var postalCodeAddressText = ""
-    var postalCodeCityText  = ""
+    var postalCodeCityText = ""
     var postalCodeDateOfBirthText = ""
     var postalCodeNameText = ""
     var postalCodeGenderInt = 0
     var postalCodePhoneNumberText = ""
     var postalCodePostalCodeNumberText = ""
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         activity.style = .gray
         activity.isHidden = false
 
-        // searchPostelCode.delegate = self
-        
+        searchPostelCode.delegate = self
+
         oldCity = city
         oldPostalCode = postalCode
-        
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         activity.startAnimating()
-        
+
         // Read postalCode fra Firedata
         ReadPostalCodeFiredata()
-        
+
         activity.isHidden = true
         activity.stopAnimating()
-        
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         // Show the Navigation Bar
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -78,18 +76,17 @@ class PostalCodeSearchTableViewController: UITableViewController {
             cell?.detailTextLabel?.text = searchedPostalCodes[indexPath.row].poststed
         } else {
             cell?.textLabel?.text = postalCodes[indexPath.row].postnummer
-            cell?.detailTextLabel?.text = postalCodes[indexPath.row].poststed 
+            cell?.detailTextLabel?.text = postalCodes[indexPath.row].poststed
         }
 //        // Fill the table view
 //        self.tableView.reloadData()
-        
+
         return cell!
     }
 
     func deleteAllCheckmarks() {
-    
         // Delete all checkmarks in the ctive tableView
-        let rowCount = self.tableView.numberOfRows(inSection: 0)
+        let rowCount = tableView.numberOfRows(inSection: 0)
         for index in 0 ... rowCount {
             if let cell = self.tableView.cellForRow(at: NSIndexPath(row: index, section: 0) as IndexPath) {
                 if cell.accessoryType == .checkmark {
@@ -97,26 +94,23 @@ class PostalCodeSearchTableViewController: UITableViewController {
                 }
             }
         }
-       
     }
-    
+
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
         if searchText.count > 0 {
-            searchedPostalCodes = postalCodes.filter({$0.poststed.contains(searchText.uppercased())})
+            searchedPostalCodes = postalCodes.filter({ $0.poststed.contains(searchText.uppercased()) })
             searching = true
         } else {
             searching = false
         }
-           
+
         // Delete all checkmarks in the ctive tableView
         deleteAllCheckmarks()
-        
+
         // Fill the table view
         tableView.reloadData()
-
     }
-   
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
@@ -126,7 +120,7 @@ class PostalCodeSearchTableViewController: UITableViewController {
         // Resetter postalCode and city
         postalCode = ""
         city = ""
-        
+
         // Set a checkmark at cellForRow and
         // Store the selected city and postalCode
         if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
@@ -140,72 +134,65 @@ class PostalCodeSearchTableViewController: UITableViewController {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchPostelCode.endEditing(true)
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
+
         if city.count == 0 {
-           city = oldCity
+            city = oldCity
         }
-        
+
         if postalCode.count == 0 {
-           postalCode = oldPostalCode
+            postalCode = oldPostalCode
         }
-        
+
         globalPersonNameText = postalCodeNameText
         globalPersonAddressText = postalCodeAddressText
         globalPersonPhoneNumberText = postalCodePhoneNumberText
         globalPersonDateOfBirthText = postalCodeDateOfBirthText
         globalPersonGenderInt = postalCodeGenderInt
-        
-   }
-    
+    }
+
     // Tell the delegatewhen the scroll view is about to start scrolling the content
     override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         // Delete all checkmarks in the ctive tableView
         deleteAllCheckmarks()
-   }
-    
+    }
+
     func ReadPostalCodeFiredata() {
-        
         var db: DatabaseReference!
-        
+
         db = Database.database().reference().child("postnr")
-        
+
         db.observe(.value, with: { snapshot in
-            
+
             var tempPostnr = [PostalCode]()
-            
+
             for child in snapshot.children {
-                
                 if let childSnapshot = child as? DataSnapshot,
                     let postnr = childSnapshot.value as? [String: Any],
                     let postnummer = postnr["postnummer"] as? String,
                     let poststed = postnr["poststed"] as? String,
                     let kommunenummer = postnr["kommunenummer"] as? String,
                     let kommune = postnr["kommune"] as? String {
-                    
                     let postnr = PostalCode(postnummer: postnummer,
                                             poststed: poststed,
                                             kommunenummer: kommunenummer,
                                             kommune: kommune)
-                    
+
                     tempPostnr.append(postnr)
-                    
                 }
             }
-            
+
             // Update the posts array
             self.postalCodes = tempPostnr
-            
+
             // Sorting the persons array on firstName
-            self.postalCodes.sort(by: {$0.poststed < $1.poststed})
-            
+            self.postalCodes.sort(by: { $0.poststed < $1.poststed })
+
             // Fill the table view
             self.tableView.reloadData()
-            
+
         })
     }
-    
-    
 }

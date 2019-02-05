@@ -1294,6 +1294,8 @@
                     <navigationItem key="navigationItem" title="Postal Codes" id="emX-1K-EeJ"/>
                     <connections>
                         <outlet property="activity" destination="aIJ-XH-EBN" id="OtD-g4-nbG"/>
+                        <outlet property="searchPostelCode" destination="2L5-rK-D9W" id="erm-zs-ibU"/>
+                        <outlet property="tableViewSearch" destination="ZRb-8p-D20" id="1R9-NJ-VQ2"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WMG-4e-boV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1455,16 +1457,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="1rH-2X-JJ2">
-                                                    <rect key="frame" x="15" y="10" width="637" height="65.5"/>
+                                                    <rect key="frame" x="15" y="10" width="345" height="65.5"/>
                                                     <subviews>
                                                         <label autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" text="nameLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfO-dL-I5s" userLabel="name Label">
-                                                            <rect key="frame" x="0.0" y="0.0" width="637" height="44.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="345" height="44.5"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="addressLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GoA-hY-uI8" userLabel="address Label">
-                                                            <rect key="frame" x="0.0" y="47.5" width="637" height="18"/>
+                                                            <rect key="frame" x="0.0" y="47.5" width="345" height="18"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
