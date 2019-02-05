@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		14B6C7D5AD5979888331B70D /* Pods_signupfirebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FA6AF44DDF6A6C8562A35A /* Pods_signupfirebase.framework */; };
-		D11114C821F5C30A00835CF4 /* PostalCodeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11114C721F5C30A00835CF4 /* PostalCodeSearchViewController.swift */; };
+		D11114C821F5C30A00835CF4 /* PostalCodeSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11114C721F5C30A00835CF4 /* PostalCodeSearchTableViewController.swift */; };
 		D11114CA21F5C68C00835CF4 /* PostalCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11114C921F5C68C00835CF4 /* PostalCode.swift */; };
 		D11E2BD8219470D90075BD11 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D11E2BD6219470D90075BD11 /* Model.xcdatamodeld */; };
 		D1266D692199A72C00593984 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1266D682199A72C00593984 /* CreateAccountViewController.swift */; };
@@ -44,7 +44,7 @@
 /* Begin PBXFileReference section */
 		08126B0DA4D29A97D8D93FE5 /* Pods-signupfirebase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-signupfirebase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-signupfirebase/Pods-signupfirebase.debug.xcconfig"; sourceTree = "<group>"; };
 		893C897689365B2F237CCE21 /* Pods-signupfirebase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-signupfirebase.release.xcconfig"; path = "Pods/Target Support Files/Pods-signupfirebase/Pods-signupfirebase.release.xcconfig"; sourceTree = "<group>"; };
-		D11114C721F5C30A00835CF4 /* PostalCodeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostalCodeSearchViewController.swift; sourceTree = "<group>"; };
+		D11114C721F5C30A00835CF4 /* PostalCodeSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostalCodeSearchTableViewController.swift; sourceTree = "<group>"; };
 		D11114C921F5C68C00835CF4 /* PostalCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostalCode.swift; sourceTree = "<group>"; };
 		D11E2BD7219470D90075BD11 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		D1266D682199A72C00593984 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
@@ -163,7 +163,7 @@
 				D17C78F121F0C89000DEE649 /* SearchViewController.swift */,
 				D1349F152205C94800C825E7 /* Postnummer.csv */,
 				D14DBA2B2206F7F6005B75C1 /* signupfirebase-reset.json */,
-				D11114C721F5C30A00835CF4 /* PostalCodeSearchViewController.swift */,
+				D11114C721F5C30A00835CF4 /* PostalCodeSearchTableViewController.swift */,
 				D13172532202EF1C00EEB530 /* SavePostalCodesFirebaseTableViewController.swift */,
 			);
 			path = signupfirebase;
@@ -306,7 +306,7 @@
 				D1E95C9021D6BB6E00B40EE9 /* PersonDataTableViewCell.swift in Sources */,
 				D1C96A1821A1CB0F00C5DA7A /* UpdateUserNameViewController.swift in Sources */,
 				D134822721CF922900F9F944 /* MainPersonDataViewController.swift in Sources */,
-				D11114C821F5C30A00835CF4 /* PostalCodeSearchViewController.swift in Sources */,
+				D11114C821F5C30A00835CF4 /* PostalCodeSearchTableViewController.swift in Sources */,
 				D15A0DD321909AFC00FBB286 /* SettingsTableViewController.swift in Sources */,
 				D1C96A1421A1C97900C5DA7A /* UpdatePasswordViewController.swift in Sources */,
 				D135787921B693BB0057140D /* ResetPWByMailViewController.swift in Sources */,

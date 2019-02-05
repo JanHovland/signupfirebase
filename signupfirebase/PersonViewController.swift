@@ -309,7 +309,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         // 'prepare' will run after every segue.
 
         if segue.identifier! == "goToPostalCodes" {
-            let vc = segue.destination as! PostalCodeSearchViewController
+            let vc = segue.destination as! PostalCodeSearchTableViewController
 
             vc.postalCodeNameText = nameInput.text!
             vc.postalCodeAddressText = addressInput.text!

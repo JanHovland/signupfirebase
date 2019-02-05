@@ -14,10 +14,9 @@ var oldCity = ""
 var postalCode = ""
 var oldPostalCode = ""
 
-class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class PostalCodeSearchTableViewController: UITableViewController {
 
     @IBOutlet var searchPostelCode: UISearchBar!
-    @IBOutlet var tableView: UITableView!
     @IBOutlet weak var activity: UIActivityIndicatorView!
     
     var postalCodes = [PostalCode]()
@@ -39,7 +38,7 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
         activity.style = .gray
         activity.isHidden = false
 
-        searchPostelCode.delegate = self
+        // searchPostelCode.delegate = self
         
         oldCity = city
         oldPostalCode = postalCode
@@ -62,7 +61,7 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searching {
             return searchedPostalCodes.count
         } else {
@@ -70,7 +69,7 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
         }
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
 
         // Configure the cell
@@ -118,7 +117,7 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
 
     }
    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
         // Delete all checkmarks in the ctive tableView
@@ -162,7 +161,7 @@ class PostalCodeSearchViewController: UIViewController, UITableViewDelegate, UIT
    }
     
     // Tell the delegatewhen the scroll view is about to start scrolling the content
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         // Delete all checkmarks in the ctive tableView
         deleteAllCheckmarks()
    }
