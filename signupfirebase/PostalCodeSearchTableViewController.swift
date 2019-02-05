@@ -31,7 +31,12 @@ class PostalCodeSearchTableViewController: UITableViewController, UISearchBarDel
     var postalCodeGenderInt = 0
     var postalCodePhoneNumberText = ""
     var postalCodePostalCodeNumberText = ""
+    
+    var poststedsDictionary = [String: [String]]()
+    var poststedSectionTitles = [String]()
+    var poststeds = [String]()
 
+    // Called after the controller's view is loaded into memory.
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,6 +49,7 @@ class PostalCodeSearchTableViewController: UITableViewController, UISearchBarDel
         oldPostalCode = postalCode
     }
 
+    // Notifies the view controller that its view was added to a view hierarchy.
     override func viewDidAppear(_ animated: Bool) {
         activity.startAnimating()
 
@@ -54,11 +60,13 @@ class PostalCodeSearchTableViewController: UITableViewController, UISearchBarDel
         activity.stopAnimating()
     }
 
+    // Notifies the view controller that its view is about to be added to a view hierarchy.
     override func viewWillAppear(_ animated: Bool) {
         // Show the Navigation Bar
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
+    // Asks the data source to return the number of sections in the table view.
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searching {
             return searchedPostalCodes.count
@@ -67,6 +75,7 @@ class PostalCodeSearchTableViewController: UITableViewController, UISearchBarDel
         }
     }
 
+    // Asks the data source for a cell to insert in a particular location of the table view.
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
 
@@ -78,24 +87,11 @@ class PostalCodeSearchTableViewController: UITableViewController, UISearchBarDel
             cell?.textLabel?.text = postalCodes[indexPath.row].postnummer
             cell?.detailTextLabel?.text = postalCodes[indexPath.row].poststed
         }
-//        // Fill the table view
-//        self.tableView.reloadData()
 
         return cell!
     }
 
-    func deleteAllCheckmarks() {
-        // Delete all checkmarks in the ctive tableView
-        let rowCount = tableView.numberOfRows(inSection: 0)
-        for index in 0 ... rowCount {
-            if let cell = self.tableView.cellForRow(at: NSIndexPath(row: index, section: 0) as IndexPath) {
-                if cell.accessoryType == .checkmark {
-                    cell.accessoryType = .none
-                }
-            }
-        }
-    }
-
+    // Tells the delegate that the user changed the search text.
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.count > 0 {
             searchedPostalCodes = postalCodes.filter({ $0.poststed.contains(searchText.uppercased()) })
@@ -110,7 +106,8 @@ class PostalCodeSearchTableViewController: UITableViewController, UISearchBarDel
         // Fill the table view
         tableView.reloadData()
     }
-
+    
+    // Tells the delegate that the specified row is now selected.
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
@@ -135,6 +132,7 @@ class PostalCodeSearchTableViewController: UITableViewController, UISearchBarDel
         searchPostelCode.endEditing(true)
     }
 
+    // Notifies the view controller that its view is about to be removed from a view hi
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
@@ -159,6 +157,19 @@ class PostalCodeSearchTableViewController: UITableViewController, UISearchBarDel
         deleteAllCheckmarks()
     }
 
+    // Delete all checkmarks in the active tableView
+    func deleteAllCheckmarks() {
+        let rowCount = tableView.numberOfRows(inSection: 0)
+        for index in 0 ... rowCount {
+            if let cell = self.tableView.cellForRow(at: NSIndexPath(row: index, section: 0) as IndexPath) {
+                if cell.accessoryType == .checkmark {
+                    cell.accessoryType = .none
+                }
+            }
+        }
+    }
+    
+    // Read postal data from Firebase
     func ReadPostalCodeFiredata() {
         var db: DatabaseReference!
 
