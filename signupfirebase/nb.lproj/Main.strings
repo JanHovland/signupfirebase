@@ -85,6 +85,9 @@
 /* Class = "UITableViewSection"; headerTitle = " "; ObjectID = "Hlp-Ao-XeV"; */
 "Hlp-Ao-XeV.headerTitle" = " ";
 
+/* Class = "UINavigationItem"; title = "Postal Codes"; ObjectID = "hO4-l2-IU5"; */
+"hO4-l2-IU5.title" = "Postnummer";
+
 /* Class = "UINavigationItem"; title = "Create account"; ObjectID = "htX-Sm-RkV"; */
 "htX-Sm-RkV.title" = "Opprett ny konto";
 
@@ -132,9 +135,6 @@
 
 /* Class = "UILabel"; text = "City"; ObjectID = "PJT-Cn-HsF"; */
 "PJT-Cn-HsF.text" = "By";
-
-/* Class = "UINavigationItem"; title = "Postal Codes"; ObjectID = "Pw2-ly-6Dv"; */
-"Pw2-ly-6Dv.title" = "Postnummer";
 
 /* Class = "UILabel"; text = "New name"; ObjectID = "qQS-3C-C61"; */
 "qQS-3C-C61.text" = "Nytt navn";
@@ -198,9 +198,6 @@
 
 /* Class = "UILabel"; text = "userInfo"; ObjectID = "WJH-PP-AVI"; */
 "WJH-PP-AVI.text" = "userInfo";
-
-/* Class = "UISearchBar"; placeholder = "Search for a city ..."; ObjectID = "wwm-fT-0XP"; */
-"wwm-fT-0XP.placeholder" = "Søk etter et sted ...";
 
 /* Class = "UILabel"; text = "Password"; ObjectID = "X3x-Cl-KO1"; */
 "X3x-Cl-KO1.text" = "Passord";

@@ -169,8 +169,11 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
         }
     }
     
+    // Reads all data outside the closure in ReadPostalCodeFiredata
     func makeRead() {
         ReadPostalCodeFiredata { (postalCodes) in
+            
+            // Must use the main thread to get the data 
             DispatchQueue.main.async {
                 // Fill the table view
                 self.tableView.reloadData()
@@ -178,7 +181,7 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
         }
     }
     
-    // Read postal data from Firebase
+    // Read postal data from Firebase and exports the array from the closure when finshed
     func ReadPostalCodeFiredata(completionHandler: @escaping (_ tempPostnr: [PostalCode]) ->Void) {
         var db: DatabaseReference!
 
@@ -207,6 +210,8 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
             // Update the posts array
             self.postalCodes = tempPostnr
             self.postalCodes.sort(by: { $0.poststed < $1.poststed })
+            
+            // Export the data from the closure
             completionHandler(tempPostnr)
 
         })
