@@ -40,6 +40,8 @@ class PostalCodeSearchTableViewController: UITableViewController, UISearchBarDel
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        makeRead()
+        
         activity.style = .gray
         activity.isHidden = false
 
@@ -52,9 +54,6 @@ class PostalCodeSearchTableViewController: UITableViewController, UISearchBarDel
     // Notifies the view controller that its view was added to a view hierarchy.
     override func viewDidAppear(_ animated: Bool) {
         activity.startAnimating()
-
-        // Read postalCode fra Firedata
-        ReadPostalCodeFiredata()
 
         activity.isHidden = true
         activity.stopAnimating()
@@ -110,7 +109,7 @@ class PostalCodeSearchTableViewController: UITableViewController, UISearchBarDel
     // Tells the delegate that the specified row is now selected.
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-
+        
         // Delete all checkmarks in the ctive tableView
         deleteAllCheckmarks()
 
@@ -169,8 +168,17 @@ class PostalCodeSearchTableViewController: UITableViewController, UISearchBarDel
         }
     }
     
+    func makeRead() {
+        ReadPostalCodeFiredata { (postalCodes) in
+            DispatchQueue.main.async {
+                // Fill the table view
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
     // Read postal data from Firebase
-    func ReadPostalCodeFiredata() {
+    func ReadPostalCodeFiredata(completionHandler: @escaping (_ tempPostnr: [PostalCode]) ->Void) {
         var db: DatabaseReference!
 
         db = Database.database().reference().child("postnr")
@@ -197,13 +205,10 @@ class PostalCodeSearchTableViewController: UITableViewController, UISearchBarDel
 
             // Update the posts array
             self.postalCodes = tempPostnr
-
-            // Sorting the persons array on firstName
             self.postalCodes.sort(by: { $0.poststed < $1.poststed })
-
-            // Fill the table view
-            self.tableView.reloadData()
+            completionHandler(tempPostnr)
 
         })
+        
     }
 }
