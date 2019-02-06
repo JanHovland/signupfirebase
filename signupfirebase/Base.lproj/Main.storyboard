@@ -1143,7 +1143,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yTz-8m-vkd" userLabel="Detail Disclosure Button">
                                 <rect key="frame" x="341" y="331" width="29" height="22"/>
                                 <connections>
-                                    <segue destination="hAL-hb-tzf" kind="show" identifier="gotoPostalCodes" id="QVL-aj-TKY"/>
+                                    <segue destination="p5X-p9-m4e" kind="show" identifier="gotoPostalCodes" id="o0q-lH-gqI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uSm-T6-4NZ">
@@ -1244,67 +1244,86 @@
             <point key="canvasLocation" x="-4098" y="2006"/>
         </scene>
         <!--Postal Codes-->
-        <scene sceneID="8uk-jY-8WN">
+        <scene sceneID="SQB-4T-iVc">
             <objects>
-                <tableViewController id="hAL-hb-tzf" customClass="PostalCodeSearchTableViewController" customModule="signupfirebase" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZRb-8p-D20">
+                <viewController id="p5X-p9-m4e" customClass="PostalCodeSearchTableViewController" customModule="signupfirebase" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VvO-B8-onT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Search for a city ..." translatesAutoresizingMaskIntoConstraints="NO" id="NMI-Cs-eLO">
+                                <rect key="frame" x="0.0" y="64" width="375" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="XBF-gR-mNL"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </searchBar>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="E81-H3-CMF">
+                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XOp-g2-Be5">
+                                <rect key="frame" x="0.0" y="119" width="375" height="499"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="cgF-UF-YVB" detailTextLabel="SAO-NP-o0h" style="IBUITableViewCellStyleValue1" id="l5k-n4-zqv">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="l5k-n4-zqv" id="M66-V2-i7N">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cgF-UF-YVB">
+                                                    <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SAO-NP-o0h">
+                                                    <rect key="frame" x="316" y="12" width="44" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="p5X-p9-m4e" id="3Jo-et-z8v"/>
+                                    <outlet property="delegate" destination="p5X-p9-m4e" id="J6d-yd-i3d"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search for a city ..." id="2L5-rK-D9W">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done"/>
-                            <scopeButtonTitles>
-                                <string>Title</string>
-                                <string>Title</string>
-                            </scopeButtonTitles>
-                        </searchBar>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="VnD-Tj-YKf" detailTextLabel="Ht0-pe-TGw" rowHeight="33" style="IBUITableViewCellStyleValue1" id="TJr-De-Hlp">
-                                <rect key="frame" x="0.0" y="84" width="375" height="33"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TJr-De-Hlp" id="Tbj-h1-efr">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="32.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VnD-Tj-YKf">
-                                            <rect key="frame" x="16" y="6" width="33.5" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ht0-pe-TGw">
-                                            <rect key="frame" x="315" y="6" width="44" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="hAL-hb-tzf" id="qb4-u3-7gH"/>
-                            <outlet property="delegate" destination="hAL-hb-tzf" id="Ids-Ca-lsi"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Postal Codes" id="emX-1K-EeJ"/>
+                        <constraints>
+                            <constraint firstItem="XOp-g2-Be5" firstAttribute="top" secondItem="NMI-Cs-eLO" secondAttribute="bottom" id="6yL-tK-Sa5"/>
+                            <constraint firstItem="0eH-Nd-fWh" firstAttribute="bottom" secondItem="XOp-g2-Be5" secondAttribute="bottom" id="Azq-7z-z1N"/>
+                            <constraint firstItem="NMI-Cs-eLO" firstAttribute="trailing" secondItem="0eH-Nd-fWh" secondAttribute="trailing" id="Bxn-0N-tAS"/>
+                            <constraint firstItem="NMI-Cs-eLO" firstAttribute="leading" secondItem="0eH-Nd-fWh" secondAttribute="leading" id="MYE-1a-sSu"/>
+                            <constraint firstItem="E81-H3-CMF" firstAttribute="centerX" secondItem="VvO-B8-onT" secondAttribute="centerX" id="RT3-KJ-c71"/>
+                            <constraint firstItem="NMI-Cs-eLO" firstAttribute="leading" secondItem="0eH-Nd-fWh" secondAttribute="leading" id="Vg2-G7-XnH"/>
+                            <constraint firstItem="E81-H3-CMF" firstAttribute="centerY" secondItem="VvO-B8-onT" secondAttribute="centerY" id="Wad-FP-vsp"/>
+                            <constraint firstItem="NMI-Cs-eLO" firstAttribute="top" secondItem="0eH-Nd-fWh" secondAttribute="top" id="dRb-Uk-cM6"/>
+                            <constraint firstItem="0eH-Nd-fWh" firstAttribute="trailing" secondItem="XOp-g2-Be5" secondAttribute="trailing" id="jHx-b1-QDa"/>
+                            <constraint firstItem="NMI-Cs-eLO" firstAttribute="top" secondItem="0eH-Nd-fWh" secondAttribute="top" id="jqq-8e-cJF"/>
+                            <constraint firstItem="NMI-Cs-eLO" firstAttribute="trailing" secondItem="0eH-Nd-fWh" secondAttribute="trailing" id="pPR-5r-rNY"/>
+                            <constraint firstItem="XOp-g2-Be5" firstAttribute="leading" secondItem="0eH-Nd-fWh" secondAttribute="leading" id="xBC-64-nW0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0eH-Nd-fWh"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Postal Codes" id="hO4-l2-IU5"/>
                     <connections>
-                        <outlet property="activity" destination="aIJ-XH-EBN" id="OtD-g4-nbG"/>
-                        <outlet property="searchPostelCode" destination="2L5-rK-D9W" id="erm-zs-ibU"/>
-                        <outlet property="tableViewSearch" destination="ZRb-8p-D20" id="1R9-NJ-VQ2"/>
+                        <outlet property="activity" destination="E81-H3-CMF" id="Zcy-gP-cko"/>
+                        <outlet property="searchPostelCode" destination="NMI-Cs-eLO" id="qnF-1q-SFG"/>
+                        <outlet property="tableView" destination="XOp-g2-Be5" id="Zip-HM-RV7"/>
+                        <outlet property="tableViewSearch" destination="XOp-g2-Be5" id="OfV-eM-vdw"/>
                     </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WMG-4e-boV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="aIJ-XH-EBN">
-                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </activityIndicatorView>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bLd-PQ-1sO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3311" y="2006"/>
+            <point key="canvasLocation" x="-3020" y="2006"/>
         </scene>
         <!--Update password-->
         <scene sceneID="514-fI-xD2">
