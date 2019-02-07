@@ -93,7 +93,40 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
 
         let key = poststedSectionTitles[indexPath.section]
         if let postValues = poststedsDictionary[key] {
-            cell?.textLabel?.text = postValues[indexPath.row]
+            /*
+            poststed + "|" +
+            postnummer + "|" +
+            kommunenummer + "|" +
+            kommune]
+            */
+            
+            // Find "poststed"
+            let poststed1 = postValues[indexPath.row]
+            
+            if let index = poststed1.firstIndex(of: "|") {
+                let substring = poststed1[..<index]
+                let poststed = String(substring)
+                cell?.detailTextLabel?.text = poststed
+            
+                // Find "postnummer"
+                
+                let postnummer1 = String(poststed1[index...])
+                
+                let index2 = postnummer1.index(postnummer1.startIndex, offsetBy: 1)
+
+                let postnummer2 = String(postnummer1[index2...])
+                
+                if let index3 = postnummer2.firstIndex(of: "|") {
+                    
+                    let substring1 = postnummer2[..<index3]
+                    let postnummer = String(substring1)
+                
+                    cell?.textLabel?.text = postnummer
+                    
+                }
+                
+            }
+            
         }
         
         // Configure the cell
@@ -205,13 +238,6 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
             // Each work item submitted to a queue is processed on a pool of threads managed by the system.
             DispatchQueue.main.async {
                 
-                /*
-                var poststedsDictionary = [String: [String]]()
-                var poststedSectionTitles = [String]()
-                var poststeds = [String]()
-                var postalCodes = [PostalCode]()
-                */
-                
                 let count = postalCodes.count - 1
                 
                 for index in 0...count {
@@ -219,10 +245,17 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
                     let key = String(postalCodes[index].poststed.prefix(1))
                     
                     if var postValues = self.poststedsDictionary[key] {
-                        postValues.append(postalCodes[index].poststed)
+                        postValues.append(postalCodes[index].poststed + "|" +
+                                          postalCodes[index].postnummer + "|" +
+                                          postalCodes[index].kommunenummer + "|" +
+                                          postalCodes[index].kommune)
                         self.poststedsDictionary[key] = postValues
                     } else {
-                        self.poststedsDictionary[key] = [postalCodes[index].poststed]
+                        self.poststedsDictionary[key] = [postalCodes[index].poststed + "|" +
+                                                         postalCodes[index].postnummer + "|" +
+                                                         postalCodes[index].kommunenummer + "|" +
+                                                         postalCodes[index].kommune]
+
                     }
    
                 }
@@ -237,8 +270,6 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
                 }
                 self.poststedSectionTitles = sortedpoststedSection1
              
-                print("self.poststedSectionTitles = \(self.poststedSectionTitles)")
-                
                 // Fill the table view
                 self.tableView.reloadData()
 
