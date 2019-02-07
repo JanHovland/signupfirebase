@@ -127,6 +127,9 @@
 /* Class = "UILabel"; text = "Gender"; ObjectID = "nbz-eB-NWH"; */
 "nbz-eB-NWH.text" = "Kjønn";
 
+/* Class = "UISearchBar"; placeholder = "Search for a city ..."; ObjectID = "NMI-Cs-eLO"; */
+"NMI-Cs-eLO.placeholder" = "Søk etter et poststed ...";
+
 /* Class = "UITextField"; placeholder = "Enter the date of birth "; ObjectID = "ntB-2c-9zR"; */
 "ntB-2c-9zR.placeholder" = "Legg inn fødselsdatoen";
 

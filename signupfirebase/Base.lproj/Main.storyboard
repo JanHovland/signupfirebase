@@ -1256,7 +1256,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="XBF-gR-mNL"/>
                                 </constraints>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done"/>
                             </searchBar>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="E81-H3-CMF">
                                 <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
