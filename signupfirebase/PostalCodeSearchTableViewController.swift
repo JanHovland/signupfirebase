@@ -55,7 +55,7 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
     // Notifies the view controller that its view was added to a view hierarchy.
     override func viewDidAppear(_ animated: Bool) {
         activity.startAnimating()
-
+        
         activity.isHidden = true
         activity.stopAnimating()
     }
@@ -67,28 +67,55 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
     }
 
     // Asks the data source to return the number of sections in the table view.
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return poststedSectionTitles.count
+    }
+    
+    // Asks the data source to return the number of sections in the table view.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searching {
-            return searchedPostalCodes.count
-        } else {
-            return postalCodes.count
+        let key = poststedSectionTitles[section]
+        if let postValues = poststedsDictionary[key] {
+            return postValues.count
         }
+        
+        return 0
+        
+//        if searching {
+//            return searchedPostalCodes.count
+//        } else {
+//            return postalCodes.count
+//        }
     }
 
     // Asks the data source for a cell to insert in a particular location of the table view.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
 
-        // Configure the cell
-        if searching {
-            cell?.textLabel?.text = searchedPostalCodes[indexPath.row].postnummer
-            cell?.detailTextLabel?.text = searchedPostalCodes[indexPath.row].poststed
-        } else {
-            cell?.textLabel?.text = postalCodes[indexPath.row].postnummer
-            cell?.detailTextLabel?.text = postalCodes[indexPath.row].poststed
+        let key = poststedSectionTitles[indexPath.section]
+        if let postValues = poststedsDictionary[key] {
+            cell?.textLabel?.text = postValues[indexPath.row]
         }
+        
+        // Configure the cell
+//        if searching {
+//            cell?.textLabel?.text = searchedPostalCodes[indexPath.row].postnummer
+//            cell?.detailTextLabel?.text = searchedPostalCodes[indexPath.row].poststed
+//        } else {
+//            cell?.textLabel?.text = postalCodes[indexPath.row].postnummer
+//            cell?.detailTextLabel?.text = postalCodes[indexPath.row].poststed
+//        }
 
         return cell!
+    }
+    
+    // Asks the data source for the title of the header of the specified section of the table view.
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return poststedSectionTitles[section]
+    }
+    
+    // Asks the data source to return the titles for the sections for a table view.
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return poststedSectionTitles
     }
 
     // Tells the delegate that the user changed the search text.
@@ -173,10 +200,48 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
     func makeRead() {
         ReadPostalCodeFiredata { (postalCodes) in
             
-            // Must use the main thread to get the data 
+            // Must use the main thread to get the data
+            // DispatchQueue manages the execution of work items.
+            // Each work item submitted to a queue is processed on a pool of threads managed by the system.
             DispatchQueue.main.async {
+                
+                /*
+                var poststedsDictionary = [String: [String]]()
+                var poststedSectionTitles = [String]()
+                var poststeds = [String]()
+                var postalCodes = [PostalCode]()
+                */
+                
+                let count = postalCodes.count - 1
+                
+                for index in 0...count {
+                    
+                    let key = String(postalCodes[index].poststed.prefix(1))
+                    
+                    if var postValues = self.poststedsDictionary[key] {
+                        postValues.append(postalCodes[index].poststed)
+                        self.poststedsDictionary[key] = postValues
+                    } else {
+                        self.poststedsDictionary[key] = [postalCodes[index].poststed]
+                    }
+   
+                }
+                
+                self.poststedSectionTitles = [String](self.poststedsDictionary.keys)
+                
+                // Must use local sorting of the poststedSectionTitles
+                let region = NSLocale.current.regionCode?.lowercased()  // Returns the local region
+                let language = Locale(identifier: region!)
+                let sortedpoststedSection1 = self.poststedSectionTitles.sorted {
+                    $0.compare($1, locale: language) == .orderedAscending
+                }
+                self.poststedSectionTitles = sortedpoststedSection1
+             
+                print("self.poststedSectionTitles = \(self.poststedSectionTitles)")
+                
                 // Fill the table view
                 self.tableView.reloadData()
+
             }
         }
     }
