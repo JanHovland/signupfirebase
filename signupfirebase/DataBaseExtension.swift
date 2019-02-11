@@ -667,7 +667,7 @@ extension UIViewController {
                                  kommune: String)  {
         
         if  postnummer.count > 0,
-            poststed.count > 0 ,
+            poststed.count > 0,
             kommunenummer.count > 0,
             kommune.count > 0 {
             
