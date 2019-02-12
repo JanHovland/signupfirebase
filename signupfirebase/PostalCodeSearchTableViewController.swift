@@ -48,7 +48,10 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
         activity.isHidden = false
 
         searchPostelCode.delegate = self
-
+        
+        // Forces the online keyboard to be lowercased
+        searchPostelCode.autocapitalizationType = UITextAutocapitalizationType.none
+        
         oldCity = city
         oldPostalCode = postalCode
     }
@@ -90,7 +93,9 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
         let key = poststedSectionTitles[indexPath.section]
 
         if let postValues = poststedsDictionary[key] {
-            cell?.textLabel?.text = postValues[indexPath.row].poststed
+            let poststed = postValues[indexPath.row].poststed.lowercased()
+            
+            cell?.textLabel?.text = poststed.capitalized
             cell?.detailTextLabel?.text = postValues[indexPath.row].postnummer
         }
 
