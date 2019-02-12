@@ -78,50 +78,21 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
 
         if let postValues = poststedsDictionary[key] {
             return postValues.count
-            
-//            if searching {
-//                return searchedPostalCodes.count
-//            } else {
-//               return postalCodes.count
-//            }
         }
 
         return 0
-
     }
 
     // Asks the data source for a cell to insert in a particular location of the table view.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-        
+
         let key = poststedSectionTitles[indexPath.section]
-        
-        print(poststedSectionTitles)
-        
+
         if let postValues = poststedsDictionary[key] {
             cell?.textLabel?.text = postValues[indexPath.row].poststed
             cell?.detailTextLabel?.text = postValues[indexPath.row].postnummer
         }
-
-            
-            
-//            if searching {
-//                cell?.textLabel?.text = searchedPostalCodes[indexPath.row].postnummer
-//                cell?.detailTextLabel?.text = searchedPostalCodes[indexPath.row].poststed
-//            } else {
-//                cell?.textLabel?.text = postValues[indexPath.row].poststed
-//                cell?.detailTextLabel?.text = postValues[indexPath.row].postnummer
-//            }
-//        }
-
-        // Configure the cell
-//        if searching {
-//            cell?.textLabel?.text = searchedPostalCodes[indexPath.row].postnummer
-//            cell?.detailTextLabel?.text = searchedPostalCodes[indexPath.row].poststed
-//        } else {
-//            cell?.textLabel?.text = postalCodes[indexPath.row].postnummer
-//            cell?.detailTextLabel?.text = postalCodes[indexPath.row].poststed
-//        }
 
         return cell!
     }
@@ -139,11 +110,13 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
     // Tells the delegate that the user changed the search text.
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.count > 0 {
-            FindSearchedPostalCodes(searchText: searchText)
             searching = true
         } else {
             searching = false
         }
+
+        // Search
+        FindSearchedPostalCodes(searchText: searchText)
 
         // Fill the table view
         tableView.reloadData()
@@ -157,8 +130,6 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
         postalCode = ""
         city = ""
 
-        // Set a checkmark at cellForRow and
-   
         // Store the selected city and postalCode
         if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
             let count = poststedSectionTitles.count
@@ -224,7 +195,7 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
 
     // Reads all data outside the closure in ReadPostalCodeFiredata
     func makeRead() {
-        ReadPostalCodeFiredata { postalCodes in
+        ReadPostalCodeFiredata { _ in
 
             // Must use the main thread to get the data
             // DispatchQueue manages the execution of work items.
@@ -235,7 +206,7 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
         }
     }
 
-    // Read postal data from Firebase and exports the array from the closure when finshed
+    // Read postal data from Firebase and exports the tempPostnr array from the closure when finshed
     func ReadPostalCodeFiredata(completionHandler: @escaping (_ tempPostnr: [PostalCode]) -> Void) {
         var db: DatabaseReference!
         var tempPostnr = [PostalCode]()
@@ -270,100 +241,82 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
 
         })
     }
-    
+
     func FindSearchedPostalCodes(searchText: String) {
-        
+        // Reset poststedsDictionary
+        poststedsDictionary = [String: [PostalCode]]()
+
         if searchText.count == 0 {
-            
             let count = postalCodes.count - 1
-            
-            print("No search count = \(count)")
-            
+
             for index in 0 ... count {
                 let key = String(postalCodes[index].poststed.prefix(1))
-                
-                print("No search key = \(key)")
-                
+
                 if var postValues = self.poststedsDictionary[key] {
                     postValues.append(PostalCode(poststed: postalCodes[index].poststed,
                                                  postnummer: postalCodes[index].postnummer,
                                                  kommune: postalCodes[index].kommune,
                                                  kommunenummer: postalCodes[index].kommunenummer))
-                    self.poststedsDictionary[key] = postValues
+                    poststedsDictionary[key] = postValues
                 } else {
-                    self.poststedsDictionary[key] = [PostalCode(poststed: postalCodes[index].poststed,
-                                                                postnummer: postalCodes[index].postnummer,
-                                                                kommune: postalCodes[index].kommune,
-                                                                kommunenummer: postalCodes[index].kommunenummer)]
+                    poststedsDictionary[key] = [PostalCode(poststed: postalCodes[index].poststed,
+                                                           postnummer: postalCodes[index].postnummer,
+                                                           kommune: postalCodes[index].kommune,
+                                                           kommunenummer: postalCodes[index].kommunenummer)]
                 }
             }
-            
-            self.poststedSectionTitles = [String](self.poststedsDictionary.keys)
-            
-            // Must use local sorting of the poststedSectionTitles
-            let region = NSLocale.current.regionCode?.lowercased() // Returns the local region
-            let language = Locale(identifier: region!)
-            let sortedpoststedSection1 = self.poststedSectionTitles.sorted {
-                $0.compare($1, locale: language) == .orderedAscending
-            }
-            self.poststedSectionTitles = sortedpoststedSection1
-            
-            print("No search = \(poststedSectionTitles)")
-            
-            // Fill the table view
-            self.tableView.reloadData()
-            
-        } else {
-            
-            
-            // nullstill poststedsDictionary
-            
-            searchedPostalCodes = postalCodes.filter({ $0.poststed.contains(searchText.uppercased()) })
-            
- //            let count = searchedPostalCodes.count - 1
-            
-            let count = searchedPostalCodes.count - 1
-            
-            print("Search count = \(count)")
-            
-            poststedsDictionary = [String: [PostalCode]]()
-            
-            for index in 0 ... count {
-                let key = String(searchedPostalCodes[index].poststed.prefix(1))
-                
-                print("Search key = \(key)")
-                print("searchedPostalCodes[index].poststed = \(searchedPostalCodes[index].poststed)")
-            
-                if var postValues = self.poststedsDictionary[key] {
-                    postValues.append(PostalCode(poststed: searchedPostalCodes[index].poststed,
-                                                 postnummer: searchedPostalCodes[index].postnummer,
-                                                 kommune: searchedPostalCodes[index].kommune,
-                                                 kommunenummer: searchedPostalCodes[index].kommunenummer))
-                    self.poststedsDictionary[key] = postValues
-                } else {
-                    self.poststedsDictionary[key] = [PostalCode(poststed: searchedPostalCodes[index].poststed,
-                                                                postnummer: searchedPostalCodes[index].postnummer,
-                                                                kommune: searchedPostalCodes[index].kommune,
-                                                                kommunenummer: searchedPostalCodes[index].kommunenummer)]
-                }
-            }
-            
-            self.poststedSectionTitles = [String](self.poststedsDictionary.keys)
-            
-            // Must use local sorting of the poststedSectionTitles
-            let region = NSLocale.current.regionCode?.lowercased() // Returns the local region
-            let language = Locale(identifier: region!)
-            let sortedpoststedSection1 = self.poststedSectionTitles.sorted {
-                $0.compare($1, locale: language) == .orderedAscending
-            }
-            self.poststedSectionTitles = sortedpoststedSection1
-            
-            print("Search = \(poststedSectionTitles)")
-            
-            // Fill the table view
-            self.tableView.reloadData()
 
+            poststedSectionTitles = [String](poststedsDictionary.keys)
+
+            // Must use local sorting of the poststedSectionTitles
+            let region = NSLocale.current.regionCode?.lowercased() // Returns the local region
+            let language = Locale(identifier: region!)
+            let sortedpoststedSection1 = poststedSectionTitles.sorted {
+                $0.compare($1, locale: language) == .orderedAscending
+            }
+            poststedSectionTitles = sortedpoststedSection1
+
+            // Fill the table view
+            tableView.reloadData()
+
+        } else {
+            searchedPostalCodes = postalCodes.filter({ $0.poststed.contains(searchText.uppercased()) })
+
+            let count = searchedPostalCodes.count
+
+            if count > 0 {
+                let count = searchedPostalCodes.count - 1
+
+                for index in 0 ... count {
+                    let key = String(searchedPostalCodes[index].poststed.prefix(1))
+
+                    if var postValues = self.poststedsDictionary[key] {
+                        postValues.append(PostalCode(poststed: searchedPostalCodes[index].poststed,
+                                                     postnummer: searchedPostalCodes[index].postnummer,
+                                                     kommune: searchedPostalCodes[index].kommune,
+                                                     kommunenummer: searchedPostalCodes[index].kommunenummer))
+                        poststedsDictionary[key] = postValues
+                    } else {
+                        poststedsDictionary[key] = [PostalCode(poststed: searchedPostalCodes[index].poststed,
+                                                               postnummer: searchedPostalCodes[index].postnummer,
+                                                               kommune: searchedPostalCodes[index].kommune,
+                                                               kommunenummer: searchedPostalCodes[index].kommunenummer)]
+                    }
+                }
+            }
+
+            poststedSectionTitles = [String](poststedsDictionary.keys)
+
+            // Must use local sorting of the poststedSectionTitles
+            let region = NSLocale.current.regionCode?.lowercased() // Returns the local region
+            let language = Locale(identifier: region!)
+            let sortedpoststedSection1 = poststedSectionTitles.sorted {
+                $0.compare($1, locale: language) == .orderedAscending
+            }
+            poststedSectionTitles = sortedpoststedSection1
+
+            // Fill the table view
+            tableView.reloadData()
         }
     }
-
 }
