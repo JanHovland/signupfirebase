@@ -95,6 +95,8 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
         if let postValues = poststedsDictionary[key] {
             let poststed1 = postValues[indexPath.row].poststed.lowercased()
             
+            // Format poststed
+            
             // capitalized : All word(s)' first letter will be in uppercase
             let poststed2 = poststed1.capitalized
             
@@ -102,6 +104,8 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
             let poststed = poststed2.replacingOccurrences(of: " I ", with: " i ")
             
             let postnummer = postValues[indexPath.row].postnummer
+            
+            // Format kommune
             
             let kommune1 = postValues[indexPath.row].kommune.lowercased()
             
