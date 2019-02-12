@@ -88,18 +88,39 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
 
     // Asks the data source for a cell to insert in a particular location of the table view.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! SearchedPostelCodesTableViewCell
 
         let key = poststedSectionTitles[indexPath.section]
 
         if let postValues = poststedsDictionary[key] {
-            let poststed = postValues[indexPath.row].poststed.lowercased()
+            let poststed1 = postValues[indexPath.row].poststed.lowercased()
             
-            cell?.textLabel?.text = poststed.capitalized
-            cell?.detailTextLabel?.text = postValues[indexPath.row].postnummer
+            // capitalized : All word(s)' first letter will be in uppercase
+            let poststed2 = poststed1.capitalized
+            
+            //  Replace " I " with " i "
+            let poststed = poststed2.replacingOccurrences(of: " I ", with: " i ")
+            
+            let postnummer = postValues[indexPath.row].postnummer
+            
+            let kommune1 = postValues[indexPath.row].kommune.lowercased()
+            
+            // capitalized : All word(s)' first letter will be in uppercase
+            let kommune2 = kommune1.capitalized
+            
+            //  Replace " I " with " i "
+            let kommune = kommune2.replacingOccurrences(of: " I ", with: " i ")
+            
+            let kommunenummer = postValues[indexPath.row].kommunenummer
+            
+            cell.poststedLabel?.text = poststed.capitalized
+            cell.postnummerLabel?.text = postnummer
+            
+            cell.kommuneLabel?.text = kommune.capitalized
+            cell.kommunenummerLabel?.text = kommunenummer
         }
 
-        return cell!
+        return cell
     }
 
     // Asks the data source for the title of the header of the specified section of the table view.

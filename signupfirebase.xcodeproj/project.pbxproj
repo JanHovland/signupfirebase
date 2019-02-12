@@ -40,6 +40,7 @@
 		D1EAAB8521C1178A005D2656 /* DataBaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAAB8421C1178A005D2656 /* DataBaseExtension.swift */; };
 		D1ED85A921DD332500DBDB82 /* PersonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ED85A821DD332500DBDB82 /* PersonData.swift */; };
 		D1ED85AB21DE601D00DBDB82 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ED85AA21DE601D00DBDB82 /* WebViewController.swift */; };
+		D1FFF52B2212E5110097B414 /* SearchedPostelCodesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFF52A2212E5110097B414 /* SearchedPostelCodesTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		D1EAAB8421C1178A005D2656 /* DataBaseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseExtension.swift; sourceTree = "<group>"; };
 		D1ED85A821DD332500DBDB82 /* PersonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersonData.swift; path = ../../PersonData.swift; sourceTree = "<group>"; };
 		D1ED85AA21DE601D00DBDB82 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WebViewController.swift; path = ../../WebViewController.swift; sourceTree = "<group>"; };
+		D1FFF52A2212E5110097B414 /* SearchedPostelCodesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedPostelCodesTableViewCell.swift; sourceTree = "<group>"; };
 		D8FA6AF44DDF6A6C8562A35A /* Pods_signupfirebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_signupfirebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -168,6 +170,7 @@
 				D1E9A40D220C4D18003423D7 /* IndexedTableViewController.swift */,
 				D11114C721F5C30A00835CF4 /* PostalCodeSearchTableViewController.swift */,
 				D13172532202EF1C00EEB530 /* SavePostalCodesFirebaseTableViewController.swift */,
+				D1FFF52A2212E5110097B414 /* SearchedPostelCodesTableViewCell.swift */,
 			);
 			path = signupfirebase;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				D1C7F2E1218C98C800481E48 /* AppDelegate.swift in Sources */,
 				D136492A21D0E96D0039BDC6 /* Author.swift in Sources */,
 				D134821521CE3CAD00F9F944 /* CvViewController.swift in Sources */,
+				D1FFF52B2212E5110097B414 /* SearchedPostelCodesTableViewCell.swift in Sources */,
 				D11114CA21F5C68C00835CF4 /* PostalCode.swift in Sources */,
 				D13172542202EF1C00EEB530 /* SavePostalCodesFirebaseTableViewController.swift in Sources */,
 				D11E2BD8219470D90075BD11 /* Model.xcdatamodeld in Sources */,
@@ -417,7 +421,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -473,7 +477,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
