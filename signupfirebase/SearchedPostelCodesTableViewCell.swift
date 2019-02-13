@@ -12,8 +12,7 @@ class SearchedPostelCodesTableViewCell: UITableViewCell {
 
     @IBOutlet weak var poststedLabel: UILabel!
     @IBOutlet weak var postnummerLabel: UILabel!
-    @IBOutlet weak var kommuneLabel: UILabel!
-    @IBOutlet weak var kommunenummerLabel: UILabel!
+    @IBOutlet weak var kommuneInfoLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

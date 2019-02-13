@@ -105,6 +105,9 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
             
             let postnummer = postValues[indexPath.row].postnummer
             
+            cell.poststedLabel?.text = poststed.capitalized
+            cell.postnummerLabel?.text = postnummer
+            
             // Format kommune
             
             let kommune1 = postValues[indexPath.row].kommune.lowercased()
@@ -117,11 +120,8 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
             
             let kommunenummer = postValues[indexPath.row].kommunenummer
             
-            cell.poststedLabel?.text = poststed.capitalized
-            cell.postnummerLabel?.text = postnummer
+            cell.kommuneInfoLabel?.text = kommunenummer + "  " + kommune.capitalized
             
-            cell.kommuneLabel?.text = kommune.capitalized
-            cell.kommunenummerLabel?.text = kommunenummer
         }
 
         return cell
@@ -155,28 +155,17 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
     // Tells the delegate that the specified row is now selected.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-
+        
+        // Delete all checkmarks in the ctive tableView
+        deleteAllCheckmarks(section: sectionNo)
+        
         // Resetter postalCode and city
         postalCode = ""
         city = ""
-
-        // Store the selected city and postalCode
+        
+        // Set a checkmark at cellForRow and
         if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
-            let count = poststedSectionTitles.count
-
-            for index in 0 ... count {
-                if poststedSectionTitles[index] == cell.textLabel!.text!.prefix(1) {
-                    sectionNo = index
-                    break
-                }
-            }
-
-            /// Delete all checkmarks in the active tableView
-            deleteAllCheckmarks(section: sectionNo)
-
             cell.accessoryType = .checkmark
-            postalCode = String(cell.detailTextLabel!.text!)
-            city = String(cell.textLabel!.text!)
         }
     }
 

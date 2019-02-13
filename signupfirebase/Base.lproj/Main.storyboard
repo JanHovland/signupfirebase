@@ -1265,61 +1265,48 @@
                                 <rect key="frame" x="-9" y="119" width="375" height="499"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="59" id="l5k-n4-zqv" customClass="SearchedPostelCodesTableViewCell" customModule="signupfirebase" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="59"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="58" id="l5k-n4-zqv" customClass="SearchedPostelCodesTableViewCell" customModule="signupfirebase" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="l5k-n4-zqv" id="M66-V2-i7N">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="58.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="57.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ghV-L0-tlT">
-                                                    <rect key="frame" x="15" y="10" width="101.5" height="35"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="kFf-Fm-bb9">
+                                                    <rect key="frame" x="15" y="5" width="345" height="20.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="postnummer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAQ-Xk-DGg">
-                                                            <rect key="frame" x="0.0" y="0.0" width="101.5" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="147.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="kommunenummer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4p-KA-U35">
-                                                            <rect key="frame" x="0.0" y="20.5" width="101.5" height="14.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1n4-OP-XmJ">
-                                                    <rect key="frame" x="125" y="10" width="235" height="35"/>
-                                                    <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="poststed" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NTR-yr-KvV">
-                                                            <rect key="frame" x="0.0" y="0.0" width="235" height="20.5"/>
+                                                            <rect key="frame" x="197.5" y="0.0" width="147.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="kommune" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0g-yV-gPu">
-                                                            <rect key="frame" x="0.0" y="20.5" width="235" height="14.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                     </subviews>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="235" id="dpw-pl-6bc"/>
-                                                    </constraints>
                                                 </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kommuneInfoLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o7P-gK-pef">
+                                                    <rect key="frame" x="15" y="25.5" width="260" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="ghV-L0-tlT" firstAttribute="leading" secondItem="M66-V2-i7N" secondAttribute="leading" constant="15" id="HGr-yU-zNM"/>
-                                                <constraint firstItem="ghV-L0-tlT" firstAttribute="top" secondItem="M66-V2-i7N" secondAttribute="top" constant="10" id="LAh-3z-7SZ"/>
-                                                <constraint firstItem="1n4-OP-XmJ" firstAttribute="top" secondItem="M66-V2-i7N" secondAttribute="top" constant="10" id="ezI-35-fsX"/>
-                                                <constraint firstAttribute="trailing" secondItem="1n4-OP-XmJ" secondAttribute="trailing" constant="15" id="tlT-f6-Q6n"/>
+                                                <constraint firstItem="kFf-Fm-bb9" firstAttribute="top" secondItem="M66-V2-i7N" secondAttribute="top" constant="5" id="9lR-gp-jUK"/>
+                                                <constraint firstItem="kFf-Fm-bb9" firstAttribute="leading" secondItem="M66-V2-i7N" secondAttribute="leading" constant="15" id="abc-fF-pdk"/>
+                                                <constraint firstItem="o7P-gK-pef" firstAttribute="leading" secondItem="kFf-Fm-bb9" secondAttribute="leading" id="fUa-2F-H9D"/>
+                                                <constraint firstItem="o7P-gK-pef" firstAttribute="top" secondItem="kFf-Fm-bb9" secondAttribute="bottom" id="kla-Ui-dzC"/>
+                                                <constraint firstAttribute="trailing" secondItem="kFf-Fm-bb9" secondAttribute="trailing" constant="15" id="mT1-dM-Bgh"/>
+                                                <constraint firstAttribute="trailing" secondItem="o7P-gK-pef" secondAttribute="trailing" constant="100" id="wTP-Hr-pGM"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="kommuneLabel" destination="M0g-yV-gPu" id="S0a-A3-Dbo"/>
-                                            <outlet property="kommunenummerLabel" destination="J4p-KA-U35" id="MvX-qM-r0o"/>
+                                            <outlet property="kommuneInfoLabel" destination="o7P-gK-pef" id="S00-ba-H8K"/>
                                             <outlet property="postnummerLabel" destination="kAQ-Xk-DGg" id="RwW-4F-cZl"/>
                                             <outlet property="poststedLabel" destination="NTR-yr-KvV" id="zph-Sn-GX3"/>
                                         </connections>
@@ -1511,16 +1498,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="1rH-2X-JJ2">
-                                                    <rect key="frame" x="15" y="10" width="637" height="65.5"/>
+                                                    <rect key="frame" x="15" y="10" width="345" height="65.5"/>
                                                     <subviews>
                                                         <label autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" text="nameLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfO-dL-I5s" userLabel="name Label">
-                                                            <rect key="frame" x="0.0" y="0.0" width="637" height="44.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="345" height="44.5"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="addressLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GoA-hY-uI8" userLabel="address Label">
-                                                            <rect key="frame" x="0.0" y="47.5" width="637" height="18"/>
+                                                            <rect key="frame" x="0.0" y="47.5" width="345" height="18"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
