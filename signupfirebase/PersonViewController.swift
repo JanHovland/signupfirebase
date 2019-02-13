@@ -61,16 +61,14 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         view.addSubview(activity)
 
         // Set the global variables
-        city = cityInput.text!
-        postalCode = postalCodeNumberInput.text!
+        globalCity = cityInput.text!
+        globalPostalCode = postalCodeNumberInput.text!
     }
 
     override func viewWillAppear(_ animated: Bool) {
         // Show the Navigation Bar
         navigationController?.setNavigationBarHidden(false, animated: true)
-        
-        postalCodeNumberInput.text! = postalCode
-        
+        postalCodeNumberInput.text! = globalPostalCode
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -142,12 +140,12 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         cityInput.text = PersonCityText
         postalCodeNumberInput.text = PersonPostalCodeNumberText
 
-        if city.count > 0 {
-            cityInput.text = city
+        if globalCity.count > 0 {
+            cityInput.text = globalCity
         }
         
-        if postalCode.count > 0 {
-            postalCodeNumberInput.text = postalCode
+        if globalPostalCode.count > 0 {
+            postalCodeNumberInput.text = globalPostalCode
         }
 
         // Convert PersonDateOfBirthText to the initial datoValg.date

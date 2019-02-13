@@ -9,10 +9,10 @@
 import Firebase
 import UIKit
 
-var city = ""
-var oldCity = ""
-var postalCode = ""
-var oldPostalCode = ""
+var globalCity = ""
+var globalOldCity = ""
+var globalPostalCode = ""
+var globalOldPostalCode = ""
 
 class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     @IBOutlet var searchPostelCode: UISearchBar!
@@ -48,12 +48,12 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
         activity.isHidden = false
 
         searchPostelCode.delegate = self
-        
+
         // Forces the online keyboard to be lowercased
         searchPostelCode.autocapitalizationType = UITextAutocapitalizationType.none
-        
-        oldCity = city
-        oldPostalCode = postalCode
+
+        globalOldCity = globalCity
+        globalOldPostalCode = globalPostalCode
     }
 
     // Notifies the view controller that its view was added to a view hierarchy.
@@ -94,38 +94,37 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
 
         if let postValues = poststedsDictionary[key] {
             let poststed1 = postValues[indexPath.row].poststed.lowercased()
-            
+
             // Format poststed
-            
+
             // capitalized : All word(s)' first letter will be in uppercase
             let poststed2 = poststed1.capitalized
-            
+
             //  Replace " I " with " i "
             let poststed = poststed2.replacingOccurrences(of: " I ", with: " i ")
-            
+
             let postnummer = postValues[indexPath.row].postnummer
-            
+
             cell.poststedLabel?.text = poststed.capitalized
-            
+
             cell.postnummerLabel?.text = postnummer
-            
+
             cell.textLabel?.isHidden = true
             cell.textLabel?.text = postnummer
 
             // Format kommune
-            
+
             let kommune1 = postValues[indexPath.row].kommune.lowercased()
-            
+
             // capitalized : All word(s)' first letter will be in uppercase
             let kommune2 = kommune1.capitalized
-            
+
             //  Replace " I " with " i "
             let kommune = kommune2.replacingOccurrences(of: " I ", with: " i ")
-            
+
             let kommunenummer = postValues[indexPath.row].kommunenummer
-            
+
             cell.kommuneInfoLabel?.text = kommunenummer + "  " + kommune.capitalized
-            
         }
 
         return cell
@@ -159,22 +158,32 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
     // Tells the delegate that the specified row is now selected.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        // Delete all checkmarks in the ctive tableView
-        deleteAllCheckmarks(section: sectionNo)
-        
-        // Resetter postalCode and city
-        postalCode = ""
-        city = ""
-        
-        // Set a checkmark at cellForRow and
+
+        // Resetting all globals
+        globalCity = ""
+        globalPostalCode = ""
+
         if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
+            // Find postalData. Returns postnummer, poststed, kommunenummer og kommune
+            let value = findPostalData(postnummer: cell.textLabel!.text!)
+
+            let count = poststedSectionTitles.count
+            for index in 0 ..< count {
+                if poststedSectionTitles[index] == String(value.1.prefix(1)) {
+                    sectionNo = index
+                    break
+                }
+            }
+
+            // Delete all checkmarks in the active tableView
+            deleteAllCheckmarks(section: sectionNo)
+
+            // Sets the checkmark on the selected cell
             cell.accessoryType = .checkmark
-            postalCode = String((cell.textLabel?.text!)!)
+
+            globalCity = value.1
+            globalPostalCode = value.0
         }
-        
-        print("postalCode = \(postalCode)")
-        
     }
 
     // called when keyboard done button pressed
@@ -186,12 +195,12 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        if city.count == 0 {
-            city = oldCity
+        if globalCity.count == 0 {
+            globalCity = globalOldCity
         }
 
-        if postalCode.count == 0 {
-            postalCode = oldPostalCode
+        if globalPostalCode.count == 0 {
+            globalPostalCode = globalOldPostalCode
         }
 
         globalPersonNameText = postalCodeNameText
@@ -344,6 +353,28 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
 
             // Fill the table view
             tableView.reloadData()
+        }
+    }
+
+    // Find postalData. Returns postnummer, poststed, kommunenummer og kommune
+    func findPostalData(postnummer: String) -> (String, String, String, String) {
+        let postalData = postalCodes.filter({ $0.postnummer.contains(postnummer) })
+
+        if postalData.count == 1 {
+            let postnummer = String(postalData[0].postnummer)
+            let poststed = String(postalData[0].poststed)
+            let kommunenummer = String(postalData[0].kommunenummer)
+            let kommune = String(postalData[0].kommune)
+
+            return (postnummer,
+                    poststed,
+                    kommunenummer,
+                    kommune)
+        } else {
+            return ("",
+                    "",
+                    "",
+                    "")
         }
     }
 }
