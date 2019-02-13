@@ -68,6 +68,9 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         // Show the Navigation Bar
         navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        postalCodeNumberInput.text! = postalCode
+        
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -141,6 +144,9 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
 
         if city.count > 0 {
             cityInput.text = city
+        }
+        
+        if postalCode.count > 0 {
             postalCodeNumberInput.text = postalCode
         }
 

@@ -106,8 +106,12 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
             let postnummer = postValues[indexPath.row].postnummer
             
             cell.poststedLabel?.text = poststed.capitalized
+            
             cell.postnummerLabel?.text = postnummer
             
+            cell.textLabel?.isHidden = true
+            cell.textLabel?.text = postnummer
+
             // Format kommune
             
             let kommune1 = postValues[indexPath.row].kommune.lowercased()
@@ -166,7 +170,11 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
         // Set a checkmark at cellForRow and
         if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
             cell.accessoryType = .checkmark
+            postalCode = String((cell.textLabel?.text!)!)
         }
+        
+        print("postalCode = \(postalCode)")
+        
     }
 
     // called when keyboard done button pressed
