@@ -23,7 +23,7 @@
 "99T-f0-Rez.text" = "Oppdater brukernavn";
 
 /* Class = "UITextField"; placeholder = "Enter the city"; ObjectID = "a2Y-E5-2Cp"; */
-"a2Y-E5-2Cp.placeholder" = "Legg inn byen";
+"a2Y-E5-2Cp.placeholder" = "Legg inn stedet";
 
 /* Class = "UITableViewSection"; headerTitle = " "; ObjectID = "APJ-SN-AHW"; */
 "APJ-SN-AHW.headerTitle" = " ";
@@ -39,6 +39,9 @@
 
 /* Class = "UINavigationItem"; title = "Update user name"; ObjectID = "c4F-9b-Jx4"; */
 "c4F-9b-Jx4.title" = "Oppdater brukernavn";
+
+/* Class = "UILabel"; text = "Municip"; ObjectID = "cm9-gv-6K9"; */
+"cm9-gv-6K9.text" = "Kommune";
 
 /* Class = "UILabel"; text = "eMail"; ObjectID = "csI-ws-1c2"; */
 "csI-ws-1c2.text" = "ePost";
@@ -118,8 +121,8 @@
 /* Class = "UILabel"; text = "Firebase Console"; ObjectID = "LhK-JZ-jSX"; */
 "LhK-JZ-jSX.text" = "Firebase Console";
 
-/* Class = "UILabel"; text = "Date of birth"; ObjectID = "mZW-Vq-ZeJ"; */
-"mZW-Vq-ZeJ.text" = "Fødselsdato";
+/* Class = "UILabel"; text = "Born"; ObjectID = "mZW-Vq-ZeJ"; */
+"mZW-Vq-ZeJ.text" = "Født";
 
 /* Class = "UILabel"; text = "userInfo"; ObjectID = "n7R-xi-RP1"; */
 "n7R-xi-RP1.text" = "userInfo";
@@ -128,16 +131,13 @@
 "nbz-eB-NWH.text" = "Kjønn";
 
 /* Class = "UISearchBar"; placeholder = "Search for a city ..."; ObjectID = "NMI-Cs-eLO"; */
-"NMI-Cs-eLO.placeholder" = "Søk etter et poststed ...";
+"NMI-Cs-eLO.placeholder" = "Søk etter et sted ...";
 
 /* Class = "UITextField"; placeholder = "Enter the date of birth "; ObjectID = "ntB-2c-9zR"; */
 "ntB-2c-9zR.placeholder" = "Legg inn fødselsdatoen";
 
 /* Class = "UILabel"; text = "The password must have at least 6 characters"; ObjectID = "P8h-H3-5cv"; */
 "P8h-H3-5cv.text" = "Passordet må ha inneholde minimum 6 tegn";
-
-/* Class = "UILabel"; text = "City"; ObjectID = "PJT-Cn-HsF"; */
-"PJT-Cn-HsF.text" = "By";
 
 /* Class = "UILabel"; text = "New name"; ObjectID = "qQS-3C-C61"; */
 "qQS-3C-C61.text" = "Nytt navn";
@@ -187,11 +187,8 @@
 /* Class = "UILabel"; text = "name"; ObjectID = "Ure-hL-M78"; */
 "Ure-hL-M78.text" = "navn";
 
-/* Class = "UITextField"; placeholder = "Enter the postal code"; ObjectID = "uy3-05-bWG"; */
-"uy3-05-bWG.placeholder" = "Legg inn postnummeret";
-
-/* Class = "UILabel"; text = "Postal code"; ObjectID = "UZn-5p-0rk"; */
-"UZn-5p-0rk.text" = "Postnummer";
+/* Class = "UILabel"; text = "City"; ObjectID = "UZn-5p-0rk"; */
+"UZn-5p-0rk.text" = "Sted";
 
 /* Class = "UITextField"; placeholder = "Enter email address"; ObjectID = "vH1-YR-EwT"; */
 "vH1-YR-EwT.placeholder" = "Legg inn ePost adresse";
