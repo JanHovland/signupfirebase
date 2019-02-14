@@ -14,6 +14,12 @@ var globalOldCity = ""
 var globalPostalCode = ""
 var globalOldPostalCode = ""
 
+var globalMunicipality = ""
+var globalMunicipalityNumber = ""
+
+var globalOldMunicipality = ""
+var globalOldMunicipalityNumber = ""
+
 class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     @IBOutlet var searchPostelCode: UISearchBar!
     @IBOutlet var tableViewSearch: UITableView!
@@ -31,7 +37,10 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
     var postalCodeGenderInt = 0
     var postalCodePhoneNumberText = ""
     var postalCodePostalCodeNumberText = ""
-
+    
+    var postalCodeMunicipalityText = ""
+    var postalCodeMunicipalityNumberText = ""
+    
     var poststedsDictionary = [String: [PostalCode]]()
     var poststedSectionTitles = [String]()
     var poststeds = [String]()
@@ -54,6 +63,10 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
 
         globalOldCity = globalCity
         globalOldPostalCode = globalPostalCode
+        
+        globalOldMunicipality = globalMunicipality
+        globalOldMunicipalityNumber = globalMunicipalityNumber
+        
     }
 
     // Notifies the view controller that its view was added to a view hierarchy.
@@ -162,6 +175,9 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
         // Resetting all globals
         globalCity = ""
         globalPostalCode = ""
+        
+        globalMunicipality = ""
+        globalMunicipalityNumber = ""
 
         if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
             // Find postalData. Returns postnummer, poststed, kommunenummer og kommune
@@ -183,6 +199,10 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
 
             globalCity = value.1
             globalPostalCode = value.0
+            
+            globalMunicipality = value.3
+            globalMunicipalityNumber = value.2
+            
         }
     }
 
@@ -198,11 +218,19 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
         if globalCity.count == 0 {
             globalCity = globalOldCity
         }
-
+        
         if globalPostalCode.count == 0 {
             globalPostalCode = globalOldPostalCode
         }
-
+        
+        if globalMunicipality.count == 0 {
+            globalMunicipality = globalOldMunicipality
+        }
+        
+        if globalMunicipalityNumber.count == 0 {
+            globalMunicipalityNumber = globalOldMunicipalityNumber
+        }
+        
         globalPersonNameText = postalCodeNameText
         globalPersonAddressText = postalCodeAddressText
         globalPersonPhoneNumberText = postalCodePhoneNumberText
@@ -361,11 +389,14 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
         let postalData = postalCodes.filter({ $0.postnummer.contains(postnummer) })
 
         if postalData.count == 1 {
+            
             let postnummer = String(postalData[0].postnummer)
-            let poststed = String(postalData[0].poststed)
+            let poststed1 = String(postalData[0].poststed).lowercased()
+            let poststed = poststed1.capitalized
             let kommunenummer = String(postalData[0].kommunenummer)
-            let kommune = String(postalData[0].kommune)
-
+            let kommune1 = String(postalData[0].kommune).lowercased()
+            let kommune = kommune1.capitalized
+     
             return (postnummer,
                     poststed,
                     kommunenummer,

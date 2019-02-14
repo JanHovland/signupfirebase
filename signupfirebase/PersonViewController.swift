@@ -17,6 +17,9 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var phoneNumberInput: UITextField!
     @IBOutlet var postalCodeNumberInput: UITextField!
 
+    @IBOutlet weak var municipalityNumberInput: UITextField!
+    @IBOutlet weak var municipalityInput: UITextField!
+    
     @IBOutlet var activity: UIActivityIndicatorView!
 
     var PersonTitle = ""
@@ -31,6 +34,8 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
     var PersonGenderInt = 0
     var PersonPhoneNumberText = ""
     var PersonPostalCodeNumberText = ""
+    var PersonMunicipalityText = ""
+    var PersonMunicipalityNumberText = ""
 
     let datoValg = UIDatePicker()
 
@@ -55,6 +60,9 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         phoneNumberInput.delegate = self
         postalCodeNumberInput.delegate = self
 
+        municipalityNumberInput.delegate = self
+        municipalityInput.delegate = self
+        
         // Initierer UIActivityIndicatorView
         activity.hidesWhenStopped = true
         activity.style = .gray
@@ -63,12 +71,21 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         // Set the global variables
         globalCity = cityInput.text!
         globalPostalCode = postalCodeNumberInput.text!
+        
+        globalMunicipality = municipalityInput.text!
+        globalMunicipalityNumber = municipalityNumberInput.text!
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
         // Show the Navigation Bar
         navigationController?.setNavigationBarHidden(false, animated: true)
         postalCodeNumberInput.text! = globalPostalCode
+        cityInput.text! = globalCity
+        
+        municipalityNumberInput.text! = globalMunicipalityNumber
+        municipalityInput.text =  globalMunicipality
+        
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -140,6 +157,9 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         cityInput.text = PersonCityText
         postalCodeNumberInput.text = PersonPostalCodeNumberText
 
+        municipalityNumberInput.text! =  PersonMunicipalityNumberText
+        municipalityInput.text = PersonMunicipalityText
+
         if globalCity.count > 0 {
             cityInput.text = globalCity
         }
@@ -148,6 +168,14 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
             postalCodeNumberInput.text = globalPostalCode
         }
 
+        if globalMunicipality.count > 0 {
+            municipalityInput.text = globalMunicipality
+        }
+        
+        if globalMunicipalityNumber.count > 0 {
+            municipalityNumberInput.text = globalMunicipalityNumber
+        }
+        
         // Convert PersonDateOfBirthText to the initial datoValg.date
         let formatter = DateFormatter()
         formatter.dateStyle = .long
@@ -210,6 +238,10 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         phoneNumberInput.resignFirstResponder()
         phoneNumberInput.text = formatPhone(phone: phoneNumberInput.text!)
         postalCodeNumberInput.resignFirstResponder()
+    
+        municipalityNumberInput.resignFirstResponder()
+        municipalityInput.resignFirstResponder()
+        
     }
 
     @IBAction func SaveOrUpdatePerson(_ sender: Any) {
@@ -227,6 +259,9 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         let phoneNumber = formatPhone(phone: phoneNumberInput.text!)
  
         let postalCodeNumber = postalCodeNumberInput.text ?? ""
+        
+        let municipality = municipalityInput.text ?? ""
+        let municipalityNumber = municipalityNumberInput.text ?? ""
 
         activity.startAnimating()
 
@@ -240,7 +275,9 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
                                name: name,
                                gender: gender,
                                phoneNumber: phoneNumber,
-                               postalCodeNumber: postalCodeNumber)
+                               postalCodeNumber: postalCodeNumber,
+                               municipality: municipality,
+                               municipalityNumber: municipalityNumber)
 
         } else if PersonOption == 1 {
             updatePersonFiredata(id: PersonIdText,
@@ -253,7 +290,9 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
                                  name: name,
                                  gender: gender,
                                  phoneNumber: phoneNumber,
-                                 postalCodeNumber: postalCodeNumber)
+                                 postalCodeNumber: postalCodeNumber,
+                                 municipality: municipality,
+                                 municipalityNumber: municipalityNumber)
         }
 
         activity.stopAnimating()
@@ -322,6 +361,9 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
             vc.postalCodeCityText = cityInput.text!
             vc.postalCodeDateOfBirthText = dateOfBirthInput.text!
             vc.postalCodeGenderInt = PersonGenderInt
+            vc.postalCodeMunicipalityText = municipalityInput.text!
+            vc.postalCodeMunicipalityNumberText = municipalityNumberInput.text!
+            
         }
     }
 }

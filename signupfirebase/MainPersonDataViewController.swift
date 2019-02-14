@@ -197,6 +197,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                     let gender = personData["gender"] as? Int,
                     let phoneNumber = personData["phoneNumber"] as? String,
                     let postalCodeNumber = personData["postalCodeNumber"] as? String,
+                    let municipality = personData["municipality"] as? String,
+                    let municipalityNumber = personData["municipalityNumber"] as? String,
                     let timestamp = dict["timestamp"] as? Double {
                     let author = Author(uid: uid,
                                         username: username,
@@ -208,7 +210,9 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                                                 name: name,
                                                 gender: gender,
                                                 phoneNumber : phoneNumber,
-                                                postalCodeNumber : postalCodeNumber)
+                                                postalCodeNumber : postalCodeNumber,
+                                                municipality: municipality,
+                                                municipalityNumber: municipalityNumber)
 
                     let person = Person(id: childSnapshot.key,
                                         author: author,
@@ -243,6 +247,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             globalPersonNameText = ""
             globalPersonGenderInt = -1
             globalPersonPhoneNumberText = ""
+            globalMunicipality = ""
+            globalMunicipalityNumber = ""
             
             // Find the indexPath.row for the cell which is selected
             if let indexPath = tableView.indexPathForSelectedRow {
@@ -255,6 +261,9 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                 vc.PersonGenderInt = persons[indexPath.row].personData.gender
                 vc.PersonPhoneNumberText = persons[indexPath.row].personData.phoneNumber
                 vc.PersonPostalCodeNumberText = persons[indexPath.row].personData.postalCodeNumber
+                
+                vc.PersonMunicipalityText = persons[indexPath.row].personData.municipality
+                vc.PersonMunicipalityNumberText = persons[indexPath.row].personData.municipalityNumber
                 
                 vc.PersonOption = 1         // Update == 1
                 vc.PersonTitle = NSLocalizedString("Update Person", comment: "MainPersonDataViewController.swift prepare")
@@ -272,6 +281,9 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                 vc.PersonPhoneNumberText = persons[indexRowUpdateSwipe].personData.phoneNumber
                 vc.PersonPostalCodeNumberText = persons[indexRowUpdateSwipe].personData.postalCodeNumber
 
+                vc.PersonMunicipalityText = persons[indexRowUpdateSwipe].personData.municipality
+                vc.PersonMunicipalityNumberText = persons[indexRowUpdateSwipe].personData.municipalityNumber
+                
                 vc.PersonOption = 1         // Update == 1
                 vc.PersonTitle = NSLocalizedString("Update Person", comment: "MainPersonDataViewController.swift prepare")
                 
@@ -287,7 +299,10 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             vc.PersonGenderInt = 0
             vc.PersonPhoneNumberText = ""
             vc.PersonPostalCodeNumberText = ""
-                
+ 
+            vc.PersonMunicipalityText = ""
+            vc.PersonMunicipalityNumberText = ""
+            
             vc.PersonOption = 0             // Save new person == 0
             vc.PersonTitle = NSLocalizedString("New Person", comment: "MainPersonDataViewController.swift prepare")
         

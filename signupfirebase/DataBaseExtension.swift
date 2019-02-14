@@ -449,7 +449,10 @@ extension UIViewController {
                               name: String,
                               gender: Int,
                               phoneNumber: String,
-                              postalCodeNumber: String) {
+                              postalCodeNumber: String,
+                              municipality: String,
+                              municipalityNumber: String) {
+
         if uid.count > 0,
             username.count > 0,
             email.count > 0,
@@ -458,8 +461,10 @@ extension UIViewController {
             dateOfBirth.count > 0,
             name.count > 0,
             phoneNumber.count > 0,
-            postalCodeNumber.count > 0 {
-            
+            postalCodeNumber.count > 0,
+            municipality.count > 0,
+            municipalityNumber.count > 0 {
+        
             let dataBase = Database.database().reference().child("person" + "/" + id)
             
             let postObject = [
@@ -476,7 +481,9 @@ extension UIViewController {
                     "name": name,
                     "gender": gender,
                     "phoneNumber": phoneNumber,
-                    "postalCodeNumber": postalCodeNumber
+                    "postalCodeNumber": postalCodeNumber,
+                    "municipality": municipality,
+                    "municipalityNumber": municipalityNumber
                 ],
 
                 "timestamp": [".sv": "timestamp"],
@@ -514,7 +521,9 @@ extension UIViewController {
                             name: String,
                             gender: Int,
                             phoneNumber: String,
-                            postalCodeNumber: String) {
+                            postalCodeNumber: String,
+                            municipality: String,
+                            municipalityNumber: String) {
         if uid.count > 0,
             username.count > 0,
             email.count > 0,
@@ -522,7 +531,9 @@ extension UIViewController {
             city.count > 0,
             dateOfBirth.count > 0,
             name.count > 0,
-            phoneNumber.count > 0 {
+            phoneNumber.count > 0,
+            municipality.count > 0,
+            municipalityNumber.count > 0 {
                 
             let dataBase = Database.database().reference().child("person").childByAutoId()
             
@@ -540,7 +551,9 @@ extension UIViewController {
                     "name": name,
                     "gender": gender,
                     "phoneNumber": phoneNumber,
-                    "postalCodeNumber": postalCodeNumber
+                    "postalCodeNumber": postalCodeNumber,
+                    "municipality": municipality,
+                    "municipalityNumber": municipalityNumber
                 ],
                 
                 "timestamp": [".sv": "timestamp"],

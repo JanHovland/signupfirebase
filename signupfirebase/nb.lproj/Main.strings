@@ -23,7 +23,7 @@
 "99T-f0-Rez.text" = "Oppdater brukernavn";
 
 /* Class = "UITextField"; placeholder = "Enter the city"; ObjectID = "a2Y-E5-2Cp"; */
-"a2Y-E5-2Cp.placeholder" = "Legg inn stedet";
+"a2Y-E5-2Cp.placeholder" = "Legg inn sted";
 
 /* Class = "UITableViewSection"; headerTitle = " "; ObjectID = "APJ-SN-AHW"; */
 "APJ-SN-AHW.headerTitle" = " ";
@@ -100,6 +100,9 @@
 /* Class = "UINavigationItem"; title = "List all users in Coredata"; ObjectID = "iac-mu-xdT"; */
 "iac-mu-xdT.title" = "Oversikt over brukerne i Coredata";
 
+/* Class = "UITextField"; placeholder = "Enter the municipality"; ObjectID = "iJD-3U-e7P"; */
+"iJD-3U-e7P.placeholder" = "Legg inn kommune";
+
 /* Class = "UILabel"; text = "eMail"; ObjectID = "IZ3-hb-Xl4"; */
 "IZ3-hb-Xl4.text" = "ePost";
 
@@ -134,7 +137,7 @@
 "NMI-Cs-eLO.placeholder" = "Søk etter et sted ...";
 
 /* Class = "UITextField"; placeholder = "Enter the date of birth "; ObjectID = "ntB-2c-9zR"; */
-"ntB-2c-9zR.placeholder" = "Legg inn fødselsdatoen";
+"ntB-2c-9zR.placeholder" = "Legg inn fødselsdato";
 
 /* Class = "UILabel"; text = "The password must have at least 6 characters"; ObjectID = "P8h-H3-5cv"; */
 "P8h-H3-5cv.text" = "Passordet må ha inneholde minimum 6 tegn";
@@ -149,7 +152,7 @@
 "Rd9-pB-LRE.text" = "Vis alle brukerne i Coredata";
 
 /* Class = "UITextField"; placeholder = "Enter the address"; ObjectID = "RkK-Je-Gn2"; */
-"RkK-Je-Gn2.placeholder" = "Legg inn adressen";
+"RkK-Je-Gn2.placeholder" = "Legg inn adresse";
 
 /* Class = "UINavigationItem"; title = "Firebase Console"; ObjectID = "RsD-9M-gH2"; */
 "RsD-9M-gH2.title" = "Firebase Console";
@@ -206,13 +209,13 @@
 "X7L-7g-bF5.text" = "Send til";
 
 /* Class = "UITextField"; placeholder = "Enter the name"; ObjectID = "yLv-nX-tNx"; */
-"yLv-nX-tNx.placeholder" = "Legg inn navnet";
+"yLv-nX-tNx.placeholder" = "Legg inn navn";
 
 /* Class = "UILabel"; text = "Old name"; ObjectID = "yMP-nw-ghX"; */
 "yMP-nw-ghX.text" = "Navn";
 
 /* Class = "UITextField"; placeholder = "Enter the phone number"; ObjectID = "YyV-Jf-Wrw"; */
-"YyV-Jf-Wrw.placeholder" = "Legg inn telefon nummeret";
+"YyV-Jf-Wrw.placeholder" = "Legg inn telefon nummer";
 
 /* Class = "UISegmentedControl"; Z83-Gy-QZ9.segmentTitles[0] = "Man"; ObjectID = "Z83-Gy-QZ9"; */
 "Z83-Gy-QZ9.segmentTitles[0]" = "Mann";
