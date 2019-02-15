@@ -351,7 +351,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // 'prepare' will run after every segue.
 
-        if segue.identifier! == "goToPostalCodes" {
+        if segue.identifier! == "gotoPostalCodes" {
             let vc = segue.destination as! PostalCodeSearchTableViewController
 
             vc.postalCodeNameText = nameInput.text!
