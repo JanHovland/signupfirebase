@@ -21,7 +21,7 @@ class SavePostalCodesFirebaseTableViewController: UITableViewController, UIDocum
         super.viewDidLoad()
 
         activity.style = .gray
-        activity.isHidden = false
+        activity.isHidden = true
 
         // Set the 'switchStorePostalCodes' to inaktive
         UserDefaults.standard.set(false, forKey: "SHOWSTOREPOSTALCODES")
@@ -96,20 +96,6 @@ class SavePostalCodesFirebaseTableViewController: UITableViewController, UIDocum
                     values = line.components(separatedBy: delimiter)
 
                     let item = (Postnummer: values[0], Poststed: values[1], Kommunenummer: values[2], Kommunenavn: values[3], Kategori: values[4])
-
-//                    // Set "namecase" to item.Poststed
-//                    let poststed1 = item.Poststed.lowercased()
-//                    // capitalized : All word(s)' first letter will be uppercased()
-//                    let poststed2 = poststed1.capitalized
-//
-//                    //  Replace " I " with " i "
-//                    let poststed = poststed2.replacingOccurrences(of: " I ", with: " i ")
-//
-//                    // Set "namecase" to item.Kommune
-//                    let kommune1 = item.Kommunenavn.lowercased()
-//
-//                    // capitalized : All word(s)' first letter will be uppercased()
-//                    let kommune = kommune1.capitalized
 
                     if item.Postnummer != "Postnummer" {
                         savePostalCodesFiredata(postnummer: item.Postnummer,
