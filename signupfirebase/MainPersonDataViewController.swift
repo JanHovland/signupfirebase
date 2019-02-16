@@ -264,7 +264,11 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                 vc.PersonAddressText = persons[indexPath.row].personData.address
                 vc.PersonCityText = persons[indexPath.row].personData.city
                 vc.PersonDateOfBirthText = persons[indexPath.row].personData.dateOfBirth
-                vc.PersonNameText = persons[indexPath.row].personData.name
+                
+                let name1 = persons[indexPath.row].personData.name.lowercased()
+                let name = name1.capitalized
+                
+                vc.PersonNameText = name
                 vc.PersonGenderInt = persons[indexPath.row].personData.gender
                 vc.PersonPhoneNumberText = persons[indexPath.row].personData.phoneNumber
                 vc.PersonPostalCodeNumberText = persons[indexPath.row].personData.postalCodeNumber
@@ -283,7 +287,11 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                 vc.PersonAddressText = persons[indexRowUpdateSwipe].personData.address
                 vc.PersonCityText = persons[indexRowUpdateSwipe].personData.city
                 vc.PersonDateOfBirthText = persons[indexRowUpdateSwipe].personData.dateOfBirth
-                vc.PersonNameText = persons[indexRowUpdateSwipe].personData.name
+                
+                let name1 = persons[indexRowUpdateSwipe].personData.name.lowercased()
+                let name = name1.capitalized
+                
+                vc.PersonNameText = name
                 vc.PersonGenderInt = persons[indexRowUpdateSwipe].personData.gender
                 vc.PersonPhoneNumberText = persons[indexRowUpdateSwipe].personData.phoneNumber
                 vc.PersonPostalCodeNumberText = persons[indexRowUpdateSwipe].personData.postalCodeNumber

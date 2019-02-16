@@ -1158,7 +1158,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hde-zU-Jkg" userLabel="Detail Disclosure Button">
                                 <rect key="frame" x="334" y="271" width="26" height="25"/>
-                                <state key="normal" image="phone-25">
+                                <state key="normal" image="phone-26">
                                     <color key="titleColor" red="0.02014627121" green="0.47975683209999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -1674,7 +1674,7 @@
         <image name="Icon-30" width="29" height="29"/>
         <image name="firebase_logo" width="1024" height="1024"/>
         <image name="personer-33" width="29" height="29"/>
-        <image name="phone-25" width="25" height="25"/>
+        <image name="phone-26" width="25" height="25"/>
         <image name="settings-32" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>

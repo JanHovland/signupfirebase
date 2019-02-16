@@ -252,7 +252,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         let address = addressInput.text ?? ""
         let city = cityInput.text ?? ""
         let dateOfBirth = dateOfBirthInput.text ?? ""
-        let name = nameInput.text ?? ""
+        let name = nameInput.text?.uppercased() ?? ""
         let gender = genderInput.selectedSegmentIndex
         
         // Check the telephone number
@@ -354,7 +354,10 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         if segue.identifier! == "gotoPostalCodes" {
             let vc = segue.destination as! PostalCodeSearchTableViewController
 
-            vc.postalCodeNameText = nameInput.text!
+            let name1 = nameInput.text!.lowercased()
+            let name = name1.capitalized
+            
+            vc.postalCodeNameText = name
             vc.postalCodeAddressText = addressInput.text!
             vc.postalCodePhoneNumberText = phoneNumberInput.text!
             vc.postalCodePostalCodeNumberText = postalCodeNumberInput.text!
