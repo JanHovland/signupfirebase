@@ -59,6 +59,9 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         tableView.dataSource = self
         searchBarPerson.delegate = self
         
+        // Forces the online keyboard to be lowercased
+        searchBarPerson.autocapitalizationType = UITextAutocapitalizationType.none
+    
         activity.style = .gray
         activity.isHidden = false
 
@@ -94,10 +97,14 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         
         // Configure the cell
         if searching {
-            cell.nameLabel?.text = searchedPersons[indexPath.row].personData.name
+            let name1 = searchedPersons[indexPath.row].personData.name.lowercased()
+            let name = name1.capitalized
+            cell.nameLabel?.text = name
             cell.addressLabel?.text = searchedPersons[indexPath.row].personData.address
         } else {
-            cell.nameLabel?.text = persons[indexPath.row].personData.name
+            let name1 = persons[indexPath.row].personData.name.lowercased()
+            let name = name1.capitalized
+            cell.nameLabel?.text = name
             cell.addressLabel?.text = persons[indexPath.row].personData.address
         }
         
@@ -107,7 +114,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
        if searchText.count > 0 {
-        searchedPersons = persons.filter({$0.personData.name.contains(searchText)})
+        searchedPersons = persons.filter({$0.personData.name.contains(searchText.uppercased())})
            searching = true
        } else {
            searching = false
