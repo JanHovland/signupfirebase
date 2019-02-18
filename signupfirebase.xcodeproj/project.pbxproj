@@ -39,7 +39,6 @@
 		D1E9A40E220C4D18003423D7 /* IndexedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E9A40D220C4D18003423D7 /* IndexedTableViewController.swift */; };
 		D1EAAB8521C1178A005D2656 /* DataBaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAAB8421C1178A005D2656 /* DataBaseExtension.swift */; };
 		D1FFF52B2212E5110097B414 /* SearchedPostelCodesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFF52A2212E5110097B414 /* SearchedPostelCodesTableViewCell.swift */; };
-		DB4B74712215FCB7002BCDDD /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4B74702215FCB6002BCDDD /* WebViewController.swift */; };
 		DB4B74732215FD48002BCDDD /* PersonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4B74722215FD47002BCDDD /* PersonData.swift */; };
 /* End PBXBuildFile section */
 
@@ -83,7 +82,6 @@
 		D1EAAB8421C1178A005D2656 /* DataBaseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseExtension.swift; sourceTree = "<group>"; };
 		D1FFF52A2212E5110097B414 /* SearchedPostelCodesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedPostelCodesTableViewCell.swift; sourceTree = "<group>"; };
 		D8FA6AF44DDF6A6C8562A35A /* Pods_signupfirebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_signupfirebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DB4B74702215FCB6002BCDDD /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebViewController.swift; path = "../../../../../Volumes/Mac HD/Users/jho/Desktop/WebViewController.swift"; sourceTree = "<group>"; };
 		DB4B74722215FD47002BCDDD /* PersonData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -162,7 +160,6 @@
 				D11114C921F5C68C00835CF4 /* PostalCode.swift */,
 				D1E95C8F21D6BB6E00B40EE9 /* PersonDataTableViewCell.swift */,
 				D134822621CF922900F9F944 /* MainPersonDataViewController.swift */,
-				DB4B74702215FCB6002BCDDD /* WebViewController.swift */,
 				D1E95C8D21D6899400B40EE9 /* PersonViewController.swift */,
 				D17C78F121F0C89000DEE649 /* SearchViewController.swift */,
 				D1349F152205C94800C825E7 /* Postnummer.csv */,
@@ -318,7 +315,6 @@
 				D1C96A1421A1C97900C5DA7A /* UpdatePasswordViewController.swift in Sources */,
 				D135787921B693BB0057140D /* ResetPWByMailViewController.swift in Sources */,
 				D1EAAB8521C1178A005D2656 /* DataBaseExtension.swift in Sources */,
-				DB4B74712215FCB7002BCDDD /* WebViewController.swift in Sources */,
 				D136492821D0E9250039BDC6 /* Person.swift in Sources */,
 				D17C78F221F0C89100DEE649 /* SearchViewController.swift in Sources */,
 				D1A486E9219E0BA8004D41BE /* LogInViewController.swift in Sources */,
