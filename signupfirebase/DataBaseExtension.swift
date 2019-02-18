@@ -507,7 +507,7 @@ extension UIViewController {
                 }
             })
         } else {
-            let melding = "\r\n" + NSLocalizedString("Every field must be filled.",
+            let melding = "\r\n" + NSLocalizedString("Every field must be filled in.",
                                                      comment: "DataBaseExtension.swift savePersonFiredata")
             
             self.presentAlert(withTitle: NSLocalizedString("Error",
@@ -577,7 +577,7 @@ extension UIViewController {
                 }
             })
         } else {
-            let melding = "\r\n" + NSLocalizedString("Every field must be filled.",
+            let melding = "\r\n" + NSLocalizedString("Every field must be filled in.",
                                                      comment: "DataBaseExtension.swift savePersonFiredata")
             
             self.presentAlert(withTitle: NSLocalizedString("Error",
@@ -707,7 +707,7 @@ extension UIViewController {
                 }
             })
         } else {
-            let melding = "\r\n" + NSLocalizedString("Every field must be filled.",
+            let melding = "\r\n" + NSLocalizedString("Every field must be filled in.",
                                                      comment: "DataBaseExtension.swift savePostalCodesFiredata")
             
             self.presentAlert(withTitle: NSLocalizedString("Error",
