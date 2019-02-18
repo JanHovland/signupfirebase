@@ -344,10 +344,22 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
-    @IBAction func buttonPhone(_ sender: Any) {
+    // Make a call wuth the phone number
+    @IBAction func buttonPhone(_ sender: UIButton) {
+        
+        // Find the region's phone prefix
+        let number = phoneNumberInput.text!.replacingOccurrences(of: " ", with: "")
+        
+        if  let url : URL = URL(string: "tel://\(number)"){
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+   }
+
+    // Send a message with the phone number
+    @IBAction func buttonMessage(_ sender: Any) {
         print(phoneNumberInput.text!)
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // 'prepare' will run after every segue.
 
