@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import MessageUI
 
-class PersonViewController: UIViewController, UITextFieldDelegate {
+class PersonViewController: UIViewController, UITextFieldDelegate, MFMessageComposeViewControllerDelegate {
+    
     @IBOutlet var addressInput: UITextField!
     @IBOutlet var cityInput: UITextField!
     @IBOutlet var dateOfBirthInput: UITextField!
@@ -358,6 +360,25 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
     // Send a message with the phone number
     @IBAction func buttonMessage(_ sender: Any) {
         print(phoneNumberInput.text!)
+        
+        if MFMessageComposeViewController.canSendText() {
+            
+            let controller = MFMessageComposeViewController()
+            controller.body = "Test sending av SMS"
+            controller.recipients = [self.phoneNumberInput.text!]
+            controller.messageComposeDelegate = (self as MFMessageComposeViewControllerDelegate)
+            
+            self.present(controller, animated: true, completion: nil)
+            
+        } else {
+            
+            print("Cannot send text")
+        }
+        
+    }
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -382,3 +403,13 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         }
     }
 }
+
+/*
+extension ViewController: MFMessageComposeViewControllerDelegate {
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        
+    }
+}
+ 
+*/

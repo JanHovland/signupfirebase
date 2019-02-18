@@ -1098,25 +1098,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yLv-nX-tNx" userLabel="Name Text Field">
-                                <rect key="frame" x="240" y="147" width="120" height="31"/>
+                                <rect key="frame" x="94" y="147" width="266" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="name"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RkK-Je-Gn2" userLabel="Address Text Field">
-                                <rect key="frame" x="95" y="208" width="265" height="30"/>
+                                <rect key="frame" x="95" y="207" width="265" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="name"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YyV-Jf-Wrw" userLabel="Phone Text Field">
-                                <rect key="frame" x="97" y="268" width="263" height="30"/>
+                                <rect key="frame" x="97" y="267" width="263" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="yes" textContentType="tel"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="uy3-05-bWG" userLabel="City Text Field">
-                                <rect key="frame" x="99" y="328" width="50" height="30"/>
+                                <rect key="frame" x="99" y="327" width="50" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="W4g-JR-cJ8"/>
                                 </constraints>
@@ -1125,7 +1125,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="postal-code"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="0PH-fa-QJT" userLabel="Municipal Text Field">
-                                <rect key="frame" x="99" y="388" width="50" height="30"/>
+                                <rect key="frame" x="99" y="387" width="50" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="H5C-l5-ntB"/>
                                 </constraints>
@@ -1134,13 +1134,13 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="postal-code"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the date of birth " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ntB-2c-9zR">
-                                <rect key="frame" x="101" y="448" width="259" height="30"/>
+                                <rect key="frame" x="101" y="447" width="259" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Z83-Gy-QZ9">
-                                <rect key="frame" x="101" y="508" width="259" height="29"/>
+                                <rect key="frame" x="101" y="507" width="259" height="29"/>
                                 <segments>
                                     <segment title="Man"/>
                                     <segment title="Woman"/>
@@ -1150,33 +1150,33 @@
                                 </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uSm-T6-4NZ">
-                                <rect key="frame" x="363" y="343" width="0.0" height="0.0"/>
+                                <rect key="frame" x="363" y="342" width="0.0" height="0.0"/>
                                 <constraints>
                                     <constraint firstAttribute="width" id="jlF-NV-5kX"/>
                                     <constraint firstAttribute="height" id="vxj-7I-lyd"/>
                                 </constraints>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bC7-mk-vXQ">
-                                <rect key="frame" x="327" y="327.5" width="31" height="31"/>
+                                <rect key="frame" x="327" y="326.5" width="31" height="31"/>
                                 <state key="normal" image="search-31"/>
                                 <connections>
                                     <segue destination="p5X-p9-m4e" kind="show" identifier="gotoPostalCodes" id="GaG-R5-IAe"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the municipality" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iJD-3U-e7P" userLabel="City Text Field">
-                                <rect key="frame" x="153" y="388" width="207" height="30"/>
+                                <rect key="frame" x="153" y="387" width="207" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="address-level2"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the city" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a2Y-E5-2Cp" userLabel="City Text Field">
-                                <rect key="frame" x="153" y="328" width="166" height="30"/>
+                                <rect key="frame" x="153" y="327" width="166" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="address-level2"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edF-4w-rjR">
-                                <rect key="frame" x="124" y="554" width="40" height="40"/>
+                                <rect key="frame" x="124" y="553" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="LlS-b8-Sbb"/>
                                 </constraints>
@@ -1186,7 +1186,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jsB-2m-cu2">
-                                <rect key="frame" x="252" y="554" width="89" height="35"/>
+                                <rect key="frame" x="252" y="553" width="89" height="35"/>
                                 <state key="normal" title="Button" image="message-35"/>
                                 <connections>
                                     <action selector="buttonMessage:" destination="rxh-wi-pm3" eventType="touchUpInside" id="0F6-bk-rrT"/>
@@ -1195,6 +1195,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="yLv-nX-tNx" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="94" id="0M7-Zc-qO4"/>
                             <constraint firstItem="uSm-T6-4NZ" firstAttribute="centerY" secondItem="a2Y-E5-2Cp" secondAttribute="centerY" id="0t9-NT-QA0"/>
                             <constraint firstItem="0PH-fa-QJT" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="99" id="1wD-fF-4JV"/>
                             <constraint firstItem="Z83-Gy-QZ9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nbz-eB-NWH" secondAttribute="trailing" constant="8" symbolic="YES" id="2mb-U0-LLM"/>
@@ -1226,12 +1227,10 @@
                             <constraint firstItem="uy3-05-bWG" firstAttribute="top" secondItem="YyV-Jf-Wrw" secondAttribute="bottom" constant="30" id="Zbn-lU-T7A"/>
                             <constraint firstItem="YyV-Jf-Wrw" firstAttribute="top" secondItem="RkK-Je-Gn2" secondAttribute="bottom" constant="30" id="aMP-Tz-nvO"/>
                             <constraint firstItem="RkK-Je-Gn2" firstAttribute="top" secondItem="yLv-nX-tNx" secondAttribute="bottom" constant="30" id="dD7-Ri-Mxs"/>
-                            <constraint firstItem="ggZ-By-2Qr" firstAttribute="centerY" secondItem="yLv-nX-tNx" secondAttribute="centerY" id="dT6-ZF-NWR"/>
                             <constraint firstItem="bC7-mk-vXQ" firstAttribute="centerY" secondItem="uSm-T6-4NZ" secondAttribute="centerY" id="dvn-l9-Vfx"/>
                             <constraint firstItem="UG6-zK-qDH" firstAttribute="top" secondItem="ggZ-By-2Qr" secondAttribute="bottom" constant="42" id="eKg-ha-K1H"/>
                             <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="ntB-2c-9zR" secondAttribute="trailing" constant="15" id="fxw-sh-qsy"/>
                             <constraint firstItem="yLv-nX-tNx" firstAttribute="top" secondItem="dcI-Iv-SZx" secondAttribute="bottom" constant="35" id="hlA-ft-j4b"/>
-                            <constraint firstItem="yLv-nX-tNx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ggZ-By-2Qr" secondAttribute="trailing" constant="8" symbolic="YES" id="ikH-kj-iT3"/>
                             <constraint firstItem="mZW-Vq-ZeJ" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="15" id="krX-GQ-tEH"/>
                             <constraint firstItem="dcI-Iv-SZx" firstAttribute="top" secondItem="O6w-2j-OOB" secondAttribute="top" constant="30" id="lY0-mz-kZ8"/>
                             <constraint firstItem="RkK-Je-Gn2" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="95" id="m1I-UQ-ejw"/>
