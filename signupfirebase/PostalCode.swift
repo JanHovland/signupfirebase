@@ -9,23 +9,27 @@
 import Foundation
 
 class PostalCode {
-    var poststed: String
-    var postnummer: String
-    var kommune: String
-    var kommunenummer: String
+    var postPlace: String
+    var postNumber: String
+    var municipality: String
+    var municipalityNumber: String
     
     
-    init(poststed: String, postnummer: String, kommune: String, kommunenummer: String) {
-        self.poststed = poststed
-        self.postnummer = postnummer
-        self.kommune = kommune
-        self.kommunenummer = kommunenummer
+    init(postPlace: String,
+         postNumber: String,
+         municipality: String,
+         municipalityNumber: String) {
+        
+        self.postPlace = postPlace
+        self.postNumber = postNumber
+        self.municipality = municipality
+        self.municipalityNumber = municipalityNumber
     }
     
     convenience init() {
-        self.init(poststed: "",
-                  postnummer: "",
-                  kommune: "",
-                  kommunenummer: "")
+        self.init(postPlace: "",
+                  postNumber: "",
+                  municipality: "",
+                  municipalityNumber: "")
     }
 }

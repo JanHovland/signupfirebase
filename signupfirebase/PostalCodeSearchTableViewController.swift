@@ -106,7 +106,7 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
         let key = poststedSectionTitles[indexPath.section]
 
         if let postValues = poststedsDictionary[key] {
-            let poststed1 = postValues[indexPath.row].poststed.lowercased()
+            let poststed1 = postValues[indexPath.row].postPlace.lowercased()
 
             // Format poststed
 
@@ -116,7 +116,7 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
             //  Replace " I " with " i "
             let poststed = poststed2.replacingOccurrences(of: " I ", with: " i ")
 
-            let postnummer = postValues[indexPath.row].postnummer
+            let postnummer = postValues[indexPath.row].postNumber
 
             cell.poststedLabel?.text = poststed.capitalized
 
@@ -127,17 +127,17 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
 
             // Format kommune
 
-            let kommune1 = postValues[indexPath.row].kommune.lowercased()
+            let municipality1 = postValues[indexPath.row].municipality.lowercased()
 
             // capitalized : All word(s)' first letter will be in uppercase
-            let kommune2 = kommune1.capitalized
+            let municipality2 = municipality1.capitalized
 
             //  Replace " I " with " i "
-            let kommune = kommune2.replacingOccurrences(of: " I ", with: " i ")
+            let municipality = municipality2.replacingOccurrences(of: " I ", with: " i ")
 
-            let kommunenummer = postValues[indexPath.row].kommunenummer
+            let kommunenummer = postValues[indexPath.row].municipalityNumber
 
-            cell.kommuneInfoLabel?.text = kommunenummer + "  " + kommune.capitalized
+            cell.kommuneInfoLabel?.text = kommunenummer + "  " + municipality.capitalized
         }
 
         return cell
@@ -181,11 +181,11 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
 
         if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
             // Find postalData. Returns postnummer, poststed, kommunenummer og kommune
-            let value = findPostalData(postnummer: cell.textLabel!.text!)
+            let value = findPostalData(postNumber: cell.textLabel!.text!)
 
             let count = poststedSectionTitles.count
             for index in 0 ..< count {
-                if poststedSectionTitles[index] == String(value.1.prefix(1)) {
+                if poststedSectionTitles[index] == String(value.postPlace.prefix(1)) {
                     sectionNo = index
                     break
                 }
@@ -197,11 +197,11 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
             // Sets the checkmark on the selected cell
             cell.accessoryType = .checkmark
 
-            globalCity = value.1
-            globalPostalCode = value.0
+            globalCity = value.postPlace
+            globalPostalCode = value.postNumber
             
-            globalMunicipality = value.3
-            globalMunicipalityNumber = value.2
+            globalMunicipality = value.municipality
+            globalMunicipalityNumber = value.municipalityNumber
             
         }
     }
@@ -282,14 +282,14 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
             for child in snapshot.children {
                 if let childSnapshot = child as? DataSnapshot,
                     let postnr = childSnapshot.value as? [String: Any],
-                    let postnummer = postnr["postnummer"] as? String,
-                    let poststed = postnr["poststed"] as? String,
-                    let kommunenummer = postnr["kommunenummer"] as? String,
-                    let kommune = postnr["kommune"] as? String {
-                    let postnr = PostalCode(poststed: poststed,
-                                            postnummer: postnummer,
-                                            kommune: kommune,
-                                            kommunenummer: kommunenummer)
+                    let postNumber = postnr["postnummer"] as? String,
+                    let postPlace = postnr["poststed"] as? String,
+                    let municipalityNumber = postnr["kommunenummer"] as? String,
+                    let municipality = postnr["kommune"] as? String {
+                    let postnr = PostalCode(postPlace: postPlace,
+                                            postNumber: postNumber,
+                                            municipality: municipality,
+                                            municipalityNumber: municipalityNumber)
 
                     tempPostnr.append(postnr)
                 }
@@ -297,7 +297,7 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
 
             // Update the tempPostnr array before updating the postelCodes
             // Sorting the postalCodes has no effect
-            tempPostnr.sort(by: { $0.poststed < $1.poststed })
+            tempPostnr.sort(by: { $0.postPlace < $1.postPlace })
             self.postalCodes = tempPostnr
 
             // Export the data from the closure
@@ -314,19 +314,19 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
             let count = postalCodes.count - 1
 
             for index in 0 ... count {
-                let key = String(postalCodes[index].poststed.prefix(1))
+                let key = String(postalCodes[index].postPlace.prefix(1))
 
                 if var postValues = self.poststedsDictionary[key] {
-                    postValues.append(PostalCode(poststed: postalCodes[index].poststed,
-                                                 postnummer: postalCodes[index].postnummer,
-                                                 kommune: postalCodes[index].kommune,
-                                                 kommunenummer: postalCodes[index].kommunenummer))
+                    postValues.append(PostalCode(postPlace: postalCodes[index].postPlace,
+                                                 postNumber: postalCodes[index].postNumber,
+                                                 municipality: postalCodes[index].municipality,
+                                                 municipalityNumber: postalCodes[index].municipalityNumber))
                     poststedsDictionary[key] = postValues
                 } else {
-                    poststedsDictionary[key] = [PostalCode(poststed: postalCodes[index].poststed,
-                                                           postnummer: postalCodes[index].postnummer,
-                                                           kommune: postalCodes[index].kommune,
-                                                           kommunenummer: postalCodes[index].kommunenummer)]
+                    poststedsDictionary[key] = [PostalCode(postPlace: postalCodes[index].postPlace,
+                                                           postNumber: postalCodes[index].postNumber,
+                                                           municipality: postalCodes[index].municipality,
+                                                           municipalityNumber: postalCodes[index].municipalityNumber)]
                 }
             }
 
@@ -344,7 +344,7 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
             tableView.reloadData()
 
         } else {
-            searchedPostalCodes = postalCodes.filter({ $0.poststed.contains(searchText.uppercased()) })
+            searchedPostalCodes = postalCodes.filter({ $0.postPlace.contains(searchText.uppercased()) })
 
             let count = searchedPostalCodes.count
 
@@ -352,19 +352,19 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
                 let count = searchedPostalCodes.count - 1
 
                 for index in 0 ... count {
-                    let key = String(searchedPostalCodes[index].poststed.prefix(1))
+                    let key = String(searchedPostalCodes[index].postPlace.prefix(1))
 
                     if var postValues = self.poststedsDictionary[key] {
-                        postValues.append(PostalCode(poststed: searchedPostalCodes[index].poststed,
-                                                     postnummer: searchedPostalCodes[index].postnummer,
-                                                     kommune: searchedPostalCodes[index].kommune,
-                                                     kommunenummer: searchedPostalCodes[index].kommunenummer))
+                        postValues.append(PostalCode(postPlace: searchedPostalCodes[index].postPlace,
+                                                     postNumber: searchedPostalCodes[index].postNumber,
+                                                     municipality: searchedPostalCodes[index].municipality,
+                                                     municipalityNumber: searchedPostalCodes[index].municipalityNumber))
                         poststedsDictionary[key] = postValues
                     } else {
-                        poststedsDictionary[key] = [PostalCode(poststed: searchedPostalCodes[index].poststed,
-                                                               postnummer: searchedPostalCodes[index].postnummer,
-                                                               kommune: searchedPostalCodes[index].kommune,
-                                                               kommunenummer: searchedPostalCodes[index].kommunenummer)]
+                        poststedsDictionary[key] = [PostalCode(postPlace: searchedPostalCodes[index].postPlace,
+                                                               postNumber: searchedPostalCodes[index].postNumber,
+                                                               municipality: searchedPostalCodes[index].municipality,
+                                                               municipalityNumber: searchedPostalCodes[index].municipalityNumber)]
                     }
                 }
             }
@@ -385,22 +385,26 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
     }
 
     // Find postalData. Returns postnummer, poststed, kommunenummer og kommune
-    func findPostalData(postnummer: String) -> (String, String, String, String) {
-        let postalData = postalCodes.filter({ $0.postnummer.contains(postnummer) })
+    func findPostalData(postNumber: String) -> (postNumber: String,
+                                                postPlace: String,
+                                                municipalityNumber: String,
+                                                municipality: String) {
+                                                    
+        let postalData = postalCodes.filter({ $0.postNumber.contains(postNumber) })
 
         if postalData.count == 1 {
             
-            let postnummer = String(postalData[0].postnummer)
-            let poststed1 = String(postalData[0].poststed).lowercased()
-            let poststed = poststed1.capitalized
-            let kommunenummer = String(postalData[0].kommunenummer)
-            let kommune1 = String(postalData[0].kommune).lowercased()
-            let kommune = kommune1.capitalized
+            let postnummer = String(postalData[0].postNumber)
+            let postPlace1 = String(postalData[0].postPlace).lowercased()
+            let postPlace = postPlace1.capitalized
+            let kommunenummer = String(postalData[0].municipalityNumber)
+            let municipality1 = String(postalData[0].municipality).lowercased()
+            let municipality = municipality1.capitalized
      
             return (postnummer,
-                    poststed,
+                    postPlace,
                     kommunenummer,
-                    kommune)
+                    municipality)
         } else {
             return ("",
                     "",
