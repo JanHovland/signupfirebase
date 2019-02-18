@@ -40,7 +40,7 @@
 /* Class = "UINavigationItem"; title = "Update user name"; ObjectID = "c4F-9b-Jx4"; */
 "c4F-9b-Jx4.title" = "Oppdater brukernavn";
 
-/* Class = "UILabel"; text = "Municip"; ObjectID = "cm9-gv-6K9"; */
+/* Class = "UILabel"; text = "Municipality"; ObjectID = "cm9-gv-6K9"; */
 "cm9-gv-6K9.text" = "Kommune";
 
 /* Class = "UILabel"; text = "eMail"; ObjectID = "csI-ws-1c2"; */

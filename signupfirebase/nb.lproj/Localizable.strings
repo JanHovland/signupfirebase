@@ -69,7 +69,7 @@
 
 /* DataBaseExtension.swift savePersonFiredata
    DataBaseExtension.swift savePostalCodesFiredata */
-"Every field must be filled." = "Alle feltene må fylles ut.";
+"Every field must be filled in." = "Alle feltene må fylles ut.";
 
 /* LoginViewVontroller.swift SaveAccount */
 "Every field must have a value" = "Alle feltene må ha en verdi";
