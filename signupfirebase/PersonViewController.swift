@@ -248,7 +248,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate, MFMessageComp
 
     @IBAction func SaveOrUpdatePerson(_ sender: Any) {
         // Get the user who has logged in
-        //  0 = uid  1 = ePost  2 = name  3 = passWord)
+        //  0 = uid  1 = eMail  2 = name  3 = passWord)
         let value = getCoreData()
 
         let address = addressInput.text ?? ""
@@ -268,9 +268,9 @@ class PersonViewController: UIViewController, UITextFieldDelegate, MFMessageComp
         activity.startAnimating()
 
         if PersonOption == 0 {
-            savePersonFiredata(uid: value.0,
-                               username: value.2,
-                               email: value.1,
+            savePersonFiredata(uid: value.uid,
+                               username: value.name,
+                               email: value.eMail,
                                address: address,
                                city: city,
                                dateOfBirth: dateOfBirth,
@@ -283,9 +283,9 @@ class PersonViewController: UIViewController, UITextFieldDelegate, MFMessageComp
 
         } else if PersonOption == 1 {
             updatePersonFiredata(id: PersonIdText,
-                                 uid: value.0,
-                                 username: value.2,
-                                 email: value.1,
+                                 uid: value.uid,
+                                 username: value.name,
+                                 email: value.eMail,
                                  address: address,
                                  city: city,
                                  dateOfBirth: dateOfBirth,

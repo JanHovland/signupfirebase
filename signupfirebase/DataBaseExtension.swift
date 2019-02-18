@@ -86,11 +86,15 @@ extension UIViewController {
         return ok
     }
 
-    func getCoreData() -> (String, String, String, String) {
-        var ePost: String = ""
-        var passWord: String = ""
-        var name: String = ""
+    func getCoreData() -> (uid: String,
+                           eMail: String,
+                           name: String,
+                           passWord: String) {
+        
         var uid: String = ""
+        var ePost: String = ""
+        var name: String = ""
+        var passWord: String = ""
 
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
@@ -419,11 +423,11 @@ extension UIViewController {
     }
 
     func showUserInfo(startUp: Bool) -> String {
-        //  0 = uid  1 = ePost  2 = name  3 = passWord)
+        //  0 = uid  1 = eMail  2 = name  3 = passWord)
         let value = getCoreData()
 
-        let email = value.1
-        let name = value.2
+        let email = value.eMail
+        let name = value.name
 
         if email.count > 0,
             name.count > 0 {

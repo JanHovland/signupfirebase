@@ -49,8 +49,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         let value = getCoreData()
         
         //  0 = uid  1 = ePost  2 = name  3 = passWord)
-        eMailLoginTextField.text = value.1
-        passwordTextField.text = value.3
+        eMailLoginTextField.text = value.eMail
+        passwordTextField.text = value.passWord
 
         activity.stopAnimating()
         
