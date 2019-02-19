@@ -112,9 +112,10 @@ class PersonViewController: UIViewController, UITextFieldDelegate, MFMessageComp
         
         //      let textFont = UIFont(name: "Helvetica Bold", size: 7)!
         testImage.image = textToImage(drawText: "JMH",
+                                      size: 7,
                                       inImage: UIImage(named: "circle-20.png")!,     //    -->   20 x 20
+                                      // atPoint: CGPoint(x: 3 + 2, y: 5))           // Add 2 if drawText contains 3 characters
                                       atPoint: CGPoint(x: 3, y: 5))
-        
 
         
     }
@@ -443,11 +444,13 @@ class PersonViewController: UIViewController, UITextFieldDelegate, MFMessageComp
         }
     }
     
-    func textToImage(drawText text: String, inImage image: UIImage, atPoint point: CGPoint) -> UIImage {
+    func textToImage(drawText text: String,
+                     size fontsize: Float64,
+                     inImage image: UIImage,
+                     atPoint point: CGPoint) -> UIImage {
+        
         let textColor = UIColor.white
-//        let textFont = UIFont(name: "Helvetica Bold", size: 520)!
-//        let textFont = UIFont(name: "Helvetica Bold", size: 120)!
-        let textFont = UIFont(name: "Helvetica Bold", size: 7)!
+        let textFont = UIFont(name: "Helvetica Bold", size: CGFloat(fontsize))!
 
         let scale = UIScreen.main.scale
         UIGraphicsBeginImageContextWithOptions(image.size, false, scale)
