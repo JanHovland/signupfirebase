@@ -64,8 +64,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     
         activity.style = .gray
         activity.isHidden = false
-
-    }
+        
+   }
 
     override func viewDidAppear(_ animated: Bool) {
         activity.startAnimating()

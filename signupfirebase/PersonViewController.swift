@@ -23,7 +23,9 @@ class PersonViewController: UIViewController, UITextFieldDelegate, MFMessageComp
     @IBOutlet weak var municipalityInput: UITextField!
     
     @IBOutlet var activity: UIActivityIndicatorView!
-
+    
+    @IBOutlet weak var testImage: UIImageView!
+    
     var PersonTitle = ""
     var PersonOption = 0 // 0 = save 1 = update
 
@@ -76,6 +78,44 @@ class PersonViewController: UIViewController, UITextFieldDelegate, MFMessageComp
         
         globalMunicipality = municipalityInput.text!
         globalMunicipalityNumber = municipalityNumberInput.text!
+        
+        // Write sthe string "JH" ontop of an image
+//        let textFont = UIFont(name: "Helvetica Bold", size: 520)!
+//        testImage.image = textToImage(drawText: "JH",
+//                                      inImage: UIImage(named: "iphone.png")!,          --> 1024 x 1024
+//                                      atPoint: CGPoint(x: 160, y: 200))
+        
+//        let textFont = UIFont(name: "Helvetica Bold", size: 120)!
+//        testImage.image = textToImage(drawText: "JH",
+//                                      inImage: UIImage(named: "test-message.png")!,    -->  300 x 300
+//                                      atPoint: CGPoint(x: 65, y: 75))
+        
+        //      let textFont = UIFont(name: "Helvetica Bold", size: 120)!
+//        testImage.image = textToImage(drawText: "JH",
+//                                      inImage: UIImage(named: "people.png")!,          -->  256 x 256
+//                                      atPoint: CGPoint(x: 50, y: 70))
+        
+        //      let textFont = UIFont(name: "Helvetica Bold", size: 12)!
+//        testImage.image = textToImage(drawText: "JH",
+//                                      inImage: UIImage(named: "circle-35.png")!,   //    -->   35 x 35
+//            atPoint: CGPoint(x: 8, y: 8))
+        
+        //      let textFont = UIFont(name: "Helvetica Bold", size: 11)!
+//        testImage.image = textToImage(drawText: "JH",
+//                                      inImage: UIImage(named: "circle-32.png")!,     //    -->   32 x 32
+//            atPoint: CGPoint(x: 6, y: 7))
+        
+        //      let textFont = UIFont(name: "Helvetica Bold", size: 9)!
+//        testImage.image = textToImage(drawText: "JH",
+//                                      inImage: UIImage(named: "circle-25.png")!,     //    -->   25 x 25
+//            atPoint: CGPoint(x: 4, y: 5))
+        
+        //      let textFont = UIFont(name: "Helvetica Bold", size: 7)!
+        testImage.image = textToImage(drawText: "JMH",
+                                      inImage: UIImage(named: "circle-20.png")!,     //    -->   20 x 20
+                                      atPoint: CGPoint(x: 3, y: 5))
+        
+
         
     }
 
@@ -402,14 +442,29 @@ class PersonViewController: UIViewController, UITextFieldDelegate, MFMessageComp
             
         }
     }
-}
-
-/*
-extension ViewController: MFMessageComposeViewControllerDelegate {
     
-    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+    func textToImage(drawText text: String, inImage image: UIImage, atPoint point: CGPoint) -> UIImage {
+        let textColor = UIColor.white
+//        let textFont = UIFont(name: "Helvetica Bold", size: 520)!
+//        let textFont = UIFont(name: "Helvetica Bold", size: 120)!
+        let textFont = UIFont(name: "Helvetica Bold", size: 7)!
+
+        let scale = UIScreen.main.scale
+        UIGraphicsBeginImageContextWithOptions(image.size, false, scale)
         
+        let textFontAttributes = [
+            NSAttributedString.Key.font: textFont,
+            NSAttributedString.Key.foregroundColor: textColor,
+            ] as [NSAttributedString.Key : Any]
+        image.draw(in: CGRect(origin: CGPoint.zero, size: image.size))
+        
+        let rect = CGRect(origin: point, size: image.size)
+        text.draw(in: rect, withAttributes: textFontAttributes)
+        
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage!
     }
+    
 }
- 
-*/

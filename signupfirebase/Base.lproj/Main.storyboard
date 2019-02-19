@@ -1192,6 +1192,10 @@
                                     <action selector="buttonMessage:" destination="rxh-wi-pm3" eventType="touchUpInside" id="0F6-bk-rrT"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xjK-sO-6YT">
+                                <rect key="frame" x="16" y="544" width="79" height="69"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -1279,6 +1283,7 @@
                         <outlet property="nameInput" destination="yLv-nX-tNx" id="7BA-gO-xHS"/>
                         <outlet property="phoneNumberInput" destination="YyV-Jf-Wrw" id="0rL-ob-MXk"/>
                         <outlet property="postalCodeNumberInput" destination="uy3-05-bWG" id="34k-4y-LqZ"/>
+                        <outlet property="testImage" destination="xjK-sO-6YT" id="OUz-w3-LYn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wrR-qK-zNm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1287,7 +1292,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </activityIndicatorView>
             </objects>
-            <point key="canvasLocation" x="-4098.3999999999996" y="2005.5472263868066"/>
+            <point key="canvasLocation" x="-3919.1999999999998" y="2005.5472263868066"/>
         </scene>
         <!--Postal Codes-->
         <scene sceneID="SQB-4T-iVc">
@@ -1391,7 +1396,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bLd-PQ-1sO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3020" y="2005.5472263868066"/>
+            <point key="canvasLocation" x="-3020" y="2006"/>
         </scene>
         <!--Update password-->
         <scene sceneID="514-fI-xD2">
