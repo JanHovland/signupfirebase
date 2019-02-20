@@ -12,6 +12,9 @@ class PersonDataTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var imageLabel: UIImageView!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

@@ -88,6 +88,14 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        var x: Float64 = 3.75
+        var y: Float64 = 7.0
+        
+        var fontSize: Float64 = 9.0
+        var text = ""
+        
+        var name = ""
         let cellIdentifier = "Cell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PersonDataTableViewCell
 
@@ -98,15 +106,46 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         // Configure the cell
         if searching {
             let name1 = searchedPersons[indexPath.row].personData.name.lowercased()
-            let name = name1.capitalized
+            name = name1.capitalized
             cell.nameLabel?.text = name
             cell.addressLabel?.text = searchedPersons[indexPath.row].personData.address
         } else {
             let name1 = persons[indexPath.row].personData.name.lowercased()
-            let name = name1.capitalized
+            name = name1.capitalized
             cell.nameLabel?.text = name
             cell.addressLabel?.text = persons[indexPath.row].personData.address
+            
         }
+        
+        // Find all Uppercase letters of the name
+        text = findFirstLettersOfName(name: name)
+        
+        if text.count == 1 {
+            x = x + 5.50
+        } else if text.count == 2 {
+            x = x + 2.75
+        } else if text.count == 3 {
+            
+        } else if text.count == 4 {
+            x = x - 1
+            y = y + 2
+            fontSize = 7.0
+        } else {
+            x = x - 1
+            y = y + 2
+            fontSize = 6.0
+            
+            // Set a new value to rexr
+            text = String(text.prefix(4)) + ".."
+            
+        }
+        
+        cell.imageLabel?.image = textToImage(drawText: text,
+                                             size:  fontSize,
+                                             inImage: UIImage(named: "circle-25.png")!,
+                                             atPoint: CGPoint(x: x, y: y))
+        
+        // atPoint: CGPoint(x: 3 + 2, y: 5))           // Add 2 if drawText contains only 2 characters
         
         return cell
     }
