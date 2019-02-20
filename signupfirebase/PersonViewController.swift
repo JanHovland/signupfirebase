@@ -371,7 +371,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate, MFMessageComp
         formatter.locale = NSLocale(localeIdentifier: region!) as Locale
 
         let datoString = formatter.string(from: datoValg.date)
-        dateOfBirthInput.text = "\(datoString)"
+        dateOfBirthInput.text =  "\(datoString)"
         view.endEditing(true)
     }
 
