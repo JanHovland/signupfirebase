@@ -136,7 +136,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             fontSize = 6.0
             
             // Set a new value to rexr
-            text =  String(text.prefix(4)) + ".."
+            text = String(text.prefix(4)) + ".."
             
         }
         
