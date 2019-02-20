@@ -528,6 +528,7 @@ extension UIViewController {
                             postalCodeNumber: String,
                             municipality: String,
                             municipalityNumber: String) {
+        
         if uid.count > 0,
             username.count > 0,
             email.count > 0,
