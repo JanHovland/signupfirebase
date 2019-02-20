@@ -79,48 +79,6 @@ class PersonViewController: UIViewController, UITextFieldDelegate, MFMessageComp
         globalMunicipality = municipalityInput.text!
         globalMunicipalityNumber = municipalityNumberInput.text!
         
-        // Write sthe string "JH" ontop of an image
-//        let textFont = UIFont(name: "Helvetica Bold", size: 520)!
-//        testImage.image = textToImage(drawText: "JH",
-//                                      inImage: UIImage(named: "iphone.png")!,          --> 1024 x 1024
-//                                      atPoint: CGPoint(x: 160, y: 200))
-        
-//        let textFont = UIFont(name: "Helvetica Bold", size: 120)!
-//        testImage.image = textToImage(drawText: "JH",
-//                                      inImage: UIImage(named: "test-message.png")!,    -->  300 x 300
-//                                      atPoint: CGPoint(x: 65, y: 75))
-        
-        //      let textFont = UIFont(name: "Helvetica Bold", size: 120)!
-//        testImage.image = textToImage(drawText: "JH",
-//                                      inImage: UIImage(named: "people.png")!,          -->  256 x 256
-//                                      atPoint: CGPoint(x: 50, y: 70))
-        
-        //      let textFont = UIFont(name: "Helvetica Bold", size: 12)!
-//        testImage.image = textToImage(drawText: "JH",
-//                                      inImage: UIImage(named: "circle-35.png")!,   //    -->   35 x 35
-//            atPoint: CGPoint(x: 8, y: 8))
-        
-        //      let textFont = UIFont(name: "Helvetica Bold", size: 11)!
-//        testImage.image = textToImage(drawText: "JH",
-//                                      inImage: UIImage(named: "circle-32.png")!,     //    -->   32 x 32
-//            atPoint: CGPoint(x: 6, y: 7))
-        
-        //      let textFont = UIFont(name: "Helvetica Bold", size: 9)!
-//        testImage.image = textToImage(drawText: "JH",
-//                                      inImage: UIImage(named: "circle-25.png")!,     //    -->   25 x 25
-//            atPoint: CGPoint(x: 4, y: 5))
-        
-        //      let textFont = UIFont(name: "Helvetica Bold", size: 7)!
- /*
-        let text = findFirstLettersOfName(name: "Jan M. Hovland")
-        
-        testImage.image = textToImage(drawText: text,
-                                      size: 9,
-                                      inImage: UIImage(named: "circle-25.png")!,     //    -->   20 x 20
-                                      // atPoint: CGPoint(x: 3 + 2, y: 5))           // Add 2 if drawText contains only 2 characters
-                                      atPoint: CGPoint(x: 3, y: 7))
-
-*/
     }
 
     override func viewWillAppear(_ animated: Bool) {
