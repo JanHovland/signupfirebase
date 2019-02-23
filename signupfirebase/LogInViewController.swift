@@ -36,6 +36,31 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let postDatabaseRef = Database.database().reference().child("posts")
+        
+        var postQuery =  postDatabaseRef.queryOrdered(byChild: "timestamp")
+        postQuery = postQuery.queryLimited(toLast: 5)
+        
+        // postDatabaseRef.observeSingleEvent(of: .value, with:  { (snapshot) in
+        postQuery.observeSingleEvent(of: .value, with:  { (snapshot) in
+            print("Total number of posts: \(snapshot.childrenCount)")
+            for item in snapshot.children.allObjects as! [DataSnapshot] {
+                
+                let postInfo = item.value as? [String: Any] ?? [:]
+
+                print("----------")
+                print("Post ID: \(item.key)")
+                print("Image URL: \(postInfo["imageFileURL"] ?? "")")
+                print("User: \(postInfo["user"] ?? "")")
+                print("Votes: \(postInfo["votes"] ?? "")")
+                print("Timestamp: \(postInfo["timestamp"] ?? "")")
+            }
+            
+        })
+        
+        
+        
+        
         // Hide the tabBar
         self.tabBarController?.tabBar.isHidden = true
         
