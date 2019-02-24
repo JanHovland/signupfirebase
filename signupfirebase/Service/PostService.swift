@@ -38,7 +38,7 @@ final class PostService {
         let imageStorageRef = PHOTO_STORAGE_REF.child("\(imageKey).png")
         
         // Resize the image
-        let scaledImage = image.scale(newWidth: 640.0)
+        let scaledImage = image.scale(newWidth: 100.0)
         
         guard let imageData = scaledImage.jpegData(compressionQuality: 0.9) else {
             return
@@ -49,7 +49,7 @@ final class PostService {
         metadata.contentType = "image/png"
         
         // Prepare the upload task
-        let uploadTask = imageStorageRef.putData(imageData, metedata: metadata)
+        let uploadTask = imageStorageRef.putData(imageData, metadata: metadata)
         
         // Prepare the upload status
         uploadTask.observe(.success) { (snapshot) in
@@ -70,7 +70,7 @@ final class PostService {
                 let post: [String: Any] = ["imageFileURL": imageFileURL,
                                            "votes": Int(0),
                                            "user": displayName,
-                                           "tiemstamp": timestamp
+                                           "timestamp": timestamp
                                           ]
                 
                 postDatabaseRef.setValue(post)
@@ -97,6 +97,45 @@ final class PostService {
             }
             
         }
+        
+    }
+    
+    func getRecentPosts(start timestamp: Int? = nil, limit: UInt, completionHandler: @escaping ([Post]) -> Void) {
+        
+        var postQuery = POST_DB_REF.queryOrdered(byChild: Post.PostInfoKey.timestamp)
+        
+        if let latestPostTimestamp = timestamp, latestPostTimestamp > 0 {
+            // If the timestamp is specified, we will get the posts with timestamp newer than the given value
+            postQuery = postQuery.queryStarting(atValue: latestPostTimestamp + 1,
+                                                childKey: Post.PostInfoKey.timestamp).queryLimited(toLast: limit)
+        } else {
+            // Otherwise, we will just get the most recent posts
+            postQuery = postQuery.queryLimited(toLast: limit)
+        }
+        
+        // Call Firebase API to retrieve the latest records
+        postQuery.observeSingleEvent(of: .value, with: { (snapshot) in
+            var newPosts: [Post] = []
+            
+            print("----------")
+            print("Total number of posts: \(snapshot.childrenCount)")
+            
+            for item in snapshot.children.allObjects as! [DataSnapshot] {
+                let postInfo = item.value as? [String: Any] ?? [:]
+                
+                if let post = Post(postId: item.key, postInfo: postInfo) {
+                    newPosts.append(post)
+                }
+            }
+            
+            if newPosts.count > 0 {
+                // Order in descending order (i.e. the latest post becomes the first post)
+                newPosts.sort(by: {$0.timestamp > $1.timestamp})
+            }
+            
+            completionHandler(newPosts)
+            
+        })
         
     }
     

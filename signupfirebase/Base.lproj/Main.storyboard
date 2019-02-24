@@ -80,7 +80,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done" textContentType="email"/>
                             </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="firebase_logo" translatesAutoresizingMaskIntoConstraints="NO" id="ohk-e1-Csp">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphone" translatesAutoresizingMaskIntoConstraints="NO" id="ohk-e1-Csp">
                                 <rect key="frame" x="15" y="383" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="ENQ-fX-cEg"/>
@@ -1743,6 +1743,7 @@
         <image name="Icon-20" width="20" height="20"/>
         <image name="Icon-30" width="29" height="29"/>
         <image name="firebase_logo" width="1024" height="1024"/>
+        <image name="iphone" width="1024" height="1024"/>
         <image name="message-35" width="35" height="35"/>
         <image name="personer-33" width="29" height="29"/>
         <image name="phone-35" width="35" height="35"/>

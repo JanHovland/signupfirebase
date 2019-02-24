@@ -36,6 +36,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /*
         let postDatabaseRef = Database.database().reference().child("posts")
         
         var postQuery =  postDatabaseRef.queryOrdered(byChild: "timestamp")
@@ -47,7 +48,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             for item in snapshot.children.allObjects as! [DataSnapshot] {
                 
                 let postInfo = item.value as? [String: Any] ?? [:]
-
+                
                 print("----------")
                 print("Post ID: \(item.key)")
                 print("Image URL: \(postInfo["imageFileURL"] ?? "")")
@@ -58,9 +59,51 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             
         })
         
+        */
+        
+        PostService.shared.getRecentPosts(limit: 5) { (newPosts) in
+            newPosts.forEach({ (post) in
+                
+                /*
+                print("----------")
+                print("Post ID: \(post.postID)")
+                print("Image URL: \(post.imageFileURL)")
+                print("User: \(post.user)")
+                print("Votes: \(post.votes)")
+                print("Timestamp: \(post.timestamp)")
+                */
+                
+                if let url = URL(string: post.imageFileURL) {
+                    
+                    let downloadTask = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+                        
+                        guard let imageData = data else {
+                            return
+                        }
+                        
+                        OperationQueue.main.addOperation {
+                            guard let image = UIImage(data: imageData) else {
+                                return
+                            }
+                        
+                            self.downloadImage.image = image
+                            
+                        }
+                        
+                    })
+                    
+                    downloadTask.resume()
+                }
+                
+                
+                
+            })
+            
+            
+        }
         
         
-        
+ 
         // Hide the tabBar
         self.tabBarController?.tabBar.isHidden = true
         
@@ -96,148 +139,14 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func uploadButton(_ sender: Any) {
         
-        // let filename = "firebase_logo.png"
-        
-        let postDatabaseRef = Database.database().reference().child("posts").childByAutoId()
-        
-        guard let imageKey = postDatabaseRef.key else {
-            dismiss(animated: true, completion: nil)
-            return
-        }
-        
-        // Use the unique key as the image name and prepare the storage reference
-        let imageStorageRef = Storage.storage().reference().child("photoes").child("\(imageKey).png")
-       
-        
-        // Resize the image
         guard let image = uploadImage.image else { return }
-        guard let imageData = image.jpegData(compressionQuality: 0.50) else {
-            dismiss(animated: true, completion: nil)
-            return
-        }
         
-        // Create the file metadata
-        let metadata = StorageMetadata()
-        metadata.contentType = "image/png"
-        
-        // Prepare the upload task
-        let uploadTask = imageStorageRef.putData(imageData, metadata: metadata)
-
-        // Observe the upload status
-        uploadTask.observe(.success) { (snapshot) in
-        
-            guard let displayName = Auth.auth().currentUser?.displayName else {
-                return
-            }
-        
-            snapshot.reference.downloadURL(completion: { (url, error) in
-            
-                guard let url = url else {
-                    return
-                }
-                
-                // Add e reference in the database
-                let imageFileURL = url.absoluteString
-                let timestamp = Int(Date().timeIntervalSince1970 * 1000)
-                
-                let post: [String: Any] = ["imageFileURL": imageFileURL,
-                                           "votes": Int(0),
-                                           "user": displayName,
-                                           "timestamp": timestamp
-                                          ]
-                
-                
-                postDatabaseRef.setValue(post)
-                
-            })
-            
+        // Upload an image to the cloud
+        PostService.shared.uploadImage(image: image) {
             self.dismiss(animated: true, completion: nil)
-            
         }
-        
-        uploadTask.observe(.progress) { (snapshot) in
-            
-            let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount) /
-                Double(snapshot.progress!.totalUnitCount)
-            
-            print("Uploading... \(percentComplete)% complete")
-            
-        }
-
-        uploadTask.observe(.failure) { (snapshot) in
-            
-            if let error = snapshot.error {
-                print(error.localizedDescription)
-            }
-            
-        }
-        
     }
         
-/*
-        
-        
-        // Test of upload to Firebase Storage
-        guard let image = uploadImage.image else { return }
-        guard let imageData = image.jpegData(compressionQuality: 0.50) else { return }
-        
-        let metadata = StorageMetadata()
-        metadata.contentType = "image/png"
-        
-        let uploadImageRef = imageReference.child(filename)
-        
-        let uploadTask = uploadImageRef.putData(imageData, metadata: metadata) { (metadata, error) in
-//            print("UPLOAD TASK FINISHED")
-            print(metadata ?? "NO METADATA")
-//            print(error ?? "NO ERROR")
-        }
-
-    
-        uploadTask.observe(.progress) { (snapshot) in
-            
-            let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount) /
-                Double(snapshot.progress!.totalUnitCount)
-            
-            print("Uploading... \(percentComplete)% complete")
-            
-        }
-        
-        uploadTask.observe(.failure) { (snapshot) in
-            
-            if let error = snapshot.error {
-                print(error.localizedDescription)
-            }
-           
-        }
-        
-        uploadTask.resume()
-        
-    }
-    
-
-        
-    @IBAction func downloadButton(_ sender: Any) {
-        
-        let downloadImageRef = imageReference.child(filename)
-    
-        print("url = \(downloadImageRef)")
-        
-        let downloadtask = downloadImageRef.getData(maxSize: 1024 * 1024 * 12) { (data, error) in
-            if let data = data {
-                let image = UIImage(data: data)
-                self.downloadImage.image = image
-            }
-            print(error ?? "NO ERROR")
-        }
-        
-        downloadtask.observe(.progress) { (snapshot) in
-            print(snapshot.progress ?? "NO MORE PROGRESS")
-        }
-        
-        downloadtask.resume()
-        
-    }
-*/
     override func viewDidAppear(_ animated: Bool) {
      
         // Hide the BackButton when returning from change/reset password
