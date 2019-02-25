@@ -44,6 +44,7 @@
 		DBC0BD992221398A003E5566 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC0BD982221398A003E5566 /* PostService.swift */; };
 		DBC0BD9B222146BC003E5566 /* UIImage+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC0BD9A222146BC003E5566 /* UIImage+Scale.swift */; };
 		DBEDA1762223157600725D75 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEDA1752223157600725D75 /* CacheManager.swift */; };
+		DBEDA17B2223D1F300725D75 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEDA17A2223D1F300725D75 /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,7 @@
 		DBC0BD982221398A003E5566 /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		DBC0BD9A222146BC003E5566 /* UIImage+Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Scale.swift"; sourceTree = "<group>"; };
 		DBEDA1752223157600725D75 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
+		DBEDA17A2223D1F300725D75 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 				D13172532202EF1C00EEB530 /* SavePostalCodesFirebaseTableViewController.swift */,
 				D1FFF52A2212E5110097B414 /* SearchedPostelCodesTableViewCell.swift */,
 				DBC0BD9A222146BC003E5566 /* UIImage+Scale.swift */,
+				DBEDA17A2223D1F300725D75 /* WebViewController.swift */,
 			);
 			path = signupfirebase;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				DBC0BD962221330B003E5566 /* Post.swift in Sources */,
 				D1EAAB8521C1178A005D2656 /* DataBaseExtension.swift in Sources */,
 				D136492821D0E9250039BDC6 /* Person.swift in Sources */,
+				DBEDA17B2223D1F300725D75 /* WebViewController.swift in Sources */,
 				D17C78F221F0C89100DEE649 /* SearchViewController.swift in Sources */,
 				D1A486E9219E0BA8004D41BE /* LogInViewController.swift in Sources */,
 				D1B9562A21B3F3E1003F5937 /* ListTableViewCell.swift in Sources */,
@@ -520,6 +524,7 @@
 			baseConfigurationReference = 08126B0DA4D29A97D8D93FE5 /* Pods-signupfirebase.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6UR9TA6744;
 				INFOPLIST_FILE = signupfirebase/Info.plist;
@@ -529,6 +534,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.janhovland.signupfirebase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -539,6 +545,7 @@
 			baseConfigurationReference = 893C897689365B2F237CCE21 /* Pods-signupfirebase.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6UR9TA6744;
 				INFOPLIST_FILE = signupfirebase/Info.plist;

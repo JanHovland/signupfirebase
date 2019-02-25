@@ -726,10 +726,6 @@
                         <viewLayoutGuide key="safeArea" id="hgj-ZG-XAp"/>
                     </view>
                     <navigationItem key="navigationItem" title="Firebase Console" id="RsD-9M-gH2"/>
-                    <connections>
-                        <outlet property="view" destination="fJ4-83-yes" id="VLT-qQ-7WI"/>
-                        <outlet property="webView" destination="fJ4-83-yes" id="ndd-Yf-LY9"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Vu-pu-AJy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
