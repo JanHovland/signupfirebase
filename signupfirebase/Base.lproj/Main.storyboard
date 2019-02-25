@@ -1577,30 +1577,30 @@
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1rH-2X-JJ2">
-                                                    <rect key="frame" x="77" y="13" width="283" height="68.5"/>
+                                                    <rect key="frame" x="77" y="13" width="258" height="68.5"/>
                                                     <subviews>
                                                         <label autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" text="nameLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="bfO-dL-I5s" userLabel="name Label">
-                                                            <rect key="frame" x="0.0" y="0.0" width="283" height="18.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="258" height="18.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bornLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zA-oj-k3K">
-                                                            <rect key="frame" x="0.0" y="26.5" width="283" height="17"/>
+                                                            <rect key="frame" x="0.0" y="26.5" width="258" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="addressLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="GoA-hY-uI8" userLabel="address Label">
-                                                            <rect key="frame" x="0.0" y="51.5" width="283" height="17"/>
+                                                            <rect key="frame" x="0.0" y="51.5" width="258" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A3y-VV-GcO">
-                                                    <rect key="frame" x="77" y="99.5" width="30" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A3y-VV-GcO" userLabel="ButtonPhone">
+                                                    <rect key="frame" x="77" y="95.5" width="30" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="30" id="07j-yl-0BR"/>
                                                         <constraint firstAttribute="height" constant="30" id="0DB-YT-X8w"/>
@@ -1610,13 +1610,11 @@
                                                         <action selector="buttonPhone:" destination="4y3-m1-4aQ" eventType="touchUpInside" id="UZC-c8-Hjl"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fdo-ST-VW8">
-                                                    <rect key="frame" x="330" y="99.5" width="30" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fdo-ST-VW8" userLabel="Button Message">
+                                                    <rect key="frame" x="330" y="95.5" width="30" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="6dE-9j-fRs"/>
                                                         <constraint firstAttribute="width" constant="30" id="lW4-sV-7rc"/>
-                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="o2n-Ph-ABE"/>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="qL5-1B-Ej2"/>
                                                     </constraints>
                                                     <state key="normal" image="message-35"/>
                                                     <connections>
@@ -1626,15 +1624,16 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="YVH-id-Jwc" firstAttribute="leading" secondItem="wJv-xm-7P4" secondAttribute="leading" constant="15" id="1BQ-B7-dMI"/>
+                                                <constraint firstAttribute="trailing" secondItem="Fdo-ST-VW8" secondAttribute="trailing" constant="15" id="Ewn-uc-LF2"/>
                                                 <constraint firstItem="1rH-2X-JJ2" firstAttribute="top" secondItem="wJv-xm-7P4" secondAttribute="top" constant="13" id="HFN-3f-ZX8"/>
                                                 <constraint firstItem="YVH-id-Jwc" firstAttribute="top" secondItem="wJv-xm-7P4" secondAttribute="top" constant="23" id="NbM-VX-8hm"/>
-                                                <constraint firstAttribute="trailing" secondItem="1rH-2X-JJ2" secondAttribute="trailing" constant="15" id="eSk-ed-m0c"/>
-                                                <constraint firstItem="A3y-VV-GcO" firstAttribute="top" secondItem="1rH-2X-JJ2" secondAttribute="bottom" constant="18" id="k4o-kw-LOr"/>
+                                                <constraint firstAttribute="bottom" secondItem="Fdo-ST-VW8" secondAttribute="bottom" constant="14" id="UjB-qx-aqJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="1rH-2X-JJ2" secondAttribute="trailing" constant="40" id="eSk-ed-m0c"/>
+                                                <constraint firstItem="A3y-VV-GcO" firstAttribute="top" secondItem="1rH-2X-JJ2" secondAttribute="bottom" constant="14" id="k4o-kw-LOr"/>
                                                 <constraint firstItem="A3y-VV-GcO" firstAttribute="leading" secondItem="wJv-xm-7P4" secondAttribute="leading" constant="77" id="kRz-qQ-lL1"/>
-                                                <constraint firstAttribute="bottom" secondItem="A3y-VV-GcO" secondAttribute="bottom" constant="10" id="q7h-LS-clb"/>
+                                                <constraint firstAttribute="bottom" secondItem="A3y-VV-GcO" secondAttribute="bottom" constant="14" id="q7h-LS-clb"/>
                                                 <constraint firstAttribute="trailing" secondItem="Fdo-ST-VW8" secondAttribute="trailing" constant="15" id="xyJ-vr-DwE"/>
                                                 <constraint firstItem="1rH-2X-JJ2" firstAttribute="leading" secondItem="wJv-xm-7P4" secondAttribute="leading" constant="77" id="ydd-Aq-rXs"/>
-                                                <constraint firstItem="Fdo-ST-VW8" firstAttribute="top" secondItem="1rH-2X-JJ2" secondAttribute="bottom" constant="18" id="zYP-Wb-uSx"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
