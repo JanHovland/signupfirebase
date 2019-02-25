@@ -14,6 +14,9 @@
 /* ResetPWByMailViewController.swift viewDidLoad */
 "After you have asked Firebase to reset your password, you will receive an eMail with istruction." = "Etter at du har bedt Firebase om å resette passordet ditt, vil du motta en ePost med instruksjoner.";
 
+/* MainPersonDataViewController.swift buttonMessage */
+"Cannot send message" = "Kan ikke sende SMS";
+
 /* SavePostalCodesFirebaseTableViewController.swift StorePostalCodes */
 "Cannot store the Postal Codes in Firebase." = "Kan ikke lagre post nummer i Firebase.";
 
@@ -55,6 +58,7 @@
    ListTableViewController.swift SaveNewPassword 
    LoginViewVontroller.swift CheckLogin 'error'
    LoginViewVontroller.swift CheckLogin error
+   MainPersonDataViewController.swift buttonMessage
    ResetPWByMailViewController.swift resetByMail 
    ResetPWByMailViewController.swift viewDidLoad 
    SavePostalCodesFirebaseTableViewController.swift  documentPicker

@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import MessageUI
 
-class PersonViewController: UIViewController, UITextFieldDelegate, MFMessageComposeViewControllerDelegate {
+class PersonViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var addressInput: UITextField!
     @IBOutlet var cityInput: UITextField!
@@ -23,8 +22,6 @@ class PersonViewController: UIViewController, UITextFieldDelegate, MFMessageComp
     @IBOutlet weak var municipalityInput: UITextField!
     
     @IBOutlet var activity: UIActivityIndicatorView!
-    
-    @IBOutlet weak var testImage: UIImageView!
     
     var PersonTitle = ""
     var PersonOption = 0 // 0 = save 1 = update
@@ -348,41 +345,6 @@ class PersonViewController: UIViewController, UITextFieldDelegate, MFMessageComp
         }
     }
 
-    // Make a call wuth the phone number
-    @IBAction func buttonPhone(_ sender: UIButton) {
-        
-        // Find the region's phone prefix
-        let number = phoneNumberInput.text!.replacingOccurrences(of: " ", with: "")
-        
-        if  let url : URL = URL(string: "tel://\(number)"){
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        }
-   }
-
-    // Send a message with the phone number
-    @IBAction func buttonMessage(_ sender: Any) {
-        print(phoneNumberInput.text!)
-        
-        if MFMessageComposeViewController.canSendText() {
-            
-            let controller = MFMessageComposeViewController()
-            controller.body = "Test sending av SMS"
-            controller.recipients = [self.phoneNumberInput.text!]
-            controller.messageComposeDelegate = (self as MFMessageComposeViewControllerDelegate)
-            
-            self.present(controller, animated: true, completion: nil)
-            
-        } else {
-            
-            print("Cannot send text")
-        }
-        
-    }
-    
-    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
-        
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // 'prepare' will run after every segue.
 
@@ -409,39 +371,6 @@ class PersonViewController: UIViewController, UITextFieldDelegate, MFMessageComp
 
 extension UIViewController {
 
-    // Write sthe string "JH" ontop of an image
-    //        let textFont = UIFont(name: "Helvetica Bold", size: 520)!
-    //        testImage.image = textToImage(drawText: "JH",
-    //                                      inImage: UIImage(named: "iphone.png")!,          --> 1024 x 1024
-    //                                      atPoint: CGPoint(x: 160, y: 200))
-
-    //        let textFont = UIFont(name: "Helvetica Bold", size: 120)!
-    //        testImage.image = textToImage(drawText: "JH",
-    //                                      inImage: UIImage(named: "test-message.png")!,    -->  300 x 300
-    //                                      atPoint: CGPoint(x: 65, y: 75))
-
-    //      let textFont = UIFont(name: "Helvetica Bold", size: 120)!
-    //        testImage.image = textToImage(drawText: "JH",
-    //                                      inImage: UIImage(named: "people.png")!,          -->  256 x 256
-    //                                      atPoint: CGPoint(x: 50, y: 70))
-
-    //      let textFont = UIFont(name: "Helvetica Bold", size: 12)!
-    //        testImage.image = textToImage(drawText: "JH",
-    //                                      inImage: UIImage(named: "circle-35.png")!,   //    -->   35 x 35
-    //            atPoint: CGPoint(x: 8, y: 8))
-
-    //      let textFont = UIFont(name: "Helvetica Bold", size: 11)!
-    //        testImage.image = textToImage(drawText: "JH",
-    //                                      inImage: UIImage(named: "circle-32.png")!,     //    -->   32 x 32
-    //            atPoint: CGPoint(x: 6, y: 7))
-
-    //      let textFont = UIFont(name: "Helvetica Bold", size: 9)!
-    //        testImage.image = textToImage(drawText: "JH",
-    //                                      inImage: UIImage(named: "circle-25.png")!,     //    -->   25 x 25
-    //            atPoint: CGPoint(x: 4, y: 5))
-
-    //      let textFont = UIFont(name: "Helvetica Bold", size: 7)!
-    
     func textToImage(drawText text: String,
                      size fontsize: Float64,
                      inImage image: UIImage,
@@ -482,5 +411,5 @@ extension UIViewController {
         return output
         
     }
-
+   
 }

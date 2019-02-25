@@ -6,8 +6,9 @@
 //  Copyright © 2018 Jan . All rights reserved.
 //
 
-import Firebase         // Database
+import Firebase        
 import UIKit
+import MessageUI
 
 /*
 
@@ -37,11 +38,12 @@ var globalPersonNameText = ""
 var globalPersonGenderInt = -1
 var globalPersonPhoneNumberText = ""
 
-class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate  {
-    
+class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var searchBarPerson: UISearchBar!
     @IBOutlet weak var activity: UIActivityIndicatorView!
+    
+    var phoneNumberInput = ""
     
     var persons = [Person]()
     
@@ -108,13 +110,18 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             let name1 = searchedPersons[indexPath.row].personData.name.lowercased()
             name = name1.capitalized
             cell.nameLabel?.text = name
-            cell.addressLabel?.text = searchedPersons[indexPath.row].personData.address
+            cell.bornLabel?.text = searchedPersons[indexPath.row].personData.dateOfBirth
+            cell.addressLabel?.text = searchedPersons[indexPath.row].personData.address + " " +
+                                      searchedPersons[indexPath.row].personData.postalCodeNumber + " " +
+                                      searchedPersons[indexPath.row].personData.city
         } else {
             let name1 = persons[indexPath.row].personData.name.lowercased()
             name = name1.capitalized
+            cell.bornLabel?.text = persons[indexPath.row].personData.dateOfBirth
             cell.nameLabel?.text = name
-            cell.addressLabel?.text = persons[indexPath.row].personData.address
-            
+            cell.addressLabel?.text = persons[indexPath.row].personData.address + " " +
+                                      persons[indexPath.row].personData.postalCodeNumber + " " +
+                                      persons[indexPath.row].personData.city
         }
         
         // Find all Uppercase letters of the name
@@ -369,6 +376,58 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
+    
+    // Make a call wuth the phone number
+    @IBAction func buttonPhone(_ sender: UIButton) {
+        
+        // Find the row of the selected cell
+        let buttonPostion = sender.convert(sender.bounds.origin, to: tableView)
+        if let indexPath = tableView.indexPathForRow(at: buttonPostion) {
+            let rowIndex =  indexPath.row
+            phoneNumberInput = persons[rowIndex].personData.phoneNumber
+        }
+        
+        phoneNumberInput = phoneNumberInput.replacingOccurrences(of: " ", with: "")
 
+        if  let url : URL = URL(string: "tel://\(phoneNumberInput)"){
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+    
+    // Send a message with the phone number
+    @IBAction func buttonMessage(_ sender: UIButton) {
+        
+        if MFMessageComposeViewController.canSendText() {
+            
+            // Find the row of the selected cell
+            let buttonPostion = sender.convert(sender.bounds.origin, to: tableView)
+            if let indexPath = tableView.indexPathForRow(at: buttonPostion) {
+                let rowIndex =  indexPath.row
+                phoneNumberInput = persons[rowIndex].personData.phoneNumber
+            }
+
+            phoneNumberInput = phoneNumberInput.replacingOccurrences(of: " ", with: "")
+            
+            let controller = MFMessageComposeViewController()
+            controller.body = "Test sending av SMS"
+            controller.recipients = [self.phoneNumberInput]
+            controller.messageComposeDelegate = self as? MFMessageComposeViewControllerDelegate
+            
+            self.present(controller, animated: true, completion: nil)
+            
+        } else {
+            let melding = "\r\n" + NSLocalizedString("Cannot send message", comment: "MainPersonDataViewController.swift buttonMessage")
+            self.presentAlert(withTitle: NSLocalizedString("Error",
+                                                           comment: "MainPersonDataViewController.swift buttonMessage"),
+                              message: melding)
+        }
+    }
+    
+}
+
+extension ViewController: MFMessageComposeViewControllerDelegate {
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
 }
