@@ -78,6 +78,9 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         activity.isHidden = true
         activity.stopAnimating()
         
+        // It is necessary to reloadData to syncronize correctly
+        self.tableView.reloadData()
+        
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -151,8 +154,6 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                                              size:  fontSize,
                                              inImage: UIImage(named: "circle-25.png")!,
                                              atPoint: CGPoint(x: x, y: y))
-        
-        // atPoint: CGPoint(x: 3 + 2, y: 5))           // Add 2 if drawText contains only 2 characters
         
         return cell
     }

@@ -17,9 +17,10 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var genderInput: UISegmentedControl!
     @IBOutlet var phoneNumberInput: UITextField!
     @IBOutlet var postalCodeNumberInput: UITextField!
-
     @IBOutlet weak var municipalityNumberInput: UITextField!
     @IBOutlet weak var municipalityInput: UITextField!
+    
+    @IBOutlet weak var inputImage: UIImageView!
     
     @IBOutlet var activity: UIActivityIndicatorView!
     
