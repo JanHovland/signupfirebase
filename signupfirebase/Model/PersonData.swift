@@ -18,6 +18,7 @@ class PersonData {
     var postalCodeNumber: String
     var municipality: String
     var municipalityNumber: String
+    var imageFileURL: String
 
     init(address: String,
          city: String,
@@ -27,7 +28,8 @@ class PersonData {
          phoneNumber: String,
          postalCodeNumber: String,
          municipality: String,
-         municipalityNumber: String) {
+         municipalityNumber: String,
+         imageFileURL: String) {
         
         self.address = address
         self.city = city
@@ -38,6 +40,7 @@ class PersonData {
         self.postalCodeNumber = postalCodeNumber
         self.municipality = municipality
         self.municipalityNumber = municipalityNumber
+        self.imageFileURL = imageFileURL
         
     }
 }

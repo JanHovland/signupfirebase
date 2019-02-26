@@ -80,49 +80,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done" textContentType="email"/>
                             </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message" translatesAutoresizingMaskIntoConstraints="NO" id="ohk-e1-Csp">
-                                <rect key="frame" x="15" y="383" width="60" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="ENQ-fX-cEg"/>
-                                    <constraint firstAttribute="height" constant="60" id="TnJ-NW-1ZI"/>
-                                </constraints>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U9t-qp-NgU">
-                                <rect key="frame" x="300" y="377" width="60" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="rxU-rt-Gv9"/>
-                                    <constraint firstAttribute="height" constant="60" id="tpY-eH-0fq"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PCN-ev-Mkd">
-                                <rect key="frame" x="15" y="473" width="93" height="30"/>
-                                <state key="normal" title="uploadButton"/>
-                                <connections>
-                                    <action selector="uploadButton:" destination="tT3-9a-LwM" eventType="touchUpInside" id="hUr-sS-LyL"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNv-JA-nZf">
-                                <rect key="frame" x="247" y="473" width="113" height="30"/>
-                                <state key="normal" title="downloadButton"/>
-                                <connections>
-                                    <action selector="downloadButton:" destination="tT3-9a-LwM" eventType="touchUpInside" id="bx6-42-3oi"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ohk-e1-Csp" firstAttribute="top" secondItem="sy5-nA-8Lg" secondAttribute="bottom" constant="14" id="5h9-ZK-PSE"/>
                             <constraint firstItem="4t0-yd-TFq" firstAttribute="centerX" secondItem="vji-Wu-4q1" secondAttribute="centerX" id="6ge-TV-cMU"/>
-                            <constraint firstItem="PCN-ev-Mkd" firstAttribute="baseline" secondItem="KNv-JA-nZf" secondAttribute="baseline" id="A52-kh-YIN"/>
-                            <constraint firstItem="dej-9k-aAA" firstAttribute="trailing" secondItem="U9t-qp-NgU" secondAttribute="trailing" constant="15" id="AZg-ao-KiI"/>
                             <constraint firstItem="k82-w8-ML8" firstAttribute="leading" secondItem="dej-9k-aAA" secondAttribute="trailing" constant="-285" id="FTx-27-M84"/>
                             <constraint firstItem="sy5-nA-8Lg" firstAttribute="top" secondItem="eG4-UJ-Wc4" secondAttribute="bottom" constant="10" id="Fgu-pn-HBW"/>
                             <constraint firstItem="k82-w8-ML8" firstAttribute="centerY" secondItem="I0q-5V-oWR" secondAttribute="centerY" id="Ifn-iN-51P"/>
-                            <constraint firstAttribute="trailing" secondItem="KNv-JA-nZf" secondAttribute="trailing" constant="15" id="Io5-ev-m7j"/>
-                            <constraint firstItem="ohk-e1-Csp" firstAttribute="leading" secondItem="vji-Wu-4q1" secondAttribute="leading" constant="15" id="O3K-Nn-LD7"/>
                             <constraint firstItem="Kdi-Jg-uOD" firstAttribute="top" secondItem="4t0-yd-TFq" secondAttribute="bottom" constant="35" id="Q52-04-XIT"/>
-                            <constraint firstItem="U9t-qp-NgU" firstAttribute="top" secondItem="sy5-nA-8Lg" secondAttribute="bottom" constant="8" id="Rqa-aa-gTi"/>
-                            <constraint firstItem="KNv-JA-nZf" firstAttribute="leading" secondItem="PCN-ev-Mkd" secondAttribute="trailing" constant="139" id="SEe-CU-bQ5"/>
                             <constraint firstItem="k82-w8-ML8" firstAttribute="leading" secondItem="dej-9k-aAA" secondAttribute="leading" constant="90" id="T3x-dt-L1D"/>
                             <constraint firstItem="vH1-YR-EwT" firstAttribute="leading" secondItem="dej-9k-aAA" secondAttribute="leading" constant="88.5" id="T53-8S-iNp"/>
                             <constraint firstItem="dej-9k-aAA" firstAttribute="trailing" secondItem="eG4-UJ-Wc4" secondAttribute="trailing" constant="65" id="TWG-9Y-A5a">
@@ -132,7 +97,6 @@
                             <constraint firstItem="vH1-YR-EwT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IZ3-hb-Xl4" secondAttribute="trailing" constant="8" symbolic="YES" id="UN6-38-Vkz"/>
                             <constraint firstItem="IZ3-hb-Xl4" firstAttribute="leading" secondItem="dej-9k-aAA" secondAttribute="leading" constant="10" id="UTm-Ue-yme"/>
                             <constraint firstItem="k82-w8-ML8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="I0q-5V-oWR" secondAttribute="trailing" constant="6" id="XEf-Oj-dEv"/>
-                            <constraint firstItem="PCN-ev-Mkd" firstAttribute="top" secondItem="ohk-e1-Csp" secondAttribute="bottom" constant="30" id="Yc6-Ev-lY7"/>
                             <constraint firstItem="dej-9k-aAA" firstAttribute="trailing" secondItem="Kdi-Jg-uOD" secondAttribute="trailing" constant="10" id="Ys3-G1-gL6"/>
                             <constraint firstItem="dej-9k-aAA" firstAttribute="trailing" secondItem="vH1-YR-EwT" secondAttribute="trailing" constant="10" id="chn-o4-1XB"/>
                             <constraint firstItem="eG4-UJ-Wc4" firstAttribute="top" secondItem="k82-w8-ML8" secondAttribute="bottom" constant="8" id="d3v-9P-5gW"/>
@@ -143,7 +107,6 @@
                             <constraint firstItem="Kdi-Jg-uOD" firstAttribute="leading" secondItem="dej-9k-aAA" secondAttribute="leading" constant="10" id="qy8-Qk-k3l"/>
                             <constraint firstItem="Kdi-Jg-uOD" firstAttribute="centerX" secondItem="vji-Wu-4q1" secondAttribute="centerX" id="tBH-ek-yWY"/>
                             <constraint firstItem="4t0-yd-TFq" firstAttribute="top" secondItem="dej-9k-aAA" secondAttribute="top" constant="10" id="uIN-vv-WNj"/>
-                            <constraint firstItem="PCN-ev-Mkd" firstAttribute="leading" secondItem="ohk-e1-Csp" secondAttribute="leading" id="upC-d7-OwH"/>
                             <constraint firstItem="k82-w8-ML8" firstAttribute="top" secondItem="vH1-YR-EwT" secondAttribute="bottom" constant="30" id="w5I-7A-dXi"/>
                             <constraint firstItem="sy5-nA-8Lg" firstAttribute="centerX" secondItem="vji-Wu-4q1" secondAttribute="centerX" id="z0N-pv-ZCd"/>
                         </constraints>
@@ -160,11 +123,9 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="activity" destination="sy5-nA-8Lg" id="G3L-AN-ELe"/>
-                        <outlet property="downloadImage" destination="U9t-qp-NgU" id="xTm-PE-7cu"/>
                         <outlet property="eMailLoginTextField" destination="vH1-YR-EwT" id="7Vu-sS-bVa"/>
                         <outlet property="loginStatus" destination="Kdi-Jg-uOD" id="9iP-Lu-baU"/>
                         <outlet property="passwordTextField" destination="k82-w8-ML8" id="tIr-3x-uDz"/>
-                        <outlet property="uploadImage" destination="ohk-e1-Csp" id="Q8l-90-5JL"/>
                         <segue destination="V07-a3-pap" kind="show" identifier="gotoCreateAccount" id="eyi-HE-UNj"/>
                     </connections>
                 </viewController>
@@ -1741,7 +1702,6 @@
         <image name="Icon-30" width="29" height="29"/>
         <image name="firebase_logo" width="1024" height="1024"/>
         <image name="imessage" width="300" height="300"/>
-        <image name="message" width="300" height="300"/>
         <image name="message-35" width="35" height="35"/>
         <image name="personer-33" width="29" height="29"/>
         <image name="phone-35" width="35" height="35"/>

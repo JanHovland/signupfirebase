@@ -247,6 +247,9 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func SaveOrUpdatePerson(_ sender: Any) {
+        
+        var id: String = ""
+        
         // Get the user who has logged in
         //  0 = uid  1 = eMail  2 = name  3 = passWord)
         let value = getCoreData()
@@ -268,35 +271,26 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         activity.startAnimating()
 
         if PersonOption == 0 {
-            savePersonFiredata(uid: value.uid,
-                               username: value.name,
-                               email: value.eMail,
-                               address: address,
-                               city: city,
-                               dateOfBirth: dateOfBirth,
-                               name: name,
-                               gender: gender,
-                               phoneNumber: phoneNumber,
-                               postalCodeNumber: postalCodeNumber,
-                               municipality: municipality,
-                               municipalityNumber: municipalityNumber)
-
-        } else if PersonOption == 1 {
-            updatePersonFiredata(id: PersonIdText,
-                                 uid: value.uid,
-                                 username: value.name,
-                                 email: value.eMail,
-                                 address: address,
-                                 city: city,
-                                 dateOfBirth: dateOfBirth,
-                                 name: name,
-                                 gender: gender,
-                                 phoneNumber: phoneNumber,
-                                 postalCodeNumber: postalCodeNumber,
-                                 municipality: municipality,
-                                 municipalityNumber: municipalityNumber)
+            id = ""
+        } else {
+            id = PersonIdText
         }
-
+        
+        storePersonFiredata(id: id,
+                            uid: value.uid,
+                            username: value.name,
+                            email: value.eMail,
+                            address: address,
+                            city: city,
+                            dateOfBirth: dateOfBirth,
+                            name: name,
+                            gender: gender,
+                            phoneNumber: phoneNumber,
+                            postalCodeNumber: postalCodeNumber,
+                            municipality: municipality,
+                            municipalityNumber: municipalityNumber,
+                            image: inputImage.image!)
+        
         activity.stopAnimating()
     }
 

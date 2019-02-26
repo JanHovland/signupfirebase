@@ -253,6 +253,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                     let postalCodeNumber = personData["postalCodeNumber"] as? String,
                     let municipality = personData["municipality"] as? String,
                     let municipalityNumber = personData["municipalityNumber"] as? String,
+                    let imageFileURL = personData["imageFileURL"] as? String,
                     let timestamp = dict["timestamp"] as? Double {
                     let author = Author(uid: uid,
                                         username: username,
@@ -266,7 +267,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                                                 phoneNumber : phoneNumber,
                                                 postalCodeNumber : postalCodeNumber,
                                                 municipality: municipality,
-                                                municipalityNumber: municipalityNumber)
+                                                municipalityNumber: municipalityNumber,
+                                                imageFileURL: imageFileURL)
 
                     let person = Person(id: childSnapshot.key,
                                         author: author,

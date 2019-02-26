@@ -13,13 +13,6 @@ import UIKit
 // Stuck in us Keyboard: 
 // Go to Product > Scheme > Edit Scheme...
 
-
-var imageReference: StorageReference {
-    return Storage.storage().reference().child("images")
-}
-
-let filename = "firebase_logo.png"
-
 class LogInViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var activity: UIActivityIndicatorView!
@@ -36,74 +29,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*
-        let postDatabaseRef = Database.database().reference().child("posts")
-        
-        var postQuery =  postDatabaseRef.queryOrdered(byChild: "timestamp")
-        postQuery = postQuery.queryLimited(toLast: 5)
-        
-        // postDatabaseRef.observeSingleEvent(of: .value, with:  { (snapshot) in
-        postQuery.observeSingleEvent(of: .value, with:  { (snapshot) in
-            print("Total number of posts: \(snapshot.childrenCount)")
-            for item in snapshot.children.allObjects as! [DataSnapshot] {
-                
-                let postInfo = item.value as? [String: Any] ?? [:]
-                
-                print("----------")
-                print("Post ID: \(item.key)")
-                print("Image URL: \(postInfo["imageFileURL"] ?? "")")
-                print("User: \(postInfo["user"] ?? "")")
-                print("Votes: \(postInfo["votes"] ?? "")")
-                print("Timestamp: \(postInfo["timestamp"] ?? "")")
-            }
-            
-        })
-        
-        */
-        
-        PostService.shared.getRecentPosts(limit: 5) { (newPosts) in
-            newPosts.forEach({ (post) in
-                
-                /*
-                print("----------")
-                print("Post ID: \(post.postID)")
-                print("Image URL: \(post.imageFileURL)")
-                print("User: \(post.user)")
-                print("Votes: \(post.votes)")
-                print("Timestamp: \(post.timestamp)")
-                */
-                
-                if let url = URL(string: post.imageFileURL) {
-                    
-                    let downloadTask = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-                        
-                        guard let imageData = data else {
-                            return
-                        }
-                        
-                        OperationQueue.main.addOperation {
-                            guard let image = UIImage(data: imageData) else {
-                                return
-                            }
-                        
-                            self.downloadImage.image = image
-                            
-                        }
-                        
-                    })
-                    
-                    downloadTask.resume()
-                }
-                
-                
-                
-            })
-            
-            
-        }
-        
-        
- 
         // Hide the tabBar
         self.tabBarController?.tabBar.isHidden = true
         
@@ -137,16 +62,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    @IBAction func uploadButton(_ sender: Any) {
-        
-        guard let image = uploadImage.image else { return }
-        
-        // Upload an image to the cloud
-        PostService.shared.uploadImage(image: image) {
-            self.dismiss(animated: true, completion: nil)
-        }
-    }
-        
     override func viewDidAppear(_ animated: Bool) {
      
         // Hide the BackButton when returning from change/reset password
