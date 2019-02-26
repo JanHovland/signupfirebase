@@ -245,7 +245,25 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         municipalityInput.resignFirstResponder()
         
     }
-
+    @IBAction func uploadData(_ sender: Any) {
+        
+        guard let image = inputImage.image else { return }
+        
+        // Get the user who has logged in
+        //  0 = uid  1 = eMail  2 = name  3 = passWord)
+        let value = getCoreData()
+        
+        let votes = 1
+        
+        // Upload an image to the cloud
+        PersonService.shared.uploadImage(image: image,
+                                         user: value.name,
+                                         votes: votes) {
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+    }
+    
     @IBAction func SaveOrUpdatePerson(_ sender: Any) {
         
         var id: String = ""
@@ -292,6 +310,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
                             image: inputImage.image!)
         
         activity.stopAnimating()
+        
     }
 
     func hentFraDatoValg() {

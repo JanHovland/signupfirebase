@@ -460,8 +460,6 @@ extension UIViewController {
         
         var dataBase: DatabaseReference
         
-        let imageFileURL = ""
-        
         if uid.count > 0,
             username.count > 0,
             email.count > 0,
@@ -473,6 +471,8 @@ extension UIViewController {
             postalCodeNumber.count > 0,
             municipality.count > 0,
             municipalityNumber.count > 0 {
+            
+            let PHOTO_STORAGE_REF: StorageReference = Storage.storage().reference().child("photos")
         
             if id.count > 0 {
                 dataBase = Database.database().reference().child("person" + "/" + id)
@@ -480,6 +480,104 @@ extension UIViewController {
                 dataBase = Database.database().reference().child("person").childByAutoId()
             }
             
+            // Use the unique key as the image name and prepare the storage reference
+            guard let imageKey = dataBase.key else {
+                return
+            }
+
+            let imageStorageRef = PHOTO_STORAGE_REF.child("\(imageKey).png")
+            
+            // Resize the image
+            let scaledImage = image.scale(newWidth: 100.0)
+            
+            guard let imageData = scaledImage.jpegData(compressionQuality: 0.9) else {
+                return
+            }
+            
+            // Create the file metadata
+            let metadata = StorageMetadata()
+            metadata.contentType = "image/png"
+            
+            // Prepare the upload task
+            let uploadTask = imageStorageRef.putData(imageData, metadata: metadata)
+            
+            // Prepare the upload status
+            uploadTask.observe(.success) { (snapshot) in
+                
+                // Add a reference in the database
+                snapshot.reference.downloadURL(completion: { (url, error) in
+                    guard let url = url else {
+                        return
+                    }
+                    
+                    // Add a reference in the database
+                    let imageFileURL = url.absoluteString
+                    
+                    let postObject = [
+                        "author": [
+                            "uid": uid,
+                            "username": username,
+                            "email": email,
+                        ],
+                        
+                        "personData": [
+                            "address": address,
+                            "city": city,
+                            "dateOfBirth": dateOfBirth,
+                            "name": name,
+                            "gender": gender,
+                            "phoneNumber": phoneNumber,
+                            "postalCodeNumber": postalCodeNumber,
+                            "municipality": municipality,
+                            "municipalityNumber": municipalityNumber,
+                            "imageFileURL" : imageFileURL
+                        ],
+                        
+                        "timestamp": [".sv": "timestamp"],
+                        
+                        ] as [String: Any]
+                    
+                    dataBase.setValue(postObject, withCompletionBlock: { error, _ in
+                        if error == nil {
+                            self.dismiss(animated: true, completion: nil)
+                            let title = NSLocalizedString("Update in Firebase",comment: "DataBaseExtension.swift updatePersonFiredata")
+                            let message = "\r\n" + NSLocalizedString("Data are now updated in Firebase.", comment: "DataBaseExtension.swift updatePersonFiredata")
+                            self.presentAlert(withTitle: title, message: message)
+                        } else {
+                            let melding = error!.localizedDescription
+                            self.presentAlert(withTitle: NSLocalizedString("Error", comment: "DataBaseExtension.swiftt savePersonFiredata"),
+                                              message: melding)
+                        }
+                    })
+                    
+                })
+                
+            }
+            
+            uploadTask.observe(.progress) { (snapshot) in
+                
+                let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount) /
+                    Double(snapshot.progress!.totalUnitCount)
+                
+                print("Uploading... \(percentComplete)% complete")
+                
+            }
+            
+            uploadTask.observe(.failure) { (snapshot) in
+                
+                if let error = snapshot.error {
+                    print(error.localizedDescription)
+                }
+                
+            }
+            
+            
+            
+            
+            
+            
+            
+            /*
             let postObject = [
                 "author": [
                     "uid": uid,
@@ -516,6 +614,8 @@ extension UIViewController {
                                       message: melding)
                 }
             })
+            */
+            
         } else {
             let melding = "\r\n" + NSLocalizedString("Every field must be filled in.",
                                                      comment: "DataBaseExtension.swift savePersonFiredata")
