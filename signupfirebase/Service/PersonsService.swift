@@ -25,7 +25,8 @@ final class PersonService {
     
     let PHOTO_STORAGE_REF: StorageReference = Storage.storage().reference().child("photos")
     
-    func uploadImage(image: UIImage,
+    func uploadImage(id: String,
+                     image: UIImage,
                      user: String,
                      uid: String,
                      email: String,
@@ -39,9 +40,17 @@ final class PersonService {
                      municipality: String,
                      municipalityNumber: String,
                      completionHandler: @escaping () -> Void) {
+
+        var dbRef: DatabaseReference
         
-        // Generate an unique ID for the Persons and prepare the Persons reference
-        let personDatabaseRef = PERSON_DB_REF.childByAutoId()
+        if id.count == 0 {
+            // Generate an unique ID for the Persons and prepare the Persons reference
+            dbRef = PERSON_DB_REF.childByAutoId()
+        } else {
+            dbRef = BASE_DB_REF.child("person" + "/" + id)
+        }
+        
+        let personDatabaseRef = dbRef
         
         // Use the unique key as the image name and prepare the storage reference
         guard let imageKey = personDatabaseRef.key else {

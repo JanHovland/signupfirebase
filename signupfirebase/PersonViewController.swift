@@ -254,7 +254,8 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         let value = getCoreData()
         
         // Upload an image to the cloud
-        PersonService.shared.uploadImage(image: image,
+        PersonService.shared.uploadImage(id: PersonIdText,
+                                         image: image,
                                          user: value.name,
                                          uid: value.uid,
                                          email: value.eMail,
