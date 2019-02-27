@@ -25,21 +25,21 @@ final class PersonService {
     
     let PHOTO_STORAGE_REF: StorageReference = Storage.storage().reference().child("photos")
     
-    func uploadImage(id: String,
-                     image: UIImage,
-                     user: String,
-                     uid: String,
-                     email: String,
-                     address: String,
-                     city: String,
-                     dateOfBirth: String,
-                     name: String,
-                     gender: Int,
-                     phoneNumber: String,
-                     postalCodeNumber: String,
-                     municipality: String,
-                     municipalityNumber: String,
-                     completionHandler: @escaping () -> Void) {
+    func storePersonFiredata(id: String,
+                             image: UIImage,
+                             user: String,
+                             uid: String,
+                             email: String,
+                             address: String,
+                             city: String,
+                             dateOfBirth: String,
+                             name: String,
+                             gender: Int,
+                             phoneNumber: String,
+                             postalCodeNumber: String,
+                             municipality: String,
+                             municipalityNumber: String,
+                             completionHandler: @escaping () -> Void) {
 
         var dbRef: DatabaseReference
         

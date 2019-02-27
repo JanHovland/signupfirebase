@@ -245,7 +245,8 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         municipalityInput.resignFirstResponder()
         
     }
-    @IBAction func uploadData(_ sender: Any) {
+    
+    @IBAction func uploadPersonFiredata(_ sender: Any) {
         
         guard let image = inputImage.image else { return }
         
@@ -254,71 +255,22 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         let value = getCoreData()
         
         // Upload an image to the cloud
-        PersonService.shared.uploadImage(id: PersonIdText,
-                                         image: image,
-                                         user: value.name,
-                                         uid: value.uid,
-                                         email: value.eMail,
-                                         address: addressInput.text!,
-                                         city: cityInput.text!,
-                                         dateOfBirth: dateOfBirthInput.text!,
-                                         name: nameInput.text!,
-                                         gender: genderInput.selectedSegmentIndex,
-                                         phoneNumber: phoneNumberInput.text!,
-                                         postalCodeNumber: postalCodeNumberInput.text!,
-                                         municipality: municipalityInput.text!,
-                                         municipalityNumber: municipalityNumberInput.text!) {
+        PersonService.shared.storePersonFiredata(id: PersonIdText,
+                                                 image: image,
+                                                 user: value.name,
+                                                 uid: value.uid,
+                                                 email: value.eMail,
+                                                 address: addressInput.text!,
+                                                 city: cityInput.text!,
+                                                 dateOfBirth: dateOfBirthInput.text!,
+                                                 name: nameInput.text!,
+                                                 gender: genderInput.selectedSegmentIndex,
+                                                 phoneNumber: phoneNumberInput.text!,
+                                                 postalCodeNumber: postalCodeNumberInput.text!,
+                                                 municipality: municipalityInput.text!,
+                                                 municipalityNumber: municipalityNumberInput.text!) {
             self.dismiss(animated: true, completion: nil)
         }
-        
-    }
-    
-    @IBAction func SaveOrUpdatePerson(_ sender: Any) {
-        
-        // var id: String = ""
-        
-        // Get the user who has logged in
-        //  0 = uid  1 = eMail  2 = name  3 = passWord)
-        let value = getCoreData()
-
-        let address = addressInput.text ?? ""
-        let city = cityInput.text ?? ""
-        let dateOfBirth = dateOfBirthInput.text ?? ""
-        let name = nameInput.text?.uppercased() ?? ""
-        let gender = genderInput.selectedSegmentIndex
-        
-        // Check the telephone number
-        let phoneNumber = formatPhone(phone: phoneNumberInput.text!)
- 
-        let postalCodeNumber = postalCodeNumberInput.text ?? ""
-        
-        let municipality = municipalityInput.text ?? ""
-        let municipalityNumber = municipalityNumberInput.text ?? ""
-
-        activity.startAnimating()
-
-        /*
-        if PersonOption == 0 {
-            id = ""
-        } else {
-            id = PersonIdText
-        }
-        */
-        
-        savePersonFiredata(uid: value.uid,
-                           username: value.name,
-                           email: value.eMail,
-                           address: address,
-                           city: city,
-                           dateOfBirth: dateOfBirth,
-                           name: name,
-                           gender: gender,
-                           phoneNumber: phoneNumber,
-                           postalCodeNumber: postalCodeNumber,
-                           municipality: municipality,
-                           municipalityNumber: municipalityNumber)
-            
-        activity.stopAnimating()
         
     }
 
