@@ -1235,7 +1235,7 @@
                     <navigationItem key="navigationItem" title="Persondata" id="8pS-kN-P3t">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="AUS-Uk-ueY">
                             <connections>
-                                <action selector="uploadData:" destination="rxh-wi-pm3" id="cK6-gQ-NhT"/>
+                                <action selector="uploadData:" destination="rxh-wi-pm3" id="jaF-v7-XXe"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

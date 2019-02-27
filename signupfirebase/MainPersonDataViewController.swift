@@ -232,11 +232,11 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         db = Database.database().reference().child("person")
         
         db.observe(.value, with: { snapshot in
-
+            
             var tempPersons = [Person]()
             
             for child in snapshot.children {
-
+                
                 if let childSnapshot = child as? DataSnapshot,
                     let dict = childSnapshot.value as? [String: Any],
                     let author = dict["author"] as? [String: Any],
@@ -255,10 +255,11 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                     let municipalityNumber = personData["municipalityNumber"] as? String,
                     let imageFileURL = personData["imageFileURL"] as? String,
                     let timestamp = dict["timestamp"] as? Double {
+                    
                     let author = Author(uid: uid,
                                         username: username,
                                         email: email)
-
+                    
                     let personData = PersonData(address: address,
                                                 city : city,
                                                 dateOfBirth: dateOfBirth,
@@ -269,17 +270,17 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                                                 municipality: municipality,
                                                 municipalityNumber: municipalityNumber,
                                                 imageFileURL: imageFileURL)
-
+                    
                     let person = Person(id: childSnapshot.key,
                                         author: author,
                                         personData: personData,
                                         timestamp: timestamp)
-
+                    
                     tempPersons.append(person)
-
+                    
                 }
             }
-
+            
             // Update the posts array
             self.persons = tempPersons
             
@@ -290,9 +291,9 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             self.tableView.reloadData()
             
         })
-        
+    
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // 'prepare' will run after every segue.
         if segue.identifier! == "gotoUpdatePerson" {

@@ -253,14 +253,20 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         //  0 = uid  1 = eMail  2 = name  3 = passWord)
         let value = getCoreData()
         
-        let votes = 1
-        
         // Upload an image to the cloud
         PersonService.shared.uploadImage(image: image,
                                          user: value.name,
                                          uid: value.uid,
                                          email: value.eMail,
-                                         votes: votes) {
+                                         address: addressInput.text!,
+                                         city: cityInput.text!,
+                                         dateOfBirth: dateOfBirthInput.text!,
+                                         name: nameInput.text!,
+                                         gender: genderInput.selectedSegmentIndex,
+                                         phoneNumber: phoneNumberInput.text!,
+                                         postalCodeNumber: postalCodeNumberInput.text!,
+                                         municipality: municipalityInput.text!,
+                                         municipalityNumber: municipalityNumberInput.text!) {
             self.dismiss(animated: true, completion: nil)
         }
         
@@ -268,7 +274,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func SaveOrUpdatePerson(_ sender: Any) {
         
-        var id: String = ""
+        // var id: String = ""
         
         // Get the user who has logged in
         //  0 = uid  1 = eMail  2 = name  3 = passWord)
@@ -290,27 +296,27 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
 
         activity.startAnimating()
 
+        /*
         if PersonOption == 0 {
             id = ""
         } else {
             id = PersonIdText
         }
+        */
         
-        storePersonFiredata(id: id,
-                            uid: value.uid,
-                            username: value.name,
-                            email: value.eMail,
-                            address: address,
-                            city: city,
-                            dateOfBirth: dateOfBirth,
-                            name: name,
-                            gender: gender,
-                            phoneNumber: phoneNumber,
-                            postalCodeNumber: postalCodeNumber,
-                            municipality: municipality,
-                            municipalityNumber: municipalityNumber,
-                            image: inputImage.image!)
-        
+        savePersonFiredata(uid: value.uid,
+                           username: value.name,
+                           email: value.eMail,
+                           address: address,
+                           city: city,
+                           dateOfBirth: dateOfBirth,
+                           name: name,
+                           gender: gender,
+                           phoneNumber: phoneNumber,
+                           postalCodeNumber: postalCodeNumber,
+                           municipality: municipality,
+                           municipalityNumber: municipalityNumber)
+            
         activity.stopAnimating()
         
     }

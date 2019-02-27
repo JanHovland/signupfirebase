@@ -29,7 +29,15 @@ final class PersonService {
                      user: String,
                      uid: String,
                      email: String,
-                     votes: Int,
+                     address: String,
+                     city: String,
+                     dateOfBirth: String,
+                     name: String,
+                     gender: Int,
+                     phoneNumber: String,
+                     postalCodeNumber: String,
+                     municipality: String,
+                     municipalityNumber: String,
                      completionHandler: @escaping () -> Void) {
         
         // Generate an unique ID for the Persons and prepare the Persons reference
@@ -69,7 +77,8 @@ final class PersonService {
                 let imageFileURL = url.absoluteString
                 let timestamp = Int(Date().timeIntervalSince1970 * 1000)
                 
-                let person = [
+                let person: [String: Any] = [
+                    
                     "author": [
                         "uid": uid,
                         "username": user,
@@ -78,19 +87,20 @@ final class PersonService {
                     
                     "personData": [
                         "imageFileURL": imageFileURL,
+                        "address": address,
+                        "city": city,
+                        "dateOfBirth": dateOfBirth,
+                        "name": name,
+                        "gender": gender,
+                        "phoneNumber": phoneNumber,
+                        "postalCodeNumber": postalCodeNumber,
+                        "municipality": municipality,
+                        "municipalityNumber": municipalityNumber,
                     ],
                     
                     "timestamp": timestamp,
                     
-                    ] as [String: Any]
-                
-                /*
-                let person: [String: Any] = ["imageFileURL": imageFileURL,
-                                              "votes": votes,
-                                              "user": user,
-                                              "timestamp": timestamp
-                ]
-                */
+                    ]
                 
                 personDatabaseRef.setValue(person)
                 
