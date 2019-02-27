@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class PersonViewController: UIViewController, UITextFieldDelegate {
     
@@ -21,6 +22,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var municipalityInput: UITextField!
     
     @IBOutlet weak var inputImage: UIImageView!
+    @IBOutlet weak var downloadImage: UIImageView!
     
     @IBOutlet var activity: UIActivityIndicatorView!
     
@@ -50,7 +52,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Change the title of navigationBar
         navigationItem.title = PersonTitle
 

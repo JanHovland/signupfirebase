@@ -138,7 +138,7 @@ final class PersonService {
         
     }
     
-    func getRecentPerson(start timestamp: Int? = nil, limit: UInt, completionHandler: @escaping ([person]) -> Void) {
+    func getRecentPosts(start timestamp: Int? = nil, limit: UInt, completionHandler: @escaping ([person]) -> Void) {
         
         var personQuery = PERSON_DB_REF.queryOrdered(byChild: person.personInfoKey.timestamp)
         

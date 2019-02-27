@@ -125,7 +125,32 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             cell.addressLabel?.text = persons[indexPath.row].personData.address + " " +
                                       persons[indexPath.row].personData.postalCodeNumber + " " +
                                       persons[indexPath.row].personData.city
+            
+            if let url = URL(string: persons[indexPath.row].personData.imageFileURL) {
+                
+                let findCellImage = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+                    
+                    guard let imageData = data else {
+                        return
+                    }
+                    
+                    OperationQueue.main.addOperation {
+                        guard let image = UIImage(data: imageData) else {
+                            return
+                        }
+                        
+                        cell.imageLabel.image = image
+                        
+                    }
+                    
+                })
+                
+                findCellImage.resume()
+                
+            }
+            
         }
+        
         
         // Find all Uppercase letters of the name
         text = findFirstLettersOfName(name: name)
