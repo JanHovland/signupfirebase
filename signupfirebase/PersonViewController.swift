@@ -258,6 +258,8 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         // Upload an image to the cloud
         PersonService.shared.uploadImage(image: image,
                                          user: value.name,
+                                         uid: value.uid,
+                                         email: value.eMail,
                                          votes: votes) {
             self.dismiss(animated: true, completion: nil)
         }

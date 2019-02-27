@@ -27,6 +27,8 @@ final class PersonService {
     
     func uploadImage(image: UIImage,
                      user: String,
+                     uid: String,
+                     email: String,
                      votes: Int,
                      completionHandler: @escaping () -> Void) {
         
@@ -67,11 +69,28 @@ final class PersonService {
                 let imageFileURL = url.absoluteString
                 let timestamp = Int(Date().timeIntervalSince1970 * 1000)
                 
+                let person = [
+                    "author": [
+                        "uid": uid,
+                        "username": user,
+                        "email": email,
+                    ],
+                    
+                    "personData": [
+                        "imageFileURL": imageFileURL,
+                    ],
+                    
+                    "timestamp": timestamp,
+                    
+                    ] as [String: Any]
+                
+                /*
                 let person: [String: Any] = ["imageFileURL": imageFileURL,
                                               "votes": votes,
                                               "user": user,
                                               "timestamp": timestamp
                 ]
+                */
                 
                 personDatabaseRef.setValue(person)
                 
