@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class PersonData {
     var address: String
@@ -19,7 +20,7 @@ class PersonData {
     var municipality: String
     var municipalityNumber: String
     var imageFileURL: String
-
+    
     init(address: String,
          city: String,
          dateOfBirth: String,

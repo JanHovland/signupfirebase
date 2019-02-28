@@ -21,8 +21,12 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var municipalityNumberInput: UITextField!
     @IBOutlet weak var municipalityInput: UITextField!
     
-    @IBOutlet weak var inputImage: UIImageView!
-    @IBOutlet weak var downloadImage: UIImageView!
+    @IBOutlet weak var inputImage: UIImageView! {
+        didSet {
+            inputImage.layer.cornerRadius = inputImage.bounds.width / 2
+            inputImage.clipsToBounds = true
+        }
+    }
     
     @IBOutlet var activity: UIActivityIndicatorView!
     
