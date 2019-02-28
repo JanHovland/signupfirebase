@@ -21,6 +21,10 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var municipalityNumberInput: UITextField!
     @IBOutlet weak var municipalityInput: UITextField!
     
+    @IBAction func buttonPressed(_ sender: UIButton) {
+        print("Select a photo")
+    }
+    
     @IBOutlet weak var inputImage: UIImageView! {
         didSet {
             inputImage.layer.cornerRadius = inputImage.bounds.width / 2
