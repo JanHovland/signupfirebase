@@ -146,6 +146,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             
         }
         
+        // Find the default image for a perosn
         let verdi = defaultPersonImage(name: name)
         
         cell.imageLabel?.image = textToImage(drawText: verdi.text,
@@ -155,6 +156,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         return cell
     }
     
+    
+    // Make a default image for a person
     func defaultPersonImage(name: String) -> (text: String,
                                               fontSize: Float64,
                                               x: Float64,
