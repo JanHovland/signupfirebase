@@ -12,8 +12,6 @@ extension UIImage {
     
     func scale(newWidth: CGFloat) -> UIImage {
         
-        print("The original width: \(self.size.width)")
-        
         // Make sure the given width is different from the existing one
         if self.size.width == newWidth {
             return self

@@ -138,43 +138,4 @@ final class PersonService {
         
     }
     
-    func getRecentPosts(start timestamp: Int? = nil, limit: UInt, completionHandler: @escaping ([person]) -> Void) {
-        
-        var personQuery = PERSON_DB_REF.queryOrdered(byChild: person.personInfoKey.timestamp)
-        
-        if let latestPersonTimestamp = timestamp, latestPersonTimestamp > 0 {
-            // If the timestamp is specified, we will get the Persons with timestamp newer than the given value
-            personQuery = personQuery.queryStarting(atValue: latestPersonTimestamp + 1,
-                                                childKey: person.personInfoKey.timestamp).queryLimited(toLast: limit)
-        } else {
-            // Otherwise, we will just get the most recent Persons
-            personQuery = personQuery.queryLimited(toLast: limit)
-        }
-        
-        // Call Firebase API to retrieve the latest records
-        personQuery.observeSingleEvent(of: .value, with: { (snapshot) in
-            var newPerson: [person] = []
-            
-            print("----------")
-            print("Total number of Persons: \(snapshot.childrenCount)")
-            
-            for item in snapshot.children.allObjects as! [DataSnapshot] {
-                let personInfo = item.value as? [String: Any] ?? [:]
-                
-                if let person = person(personId: item.key, personInfo: personInfo) {
-                    newPerson.append(person)
-                }
-            }
-            
-            if newPerson.count > 0 {
-                // Order in descending order (i.e. the latest Persons becomes the first Persons)
-                newPerson.sort(by: {$0.timestamp > $1.timestamp})
-            }
-            
-            completionHandler(newPerson)
-            
-        })
-        
-    }
-    
 }
