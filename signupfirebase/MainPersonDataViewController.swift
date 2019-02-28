@@ -64,10 +64,11 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         // Forces the online keyboard to be lowercased
         searchBarPerson.autocapitalizationType = UITextAutocapitalizationType.none
     
-        activity.style = .gray
-        activity.isHidden = false
         
-   }
+        activity.style = .gray
+        activity.isHidden = true
+   
+    }
 
     override func viewDidAppear(_ animated: Bool) {
         activity.startAnimating()
@@ -93,12 +94,6 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        var x: Float64 = 3.75
-        var y: Float64 = 7.0
-        
-        var fontSize: Float64 = 9.0
-        var text = ""
         
         var name = ""
         let cellIdentifier = "Cell"
@@ -151,7 +146,25 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             
         }
         
+        let verdi = defaultPersonImage(name: name)
         
+        cell.imageLabel?.image = textToImage(drawText: verdi.text,
+                                             size:  verdi.fontSize,
+                                             inImage: UIImage(named: "circle-25.png")!,
+                                             atPoint: CGPoint(x: verdi.x, y: verdi.y))
+        return cell
+    }
+    
+    func defaultPersonImage(name: String) -> (text: String,
+                                              fontSize: Float64,
+                                              x: Float64,
+                                              y: Float64) {
+        
+        var text = ""
+        var x: Float64 = 3.75
+        var y: Float64 = 7.0
+        var fontSize: Float64 = 9.0
+
         // Find all Uppercase letters of the name
         text = findFirstLettersOfName(name: name)
         
@@ -174,13 +187,9 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             text = String(text.prefix(4)) + ".."
             
         }
+
+        return(text, fontSize, x, y)
         
-        cell.imageLabel?.image = textToImage(drawText: text,
-                                             size:  fontSize,
-                                             inImage: UIImage(named: "circle-25.png")!,
-                                             atPoint: CGPoint(x: x, y: y))
-        
-        return cell
     }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
