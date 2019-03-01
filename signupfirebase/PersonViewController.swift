@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class PersonViewController: UIViewController, UITextFieldDelegate {
+class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet var addressInput: UITextField!
     @IBOutlet var cityInput: UITextField!
@@ -21,13 +21,9 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var municipalityNumberInput: UITextField!
     @IBOutlet weak var municipalityInput: UITextField!
     
-    @IBAction func buttonPressed(_ sender: UIButton) {
-        print("Select a photo")
-    }
-    
-    @IBOutlet weak var inputImage: UIImageView! {
+    @IBOutlet var inputImage: UIImageView! {
         didSet {
-            inputImage.layer.cornerRadius = inputImage.bounds.width / 2
+            inputImage.layer.cornerRadius = inputImage.bounds.height / 2
             inputImage.clipsToBounds = true
         }
     }
@@ -36,8 +32,9 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
     
     var PersonTitle = ""
     var PersonOption = 0 // 0 = save 1 = update
-
+    
     // These vaiables get their values from MainPersonDataViewController.swift
+    var PersonimageFileURL = ""
     var PersonIdText = ""
     var PersonAddressText = ""
     var PersonCityText = ""
@@ -97,6 +94,22 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         
         municipalityNumberInput.text! = globalMunicipalityNumber
         municipalityInput.text =  globalMunicipality
+        
+        // Find the inputImage before updating the person data 
+        if let url = URL(string: PersonimageFileURL) {
+            let findCellImage = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+                guard let imageData = data else {
+                    return
+                }
+                OperationQueue.main.addOperation {
+                    guard let image = UIImage(data: imageData) else {
+                        return
+                    }
+                    self.inputImage.image = image
+                }
+            })
+            findCellImage.resume()
+        }
         
     }
 
@@ -352,49 +365,55 @@ class PersonViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-}
+    @IBAction func selectPersonPhoto(_ sender: UIButton) {
+        
+        let melding = NSLocalizedString("Choose your photo source", comment: "LoginViewVontroller.swift selectPersonPhoto")
 
-extension UIViewController {
-
-    func textToImage(drawText text: String,
-                     size fontsize: Float64,
-                     inImage image: UIImage,
-                     atPoint point: CGPoint) -> UIImage {
+        let photoSourceRequestController = UIAlertController(title: "", message: melding, preferredStyle: .actionSheet)
         
-        let textColor = UIColor.white
-        let textFont = UIFont(name: "Arial", size: CGFloat(fontsize))!
+        let title = NSLocalizedString("Camera", comment: "LoginViewVontroller.swift selectPersonPhoto")
         
-        let scale = UIScreen.main.scale
-        UIGraphicsBeginImageContextWithOptions(image.size, false, scale)
-        
-        let textFontAttributes = [
-            NSAttributedString.Key.font: textFont,
-            NSAttributedString.Key.foregroundColor: textColor,
-            ] as [NSAttributedString.Key : Any]
-        image.draw(in: CGRect(origin: CGPoint.zero, size: image.size))
-        
-        let rect = CGRect(origin: point, size: image.size)
-        text.draw(in: rect, withAttributes: textFontAttributes)
-        
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return newImage!
-    }
-    
-    func findFirstLettersOfName(name: String) -> (String) {
-        
-        var output = ""
-        
-        for chr in name {
-            let str = String(chr)
-            if str.lowercased() != str  {
-                output += str
+        let cameraAction = UIAlertAction(title: title, style: .default, handler: { (action) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                let imagePicker = UIImagePickerController()
+                imagePicker.allowsEditing = true
+                imagePicker.sourceType = .camera
+                imagePicker.delegate = self
+                self.present(imagePicker, animated: true, completion: nil)
             }
+        })
+
+        let title1 = NSLocalizedString("Photo library", comment: "LoginViewVontroller.swift selectPersonPhoto")
+       
+        let photoLibraryAction = UIAlertAction(title: title1, style: .default, handler: { (action) in
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+                let imagePicker = UIImagePickerController()
+                imagePicker.allowsEditing = true
+                imagePicker.sourceType = .photoLibrary
+                imagePicker.delegate = self
+                self.present(imagePicker, animated: true, completion: nil)
+            }
+        })
+        
+        photoSourceRequestController.addAction(cameraAction)
+        photoSourceRequestController.addAction(photoLibraryAction)
+        
+        present(photoSourceRequestController, animated: true, completion: nil)
+        
+     }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        //if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+        if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+                
+            inputImage.image = image
+            inputImage.contentMode = .scaleAspectFill
+            inputImage.clipsToBounds = true
+            
         }
         
-        return output
-        
+        dismiss(animated: true, completion: nil)
     }
-   
+    
 }

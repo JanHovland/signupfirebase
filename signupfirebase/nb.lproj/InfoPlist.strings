@@ -1,0 +1,6 @@
+/* Privacy - Camera Usage Description */
+"NSCameraUsageDescription" = "Du må gi appen tilgang til kamera for å kunne bruke bilder i appen.";
+
+/* Privacy - Photo Library Usage Description */
+"NSPhotoLibraryUsageDescription" = "Du må gi appen tilgang til foto biblioteket for å kunne bruke bilder.";
+

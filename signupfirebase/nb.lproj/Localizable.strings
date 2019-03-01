@@ -14,11 +14,17 @@
 /* ResetPWByMailViewController.swift viewDidLoad */
 "After you have asked Firebase to reset your password, you will receive an eMail with istruction." = "Etter at du har bedt Firebase om å resette passordet ditt, vil du motta en ePost med instruksjoner.";
 
+/* LoginViewVontroller.swift selectPersonPhoto */
+"Camera" = "Kamera";
+
 /* MainPersonDataViewController.swift buttonMessage */
 "Cannot send message" = "Kan ikke sende SMS";
 
 /* SavePostalCodesFirebaseTableViewController.swift StorePostalCodes */
 "Cannot store the Postal Codes in Firebase." = "Kan ikke lagre post nummer i Firebase.";
+
+/* LoginViewVontroller.swift selectPersonPhoto */
+"Choose your photo source" = "Velg kilden for foto ";
 
 /* DataBaseExtension.swift savePersonFiredata
    SavePostalCodesFirebaseTableViewController.swift documentPicker */
@@ -96,6 +102,9 @@
 
 /* OK */
 "OK" = "OK";
+
+/* LoginViewVontroller.swift selectPersonPhoto */
+"Photo library" = "Foto biblioteket";
 
 /* DataBaseExtension.swift showUserInfo. */
 "Please log in to Firebase." = "Vennligst log på Firebase.";

@@ -96,6 +96,9 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var name = ""
+        
+        var imageFileURL = ""
+        
         let cellIdentifier = "Cell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PersonDataTableViewCell
 
@@ -112,6 +115,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             cell.addressLabel?.text = searchedPersons[indexPath.row].personData.address + " " +
                                       searchedPersons[indexPath.row].personData.postalCodeNumber + " " +
                                       searchedPersons[indexPath.row].personData.city
+            imageFileURL = searchedPersons[indexPath.row].personData.imageFileURL
+            
         } else {
             let name1 = persons[indexPath.row].personData.name.lowercased()
             name = name1.capitalized
@@ -120,81 +125,28 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             cell.addressLabel?.text = persons[indexPath.row].personData.address + " " +
                                       persons[indexPath.row].personData.postalCodeNumber + " " +
                                       persons[indexPath.row].personData.city
-            
-            if let url = URL(string: persons[indexPath.row].personData.imageFileURL) {
-                
-                let findCellImage = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-                    
-                    guard let imageData = data else {
-                        return
-                    }
-                    
-                    OperationQueue.main.addOperation {
-                        guard let image = UIImage(data: imageData) else {
-                            return
-                        }
-                        
-                        cell.imageLabel.image = image
-                        
-                    }
-                    
-                })
-                
-                findCellImage.resume()
-                
-            }
+            imageFileURL = persons[indexPath.row].personData.imageFileURL
             
         }
+            
+        if let url = URL(string: imageFileURL) {
+            let findCellImage = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+                guard let imageData = data else {
+                    return
+                }
+                OperationQueue.main.addOperation {
+                    guard let image = UIImage(data: imageData) else {
+                        return
+                    }
+                    cell.imageLabel.image = image
+                }
+            })
+            findCellImage.resume()
+        }
         
-        // Find the default image for a perosn
-        let verdi = defaultPersonImage(name: name)
-        
-        cell.imageLabel?.image = textToImage(drawText: verdi.text,
-                                             size:  verdi.fontSize,
-                                             inImage: UIImage(named: "circle-25.png")!,
-                                             atPoint: CGPoint(x: verdi.x, y: verdi.y))
         return cell
     }
     
-    
-    // Make a default image for a person
-    func defaultPersonImage(name: String) -> (text: String,
-                                              fontSize: Float64,
-                                              x: Float64,
-                                              y: Float64) {
-        
-        var text = ""
-        var x: Float64 = 3.75
-        var y: Float64 = 7.0
-        var fontSize: Float64 = 9.0
-
-        // Find all Uppercase letters of the name
-        text = findFirstLettersOfName(name: name)
-        
-        if text.count == 1 {
-            x = x + 5.50
-        } else if text.count == 2 {
-            x = x + 2.75
-        } else if text.count == 3 {
-            
-        } else if text.count == 4 {
-            x = x - 1
-            y = y + 2
-            fontSize = 7.0
-        } else {
-            x = x - 1
-            y = y + 2
-            fontSize = 6.0
-            
-            // Set a new value to rexr
-            text = String(text.prefix(4)) + ".."
-            
-        }
-
-        return(text, fontSize, x, y)
-        
-    }
-
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
        if searchText.count > 0 {
@@ -347,6 +299,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             // Find the indexPath.row for the cell which is selected
             if let indexPath = tableView.indexPathForSelectedRow {
                 let vc = segue.destination as! PersonViewController
+                vc.PersonimageFileURL = persons[indexPath.row].personData.imageFileURL
                 vc.PersonIdText = persons[indexPath.row].id
                 vc.PersonAddressText = persons[indexPath.row].personData.address
                 vc.PersonCityText = persons[indexPath.row].personData.city
@@ -370,6 +323,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                 // indexRowUpdateSwipe is initiated at leadingSwipeActionsConfigurationForRowAt's "Update'
                 
                 let vc = segue.destination as! PersonViewController
+                vc.PersonimageFileURL = persons[indexRowUpdateSwipe].personData.imageFileURL
                 vc.PersonIdText = persons[indexRowUpdateSwipe].id
                 vc.PersonAddressText = persons[indexRowUpdateSwipe].personData.address
                 vc.PersonCityText = persons[indexRowUpdateSwipe].personData.city
