@@ -109,6 +109,9 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
                 }
             })
             findCellImage.resume()
+            
+            // Prevents the old photo to appear
+            PersonimageFileURL = ""
         }
         
     }
@@ -404,7 +407,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        //if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+        // Find the person's new photo
         if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
                 
             inputImage.image = image
