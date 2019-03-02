@@ -347,6 +347,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             
         } else if segue.identifier! == "gotoAddPerson" {
             let vc = segue.destination as! PersonViewController
+            vc.PersonimageFileURL = ""
             vc.PersonIdText = ""
             vc.PersonAddressText = ""
             vc.PersonCityText  = ""
