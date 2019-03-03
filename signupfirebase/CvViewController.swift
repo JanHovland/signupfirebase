@@ -121,6 +121,8 @@ class CvViewController: UIViewController {
               uppercase, men vises som "lettercase". Søkestrengen legges inn som lowercase og ut som uppercase.
            o) Legge inn indexed table view for kunne søke raskere på Postnummer
            p) Legge inn Bilde i PersonViewController
+           q) Benytte cache
+        
         
         7. Nye oppgaver (ikke fullført)
         

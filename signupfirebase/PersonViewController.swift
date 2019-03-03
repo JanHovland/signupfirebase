@@ -95,25 +95,36 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         municipalityNumberInput.text! = globalMunicipalityNumber
         municipalityInput.text =  globalMunicipality
         
-        // Find the inputImage before updating the person data 
-        if let url = URL(string: PersonimageFileURL) {
-            let findCellImage = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-                guard let imageData = data else {
-                    return
-                }
-                OperationQueue.main.addOperation {
-                    guard let image = UIImage(data: imageData) else {
+        // Find the inputImage before updating the person data
+        
+        if let image = CacheManager.shared.getFromCache(key: PersonimageFileURL) as? UIImage {
+            self.inputImage.image = image
+            self.PersonimageFileURL = ""
+        } else {
+            if let url = URL(string: PersonimageFileURL) {
+            
+                let findCellImage = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+                    guard let imageData = data else {
                         return
                     }
-                    self.inputImage.image = image
-                }
-            })
-            findCellImage.resume()
+                    OperationQueue.main.addOperation {
+                        guard let image = UIImage(data: imageData) else {
+                            return
+                        }
+                        self.inputImage.image = image
+                        
+                        // Add the downloaded image to cache
+                        CacheManager.shared.cache(object: image, key: self.PersonimageFileURL)
+                        self.PersonimageFileURL = ""
+                    }
+                })
+                
+                findCellImage.resume()
+            }
+       }
             
-            // Prevents the old photo to appear
-            PersonimageFileURL = ""
-        }
-        
+       // Prevents the old photo to appear
+       // PersonimageFileURL = ""
     }
 
     override func viewDidAppear(_ animated: Bool) {
