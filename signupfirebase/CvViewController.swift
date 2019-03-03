@@ -117,21 +117,16 @@ class CvViewController: UIViewController {
            l) Format av telefon er kommentert bort, må rettes og implementeres
               .Test OK
            m) Lagt inn nytt punkt "Lagre postnummer i Firebase" under "Innstillinger"
+           n) Bruker nå persons.filter({$0.personData.name.contains(searchText)}) på person arrayet. Persons ligger som
+              uppercase, men vises som "lettercase". Søkestrengen legges inn som lowercase og ut som uppercase.
+           o) Legge inn indexed table view for kunne søke raskere på Postnummer
+           p) Legge inn Bilde i PersonViewController
         
         7. Nye oppgaver (ikke fullført)
         
-           a) Bruker nå persons.filter({$0.personData.name.contains(searchText)}) på person arrayet. Persons ligger som
-              lettercase og brukes som lettercase. Når en legger inn en inn en søkestreng må jeg passe på store og små bokstaver.
-              Kan dette endres, slik at en ikke trenger å passe på store og små bokstaver?
-                . Legge ut navnet i uppercase i Firebase
-                . Lese inn navnene i array i uppercase
-                . Vise i tableView som lettercase
-                . Søke med store bokstaver
-                . ELLER: Legg inn en "Info" om bruk av små og store bokstaver
-           b) Legge inn vertical slider i søk på Postnummer
-           c) Legge inn Bilde i PersonViewController
-           d) Legge inn Kart i PersonViewController
-           e) Oppdatere security i Firebase (er det samme for Firestore?)
+           a) Vise fremgang
+           b) Legge inn Kart i PersonViewController
+           c) Oppdatere security i Firebase (er det samme for Firestore?)
         
         8. Programmerings tips
         
@@ -152,7 +147,7 @@ class CvViewController: UIViewController {
         
         9. Feil som må rettes
         
-           a) Det kan legges inn flere like poster
+           a) Det kan legges inn flere like poster når en legger inn en ny person
         
         """
         

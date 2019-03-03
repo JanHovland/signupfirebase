@@ -23,6 +23,8 @@ extension UIImage {
         let newSize = CGSize(width: newWidth, height: newHeight)
         
         UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
+        
+        // Sets the height = width
         self.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newWidth))
         
         let newImage: UIImage? = UIGraphicsGetImageFromCurrentImageContext()
