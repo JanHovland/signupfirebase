@@ -60,7 +60,7 @@ final class PersonService {
         let imageStorageRef = PHOTO_STORAGE_REF.child("\(imageKey).png")
         
         // Resize the image
-        let scaledImage = image.scale(newWidth: 100.0)
+        let scaledImage = image.scale(newWidth: 25.0)
         
         guard let imageData = scaledImage.jpegData(compressionQuality: 0.9) else {
             return

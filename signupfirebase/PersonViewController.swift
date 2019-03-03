@@ -23,7 +23,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     
     @IBOutlet var inputImage: UIImageView! {
         didSet {
-            inputImage.layer.cornerRadius = inputImage.bounds.height / 2
+            inputImage.layer.cornerRadius = inputImage.bounds.width / 2
             inputImage.clipsToBounds = true
         }
     }
