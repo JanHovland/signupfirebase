@@ -72,7 +72,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         
         // Moved from viewDidAppear
         ReadPersonsFiredata()
-   
+        
     }
 
     // Called when the view has been fully transitioned onto the screen. Default does nothing
@@ -105,6 +105,9 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         // If you change a label in a viewCell, check Main.storyboard and delete the old value of the label
         // When I deleted firstNameLabel, it was still in Main.storyboard:
         // <outlet property="firstNameLabel" destination="bfO-dL-I5s" id="BBZ-st-hNm"/>
+        
+        // There is now no selectionStyle of the selected cell (.default, .blue, .gray or ,none)
+        cell.selectionStyle = .none
         
         // Configure the cell
         if searching {
@@ -141,27 +144,27 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             cell.imageLabel.image = image
             imageFileURL = ""
         } else if let url = URL(string: imageFileURL) {
-                let findCellImage = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-                    guard let imageData = data else {
+            let findCellImage = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+                guard let imageData = data else {
+                    return
+                }
+                OperationQueue.main.addOperation {
+                    guard let image = UIImage(data: imageData) else {
                         return
                     }
-                    OperationQueue.main.addOperation {
-                        guard let image = UIImage(data: imageData) else {
-                            return
-                        }
-                        
-                        if self.persons[indexPath.row].personData.imageFileURL == imageFileURL {
-                            cell.imageLabel.image = image
-                        }
-                        
-                        // Add the downloaded image to cache
-                        CacheManager.shared.cache(object: image, key: imageFileURL)
-                        imageFileURL = ""
-                        
+                    
+                    if self.persons[indexPath.row].personData.imageFileURL == imageFileURL {
+                        cell.imageLabel.image = image
                     }
-                })
-                findCellImage.resume()
-            }
+                    
+                    // Add the downloaded image to cache
+                    CacheManager.shared.cache(object: image, key: imageFileURL)
+                    imageFileURL = ""
+                    
+                }
+            })
+            findCellImage.resume()
+        }
         
         return cell
     }
