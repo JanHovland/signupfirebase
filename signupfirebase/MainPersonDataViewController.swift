@@ -46,7 +46,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     var phoneNumberInput = ""
     
     var persons = [Person]()
-    
+    private var currentPerson: Person?
+
     var searchedPersons = [Person]()
     var searching = false
     
@@ -54,6 +55,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     
     var indexRowUpdateSwipe  = -1
 
+    // Called after the view has been loaded. For view controllers created in code, this is after -loadView. For view controllers unarchived from a nib, this is after the view is set.
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -67,20 +69,20 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         
         activity.style = .gray
         activity.isHidden = true
+        
+        // Moved from viewDidAppear
+        ReadPersonsFiredata()
    
     }
 
+    // Called when the view has been fully transitioned onto the screen. Default does nothing
     override func viewDidAppear(_ animated: Bool) {
-        activity.startAnimating()
         
-        // Get the posts from Firebase
-        ReadPersonsFiredata()
+        // Moved to viewDidAppear
+        // ReadPersonsFiredata()
         
-        activity.isHidden = true
-        activity.stopAnimating()
-        
-        // It is necessary to reloadData to syncronize correctly
-        self.tableView.reloadData()
+        // If reloadData is called the "cell.nameLabel?.text" is displayed incorrectly
+        // self.tableView.reloadData()
         
     }
 
@@ -95,8 +97,6 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var name = ""
-        
         var imageFileURL = ""
         
         let cellIdentifier = "Cell"
@@ -108,41 +108,60 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         
         // Configure the cell
         if searching {
+            
             let name1 = searchedPersons[indexPath.row].personData.name.lowercased()
-            name = name1.capitalized
+            let name = name1.capitalized
             cell.nameLabel?.text = name
+            
             cell.bornLabel?.text = searchedPersons[indexPath.row].personData.dateOfBirth
+            
             cell.addressLabel?.text = searchedPersons[indexPath.row].personData.address + " " +
                                       searchedPersons[indexPath.row].personData.postalCodeNumber + " " +
                                       searchedPersons[indexPath.row].personData.city
+            
             imageFileURL = searchedPersons[indexPath.row].personData.imageFileURL
             
         } else {
+            
             let name1 = persons[indexPath.row].personData.name.lowercased()
-            name = name1.capitalized
-            cell.bornLabel?.text = persons[indexPath.row].personData.dateOfBirth
+            let name = name1.capitalized
             cell.nameLabel?.text = name
+            
+            cell.bornLabel?.text = persons[indexPath.row].personData.dateOfBirth
+            
             cell.addressLabel?.text = persons[indexPath.row].personData.address + " " +
                                       persons[indexPath.row].personData.postalCodeNumber + " " +
                                       persons[indexPath.row].personData.city
+            
             imageFileURL = persons[indexPath.row].personData.imageFileURL
             
         }
-            
-        if let url = URL(string: imageFileURL) {
-            let findCellImage = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-                guard let imageData = data else {
-                    return
-                }
-                OperationQueue.main.addOperation {
-                    guard let image = UIImage(data: imageData) else {
+        
+        if let image = CacheManager.shared.getFromCache(key: imageFileURL) as? UIImage {
+            cell.imageLabel.image = image
+            imageFileURL = ""
+        } else if let url = URL(string: imageFileURL) {
+                let findCellImage = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+                    guard let imageData = data else {
                         return
                     }
-                    cell.imageLabel.image = image
-                }
-            })
-            findCellImage.resume()
-        }
+                    OperationQueue.main.addOperation {
+                        guard let image = UIImage(data: imageData) else {
+                            return
+                        }
+                        
+                        if self.persons[indexPath.row].personData.imageFileURL == imageFileURL {
+                            cell.imageLabel.image = image
+                        }
+                        
+                        // Add the downloaded image to cache
+                        CacheManager.shared.cache(object: image, key: imageFileURL)
+                        imageFileURL = ""
+                        
+                    }
+                })
+                findCellImage.resume()
+            }
         
         return cell
     }
@@ -150,10 +169,10 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
        if searchText.count > 0 {
-        searchedPersons = persons.filter({$0.personData.name.contains(searchText.uppercased())})
-           searching = true
+            searchedPersons = persons.filter({$0.personData.name.contains(searchText.uppercased())})
+            searching = true
        } else {
-           searching = false
+            searching = false
        }
 
        // Fill the table view

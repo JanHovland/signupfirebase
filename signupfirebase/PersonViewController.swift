@@ -111,6 +111,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
                         guard let image = UIImage(data: imageData) else {
                             return
                         }
+                        
                         self.inputImage.image = image
                         
                         // Add the downloaded image to cache
@@ -123,8 +124,6 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
             }
        }
             
-       // Prevents the old photo to appear
-       // PersonimageFileURL = ""
     }
 
     override func viewDidAppear(_ animated: Bool) {

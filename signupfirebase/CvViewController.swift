@@ -127,8 +127,9 @@ class CvViewController: UIViewController {
         7. Nye oppgaver (ikke fullført)
         
            a) Vise fremgang
-           b) Legge inn Kart i PersonViewController
-           c) Oppdatere security i Firebase (er det samme for Firestore?)
+           b) Problemer med "krølling tekst og bilder"
+           c) Legge inn Kart i PersonViewController
+           d) Oppdatere security i Firebase (er det samme for Firestore?)
         
         8. Programmerings tips
         

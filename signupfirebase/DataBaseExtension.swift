@@ -510,7 +510,9 @@ extension UIViewController {
                 } else {
                     showAlert()
                 }
-                
+            
+            } else if phone.count == 14 {
+                // +47 123 45 678
             } else {
               showAlert()
             }
