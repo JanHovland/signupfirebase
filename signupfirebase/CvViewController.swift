@@ -117,18 +117,18 @@ class CvViewController: UIViewController {
            l) Format av telefon er kommentert bort, må rettes og implementeres
               .Test OK
            m) Lagt inn nytt punkt "Lagre postnummer i Firebase" under "Innstillinger"
-           n) Bruker nå persons.filter({$0.personData.name.contains(searchText)}) på person arrayet. Persons ligger som
-              uppercase, men vises som "lettercase". Søkestrengen legges inn som lowercase og ut som uppercase.
-           o) Legge inn indexed table view for kunne søke raskere på Postnummer
-           p) Legge inn Bilde i PersonViewController
-           q) Benytte cache
-        
+           n) Legge inn indexed table view for kunne søke raskere på Postnummer
+           o) Legge inn Bilde i PersonViewController
+           p) Benytte cache
+           q) Løst problemene med "krølling tekst og bilder"
         
         7. Nye oppgaver (ikke fullført)
         
-           a) Vise fremgang
-           b) Problemer med "krølling tekst og bilder"
-           c) Legge inn Kart i PersonViewController
+           a) Søking på person er feil
+              Bruker nå persons.filter({$0.personData.name.contains(searchText)}) på person arrayet.
+              Persons ligger som uppercase i Firebase.
+           b) Legge inn Kart i PersonViewController
+           c) Vise fremgang
            d) Oppdatere security i Firebase (er det samme for Firestore?)
         
         8. Programmerings tips
