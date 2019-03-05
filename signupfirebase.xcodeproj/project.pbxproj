@@ -39,6 +39,7 @@
 		D1EAAB8521C1178A005D2656 /* DataBaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAAB8421C1178A005D2656 /* DataBaseExtension.swift */; };
 		D1FFF52B2212E5110097B414 /* SearchedPostelCodesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFF52A2212E5110097B414 /* SearchedPostelCodesTableViewCell.swift */; };
 		DB2FE8D22225C696006BDF27 /* PersonsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2FE8D12225C696006BDF27 /* PersonsService.swift */; };
+		DB343258222EDDA900452D0B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB343257222EDDA900452D0B /* MapViewController.swift */; };
 		DB4B74732215FD48002BCDDD /* PersonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4B74722215FD47002BCDDD /* PersonData.swift */; };
 		DBC0BD9B222146BC003E5566 /* UIImage+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC0BD9A222146BC003E5566 /* UIImage+Scale.swift */; };
 		DBC5617E222D1D6B0048332C /* signupfirebase-236b9-export.json in Resources */ = {isa = PBXBuildFile; fileRef = DBC5617D222D1D6B0048332C /* signupfirebase-236b9-export.json */; };
@@ -87,6 +88,7 @@
 		D1FFF52A2212E5110097B414 /* SearchedPostelCodesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedPostelCodesTableViewCell.swift; sourceTree = "<group>"; };
 		D8FA6AF44DDF6A6C8562A35A /* Pods_signupfirebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_signupfirebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB2FE8D12225C696006BDF27 /* PersonsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonsService.swift; sourceTree = "<group>"; };
+		DB343257222EDDA900452D0B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DB4B74722215FD47002BCDDD /* PersonData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonData.swift; sourceTree = "<group>"; };
 		DBC0BD9A222146BC003E5566 /* UIImage+Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Scale.swift"; sourceTree = "<group>"; };
 		DBC5617D222D1D6B0048332C /* signupfirebase-236b9-export.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "signupfirebase-236b9-export.json"; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				D134822621CF922900F9F944 /* MainPersonDataViewController.swift */,
 				D1E95C8D21D6899400B40EE9 /* PersonViewController.swift */,
 				D1E95C8F21D6BB6E00B40EE9 /* PersonDataTableViewCell.swift */,
+				DB343257222EDDA900452D0B /* MapViewController.swift */,
 			);
 			path = signupfirebase;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				D13172542202EF1C00EEB530 /* SavePostalCodesFirebaseTableViewController.swift in Sources */,
 				DB2FE8D22225C696006BDF27 /* PersonsService.swift in Sources */,
 				D11E2BD8219470D90075BD11 /* Model.xcdatamodeld in Sources */,
+				DB343258222EDDA900452D0B /* MapViewController.swift in Sources */,
 				D1859F7321B7C38500E1D518 /* ListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -120,16 +120,18 @@ class CvViewController: UIViewController {
            n) Legge inn indexed table view for kunne søke raskere på Postnummer
            o) Legge inn Bilde i PersonViewController
            p) Benytte cache
-           q) Løst problemene med "krølling tekst og bilder"
+           q) Løst problemene med "krølling av bilder"
+              Løsning: if self.persons[indexPath.row].personData.imageFileURL == imageFileURL i MainPersonDataViewController.swift
+           r) Søking på person er feil (krølling tekst)
+              . Grunnen var at nameLabel manglet avhuking for "Clears Graphics Context"
+                One example of when you might use it is if you have a label (clear background) and you're changing the text.
+                Without this flag, the new text is drawn over the old text. With the box checked, the label area is "erased" before the next text is drawn.
         
         7. Nye oppgaver (ikke fullført)
         
-           a) Søking på person er feil
-              Bruker nå persons.filter({$0.personData.name.contains(searchText)}) på person arrayet.
-              Persons ligger som uppercase i Firebase.
-           b) Legge inn Kart i PersonViewController
-           c) Vise fremgang
-           d) Oppdatere security i Firebase (er det samme for Firestore?)
+           a) Legge inn Kart i PersonViewController
+           b) Vise fremgang
+           c) Oppdatere security i Firebase (er det samme for Firestore?)
         
         8. Programmerings tips
         

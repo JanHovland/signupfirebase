@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rKy-sB-foA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rKy-sB-foA">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.47"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1033,7 +1033,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y3g-OR-Jc8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2210" y="1252"/>
+            <point key="canvasLocation" x="-2394" y="1245"/>
         </scene>
         <!--Persondata-->
         <scene sceneID="RhZ-ME-R8x">
@@ -1153,7 +1153,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the municipality" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iJD-3U-e7P" userLabel="City Text Field">
-                                <rect key="frame" x="163" y="457" width="197" height="30"/>
+                                <rect key="frame" x="163" y="457" width="152" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="address-level2"/>
@@ -1172,14 +1172,25 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5cg-2c-VmS">
-                                <rect key="frame" x="323" y="146" width="52" height="60"/>
+                                <rect key="frame" x="328" y="146" width="47" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="4ed-b7-Tj1"/>
-                                    <constraint firstAttribute="height" constant="60" id="knz-2C-A3R"/>
+                                    <constraint firstAttribute="height" constant="40" id="knz-2C-A3R"/>
                                 </constraints>
-                                <state key="normal" title="photo" image="photo-35"/>
+                                <state key="normal" title="photo" image="camera-31"/>
                                 <connections>
                                     <action selector="selectPersonPhoto:" destination="rxh-wi-pm3" eventType="touchUpInside" id="W8Q-i0-Rbp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SVL-2S-PhG">
+                                <rect key="frame" x="329" y="456" width="31" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="q0w-Zb-2ur"/>
+                                    <constraint firstAttribute="width" constant="31" id="wdq-Jg-GU3"/>
+                                </constraints>
+                                <state key="normal" image="map-31"/>
+                                <connections>
+                                    <segue destination="JqU-hK-lPv" kind="show" identifier="gotoMap" id="4cp-NF-Ore"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1191,23 +1202,26 @@
                             <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="nbz-eB-NWH" secondAttribute="trailing" constant="288" id="2gM-Vd-HlK"/>
                             <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="RkK-Je-Gn2" secondAttribute="trailing" constant="15" id="2n4-dh-Xg2"/>
                             <constraint firstItem="ggZ-By-2Qr" firstAttribute="top" secondItem="O6w-2j-OOB" secondAttribute="top" constant="198" id="32g-WE-OZ0"/>
+                            <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="SVL-2S-PhG" secondAttribute="trailing" constant="15" id="3ob-fA-eV1"/>
                             <constraint firstItem="cm9-gv-6K9" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="15" id="5aj-Y4-6KO"/>
                             <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="YyV-Jf-Wrw" secondAttribute="trailing" constant="15" id="5is-Vs-Shh"/>
                             <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="eJK-ho-8MV" secondAttribute="trailing" constant="288.5" id="69G-2w-kQC"/>
                             <constraint firstItem="bjS-Kj-pLv" firstAttribute="top" secondItem="dcI-Iv-SZx" secondAttribute="bottom" constant="20" id="8jy-iN-fpH"/>
                             <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="yLv-nX-tNx" secondAttribute="trailing" constant="15" id="9bJ-f7-VNG"/>
                             <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="cm9-gv-6K9" secondAttribute="trailing" constant="266" id="9ej-sp-aOe"/>
+                            <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="SVL-2S-PhG" secondAttribute="trailing" constant="15" id="9ma-wl-sYQ"/>
                             <constraint firstItem="mZW-Vq-ZeJ" firstAttribute="top" secondItem="cm9-gv-6K9" secondAttribute="bottom" constant="30" id="Aik-Lc-NQ2"/>
                             <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="dcI-Iv-SZx" secondAttribute="trailing" constant="15" id="Apa-al-xYm"/>
                             <constraint firstItem="RkK-Je-Gn2" firstAttribute="top" secondItem="yLv-nX-tNx" secondAttribute="bottom" constant="20" id="Awe-vv-v4v"/>
                             <constraint firstItem="uy3-05-bWG" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="109" id="CRP-Vs-xjF"/>
                             <constraint firstItem="ntB-2c-9zR" firstAttribute="top" secondItem="0PH-fa-QJT" secondAttribute="bottom" constant="20" id="E1K-sH-Hv7"/>
                             <constraint firstItem="cm9-gv-6K9" firstAttribute="top" secondItem="UZn-5p-0rk" secondAttribute="bottom" constant="30" id="Eul-78-e9V"/>
-                            <constraint firstItem="5cg-2c-VmS" firstAttribute="leading" secondItem="bjS-Kj-pLv" secondAttribute="trailing" constant="75.5" id="GIN-ny-se2"/>
+                            <constraint firstItem="5cg-2c-VmS" firstAttribute="leading" secondItem="bjS-Kj-pLv" secondAttribute="trailing" constant="80.5" id="GIN-ny-se2"/>
                             <constraint firstItem="nbz-eB-NWH" firstAttribute="top" secondItem="mZW-Vq-ZeJ" secondAttribute="bottom" constant="30" id="I60-rW-6jD"/>
                             <constraint firstItem="UG6-zK-qDH" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="15" id="Kld-jj-fgf"/>
                             <constraint firstItem="iJD-3U-e7P" firstAttribute="top" secondItem="a2Y-E5-2Cp" secondAttribute="bottom" constant="20" id="Kyw-uA-F45"/>
                             <constraint firstItem="Z83-Gy-QZ9" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="109" id="MR8-1E-vYx"/>
+                            <constraint firstItem="SVL-2S-PhG" firstAttribute="top" secondItem="bC7-mk-vXQ" secondAttribute="bottom" constant="19" id="NFS-N4-6aG"/>
                             <constraint firstItem="dcI-Iv-SZx" firstAttribute="top" secondItem="O6w-2j-OOB" secondAttribute="top" constant="15" id="O47-wF-O6b"/>
                             <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="UG6-zK-qDH" secondAttribute="trailing" constant="287" id="Pzi-gi-Eam"/>
                             <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="UZn-5p-0rk" secondAttribute="trailing" constant="287" id="Q4I-JC-UyF"/>
@@ -1229,7 +1243,7 @@
                             <constraint firstItem="nbz-eB-NWH" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="15" id="e83-Ow-3Lc"/>
                             <constraint firstItem="bC7-mk-vXQ" firstAttribute="top" secondItem="YyV-Jf-Wrw" secondAttribute="bottom" constant="19" id="fAt-Hh-oDv"/>
                             <constraint firstItem="YyV-Jf-Wrw" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="109" id="jX0-dx-BVz"/>
-                            <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="iJD-3U-e7P" secondAttribute="trailing" constant="15" id="kJy-rD-I30"/>
+                            <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="iJD-3U-e7P" secondAttribute="trailing" constant="60" id="kJy-rD-I30"/>
                             <constraint firstItem="0PH-fa-QJT" firstAttribute="top" secondItem="uy3-05-bWG" secondAttribute="bottom" constant="20" id="oPg-Vd-xFr"/>
                             <constraint firstItem="UZn-5p-0rk" firstAttribute="top" secondItem="eJK-ho-8MV" secondAttribute="bottom" constant="31" id="otK-EC-d90"/>
                             <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="mZW-Vq-ZeJ" secondAttribute="trailing" constant="286.5" id="pMa-t3-PUX"/>
@@ -1260,6 +1274,7 @@
                         <outlet property="genderInput" destination="Z83-Gy-QZ9" id="PA6-m9-1Ld"/>
                         <outlet property="inputImage" destination="bjS-Kj-pLv" id="8ZK-k5-506"/>
                         <outlet property="loginStatus" destination="dcI-Iv-SZx" id="Ygc-t0-fqe"/>
+                        <outlet property="mapInput" destination="SVL-2S-PhG" id="qb3-dk-0tK"/>
                         <outlet property="municipalityInput" destination="iJD-3U-e7P" id="MN4-65-LSi"/>
                         <outlet property="municipalityNumberInput" destination="0PH-fa-QJT" id="PIG-t7-3O2"/>
                         <outlet property="nameInput" destination="yLv-nX-tNx" id="7BA-gO-xHS"/>
@@ -1377,7 +1392,40 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bLd-PQ-1sO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3020" y="2015"/>
+            <point key="canvasLocation" x="-3182" y="1994"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="EnX-wx-CJc">
+            <objects>
+                <viewController id="JqU-hK-lPv" customClass="MapViewController" customModule="signupfirebase" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Fno-a6-OUn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="vNe-m1-6HP">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <connections>
+                                    <outlet property="delegate" destination="JqU-hK-lPv" id="CnK-k6-GyS"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vNe-m1-6HP" firstAttribute="leading" secondItem="raV-TK-xTC" secondAttribute="leading" id="Ata-Ae-nHc"/>
+                            <constraint firstItem="raV-TK-xTC" firstAttribute="bottom" secondItem="vNe-m1-6HP" secondAttribute="bottom" id="GIh-sg-6XU"/>
+                            <constraint firstItem="vNe-m1-6HP" firstAttribute="top" secondItem="raV-TK-xTC" secondAttribute="top" id="dDS-Nm-ZJn"/>
+                            <constraint firstItem="raV-TK-xTC" firstAttribute="trailing" secondItem="vNe-m1-6HP" secondAttribute="trailing" id="rZ8-lC-gOM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="raV-TK-xTC"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="O7I-Lo-HMw"/>
+                    <connections>
+                        <outlet property="mapView" destination="vNe-m1-6HP" id="s5x-xX-sIf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EMn-Ov-q3V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2383" y="2029"/>
         </scene>
         <!--Update password-->
         <scene sceneID="514-fI-xD2">
@@ -1489,7 +1537,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fFP-2K-yqY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3020" y="1252"/>
+            <point key="canvasLocation" x="-3218" y="1245"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="TWG-IN-rUm">
@@ -1553,7 +1601,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1rH-2X-JJ2">
                                                     <rect key="frame" x="95" y="13" width="240" height="68.5"/>
                                                     <subviews>
-                                                        <label autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="nameLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="bfO-dL-I5s" userLabel="name Label">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="nameLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfO-dL-I5s" userLabel="name Label">
                                                             <rect key="frame" x="0.0" y="0.0" width="240" height="19.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1614,7 +1662,7 @@
                                             <outlet property="addressLabel" destination="GoA-hY-uI8" id="nRn-of-aqr"/>
                                             <outlet property="bornLabel" destination="2zA-oj-k3K" id="Xya-if-MDf"/>
                                             <outlet property="imageLabel" destination="YVH-id-Jwc" id="cge-fX-6mN"/>
-                                            <outlet property="nameLabel" destination="bfO-dL-I5s" id="rbZ-Zn-4RF"/>
+                                            <outlet property="nameLabel" destination="bfO-dL-I5s" id="LMb-W3-dNZ"/>
                                             <segue destination="rxh-wi-pm3" kind="show" identifier="gotoUpdatePerson" id="GPz-AY-nZg"/>
                                         </connections>
                                     </tableViewCell>
@@ -1713,16 +1761,17 @@
     <resources>
         <image name="Icon-20" width="20" height="20"/>
         <image name="Icon-30" width="29" height="29"/>
+        <image name="camera-31" width="31" height="31"/>
         <image name="firebase_logo" width="1024" height="1024"/>
+        <image name="map-31" width="31" height="31"/>
         <image name="message-35" width="35" height="35"/>
         <image name="personer-33" width="29" height="29"/>
         <image name="phone-35" width="35" height="35"/>
-        <image name="photo-35" width="35" height="35"/>
         <image name="search-31" width="31" height="31"/>
         <image name="settings-32" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gYJ-L2-bgL"/>
-        <segue reference="O1x-ds-s6d"/>
+        <segue reference="HHx-uR-c6E"/>
     </inferredMetricsTieBreakers>
 </document>

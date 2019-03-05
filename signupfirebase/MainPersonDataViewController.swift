@@ -114,7 +114,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             
             let name1 = searchedPersons[indexPath.row].personData.name.lowercased()
             let name = name1.capitalized
-            cell.nameLabel?.text = name
+            cell.nameLabel.text = name
             
             cell.bornLabel?.text = searchedPersons[indexPath.row].personData.dateOfBirth
             
@@ -128,7 +128,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             
             let name1 = persons[indexPath.row].personData.name.lowercased()
             let name = name1.capitalized
-            cell.nameLabel?.text = name
+            cell.nameLabel.text = name
             
             cell.bornLabel?.text = persons[indexPath.row].personData.dateOfBirth
             
@@ -174,13 +174,12 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
        if searchText.count > 0 {
             searchedPersons = persons.filter({$0.personData.name.contains(searchText.uppercased())})
             searching = true
+            tableView.reloadData()
        } else {
             searching = false
-       }
+            tableView.reloadData()
+        }
 
-       // Fill the table view
-       self.tableView.reloadData()
-        
     }
     
     // called when keyboard done button pressed

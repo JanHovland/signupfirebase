@@ -21,6 +21,14 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     @IBOutlet weak var municipalityNumberInput: UITextField!
     @IBOutlet weak var municipalityInput: UITextField!
     
+    @IBOutlet weak var mapInput: UIButton! {
+        didSet {
+            mapInput.layer.cornerRadius = mapInput.bounds.width / 2
+            mapInput.clipsToBounds = true
+        }
+
+    }
+    
     @IBOutlet var inputImage: UIImageView! {
         didSet {
             inputImage.layer.cornerRadius = inputImage.bounds.width / 2
@@ -374,6 +382,17 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
             vc.postalCodeGenderInt = PersonGenderInt
             vc.postalCodeMunicipalityText = municipalityInput.text!
             vc.postalCodeMunicipalityNumberText = municipalityNumberInput.text!
+            
+        } else if segue.identifier! == "gotoMap" {
+            
+            let vc = segue.destination as! MapViewController
+
+            let name1 = nameInput.text!.lowercased()
+            let name = name1.capitalized
+            
+            // Exports the selected name to the MapViewController
+            vc.titleMap = name
+            vc.locationOnMap = addressInput.text! + " " + postalCodeNumberInput.text! + " " + cityInput.text!
             
         }
     }
