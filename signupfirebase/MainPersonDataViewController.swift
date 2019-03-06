@@ -320,49 +320,102 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             // Find the indexPath.row for the cell which is selected
             if let indexPath = tableView.indexPathForSelectedRow {
                 let vc = segue.destination as! PersonViewController
-                vc.PersonimageFileURL = persons[indexPath.row].personData.imageFileURL
-                vc.PersonIdText = persons[indexPath.row].id
-                vc.PersonAddressText = persons[indexPath.row].personData.address
-                vc.PersonCityText = persons[indexPath.row].personData.city
-                vc.PersonDateOfBirthText = persons[indexPath.row].personData.dateOfBirth
                 
-                let name1 = persons[indexPath.row].personData.name.lowercased()
-                let name = name1.capitalized
+                if searching == false {
+                    vc.PersonimageFileURL = persons[indexPath.row].personData.imageFileURL
+                    vc.PersonIdText = persons[indexPath.row].id
+                    vc.PersonAddressText = persons[indexPath.row].personData.address
+                    vc.PersonCityText = persons[indexPath.row].personData.city
+                    vc.PersonDateOfBirthText = persons[indexPath.row].personData.dateOfBirth
+                    
+                    let name1 = persons[indexPath.row].personData.name.lowercased()
+                    let name = name1.capitalized
+                    
+                    vc.PersonNameText = name
+                    vc.PersonGenderInt = persons[indexPath.row].personData.gender
+                    vc.PersonPhoneNumberText = persons[indexPath.row].personData.phoneNumber
+                    vc.PersonPostalCodeNumberText = persons[indexPath.row].personData.postalCodeNumber
+                    
+                    vc.PersonMunicipalityText = persons[indexPath.row].personData.municipality
+                    vc.PersonMunicipalityNumberText = persons[indexPath.row].personData.municipalityNumber
+                    
+                    vc.PersonOption = 1         // Update == 1
+                    vc.PersonTitle = NSLocalizedString("Update Person", comment: "MainPersonDataViewController.swift prepare")
+                    
+                } else {
+                    
+                    vc.PersonimageFileURL = searchedPersons[indexPath.row].personData.imageFileURL
+                    vc.PersonIdText = searchedPersons[indexPath.row].id
+                    vc.PersonAddressText = searchedPersons[indexPath.row].personData.address
+                    vc.PersonCityText = searchedPersons[indexPath.row].personData.city
+                    vc.PersonDateOfBirthText = searchedPersons[indexPath.row].personData.dateOfBirth
+                    
+                    let name1 = searchedPersons[indexPath.row].personData.name.lowercased()
+                    let name = name1.capitalized
+                    
+                    vc.PersonNameText = name
+                    vc.PersonGenderInt = searchedPersons[indexPath.row].personData.gender
+                    vc.PersonPhoneNumberText = searchedPersons[indexPath.row].personData.phoneNumber
+                    vc.PersonPostalCodeNumberText = searchedPersons[indexPath.row].personData.postalCodeNumber
+                    
+                    vc.PersonMunicipalityText = searchedPersons[indexPath.row].personData.municipality
+                    vc.PersonMunicipalityNumberText = searchedPersons[indexPath.row].personData.municipalityNumber
+                    
+                    vc.PersonOption = 1         // Update == 1
+                    vc.PersonTitle = NSLocalizedString("Update Person", comment: "MainPersonDataViewController.swift prepare")
+                    
+                }
                 
-                vc.PersonNameText = name
-                vc.PersonGenderInt = persons[indexPath.row].personData.gender
-                vc.PersonPhoneNumberText = persons[indexPath.row].personData.phoneNumber
-                vc.PersonPostalCodeNumberText = persons[indexPath.row].personData.postalCodeNumber
-                
-                vc.PersonMunicipalityText = persons[indexPath.row].personData.municipality
-                vc.PersonMunicipalityNumberText = persons[indexPath.row].personData.municipalityNumber
-                
-                vc.PersonOption = 1         // Update == 1
-                vc.PersonTitle = NSLocalizedString("Update Person", comment: "MainPersonDataViewController.swift prepare")
             } else {
             
                 // indexRowUpdateSwipe is initiated at leadingSwipeActionsConfigurationForRowAt's "Update'
                 
                 let vc = segue.destination as! PersonViewController
-                vc.PersonimageFileURL = persons[indexRowUpdateSwipe].personData.imageFileURL
-                vc.PersonIdText = persons[indexRowUpdateSwipe].id
-                vc.PersonAddressText = persons[indexRowUpdateSwipe].personData.address
-                vc.PersonCityText = persons[indexRowUpdateSwipe].personData.city
-                vc.PersonDateOfBirthText = persons[indexRowUpdateSwipe].personData.dateOfBirth
                 
-                let name1 = persons[indexRowUpdateSwipe].personData.name.lowercased()
-                let name = name1.capitalized
-                
-                vc.PersonNameText = name
-                vc.PersonGenderInt = persons[indexRowUpdateSwipe].personData.gender
-                vc.PersonPhoneNumberText = persons[indexRowUpdateSwipe].personData.phoneNumber
-                vc.PersonPostalCodeNumberText = persons[indexRowUpdateSwipe].personData.postalCodeNumber
+                if searching == false {
+                    vc.PersonimageFileURL = persons[indexRowUpdateSwipe].personData.imageFileURL
+                    vc.PersonIdText = persons[indexRowUpdateSwipe].id
+                    vc.PersonAddressText = persons[indexRowUpdateSwipe].personData.address
+                    vc.PersonCityText = persons[indexRowUpdateSwipe].personData.city
+                    vc.PersonDateOfBirthText = persons[indexRowUpdateSwipe].personData.dateOfBirth
+                    
+                    let name1 = persons[indexRowUpdateSwipe].personData.name.lowercased()
+                    let name = name1.capitalized
+                    
+                    vc.PersonNameText = name
+                    vc.PersonGenderInt = persons[indexRowUpdateSwipe].personData.gender
+                    vc.PersonPhoneNumberText = persons[indexRowUpdateSwipe].personData.phoneNumber
+                    vc.PersonPostalCodeNumberText = persons[indexRowUpdateSwipe].personData.postalCodeNumber
 
-                vc.PersonMunicipalityText = persons[indexRowUpdateSwipe].personData.municipality
-                vc.PersonMunicipalityNumberText = persons[indexRowUpdateSwipe].personData.municipalityNumber
-                
-                vc.PersonOption = 1         // Update == 1
-                vc.PersonTitle = NSLocalizedString("Update Person", comment: "MainPersonDataViewController.swift prepare")
+                    vc.PersonMunicipalityText = persons[indexRowUpdateSwipe].personData.municipality
+                    vc.PersonMunicipalityNumberText = persons[indexRowUpdateSwipe].personData.municipalityNumber
+                    
+                    vc.PersonOption = 1         // Update == 1
+                    vc.PersonTitle = NSLocalizedString("Update Person", comment: "MainPersonDataViewController.swift prepare")
+                    
+                } else {
+                    
+                    vc.PersonimageFileURL = searchedPersons[indexRowUpdateSwipe].personData.imageFileURL
+                    vc.PersonIdText = searchedPersons[indexRowUpdateSwipe].id
+                    vc.PersonAddressText = searchedPersons[indexRowUpdateSwipe].personData.address
+                    vc.PersonCityText = searchedPersons[indexRowUpdateSwipe].personData.city
+                    vc.PersonDateOfBirthText = searchedPersons[indexRowUpdateSwipe].personData.dateOfBirth
+                    
+                    let name1 = searchedPersons[indexRowUpdateSwipe].personData.name.lowercased()
+                    let name = name1.capitalized
+                    
+                    vc.PersonNameText = name
+                    vc.PersonGenderInt = searchedPersons[indexRowUpdateSwipe].personData.gender
+                    vc.PersonPhoneNumberText = searchedPersons[indexRowUpdateSwipe].personData.phoneNumber
+                    vc.PersonPostalCodeNumberText = searchedPersons[indexRowUpdateSwipe].personData.postalCodeNumber
+                    
+                    vc.PersonMunicipalityText = searchedPersons[indexRowUpdateSwipe].personData.municipality
+                    vc.PersonMunicipalityNumberText = searchedPersons[indexRowUpdateSwipe].personData.municipalityNumber
+                    
+                    vc.PersonOption = 1         // Update == 1
+                    vc.PersonTitle = NSLocalizedString("Update Person", comment: "MainPersonDataViewController.swift prepare")
+
+                }
                 
             }
             
