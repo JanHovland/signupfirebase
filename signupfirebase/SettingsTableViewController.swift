@@ -19,11 +19,18 @@ class SettingsTableViewController: UITableViewController {
 
         // Set the 'switchPassWord' to inaktive
         if (UserDefaults.standard.bool(forKey: "SHOWPASSWORD")) == true {
-            switchPassWord.isOn = true
+            switchPassWord.isOn = false
         } else {
             switchPassWord.isOn = false
         }
-
+        
+        // Set the 'switchLogInLastUser' to last state of the switch
+        if (UserDefaults.standard.bool(forKey: "LOGINAUTOMATICALLY")) == true {
+            switchLogInLastUser.isOn = true
+        } else {
+            switchLogInLastUser.isOn = false
+        }
+        
         activity.hidesWhenStopped = true
         activity.style = .gray
         view.addSubview(activity)
@@ -38,10 +45,24 @@ class SettingsTableViewController: UITableViewController {
         activity.startAnimating()
         userInfo.text = showUserInfo(startUp: false)
         activity.stopAnimating()
-        
     }
+    
+    @IBAction func logInLastUser(_ sender: UISwitch) {
+        
+        if (UserDefaults.standard.bool(forKey: "LOGINAUTOMATICALLY")) == true {
+            UserDefaults.standard.set(false, forKey: "LOGINAUTOMATICALLY")
+            switchLogInLastUser.isOn = false
+        } else {
+            UserDefaults.standard.set(true, forKey: "LOGINAUTOMATICALLY")
+            switchLogInLastUser.isOn = true
+        }
 
+    }
+    
+    @IBOutlet weak var switchLogInLastUser: UISwitch!
+    
     @IBAction func showPassword(_ sender: UISwitch) {
+        
         if (UserDefaults.standard.bool(forKey: "SHOWPASSWORD")) == true {
             UserDefaults.standard.set(false, forKey: "SHOWPASSWORD")
             switchPassWord.isOn = false
@@ -52,10 +73,5 @@ class SettingsTableViewController: UITableViewController {
     }
     
     @IBOutlet var switchPassWord: UISwitch!
-    
-    
-    
-    
-    
     
 }

@@ -45,15 +45,21 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
 
         // Start activity
         activity.startAnimating()
-
-        // Get the last used eMail and password from CoreData where "loggedIn" = true
-        // If no value, blank eMailLoginTextField and passwordTextField
-        let value = getCoreData()
         
-        //  0 = uid  1 = ePost  2 = name  3 = passWord)
-        eMailLoginTextField.text = value.eMail
-        passwordTextField.text = value.passWord
+        if (UserDefaults.standard.bool(forKey: "LOGINAUTOMATICALLY")) == true {
 
+            // Get the last used eMail and password from CoreData where "loggedIn" = true
+            // If no value, blank eMailLoginTextField and passwordTextField
+            let value = getCoreData()
+            
+            //  0 = uid  1 = ePost  2 = name  3 = passWord)
+            eMailLoginTextField.text = value.eMail
+            passwordTextField.text = value.passWord
+        } else {
+            eMailLoginTextField.text = ""
+            passwordTextField.text = ""
+        }
+        
         activity.stopAnimating()
         
         // Turn off keyboard when you press "Return"
@@ -82,6 +88,20 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             self.passwordTextField.isSecureTextEntry = false
         } else {
             self.passwordTextField.isSecureTextEntry = true
+        }
+        
+        if (UserDefaults.standard.bool(forKey: "LOGINAUTOMATICALLY")) == true {
+            
+            // Get the last used eMail and password from CoreData where "loggedIn" = true
+            // If no value, blank eMailLoginTextField and passwordTextField
+            let value = getCoreData()
+            
+            //  0 = uid  1 = ePost  2 = name  3 = passWord)
+            eMailLoginTextField.text = value.eMail
+            passwordTextField.text = value.passWord
+        } else {
+            eMailLoginTextField.text = ""
+            passwordTextField.text = ""
         }
         
         // Turn off keyboard when you press "Return"
