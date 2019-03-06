@@ -126,12 +126,14 @@ class CvViewController: UIViewController {
               . Grunnen var at nameLabel manglet avhuking for "Clears Graphics Context"
                 One example of when you might use it is if you have a label (clear background) and you're changing the text.
                 Without this flag, the new text is drawn over the old text. With the box checked, the label area is "erased" before the next text is drawn.
+           s) Lagt inn Kart i PersonViewController (uten å gå gjennom opsjonene)
         
         7. Nye oppgaver (ikke fullført)
         
-           a) Legge inn Kart i PersonViewController
-           b) Vise fremgang
-           c) Oppdatere security i Firebase (er det samme for Firestore?)
+           a) Legge inn default bilde når en legger inn en ny person
+           b) Se igjennom opsjonene for Kart i PersonViewController
+           c) Vise fremgang
+           d) Oppdatere security i Firebase (er det samme for Firestore?)
         
         8. Programmerings tips
         
