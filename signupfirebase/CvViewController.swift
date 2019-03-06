@@ -111,29 +111,32 @@ class CvViewController: UIViewController {
               . https://www.bring.no/radgivning/sende-noe/adressetjenester/postnummer/
               . Hent .Excel format (xlsx)
               . Legg ut som .csv fil via Excel (Problemer med Tab-separerte felter (ANSI))
-           j) Har nå lagt postnummer inn i Firebase og leser derfra inn i postalCodes
-           k) Bruker nå filter({$0.xxxxxxxxx.contains(searchText.uppercased())}) på begge arrayene. Poststed ligger som
+           j) Lese .csv filen med postnr og poststed inn i Firestore
+           k) Har nå lagt postnummer inn i Firebase og leser derfra inn i postalCodes
+           l) Bruker nå filter({$0.xxxxxxxxx.contains(searchText.uppercased())}) på begge arrayene. Poststed ligger som
               uppercase og brukes som uppercase. Dermed kan jeg finne alle poststedene som inneholder en søkestreng.
-           l) Format av telefon er kommentert bort, må rettes og implementeres
+           m) Format av telefon er kommentert bort, må rettes og implementeres
               .Test OK
-           m) Lagt inn nytt punkt "Lagre postnummer i Firebase" under "Innstillinger"
-           n) Legge inn indexed table view for kunne søke raskere på Postnummer
-           o) Legge inn Bilde i PersonViewController
-           p) Benytte cache
-           q) Løst problemene med "krølling av bilder"
+           n) Lagt inn nytt punkt "Lagre postnummer i Firebase" under "Innstillinger"
+           o) Legge inn indexed table view for kunne søke raskere på Postnummer
+           p) Legge inn Bilde i PersonViewController
+           q) Benytte cache
+           r) Løst problemene med "krølling av bilder"
               Løsning: if self.persons[indexPath.row].personData.imageFileURL == imageFileURL i MainPersonDataViewController.swift
-           r) Søking på person er feil (krølling tekst)
+           s) Søking på person er feil (krølling tekst)
               . Grunnen var at nameLabel manglet avhuking for "Clears Graphics Context"
                 One example of when you might use it is if you have a label (clear background) and you're changing the text.
                 Without this flag, the new text is drawn over the old text. With the box checked, the label area is "erased" before the next text is drawn.
-           s) Lagt inn Kart i PersonViewController (uten å gå gjennom opsjonene)
+           t) Lagt inn Kart i PersonViewController (uten å gå gjennom opsjonene)
+           u) Lagt inn default bilde når en legger inn en ny person
         
         7. Nye oppgaver (ikke fullført)
         
-           a) Legge inn default bilde når en legger inn en ny person
-           b) Se igjennom opsjonene for Kart i PersonViewController
-           c) Vise fremgang
-           d) Oppdatere security i Firebase (er det samme for Firestore?)
+           a) Velge automatisk innlogging i "Innstillinger"
+           b) Legge inn default bilde (new-person) i oppstart
+           c) Se igjennom opsjonene for Kart i PersonViewController
+           d) Vise fremgang
+           e) Oppdatere security i Firebase (er det samme for Firestore?)
         
         8. Programmerings tips
         
@@ -150,7 +153,6 @@ class CvViewController: UIViewController {
               . https://firebase.google.com/docs/firestore/data-model
               . Har gode queriesProgrammerings oppgaver:
               . Søkefunksjon i Firestore i PersonViewController på både fornavn og/eller etternavn
-           b) Lese .csv filen med postnr og poststed inn i Firestore
         
         9. Feil som må rettes
         
