@@ -124,6 +124,9 @@
    UpdatePasswordViewVontroller.swift SaveNewPassword */
 "The password must contain minimum 6 characters" = "Passordet må inneholde minimum 6 tegn";
 
+/* DataBaseExtension.swift formatPhone */
+"The phonenumber must include 8 digits.\nThe country code prefix will automaticall be added.\n\nFormat: +47 123 45 678" = "Telefonnummeret må ha 8 siffer.\nLandskoden vil automatisk bli lagt til.\n\nFormat: +47 123 45 678";
+
 /* UpdateUserNameViewVontroller.swift SaveNewName */
 "The username must have a value." = "Navnet til brukeren kan ikke være tomt.";
 

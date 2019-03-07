@@ -456,7 +456,8 @@ extension UIViewController {
                     let index4 = phone.index(phone.startIndex, offsetBy: 4)
                     let index5 = phone.index(phone.startIndex, offsetBy: 5)
 
-                    return String(phone[...index2]) + " " +
+                    return "+47 " +
+                           String(phone[...index2]) + " " +
                            String(phone[index3...index4]) + " " +
                            String(phone[index5...])
                 } else {
@@ -492,6 +493,7 @@ extension UIViewController {
                                 
                                 if isNumeric(string: t5) == true {
                                     
+                                    let phone = "+47 " + phone
                                     return phone
                                     
                                 } else {
@@ -530,7 +532,7 @@ extension UIViewController {
     // Show the alert
     
     func showAlert() {
-        let melding = "\r\n" + NSLocalizedString("The phonenumber must include 8 digits.\n\nFormat: 123 45 678",
+        let melding = "\r\n" + NSLocalizedString("The phonenumber must include 8 digits.\nThe country code prefix will automaticall be added.\n\nFormat: +47 123 45 678",
                                                  comment: "DataBaseExtension.swift formatPhone")
         self.presentAlert(withTitle: NSLocalizedString("Invalid phone number",
                                                        comment: "DataBaseExtension.swift formatPhone"),
