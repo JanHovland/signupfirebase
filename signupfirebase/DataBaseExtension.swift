@@ -577,6 +577,7 @@ extension UIViewController {
         }
     }
 
+    /*
     func updatePersonFiredata(id: String,
                               uid: String,
                               username: String,
@@ -720,5 +721,5 @@ extension UIViewController {
                               message: melding)
         }
     }
-
+    */
 }
