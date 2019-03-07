@@ -46,7 +46,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         // Start activity
         activity.startAnimating()
         
-        if (UserDefaults.standard.bool(forKey: "LOGINAUTOMATICALLY")) == true {
+        if (UserDefaults.standard.bool(forKey: "LOGINCLEAREMAILPASSWORD")) == false {
 
             // Get the last used eMail and password from CoreData where "loggedIn" = true
             // If no value, blank eMailLoginTextField and passwordTextField
@@ -90,7 +90,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             self.passwordTextField.isSecureTextEntry = true
         }
         
-        if (UserDefaults.standard.bool(forKey: "LOGINAUTOMATICALLY")) == true {
+        if (UserDefaults.standard.bool(forKey: "LOGINCLEAREMAILPASSWORD")) == false {
             
             // Get the last used eMail and password from CoreData where "loggedIn" = true
             // If no value, blank eMailLoginTextField and passwordTextField

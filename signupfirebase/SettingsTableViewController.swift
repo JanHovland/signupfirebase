@@ -25,7 +25,7 @@ class SettingsTableViewController: UITableViewController {
         }
         
         // Set the 'switchLogInLastUser' to last state of the switch
-        if (UserDefaults.standard.bool(forKey: "LOGINAUTOMATICALLY")) == true {
+        if (UserDefaults.standard.bool(forKey: "LOGINAUTOMATICALLY")) == false {
             switchLogInLastUser.isOn = true
         } else {
             switchLogInLastUser.isOn = false
@@ -49,11 +49,11 @@ class SettingsTableViewController: UITableViewController {
     
     @IBAction func logInLastUser(_ sender: UISwitch) {
         
-        if (UserDefaults.standard.bool(forKey: "LOGINAUTOMATICALLY")) == true {
-            UserDefaults.standard.set(false, forKey: "LOGINAUTOMATICALLY")
+        if (UserDefaults.standard.bool(forKey: "LOGINCLEAREMAILPASSWORD")) == true {
+            UserDefaults.standard.set(false, forKey: "LOGINCLEAREMAILPASSWORD")
             switchLogInLastUser.isOn = false
         } else {
-            UserDefaults.standard.set(true, forKey: "LOGINAUTOMATICALLY")
+            UserDefaults.standard.set(true, forKey: "LOGINCLEAREMAILPASSWORD")
             switchLogInLastUser.isOn = true
         }
 

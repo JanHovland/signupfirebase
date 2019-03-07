@@ -532,7 +532,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="253" verticalHuggingPriority="251" image="Icon-20" translatesAutoresizingMaskIntoConstraints="NO" id="tqq-MC-Xgp">
-                                                    <rect key="frame" x="16" y="9" width="20" height="20"/>
+                                                    <rect key="frame" x="17" y="9" width="20" height="20"/>
                                                 </imageView>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fXi-nX-Z9M">
                                                     <rect key="frame" x="311" y="7" width="51" height="31"/>
@@ -540,8 +540,11 @@
                                                         <action selector="logInLastUser:" destination="nhA-xf-W66" eventType="valueChanged" id="uMh-zW-sRb"/>
                                                     </connections>
                                                 </switch>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Log in with last user" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5H-dU-kkQ">
-                                                    <rect key="frame" x="52" y="11" width="152.5" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Clear input fields on sign in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5H-dU-kkQ">
+                                                    <rect key="frame" x="53" y="11" width="250" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="S7p-2e-JYV"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -549,12 +552,13 @@
                                             </subviews>
                                             <rect key="contentStretch" x="0.20000000000000001" y="0.0" width="1" height="1"/>
                                             <constraints>
+                                                <constraint firstItem="fXi-nX-Z9M" firstAttribute="leading" secondItem="X5H-dU-kkQ" secondAttribute="trailing" constant="8" symbolic="YES" id="2Ea-Fi-Zy0"/>
                                                 <constraint firstItem="X5H-dU-kkQ" firstAttribute="top" secondItem="kQO-o6-7Bm" secondAttribute="top" constant="11" id="JmA-bi-ZrE"/>
                                                 <constraint firstItem="X5H-dU-kkQ" firstAttribute="leading" secondItem="tqq-MC-Xgp" secondAttribute="trailing" constant="16" id="YFY-nZ-CD3"/>
                                                 <constraint firstItem="fXi-nX-Z9M" firstAttribute="top" secondItem="kQO-o6-7Bm" secondAttribute="top" constant="7" id="fee-fc-SBr"/>
                                                 <constraint firstItem="tqq-MC-Xgp" firstAttribute="top" secondItem="kQO-o6-7Bm" secondAttribute="top" constant="9" id="icM-Pw-qlh"/>
                                                 <constraint firstAttribute="trailing" secondItem="fXi-nX-Z9M" secondAttribute="trailing" constant="15" id="nfy-MQ-06H"/>
-                                                <constraint firstItem="fXi-nX-Z9M" firstAttribute="leading" secondItem="X5H-dU-kkQ" secondAttribute="trailing" constant="106.5" id="pDB-xl-qVB"/>
+                                                <constraint firstItem="X5H-dU-kkQ" firstAttribute="leading" secondItem="tqq-MC-Xgp" secondAttribute="trailing" constant="16" id="vr9-th-cQr"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1818,6 +1822,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gYJ-L2-bgL"/>
-        <segue reference="HHx-uR-c6E"/>
+        <segue reference="UGA-2W-dJw"/>
     </inferredMetricsTieBreakers>
 </document>

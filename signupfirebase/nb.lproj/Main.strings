@@ -205,6 +205,9 @@
 /* Class = "UILabel"; text = "Password"; ObjectID = "X3x-Cl-KO1"; */
 "X3x-Cl-KO1.text" = "Passord";
 
+/* Class = "UILabel"; text = "Clear input fields on sign in"; ObjectID = "X5H-dU-kkQ"; */
+"X5H-dU-kkQ.text" = "Blanke feltene for innlogging";
+
 /* Class = "UILabel"; text = "Send to"; ObjectID = "X7L-7g-bF5"; */
 "X7L-7g-bF5.text" = "Send til";
 
