@@ -80,7 +80,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done" textContentType="email"/>
                             </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="new-person" translatesAutoresizingMaskIntoConstraints="NO" id="tMJ-6U-zRw">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="people" translatesAutoresizingMaskIntoConstraints="NO" id="tMJ-6U-zRw">
                                 <rect key="frame" x="127.5" y="214" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="8m8-AF-7vH"/>
@@ -1816,6 +1816,7 @@
         <image name="map-31" width="31" height="31"/>
         <image name="message-35" width="35" height="35"/>
         <image name="new-person" width="127" height="128"/>
+        <image name="people" width="256" height="256"/>
         <image name="personer-33" width="29" height="29"/>
         <image name="phone-35" width="35" height="35"/>
         <image name="search-31" width="31" height="31"/>

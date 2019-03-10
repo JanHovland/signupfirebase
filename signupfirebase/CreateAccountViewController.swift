@@ -134,10 +134,6 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                             //  0 = uid  1 = ePost  2 = name  3 = passWord 4 = photoURL
                             let value1 = self.getCoreData()
                             
-                            /*
-                            let photoURL = "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2Fjho.hovland%40gmail.com.png?alt=media&token=a2cb87e1-4a1c-4277-966b-65eef85e3a05"
-                            */
- 
                             ok1 = self.saveCoreData(withEpost: self.eMailCreateAccountTextField.text!,
                                                     withPassord: self.passwordCreateAccountTextField.text!,
                                                     withUid: uid,
