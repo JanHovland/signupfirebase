@@ -21,8 +21,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginStatus: UITextField!
     
     @IBOutlet weak var uploadImage: UIImageView!
-    @IBOutlet weak var downloadImage: UIImageView!
-
+    
     var status: Bool = true
     var activeField: UITextField!
     
@@ -50,9 +49,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
 
             // Get the last used eMail and password from CoreData where "loggedIn" = true
             // If no value, blank eMailLoginTextField and passwordTextField
+            
+            //  0 = uid  1 = ePost  2 = name  3 = passWord 4 = photoURL
             let value = getCoreData()
             
-            //  0 = uid  1 = ePost  2 = name  3 = passWord)
             eMailLoginTextField.text = value.eMail
             passwordTextField.text = value.passWord
         } else {
@@ -65,6 +65,27 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         // Turn off keyboard when you press "Return"
         eMailLoginTextField.delegate = self
         passwordTextField.delegate = self
+        
+        savePhotoURL(image: uploadImage.image!,
+                     email: eMailLoginTextField.text!,
+                     completionHandler: { (url) in
+                        print("url = \(url)")
+                        
+            //  0 = uid  1 = eMail 2 = name  3 = passWord 4 = photoURL
+            let value = self.getCoreData()
+
+            let OK = self.saveCoreData(withEpost: value.eMail,
+                                       withPassord: value.passWord,
+                                       withUid: value.uid,
+                                       withLoggedIn: true,
+                                       withName: value.name,
+                                       withPhotoURL: url)
+                        
+            if OK == false {
+                
+            }
+                        
+        })
         
     }
     
@@ -186,11 +207,22 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                         ok = self.findCoreData(withEpost: self.eMailLoginTextField.text!)
 
                         if ok == false {
+                            
+                            //  0 = uid  1 = ePost  2 = name  3 = passWord 4 = photoURL
+                            let value1 = self.getCoreData()
+
+                            
+                            /*
+                            let value =
+                            let photoURL = "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2Fjho.hovland%40gmail.com.png?alt=media&token=a2cb87e1-4a1c-4277-966b-65eef85e3a05"
+                            */
+                            
                             ok1 = self.saveCoreData(withEpost: self.eMailLoginTextField.text!,
                                                     withPassord: self.passwordTextField.text!,
                                                     withUid: uid,
                                                     withLoggedIn: true,
-                                                    withName: navn)
+                                                    withName: navn,
+                                                    withPhotoURL: value1.photoURL)
 
                             if ok1 == false {
                                 let melding = NSLocalizedString("Unable to store data in FireBase.",

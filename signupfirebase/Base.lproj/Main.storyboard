@@ -137,6 +137,7 @@
                         <outlet property="eMailLoginTextField" destination="vH1-YR-EwT" id="7Vu-sS-bVa"/>
                         <outlet property="loginStatus" destination="Kdi-Jg-uOD" id="9iP-Lu-baU"/>
                         <outlet property="passwordTextField" destination="k82-w8-ML8" id="tIr-3x-uDz"/>
+                        <outlet property="uploadImage" destination="tMJ-6U-zRw" id="nc3-Oe-hBP"/>
                         <segue destination="V07-a3-pap" kind="show" identifier="gotoCreateAccount" id="eyi-HE-UNj"/>
                     </connections>
                 </viewController>

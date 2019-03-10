@@ -42,7 +42,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     var PersonOption = 0 // 0 = save 1 = update
     
     // These vaiables get their values from MainPersonDataViewController.swift
-    var PersonimageFileURL = ""
+    var PersonPhotoURL = ""
     var PersonIdText = ""
     var PersonAddressText = ""
     var PersonCityText = ""
@@ -105,11 +105,11 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         
         // Find the inputImage before updating the person data
         
-        if let image = CacheManager.shared.getFromCache(key: PersonimageFileURL) as? UIImage {
+        if let image = CacheManager.shared.getFromCache(key: PersonPhotoURL) as? UIImage {
             self.inputImage.image = image
-            self.PersonimageFileURL = ""
+            self.PersonPhotoURL = ""
         } else {
-            if let url = URL(string: PersonimageFileURL) {
+            if let url = URL(string: PersonPhotoURL) {
             
                 let findCellImage = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
                     guard let imageData = data else {
@@ -123,8 +123,8 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
                         self.inputImage.image = image
                         
                         // Add the downloaded image to cache
-                        CacheManager.shared.cache(object: image, key: self.PersonimageFileURL)
-                        self.PersonimageFileURL = ""
+                        CacheManager.shared.cache(object: image, key: self.PersonPhotoURL)
+                        self.PersonPhotoURL = ""
                     }
                 })
                 
@@ -295,11 +295,13 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         guard let image = inputImage.image else { return }
         
         // Get the user who has logged in
-        //  0 = uid  1 = eMail  2 = name  3 = passWord)
+        //  0 = uid  1 = eMail  2 = name  3 = passWord 4 = photoURL
         let value = getCoreData()
+        
         
         // Upload an image to the cloud
         PersonService.shared.storePersonFiredata(id: PersonIdText,
+                                                 photoURL: value.photoURL,
                                                  image: image,
                                                  user: value.name,
                                                  uid: value.uid,
@@ -307,7 +309,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
                                                  address: addressInput.text!,
                                                  city: cityInput.text!,
                                                  dateOfBirth: dateOfBirthInput.text!,
-                                                 name: nameInput.text!,
+                                                 name: nameInput.text!.uppercased(),
                                                  gender: genderInput.selectedSegmentIndex,
                                                  phoneNumber: phoneNumberInput.text!,
                                                  postalCodeNumber: postalCodeNumberInput.text!,

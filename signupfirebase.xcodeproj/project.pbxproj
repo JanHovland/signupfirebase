@@ -40,9 +40,9 @@
 		D1FFF52B2212E5110097B414 /* SearchedPostelCodesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFF52A2212E5110097B414 /* SearchedPostelCodesTableViewCell.swift */; };
 		DB2FE8D22225C696006BDF27 /* PersonsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2FE8D12225C696006BDF27 /* PersonsService.swift */; };
 		DB343258222EDDA900452D0B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB343257222EDDA900452D0B /* MapViewController.swift */; };
+		DB34325E223435C900452D0B /* signupfirebase-236b9-export-4.json in Resources */ = {isa = PBXBuildFile; fileRef = DB34325D223435C900452D0B /* signupfirebase-236b9-export-4.json */; };
 		DB4B74732215FD48002BCDDD /* PersonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4B74722215FD47002BCDDD /* PersonData.swift */; };
 		DBC0BD9B222146BC003E5566 /* UIImage+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC0BD9A222146BC003E5566 /* UIImage+Scale.swift */; };
-		DBC5617E222D1D6B0048332C /* signupfirebase-236b9-export.json in Resources */ = {isa = PBXBuildFile; fileRef = DBC5617D222D1D6B0048332C /* signupfirebase-236b9-export.json */; };
 		DBD44B9C2229BDFA0082E490 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DBD44B9A2229BDFA0082E490 /* InfoPlist.strings */; };
 		DBEDA1762223157600725D75 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEDA1752223157600725D75 /* CacheManager.swift */; };
 		DBEDA17B2223D1F300725D75 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEDA17A2223D1F300725D75 /* WebViewController.swift */; };
@@ -89,9 +89,9 @@
 		D8FA6AF44DDF6A6C8562A35A /* Pods_signupfirebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_signupfirebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB2FE8D12225C696006BDF27 /* PersonsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonsService.swift; sourceTree = "<group>"; };
 		DB343257222EDDA900452D0B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		DB34325D223435C900452D0B /* signupfirebase-236b9-export-4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "signupfirebase-236b9-export-4.json"; sourceTree = "<group>"; };
 		DB4B74722215FD47002BCDDD /* PersonData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonData.swift; sourceTree = "<group>"; };
 		DBC0BD9A222146BC003E5566 /* UIImage+Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Scale.swift"; sourceTree = "<group>"; };
-		DBC5617D222D1D6B0048332C /* signupfirebase-236b9-export.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "signupfirebase-236b9-export.json"; sourceTree = "<group>"; };
 		DBD44B9B2229BDFA0082E490 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DBEDA1752223157600725D75 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		DBEDA17A2223D1F300725D75 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -170,7 +170,6 @@
 				DBC0BD972221392A003E5566 /* Service */,
 				DBC0BD9422213290003E5566 /* Model */,
 				D11114C921F5C68C00835CF4 /* PostalCode.swift */,
-				DBC5617D222D1D6B0048332C /* signupfirebase-236b9-export.json */,
 				D17C78F121F0C89000DEE649 /* SearchViewController.swift */,
 				D1349F152205C94800C825E7 /* Postnummer.csv */,
 				D1E9A40D220C4D18003423D7 /* IndexedTableViewController.swift */,
@@ -182,6 +181,7 @@
 				D134822621CF922900F9F944 /* MainPersonDataViewController.swift */,
 				D1E95C8D21D6899400B40EE9 /* PersonViewController.swift */,
 				D1E95C8F21D6BB6E00B40EE9 /* PersonDataTableViewCell.swift */,
+				DB34325D223435C900452D0B /* signupfirebase-236b9-export-4.json */,
 				DB343257222EDDA900452D0B /* MapViewController.swift */,
 			);
 			path = signupfirebase;
@@ -269,9 +269,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1C7F2EB218C98C900481E48 /* LaunchScreen.storyboard in Resources */,
-				DBC5617E222D1D6B0048332C /* signupfirebase-236b9-export.json in Resources */,
 				D1B3049421962151006C1319 /* GoogleService-Info.plist in Resources */,
 				D1CF583F219C6811000A3497 /* Create iOS Icons.jsx in Resources */,
+				DB34325E223435C900452D0B /* signupfirebase-236b9-export-4.json in Resources */,
 				D1E32FBD21E1FED50022BFB3 /* Localizable.strings in Resources */,
 				D1349F162205C94800C825E7 /* Postnummer.csv in Resources */,
 				D1C7F2E8218C98C900481E48 /* Assets.xcassets in Resources */,

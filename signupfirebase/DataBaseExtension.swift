@@ -60,7 +60,9 @@ extension UIViewController {
                       withPassord: String,
                       withUid: String,
                       withLoggedIn: Bool,
-                      withName: String) -> Bool {
+                      withName: String,
+                      withPhotoURL: String) -> Bool {
+        
         var ok: Bool = false
 
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -73,6 +75,8 @@ extension UIViewController {
         newEntity.setValue(withUid, forKey: "uid")
         newEntity.setValue(withLoggedIn, forKey: "loggedin")
         newEntity.setValue(withName, forKey: "name")
+        newEntity.setValue(withPhotoURL, forKey: "photoURL")
+        
 
         do {
             try context.save()
@@ -89,13 +93,15 @@ extension UIViewController {
     func getCoreData() -> (uid: String,
                            eMail: String,
                            name: String,
-                           passWord: String) {
+                           passWord: String,
+                           photoURL: String) {
         
         var uid: String = ""
         var ePost: String = ""
         var name: String = ""
         var passWord: String = ""
-
+        var photoURL = ""
+        
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         request.returnsObjectsAsFaults = false
@@ -121,6 +127,10 @@ extension UIViewController {
                     if data.value(forKey: "password") != nil {
                         passWord = data.value(forKey: "password") as! String
                     }
+                    
+                    if data.value(forKey: "photoURL") != nil {
+                        photoURL = data.value(forKey: "photoURL") as! String
+                    }
                 }
             }
 
@@ -130,7 +140,7 @@ extension UIViewController {
                               message: melding)
         }
 
-        return (uid, ePost, name, passWord)
+        return (uid, ePost, name, passWord, photoURL)
     }
 
     func updateCoreData(withEpost: String, withLoggedIn: Bool) -> Bool {
@@ -577,149 +587,44 @@ extension UIViewController {
         }
     }
 
-    /*
-    func updatePersonFiredata(id: String,
-                              uid: String,
-                              username: String,
-                              email: String,
-                              address: String,
-                              city: String,
-                              dateOfBirth: String,
-                              name: String,
-                              gender: Int,
-                              phoneNumber: String,
-                              postalCodeNumber: String,
-                              municipality: String,
-                              municipalityNumber: String) {
+    
+    func savePhotoURL(image: UIImage,
+                      email: String,
+                      completionHandler: @escaping (String) -> Void) {
         
-        if uid.count > 0,
-            username.count > 0,
-            email.count > 0,
-            address.count > 0,
-            city.count > 0,
-            dateOfBirth.count > 0,
-            name.count > 0,
-            phoneNumber.count > 0,
-            postalCodeNumber.count > 0,
-            municipality.count > 0,
-            municipalityNumber.count > 0 {
+        let PHOTO_STORAGE_REF: StorageReference = Storage.storage().reference().child("photos")
+        let imageStorageRef = PHOTO_STORAGE_REF.child("\(email).png")
+        
+        print(imageStorageRef as Any)
+        
+        // Resize the image
+        let scaledImage = image.scale(newWidth: 100.0)
+        
+        guard let imageData = scaledImage.jpegData(compressionQuality: 1.0) else {
+            return
+        }
+        
+        // Create the file metadata
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/png"
+        
+        // Prepare the upload task
+        let uploadTask = imageStorageRef.putData(imageData, metadata: metadata)
+        
+        // Prepare the upload status
+        uploadTask.observe(.success) { (snapshot) in
             
-            let dataBase = Database.database().reference().child("person" + "/" + id)
-            
-            let postObject = [
-                "author": [
-                    "uid": uid,
-                    "username": username,
-                    "email": email,
-                ],
-                
-                "personData": [
-                    "address": address,
-                    "city": city,
-                    "dateOfBirth": dateOfBirth,
-                    "name": name,
-                    "gender": gender,
-                    "phoneNumber": phoneNumber,
-                    "postalCodeNumber": postalCodeNumber,
-                    "municipality": municipality,
-                    "municipalityNumber": municipalityNumber
-                ],
-                
-                "timestamp": [".sv": "timestamp"],
-                
-                ] as [String: Any]
-            
-            dataBase.setValue(postObject, withCompletionBlock: { error, _ in
-                if error == nil {
-                    self.dismiss(animated: true, completion: nil)
-                    let title = NSLocalizedString("Update in Firebase",comment: "DataBaseExtension.swift updatePersonFiredata")
-                    let message = "\r\n" + NSLocalizedString("Data are now updated in Firebase.", comment: "DataBaseExtension.swift updatePersonFiredata")
-                    self.presentAlert(withTitle: title, message: message)
-                } else {
-                    let melding = error!.localizedDescription
-                    self.presentAlert(withTitle: NSLocalizedString("Error", comment: "DataBaseExtension.swiftt savePersonFiredata"),
-                                      message: melding)
+            // Add a reference in the database
+            snapshot.reference.downloadURL(completion: { (url, error) in
+                guard let url = url else {
+                    return
                 }
+                
+                print(url)
+                
+                completionHandler(url.absoluteString)
             })
-        } else {
-            let melding = "\r\n" + NSLocalizedString("Every field must be filled in.",
-                                                     comment: "DataBaseExtension.swift savePersonFiredata")
-            
-            self.presentAlert(withTitle: NSLocalizedString("Error",
-                                                           comment: "DataBaseExtension.swift  savePersonFiredata"),
-                              message: melding)
         }
     }
     
-    func savePersonFiredata(uid: String,
-                            username: String,
-                            email: String,
-                            address: String,
-                            city: String,
-                            dateOfBirth: String,
-                            name: String,
-                            gender: Int,
-                            phoneNumber: String,
-                            postalCodeNumber: String,
-                            municipality: String,
-                            municipalityNumber: String) {
-        
-        if uid.count > 0,
-            username.count > 0,
-            email.count > 0,
-            address.count > 0,
-            city.count > 0,
-            dateOfBirth.count > 0,
-            name.count > 0,
-            phoneNumber.count > 0,
-            municipality.count > 0,
-            municipalityNumber.count > 0 {
-            
-            let dataBase = Database.database().reference().child("person").childByAutoId()
-            
-            let postObject = [
-                "author": [
-                    "uid": uid,
-                    "username": username,
-                    "email": email,
-                ],
-                
-                "personData": [
-                    "address": address,
-                    "city": city,
-                    "dateOfBirth": dateOfBirth,
-                    "name": name,
-                    "gender": gender,
-                    "phoneNumber": phoneNumber,
-                    "postalCodeNumber": postalCodeNumber,
-                    "municipality": municipality,
-                    "municipalityNumber": municipalityNumber
-                ],
-                
-                "timestamp": [".sv": "timestamp"],
-                
-                ] as [String: Any]
-            
-            dataBase.setValue(postObject, withCompletionBlock: { error, _ in
-                if error == nil {
-                    self.dismiss(animated: true, completion: nil)
-                    let title = NSLocalizedString("Save in Firebase",comment: "DataBaseExtension.swift savePersonFiredata")
-                    let message = "\r\n" + NSLocalizedString("Data are now saved in Firebase.", comment: "DataBaseExtension.swift savePersonFiredata")
-                    self.presentAlert(withTitle: title, message: message)
-                } else {
-                    let melding = error!.localizedDescription
-                    self.presentAlert(withTitle: NSLocalizedString("Error", comment: "DataBaseExtension.swift savePersonFiredata"),
-                                      message: melding)
-                }
-            })
-        } else {
-            let melding = "\r\n" + NSLocalizedString("Every field must be filled in.",
-                                                     comment: "DataBaseExtension.swift savePersonFiredata")
-            
-            self.presentAlert(withTitle: NSLocalizedString("Error",
-                                                           comment: "DataBaseExtension.swift savePersonFiredata"),
-                              message: melding)
-        }
-    }
-    */
 }

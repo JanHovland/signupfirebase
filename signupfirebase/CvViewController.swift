@@ -122,7 +122,7 @@ class CvViewController: UIViewController {
            p) Legge inn Bilde i PersonViewController
            q) Benytte cache
            r) Løst problemene med "krølling av bilder"
-              Løsning: if self.persons[indexPath.row].personData.imageFileURL == imageFileURL i MainPersonDataViewController.swift
+              Løsning: if self.persons[indexPath.row].personData.photoURL == photoURL i MainPersonDataViewController.swift
            s) Søking på person er feil (krølling tekst)
               . Grunnen var at nameLabel manglet avhuking for "Clears Graphics Context"
                 One example of when you might use it is if you have a label (clear background) and you're changing the text.

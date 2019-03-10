@@ -26,6 +26,7 @@ final class PersonService {
     let PHOTO_STORAGE_REF: StorageReference = Storage.storage().reference().child("photos")
     
     func storePersonFiredata(id: String,
+                             photoURL: String,
                              image: UIImage,
                              user: String,
                              uid: String,
@@ -40,7 +41,7 @@ final class PersonService {
                              municipality: String,
                              municipalityNumber: String,
                              completionHandler: @escaping () -> Void) {
-
+        
         var dbRef: DatabaseReference
         
         if id.count == 0 {
@@ -83,7 +84,7 @@ final class PersonService {
                 }
                 
                 // Add a reference in the database
-                let imageFileURL = url.absoluteString
+                let personPhotoURL = url.absoluteString
                 let timestamp = Int(Date().timeIntervalSince1970 * 1000)
                 
                 let person: [String: Any] = [
@@ -92,10 +93,11 @@ final class PersonService {
                         "uid": uid,
                         "username": user,
                         "email": email,
+                        "photoURL": photoURL,
                     ],
                     
                     "personData": [
-                        "imageFileURL": imageFileURL,
+                        "photoURL": personPhotoURL,
                         "address": address,
                         "city": city,
                         "dateOfBirth": dateOfBirth,

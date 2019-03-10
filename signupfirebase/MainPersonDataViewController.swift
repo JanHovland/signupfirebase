@@ -122,7 +122,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                                       searchedPersons[indexPath.row].personData.postalCodeNumber + " " +
                                       searchedPersons[indexPath.row].personData.city
             
-            imageFileURL = searchedPersons[indexPath.row].personData.imageFileURL
+            imageFileURL = searchedPersons[indexPath.row].personData.photoURL
             
         } else {
             
@@ -136,7 +136,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                                       persons[indexPath.row].personData.postalCodeNumber + " " +
                                       persons[indexPath.row].personData.city
             
-            imageFileURL = persons[indexPath.row].personData.imageFileURL
+            imageFileURL = persons[indexPath.row].personData.photoURL
             
         }
         
@@ -153,7 +153,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                         return
                     }
                     
-                    if self.persons[indexPath.row].personData.imageFileURL == imageFileURL {
+                    if self.persons[indexPath.row].personData.photoURL == imageFileURL {
                         cell.imageLabel.image = image
                     }
                     
@@ -253,6 +253,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                     let uid = author["uid"] as? String,
                     let username = author["username"] as? String,
                     let email = author["email"] as? String,
+                    let authorPhotoURL = author["photoURL"] as? String,
                     let personData = dict["personData"] as? [String: Any],
                     let address = personData["address"] as? String,
                     let city = personData["city"] as? String,
@@ -263,12 +264,13 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                     let postalCodeNumber = personData["postalCodeNumber"] as? String,
                     let municipality = personData["municipality"] as? String,
                     let municipalityNumber = personData["municipalityNumber"] as? String,
-                    let imageFileURL = personData["imageFileURL"] as? String,
+                    let personPhotoURL = personData["photoURL"] as? String,
                     let timestamp = dict["timestamp"] as? Double {
                     
                     let author = Author(uid: uid,
                                         username: username,
-                                        email: email)
+                                        email: email,
+                                        photoURL: authorPhotoURL)
                     
                     let personData = PersonData(address: address,
                                                 city : city,
@@ -279,7 +281,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                                                 postalCodeNumber : postalCodeNumber,
                                                 municipality: municipality,
                                                 municipalityNumber: municipalityNumber,
-                                                imageFileURL: imageFileURL)
+                                                photoURL: personPhotoURL)
                     
                     let person = Person(id: childSnapshot.key,
                                         author: author,
@@ -322,7 +324,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                 let vc = segue.destination as! PersonViewController
                 
                 if searching == false {
-                    vc.PersonimageFileURL = persons[indexPath.row].personData.imageFileURL
+                    vc.PersonPhotoURL = persons[indexPath.row].personData.photoURL
                     vc.PersonIdText = persons[indexPath.row].id
                     vc.PersonAddressText = persons[indexPath.row].personData.address
                     vc.PersonCityText = persons[indexPath.row].personData.city
@@ -344,7 +346,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                     
                 } else {
                     
-                    vc.PersonimageFileURL = searchedPersons[indexPath.row].personData.imageFileURL
+                    vc.PersonPhotoURL = searchedPersons[indexPath.row].personData.photoURL
                     vc.PersonIdText = searchedPersons[indexPath.row].id
                     vc.PersonAddressText = searchedPersons[indexPath.row].personData.address
                     vc.PersonCityText = searchedPersons[indexPath.row].personData.city
@@ -373,7 +375,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                 let vc = segue.destination as! PersonViewController
                 
                 if searching == false {
-                    vc.PersonimageFileURL = persons[indexRowUpdateSwipe].personData.imageFileURL
+                    vc.PersonPhotoURL = persons[indexRowUpdateSwipe].personData.photoURL
                     vc.PersonIdText = persons[indexRowUpdateSwipe].id
                     vc.PersonAddressText = persons[indexRowUpdateSwipe].personData.address
                     vc.PersonCityText = persons[indexRowUpdateSwipe].personData.city
@@ -395,7 +397,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                     
                 } else {
                     
-                    vc.PersonimageFileURL = searchedPersons[indexRowUpdateSwipe].personData.imageFileURL
+                    vc.PersonPhotoURL = searchedPersons[indexRowUpdateSwipe].personData.photoURL
                     vc.PersonIdText = searchedPersons[indexRowUpdateSwipe].id
                     vc.PersonAddressText = searchedPersons[indexRowUpdateSwipe].personData.address
                     vc.PersonCityText = searchedPersons[indexRowUpdateSwipe].personData.city
@@ -421,7 +423,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             
         } else if segue.identifier! == "gotoAddPerson" {
             let vc = segue.destination as! PersonViewController
-            vc.PersonimageFileURL = ""
+            vc.PersonPhotoURL = ""
             vc.PersonIdText = ""
             vc.PersonAddressText = ""
             vc.PersonCityText  = ""

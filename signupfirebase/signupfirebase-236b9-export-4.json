@@ -3,6 +3,7 @@
     "-LZiiqBNVS5LjxQ38EQd" : {
       "author" : {
         "email" : "jho.hovland@gmail.com",
+        "photoURL" : "",
         "uid" : "MnYNNQNIJUgSXZhpKlk3TZaT2YJ3",
         "username" : "Jan Gmail Hovland"
       },
@@ -11,18 +12,19 @@
         "city" : "Lye",
         "dateOfBirth" : "3. april 1980",
         "gender" : 1,
-        "imageFileURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-LZiiqBNVS5LjxQ38EQd.png?alt=media&token=f8443422-99db-4bdc-af84-7f53d28d62b2",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-LZiiqBNVS5LjxQ38EQd.png?alt=media&token=10e402aa-e41e-4a04-a1fe-4dbdbe7f3437",
         "municipality" : "Time",
         "municipalityNumber" : "1121",
         "name" : "ASTRID HOVLAND",
         "phoneNumber" : "+47 404 85 402",
         "postalCodeNumber" : "4347"
       },
-      "timestamp" : 1551641176049
+      "timestamp" : 1552144707044
     },
     "-LZis9pw5yICuUDAuXSf" : {
       "author" : {
         "email" : "jho.hovland@gmail.com",
+        "photoURL" : " ",
         "uid" : "MnYNNQNIJUgSXZhpKlk3TZaT2YJ3",
         "username" : "Jan Gmail Hovland"
       },
@@ -31,11 +33,11 @@
         "city" : "Varhaug",
         "dateOfBirth" : "28. mars 1948",
         "gender" : 0,
-        "imageFileURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-LZis9pw5yICuUDAuXSf.png?alt=media&token=fa44b7ec-7b03-4630-b01c-b51da4ba2ce4",
         "municipality" : "Hå",
         "municipalityNumber" : "1119",
         "name" : "JAN HOVLAND",
         "phoneNumber" : "+47 400 05 430",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-LZis9pw5yICuUDAuXSf.png?alt=media&token=fa44b7ec-7b03-4630-b01c-b51da4ba2ce4",
         "postalCodeNumber" : "4360"
       },
       "timestamp" : 1551632321784
@@ -43,6 +45,7 @@
     "-LZxiAVcdFzlup4aOOzT" : {
       "author" : {
         "email" : "jho.hovland@gmail.com",
+        "photoURL" : " ",
         "uid" : "MnYNNQNIJUgSXZhpKlk3TZaT2YJ3",
         "username" : "Jan Gmail Hovland"
       },
@@ -51,11 +54,11 @@
         "city" : "Varhaug",
         "dateOfBirth" : "20. mai 1948",
         "gender" : 1,
-        "imageFileURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-LZxiAVcdFzlup4aOOzT.png?alt=media&token=0dd39c4f-d952-492a-8fc7-7a27814b1aca",
         "municipality" : "Hå",
         "municipalityNumber" : "1119",
         "name" : "ÅGOT LIMA HOVLAND",
         "phoneNumber" : "+47 452 97 322",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-LZxiAVcdFzlup4aOOzT.png?alt=media&token=0dd39c4f-d952-492a-8fc7-7a27814b1aca",
         "postalCodeNumber" : "4360"
       },
       "timestamp" : 1551632547055
@@ -63,6 +66,7 @@
     "-LZxjFeLNt_oY96tIj22" : {
       "author" : {
         "email" : "jho.hovland@gmail.com",
+        "photoURL" : " ",
         "uid" : "MnYNNQNIJUgSXZhpKlk3TZaT2YJ3",
         "username" : "Jan Gmail Hovland"
       },
@@ -71,11 +75,11 @@
         "city" : "Vigrestad",
         "dateOfBirth" : "11. mai 1973",
         "gender" : 1,
-        "imageFileURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-LZxjFeLNt_oY96tIj22.png?alt=media&token=dd5e35d0-8817-4b61-ac2d-0c8337057a35",
         "municipality" : "Hå",
         "municipalityNumber" : "1119",
         "name" : "JULIE HOVLAND WALDELAND",
         "phoneNumber" : "+47 924 23 491",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-LZxjFeLNt_oY96tIj22.png?alt=media&token=dd5e35d0-8817-4b61-ac2d-0c8337057a35",
         "postalCodeNumber" : "4362"
       },
       "timestamp" : 1551633514045
@@ -83,6 +87,7 @@
     "-L_3JQO7UGy8UcIi8gLL" : {
       "author" : {
         "email" : "jho.hovland@gmail.com",
+        "photoURL" : " ",
         "uid" : "MnYNNQNIJUgSXZhpKlk3TZaT2YJ3",
         "username" : "Jan Gmail Hovland"
       },
@@ -91,11 +96,11 @@
         "city" : "Kleppe",
         "dateOfBirth" : "12. april 1976",
         "gender" : 1,
-        "imageFileURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-L_3JQO7UGy8UcIi8gLL.png?alt=media&token=be0fbee2-8668-49f7-877c-b994a4a633ec",
         "municipality" : "Klepp",
         "municipalityNumber" : "1120",
         "name" : "KIRSTEN HOVLAND KRÅKENES",
         "phoneNumber" : "+47 928 29 482",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-L_3JQO7UGy8UcIi8gLL.png?alt=media&token=be0fbee2-8668-49f7-877c-b994a4a633ec",
         "postalCodeNumber" : "4352"
       },
       "timestamp" : 1551641142413
@@ -103,6 +108,7 @@
     "-L_3_HW2pdsirShwgeIS" : {
       "author" : {
         "email" : "jho.hovland@gmail.com",
+        "photoURL" : " ",
         "uid" : "MnYNNQNIJUgSXZhpKlk3TZaT2YJ3",
         "username" : "Jan Gmail Hovland"
       },
@@ -111,11 +117,11 @@
         "city" : "Sandnes",
         "dateOfBirth" : "15. juni 1990",
         "gender" : 0,
-        "imageFileURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-L_3_HW2pdsirShwgeIS.png?alt=media&token=27b93b2e-3b9d-4adc-a278-c762db352aee",
         "municipality" : "Sandnes",
         "municipalityNumber" : "1102",
         "name" : "JØRN HOVLAND",
         "phoneNumber" : "+47 993 67 459",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-L_3_HW2pdsirShwgeIS.png?alt=media&token=27b93b2e-3b9d-4adc-a278-c762db352aee",
         "postalCodeNumber" : "4307"
       },
       "timestamp" : 1551634024393
@@ -123,6 +129,7 @@
     "-L_3cjoFxJkg7HjGRVf8" : {
       "author" : {
         "email" : "jho.hovland@gmail.com",
+        "photoURL" : " ",
         "uid" : "MnYNNQNIJUgSXZhpKlk3TZaT2YJ3",
         "username" : "Jan Gmail Hovland"
       },
@@ -131,14 +138,35 @@
         "city" : "Vigrestad",
         "dateOfBirth" : "18. mars 1993",
         "gender" : 0,
-        "imageFileURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-L_3cjoFxJkg7HjGRVf8.png?alt=media&token=728e375b-1e4e-4dfa-afe0-3bace080c681",
         "municipality" : "Hå",
         "municipalityNumber" : "1119",
         "name" : "OLE ANDRÉ HOVLAND WALDELAND",
         "phoneNumber" : "+47 464 73 176",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-L_3cjoFxJkg7HjGRVf8.png?alt=media&token=728e375b-1e4e-4dfa-afe0-3bace080c681",
         "postalCodeNumber" : "4362"
       },
       "timestamp" : 1551641078576
+    },
+    "-L_Y1P6aB9CCLlnXMiUv" : {
+      "author" : {
+        "email" : "jho.hovland@gmail.com",
+        "photoURL" : "",
+        "uid" : "MnYNNQNIJUgSXZhpKlk3TZaT2YJ3",
+        "username" : "Jan Gmail Hovland"
+      },
+      "personData" : {
+        "address" : "V",
+        "city" : "Akkarfjord",
+        "dateOfBirth" : "",
+        "gender" : 0,
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-L_Y1P6aB9CCLlnXMiUv.png?alt=media&token=72f440c7-9b82-41bc-9dd2-80755e05a435",
+        "municipality" : "Hammerfest",
+        "municipalityNumber" : "2004",
+        "name" : "WH",
+        "phoneNumber" : "+47 111 13 334",
+        "postalCodeNumber" : "9650"
+      },
+      "timestamp" : 1552144771867
     }
   },
   "postnr" : {
