@@ -42,7 +42,7 @@
                                     <constraint firstAttribute="height" constant="30" id="9rn-Gy-NQ4"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="sy5-nA-8Lg">
@@ -77,7 +77,7 @@
                                     <constraint firstAttribute="height" constant="30" id="4I6-rv-cZG"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done" textContentType="email"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="new-person" translatesAutoresizingMaskIntoConstraints="NO" id="tMJ-6U-zRw">
@@ -89,12 +89,27 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="ixB-RL-WA6"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbj-cx-MS6">
+                                <rect key="frame" x="292" y="258" width="31" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="31" id="7al-mR-d0X"/>
+                                    <constraint firstAttribute="height" constant="31" id="dl9-Zj-cht"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="31" id="kNJ-is-o47"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="31" id="qbk-Jy-2jP"/>
+                                </constraints>
+                                <state key="normal" image="camera-31"/>
+                                <connections>
+                                    <action selector="selectPersonPhoto:" destination="tT3-9a-LwM" eventType="touchUpInside" id="Vyz-sw-LpA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="4t0-yd-TFq" firstAttribute="centerX" secondItem="vji-Wu-4q1" secondAttribute="centerX" id="6ge-TV-cMU"/>
                             <constraint firstItem="k82-w8-ML8" firstAttribute="leading" secondItem="dej-9k-aAA" secondAttribute="trailing" constant="-285" id="FTx-27-M84"/>
                             <constraint firstItem="sy5-nA-8Lg" firstAttribute="top" secondItem="eG4-UJ-Wc4" secondAttribute="bottom" constant="10" id="Fgu-pn-HBW"/>
+                            <constraint firstItem="fbj-cx-MS6" firstAttribute="top" secondItem="dej-9k-aAA" secondAttribute="top" constant="194" id="FjH-8j-3Sn"/>
+                            <constraint firstItem="dej-9k-aAA" firstAttribute="trailing" secondItem="fbj-cx-MS6" secondAttribute="trailing" constant="52" id="Gys-Ej-3PI"/>
                             <constraint firstItem="k82-w8-ML8" firstAttribute="centerY" secondItem="I0q-5V-oWR" secondAttribute="centerY" id="Ifn-iN-51P"/>
                             <constraint firstItem="Kdi-Jg-uOD" firstAttribute="top" secondItem="4t0-yd-TFq" secondAttribute="bottom" constant="35" id="Q52-04-XIT"/>
                             <constraint firstItem="k82-w8-ML8" firstAttribute="leading" secondItem="dej-9k-aAA" secondAttribute="leading" constant="90" id="T3x-dt-L1D"/>
@@ -135,9 +150,9 @@
                     <connections>
                         <outlet property="activity" destination="sy5-nA-8Lg" id="G3L-AN-ELe"/>
                         <outlet property="eMailLoginTextField" destination="vH1-YR-EwT" id="7Vu-sS-bVa"/>
+                        <outlet property="inputImage" destination="tMJ-6U-zRw" id="doy-Vn-7o6"/>
                         <outlet property="loginStatus" destination="Kdi-Jg-uOD" id="9iP-Lu-baU"/>
                         <outlet property="passwordTextField" destination="k82-w8-ML8" id="tIr-3x-uDz"/>
-                        <outlet property="uploadImage" destination="tMJ-6U-zRw" id="nc3-Oe-hBP"/>
                         <segue destination="V07-a3-pap" kind="show" identifier="gotoCreateAccount" id="eyi-HE-UNj"/>
                     </connections>
                 </viewController>
@@ -1215,25 +1230,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="address-level2"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5cg-2c-VmS">
-                                <rect key="frame" x="50" y="157" width="79" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5cg-2c-VmS" userLabel="Camera input">
+                                <rect key="frame" x="50" y="157" width="67" height="31"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="4ed-b7-Tj1"/>
-                                    <constraint firstAttribute="height" constant="40" id="knz-2C-A3R"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="31" id="4ed-b7-Tj1"/>
+                                    <constraint firstAttribute="height" constant="31" id="knz-2C-A3R"/>
                                 </constraints>
-                                <state key="normal" title="photo" image="camera-31"/>
-                                <connections>
-                                    <action selector="selectPersonPhoto:" destination="rxh-wi-pm3" eventType="touchUpInside" id="W8Q-i0-Rbp"/>
-                                </connections>
+                                <state key="normal" title="map" image="map-31"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SVL-2S-PhG">
-                                <rect key="frame" x="297" y="158" width="31" height="31"/>
+                                <rect key="frame" x="288" y="154" width="40" height="31"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="q0w-Zb-2ur"/>
-                                    <constraint firstAttribute="width" constant="31" id="wdq-Jg-GU3"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="31" id="q0w-Zb-2ur"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="31" id="wdq-Jg-GU3"/>
                                 </constraints>
-                                <state key="normal" image="map-31"/>
+                                <state key="normal" title="camera" image="camera-31"/>
                                 <connections>
+                                    <action selector="selectPersonPhoto:" destination="rxh-wi-pm3" eventType="touchUpInside" id="aqc-kP-vER"/>
                                     <segue destination="JqU-hK-lPv" kind="show" identifier="gotoMap" id="4cp-NF-Ore"/>
                                 </connections>
                             </button>
@@ -1286,13 +1299,14 @@
                             <constraint firstItem="uy3-05-bWG" firstAttribute="top" secondItem="YyV-Jf-Wrw" secondAttribute="bottom" constant="20" id="aFi-1d-94h"/>
                             <constraint firstItem="a2Y-E5-2Cp" firstAttribute="leading" secondItem="uy3-05-bWG" secondAttribute="trailing" constant="4" id="aW5-TW-37P"/>
                             <constraint firstItem="iJD-3U-e7P" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="163" id="b2h-wd-cUy"/>
-                            <constraint firstItem="SVL-2S-PhG" firstAttribute="top" secondItem="O6w-2j-OOB" secondAttribute="top" constant="94" id="cbe-XF-ZCC"/>
+                            <constraint firstItem="SVL-2S-PhG" firstAttribute="top" secondItem="O6w-2j-OOB" secondAttribute="top" constant="90" id="cbe-XF-ZCC"/>
                             <constraint firstItem="yLv-nX-tNx" firstAttribute="top" secondItem="bjS-Kj-pLv" secondAttribute="bottom" constant="20" id="d9c-Ji-Skm"/>
                             <constraint firstItem="dcI-Iv-SZx" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="15" id="dtC-2Q-mUJ"/>
                             <constraint firstItem="nbz-eB-NWH" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="15" id="e83-Ow-3Lc"/>
                             <constraint firstItem="bC7-mk-vXQ" firstAttribute="top" secondItem="YyV-Jf-Wrw" secondAttribute="bottom" constant="19" id="fAt-Hh-oDv"/>
                             <constraint firstItem="YyV-Jf-Wrw" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="109" id="jX0-dx-BVz"/>
                             <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="iJD-3U-e7P" secondAttribute="trailing" constant="15" id="kJy-rD-I30"/>
+                            <constraint firstItem="SVL-2S-PhG" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="288" id="lyl-l2-8g0"/>
                             <constraint firstItem="0PH-fa-QJT" firstAttribute="top" secondItem="uy3-05-bWG" secondAttribute="bottom" constant="20" id="oPg-Vd-xFr"/>
                             <constraint firstItem="UZn-5p-0rk" firstAttribute="top" secondItem="eJK-ho-8MV" secondAttribute="bottom" constant="31" id="otK-EC-d90"/>
                             <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="mZW-Vq-ZeJ" secondAttribute="trailing" constant="286.5" id="pMa-t3-PUX"/>
@@ -1324,7 +1338,7 @@
                         <outlet property="genderInput" destination="Z83-Gy-QZ9" id="PA6-m9-1Ld"/>
                         <outlet property="inputImage" destination="bjS-Kj-pLv" id="8ZK-k5-506"/>
                         <outlet property="loginStatus" destination="dcI-Iv-SZx" id="Ygc-t0-fqe"/>
-                        <outlet property="mapInput" destination="SVL-2S-PhG" id="qb3-dk-0tK"/>
+                        <outlet property="mapInput" destination="5cg-2c-VmS" id="Kmi-uY-JNs"/>
                         <outlet property="municipalityInput" destination="iJD-3U-e7P" id="MN4-65-LSi"/>
                         <outlet property="municipalityNumberInput" destination="0PH-fa-QJT" id="PIG-t7-3O2"/>
                         <outlet property="nameInput" destination="yLv-nX-tNx" id="7BA-gO-xHS"/>
