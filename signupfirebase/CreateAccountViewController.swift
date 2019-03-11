@@ -153,12 +153,10 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                                 let region = NSLocale.current.regionCode?.lowercased()  // Returns the local region
                                 Auth.auth().languageCode = region!
                                 
-                                let value2 = self.getCoreData()
-                                
                                 // Store the name of the user in Firebase
                                 let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
                                 changeRequest?.displayName = self.nameCreateAccountTextField.text!
-                                changeRequest?.photoURL = URL(string: value2.photoURL)
+                                // changeRequest?.photoURL = URL(string: value2.photoURL)
                                 
                                 changeRequest?.commitChanges { error in
                                     if error == nil {

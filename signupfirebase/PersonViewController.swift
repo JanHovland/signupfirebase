@@ -5,7 +5,6 @@
 //  Created by Jan  on 28/12/2018.
 //  Copyright © 2018 Jan . All rights reserved.
 //
-
 import UIKit
 import Firebase
 
@@ -26,7 +25,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
             mapInput.layer.cornerRadius = mapInput.bounds.width / 2
             mapInput.clipsToBounds = true
         }
-
+        
     }
     
     @IBOutlet var inputImage: UIImageView! {
@@ -53,22 +52,22 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     var PersonPostalCodeNumberText = ""
     var PersonMunicipalityText = ""
     var PersonMunicipalityNumberText = ""
-
+    
     let datoValg = UIDatePicker()
-
+    
     var gender: String = NSLocalizedString("Man", comment: "PersonViewVontroller.swift velgeKjonn ")
-
+    
     @IBOutlet var loginStatus: UILabel!
-
+    
     var status: Bool = true
     var activeField: UITextField!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Change the title of navigationBar
         navigationItem.title = PersonTitle
-
+        
         // Turn off keyboard when you press "Return"
         addressInput.delegate = self
         cityInput.delegate = self
@@ -76,7 +75,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         dateOfBirthInput.delegate = self
         phoneNumberInput.delegate = self
         postalCodeNumberInput.delegate = self
-
+        
         municipalityNumberInput.delegate = self
         municipalityInput.delegate = self
         
@@ -84,7 +83,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         activity.hidesWhenStopped = true
         activity.style = .gray
         view.addSubview(activity)
-
+        
         // Set the global variables
         globalCity = cityInput.text!
         globalPostalCode = postalCodeNumberInput.text!
@@ -93,7 +92,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         globalMunicipalityNumber = municipalityNumberInput.text!
         
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         // Show the Navigation Bar
         navigationController?.setNavigationBarHidden(false, animated: true)
@@ -110,7 +109,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
             self.PersonPhotoURL = ""
         } else {
             if let url = URL(string: PersonPhotoURL) {
-            
+                
                 let findCellImage = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
                     guard let imageData = data else {
                         return
@@ -130,43 +129,43 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
                 
                 findCellImage.resume()
             }
-       }
-            
+        }
+        
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: true)
-
+        
         // Observe keyboard change
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeAddPerson(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeAddPerson(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeAddPerson(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-
+        
         if (UserDefaults.standard.bool(forKey: "LOGGEDIN")) == true {
             loginStatus.text = showUserInfo(startUp: false)
         } else {
             loginStatus.text = showUserInfo(startUp: true)
         }
-
+        
         if globalPersonAddressText.count > 0 {
             addressInput.text = globalPersonAddressText
         } else {
             addressInput.text = PersonAddressText
         }
-
+        
         if globalPersonDateOfBirthText.count > 0 {
             dateOfBirthInput.text = globalPersonDateOfBirthText
         } else {
             dateOfBirthInput.text = PersonDateOfBirthText
         }
-
+        
         // Use the global variables been set in PostalCodeSearchViewController
         if globalPersonNameText.count > 0 {
             nameInput.text = globalPersonNameText
         } else {
             nameInput.text = PersonNameText
         }
-
+        
         if globalPersonGenderInt != -1 {
             if globalPersonGenderInt == 0 {
                 genderInput.setTitle(NSLocalizedString("Man", comment: "PersonViewVontroller.swift viewDidAppear "),
@@ -186,26 +185,26 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
             }
             genderInput.selectedSegmentIndex = PersonGenderInt
         }
-
+        
         if globalPersonNameText.count > 0 {
             nameInput.text = globalPersonNameText
         } else {
             nameInput.text = PersonNameText
         }
-
+        
         if globalPersonPhoneNumberText.count > 0 {
             phoneNumberInput.text = globalPersonPhoneNumberText
-
+            
         } else {
             phoneNumberInput.text = PersonPhoneNumberText
         }
-
+        
         cityInput.text = PersonCityText
         postalCodeNumberInput.text = PersonPostalCodeNumberText
-
+        
         municipalityNumberInput.text! =  PersonMunicipalityNumberText
         municipalityInput.text = PersonMunicipalityText
-
+        
         if globalCity.count > 0 {
             cityInput.text = globalCity
         }
@@ -213,7 +212,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         if globalPostalCode.count > 0 {
             postalCodeNumberInput.text = globalPostalCode
         }
-
+        
         if globalMunicipality.count > 0 {
             municipalityInput.text = globalMunicipality
         }
@@ -234,20 +233,20 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
                 datoValg.date = date!
             }
         }
-
+        
         // Get the selected date from the DatePicker
         hentFraDatoValg()
     }
-
+    
     @objc func keyboardWillChangeAddPerson(notification: NSNotification) {
         guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
             return
         }
-
-        if activeField != nil {
         
+        if activeField != nil {
+            
             let distanceToBottom = view.frame.size.height - (activeField?.frame.origin.y)! - (activeField?.frame.size.height)!
-
+            
             if keyboardRect.height > distanceToBottom {
                 if notification.name == UIResponder.keyboardWillShowNotification ||
                     notification.name == UIResponder.keyboardWillChangeFrameNotification {
@@ -258,12 +257,12 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
             }
         }
     }
-
+    
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         activeField = textField
         return true
     }
-
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Dismiss the keyboard when the return button on the keyboard is pressed
         
@@ -274,7 +273,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         activeField = nil
         return true
     }
-
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // Dismiss the keyboard when the view is tapped on
         addressInput.resignFirstResponder()
@@ -284,7 +283,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         phoneNumberInput.resignFirstResponder()
         phoneNumberInput.text = formatPhone(phone: phoneNumberInput.text!)
         postalCodeNumberInput.resignFirstResponder()
-    
+        
         municipalityNumberInput.resignFirstResponder()
         municipalityInput.resignFirstResponder()
         
@@ -315,49 +314,49 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
                                                  postalCodeNumber: postalCodeNumberInput.text!,
                                                  municipality: municipalityInput.text!,
                                                  municipalityNumber: municipalityNumberInput.text!) {
-            self.dismiss(animated: true, completion: nil)
+                                                    self.dismiss(animated: true, completion: nil)
         }
         
     }
-
+    
     func hentFraDatoValg() {
         let toolBarDatoValg = UIToolbar()
         toolBarDatoValg.sizeToFit()
-
+        
         let flexibleSpaceDatoValg = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-
+        
         let ferdigButtonDatoValg = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done,
                                                    target: self, action: #selector(hentDatoValg))
-
+        
         toolBarDatoValg.setItems([flexibleSpaceDatoValg, ferdigButtonDatoValg], animated: false)
-
+        
         dateOfBirthInput.inputAccessoryView = toolBarDatoValg
         dateOfBirthInput.inputView = datoValg
         datoValg.datePickerMode = .date
         let region = NSLocale.current.regionCode?.lowercased()
         datoValg.locale = NSLocale(localeIdentifier: region!) as Locale
     }
-
+    
     @objc func hentDatoValg() {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
         formatter.timeStyle = .none
-
+        
         let region = NSLocale.current.regionCode?.lowercased()
         formatter.locale = NSLocale(localeIdentifier: region!) as Locale
-
+        
         let datoString = formatter.string(from: datoValg.date)
         dateOfBirthInput.text =  "\(datoString)"
         view.endEditing(true)
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         // Remove observers
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
-
+    
     @IBAction func velgeKjonn(_ sender: UISegmentedControl) {
         switch genderInput.selectedSegmentIndex {
         case 0: gender = NSLocalizedString("Man", comment: "PersonViewVontroller.swift velgeKjonn ")
@@ -365,13 +364,12 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         default: return
         }
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // 'prepare' will run after every segue.
-
         if segue.identifier! == "gotoPostalCodes" {
             let vc = segue.destination as! PostalCodeSearchTableViewController
-
+            
             let name1 = nameInput.text!.lowercased()
             let name = name1.capitalized
             
@@ -388,7 +386,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         } else if segue.identifier! == "gotoMap" {
             
             let vc = segue.destination as! MapViewController
-
+            
             let name1 = nameInput.text!.lowercased()
             let name = name1.capitalized
             
@@ -402,7 +400,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     @IBAction func selectPersonPhoto(_ sender: UIButton) {
         
         let melding = NSLocalizedString("Choose your photo source", comment: "LoginViewVontroller.swift selectPersonPhoto")
-
+        
         let photoSourceRequestController = UIAlertController(title: "", message: melding, preferredStyle: .actionSheet)
         
         let title = NSLocalizedString("Camera", comment: "LoginViewVontroller.swift selectPersonPhoto")
@@ -416,9 +414,9 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
                 self.present(imagePicker, animated: true, completion: nil)
             }
         })
-
+        
         let title1 = NSLocalizedString("Photo library", comment: "LoginViewVontroller.swift selectPersonPhoto")
-       
+        
         let photoLibraryAction = UIAlertAction(title: title1, style: .default, handler: { (action) in
             if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
                 let imagePicker = UIImagePickerController()
@@ -434,13 +432,13 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         
         present(photoSourceRequestController, animated: true, completion: nil)
         
-     }
+    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         // Find the person's new photo
         if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-                
+            
             inputImage.image = image
             inputImage.contentMode = .scaleAspectFill
             inputImage.clipsToBounds = true
