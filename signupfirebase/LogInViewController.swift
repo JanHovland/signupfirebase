@@ -98,6 +98,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
             }
         }
         
+        
         /*
         
         // Find the uploadImage for the current user
@@ -286,7 +287,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         if eMailLoginTextField.text!.count > 0,
             passwordTextField.text!.count >= 6 {
             activity.startAnimating()
-
+            
             // Store the image in FireStore
             // Her lagres bildet på siste påloggede admin
             
@@ -403,7 +404,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
                         } else {
                             
                             
-                            // Find the password from CoreData, if it is differenr from Firedata, Update CoreData
+                            // Find the password from CoreData, if it is different from Firedata, Update CoreData
                             if self.findPasswordCoreData(withEpost: self.eMailLoginTextField.text!) != self.passwordTextField.text! {
                                 // Store the new password in CoreData
                                 ok = self.updatePasswordCoreData(withEpost: self.eMailLoginTextField.text!,
@@ -444,7 +445,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
                                                       email: self.eMailLoginTextField.text!,
                                                       completionHandler: { (url) in
                                                         
-                                          print("url = \(url)")
+                                          print("url etter savePhotoURL = \(url)")
                                              
                                           //  0 = uid  1 = eMail 2 = name  3 = passWord 4 = photoURL
                                           let value = self.getCoreData()
@@ -462,13 +463,77 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
                                                                                              comment: "LoginViewVontroller.swift CheckLogin"),
                                                                 message: melding)
                                             
+                                          } else {
+                                         
+                                            let value1 = self.getCoreData()
+                                            
+                                            print("qqqqq = \(value1.photoURL)")
+                                            
+                                            if let image = CacheManager.shared.getFromCache(key: value.photoURL) as? UIImage, self.savePhoto == false {
+                                                self.inputImage.image = image
+                                            } else {
+                                                self.savePhoto = false
+                                                if let url = URL(string: value1.photoURL) {
+                                                    
+                                                    let findCellImage = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+                                                        guard let imageData = data else {
+                                                            return
+                                                        }
+                                                        OperationQueue.main.addOperation {
+                                                            guard let image = UIImage(data: imageData) else {
+                                                                return
+                                                            }
+                                                            
+                                                            self.inputImage.image = image
+                                                            
+                                                            // Add the downloaded image to cache
+                                                            CacheManager.shared.cache(object: image, key: value.photoURL)
+                                                        }
+                                                    })
+                                                    
+                                                    findCellImage.resume()
+                                                }
+                                            }
+                                            
+                                            
                                           }
                                             
                                     })
                                     
                                     // self.savePhoto = false
+                                } else {
+                                    
+                                    let value = self.getCoreData()
+                                    
+                                    if let image = CacheManager.shared.getFromCache(key: value.photoURL) as? UIImage, self.savePhoto == false {
+                                        self.inputImage.image = image
+                                    } else {
+                                        self.savePhoto = false
+                                        if let url = URL(string: value.photoURL) {
+                                            
+                                            let findCellImage = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+                                                guard let imageData = data else {
+                                                    return
+                                                }
+                                                OperationQueue.main.addOperation {
+                                                    guard let image = UIImage(data: imageData) else {
+                                                        return
+                                                    }
+                                                    
+                                                    self.inputImage.image = image
+                                                    
+                                                    // Add the downloaded image to cache
+                                                    CacheManager.shared.cache(object: image, key: value.photoURL)
+                                                }
+                                            })
+                                            
+                                            findCellImage.resume()
+                                        }
+                                    }
+                                    
                                 }
                                 
+                                /*
                                 let value = self.getCoreData()
                                 
                                 print("photoURL = \(value.photoURL)")
@@ -502,7 +567,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
                                     }
                                 }
                                 
-                                
+                                */
                             }
                             
                             /*

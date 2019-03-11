@@ -593,7 +593,9 @@ extension UIViewController {
                       completionHandler: @escaping (String) -> Void) {
         
         let PHOTO_STORAGE_REF: StorageReference = Storage.storage().reference().child("photos")
-        let imageStorageRef = PHOTO_STORAGE_REF.child("\(email).png")
+        // let imageStorageRef = PHOTO_STORAGE_REF.child("\(email).png")
+        let newDocumentID = UUID().uuidString
+        let imageStorageRef = PHOTO_STORAGE_REF.child("\(newDocumentID).png")
         
         print(imageStorageRef as Any)
         
@@ -621,7 +623,7 @@ extension UIViewController {
                     return
                 }
                 
-                print(url)
+                print("url inne i selve savePhotoURL = \(url)")
                 
                 completionHandler(url.absoluteString)
             })
