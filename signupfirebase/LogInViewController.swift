@@ -53,19 +53,19 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         // Start activity
         activity.startAnimating()
         
-        if (UserDefaults.standard.bool(forKey: "LOGINCLEAREMAILPASSWORD")) == true {
-//            eMailLoginTextField.text = ""
-//            passwordTextField.text = ""
-            loginStatus.text = showUserInfo(startUp: true)
-        } else {
-            loginStatus.text = showUserInfo(startUp: false)
-        }
-
         let value = getCoreData()
         
         eMailLoginTextField.text = value.eMail
         passwordTextField.text = value.passWord
       
+        if (UserDefaults.standard.bool(forKey: "LOGINCLEAREMAILPASSWORD")) == true {
+            eMailLoginTextField.text = ""
+            passwordTextField.text = ""
+            loginStatus.text = showUserInfo(startUp: true)
+        } else {
+            loginStatus.text = showUserInfo(startUp: false)
+        }
+        
         activity.stopAnimating()
         
         // Turn off keyboard when you press "Return"
@@ -98,70 +98,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
             }
         }
         
-        
-        /*
-        
-        // Find the uploadImage for the current user
-        let value1 = getCoreData()
-        
-        if value1.photoURL.count > 0 {
-        
-            if let image = CacheManager.shared.getFromCache(key: value1.photoURL) as? UIImage {
-                uploadImage.image = image
-            } else {
-                if let url = URL(string: value1.photoURL) {
-                    
-                    let findCellImage = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-                        guard let imageData = data else {
-                            return
-                        }
-                        OperationQueue.main.addOperation {
-                            guard let image = UIImage(data: imageData) else {
-                                return
-                            }
-                            
-                            self.uploadImage.image = image
-                            
-                            // Add the downloaded image to cache
-                            CacheManager.shared.cache(object: image, key: value1.photoURL)
-                       }
-                    })
-                    
-                    findCellImage.resume()
-                }
-            }
-            
-        } else {
- 
-            // let image = uploadImage.image!
-            
-            if uploadImage.image!.imageAsset == nil {
-                
-            } else {
-                savePhotoURL(image: uploadImage.image!,
-                             email: eMailLoginTextField.text!,
-                             completionHandler: { (url) in
-                                print("url = \(url)")
-                                
-                    //  0 = uid  1 = eMail 2 = name  3 = passWord 4 = photoURL
-                    let value = self.getCoreData()
-
-                    let OK = self.saveCoreData(withEpost: value.eMail,
-                                               withPassord: value.passWord,
-                                               withUid: value.uid,
-                                               withLoggedIn: true,
-                                               withName: value.name,
-                                               withPhotoURL: url)
-                                
-                    if OK == false {
-                        
-                    }
-                                
-                })
-            }
-        }
-        */
-        
     }
     
     // Called when the view has been fully transitioned onto the screen. Default does nothing
@@ -188,8 +124,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         }
         
         if (UserDefaults.standard.bool(forKey: "LOGINCLEAREMAILPASSWORD")) == true {
-//            eMailLoginTextField.text = ""
-//            passwordTextField.text = ""
+            eMailLoginTextField.text = ""
+            passwordTextField.text = ""
             loginStatus.text = showUserInfo(startUp: true)
         } else {
             loginStatus.text = showUserInfo(startUp: false)
@@ -199,36 +135,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         eMailLoginTextField.delegate = self
         passwordTextField.delegate = self
 
-        /*
-        // Show the photo for the current user
-        
-        let value1 = getCoreData()
-        
-        if let image = CacheManager.shared.getFromCache(key: value1.photoURL) as? UIImage {
-            inputImage.image = image
-        } else {
-            if let url = URL(string: value1.photoURL) {
-                
-                let findCellImage = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-                    guard let imageData = data else {
-                        return
-                    }
-                    OperationQueue.main.addOperation {
-                        guard let image = UIImage(data: imageData) else {
-                            return
-                        }
-                        
-                        self.inputImage.image = image
-                        
-                        // Add the downloaded image to cache
-                        CacheManager.shared.cache(object: image, key: value1.photoURL)
-                    }
-                })
-                
-                findCellImage.resume()
-            }
-        }
-        */
     }
     
     @objc func keyboardWillChangeLogin(notification: NSNotification) {
@@ -276,10 +182,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     func CheckLogin() {
         
         var ok: Bool = false
-        // var ok1: Bool = false
-        // var uid: String = ""
-        // var navn: String = ""
-
+    
         // Dismiss the keyboard when the Next button is tapped on
         eMailLoginTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
@@ -287,35 +190,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         if eMailLoginTextField.text!.count > 0,
             passwordTextField.text!.count >= 6 {
             activity.startAnimating()
-            
-            // Store the image in FireStore
-            // Her lagres bildet på siste påloggede admin
-            
-            /*
-            self.savePhotoURL(image: self.inputImage.image!,
-                              email: self.eMailLoginTextField.text!,
-                              completionHandler: { (url) in
-                                
-                                let value = self.getCoreData()
-                                
-                                let OK = self.saveCoreData(withEpost: self.eMailLoginTextField.text!,
-                                                           withPassord: self.passwordTextField.text!,
-                                                           withUid: value.uid,
-                                                           withLoggedIn: true,
-                                                           withName: value.name,
-                                                           withPhotoURL: url)
-                                
-                                if OK == false {
-                                    let melding = NSLocalizedString("Unable to store data in FireBase.",
-                                                                    comment: "LoginViewVontroller.swift CheckLogin")
-                                    self.presentAlert(withTitle: NSLocalizedString("Error.",
-                                                                                   comment: "LoginViewVontroller.swift CheckLogin"),
-                                                      message: melding)
-                                    
-                                }
-                                
-            })
-            */
             
             let region = NSLocale.current.regionCode  // Returns the local region
             Auth.auth().languageCode = region
@@ -337,72 +211,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
 
                         if ok == false {
                             
-                            /*
-                            //  0 = uid  1 = ePost  2 = name  3 = passWord 4 = photoURL
-                            let value1 = self.getCoreData()
-
-                            // if value1.photoURL.count > 0
-                            
-                            print(value1.eMail as Any)
-                            */
-                            
-                            // Find the photoURL from uploadImage.image which has been selected on the login screen
-                            
-                            /*
-                            
-                            self.savePhotoURL(image: self.inputImage.image!,
-                                              email: self.eMailLoginTextField.text!,
-                                              completionHandler: { (url) in
-                                                
-                                                
-                                /*
-                                print("url = \(url)")
-                                
-                                //  0 = uid  1 = eMail 2 = name  3 = passWord 4 = photoURL
-                                let value = self.getCoreData()
-                                */
- 
-                                let OK = self.saveCoreData(withEpost: self.eMailLoginTextField.text!,
-                                                           withPassord: self.passwordTextField.text!,
-                                                           withUid: uid,
-                                                           withLoggedIn: true,
-                                                           withName: navn,
-                                                           withPhotoURL: url)
-                                
-                                if OK == false {
-                                    let melding = NSLocalizedString("Unable to store data in FireBase.",
-                                                                    comment: "LoginViewVontroller.swift CheckLogin")
-                                    self.presentAlert(withTitle: NSLocalizedString("Error.",
-                                                                                   comment: "LoginViewVontroller.swift CheckLogin"),
-                                                      message: melding)
-                                    
-                                }
-                                
-                            })
-                            
-                            */
-                            
-                            /*
-                            
-                            ok1 = self.saveCoreData(withEpost: self.eMailLoginTextField.text!,
-                                                    withPassord: self.passwordTextField.text!,
-                                                    withUid: uid,
-                                                    withLoggedIn: true,
-                                                    withName: navn,
-                                                    withPhotoURL: value1.photoURL)
-
-                            if ok1 == false {
-                                let melding = NSLocalizedString("Unable to store data in FireBase.",
-                                                       comment: "LoginViewVontroller.swift CheckLogin")
-                                self.presentAlert(withTitle: NSLocalizedString("Error.",
-                                                                               comment: "LoginViewVontroller.swift CheckLogin"),
-                                                  message: melding)
-                            }
-
-                            */
- 
                         } else {
-                            
                             
                             // Find the password from CoreData, if it is different from Firedata, Update CoreData
                             if self.findPasswordCoreData(withEpost: self.eMailLoginTextField.text!) != self.passwordTextField.text! {
@@ -445,8 +254,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
                                                       email: self.eMailLoginTextField.text!,
                                                       completionHandler: { (url) in
                                                         
-                                          print("url etter savePhotoURL = \(url)")
-                                             
                                           //  0 = uid  1 = eMail 2 = name  3 = passWord 4 = photoURL
                                           let value = self.getCoreData()
                                           let OK = self.saveCoreData(withEpost: value.eMail,
@@ -466,8 +273,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
                                           } else {
                                          
                                             let value1 = self.getCoreData()
-                                            
-                                            print("qqqqq = \(value1.photoURL)")
                                             
                                             if let image = CacheManager.shared.getFromCache(key: value.photoURL) as? UIImage, self.savePhoto == false {
                                                 self.inputImage.image = image
@@ -500,7 +305,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
                                             
                                     })
                                     
-                                    // self.savePhoto = false
                                 } else {
                                     
                                     let value = self.getCoreData()
@@ -530,107 +334,9 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
                                             findCellImage.resume()
                                         }
                                     }
-                                    
-                                }
-                                
-                                /*
-                                let value = self.getCoreData()
-                                
-                                print("photoURL = \(value.photoURL)")
-                                
-                                
-                                // Dersom bildet er blitt endret, må ikke bildet hentes fra cache
-                                
-                                if let image = CacheManager.shared.getFromCache(key: value.photoURL) as? UIImage, self.savePhoto == false {
-                                    self.inputImage.image = image
-                                } else {
-                                    self.savePhoto = false
-                                    if let url = URL(string: value.photoURL) {
-                                        
-                                        let findCellImage = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-                                            guard let imageData = data else {
-                                                return
-                                            }
-                                            OperationQueue.main.addOperation {
-                                                guard let image = UIImage(data: imageData) else {
-                                                    return
-                                                }
-                                                
-                                                self.inputImage.image = image
-                                                
-                                                // Add the downloaded image to cache
-                                                CacheManager.shared.cache(object: image, key: value.photoURL)
-                                            }
-                                        })
-                                        
-                                        findCellImage.resume()
-                                    }
-                                }
-                                
-                                */
-                            }
-                            
-                            /*
-                            self.savePhotoURL(image: self.inputImage.image!,
-                                              email: self.eMailLoginTextField.text!,
-                                              completionHandler: { (url) in
-                                                
-                                                
-                                                /*
-                                                 print("url = \(url)")
-                                                 
-                                                 //  0 = uid  1 = eMail 2 = name  3 = passWord 4 = photoURL
-                                                 let value = self.getCoreData()
-                                                 */
-                                                
-                                                let OK = self.saveCoreData(withEpost: self.eMailLoginTextField.text!,
-                                                                           withPassord: self.passwordTextField.text!,
-                                                                           withUid: uid,
-                                                                           withLoggedIn: true,
-                                                                           withName: navn,
-                                                                           withPhotoURL: url)
-                                                
-                                                if OK == false {
-                                                    let melding = NSLocalizedString("Unable to store data in FireBase.",
-                                                                                    comment: "LoginViewVontroller.swift CheckLogin")
-                                                    self.presentAlert(withTitle: NSLocalizedString("Error.",
-                                                                                                   comment: "LoginViewVontroller.swift CheckLogin"),
-                                                                      message: melding)
-                                                    
-                                                }
-                                                
-                            })
-                            
-                            let value = self.getCoreData()
-                            
-                            print("photoURL = \(value.photoURL)")
-                            
-                            if let image = CacheManager.shared.getFromCache(key: value.photoURL) as? UIImage {
-                                self.inputImage.image = image
-                            } else {
-                                if let url = URL(string: value.photoURL) {
-                                    
-                                    let findCellImage = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-                                        guard let imageData = data else {
-                                            return
-                                        }
-                                        OperationQueue.main.addOperation {
-                                            guard let image = UIImage(data: imageData) else {
-                                                return
-                                            }
-                                            
-                                            self.inputImage.image = image
-                                            
-                                            // Add the downloaded image to cache
-                                            CacheManager.shared.cache(object: image, key: value.photoURL)
-                                        }
-                                    })
-                                    
-                                    findCellImage.resume()
                                 }
                             }
-                            */
-                        }
+                       }
 
                     } else {
                         let melding = NSLocalizedString("Unable to update CoreData.",

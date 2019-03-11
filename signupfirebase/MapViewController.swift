@@ -32,7 +32,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         geoCoder.geocodeAddressString(locationOnMap, completionHandler: { placemarks, error in
             if let error = error {
-                print(error)
+                print(error.localizedDescription)
                 return
             }
             
@@ -42,10 +42,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 
                 // Add annotation
                 let annotation = MKPointAnnotation()
-                
-                // annotation.title = "qwerty"
-                // annotation.subtitle = "asdfg"
-                
                 
                 if let location = placemark.location {
                     annotation.coordinate = location.coordinate

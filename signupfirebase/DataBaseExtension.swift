@@ -60,8 +60,8 @@ extension UIViewController {
                       withPassord: String,
                       withUid: String,
                       withLoggedIn: Bool,
-                      withName: String,
-                      withPhotoURL: String) -> Bool {
+                      withName: String)  -> Bool {
+ //                     withPhotoURL: String) -> Bool {
         
         var ok: Bool = false
 
@@ -75,7 +75,7 @@ extension UIViewController {
         newEntity.setValue(withUid, forKey: "uid")
         newEntity.setValue(withLoggedIn, forKey: "loggedin")
         newEntity.setValue(withName, forKey: "name")
-        newEntity.setValue(withPhotoURL, forKey: "photoURL")
+//        newEntity.setValue(withPhotoURL, forKey: "photoURL")
         
 
         do {
@@ -93,15 +93,13 @@ extension UIViewController {
     func getCoreData() -> (uid: String,
                            eMail: String,
                            name: String,
-                           passWord: String,
-                           photoURL: String) {
+                           passWord: String) {
         
         var uid: String = ""
         var ePost: String = ""
         var name: String = ""
         var passWord: String = ""
-        var photoURL = ""
-        
+
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         request.returnsObjectsAsFaults = false
@@ -127,10 +125,6 @@ extension UIViewController {
                     if data.value(forKey: "password") != nil {
                         passWord = data.value(forKey: "password") as! String
                     }
-                    
-                    if data.value(forKey: "photoURL") != nil {
-                        photoURL = data.value(forKey: "photoURL") as! String
-                    }
                 }
             }
 
@@ -140,7 +134,7 @@ extension UIViewController {
                               message: melding)
         }
 
-        return (uid, ePost, name, passWord, photoURL)
+        return (uid, ePost, name, passWord)
     }
 
     func updateCoreData(withEpost: String, withLoggedIn: Bool) -> Bool {
@@ -590,20 +584,17 @@ extension UIViewController {
     
     func savePhotoURL(image: UIImage,
                       email: String,
-                      completionHandler: @escaping (String) -> Void) {
+                      completionHandler: @escaping (URL) -> Void) {
         
         let PHOTO_STORAGE_REF: StorageReference = Storage.storage().reference().child("photos")
-        // let imageStorageRef = PHOTO_STORAGE_REF.child("\(email).png")
-        let newDocumentID = UUID().uuidString
-        let imageStorageRef = PHOTO_STORAGE_REF.child("\(newDocumentID).png")
+        let imageStorageRef = PHOTO_STORAGE_REF.child("\(email).png")
         
         print(imageStorageRef as Any)
         
         // Resize the image
-        let scaledImage = image.scale(newWidth: 50.0)
+        let scaledImage = image.scale(newWidth: 100.0)
         
-        
-        guard let imageData = scaledImage.jpegData(compressionQuality: 0.75) else {
+        guard let imageData = scaledImage.jpegData(compressionQuality: 1.0) else {
             return
         }
         
@@ -623,11 +614,14 @@ extension UIViewController {
                     return
                 }
                 
-                print("url inne i selve savePhotoURL = \(url)")
+                print(url)
                 
-                completionHandler(url.absoluteString)
+                completionHandler(url)
             })
         }
     }
     
 }
+
+
+"https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-L_arg8IF7svn3KZoTkq.png?alt=media&token=366d7472-f826-4068-825c-f635f0105fde"
