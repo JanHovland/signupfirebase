@@ -72,6 +72,15 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         eMailLoginTextField.delegate = self
         passwordTextField.delegate = self
         
+        // Turns off the tabBarController?.tabBar if the text in the 2 fields is changed
+        eMailLoginTextField.addTarget(self,
+                                      action: #selector(textFieldEditingChanged),
+                                      for: UIControl.Event.editingChanged)
+        
+        passwordTextField.addTarget(self,
+                                    action: #selector(textFieldEditingChanged),
+                                    for: UIControl.Event.editingChanged)
+        
         // Show the photo for the current user
         if let image = CacheManager.shared.getFromCache(key: value.photoURL) as? UIImage {
             inputImage.image = image
@@ -135,6 +144,13 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         eMailLoginTextField.delegate = self
         passwordTextField.delegate = self
 
+    }
+    
+    @objc func textFieldEditingChanged(_ sender: UITextField) {
+        // Hide the tabBar
+        if self.tabBarController?.tabBar.isHidden == false {
+           self.tabBarController?.tabBar.isHidden = true
+        }
     }
     
     @objc func keyboardWillChangeLogin(notification: NSNotification) {

@@ -129,6 +129,7 @@ class CvViewController: UIViewController {
                 Without this flag, the new text is drawn over the old text. With the box checked, the label area is "erased" before the next text is drawn.
            t) Lagt inn Kart i PersonViewController (uten å gå gjennom opsjonene)
            u) Lagt inn default bilde når en legger inn en ny person
+           v) Skjuler tabBarController?.tabBar når den er aktiv, og du endrer på ePost feltet eller Passord feltet.
         
         7. Nye oppgaver (ikke fullført)
         
