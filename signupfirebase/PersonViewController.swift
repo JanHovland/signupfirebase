@@ -389,6 +389,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
             // Exports the selected name to the MapViewController
             vc.titleMap = name
             vc.locationOnMap = addressInput.text! + " " + postalCodeNumberInput.text! + " " + cityInput.text!
+            vc.address = addressInput.text!
             
         }
     }
