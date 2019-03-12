@@ -20,11 +20,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     @IBOutlet weak var municipalityNumberInput: UITextField!
     @IBOutlet weak var municipalityInput: UITextField!
     
-    @IBOutlet weak var mapInput: UIButton! {
-        didSet {
-            mapInput.layer.cornerRadius = mapInput.bounds.width / 2
-            mapInput.clipsToBounds = true
-        }
+    @IBAction func mapInput(_ sender: UIButton) {
         
     }
     
