@@ -44,9 +44,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         // Set "SHOWPASSWORD" to false
         UserDefaults.standard.set(false, forKey: "SHOWPASSWORD")
         
-        // Set "LOGGEDIN" to false
-        UserDefaults.standard.set(false, forKey: "LOGGEDIN")
-
         // Set the camera log to hidden
         showCameraLogo?.isHidden = true
         
@@ -124,13 +121,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeLogin(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeLogin(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         
-        
-        if (UserDefaults.standard.bool(forKey: "LOGGEDIN")) == true {
-            loginStatus.text = showUserInfo(startUp: false)
-        } else {
-            loginStatus.text = showUserInfo(startUp: true)
-        }
-        
         if (UserDefaults.standard.bool(forKey: "SHOWPASSWORD")) == true {
             self.passwordTextField.isSecureTextEntry = false
         } else {
@@ -140,9 +130,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         if (UserDefaults.standard.bool(forKey: "LOGINCLEAREMAILPASSWORD")) == true {
             eMailLoginTextField.text = ""
             passwordTextField.text = ""
-            loginStatus.text = showUserInfo(startUp: true)
-        } else {
-            loginStatus.text = showUserInfo(startUp: false)
         }
         
         // Turn off keyboard when you press "Return"
@@ -156,6 +143,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         if self.tabBarController?.tabBar.isHidden == false {
            self.tabBarController?.tabBar.isHidden = true
            self.showCameraLogo?.isHidden = true
+           self.loginStatus.text = self.showUserInfo(startUp: true)
         }
     }
     
@@ -165,20 +153,20 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
             return
         }
 
-            let distanceToBottom = view.frame.size.height - (activeField?.frame.origin.y)! - (activeField?.frame.size.height)!
+        let distanceToBottom = view.frame.size.height - (activeField?.frame.origin.y)! - (activeField?.frame.size.height)!
 
-            if keyboardRect.height > distanceToBottom {
+        if keyboardRect.height > distanceToBottom {
 
-                if notification.name == UIResponder.keyboardWillShowNotification ||
-                    notification.name == UIResponder.keyboardWillChangeFrameNotification {
-                    view.frame.origin.y = -(keyboardRect.height - distanceToBottom)
-                } else {
-                    view.frame.origin.y = 0
-                }
-
+            if notification.name == UIResponder.keyboardWillShowNotification ||
+                notification.name == UIResponder.keyboardWillChangeFrameNotification {
+                view.frame.origin.y = -(keyboardRect.height - distanceToBottom)
+            } else {
+                view.frame.origin.y = 0
             }
-            
+
         }
+        
+    }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         activeField = textField
@@ -262,7 +250,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
                                                                                comment: "LoginViewVontroller.swift CheckLogin error"),
                                                   message: melding)
                             } else {
-                                UserDefaults.standard.set(true, forKey: "LOGGEDIN")
+                                // UserDefaults.standard.set(true, forKey: "LOGGEDIN")
                                 self.loginStatus.text = navn + NSLocalizedString(" is logged in.",
                                                                                  comment:"LoginViewVontroller.swift CheckLogin 'loggedin'")
                                 
@@ -363,6 +351,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
                             }
                        }
 
+                        self.loginStatus.text = self.showUserInfo(startUp: false)
+                        
                     } else {
                         let melding = NSLocalizedString("Unable to update CoreData.",
                                                         comment: "LoginViewVontroller.swift CheckLogin 'update'")

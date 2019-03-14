@@ -64,6 +64,9 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         // Change the title of navigationBar
         navigationItem.title = PersonTitle
         
+        // Show "log in"
+        loginStatus.text = showUserInfo(startUp: true)
+        
         // Turn off keyboard when you press "Return"
         addressInput.delegate = self
         cityInput.delegate = self
@@ -136,12 +139,6 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeAddPerson(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeAddPerson(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeAddPerson(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-        
-        if (UserDefaults.standard.bool(forKey: "LOGGEDIN")) == true {
-            loginStatus.text = showUserInfo(startUp: false)
-        } else {
-            loginStatus.text = showUserInfo(startUp: true)
-        }
         
         if globalPersonAddressText.count > 0 {
             addressInput.text = globalPersonAddressText
