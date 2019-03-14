@@ -130,14 +130,14 @@ class CvViewController: UIViewController {
            t) Lagt inn Kart i PersonViewController (uten å gå gjennom opsjonene)
            u) Lagt inn default bilde når en legger inn en ny person
            v) Skjuler tabBarController?.tabBar når den er aktiv, og du endrer på ePost feltet eller Passord feltet.
+           w) Create new account: Legge inn default bilde (new-person) i oppstart
         
         7. Nye oppgaver (ikke fullført)
         
-           a) Velge automatisk innlogging i "Innstillinger"
-           b) Legge inn default bilde (new-person) i oppstart
-           c) Se igjennom opsjonene for Kart i PersonViewController
-           d) Vise fremgang
-           e) Oppdatere security i Firebase (er det samme for Firestore?)
+           a) Velge automatisk innlogging i "Innstillinger" ??????
+           b) Se igjennom opsjonene for Kart i PersonViewController
+           c) Vise fremgang
+           d) Oppdatere security i Firebase (er det samme for Firestore?)
         
         8. Programmerings tips
         
