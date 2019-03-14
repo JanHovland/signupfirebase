@@ -32,13 +32,14 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate, UIImag
     
     var savePhoto: Bool = false
 
+    // Called after the view has been loaded. For view controllers created in code, this is after -loadView. For view controllers unarchived from a nib, this is after the view is set.
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Turn off keyboard when you press "Return"
-        self.nameCreateAccountTextField.delegate = self
-        self.eMailCreateAccountTextField.delegate = self
-        self.passwordCreateAccountTextField.delegate = self
+        nameCreateAccountTextField.delegate = self
+        eMailCreateAccountTextField.delegate = self
+        passwordCreateAccountTextField.delegate = self
         
         // Insert the values from LogInViewController.swift
         eMailCreateAccountTextField.text = createEmail
@@ -51,6 +52,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate, UIImag
         
     }
 
+    // Called when the view has been fully transitioned onto the screen. Default does nothing
     override func viewDidAppear(_ animated: Bool) {
         // Observe keyboard change
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeCreateAccount(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -59,6 +61,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate, UIImag
         
     }
     
+    // Called when the view is about to made visible. Default does nothing
     override func viewWillAppear(_ animated: Bool) {
     }
     
@@ -82,11 +85,13 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate, UIImag
         }
     }
     
+    // return NO to disallow editing.
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         activeField = textField
         return true
     }
     
+    // called when 'return' key pressed. return NO to ignore.
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         activeField?.resignFirstResponder()
         activeField = nil
@@ -180,7 +185,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate, UIImag
                                 }
                                                 
                             })
-
+                            
                         } else {
                             // Update CoreData with 'loggedin' == true
                             ok = self.updateCoreData(withEpost: self.eMailCreateAccountTextField.text!, withLoggedIn: true)
@@ -371,11 +376,13 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate, UIImag
             }
         })
         
+        let title2 = NSLocalizedString("Cancel", comment: "LoginViewVontroller.swift selectPersonPhoto")
+        
         photoSourceRequestController.addAction(cameraAction)
         photoSourceRequestController.addAction(photoLibraryAction)
+        photoSourceRequestController.addAction(UIAlertAction(title: title2, style: .default, handler: nil))
         
         present(photoSourceRequestController, animated: true, completion: nil)
-        
         
     }
     

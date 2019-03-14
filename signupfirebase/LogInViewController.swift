@@ -27,25 +27,25 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         }
     }
     
+    @IBOutlet weak var photoButton: UIButton!
+    
     var status: Bool = true
     var activeField: UITextField!
     
     var savePhoto: Bool = false
     
-    @IBOutlet weak var showCameraLogo: UIButton!
-    
     // Called after the view has been loaded. For view controllers created in code, this is after -loadView. For view controllers unarchived from a nib, this is after the view is set.
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Hide the photoButton
+        photoButton.isHidden = true
         
         // Hide the tabBar
         self.tabBarController?.tabBar.isHidden = true
         
         // Set "SHOWPASSWORD" to false
         UserDefaults.standard.set(false, forKey: "SHOWPASSWORD")
-        
-        // Set the camera log to hidden
-        showCameraLogo?.isHidden = true
         
         // Initialize the UIActivityIndicatorView
         activity.hidesWhenStopped = true
@@ -127,7 +127,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         // Hide the tabBar
         if self.tabBarController?.tabBar.isHidden == false {
            self.tabBarController?.tabBar.isHidden = true
-           self.showCameraLogo?.isHidden = true
            self.loginStatus.text = self.showUserInfo(startUp: true)
         }
     }
@@ -241,9 +240,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
                                 
                                 // Show the tabBar
                                 self.tabBarController?.tabBar.isHidden = false
-                                
-                                // Set the camera log to hidden
-                                self.showCameraLogo?.isHidden = false
+                                self.photoButton.isHidden = false
                                 
                                 // Only save photo if a photo has been picked
                                 if self.savePhoto == true {
@@ -434,8 +431,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
             }
         })
         
+        let title2 = NSLocalizedString("Cancel", comment: "LoginViewVontroller.swift selectPersonPhoto")
+        
         photoSourceRequestController.addAction(cameraAction)
         photoSourceRequestController.addAction(photoLibraryAction)
+        photoSourceRequestController.addAction(UIAlertAction(title: title2, style: .default, handler: nil))
         
         present(photoSourceRequestController, animated: true, completion: nil)
         

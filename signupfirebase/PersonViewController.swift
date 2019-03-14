@@ -30,7 +30,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
             inputImage.clipsToBounds = true
         }
     }
-    
+   
     @IBOutlet var activity: UIActivityIndicatorView!
     
     var PersonTitle = ""
@@ -421,8 +421,11 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
             }
         })
         
+        let title2 = NSLocalizedString("Cancel", comment: "LoginViewVontroller.swift selectPersonPhoto")
+        
         photoSourceRequestController.addAction(cameraAction)
         photoSourceRequestController.addAction(photoLibraryAction)
+        photoSourceRequestController.addAction(UIAlertAction(title: title2, style: .default, handler: nil))
         
         present(photoSourceRequestController, animated: true, completion: nil)
         
