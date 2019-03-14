@@ -49,33 +49,6 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate, UIImag
         activity.style = .gray
         view.addSubview(activity)
         
-        let value = getCoreData()
-        
-        // Show the photo for the current user
-        if let image = CacheManager.shared.getFromCache(key: value.photoURL) as? UIImage {
-            inputImage.image = image
-        } else {
-            if let url = URL(string: value.photoURL) {
-                
-                let findCellImage = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-                    guard let imageData = data else {
-                        return
-                    }
-                    OperationQueue.main.addOperation {
-                        guard let image = UIImage(data: imageData) else {
-                            return
-                        }
-                        
-                        self.inputImage.image = image
-                        
-                        // Add the downloaded image to cache
-                        CacheManager.shared.cache(object: image, key: value.photoURL)
-                    }
-                })
-                
-                findCellImage.resume()
-            }
-        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -130,8 +103,6 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate, UIImag
     @IBAction func SaveAccount(_ sender: UIBarButtonItem) {
         var ok: Bool = false
         var ok1: Bool = false
-        var uid: String = ""
-        var navn: String = ""
 
         activity.startAnimating()
 
@@ -154,8 +125,8 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate, UIImag
                 if error == nil {
                     // The user is stored in Firebase
 
-                    uid = Auth.auth().currentUser?.uid ?? ""
-                    navn = self.nameCreateAccountTextField.text!
+                    let uid = Auth.auth().currentUser?.uid ?? ""
+                    let name = self.nameCreateAccountTextField.text!
 
                     // Reset all posts where 'loggedin' == true
                     ok = self.resetLoggedIinCoreData()
@@ -167,43 +138,48 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate, UIImag
 
                         if ok == false {
                             
-                            //  0 = uid  1 = ePost  2 = name  3 = passWord 4 = photoURL
-                            let value1 = self.getCoreData()
+                            // Store the image og the new user
                             
-                            ok1 = self.saveCoreData(withEpost: self.eMailCreateAccountTextField.text!,
-                                                    withPassord: self.passwordCreateAccountTextField.text!,
-                                                    withUid: uid,
-                                                    withLoggedIn: true,
-                                                    withName: navn,
-                                                    withPhotoURL: value1.photoURL)
+                            self.savePhotoURL(image: self.inputImage.image!,
+                                              email: self.eMailCreateAccountTextField.text!,
+                                              completionHandler: { (url) in
+                            
+                                ok1 = self.saveCoreData(withEpost: self.eMailCreateAccountTextField.text!,
+                                                        withPassord: self.passwordCreateAccountTextField.text!,
+                                                        withUid: uid,
+                                                        withLoggedIn: true,
+                                                        withName: name,
+                                                        withPhotoURL: url)
 
-                            if ok1 == false {
-                                let melding = NSLocalizedString("Unable to store data in CoreData.",
-                                                                comment: "CreateAccountViewVontroller.swift CheckLogin verdi")
-                                
-                                self.presentAlert(withTitle: NSLocalizedString("Error",
-                                                                               comment: "CreateAccountViewVontroller.swift SaveAccount "),
-                                                  message: melding)
-                                
-                            } else {
-                                let region = NSLocale.current.regionCode?.lowercased()  // Returns the local region
-                                Auth.auth().languageCode = region!
-                                
-                                // Store the name of the user in Firebase
-                                let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-                                changeRequest?.displayName = self.nameCreateAccountTextField.text!
-                                // changeRequest?.photoURL = URL(string: value2.photoURL)
-                                
-                                changeRequest?.commitChanges { error in
-                                    if error == nil {
-                                        self.dismiss(animated: false, completion: nil)
-                                    } else {
-                                        let melding = error!.localizedDescription
-                                        self.presentAlert(withTitle: NSLocalizedString("Error", comment: "CreateAccountViewVontroller.swift SaveAccount"),
-                                                          message: melding)
+                                if ok1 == false {
+                                    let melding = NSLocalizedString("Unable to store data in CoreData.",
+                                                                    comment: "CreateAccountViewVontroller.swift CheckLogin verdi")
+                                    
+                                    self.presentAlert(withTitle: NSLocalizedString("Error",
+                                                                                   comment: "CreateAccountViewVontroller.swift SaveAccount "),
+                                                      message: melding)
+                                    
+                                } else {
+                                    let region = NSLocale.current.regionCode?.lowercased()  // Returns the local region
+                                    Auth.auth().languageCode = region!
+                                    
+                                    // Store the name of the user in Firebase
+                                    let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                                    changeRequest?.displayName = self.nameCreateAccountTextField.text!
+                                    // changeRequest?.photoURL = URL(string: value2.photoURL)
+                                    
+                                    changeRequest?.commitChanges { error in
+                                        if error == nil {
+                                            self.dismiss(animated: false, completion: nil)
+                                        } else {
+                                            let melding = error!.localizedDescription
+                                            self.presentAlert(withTitle: NSLocalizedString("Error", comment: "CreateAccountViewVontroller.swift SaveAccount"),
+                                                              message: melding)
+                                        }
                                     }
                                 }
-                            }
+                                                
+                            })
 
                         } else {
                             // Update CoreData with 'loggedin' == true

@@ -81,33 +81,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         passwordTextField.addTarget(self,
                                     action: #selector(textFieldEditingChanged),
                                     for: UIControl.Event.editingChanged)
-        
-        // Show the photo for the current user
-        if let image = CacheManager.shared.getFromCache(key: value.photoURL) as? UIImage {
-            inputImage.image = image
-        } else {
-            if let url = URL(string: value.photoURL) {
-                
-                let findCellImage = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-                    guard let imageData = data else {
-                        return
-                    }
-                    OperationQueue.main.addOperation {
-                        guard let image = UIImage(data: imageData) else {
-                            return
-                        }
-                        
-                        self.inputImage.image = image
-                        
-                        // Add the downloaded image to cache
-                        CacheManager.shared.cache(object: image, key: value.photoURL)
-                    }
-                })
-                
-                findCellImage.resume()
-            }
-        }
-        
     }
     
     // Called when the view has been fully transitioned onto the screen. Default does nothing
@@ -135,6 +108,39 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         // Turn off keyboard when you press "Return"
         eMailLoginTextField.delegate = self
         passwordTextField.delegate = self
+        
+        let value = getCoreData()
+        
+        eMailLoginTextField.text! = value.eMail
+        passwordTextField.text! = value.passWord
+        
+        
+        // Show the photo for the current user
+        if let image = CacheManager.shared.getFromCache(key: value.photoURL) as? UIImage {
+            inputImage.image = image
+        } else {
+            if let url = URL(string: value.photoURL) {
+                
+                let findCellImage = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+                    guard let imageData = data else {
+                        return
+                    }
+                    OperationQueue.main.addOperation {
+                        guard let image = UIImage(data: imageData) else {
+                            return
+                        }
+                        
+                        self.inputImage.image = image
+                        
+                        // Add the downloaded image to cache
+                        CacheManager.shared.cache(object: image, key: value.photoURL)
+                    }
+                })
+                
+                findCellImage.resume()
+            }
+        }
+
 
     }
     
