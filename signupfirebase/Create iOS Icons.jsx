@@ -126,6 +126,8 @@ try
       {"name": "Icon-32@2x",       "size":64},
       {"name": "Icon-32@3x",       "size":96},
       {"name": "Icon-35",          "size":35},
+      {"name": "Icon-35@2x",       "size":70},
+      {"name": "Icon-35@3x",       "size":105},
       {"name": "Icon-40",          "size":40},
       {"name": "Icon-40@2x",       "size":80},
       {"name": "Icon-40@3x",       "size":120},
