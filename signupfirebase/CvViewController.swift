@@ -136,7 +136,8 @@ class CvViewController: UIViewController {
         
            a) Ta bort kamera icon og trykk på bildet for å bytte bilde.
               . LoginViewController.swift
-              . CreateAccountViewController
+              . CreateAccountViewController.swift
+              . PersonViewController.swift
            b) Se igjennom opsjonene for Kart i PersonViewController.
            c) Vise fremgang.
            d) Oppdatere security i Firebase (er det samme for Firestore?)
