@@ -134,9 +134,11 @@ class CvViewController: UIViewController {
         
         7. Nye oppgaver (ikke fullført)
         
-           a) Velge automatisk innlogging i "Innstillinger" ??????
-           b) Se igjennom opsjonene for Kart i PersonViewController
-           c) Vise fremgang
+           a) Ta bort kamera icon og trykk på bildet for å bytte bilde.
+              . LoginViewController.swift
+              . CreateAccountViewController
+           b) Se igjennom opsjonene for Kart i PersonViewController.
+           c) Vise fremgang.
            d) Oppdatere security i Firebase (er det samme for Firestore?)
         
         8. Programmerings tips
