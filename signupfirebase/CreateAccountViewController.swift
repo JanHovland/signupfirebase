@@ -10,7 +10,7 @@ import CoreData
 import Firebase
 import UIKit
 
-class CreateAccountViewController: UIViewController, UITextFieldDelegate {
+class CreateAccountViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet var activity: UIActivityIndicatorView!
 
     @IBOutlet var nameCreateAccountTextField: UITextField!
@@ -22,6 +22,15 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     // These 2 variables get their values via segue "gotoCreateAccount" in LogInViewController.swift
     var createEmail: String = ""
     var createPassord: String = ""
+
+    @IBOutlet var inputImage: UIImageView! {
+        didSet {
+            inputImage.layer.cornerRadius = inputImage.bounds.width / 2
+            inputImage.clipsToBounds = true
+        }
+    }
+    
+    var savePhoto: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +49,33 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
         activity.style = .gray
         view.addSubview(activity)
         
+        let value = getCoreData()
+        
+        // Show the photo for the current user
+        if let image = CacheManager.shared.getFromCache(key: value.photoURL) as? UIImage {
+            inputImage.image = image
+        } else {
+            if let url = URL(string: value.photoURL) {
+                
+                let findCellImage = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+                    guard let imageData = data else {
+                        return
+                    }
+                    OperationQueue.main.addOperation {
+                        guard let image = UIImage(data: imageData) else {
+                            return
+                        }
+                        
+                        self.inputImage.image = image
+                        
+                        // Add the downloaded image to cache
+                        CacheManager.shared.cache(object: image, key: value.photoURL)
+                    }
+                })
+                
+                findCellImage.resume()
+            }
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -197,7 +233,95 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                                                      message: melding)
                                     }
                                 }
-                            }
+                                
+                                // Only save photo if a photo has been picked
+                                if self.savePhoto == true {
+                                    
+                                    self.savePhotoURL(image: self.inputImage.image!,
+                                                      email: self.eMailCreateAccountTextField.text!,
+                                                      completionHandler: { (url) in
+                                                        
+                                        //  0 = uid  1 = eMail 2 = name  3 = passWord 4 = photoURL
+                                        let value = self.getCoreData()
+                                        let OK = self.saveCoreData(withEpost: value.eMail,
+                                                                   withPassord: value.passWord,
+                                                                   withUid: value.uid,
+                                                                   withLoggedIn: true,
+                                                                   withName: value.name,
+                                                                   withPhotoURL: url)
+                                        
+                                        if OK == false {
+                                            let melding = NSLocalizedString("Unable to store data in FireBase.",
+                                                                            comment: "LoginViewVontroller.swift CheckLogin")
+                                            self.presentAlert(withTitle: NSLocalizedString("Error.",
+                                                                                           comment: "LoginViewVontroller.swift CheckLogin"),
+                                                              message: melding)
+                                            
+                                        } else {
+                                            
+                                            let value1 = self.getCoreData()
+                                            
+                                            if let image = CacheManager.shared.getFromCache(key: value.photoURL) as? UIImage, self.savePhoto == false {
+                                                self.inputImage.image = image
+                                            } else {
+                                                self.savePhoto = false
+                                                if let url = URL(string: value1.photoURL) {
+                                                    
+                                                    let findCellImage = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+                                                        guard let imageData = data else {
+                                                            return
+                                                        }
+                                                        OperationQueue.main.addOperation {
+                                                            guard let image = UIImage(data: imageData) else {
+                                                                return
+                                                            }
+                                                            
+                                                            self.inputImage.image = image
+                                                            
+                                                            // Add the downloaded image to cache
+                                                            CacheManager.shared.cache(object: image, key: value.photoURL)
+                                                        }
+                                                    })
+                                                    
+                                                    findCellImage.resume()
+                                                }
+                                            }
+                                            
+                                        }
+                                        
+                                    })
+                                    
+                                } else {
+                                    let value = self.getCoreData()
+                                    
+                                    if let image = CacheManager.shared.getFromCache(key: value.photoURL) as? UIImage, self.savePhoto == false {
+                                        self.inputImage.image = image
+                                    } else {
+                                        self.savePhoto = false
+                                        if let url = URL(string: value.photoURL) {
+                                            
+                                            let findCellImage = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+                                                guard let imageData = data else {
+                                                    return
+                                                }
+                                                OperationQueue.main.addOperation {
+                                                    guard let image = UIImage(data: imageData) else {
+                                                        return
+                                                    }
+                                                    
+                                                    self.inputImage.image = image
+                                                    
+                                                    // Add the downloaded image to cache
+                                                    CacheManager.shared.cache(object: image, key: value.photoURL)
+                                                }
+                                            })
+                                            
+                                            findCellImage.resume()
+                                        }
+                                    }
+                                    
+                                }
+                             }
                         }
 
                     } else {
@@ -240,5 +364,60 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
+    
+    @IBAction func selectPersonPhoto(_ sender: UIButton) {
+        
+        let melding = NSLocalizedString("Choose your photo source", comment: "LoginViewVontroller.swift selectPersonPhoto")
+        
+        let photoSourceRequestController = UIAlertController(title: "", message: melding, preferredStyle: .actionSheet)
+        
+        let title = NSLocalizedString("Camera", comment: "LoginViewVontroller.swift selectPersonPhoto")
+        
+        let cameraAction = UIAlertAction(title: title, style: .default, handler: { (action) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                let imagePicker = UIImagePickerController()
+                imagePicker.allowsEditing = true
+                imagePicker.sourceType = .camera
+                imagePicker.delegate = self
+                self.present(imagePicker, animated: true, completion: nil)
+            }
+        })
+        
+        let title1 = NSLocalizedString("Photo library", comment: "LoginViewVontroller.swift selectPersonPhoto")
+        
+        let photoLibraryAction = UIAlertAction(title: title1, style: .default, handler: { (action) in
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+                let imagePicker = UIImagePickerController()
+                imagePicker.allowsEditing = true
+                imagePicker.sourceType = .photoLibrary
+                imagePicker.delegate = self
+                self.present(imagePicker, animated: true, completion: nil)
+            }
+        })
+        
+        photoSourceRequestController.addAction(cameraAction)
+        photoSourceRequestController.addAction(photoLibraryAction)
+        
+        present(photoSourceRequestController, animated: true, completion: nil)
+        
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        // Find the person's new photo
+        if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            
+            inputImage.image = image
+            inputImage.contentMode = .scaleAspectFill
+            inputImage.clipsToBounds = true
+            
+            savePhoto = true
+            
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+
     
 }

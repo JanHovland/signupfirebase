@@ -32,6 +32,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     
     var savePhoto: Bool = false
     
+    @IBOutlet weak var showCameraLogo: UIButton!
+    
     // Called after the view has been loaded. For view controllers created in code, this is after -loadView. For view controllers unarchived from a nib, this is after the view is set.
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +47,9 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         // Set "LOGGEDIN" to false
         UserDefaults.standard.set(false, forKey: "LOGGEDIN")
 
+        // Set the camera log to hidden
+        showCameraLogo?.isHidden = true
+        
         // Initialize the UIActivityIndicatorView
         activity.hidesWhenStopped = true
         activity.style = .gray
@@ -61,10 +66,9 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         if (UserDefaults.standard.bool(forKey: "LOGINCLEAREMAILPASSWORD")) == true {
             eMailLoginTextField.text = ""
             passwordTextField.text = ""
-            loginStatus.text = showUserInfo(startUp: true)
-        } else {
-            loginStatus.text = showUserInfo(startUp: false)
         }
+        
+        loginStatus.text = showUserInfo(startUp: true)
         
         activity.stopAnimating()
         
@@ -120,6 +124,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeLogin(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeLogin(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         
+        
         if (UserDefaults.standard.bool(forKey: "LOGGEDIN")) == true {
             loginStatus.text = showUserInfo(startUp: false)
         } else {
@@ -150,6 +155,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         // Hide the tabBar
         if self.tabBarController?.tabBar.isHidden == false {
            self.tabBarController?.tabBar.isHidden = true
+           self.showCameraLogo?.isHidden = true
         }
     }
     
@@ -262,6 +268,9 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
                                 
                                 // Show the tabBar
                                 self.tabBarController?.tabBar.isHidden = false
+                                
+                                // Set the camera log to hidden
+                                self.showCameraLogo?.isHidden = false
                                 
                                 // Only save photo if a photo has been picked
                                 if self.savePhoto == true {

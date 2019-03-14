@@ -597,9 +597,9 @@ extension UIViewController {
         print(imageStorageRef as Any)
         
         // Resize the image
-        let scaledImage = image.scale(newWidth: 100.0)
+        let scaledImage = image.scale(newWidth: 50.0)
         
-        guard let imageData = scaledImage.jpegData(compressionQuality: 1.0) else {
+        guard let imageData = scaledImage.jpegData(compressionQuality: 0.5) else {
             return
         }
         
