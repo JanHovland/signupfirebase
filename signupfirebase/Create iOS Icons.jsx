@@ -103,7 +103,7 @@ try
     sfw.transparency = true;
     doc.info = null;  // delete metadata
     
-    var icons = [
+    var icons = [ 
       {"name": "Icon-20",          "size":20},
       {"name": "Icon-20@2x",       "size":40},
       {"name": "Icon-20@3x",       "size":60},
