@@ -27,22 +27,22 @@ extension UIViewController {
                 completion: nil)
     }
     
-    func presentAlertOption(withTitle title: String,
-                            message: Any) {
+    func presentAlertCreateAccount(withTitle title: String,
+                                   message: Any,
+                                   firstTitle: String,
+                                   secondTitle: String) {
         
         let alertController = UIAlertController(title: title,
                                                 message: "\(message)",
             preferredStyle: .alert)
         
-        alertController.addAction(UIAlertAction(title: NSLocalizedString("Try one more time",
-                                                                         comment: "DataBaseExtension.swift presentAlertOption"),
-                                                style: .default,
-                                                handler: nil))
-        
-        alertController.addAction(UIAlertAction(title: NSLocalizedString("Add a new user",
-                                                                         comment: "DataBaseExtension.swift presentAlertOption"),
+        alertController.addAction(UIAlertAction(title: firstTitle,
                                                 style: .default,
                                                 handler: { _ in CreateAccount() }))
+        
+        alertController.addAction(UIAlertAction(title: secondTitle,
+                                                style: .default,
+                                                handler: nil))
         
         present(alertController,
                 animated: true,

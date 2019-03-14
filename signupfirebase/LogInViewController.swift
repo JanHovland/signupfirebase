@@ -364,9 +364,19 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
                     }
 
                 } else {
-                    self.presentAlertOption(withTitle: NSLocalizedString("Error",
-                                                                         comment: "LoginViewVontroller.swift CheckLogin 'error'"),
-                                            message: error!.localizedDescription as String)
+                    
+                    let withTitle =   NSLocalizedString("Error", comment: "LoginViewVontroller.swift CheckLogin 'error'")
+                    let firstTitle =  NSLocalizedString("Add a new user", comment: "LoginViewVontroller.swift presentAlertCreateAccount")
+                    let secondTitle = NSLocalizedString("Try one more time", comment: "LoginViewVontroller.swift presentAlertCreateAccount")
+                    
+                    // The first will have handler: { _ in CreateAccount() }) og vil åpne CreateAccount
+                    // The second handler will have handler: nil og vil så lukke presentAlertCreateAccount
+                    
+                    self.presentAlertCreateAccount(withTitle: withTitle,
+                                                   message: error!.localizedDescription as String,
+                                                   firstTitle: firstTitle,
+                                                   secondTitle: secondTitle)
+                    
                 }
             }
 
