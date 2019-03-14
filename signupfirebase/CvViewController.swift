@@ -118,7 +118,7 @@ class CvViewController: UIViewController {
            m) Format av telefon er kommentert bort, må rettes og implementeres
               .Test OK
            n) Lagt inn nytt punkt "Lagre postnummer i Firebase" under "Innstillinger"
-           o) Legge inn indexed table view for kunne søke raskere på Postnummer
+           o) Legge inn "indexed table view" for kunne søke raskere på Postnummer
            p) Legge inn Bilde i PersonViewController
            q) Benytte cache
            r) Løst problemene med "krølling av bilder"
@@ -139,8 +139,9 @@ class CvViewController: UIViewController {
         7. Nye oppgaver (ikke fullført)
         
            a) Se igjennom opsjonene for Kart i PersonViewController.
-           b) Vise fremgang.
-           c) Oppdatere security i Firebase (er det samme for Firestore?)
+           b) Legge inn "indexed table view" for kunne søke raskere på Persondata
+           c) Vise fremgang.
+           d) Oppdatere security i Firebase (er det samme for Firestore?)
         
         8. Programmerings tips
         
