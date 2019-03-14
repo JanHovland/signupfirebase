@@ -134,7 +134,6 @@ class CvViewController: UIViewController {
            x) Ta bort kamera icon og trykk på bildet for å bytte bilde.
               . LoginViewController.swift
               . CreateAccountViewController.swift
-              . PersonViewController.swift
            y) Flyttet map icon til PersonViewController.swift
         
         7. Nye oppgaver (ikke fullført)
