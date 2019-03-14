@@ -372,74 +372,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
             vc.postalCodeMunicipalityText = municipalityInput.text!
             vc.postalCodeMunicipalityNumberText = municipalityNumberInput.text!
             
-        } else if segue.identifier! == "gotoMap" {
-            
-            let vc = segue.destination as! MapViewController
-            
-            let name1 = nameInput.text!.lowercased()
-            let name = name1.capitalized
-            
-            // Exports the selected name to the MapViewController
-            vc.titleMap = name
-            vc.locationOnMap = addressInput.text! + " " + postalCodeNumberInput.text! + " " + cityInput.text!
-            vc.address = addressInput.text!
-            
         }
     }
     
-    /*
-    @IBAction func selectPersonPhoto(_ sender: UIButton) {
-        
-        let melding = NSLocalizedString("Choose your photo source", comment: "LoginViewVontroller.swift selectPersonPhoto")
-        
-        let photoSourceRequestController = UIAlertController(title: "", message: melding, preferredStyle: .actionSheet)
-        
-        let title = NSLocalizedString("Camera", comment: "LoginViewVontroller.swift selectPersonPhoto")
-        
-        let cameraAction = UIAlertAction(title: title, style: .default, handler: { (action) in
-            if UIImagePickerController.isSourceTypeAvailable(.camera) {
-                let imagePicker = UIImagePickerController()
-                imagePicker.allowsEditing = true
-                imagePicker.sourceType = .camera
-                imagePicker.delegate = self
-                self.present(imagePicker, animated: true, completion: nil)
-            }
-        })
-        
-        let title1 = NSLocalizedString("Photo library", comment: "LoginViewVontroller.swift selectPersonPhoto")
-        
-        let photoLibraryAction = UIAlertAction(title: title1, style: .default, handler: { (action) in
-            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-                let imagePicker = UIImagePickerController()
-                imagePicker.allowsEditing = true
-                imagePicker.sourceType = .photoLibrary
-                imagePicker.delegate = self
-                self.present(imagePicker, animated: true, completion: nil)
-            }
-        })
-        
-        let title2 = NSLocalizedString("Cancel", comment: "LoginViewVontroller.swift selectPersonPhoto")
-        
-        photoSourceRequestController.addAction(cameraAction)
-        photoSourceRequestController.addAction(photoLibraryAction)
-        photoSourceRequestController.addAction(UIAlertAction(title: title2, style: .default, handler: nil))
-        
-        present(photoSourceRequestController, animated: true, completion: nil)
-        
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-        // Find the person's new photo
-        if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-            
-            inputImage.image = image
-            inputImage.contentMode = .scaleAspectFill
-            inputImage.clipsToBounds = true
-            
-        }
-        
-        dismiss(animated: true, completion: nil)
-    }
-    */
 }
