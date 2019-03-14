@@ -45,6 +45,10 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     
     var phoneNumberInput = ""
     
+    var personName = ""
+    var personAddress = ""
+    var locationOnMap = ""
+    
     var persons = [Person]()
     private var currentPerson: Person?
 
@@ -439,6 +443,14 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             vc.PersonOption = 0             // Save new person == 0
             vc.PersonTitle = NSLocalizedString("New Person", comment: "MainPersonDataViewController.swift prepare")
         
+        
+        } else if segue.identifier! == "gotoMap" {
+        
+            let vc = segue.destination as! MapViewController
+            
+            vc.titleMap = personName
+            vc.locationOnMap = locationOnMap
+            vc.address = personAddress
         }
     }
 
@@ -449,12 +461,31 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
+    // Connect to the Map
+    @IBAction func mapButton(_ sender: UIButton) {
+        
+        // Find the row of the selected cell
+        let buttonPosition = sender.convert(sender.bounds.origin, to: tableView)
+        if let indexPath = tableView.indexPathForRow(at: buttonPosition) {
+            let rowIndex =  indexPath.row
+            phoneNumberInput = persons[rowIndex].personData.phoneNumber
+            
+            personName = persons[rowIndex].personData.name.lowercased()
+            personName = personName.capitalized 
+            locationOnMap = persons[rowIndex].personData.address + " " +
+                            persons[rowIndex].personData.postalCodeNumber + " " +
+                            persons[rowIndex].personData.city
+            personAddress = persons[rowIndex].personData.address
+        }
+      
+    }
+    
     // Make a call wuth the phone number
     @IBAction func buttonPhone(_ sender: UIButton) {
         
         // Find the row of the selected cell
-        let buttonPostion = sender.convert(sender.bounds.origin, to: tableView)
-        if let indexPath = tableView.indexPathForRow(at: buttonPostion) {
+        let buttonPosition = sender.convert(sender.bounds.origin, to: tableView)
+        if let indexPath = tableView.indexPathForRow(at: buttonPosition) {
             let rowIndex =  indexPath.row
             phoneNumberInput = persons[rowIndex].personData.phoneNumber
         }
@@ -472,8 +503,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         if MFMessageComposeViewController.canSendText() {
             
             // Find the row of the selected cell
-            let buttonPostion = sender.convert(sender.bounds.origin, to: tableView)
-            if let indexPath = tableView.indexPathForRow(at: buttonPostion) {
+            let buttonPosition = sender.convert(sender.bounds.origin, to: tableView)
+            if let indexPath = tableView.indexPathForRow(at: buttonPosition) {
                 let rowIndex =  indexPath.row
                 phoneNumberInput = persons[rowIndex].personData.phoneNumber
             }

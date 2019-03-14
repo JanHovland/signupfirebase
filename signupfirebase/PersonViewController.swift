@@ -20,10 +20,6 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     @IBOutlet weak var municipalityNumberInput: UITextField!
     @IBOutlet weak var municipalityInput: UITextField!
     
-    @IBAction func mapInput(_ sender: UIButton) {
-        
-    }
-    
     @IBOutlet var inputImage: UIImageView! {
         didSet {
             inputImage.layer.cornerRadius = inputImage.bounds.width / 2
@@ -391,6 +387,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         }
     }
     
+    /*
     @IBAction func selectPersonPhoto(_ sender: UIButton) {
         
         let melding = NSLocalizedString("Choose your photo source", comment: "LoginViewVontroller.swift selectPersonPhoto")
@@ -444,5 +441,5 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         
         dismiss(animated: true, completion: nil)
     }
-    
+    */
 }
