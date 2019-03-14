@@ -8,7 +8,7 @@
 /* UpdatePasswordViewVontroller.swift SaveNewPassword */
 " seconds" = " seconder";
 
-/* DataBaseExtension.swift presentAlertOption */
+/* LoginViewVontroller.swift presentAlertCreateAccount */
 "Add a new user" = "Legg inn en ny bruker";
 
 /* ResetPWByMailViewController.swift viewDidLoad */
@@ -26,12 +26,8 @@
 /* LoginViewVontroller.swift selectPersonPhoto */
 "Choose your photo source" = "Velg kilden for foto ";
 
-/* DataBaseExtension.swift savePersonFiredata
-   SavePostalCodesFirebaseTableViewController.swift documentPicker */
+/* SavePostalCodesFirebaseTableViewController.swift documentPicker */
 "Data are now saved in Firebase." = "Data er nå lagret i Firebase.";
-
-/* DataBaseExtension.swift updatePersonFiredata */
-"Data are now updated in Firebase." = "Data er nå oppdatert i Firebase.";
 
 /* MainPersonDataViewController trailingSwipeActionsConfigurationForRowAt */
 "Delete" = "Slett";
@@ -44,7 +40,6 @@
 
 /* CreateAccountViewVontroller.swift SaveAccount
    CreateAccountViewVontroller.swift SaveAccount 
-   DataBaseExtension.swift  savePersonFiredata
    DataBaseExtension.swift deleteAllCoreData
    DataBaseExtension.swift deleteUserCoreData
    DataBaseExtension.swift findCoreData
@@ -52,13 +47,11 @@
    DataBaseExtension.swift getCoreData
    DataBaseExtension.swift resetLoggedInCoreData
    DataBaseExtension.swift saveCoreData
-   DataBaseExtension.swift savePersonFiredata
    DataBaseExtension.swift savePostalCodesFiredata
    DataBaseExtension.swift updateCoreData
    DataBaseExtension.swift updateEpostCoreData
    DataBaseExtension.swift updateNameCoreData
    DataBaseExtension.swift updatePasswordCoreData
-   DataBaseExtension.swiftt savePersonFiredata
    ListTableViewController viewDidLoad
    ListTableViewController viewWillAppear
    ListTableViewController.swift SaveNewPassword 
@@ -77,8 +70,7 @@
    LoginViewVontroller.swift CheckLogin updatepassword */
 "Error." = "Feil.";
 
-/* DataBaseExtension.swift savePersonFiredata
-   DataBaseExtension.swift savePostalCodesFiredata */
+/* DataBaseExtension.swift savePostalCodesFiredata */
 "Every field must be filled in." = "Alle feltene må fylles ut.";
 
 /* LoginViewVontroller.swift SaveAccount */
@@ -107,7 +99,7 @@
 "Photo library" = "Foto biblioteket";
 
 /* DataBaseExtension.swift showUserInfo. */
-"Please log in to Firebase." = "Vennligst log på Firebase.";
+"Please log in to Firebase." = "Vennligst logg inn på Firebase.";
 
 /* ResetPWByMailViewController.swift viewDidLoad */
 "Please note that the included link is time limited!" = "Legg merke til at linken i ePosten er tidsbegrenset!";
@@ -115,8 +107,7 @@
 /* UpdatePasswordViewVontroller.swift SaveNewPassword */
 "Return to login in " = "Retur til login om ";
 
-/* DataBaseExtension.swift savePersonFiredata
-   SavePostalCodesFirebaseTableViewController.swift documentPicker */
+/* SavePostalCodesFirebaseTableViewController.swift documentPicker */
 "Save in Firebase" = "Lagre i Firebase";
 
 /* CreateAccountViewVontroller.swift SaveAccount 
@@ -130,7 +121,7 @@
 /* UpdateUserNameViewVontroller.swift SaveNewName */
 "The username must have a value." = "Navnet til brukeren kan ikke være tomt.";
 
-/* DataBaseExtension.swift presentAlertOption */
+/* LoginViewVontroller.swift presentAlertCreateAccount */
 "Try one more time" = "Prøv en gang til.";
 
 /* ListTableViewController.swift trailingSwipeActionsConfigurationForRowAt */
@@ -159,9 +150,6 @@
 
 /* MainPersonDataViewController leadingSwipeActionsConfigurationForRowAt */
 "Update" = "Oppdater";
-
-/* DataBaseExtension.swift updatePersonFiredata */
-"Update in Firebase" = "Oppdatering Firebase";
 
 /* MainPersonDataViewController.swift prepare */
 "Update Person" = "Oppdater Person";
