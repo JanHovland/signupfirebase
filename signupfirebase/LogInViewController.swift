@@ -52,22 +52,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         activity.style = .gray
         view.addSubview(activity)
 
-        // Start activity
-        activity.startAnimating()
-        
-        let value = getCoreData()
-        
-        eMailLoginTextField.text = value.eMail
-        passwordTextField.text = value.passWord
-      
-        if (UserDefaults.standard.bool(forKey: "LOGINCLEAREMAILPASSWORD")) == true {
-            eMailLoginTextField.text = ""
-            passwordTextField.text = ""
-        }
-        
+        // Show login info
         loginStatus.text = showUserInfo(startUp: true)
-        
-        activity.stopAnimating()
         
         // Turn off keyboard when you press "Return"
         eMailLoginTextField.delegate = self
@@ -100,11 +86,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
             self.passwordTextField.isSecureTextEntry = true
         }
         
-        if (UserDefaults.standard.bool(forKey: "LOGINCLEAREMAILPASSWORD")) == true {
-            eMailLoginTextField.text = ""
-            passwordTextField.text = ""
-        }
-        
         // Turn off keyboard when you press "Return"
         eMailLoginTextField.delegate = self
         passwordTextField.delegate = self
@@ -112,8 +93,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         let value = getCoreData()
         
         eMailLoginTextField.text! = value.eMail
-        passwordTextField.text! = value.passWord
-        
         
         // Show the photo for the current user
         if let image = CacheManager.shared.getFromCache(key: value.photoURL) as? UIImage {
@@ -256,7 +235,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
                                                                                comment: "LoginViewVontroller.swift CheckLogin error"),
                                                   message: melding)
                             } else {
-                                // UserDefaults.standard.set(true, forKey: "LOGGEDIN")
+                                // Shows the user that has logged in
                                 self.loginStatus.text = navn + NSLocalizedString(" is logged in.",
                                                                                  comment:"LoginViewVontroller.swift CheckLogin 'loggedin'")
                                 

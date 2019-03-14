@@ -310,7 +310,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="5Kc-zy-85Y">
-                            <rect key="frame" x="0.0" y="580" width="375" height="20"/>
+                            <rect key="frame" x="0.0" y="508" width="375" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </activityIndicatorView>
                         <sections>
@@ -575,48 +575,7 @@
                                             <segue destination="eOf-mx-9AX" kind="show" id="FJ7-r9-zst"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="12" focusStyle="custom" id="lYp-7q-al7">
-                                        <rect key="frame" x="0.0" y="508" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lYp-7q-al7" id="kQO-o6-7Bm">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="253" verticalHuggingPriority="251" image="Icon-20" translatesAutoresizingMaskIntoConstraints="NO" id="tqq-MC-Xgp">
-                                                    <rect key="frame" x="17" y="9" width="20" height="20"/>
-                                                </imageView>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fXi-nX-Z9M">
-                                                    <rect key="frame" x="311" y="7" width="51" height="31"/>
-                                                    <connections>
-                                                        <action selector="logInLastUser:" destination="nhA-xf-W66" eventType="valueChanged" id="uMh-zW-sRb"/>
-                                                    </connections>
-                                                </switch>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Clear input fields on sign in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5H-dU-kkQ">
-                                                    <rect key="frame" x="53" y="11" width="250" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="S7p-2e-JYV"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <rect key="contentStretch" x="0.20000000000000001" y="0.0" width="1" height="1"/>
-                                            <constraints>
-                                                <constraint firstItem="fXi-nX-Z9M" firstAttribute="leading" secondItem="X5H-dU-kkQ" secondAttribute="trailing" constant="8" symbolic="YES" id="2Ea-Fi-Zy0"/>
-                                                <constraint firstItem="X5H-dU-kkQ" firstAttribute="top" secondItem="kQO-o6-7Bm" secondAttribute="top" constant="11" id="JmA-bi-ZrE"/>
-                                                <constraint firstItem="X5H-dU-kkQ" firstAttribute="leading" secondItem="tqq-MC-Xgp" secondAttribute="trailing" constant="16" id="YFY-nZ-CD3"/>
-                                                <constraint firstItem="fXi-nX-Z9M" firstAttribute="top" secondItem="kQO-o6-7Bm" secondAttribute="top" constant="7" id="fee-fc-SBr"/>
-                                                <constraint firstItem="tqq-MC-Xgp" firstAttribute="top" secondItem="kQO-o6-7Bm" secondAttribute="top" constant="9" id="icM-Pw-qlh"/>
-                                                <constraint firstAttribute="trailing" secondItem="fXi-nX-Z9M" secondAttribute="trailing" constant="15" id="nfy-MQ-06H"/>
-                                                <constraint firstItem="X5H-dU-kkQ" firstAttribute="leading" secondItem="tqq-MC-Xgp" secondAttribute="trailing" constant="16" id="vr9-th-cQr"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle=" " id="g71-cI-G6O">
-                                <cells/>
                             </tableViewSection>
                         </sections>
                         <connections>
@@ -629,7 +588,6 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="activity" destination="5Kc-zy-85Y" id="qVs-l3-UL2"/>
-                        <outlet property="switchLogInLastUser" destination="fXi-nX-Z9M" id="cSI-E4-bCz"/>
                         <outlet property="switchPassWord" destination="NyI-m2-1DO" id="IRU-U9-Ul8"/>
                         <outlet property="userInfo" destination="JUq-Tr-jTG" id="vMk-o0-7pp"/>
                     </connections>
