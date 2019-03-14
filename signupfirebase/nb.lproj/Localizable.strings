@@ -17,6 +17,9 @@
 /* LoginViewVontroller.swift selectPersonPhoto */
 "Camera" = "Kamera";
 
+/* LoginViewVontroller.swift selectPersonPhoto */
+"Cancel" = "Avbryt";
+
 /* MainPersonDataViewController.swift buttonMessage */
 "Cannot send message" = "Kan ikke sende SMS";
 

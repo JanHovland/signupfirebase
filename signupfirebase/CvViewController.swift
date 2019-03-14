@@ -138,10 +138,12 @@ class CvViewController: UIViewController {
         
         7. Nye oppgaver (ikke fullført)
         
-           a) Se igjennom opsjonene for Kart i PersonViewController.
+           a) Ta bort kamera icon og trykk på bildet for å bytte bilde.
+              . PersonViewController.swift
            b) Legge inn "indexed table view" for kunne søke raskere på Persondata
-           c) Vise fremgang.
-           d) Oppdatere security i Firebase (er det samme for Firestore?)
+           c) Se igjennom opsjonene for Kart i PersonViewController.
+           d) Vise fremgang.
+           e) Oppdatere security i Firebase (er det samme for Firestore?)
         
         8. Programmerings tips
         
