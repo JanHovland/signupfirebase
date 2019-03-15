@@ -134,16 +134,15 @@ class CvViewController: UIViewController {
            x) Ta bort kamera icon og trykk på bildet for å bytte bilde.
               . LoginViewController.swift
               . CreateAccountViewController.swift
+              . PersonViewController.swift
            y) Flyttet map icon til PersonViewController.swift
         
         7. Nye oppgaver (ikke fullført)
         
-           a) Ta bort kamera icon og trykk på bildet for å bytte bilde.
-              . PersonViewController.swift
-           b) Legge inn "indexed table view" for kunne søke raskere på Persondata
-           c) Se igjennom opsjonene for Kart i PersonViewController.
-           d) Vise fremgang.
-           e) Oppdatere security i Firebase (er det samme for Firestore?)
+           a) Legge inn "indexed table view" for kunne søke raskere på Persondata
+           b) Se igjennom opsjonene for Kart i PersonViewController.
+           c) Vise fremgang.
+           d) Oppdatere security i Firebase (er det samme for Firestore?)
         
         8. Programmerings tips
         
