@@ -32,6 +32,8 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     var PersonTitle = ""
     var PersonOption = 0 // 0 = save 1 = update
     
+    var savePhoto: Bool = false
+    
     // These vaiables get their values from MainPersonDataViewController.swift
     var PersonPhotoURL = ""
     var PersonIdText = ""
@@ -375,4 +377,60 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         }
     }
     
+    @IBAction func selectPersonPhoto(_ sender: UIButton) {
+        
+        let melding = NSLocalizedString("Choose your photo source", comment: "LoginViewVontroller.swift selectPersonPhoto")
+        
+        let photoSourceRequestController = UIAlertController(title: "", message: melding, preferredStyle: .actionSheet)
+        
+        let title = NSLocalizedString("Camera", comment: "LoginViewVontroller.swift selectPersonPhoto")
+        
+        let cameraAction = UIAlertAction(title: title, style: .default, handler: { (action) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                let imagePicker = UIImagePickerController()
+                imagePicker.allowsEditing = true
+                imagePicker.sourceType = .camera
+                imagePicker.delegate = self
+                self.present(imagePicker, animated: true, completion: nil)
+            }
+        })
+        
+        let title1 = NSLocalizedString("Photo library", comment: "LoginViewVontroller.swift selectPersonPhoto")
+        
+        let photoLibraryAction = UIAlertAction(title: title1, style: .default, handler: { (action) in
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+                let imagePicker = UIImagePickerController()
+                imagePicker.allowsEditing = true
+                imagePicker.sourceType = .photoLibrary
+                imagePicker.delegate = self
+                self.present(imagePicker, animated: true, completion: nil)
+            }
+        })
+        
+        let title2 = NSLocalizedString("Cancel", comment: "LoginViewVontroller.swift selectPersonPhoto")
+        
+        photoSourceRequestController.addAction(cameraAction)
+        photoSourceRequestController.addAction(photoLibraryAction)
+        photoSourceRequestController.addAction(UIAlertAction(title: title2, style: .default, handler: nil))
+        
+        present(photoSourceRequestController, animated: true, completion: nil)
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        // Find the person's new photo
+        if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            
+            inputImage.image = image
+            inputImage.contentMode = .scaleAspectFill
+            inputImage.clipsToBounds = true
+            
+            savePhoto = true
+            
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+
 }
