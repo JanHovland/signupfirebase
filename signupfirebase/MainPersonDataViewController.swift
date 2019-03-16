@@ -50,18 +50,26 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     var locationOnMap = ""
     
     var persons = [Person]()
+    var searchedPersonData = [Person]()
+    var searching = false
     private var currentPerson: Person?
 
     var searchedPersons = [Person]()
-    var searching = false
     
     var activeField: UITextField!
     
     var indexRowUpdateSwipe  = -1
+    
+    // Variable for "indexed table view"
+    var personDataDictionary = [String: [PersonData]]()
+    var personDataSectionTitles = [String]()
+    var sectionNo = 0
 
     // Called after the view has been loaded. For view controllers created in code, this is after -loadView. For view controllers unarchived from a nib, this is after the view is set.
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        makeRead()
 
         tableView.delegate = self
         tableView.dataSource = self
@@ -69,13 +77,14 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         
         // Forces the online keyboard to be lowercased
         searchBarPerson.autocapitalizationType = UITextAutocapitalizationType.none
-    
         
         activity.style = .gray
         activity.isHidden = true
         
         // Moved from viewDidAppear
-        ReadPersonsFiredata()
+        // makeRead()
+        
+        print("viewDisLoad")
         
     }
 
@@ -89,16 +98,35 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         // self.tableView.reloadData()
         
     }
+    
+    // Asks the data source to return the number of sections in the table view.
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return personDataSectionTitles.count
+    }
 
+    // Asks the data source to return the number of sections in the table view.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        let key = personDataSectionTitles[section]
+        
+        if let personValues = personDataDictionary[key] {
+            return personValues.count
+        }
+        
+        return 0
+        
+        /*
         
         if searching {
             return searchedPersons.count
         } else {
             return persons.count
         }
+        */
+        
     }
-
+    
+    // Asks the data source for a cell to insert in a particular location of the table view.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var imageFileURL = ""
@@ -113,6 +141,25 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         // There is now no selectionStyle of the selected cell (.default, .blue, .gray or ,none)
         cell.selectionStyle = .none
         
+        let key = personDataSectionTitles[indexPath.section]
+        
+        if let personDataValues = personDataDictionary[key] {
+
+          let name1 = personDataValues[indexPath.row].name.lowercased()
+          let name = name1.capitalized
+          cell.nameLabel.text = name
+            
+          cell.bornLabel?.text = personDataValues[indexPath.row].dateOfBirth
+            
+          cell.addressLabel?.text = personDataValues[indexPath.row].address + " " +
+                personDataValues[indexPath.row].postalCodeNumber + " " +
+                personDataValues[indexPath.row].city
+            
+          imageFileURL = personDataValues[indexPath.row].photoURL
+            
+        }
+        
+        /*
         // Configure the cell
         if searching {
             
@@ -143,7 +190,9 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             imageFileURL = persons[indexPath.row].personData.photoURL
             
         }
-        
+        */
+ 
+ 
         if let image = CacheManager.shared.getFromCache(key: imageFileURL) as? UIImage {
             cell.imageLabel.image = image
             imageFileURL = ""
@@ -173,8 +222,33 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         return cell
     }
     
+    // Asks the data source for the title of the header of the specified section of the table view.
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+
+        return personDataSectionTitles[section]
+    }
+    
+    // Asks the data source to return the titles for the sections for a table view.
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return personDataSectionTitles
+    }
+    
+    // Tells the delegate that the user changed the search text.
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+       
+        if searchText.count > 0 {
+            searching = true
+        } else {
+            searching = false
+        }
         
+        // Search
+        FindSearchedPersonData(searchText: searchText)
+        
+        // Fill the table view
+//        tableView.reloadData()
+        
+       /*
        if searchText.count > 0 {
             searchedPersons = persons.filter({$0.personData.name.contains(searchText.uppercased())})
             searching = true
@@ -182,9 +256,19 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
        } else {
             searching = false
             tableView.reloadData()
-        }
-
+       }
+       */
+        
     }
+    
+    // Tells the delegate that the specified row is now selected.
+    // func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    //    tableView.deselectRow(at: indexPath, animated: true)
+
+    
+    
+    
+    
     
     // called when keyboard done button pressed
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -238,16 +322,29 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
 
         return swipeConfiguration
     }
-
-    func ReadPersonsFiredata() {
+    
+    // Reads all data outside the closure in ReadPersonsFiredata
+    func makeRead() {
+        ReadPersonsFiredata { _ in
+            
+            // Must use the main thread to get the data
+            // DispatchQueue manages the execution of work items.
+            // Each work item submitted to a queue is processed on a pool of threads managed by the system.
+            DispatchQueue.main.async {
+                self.FindSearchedPersonData(searchText: "")
+            }
+        }
+    }
+    
+    func ReadPersonsFiredata(completionHandler: @escaping (_ tempPersons: [Person]) -> Void) {
         
         var db: DatabaseReference!
+        
+        var tempPersons = [Person]()
         
         db = Database.database().reference().child("person")
         
         db.observe(.value, with: { snapshot in
-            
-            var tempPersons = [Person]()
             
             for child in snapshot.children {
                 
@@ -297,14 +394,15 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                 }
             }
             
-            // Update the posts array
-            self.persons = tempPersons
-            
             // Sorting the persons array on firstName
             self.persons.sort(by: {$0.personData.name < $1.personData.name})
+            self.persons = tempPersons
             
             // Fill the table view
             self.tableView.reloadData()
+            
+            completionHandler(tempPersons)
+            
             
         })
     
@@ -524,6 +622,124 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                                                            comment: "MainPersonDataViewController.swift buttonMessage"),
                               message: melding)
         }
+    }
+    
+    func FindSearchedPersonData(searchText: String) {
+        // Reset poststedsDictionary
+        personDataDictionary = [String: [PersonData]]()
+        
+        if searchText.count == 0 {
+            let count = persons.count - 1
+            
+            for index in 0 ... count {
+                
+                let key = String(persons[index].personData.name.prefix(1))
+                
+                if var personDataValues = personDataDictionary[key] {
+                    
+                    personDataValues.append(PersonData(address: persons[index].personData.address,
+                                                       city: persons[index].personData.city,
+                                                       dateOfBirth: persons[index].personData.dateOfBirth,
+                                                       name: persons[index].personData.name,
+                                                       gender: persons[index].personData.gender,
+                                                       phoneNumber: persons[index].personData.phoneNumber,
+                                                       postalCodeNumber: persons[index].personData.postalCodeNumber,
+                                                       municipality: persons[index].personData.municipality,
+                                                       municipalityNumber: persons[index].personData.municipalityNumber,
+                                                       photoURL: persons[index].personData.photoURL))
+                    
+                    personDataDictionary[key] = personDataValues
+                    
+                } else {
+                    
+                    personDataDictionary[key] = [PersonData(address: persons[index].personData.address,
+                                                       city: persons[index].personData.city,
+                                                       dateOfBirth: persons[index].personData.dateOfBirth,
+                                                       name: persons[index].personData.name,
+                                                       gender: persons[index].personData.gender,
+                                                       phoneNumber: persons[index].personData.phoneNumber,
+                                                       postalCodeNumber: persons[index].personData.postalCodeNumber,
+                                                       municipality: persons[index].personData.municipality,
+                                                       municipalityNumber: persons[index].personData.municipalityNumber,
+                                                       photoURL: persons[index].personData.photoURL)]
+                    
+                }
+            }
+            
+            personDataSectionTitles = [String](personDataDictionary.keys)
+            
+            // Must use local sorting of the poststedSectionTitles
+            let region = NSLocale.current.regionCode?.lowercased() // Returns the local region
+            let language = Locale(identifier: region!)
+            let sortedPersonDataSection1 = personDataSectionTitles.sorted {
+                $0.compare($1, locale: language) == .orderedAscending
+            }
+            personDataSectionTitles = sortedPersonDataSection1
+            
+            // Fill the table view
+            tableView.reloadData()
+            
+        } else {
+            
+//            // Reset poststedsDictionary
+//            personDataDictionary = [String: [PersonData]]()
+            
+            searchedPersonData = persons.filter({ $0.personData.name.contains(searchText.uppercased()) })
+            
+            let count = searchedPersonData.count
+            
+            if count > 0 {
+                let count = searchedPersonData.count - 1
+                
+                for index in 0 ... count {
+                    let key = String(searchedPersonData[index].personData.name.prefix(1))
+                    
+                    if var personDataValues = personDataDictionary[key] {
+                        
+                        personDataValues.append(PersonData(address: searchedPersonData[index].personData.address,
+                                                           city: searchedPersonData[index].personData.city,
+                                                           dateOfBirth: searchedPersonData[index].personData.dateOfBirth,
+                                                           name: searchedPersonData[index].personData.name,
+                                                           gender: searchedPersonData[index].personData.gender,
+                                                           phoneNumber: searchedPersonData[index].personData.phoneNumber,
+                                                           postalCodeNumber: searchedPersonData[index].personData.postalCodeNumber,
+                                                           municipality: searchedPersonData[index].personData.municipality,
+                                                           municipalityNumber: searchedPersonData[index].personData.municipalityNumber,
+                                                           photoURL: searchedPersonData[index].personData.photoURL))
+                        
+                        personDataDictionary[key] = personDataValues
+                        
+                    } else {
+                        
+                        personDataDictionary[key] =  [PersonData(address: searchedPersonData[index].personData.address,
+                                                                 city: searchedPersonData[index].personData.city,
+                                                                 dateOfBirth: searchedPersonData[index].personData.dateOfBirth,
+                                                                 name: searchedPersonData[index].personData.name,
+                                                                 gender: searchedPersonData[index].personData.gender,
+                                                                 phoneNumber: searchedPersonData[index].personData.phoneNumber,
+                                                                 postalCodeNumber: searchedPersonData[index].personData.postalCodeNumber,
+                                                                 municipality: searchedPersonData[index].personData.municipality,
+                                                                 municipalityNumber: searchedPersonData[index].personData.municipalityNumber,
+                                                                 photoURL: searchedPersonData[index].personData.photoURL)]
+                        
+                    }
+                }
+            }
+            
+            personDataSectionTitles = [String](personDataDictionary.keys)
+            
+            // Must use local sorting of the poststedSectionTitles
+            let region = NSLocale.current.regionCode?.lowercased() // Returns the local region
+            let language = Locale(identifier: region!)
+            let sortedPersonDataSection1 = personDataSectionTitles.sorted {
+                $0.compare($1, locale: language) == .orderedAscending
+            }
+            personDataSectionTitles = sortedPersonDataSection1
+            
+            // Fill the table view
+            tableView.reloadData()
+        }
+     
     }
     
 }

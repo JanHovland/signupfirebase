@@ -1748,7 +1748,7 @@
                     <connections>
                         <outlet property="activity" destination="hrj-QZ-ToV" id="B5g-NJ-LXv"/>
                         <outlet property="searchBarPerson" destination="92V-9z-yz6" id="nwx-ox-weJ"/>
-                        <outlet property="tableView" destination="Eww-gv-xQI" id="Fzz-eI-Cz8"/>
+                        <outlet property="tableView" destination="Eww-gv-xQI" id="CZp-rd-APh"/>
                         <segue destination="hbL-oa-tkZ" kind="show" identifier="gotoMapVC" id="Jrj-S4-onc"/>
                     </connections>
                 </viewController>

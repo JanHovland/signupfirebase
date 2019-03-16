@@ -93,6 +93,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         let value = getCoreData()
         
         eMailLoginTextField.text! = value.eMail
+        passwordTextField.text! = value.passWord
         
         // Show the photo for the current user
         if let image = CacheManager.shared.getFromCache(key: value.photoURL) as? UIImage {

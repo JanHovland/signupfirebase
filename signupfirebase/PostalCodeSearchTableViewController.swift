@@ -43,8 +43,6 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
     
     var poststedsDictionary = [String: [PostalCode]]()
     var poststedSectionTitles = [String]()
-    var poststeds = [String]()
-
     var sectionNo = 0
 
     // Called after the controller's view is loaded into memory.
@@ -90,6 +88,7 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
 
     // Asks the data source to return the number of sections in the table view.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         let key = poststedSectionTitles[section]
 
         if let postValues = poststedsDictionary[key] {
@@ -272,7 +271,9 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
 
     // Read postal data from Firebase and exports the tempPostnr array from the closure when finshed
     func ReadPostalCodeFiredata(completionHandler: @escaping (_ tempPostnr: [PostalCode]) -> Void) {
+ 
         var db: DatabaseReference!
+        
         var tempPostnr = [PostalCode]()
 
         db = Database.database().reference().child("postnr")
@@ -344,6 +345,7 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
             tableView.reloadData()
 
         } else {
+            
             searchedPostalCodes = postalCodes.filter({ $0.postPlace.contains(searchText.uppercased()) })
 
             let count = searchedPostalCodes.count
@@ -355,11 +357,14 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
                     let key = String(searchedPostalCodes[index].postPlace.prefix(1))
 
                     if var postValues = self.poststedsDictionary[key] {
+                        
                         postValues.append(PostalCode(postPlace: searchedPostalCodes[index].postPlace,
                                                      postNumber: searchedPostalCodes[index].postNumber,
                                                      municipality: searchedPostalCodes[index].municipality,
                                                      municipalityNumber: searchedPostalCodes[index].municipalityNumber))
+                        
                         poststedsDictionary[key] = postValues
+                        
                     } else {
                         poststedsDictionary[key] = [PostalCode(postPlace: searchedPostalCodes[index].postPlace,
                                                                postNumber: searchedPostalCodes[index].postNumber,
