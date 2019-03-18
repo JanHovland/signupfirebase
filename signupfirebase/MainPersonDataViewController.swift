@@ -190,6 +190,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                 
                 findCellImage.resume()
                 
+                
             }
             
         }
@@ -233,13 +234,19 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
        let deleteAction = UIContextualAction(style: .destructive, title: "") {
             (action, sourceView, completionHandler) in
 
+            let cell = tableView.cellForRow(at: indexPath) as! PersonDataTableViewCell
+            self.selectedName = String(cell.nameLabel!.text!)
+        
+            let value = self.findPersonData(inputName: self.selectedName)
+        
             // Find the id of the post
-            let id = self.persons[indexPath.row].id
+            let id = value.id
 
             let dataBase = Database.database().reference().child("person" + "/" + id)
      
             dataBase.setValue(nil)
-    
+        
+ 
         }
         
         // Customize the action buttons

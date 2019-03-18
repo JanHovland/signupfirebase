@@ -128,7 +128,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         // Hide the tabBar
         if self.tabBarController?.tabBar.isHidden == false {
            self.tabBarController?.tabBar.isHidden = true
-           self.loginStatus.text = self.showUserInfo(startUp: true)
+           // self.loginStatus.text = self.showUserInfo(startUp: true)
         }
     }
     
@@ -232,12 +232,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
                                                                 comment: "LoginViewVontroller.swift CheckLogin 'loggedin'")
                                 
                                 self.presentAlert(withTitle: NSLocalizedString("Error.",
-                                                                               comment: "LoginViewVontroller.swift CheckLogin error"),
+                                                                                comment: "LoginViewVontroller.swift CheckLogin error"),
                                                   message: melding)
                             } else {
-                                // Shows the user that has logged in
-                                self.loginStatus.text = navn + NSLocalizedString(" is logged in.",
-                                                                                 comment:"LoginViewVontroller.swift CheckLogin 'loggedin'")
+                                // Blank the login message 
+                                self.loginStatus.text = ""
                                 
                                 // Show the tabBar
                                 self.tabBarController?.tabBar.isHidden = false
@@ -334,7 +333,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
                             }
                        }
 
-                        self.loginStatus.text = self.showUserInfo(startUp: false)
+                       // self.loginStatus.text = self.showUserInfo(startUp: false)
                         
                     } else {
                         let melding = NSLocalizedString("Unable to update CoreData.",

@@ -1635,7 +1635,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="148.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YVH-id-Jwc">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" highlightedImage="new-person" translatesAutoresizingMaskIntoConstraints="NO" id="YVH-id-Jwc">
                                                     <rect key="frame" x="14" y="27" width="62" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="Bbg-ct-YMY"/>

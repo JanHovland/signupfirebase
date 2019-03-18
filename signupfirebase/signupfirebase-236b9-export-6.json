@@ -87,7 +87,7 @@
     "-L_3JQO7UGy8UcIi8gLL" : {
       "author" : {
         "email" : "jho.hovland@gmail.com",
-        "photoURL" : " ",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2Fjho.hovland@gmail.com.png?alt=media&token=bd7f6017-39fe-4430-bacf-1d14213cdadd",
         "uid" : "MnYNNQNIJUgSXZhpKlk3TZaT2YJ3",
         "username" : "Jan Gmail Hovland"
       },
@@ -100,15 +100,15 @@
         "municipalityNumber" : "1120",
         "name" : "KIRSTEN HOVLAND KRÅKENES",
         "phoneNumber" : "+47 928 29 482",
-        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-L_3JQO7UGy8UcIi8gLL.png?alt=media&token=be0fbee2-8668-49f7-877c-b994a4a633ec",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-L_3JQO7UGy8UcIi8gLL.png?alt=media&token=4ba6127d-4107-4cd3-9cb0-190e7ad902e5",
         "postalCodeNumber" : "4352"
       },
-      "timestamp" : 1551641142413
+      "timestamp" : 1552942797178
     },
     "-L_3_HW2pdsirShwgeIS" : {
       "author" : {
         "email" : "jho.hovland@gmail.com",
-        "photoURL" : " ",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2Fjho.hovland@gmail.com.png?alt=media&token=bd7f6017-39fe-4430-bacf-1d14213cdadd",
         "uid" : "MnYNNQNIJUgSXZhpKlk3TZaT2YJ3",
         "username" : "Jan Gmail Hovland"
       },
@@ -121,31 +121,31 @@
         "municipalityNumber" : "1102",
         "name" : "JØRN HOVLAND",
         "phoneNumber" : "+47 993 67 459",
-        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-L_3_HW2pdsirShwgeIS.png?alt=media&token=27b93b2e-3b9d-4adc-a278-c762db352aee",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-L_3_HW2pdsirShwgeIS.png?alt=media&token=42a506de-406d-4313-8403-195c5b8212ee",
         "postalCodeNumber" : "4307"
       },
-      "timestamp" : 1551634024393
+      "timestamp" : 1552924073363
     },
     "-L_3cjoFxJkg7HjGRVf8" : {
       "author" : {
         "email" : "jho.hovland@gmail.com",
-        "photoURL" : " ",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2Fjho.hovland@gmail.com.png?alt=media&token=bd7f6017-39fe-4430-bacf-1d14213cdadd",
         "uid" : "MnYNNQNIJUgSXZhpKlk3TZaT2YJ3",
         "username" : "Jan Gmail Hovland"
       },
       "personData" : {
         "address" : "Gardsvegen 4 ",
         "city" : "Vigrestad",
-        "dateOfBirth" : "18. mars 1993",
+        "dateOfBirth" : "21. mars 1993",
         "gender" : 0,
         "municipality" : "Hå",
         "municipalityNumber" : "1119",
         "name" : "OLE ANDRÉ HOVLAND WALDELAND",
         "phoneNumber" : "+47 464 73 176",
-        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-L_3cjoFxJkg7HjGRVf8.png?alt=media&token=728e375b-1e4e-4dfa-afe0-3bace080c681",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-L_3cjoFxJkg7HjGRVf8.png?alt=media&token=c8ae9143-f132-4be1-b3c8-e3510a06a6bb",
         "postalCodeNumber" : "4362"
       },
-      "timestamp" : 1551641078576
+      "timestamp" : 1552926475481
     },
     "-L_Y1P6aB9CCLlnXMiUv" : {
       "author" : {
@@ -157,16 +157,16 @@
       "personData" : {
         "address" : "V",
         "city" : "Akkarfjord",
-        "dateOfBirth" : "",
+        "dateOfBirth" : "17. november 1977",
         "gender" : 0,
         "municipality" : "Hammerfest",
         "municipalityNumber" : "2004",
         "name" : "WH",
         "phoneNumber" : "+47 111 13 334",
-        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-L_Y1P6aB9CCLlnXMiUv.png?alt=media&token=ca4cd8aa-cde1-47c4-8844-4c944307bea2",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-L_Y1P6aB9CCLlnXMiUv.png?alt=media&token=0508de49-479f-4fa4-8942-e10dff00c40c",
         "postalCodeNumber" : "9650"
       },
-      "timestamp" : 1552902838924
+      "timestamp" : 1552903029097
     }
   },
   "postnr" : {
