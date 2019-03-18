@@ -38,8 +38,6 @@ var globalPersonNameText = ""
 var globalPersonGenderInt = -1
 var globalPersonPhoneNumberText = ""
 
-private var selectedName: String = ""
-
 class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var searchBarPerson: UISearchBar!
@@ -66,39 +64,46 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     var personDataDictionary = [String: [PersonData]]()
     var personDataSectionTitles = [String]()
 
-    // var searchedPersonData = [PersonData]()
-    
+    var selectedName: String = ""
+
     // Called after the view has been loaded. For view controllers created in code, this is after -loadView. For view controllers unarchived from a nib, this is after the view is set.
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        makeRead()
-        
-        self.tableView.reloadData()
-
         tableView.delegate = self
         tableView.dataSource = self
         searchBarPerson.delegate = self
         
         // Forces the online keyboard to be lowercased
         searchBarPerson.autocapitalizationType = UITextAutocapitalizationType.none
+ 
+        makeRead()
         
         activity.style = .gray
         activity.isHidden = true
         
-        // Moved from viewDidAppear
-        // makeRead()
-        
+        let refreshControl = UIRefreshControl()
+        // refreshControl.attributedTitle = NSAttributedString(string: "Skyv nedover for å hente data")
+        refreshControl.addTarget(self, action: #selector(reloadData), for: .valueChanged)
+        self.tableView.refreshControl = refreshControl
+
+        activity.style = .gray
+        activity.isHidden = true
+ 
     }
 
+    @objc func reloadData() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            self.tableView.refreshControl?.endRefreshing()
+        }
+    }
+    
     // Called when the view has been fully transitioned onto the screen. Default does nothing
     override func viewDidAppear(_ animated: Bool) {
         
-        // Moved to viewDidAppear
-        // ReadPersonsFiredata()
-        
         // If reloadData is called the "cell.nameLabel?.text" is displayed incorrectly
-        self.tableView.reloadData()
+        tableView.reloadData()
         
     }
     
@@ -160,7 +165,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             imageFileURL = personDataValues[indexPath.row].photoURL
             
             if let image = CacheManager.shared.getFromCache(key: imageFileURL) as? UIImage {
-                cell.imageLabel.image = image
+                cell.imageLabel?.image = image
                 imageFileURL = ""
             } else if let url = URL(string: imageFileURL) {
                 let findCellImage = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
@@ -173,7 +178,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                         }
                         
                         if self.persons[indexPath.row].personData.photoURL == imageFileURL {
-                            cell.imageLabel.image = image
+                            cell.imageLabel?.image = image
                         }
                         
                         // Add the downloaded image to cache
@@ -182,9 +187,11 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                         
                     }
                 })
+                
                 findCellImage.resume()
                 
             }
+            
         }
           
         return cell
@@ -253,7 +260,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             (action, sourceView, completionHandler) in
             
             let cell = tableView.cellForRow(at: indexPath) as! PersonDataTableViewCell
-            selectedName = String(cell.nameLabel!.text!)
+            self.selectedName = String(cell.nameLabel!.text!)
             
             self.performSegue(withIdentifier: "gotoUpdatePerson", sender: nil)
   
@@ -286,8 +293,6 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     func ReadPersonsFiredata(completionHandler: @escaping (_ tempPersons: [Person]) -> Void) {
         
         var db: DatabaseReference!
-        
-//         var tempPersons = [Person]()
         
         db = Database.database().reference().child("person")
         
@@ -349,7 +354,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             self.persons = tempPersons
             
             // Fill the table view
-//             self.tableView.reloadData()
+            // self.tableView.reloadData()
             
             completionHandler(tempPersons)
             
@@ -613,6 +618,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             
             // Fill the table view
             tableView.reloadData()
+            
         }
      
     }
@@ -635,7 +641,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
 
         var idx = 0
         var personIndex = -1
-        
+
+        // Find the selected person
         repeat {
             if persons[idx].personData.name.uppercased() == inputName.uppercased() {
              personIndex = idx
@@ -643,10 +650,6 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             }
            idx += 1
         } while (idx < numberOfPersons)
-                                                
-        print("personIndex = \(personIndex)")
-                                                
-        print("inputName = \(inputName)")
         
         if personIndex >= 0 {
             
