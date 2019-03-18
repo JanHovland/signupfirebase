@@ -3,7 +3,7 @@
     "-LZiiqBNVS5LjxQ38EQd" : {
       "author" : {
         "email" : "jho.hovland@gmail.com",
-        "photoURL" : "",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2Fjho.hovland@gmail.com.png?alt=media&token=bd7f6017-39fe-4430-bacf-1d14213cdadd",
         "uid" : "MnYNNQNIJUgSXZhpKlk3TZaT2YJ3",
         "username" : "Jan Gmail Hovland"
       },
@@ -12,19 +12,19 @@
         "city" : "Lye",
         "dateOfBirth" : "3. april 1980",
         "gender" : 1,
-        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-LZiiqBNVS5LjxQ38EQd.png?alt=media&token=10e402aa-e41e-4a04-a1fe-4dbdbe7f3437",
         "municipality" : "Time",
         "municipalityNumber" : "1121",
         "name" : "ASTRID HOVLAND",
         "phoneNumber" : "+47 404 85 402",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-LZiiqBNVS5LjxQ38EQd.png?alt=media&token=e7692de7-df52-47af-aaed-62ba9eb502d5",
         "postalCodeNumber" : "4347"
       },
-      "timestamp" : 1552144707044
+      "timestamp" : 1552902697833
     },
     "-LZis9pw5yICuUDAuXSf" : {
       "author" : {
         "email" : "jho.hovland@gmail.com",
-        "photoURL" : " ",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2Fjho.hovland@gmail.com.png?alt=media&token=bd7f6017-39fe-4430-bacf-1d14213cdadd",
         "uid" : "MnYNNQNIJUgSXZhpKlk3TZaT2YJ3",
         "username" : "Jan Gmail Hovland"
       },
@@ -37,10 +37,10 @@
         "municipalityNumber" : "1119",
         "name" : "JAN HOVLAND",
         "phoneNumber" : "+47 400 05 430",
-        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-LZis9pw5yICuUDAuXSf.png?alt=media&token=fa44b7ec-7b03-4630-b01c-b51da4ba2ce4",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-LZis9pw5yICuUDAuXSf.png?alt=media&token=77a02bca-44f4-47f0-af3c-d5f66b4ca24f",
         "postalCodeNumber" : "4360"
       },
-      "timestamp" : 1551632321784
+      "timestamp" : 1552902757792
     },
     "-LZxiAVcdFzlup4aOOzT" : {
       "author" : {
@@ -150,7 +150,7 @@
     "-L_Y1P6aB9CCLlnXMiUv" : {
       "author" : {
         "email" : "jho.hovland@gmail.com",
-        "photoURL" : "",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2Fjho.hovland@gmail.com.png?alt=media&token=bd7f6017-39fe-4430-bacf-1d14213cdadd",
         "uid" : "MnYNNQNIJUgSXZhpKlk3TZaT2YJ3",
         "username" : "Jan Gmail Hovland"
       },
@@ -159,14 +159,14 @@
         "city" : "Akkarfjord",
         "dateOfBirth" : "",
         "gender" : 0,
-        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-L_Y1P6aB9CCLlnXMiUv.png?alt=media&token=72f440c7-9b82-41bc-9dd2-80755e05a435",
         "municipality" : "Hammerfest",
         "municipalityNumber" : "2004",
         "name" : "WH",
         "phoneNumber" : "+47 111 13 334",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-L_Y1P6aB9CCLlnXMiUv.png?alt=media&token=ca4cd8aa-cde1-47c4-8844-4c944307bea2",
         "postalCodeNumber" : "9650"
       },
-      "timestamp" : 1552144771867
+      "timestamp" : 1552902838924
     }
   },
   "postnr" : {

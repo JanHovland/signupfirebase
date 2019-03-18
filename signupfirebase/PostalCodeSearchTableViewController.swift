@@ -274,12 +274,12 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
  
         var db: DatabaseReference!
         
-        var tempPostnr = [PostalCode]()
-
         db = Database.database().reference().child("postnr")
 
         db.observe(.value, with: { snapshot in
 
+            var tempPostnr = [PostalCode]()
+            
             for child in snapshot.children {
                 if let childSnapshot = child as? DataSnapshot,
                     let postnr = childSnapshot.value as? [String: Any],

@@ -1750,6 +1750,7 @@
                         <outlet property="searchBarPerson" destination="92V-9z-yz6" id="nwx-ox-weJ"/>
                         <outlet property="tableView" destination="Eww-gv-xQI" id="CZp-rd-APh"/>
                         <segue destination="hbL-oa-tkZ" kind="show" identifier="gotoMapVC" id="Jrj-S4-onc"/>
+                        <segue destination="rxh-wi-pm3" kind="show" identifier="gotoUpdatePerson" id="D5H-78-AuK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ImV-FR-H8L" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1829,6 +1830,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cJw-d4-x8a"/>
+        <segue reference="D5H-78-AuK"/>
         <segue reference="HHx-uR-c6E"/>
     </inferredMetricsTieBreakers>
 </document>

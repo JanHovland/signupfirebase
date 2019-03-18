@@ -38,6 +38,8 @@ var globalPersonNameText = ""
 var globalPersonGenderInt = -1
 var globalPersonPhoneNumberText = ""
 
+private var selectedName: String = ""
+
 class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var searchBarPerson: UISearchBar!
@@ -50,7 +52,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     var locationOnMap = ""
     
     var persons = [Person]()
-    var searchedPersonData = [Person]()
+    
     var searching = false
     private var currentPerson: Person?
 
@@ -63,13 +65,16 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     // Variable for "indexed table view"
     var personDataDictionary = [String: [PersonData]]()
     var personDataSectionTitles = [String]()
-    var sectionNo = 0
 
+    // var searchedPersonData = [PersonData]()
+    
     // Called after the view has been loaded. For view controllers created in code, this is after -loadView. For view controllers unarchived from a nib, this is after the view is set.
     override func viewDidLoad() {
         super.viewDidLoad()
         
         makeRead()
+        
+        self.tableView.reloadData()
 
         tableView.delegate = self
         tableView.dataSource = self
@@ -84,8 +89,6 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         // Moved from viewDidAppear
         // makeRead()
         
-        print("viewDisLoad")
-        
     }
 
     // Called when the view has been fully transitioned onto the screen. Default does nothing
@@ -95,7 +98,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         // ReadPersonsFiredata()
         
         // If reloadData is called the "cell.nameLabel?.text" is displayed incorrectly
-        // self.tableView.reloadData()
+        self.tableView.reloadData()
         
     }
     
@@ -114,15 +117,14 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         }
         
         return 0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let cell = tableView.cellForRow(at: indexPath) as! PersonDataTableViewCell
         
-        /*
-        
-        if searching {
-            return searchedPersons.count
-        } else {
-            return persons.count
-        }
-        */
+        selectedName = String(cell.nameLabel!.text!)
+        performSegue(withIdentifier: "gotoUpdatePerson", sender: self)
         
     }
     
@@ -145,80 +147,46 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         
         if let personDataValues = personDataDictionary[key] {
 
-          let name1 = personDataValues[indexPath.row].name.lowercased()
-          let name = name1.capitalized
-          cell.nameLabel.text = name
+            let name1 = personDataValues[indexPath.row].name.lowercased()
+            let name = name1.capitalized
+            cell.nameLabel.text = name
             
-          cell.bornLabel?.text = personDataValues[indexPath.row].dateOfBirth
+            cell.bornLabel?.text = personDataValues[indexPath.row].dateOfBirth
             
-          cell.addressLabel?.text = personDataValues[indexPath.row].address + " " +
+            cell.addressLabel?.text = personDataValues[indexPath.row].address + " " +
                 personDataValues[indexPath.row].postalCodeNumber + " " +
                 personDataValues[indexPath.row].city
             
-          imageFileURL = personDataValues[indexPath.row].photoURL
+            imageFileURL = personDataValues[indexPath.row].photoURL
             
-        }
-        
-        /*
-        // Configure the cell
-        if searching {
-            
-            let name1 = searchedPersons[indexPath.row].personData.name.lowercased()
-            let name = name1.capitalized
-            cell.nameLabel.text = name
-            
-            cell.bornLabel?.text = searchedPersons[indexPath.row].personData.dateOfBirth
-            
-            cell.addressLabel?.text = searchedPersons[indexPath.row].personData.address + " " +
-                                      searchedPersons[indexPath.row].personData.postalCodeNumber + " " +
-                                      searchedPersons[indexPath.row].personData.city
-            
-            imageFileURL = searchedPersons[indexPath.row].personData.photoURL
-            
-        } else {
-            
-            let name1 = persons[indexPath.row].personData.name.lowercased()
-            let name = name1.capitalized
-            cell.nameLabel.text = name
-            
-            cell.bornLabel?.text = persons[indexPath.row].personData.dateOfBirth
-            
-            cell.addressLabel?.text = persons[indexPath.row].personData.address + " " +
-                                      persons[indexPath.row].personData.postalCodeNumber + " " +
-                                      persons[indexPath.row].personData.city
-            
-            imageFileURL = persons[indexPath.row].personData.photoURL
-            
-        }
-        */
- 
- 
-        if let image = CacheManager.shared.getFromCache(key: imageFileURL) as? UIImage {
-            cell.imageLabel.image = image
-            imageFileURL = ""
-        } else if let url = URL(string: imageFileURL) {
-            let findCellImage = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-                guard let imageData = data else {
-                    return
-                }
-                OperationQueue.main.addOperation {
-                    guard let image = UIImage(data: imageData) else {
-                        return
+            if let image = CacheManager.shared.getFromCache(key: imageFileURL) as? UIImage {
+                cell.imageLabel.image = image
+                imageFileURL = ""
+            } else if let url = URL(string: imageFileURL) {
+                let findCellImage = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+                    guard let imageData = data else {
+                       return
                     }
-                    
-                    if self.persons[indexPath.row].personData.photoURL == imageFileURL {
-                        cell.imageLabel.image = image
+                    OperationQueue.main.addOperation {
+                        guard let image = UIImage(data: imageData) else {
+                            return
+                        }
+                        
+                        if self.persons[indexPath.row].personData.photoURL == imageFileURL {
+                            cell.imageLabel.image = image
+                        }
+                        
+                        // Add the downloaded image to cache
+                        CacheManager.shared.cache(object: image, key: imageFileURL)
+                        imageFileURL = ""
+                        
                     }
-                    
-                    // Add the downloaded image to cache
-                    CacheManager.shared.cache(object: image, key: imageFileURL)
-                    imageFileURL = ""
-                    
-                }
-            })
-            findCellImage.resume()
+                })
+                findCellImage.resume()
+                
+            }
         }
-        
+          
         return cell
     }
     
@@ -245,30 +213,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         // Search
         FindSearchedPersonData(searchText: searchText)
         
-        // Fill the table view
-//        tableView.reloadData()
-        
-       /*
-       if searchText.count > 0 {
-            searchedPersons = persons.filter({$0.personData.name.contains(searchText.uppercased())})
-            searching = true
-            tableView.reloadData()
-       } else {
-            searching = false
-            tableView.reloadData()
-       }
-       */
-        
     }
-    
-    // Tells the delegate that the specified row is now selected.
-    // func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //    tableView.deselectRow(at: indexPath, animated: true)
-
-    
-    
-    
-    
     
     // called when keyboard done button pressed
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -307,7 +252,9 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         let updateAction = UIContextualAction(style: .normal, title: "") {
             (action, sourceView, completionHandler) in
             
-            self.indexRowUpdateSwipe = indexPath.row
+            let cell = tableView.cellForRow(at: indexPath) as! PersonDataTableViewCell
+            selectedName = String(cell.nameLabel!.text!)
+            
             self.performSegue(withIdentifier: "gotoUpdatePerson", sender: nil)
   
         }
@@ -340,11 +287,14 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         
         var db: DatabaseReference!
         
-        var tempPersons = [Person]()
+//         var tempPersons = [Person]()
         
         db = Database.database().reference().child("person")
         
         db.observe(.value, with: { snapshot in
+
+            var tempPersons = [Person]()
+
             
             for child in snapshot.children {
                 
@@ -399,7 +349,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             self.persons = tempPersons
             
             // Fill the table view
-            self.tableView.reloadData()
+//             self.tableView.reloadData()
             
             completionHandler(tempPersons)
             
@@ -409,6 +359,13 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+ 
+        // Find the data for thw chosen person = selectedName
+        let value = findPersonData(inputName: selectedName)
+        
+        // Find the viewController
+        let vc = segue.destination as! PersonViewController
+        
         // 'prepare' will run after every segue.
         if segue.identifier! == "gotoUpdatePerson" {
             
@@ -420,109 +377,28 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             globalPersonPhoneNumberText = ""
             globalMunicipality = ""
             globalMunicipalityNumber = ""
+        
+            vc.PersonPhotoURL = value.photoURL
+            vc.PersonIdText = value.id
+            vc.PersonAddressText = value.address
+            vc.PersonCityText = value.city
+            vc.PersonDateOfBirthText = value.dateOfBirth
+        
+            let name1 = value.name.lowercased()
+            let name = name1.capitalized
+        
+            vc.PersonNameText = name
+            vc.PersonGenderInt = value.gender
+            vc.PersonPhoneNumberText = value.phoneNumber
+            vc.PersonPostalCodeNumberText = value.postalCodeNumber
+        
+            vc.PersonMunicipalityText = value.municipality
+            vc.PersonMunicipalityNumberText = value.municipalityNumber
+        
+            vc.PersonOption = 1         // Update == 1
+            vc.PersonTitle = NSLocalizedString("Update Person", comment: "MainPersonDataViewController.swift prepare")
             
-            // Find the indexPath.row for the cell which is selected
-            if let indexPath = tableView.indexPathForSelectedRow {
-                let vc = segue.destination as! PersonViewController
-                
-                if searching == false {
-                    vc.PersonPhotoURL = persons[indexPath.row].personData.photoURL
-                    vc.PersonIdText = persons[indexPath.row].id
-                    vc.PersonAddressText = persons[indexPath.row].personData.address
-                    vc.PersonCityText = persons[indexPath.row].personData.city
-                    vc.PersonDateOfBirthText = persons[indexPath.row].personData.dateOfBirth
-                    
-                    let name1 = persons[indexPath.row].personData.name.lowercased()
-                    let name = name1.capitalized
-                    
-                    vc.PersonNameText = name
-                    vc.PersonGenderInt = persons[indexPath.row].personData.gender
-                    vc.PersonPhoneNumberText = persons[indexPath.row].personData.phoneNumber
-                    vc.PersonPostalCodeNumberText = persons[indexPath.row].personData.postalCodeNumber
-                    
-                    vc.PersonMunicipalityText = persons[indexPath.row].personData.municipality
-                    vc.PersonMunicipalityNumberText = persons[indexPath.row].personData.municipalityNumber
-                    
-                    vc.PersonOption = 1         // Update == 1
-                    vc.PersonTitle = NSLocalizedString("Update Person", comment: "MainPersonDataViewController.swift prepare")
-                    
-                } else {
-                    
-                    vc.PersonPhotoURL = searchedPersons[indexPath.row].personData.photoURL
-                    vc.PersonIdText = searchedPersons[indexPath.row].id
-                    vc.PersonAddressText = searchedPersons[indexPath.row].personData.address
-                    vc.PersonCityText = searchedPersons[indexPath.row].personData.city
-                    vc.PersonDateOfBirthText = searchedPersons[indexPath.row].personData.dateOfBirth
-                    
-                    let name1 = searchedPersons[indexPath.row].personData.name.lowercased()
-                    let name = name1.capitalized
-                    
-                    vc.PersonNameText = name
-                    vc.PersonGenderInt = searchedPersons[indexPath.row].personData.gender
-                    vc.PersonPhoneNumberText = searchedPersons[indexPath.row].personData.phoneNumber
-                    vc.PersonPostalCodeNumberText = searchedPersons[indexPath.row].personData.postalCodeNumber
-                    
-                    vc.PersonMunicipalityText = searchedPersons[indexPath.row].personData.municipality
-                    vc.PersonMunicipalityNumberText = searchedPersons[indexPath.row].personData.municipalityNumber
-                    
-                    vc.PersonOption = 1         // Update == 1
-                    vc.PersonTitle = NSLocalizedString("Update Person", comment: "MainPersonDataViewController.swift prepare")
-                    
-                }
-                
-            } else {
-            
-                // indexRowUpdateSwipe is initiated at leadingSwipeActionsConfigurationForRowAt's "Update'
-                
-                let vc = segue.destination as! PersonViewController
-                
-                if searching == false {
-                    vc.PersonPhotoURL = persons[indexRowUpdateSwipe].personData.photoURL
-                    vc.PersonIdText = persons[indexRowUpdateSwipe].id
-                    vc.PersonAddressText = persons[indexRowUpdateSwipe].personData.address
-                    vc.PersonCityText = persons[indexRowUpdateSwipe].personData.city
-                    vc.PersonDateOfBirthText = persons[indexRowUpdateSwipe].personData.dateOfBirth
-                    
-                    let name1 = persons[indexRowUpdateSwipe].personData.name.lowercased()
-                    let name = name1.capitalized
-                    
-                    vc.PersonNameText = name
-                    vc.PersonGenderInt = persons[indexRowUpdateSwipe].personData.gender
-                    vc.PersonPhoneNumberText = persons[indexRowUpdateSwipe].personData.phoneNumber
-                    vc.PersonPostalCodeNumberText = persons[indexRowUpdateSwipe].personData.postalCodeNumber
-
-                    vc.PersonMunicipalityText = persons[indexRowUpdateSwipe].personData.municipality
-                    vc.PersonMunicipalityNumberText = persons[indexRowUpdateSwipe].personData.municipalityNumber
-                    
-                    vc.PersonOption = 1         // Update == 1
-                    vc.PersonTitle = NSLocalizedString("Update Person", comment: "MainPersonDataViewController.swift prepare")
-                    
-                } else {
-                    
-                    vc.PersonPhotoURL = searchedPersons[indexRowUpdateSwipe].personData.photoURL
-                    vc.PersonIdText = searchedPersons[indexRowUpdateSwipe].id
-                    vc.PersonAddressText = searchedPersons[indexRowUpdateSwipe].personData.address
-                    vc.PersonCityText = searchedPersons[indexRowUpdateSwipe].personData.city
-                    vc.PersonDateOfBirthText = searchedPersons[indexRowUpdateSwipe].personData.dateOfBirth
-                    
-                    let name1 = searchedPersons[indexRowUpdateSwipe].personData.name.lowercased()
-                    let name = name1.capitalized
-                    
-                    vc.PersonNameText = name
-                    vc.PersonGenderInt = searchedPersons[indexRowUpdateSwipe].personData.gender
-                    vc.PersonPhoneNumberText = searchedPersons[indexRowUpdateSwipe].personData.phoneNumber
-                    vc.PersonPostalCodeNumberText = searchedPersons[indexRowUpdateSwipe].personData.postalCodeNumber
-                    
-                    vc.PersonMunicipalityText = searchedPersons[indexRowUpdateSwipe].personData.municipality
-                    vc.PersonMunicipalityNumberText = searchedPersons[indexRowUpdateSwipe].personData.municipalityNumber
-                    
-                    vc.PersonOption = 1         // Update == 1
-                    vc.PersonTitle = NSLocalizedString("Update Person", comment: "MainPersonDataViewController.swift prepare")
-
-                }
-                
-            }
-            
+        
         } else if segue.identifier! == "gotoAddPerson" {
             let vc = segue.destination as! PersonViewController
             vc.PersonPhotoURL = ""
@@ -550,6 +426,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             vc.locationOnMap = locationOnMap
             vc.address = personAddress
         }
+ 
+        
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -681,10 +559,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             
         } else {
             
-//            // Reset poststedsDictionary
-//            personDataDictionary = [String: [PersonData]]()
-            
-            searchedPersonData = persons.filter({ $0.personData.name.contains(searchText.uppercased()) })
+            let searchedPersonData = persons.filter({ $0.personData.name.contains(searchText.uppercased()) })
             
             let count = searchedPersonData.count
             
@@ -741,6 +616,80 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         }
      
     }
+    
+    // Find personlData. Returns address, city, dateOfBirth, name, gender, phoneNumber, postalCodeNumber, municipality, municipalityNumber, photoURL
+    func findPersonData(inputName: String) -> (id: String,
+                                               address: String,
+                                               city: String,
+                                               dateOfBirth: String,
+                                               name: String,
+                                               gender: Int,
+                                               phoneNumber: String,
+                                               postalCodeNumber: String,
+                                               municipality: String,
+                                               municipalityNumber: String,
+                                               photoURL: String) {
+        
+        // Find number of persons
+        let numberOfPersons = persons.count
+
+        var idx = 0
+        var personIndex = -1
+        
+        repeat {
+            if persons[idx].personData.name.uppercased() == inputName.uppercased() {
+             personIndex = idx
+             idx = numberOfPersons
+            }
+           idx += 1
+        } while (idx < numberOfPersons)
+                                                
+        print("personIndex = \(personIndex)")
+                                                
+        print("inputName = \(inputName)")
+        
+        if personIndex >= 0 {
+            
+            let id = String(persons[personIndex].id)
+            let address = String(persons[personIndex].personData.address)
+            let city = String(persons[personIndex].personData.city)
+            let dateOfBirth = String(persons[personIndex].personData.dateOfBirth)
+            let name1 = String(persons[personIndex].personData.name).lowercased()
+            let name = name1.capitalized
+            let gender = persons[personIndex].personData.gender
+            let phoneNumber = String(persons[personIndex].personData.phoneNumber)
+            let postalCodeNumber = String(persons[personIndex].personData.postalCodeNumber)
+            let municipality = String(persons[personIndex].personData.municipality)
+            let municipalityNumber = String(persons[personIndex].personData.municipalityNumber)
+            let photoURL = String(persons[personIndex].personData.photoURL)
+            
+            return (id,
+                    address,
+                    city,
+                    dateOfBirth,
+                    name,
+                    gender,
+                    phoneNumber,
+                    postalCodeNumber,
+                    municipality,
+                    municipalityNumber,
+                    photoURL)
+        
+        } else {
+            return ("",
+                    "",
+                    "",
+                    "",
+                    "",
+                    0,
+                    "",
+                    "",
+                    "",
+                    "",
+                    "")
+        }
+    }
+ 
     
 }
 

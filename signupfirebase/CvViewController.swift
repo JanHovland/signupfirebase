@@ -136,13 +136,15 @@ class CvViewController: UIViewController {
               . CreateAccountViewController.swift
               . PersonViewController.swift
            y) Flyttet map icon til PersonViewController.swift
+           z) Lagt inn "indexed table view" for kunne søke raskere på Persondata
         
         7. Nye oppgaver (ikke fullført)
         
-           a) Legge inn "indexed table view" for kunne søke raskere på Persondata
-           b) Se igjennom opsjonene for Kart i PersonViewController.
-           c) Vise fremgang.
-           d) Oppdatere security i Firebase (er det samme for Firestore?)
+           a) Når en starter PersonData vises ikke alle bildene (blir oppdatert når en velger en person for oppdatering og så går tilbake)
+           b) Slette "indexed table view" sletter feil person
+           c) Se igjennom opsjonene for Kart i PersonViewController.
+           d) Vise fremgang ved lagring pg sletting.
+           e) Oppdatere security i Firebase (er det samme for Firestore?)
         
         8. Programmerings tips
         
