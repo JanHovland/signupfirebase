@@ -110,53 +110,90 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate, UIImag
         var ok1: Bool = false
 
         activity.startAnimating()
-
+        
         // Dismiss the keyboard when the Save button is tapped on
         eMailCreateAccountTextField.resignFirstResponder()
         nameCreateAccountTextField.resignFirstResponder()
         passwordCreateAccountTextField.resignFirstResponder()
+        
+        DispatchQueue.main.async {
 
-        if eMailCreateAccountTextField.text!.count > 0,
-            nameCreateAccountTextField.text!.count > 0,
-            passwordCreateAccountTextField.text!.count >= 6 {
-            
-            let region = NSLocale.current.regionCode?.lowercased()  // Returns the local region
-            Auth.auth().languageCode = region!
+            if self.eMailCreateAccountTextField.text!.count > 0,
+                self.nameCreateAccountTextField.text!.count > 0,
+                self.passwordCreateAccountTextField.text!.count >= 6 {
+                
+                let region = NSLocale.current.regionCode?.lowercased()  // Returns the local region
+                Auth.auth().languageCode = region!
 
-            // Register the user with Firebase
-            Auth.auth().createUser(withEmail: eMailCreateAccountTextField.text!,
-                                   password: passwordCreateAccountTextField.text!) { _, error in
+                // Register the user with Firebase
+                Auth.auth().createUser(withEmail: self.eMailCreateAccountTextField.text!,
+                                       password: self.passwordCreateAccountTextField.text!) { _, error in
 
-                if error == nil {
-                    // The user is stored in Firebase
+                    if error == nil {
+                        // The user is stored in Firebase
 
-                    let uid = Auth.auth().currentUser?.uid ?? ""
-                    let name = self.nameCreateAccountTextField.text!
+                        let uid = Auth.auth().currentUser?.uid ?? ""
+                        let name = self.nameCreateAccountTextField.text!
 
-                    // Reset all posts where 'loggedin' == true
-                    ok = self.resetLoggedIinCoreData()
+                        // Reset all posts where 'loggedin' == true
+                        ok = self.resetLoggedIinCoreData()
 
-                    if ok == true {
-                        // Check if the user exists in CoreData
-                        // Else, store the user in CoreData
-                        ok = self.findCoreData(withEpost: self.eMailCreateAccountTextField.text!)
+                        if ok == true {
+                            // Check if the user exists in CoreData
+                            // Else, store the user in CoreData
+                            ok = self.findCoreData(withEpost: self.eMailCreateAccountTextField.text!)
 
-                        if ok == false {
-                            
-                            // Store the image og the new user
-                            
-                            self.savePhotoURL(image: self.inputImage.image!,
-                                              email: self.eMailCreateAccountTextField.text!,
-                                              completionHandler: { (url) in
-                            
-                                ok1 = self.saveCoreData(withEpost: self.eMailCreateAccountTextField.text!,
-                                                        withPassord: self.passwordCreateAccountTextField.text!,
-                                                        withUid: uid,
-                                                        withLoggedIn: true,
-                                                        withName: name,
-                                                        withPhotoURL: url)
+                            if ok == false {
+                                
+                                // Store the image og the new user
+                                
+                                self.savePhotoURL(image: self.inputImage.image!,
+                                                  email: self.eMailCreateAccountTextField.text!,
+                                                  completionHandler: { (url) in
+                                
+                                    ok1 = self.saveCoreData(withEpost: self.eMailCreateAccountTextField.text!,
+                                                            withPassord: self.passwordCreateAccountTextField.text!,
+                                                            withUid: uid,
+                                                            withLoggedIn: true,
+                                                            withName: name,
+                                                            withPhotoURL: url)
 
-                                if ok1 == false {
+                                    if ok1 == false {
+                                        let melding = NSLocalizedString("Unable to store data in CoreData.",
+                                                                        comment: "CreateAccountViewVontroller.swift CheckLogin verdi")
+                                        
+                                        self.presentAlert(withTitle: NSLocalizedString("Error",
+                                                                                       comment: "CreateAccountViewVontroller.swift SaveAccount "),
+                                                          message: melding)
+                                        
+                                    } else {
+                                        let region = NSLocale.current.regionCode?.lowercased()  // Returns the local region
+                                        Auth.auth().languageCode = region!
+                                        
+                                        // Store the name of the user in Firebase
+                                        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                                        changeRequest?.displayName = self.nameCreateAccountTextField.text!
+                                        // changeRequest?.photoURL = URL(string: value2.photoURL)
+                                        
+                                        changeRequest?.commitChanges { error in
+                                            if error == nil {
+                                                self.dismiss(animated: false, completion: nil)
+                                            } else {
+                                                let melding = error!.localizedDescription
+                                                self.presentAlert(withTitle: NSLocalizedString("Error", comment: "CreateAccountViewVontroller.swift SaveAccount"),
+                                                                  message: melding)
+                                            }
+                                            self.activity.stopAnimating()
+                                        }
+                                    }
+                                                    
+                                })
+                                
+                            } else {
+                                // Update CoreData with 'loggedin' == true
+                                ok = self.updateCoreData(withEpost: self.eMailCreateAccountTextField.text!, withLoggedIn: true)
+
+                                if ok == false {
                                     let melding = NSLocalizedString("Unable to store data in CoreData.",
                                                                     comment: "CreateAccountViewVontroller.swift CheckLogin verdi")
                                     
@@ -167,176 +204,152 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate, UIImag
                                 } else {
                                     let region = NSLocale.current.regionCode?.lowercased()  // Returns the local region
                                     Auth.auth().languageCode = region!
-                                    
-                                    // Store the name of the user in Firebase
+
                                     let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
                                     changeRequest?.displayName = self.nameCreateAccountTextField.text!
-                                    // changeRequest?.photoURL = URL(string: value2.photoURL)
-                                    
+
                                     changeRequest?.commitChanges { error in
                                         if error == nil {
                                             self.dismiss(animated: false, completion: nil)
                                         } else {
                                             let melding = error!.localizedDescription
                                             self.presentAlert(withTitle: NSLocalizedString("Error", comment: "CreateAccountViewVontroller.swift SaveAccount"),
-                                                              message: melding)
+                                                         message: melding)
                                         }
                                     }
-                                }
-                                                
-                            })
-                            
-                        } else {
-                            // Update CoreData with 'loggedin' == true
-                            ok = self.updateCoreData(withEpost: self.eMailCreateAccountTextField.text!, withLoggedIn: true)
-
-                            if ok == false {
-                                let melding = NSLocalizedString("Unable to store data in CoreData.",
-                                                                comment: "CreateAccountViewVontroller.swift CheckLogin verdi")
-                                
-                                self.presentAlert(withTitle: NSLocalizedString("Error",
-                                                                               comment: "CreateAccountViewVontroller.swift SaveAccount "),
-                                                  message: melding)
-                                
-                            } else {
-                                let region = NSLocale.current.regionCode?.lowercased()  // Returns the local region
-                                Auth.auth().languageCode = region!
-
-                                let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-                                changeRequest?.displayName = self.nameCreateAccountTextField.text!
-
-                                changeRequest?.commitChanges { error in
-                                    if error == nil {
-                                        self.dismiss(animated: false, completion: nil)
-                                    } else {
-                                        let melding = error!.localizedDescription
-                                        self.presentAlert(withTitle: NSLocalizedString("Error", comment: "CreateAccountViewVontroller.swift SaveAccount"),
-                                                     message: melding)
-                                    }
-                                }
-                                
-                                // Only save photo if a photo has been picked
-                                if self.savePhoto == true {
                                     
-                                    self.savePhotoURL(image: self.inputImage.image!,
-                                                      email: self.eMailCreateAccountTextField.text!,
-                                                      completionHandler: { (url) in
-                                                        
-                                        //  0 = uid  1 = eMail 2 = name  3 = passWord 4 = photoURL
-                                        let value = self.getCoreData()
-                                        let OK = self.saveCoreData(withEpost: value.eMail,
-                                                                   withPassord: value.passWord,
-                                                                   withUid: value.uid,
-                                                                   withLoggedIn: true,
-                                                                   withName: value.name,
-                                                                   withPhotoURL: url)
+                                    // Only save photo if a photo has been picked
+                                    if self.savePhoto == true {
                                         
-                                        if OK == false {
-                                            let melding = NSLocalizedString("Unable to store data in FireBase.",
-                                                                            comment: "LoginViewVontroller.swift CheckLogin")
-                                            self.presentAlert(withTitle: NSLocalizedString("Error.",
-                                                                                           comment: "LoginViewVontroller.swift CheckLogin"),
-                                                              message: melding)
+                                        self.savePhotoURL(image: self.inputImage.image!,
+                                                          email: self.eMailCreateAccountTextField.text!,
+                                                          completionHandler: { (url) in
+                                                            
+                                            //  0 = uid  1 = eMail 2 = name  3 = passWord 4 = photoURL
+                                            let value = self.getCoreData()
+                                            let OK = self.saveCoreData(withEpost: value.eMail,
+                                                                       withPassord: value.passWord,
+                                                                       withUid: value.uid,
+                                                                       withLoggedIn: true,
+                                                                       withName: value.name,
+                                                                       withPhotoURL: url)
                                             
-                                        } else {
-                                            
-                                            let value1 = self.getCoreData()
-                                            
-                                            if let image = CacheManager.shared.getFromCache(key: value.photoURL) as? UIImage, self.savePhoto == false {
-                                                self.inputImage.image = image
+                                            if OK == false {
+                                                let melding = NSLocalizedString("Unable to store data in FireBase.",
+                                                                                comment: "LoginViewVontroller.swift CheckLogin")
+                                                self.presentAlert(withTitle: NSLocalizedString("Error.",
+                                                                                               comment: "LoginViewVontroller.swift CheckLogin"),
+                                                                  message: melding)
+                                                
                                             } else {
-                                                self.savePhoto = false
-                                                if let url = URL(string: value1.photoURL) {
-                                                    
-                                                    let findCellImage = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-                                                        guard let imageData = data else {
-                                                            return
-                                                        }
-                                                        OperationQueue.main.addOperation {
-                                                            guard let image = UIImage(data: imageData) else {
+                                                
+                                                let value1 = self.getCoreData()
+                                                
+                                                if let image = CacheManager.shared.getFromCache(key: value.photoURL) as? UIImage, self.savePhoto == false {
+                                                    self.inputImage.image = image
+                                                } else {
+                                                    self.savePhoto = false
+                                                    if let url = URL(string: value1.photoURL) {
+                                                        
+                                                        let findCellImage = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+                                                            guard let imageData = data else {
+                                                                self.activity.stopAnimating()
                                                                 return
                                                             }
-                                                            
-                                                            self.inputImage.image = image
-                                                            
-                                                            // Add the downloaded image to cache
-                                                            CacheManager.shared.cache(object: image, key: value.photoURL)
-                                                        }
-                                                    })
-                                                    
-                                                    findCellImage.resume()
+                                                            OperationQueue.main.addOperation {
+                                                                guard let image = UIImage(data: imageData) else {
+                                                                    self.activity.stopAnimating()
+                                                                    return
+                                                                }
+                                                                
+                                                                self.inputImage.image = image
+                                                                
+                                                                // Add the downloaded image to cache
+                                                                CacheManager.shared.cache(object: image, key: value.photoURL)
+                                                            }
+                                                        })
+                                                        
+                                                        findCellImage.resume()
+                                                    }
                                                 }
+                                                
                                             }
                                             
-                                        }
+                                        })
                                         
-                                    })
-                                    
-                                } else {
-                                    let value = self.getCoreData()
-                                    
-                                    if let image = CacheManager.shared.getFromCache(key: value.photoURL) as? UIImage, self.savePhoto == false {
-                                        self.inputImage.image = image
                                     } else {
-                                        self.savePhoto = false
-                                        if let url = URL(string: value.photoURL) {
-                                            
-                                            let findCellImage = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-                                                guard let imageData = data else {
-                                                    return
-                                                }
-                                                OperationQueue.main.addOperation {
-                                                    guard let image = UIImage(data: imageData) else {
+                                        let value = self.getCoreData()
+                                        
+                                        if let image = CacheManager.shared.getFromCache(key: value.photoURL) as? UIImage, self.savePhoto == false {
+                                            self.inputImage.image = image
+                                        } else {
+                                            self.savePhoto = false
+                                            if let url = URL(string: value.photoURL) {
+                                                
+                                                let findCellImage = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+                                                    guard let imageData = data else {
+                                                        self.activity.stopAnimating()
                                                         return
                                                     }
-                                                    
-                                                    self.inputImage.image = image
-                                                    
-                                                    // Add the downloaded image to cache
-                                                    CacheManager.shared.cache(object: image, key: value.photoURL)
-                                                }
-                                            })
-                                            
-                                            findCellImage.resume()
+                                                    OperationQueue.main.addOperation {
+                                                        guard let image = UIImage(data: imageData) else {
+                                                            self.activity.stopAnimating()
+                                                            return
+                                                        }
+                                                        
+                                                        self.inputImage.image = image
+                                                        
+                                                        // Add the downloaded image to cache
+                                                        CacheManager.shared.cache(object: image, key: value.photoURL)
+                                                    }
+                                                })
+                                                
+                                                findCellImage.resume()
+                                            }
                                         }
+                                        
                                     }
-                                    
-                                }
-                             }
+                                 }
+                                
+                            }
+
+                        } else {
+                            let melding = NSLocalizedString("Unable to store data in CoreData.",
+                                                            comment: "CreateAccountViewVontroller.swift CheckLogin verdi")
+                            
+                            self.presentAlert(withTitle: NSLocalizedString("Error",
+                                                                           comment: "CreateAccountViewVontroller.swift SaveAccount "),
+                                              message: melding)
+                            
                         }
 
                     } else {
-                        let melding = NSLocalizedString("Unable to store data in CoreData.",
-                                                        comment: "CreateAccountViewVontroller.swift CheckLogin verdi")
-                        
-                        self.presentAlert(withTitle: NSLocalizedString("Error",
-                                                                       comment: "CreateAccountViewVontroller.swift SaveAccount "),
-                                          message: melding)
-                        
+                        self.presentAlert(withTitle: NSLocalizedString("Error", comment: "CreateAccountViewVontroller.swift SaveAccount"),
+                                          message: error!.localizedDescription as String)
                     }
+                                        
+                    self.activity.stopAnimating()
+                    
+                }
 
-                } else {
+            } else {
+                if self.passwordCreateAccountTextField.text!.count < 6 {
+                    let melding1 = NSLocalizedString("Every field must have a value.", comment: "CreateAccountViewVontroller.swift SaveAccount ")
+                    let melding2 = NSLocalizedString("The password must contain minimum 6 characters", comment: "CreateAccountViewVontroller.swift SaveAccount ")
+                    let melding = melding1 + "\r\n" + melding2
+                    
                     self.presentAlert(withTitle: NSLocalizedString("Error", comment: "CreateAccountViewVontroller.swift SaveAccount"),
-                                      message: error!.localizedDescription as String)
+                                 message: melding)
+                } else {
+                    let melding = NSLocalizedString("Every field must have a value", comment: "LoginViewVontroller.swift SaveAccount")
+                    self.presentAlert(withTitle: NSLocalizedString("Error", comment: "CreateAccountViewVontroller.swift SaveAccount"),
+                                 message: melding)
                 }
             }
-
-        } else {
-            if passwordCreateAccountTextField.text!.count < 6 {
-                let melding1 = NSLocalizedString("Every field must have a value.", comment: "CreateAccountViewVontroller.swift SaveAccount ")
-                let melding2 = NSLocalizedString("The password must contain minimum 6 characters", comment: "CreateAccountViewVontroller.swift SaveAccount ")
-                let melding = melding1 + "\r\n" + melding2
-                
-                presentAlert(withTitle: NSLocalizedString("Error", comment: "CreateAccountViewVontroller.swift SaveAccount"),
-                             message: melding)
-            } else {
-                let melding = NSLocalizedString("Every field must have a value", comment: "LoginViewVontroller.swift SaveAccount")
-                presentAlert(withTitle: NSLocalizedString("Error", comment: "CreateAccountViewVontroller.swift SaveAccount"),
-                             message: melding)
-            }
+            
+            
         }
-
-        activity.stopAnimating()
+ 
     }
     
     override func viewWillDisappear(_ animated: Bool) {

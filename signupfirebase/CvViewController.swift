@@ -144,7 +144,11 @@ class CvViewController: UIViewController {
         7. Nye oppgaver (ikke fullført)
         
            a) Ta bort "Vennligst logg inn på Firebase" unntatt på log inn bildet.
-           b) Vise fremgang ved lagring og sletting der hvor showInfo er i dag
+           b) Oppdatere activity indicator
+              . LoginViewController
+              . CreateAccountViewController
+              . PersonViewController
+        
            c) "Vis brukerne i Coredata" viser for mange brukere (bør heller vise brukerne i Firebase)
            d) Kunne sende ePost
            e) Se igjennom opsjonene for Kart i PersonViewController.

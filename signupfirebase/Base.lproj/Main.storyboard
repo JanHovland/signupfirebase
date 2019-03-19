@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I0q-5V-oWR">
-                                <rect key="frame" x="10" y="459" width="74" height="30"/>
+                                <rect key="frame" x="10" y="470" width="74" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="PbQ-vG-0cI"/>
                                 </constraints>
@@ -28,7 +28,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eMail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZ3-hb-Xl4">
-                                <rect key="frame" x="10" y="399" width="41" height="30"/>
+                                <rect key="frame" x="10" y="409" width="41" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="kve-OS-OzR"/>
                                 </constraints>
@@ -37,7 +37,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k82-w8-ML8">
-                                <rect key="frame" x="90" y="459" width="275" height="30"/>
+                                <rect key="frame" x="90" y="470" width="275" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="9rn-Gy-NQ4"/>
                                 </constraints>
@@ -46,7 +46,7 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="sy5-nA-8Lg">
-                                <rect key="frame" x="177.5" y="519" width="20" height="20"/>
+                                <rect key="frame" x="177.5" y="367" width="20" height="20"/>
                             </activityIndicatorView>
                             <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kdi-Jg-uOD">
                                 <rect key="frame" x="10" y="169" width="355" height="30"/>
@@ -66,13 +66,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The password must have at least 6 characters" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="eG4-UJ-Wc4">
-                                <rect key="frame" x="93" y="497" width="217" height="12"/>
+                                <rect key="frame" x="93" y="508" width="217" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="1" green="0.0094184072553792353" blue="0.093197561855207223" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vH1-YR-EwT">
-                                <rect key="frame" x="88.5" y="399" width="276.5" height="30"/>
+                                <rect key="frame" x="88.5" y="410" width="276.5" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="4I6-rv-cZG"/>
                                 </constraints>
@@ -102,7 +102,7 @@
                         <constraints>
                             <constraint firstItem="4t0-yd-TFq" firstAttribute="centerX" secondItem="vji-Wu-4q1" secondAttribute="centerX" id="6ge-TV-cMU"/>
                             <constraint firstItem="k82-w8-ML8" firstAttribute="leading" secondItem="dej-9k-aAA" secondAttribute="trailing" constant="-285" id="FTx-27-M84"/>
-                            <constraint firstItem="sy5-nA-8Lg" firstAttribute="top" secondItem="eG4-UJ-Wc4" secondAttribute="bottom" constant="10" id="Fgu-pn-HBW"/>
+                            <constraint firstItem="sy5-nA-8Lg" firstAttribute="top" secondItem="dej-9k-aAA" secondAttribute="top" constant="303" id="Fgu-pn-HBW"/>
                             <constraint firstItem="k82-w8-ML8" firstAttribute="centerY" secondItem="I0q-5V-oWR" secondAttribute="centerY" id="Ifn-iN-51P"/>
                             <constraint firstItem="Kdi-Jg-uOD" firstAttribute="top" secondItem="4t0-yd-TFq" secondAttribute="bottom" constant="35" id="Q52-04-XIT"/>
                             <constraint firstItem="k82-w8-ML8" firstAttribute="leading" secondItem="dej-9k-aAA" secondAttribute="leading" constant="90" id="T3x-dt-L1D"/>
@@ -110,7 +110,7 @@
                             <constraint firstItem="dej-9k-aAA" firstAttribute="trailing" secondItem="eG4-UJ-Wc4" secondAttribute="trailing" constant="65" id="TWG-9Y-A5a">
                                 <variation key="heightClass=compact-widthClass=compact" constant="362"/>
                             </constraint>
-                            <constraint firstItem="IZ3-hb-Xl4" firstAttribute="top" secondItem="Kdi-Jg-uOD" secondAttribute="bottom" constant="200" id="TXv-H0-WIv"/>
+                            <constraint firstItem="IZ3-hb-Xl4" firstAttribute="top" secondItem="Kdi-Jg-uOD" secondAttribute="bottom" constant="210" id="TXv-H0-WIv"/>
                             <constraint firstItem="vH1-YR-EwT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IZ3-hb-Xl4" secondAttribute="trailing" constant="8" symbolic="YES" id="UN6-38-Vkz"/>
                             <constraint firstItem="IZ3-hb-Xl4" firstAttribute="leading" secondItem="dej-9k-aAA" secondAttribute="leading" constant="10" id="UTm-Ue-yme"/>
                             <constraint firstItem="k82-w8-ML8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="I0q-5V-oWR" secondAttribute="trailing" constant="6" id="XEf-Oj-dEv"/>
@@ -122,7 +122,7 @@
                             <constraint firstItem="eG4-UJ-Wc4" firstAttribute="top" secondItem="k82-w8-ML8" secondAttribute="bottom" constant="8" id="d3v-9P-5gW"/>
                             <constraint firstItem="eG4-UJ-Wc4" firstAttribute="leading" secondItem="dej-9k-aAA" secondAttribute="leading" constant="93" id="e7S-0r-215"/>
                             <constraint firstItem="I0q-5V-oWR" firstAttribute="leading" secondItem="dej-9k-aAA" secondAttribute="leading" constant="10" id="fNO-rj-pgD"/>
-                            <constraint firstItem="vH1-YR-EwT" firstAttribute="top" secondItem="Kdi-Jg-uOD" secondAttribute="bottom" constant="200" id="iEI-Cz-WON"/>
+                            <constraint firstItem="vH1-YR-EwT" firstAttribute="top" secondItem="Kdi-Jg-uOD" secondAttribute="bottom" constant="211" id="iEI-Cz-WON"/>
                             <constraint firstItem="qep-Pb-QY0" firstAttribute="top" secondItem="4t0-yd-TFq" secondAttribute="bottom" constant="100" id="iat-Cb-a5z"/>
                             <constraint firstItem="dej-9k-aAA" firstAttribute="trailing" secondItem="k82-w8-ML8" secondAttribute="trailing" constant="10" id="nO4-3g-hyU"/>
                             <constraint firstItem="Kdi-Jg-uOD" firstAttribute="leading" secondItem="dej-9k-aAA" secondAttribute="leading" constant="10" id="qy8-Qk-k3l"/>
@@ -195,7 +195,7 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="gMX-lB-Kvb">
-                                <rect key="frame" x="177.5" y="528" width="20" height="20"/>
+                                <rect key="frame" x="177.5" y="312" width="20" height="20"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The password must have at least 6 characters" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="P8h-H3-5cv">
                                 <rect key="frame" x="98" y="506" width="267" height="12"/>
@@ -243,7 +243,7 @@
                             <constraint firstItem="cye-m2-p8o" firstAttribute="centerY" secondItem="csI-ws-1c2" secondAttribute="centerY" id="Bhb-vT-Px9"/>
                             <constraint firstItem="boK-pG-XnU" firstAttribute="top" secondItem="E8g-AH-kKg" secondAttribute="top" constant="30" id="CRA-LE-Z0v"/>
                             <constraint firstItem="P8h-H3-5cv" firstAttribute="leading" secondItem="E8g-AH-kKg" secondAttribute="leading" constant="98" id="F24-t6-Sji"/>
-                            <constraint firstItem="gMX-lB-Kvb" firstAttribute="top" secondItem="P8h-H3-5cv" secondAttribute="bottom" constant="10" id="J7W-zO-rvx"/>
+                            <constraint firstItem="gMX-lB-Kvb" firstAttribute="top" secondItem="E8g-AH-kKg" secondAttribute="top" constant="248" id="J7W-zO-rvx"/>
                             <constraint firstItem="cye-m2-p8o" firstAttribute="leading" secondItem="E8g-AH-kKg" secondAttribute="leading" constant="89.5" id="LKk-Yk-9ZU"/>
                             <constraint firstItem="sTZ-Fn-8Km" firstAttribute="top" secondItem="cye-m2-p8o" secondAttribute="bottom" constant="30" id="M8O-U6-ITG"/>
                             <constraint firstItem="X3x-Cl-KO1" firstAttribute="leading" secondItem="E8g-AH-kKg" secondAttribute="leading" constant="10" id="O5F-2A-kE8"/>
@@ -1227,7 +1227,7 @@
                                 </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="GMW-ld-i1x">
-                                <rect key="frame" x="177.5" y="71" width="20" height="20"/>
+                                <rect key="frame" x="177.5" y="227" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1250,7 +1250,7 @@
                             <constraint firstItem="ntB-2c-9zR" firstAttribute="top" secondItem="0PH-fa-QJT" secondAttribute="bottom" constant="20" id="E1K-sH-Hv7"/>
                             <constraint firstItem="cm9-gv-6K9" firstAttribute="top" secondItem="UZn-5p-0rk" secondAttribute="bottom" constant="30" id="Eul-78-e9V"/>
                             <constraint firstItem="nbz-eB-NWH" firstAttribute="top" secondItem="mZW-Vq-ZeJ" secondAttribute="bottom" constant="30" id="I60-rW-6jD"/>
-                            <constraint firstItem="GMW-ld-i1x" firstAttribute="top" secondItem="O6w-2j-OOB" secondAttribute="top" constant="7" id="KKE-V6-po3"/>
+                            <constraint firstItem="GMW-ld-i1x" firstAttribute="top" secondItem="O6w-2j-OOB" secondAttribute="top" constant="163" id="KKE-V6-po3"/>
                             <constraint firstItem="UG6-zK-qDH" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="15" id="Kld-jj-fgf"/>
                             <constraint firstItem="iJD-3U-e7P" firstAttribute="top" secondItem="a2Y-E5-2Cp" secondAttribute="bottom" constant="20" id="Kyw-uA-F45"/>
                             <constraint firstItem="Z83-Gy-QZ9" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="109" id="MR8-1E-vYx"/>
