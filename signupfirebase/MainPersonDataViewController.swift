@@ -77,8 +77,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         // Forces the online keyboard to be lowercased
         searchBarPerson.autocapitalizationType = UITextAutocapitalizationType.none
  
-        makeRead()
-        
+        self.makeRead()
+
         activity.style = .gray
         activity.isHidden = true
         
@@ -94,6 +94,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
 
     @objc func reloadData() {
         DispatchQueue.main.async {
+            self.makeRead()
             self.tableView.reloadData()
             self.tableView.refreshControl?.endRefreshing()
         }

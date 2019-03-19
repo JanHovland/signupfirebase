@@ -76,6 +76,8 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         // Initierer UIActivityIndicatorView
         activity.hidesWhenStopped = true
         activity.style = .gray
+        activity.transform = CGAffineTransform(scaleX: 1.25, y: 1.25)
+        
         view.addSubview(activity)
         
         // Set the global variables
