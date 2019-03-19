@@ -138,8 +138,8 @@ class CvViewController: UIViewController {
            y) Flyttet map icon til PersonViewController.swift
            z) Lagt inn "indexed table view" for kunne søke raskere på Persondata
            A) Når en starter PersonData vises ikke alle bildene (blir oppdatert når en velger en person for oppdatering og så går tilbake).
-               Løst ved å benytte UIRefreshControl()
-           B)  Kan nå slette person i "indexed table view" korrekt.
+              Løst ved å benytte UIRefreshControl()
+           B) Kan nå slette person i "indexed table view" korrekt.
         
         7. Nye oppgaver (ikke fullført)
         
@@ -150,9 +150,10 @@ class CvViewController: UIViewController {
               . PersonViewController
         
            c) "Vis brukerne i Coredata" viser for mange brukere (bør heller vise brukerne i Firebase)
-           d) Kunne sende ePost
-           e) Se igjennom opsjonene for Kart i PersonViewController.
-           f) Vise default bilde og ikke et som er valgt tidligere når det ikke er en tilsvarende photoURL i Firebase Storage.
+           d) Kunne slette en bruker i Coredata
+           e) Kunne sende ePost
+           f) Se igjennom opsjonene for Kart i PersonViewController.
+           g) Vise default bilde og ikke et som er valgt tidligere når det ikke er en tilsvarende photoURL i Firebase Storage.
         
         e) Oppdatere security i Firebase (er det samme for Firestore?)
         
