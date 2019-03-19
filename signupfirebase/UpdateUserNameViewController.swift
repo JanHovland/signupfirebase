@@ -138,7 +138,7 @@ class UpdateUserNameViewController: UIViewController, UITextFieldDelegate {
     }
 
     @objc func showUserInformation() {
-        userInfo.text = showUserInfo(startUp: false)
+        userInfo.text = "" 
     }
 
     

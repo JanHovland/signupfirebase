@@ -33,8 +33,6 @@ class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
 
         secondsLeft.isHidden = true
 
-        showUserInformation()
-
         // Turn off keyboard when you press "Return"
         newPasswordTextField.delegate = self
 
@@ -63,7 +61,6 @@ class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidAppear(_ animated: Bool) {
         activity.startAnimating()
-        userInfo.text = showUserInfo(startUp: false)
         activity.stopAnimating()
 
         // Observe keyboard change
@@ -174,10 +171,6 @@ class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
             }
             seconds -= 1
         }
-    }
-
-    @objc func showUserInformation() {
-        userInfo.text = showUserInfo(startUp: false)
     }
 
     override func viewWillDisappear(_ animated: Bool) {

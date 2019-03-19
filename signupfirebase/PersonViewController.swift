@@ -62,9 +62,6 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         // Change the title of navigationBar
         navigationItem.title = PersonTitle
         
-        // Show "log in"
-        loginStatus.text = showUserInfo(startUp: true)
-        
         // Turn off keyboard when you press "Return"
         addressInput.delegate = self
         cityInput.delegate = self
@@ -284,30 +281,41 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         
         guard let image = inputImage.image else { return }
         
+        activity.startAnimating()
+        
         // Get the user who has logged in
         //  0 = uid  1 = eMail  2 = name  3 = passWord 4 = photoURL
         let value = getCoreData()
         
+        // In order to show the activity indicator, the heavy job must be in the main queue because it is blocking the "activity"
+        DispatchQueue.main.async {
         
-        // Upload an image to the cloud
-        PersonService.shared.storePersonFiredata(id: PersonIdText,
-                                                 photoURL: value.photoURL,
-                                                 image: image,
-                                                 user: value.name,
-                                                 uid: value.uid,
-                                                 email: value.eMail,
-                                                 address: addressInput.text!,
-                                                 city: cityInput.text!,
-                                                 dateOfBirth: dateOfBirthInput.text!,
-                                                 name: nameInput.text!.uppercased(),
-                                                 gender: genderInput.selectedSegmentIndex,
-                                                 phoneNumber: phoneNumberInput.text!,
-                                                 postalCodeNumber: postalCodeNumberInput.text!,
-                                                 municipality: municipalityInput.text!,
-                                                 municipalityNumber: municipalityNumberInput.text!) {
-                                                    self.dismiss(animated: true, completion: nil)
+            // Upload an image to the cloud
+            PersonService.shared.storePersonFiredata(id: self.PersonIdText,
+                                                     photoURL: value.photoURL,
+                                                     image: image,
+                                                     user: value.name,
+                                                     uid: value.uid,
+                                                     email: value.eMail,
+                                                     address: self.addressInput.text!,
+                                                     city: self.cityInput.text!,
+                                                     dateOfBirth: self.dateOfBirthInput.text!,
+                                                     name: self.nameInput.text!.uppercased(),
+                                                     gender: self.genderInput.selectedSegmentIndex,
+                                                     phoneNumber: self.phoneNumberInput.text!,
+                                                     postalCodeNumber: self.postalCodeNumberInput.text!,
+                                                     municipality: self.municipalityInput.text!,
+                                                     municipalityNumber: self.municipalityNumberInput.text!) {
+                
+                // PersonService.shared.storePersonFiredata contains a global varable = percentFinished
+                if  percentFinished == 100.0 {
+                   self.activity.stopAnimating()
+                }
+                self.dismiss(animated: true, completion: nil)
+                                                        
+            }
+        
         }
-        
     }
     
     func hentFraDatoValg() {

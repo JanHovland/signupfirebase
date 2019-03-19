@@ -43,8 +43,6 @@ class ResetPWByMailViewController: UIViewController {
 
         infoTextView.text = melding1 + "\n\n" + melding2
 
-        showUserInformation()
-
         infoTextView.isHidden = true
 
         activity.hidesWhenStopped = true
@@ -116,7 +114,4 @@ class ResetPWByMailViewController: UIViewController {
         }
     }
 
-    @objc func showUserInformation() {
-        userInfo.text = showUserInfo(startUp: false)
-    }
 }

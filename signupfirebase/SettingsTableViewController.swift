@@ -36,7 +36,6 @@ class SettingsTableViewController: UITableViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         activity.startAnimating()
-        userInfo.text = showUserInfo(startUp: false)
         activity.stopAnimating()
     }
     

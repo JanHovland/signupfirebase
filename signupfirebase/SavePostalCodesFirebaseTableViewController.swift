@@ -28,10 +28,6 @@ class SavePostalCodesFirebaseTableViewController: UITableViewController, UIDocum
         switchStorePostalCodes.isOn = false
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        userInfo.text = showUserInfo(startUp: false)
-    }
-
     @IBAction func showStorePostalCodes(_ sender: Any) {
         if (UserDefaults.standard.bool(forKey: "SHOWSTOREPOSTALCODES")) == true {
             UserDefaults.standard.set(false, forKey: "SHOWSTOREPOSTALCODES")

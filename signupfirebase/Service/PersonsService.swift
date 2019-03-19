@@ -9,6 +9,8 @@
 import Foundation
 import Firebase
 
+var percentFinished: Double = 0.0
+
 final class PersonService {
     
     // MARK: - Properties
@@ -125,8 +127,9 @@ final class PersonService {
             
             let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount) /
                 Double(snapshot.progress!.totalUnitCount)
-            
-            print("Uploading... \(percentComplete)% complete")
+ 
+            // Update the global variable 
+            percentFinished = percentComplete
             
         }
         

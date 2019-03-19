@@ -52,9 +52,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         activity.style = .gray
         view.addSubview(activity)
 
-        // Show login info
-        loginStatus.text = showUserInfo(startUp: true)
-        
         // Turn off keyboard when you press "Return"
         eMailLoginTextField.delegate = self
         passwordTextField.delegate = self
@@ -67,6 +64,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         passwordTextField.addTarget(self,
                                     action: #selector(textFieldEditingChanged),
                                     for: UIControl.Event.editingChanged)
+        
+        loginStatus.text = self.showUserInfo(startUp: true)
     }
     
     // Called when the view has been fully transitioned onto the screen. Default does nothing
@@ -128,7 +127,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         // Hide the tabBar
         if self.tabBarController?.tabBar.isHidden == false {
            self.tabBarController?.tabBar.isHidden = true
-           // self.loginStatus.text = self.showUserInfo(startUp: true)
         }
     }
     
@@ -193,9 +191,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
             Auth.auth().signIn(withEmail: eMailLoginTextField.text!, password: passwordTextField.text!) { _, error in
 
                 if error == nil {
-                    // let uid = Auth.auth().currentUser?.uid ?? ""
-                    let navn = Auth.auth().currentUser?.displayName ?? ""
-
                     // Reset all posts where 'loggedin' == true
                     ok = self.resetLoggedIinCoreData()
 
@@ -235,7 +230,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
                                                                                 comment: "LoginViewVontroller.swift CheckLogin error"),
                                                   message: melding)
                             } else {
-                                // Blank the login message 
+                                // Blank the login message
                                 self.loginStatus.text = ""
                                 
                                 // Show the tabBar
@@ -332,9 +327,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
                                 }
                             }
                        }
-
-                       // self.loginStatus.text = self.showUserInfo(startUp: false)
-                        
+ 
                     } else {
                         let melding = NSLocalizedString("Unable to update CoreData.",
                                                         comment: "LoginViewVontroller.swift CheckLogin 'update'")

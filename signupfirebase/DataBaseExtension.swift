@@ -431,25 +431,12 @@ extension UIViewController {
         return ok
     }
     
-    func showUserInfo(startUp: Bool) -> String {
-        //  0 = uid  1 = eMail  2 = name  3 = passWord)
-        let value = getCoreData()
-        
-        let email = value.eMail
-        let name = value.name
-        
-        if email.count > 0,
-            name.count > 0 {
-            if startUp == false {
-                //     return name + " (" + email + ")."
-                return email
-            } else {
-                return NSLocalizedString("Please log in to Firebase.",
-                                         comment: "DataBaseExtension.swift showUserInfo.")
-            }
-        } else {
-            return ""
-        }
+    func  showUserInfo(startUp: Bool) -> String {
+       if startUp == true {
+          return NSLocalizedString("Please log in to Firebase.",
+                                    comment: "DataBaseExtension.swift showUserInfo.")
+       }
+        return ""
     }
     
     func formatPhone(phone: String) -> String {
