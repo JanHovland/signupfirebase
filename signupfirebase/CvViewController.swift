@@ -144,7 +144,7 @@ class CvViewController: UIViewController {
         7. Nye oppgaver (ikke fullført)
         
            a) Ta bort "Vennligst logg inn på Firebase" unntatt på log inn bildet.
-           b) Oppdatere activity indicator
+           b) Oppdatere activity indicator i:
               . LoginViewController
               . CreateAccountViewController
               . PersonViewController
