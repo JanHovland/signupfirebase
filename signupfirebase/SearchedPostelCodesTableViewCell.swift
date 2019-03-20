@@ -10,10 +10,10 @@ import UIKit
 
 class SearchedPostelCodesTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var poststedLabel: UILabel!
-    @IBOutlet weak var postnummerLabel: UILabel!
-    @IBOutlet weak var kommuneInfoLabel: UILabel!
-    
+    @IBOutlet weak var postalCodeLabel: UILabel!
+    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var municipalityInfoLabel: UILabel!
+   
     override func awakeFromNib() {
         super.awakeFromNib()
     }

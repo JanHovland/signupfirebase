@@ -116,10 +116,9 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
             let poststed = poststed2.replacingOccurrences(of: " I ", with: " i ")
 
             let postnummer = postValues[indexPath.row].postNumber
-
-            cell.poststedLabel?.text = poststed.capitalized
-
-            cell.postnummerLabel?.text = postnummer
+            
+            cell.cityLabel?.text = poststed.capitalized
+            cell.postalCodeLabel?.text = postnummer
 
             cell.textLabel?.isHidden = true
             cell.textLabel?.text = postnummer
@@ -136,7 +135,7 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
 
             let kommunenummer = postValues[indexPath.row].municipalityNumber
 
-            cell.kommuneInfoLabel?.text = kommunenummer + "  " + municipality.capitalized
+            cell.municipalityInfoLabel?.text = kommunenummer + "  " + municipality.capitalized
         }
 
         return cell

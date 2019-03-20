@@ -1,13 +1,3 @@
-/* LoginViewVontroller.swift CheckLogin 'loggedin' */
-" is logged in." = " er pålogget.";
-
-/* ResetPWByMailViewController.swift SaveNewPassword 
-   UpdatePasswordViewVontroller.swift SaveNewPassword */
-" second" = " sekund";
-
-/* UpdatePasswordViewVontroller.swift SaveNewPassword */
-" seconds" = " seconder";
-
 /* LoginViewVontroller.swift presentAlertCreateAccount */
 "Add a new user" = "Legg inn en ny bruker";
 
@@ -98,17 +88,20 @@
 /* OK */
 "OK" = "OK";
 
+/* ResetPWByMailViewController.swift resetByMail */
+"Password change request has been sent" = "Forespørsel om endring av passord er sendt";
+
 /* LoginViewVontroller.swift selectPersonPhoto */
 "Photo library" = "Foto biblioteket";
 
 /* DataBaseExtension.swift showUserInfo. */
 "Please log in to Firebase." = "Vennligst logg inn på Firebase.";
 
+/* ResetPWByMailViewController.swift resetByMail */
+"Please look in your email" = "Vennligst se i ePosten din";
+
 /* ResetPWByMailViewController.swift viewDidLoad */
 "Please note that the included link is time limited!" = "Legg merke til at linken i ePosten er tidsbegrenset!";
-
-/* UpdatePasswordViewVontroller.swift SaveNewPassword */
-"Return to login in " = "Retur til login om ";
 
 /* SavePostalCodesFirebaseTableViewController.swift documentPicker */
 "Save in Firebase" = "Lagre i Firebase";

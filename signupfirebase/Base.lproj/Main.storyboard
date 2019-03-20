@@ -1005,22 +1005,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJH-PP-AVI">
-                                <rect key="frame" x="10" y="99" width="355" height="0.0"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="eMail address" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="SEC-94-hh0" userLabel="eMail address Text Field">
-                                <rect key="frame" x="94" y="170" width="271" height="21"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="eMail address" borderStyle="roundedRect" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="SEC-94-hh0" userLabel="eMail address Text Field">
+                                <rect key="frame" x="107" y="244" width="219" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="1NG-am-kPv"/>
+                                    <constraint firstAttribute="width" constant="219" id="ewi-Q8-q9j"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="password"/>
                             </textField>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="flT-yl-U8B">
-                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
+                                <rect key="frame" x="177.5" y="194" width="20" height="20"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="06z-eZ-cfk">
-                                <rect key="frame" x="343" y="166.5" width="22" height="22"/>
+                                <rect key="frame" x="343" y="248" width="22" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="22" id="nh6-bK-pCz"/>
                                 </constraints>
@@ -1028,18 +1027,8 @@
                                     <action selector="info:" destination="ivl-bM-ftF" eventType="touchUpInside" id="xo5-Ae-y9N"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X7L-7g-bF5">
-                                <rect key="frame" x="16" y="170" width="72" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="72" id="0lu-Vc-bjX"/>
-                                    <constraint firstAttribute="height" constant="21" id="3oX-A5-aVU"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="faZ-y8-avB">
-                                <rect key="frame" x="15" y="247" width="345" height="200"/>
+                                <rect key="frame" x="15" y="330.5" width="345" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="kWg-xd-tdu"/>
@@ -1047,46 +1036,40 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="secondsLeft" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1i4-xe-1xr" userLabel="secondsLeft Text Field">
-                                <rect key="frame" x="37.5" y="116" width="300" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="firebase_logo" translatesAutoresizingMaskIntoConstraints="NO" id="GBQ-ee-qX8">
+                                <rect key="frame" x="157.5" y="114" width="60" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="rwn-by-GZv"/>
-                                    <constraint firstAttribute="height" constant="30" id="uJW-Ut-FT1"/>
+                                    <constraint firstAttribute="height" constant="60" id="mS2-ZD-Mhx"/>
+                                    <constraint firstAttribute="width" constant="60" id="wVk-rJ-O74"/>
                                 </constraints>
-                                <nil key="textColor"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ndS-GR-KCR">
+                                <rect key="frame" x="15" y="248.5" width="84" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="faZ-y8-avB" firstAttribute="top" secondItem="X7L-7g-bF5" secondAttribute="bottom" constant="56" id="1Yf-jp-rXh"/>
-                            <constraint firstItem="06z-eZ-cfk" firstAttribute="top" secondItem="WJH-PP-AVI" secondAttribute="bottom" constant="67.5" id="4uf-Zt-xHM">
-                                <variation key="heightClass=compact-widthClass=compact" constant="83.5"/>
-                            </constraint>
                             <constraint firstItem="faZ-y8-avB" firstAttribute="leading" secondItem="N7z-Y8-Vaq" secondAttribute="leading" constant="15" id="6sF-4v-Le6"/>
-                            <constraint firstItem="WJH-PP-AVI" firstAttribute="leading" secondItem="N7z-Y8-Vaq" secondAttribute="leading" constant="10" id="Cvv-0g-Voz"/>
                             <constraint firstItem="flT-yl-U8B" firstAttribute="centerX" secondItem="xuf-1A-VUn" secondAttribute="centerX" id="DOx-Ja-nSG"/>
                             <constraint firstItem="N7z-Y8-Vaq" firstAttribute="trailing" secondItem="faZ-y8-avB" secondAttribute="trailing" constant="15" id="H2Y-MG-d0I"/>
-                            <constraint firstItem="WJH-PP-AVI" firstAttribute="top" secondItem="N7z-Y8-Vaq" secondAttribute="top" constant="35" id="Hup-ij-n9y">
-                                <variation key="heightClass=compact-widthClass=compact" constant="15"/>
-                            </constraint>
+                            <constraint firstItem="SEC-94-hh0" firstAttribute="top" secondItem="flT-yl-U8B" secondAttribute="bottom" constant="30" id="Ijf-VQ-6vh"/>
                             <constraint firstItem="N7z-Y8-Vaq" firstAttribute="trailing" secondItem="06z-eZ-cfk" secondAttribute="trailing" constant="10" id="JPp-Y2-AJm">
                                 <variation key="heightClass=compact-widthClass=compact" constant="16"/>
                             </constraint>
-                            <constraint firstItem="SEC-94-hh0" firstAttribute="top" secondItem="WJH-PP-AVI" secondAttribute="bottom" constant="71" id="KOe-Wo-0im">
-                                <variation key="heightClass=compact-widthClass=compact" constant="90"/>
-                            </constraint>
-                            <constraint firstItem="flT-yl-U8B" firstAttribute="centerY" secondItem="xuf-1A-VUn" secondAttribute="centerY" id="L9Z-D0-ssw"/>
-                            <constraint firstItem="1i4-xe-1xr" firstAttribute="top" secondItem="WJH-PP-AVI" secondAttribute="bottom" constant="17" id="PMp-C8-NcM"/>
-                            <constraint firstItem="WJH-PP-AVI" firstAttribute="leading" secondItem="N7z-Y8-Vaq" secondAttribute="leading" constant="10" id="WUu-mO-vEa"/>
-                            <constraint firstItem="N7z-Y8-Vaq" firstAttribute="trailing" secondItem="WJH-PP-AVI" secondAttribute="trailing" constant="10" id="Xff-l8-Zbi"/>
-                            <constraint firstItem="X7L-7g-bF5" firstAttribute="leading" secondItem="xuf-1A-VUn" secondAttribute="leadingMargin" id="Y43-Ue-yGn"/>
-                            <constraint firstItem="1i4-xe-1xr" firstAttribute="centerX" secondItem="xuf-1A-VUn" secondAttribute="centerX" id="cUG-2i-Xhu"/>
-                            <constraint firstItem="N7z-Y8-Vaq" firstAttribute="trailing" secondItem="SEC-94-hh0" secondAttribute="trailing" constant="10" id="dKS-Iz-Hxm"/>
-                            <constraint firstItem="SEC-94-hh0" firstAttribute="leading" secondItem="X7L-7g-bF5" secondAttribute="trailing" constant="6" id="dTo-rX-uIo"/>
-                            <constraint firstItem="SEC-94-hh0" firstAttribute="centerY" secondItem="X7L-7g-bF5" secondAttribute="centerY" id="jTl-l0-Grd"/>
-                            <constraint firstItem="N7z-Y8-Vaq" firstAttribute="trailing" secondItem="SEC-94-hh0" secondAttribute="trailing" constant="10" id="wyB-C8-Ytj"/>
+                            <constraint firstItem="faZ-y8-avB" firstAttribute="top" secondItem="SEC-94-hh0" secondAttribute="bottom" constant="56.5" id="MTB-0c-apF"/>
+                            <constraint firstItem="ndS-GR-KCR" firstAttribute="leading" secondItem="N7z-Y8-Vaq" secondAttribute="leading" constant="15" id="Nsf-it-Qw8"/>
+                            <constraint firstItem="GBQ-ee-qX8" firstAttribute="top" secondItem="N7z-Y8-Vaq" secondAttribute="top" constant="50" id="Rlr-Gt-fUp"/>
+                            <constraint firstItem="SEC-94-hh0" firstAttribute="leading" secondItem="N7z-Y8-Vaq" secondAttribute="leading" constant="107" id="U1R-wK-PRH"/>
+                            <constraint firstItem="N7z-Y8-Vaq" firstAttribute="trailing" secondItem="SEC-94-hh0" secondAttribute="trailing" constant="49" id="dKS-Iz-Hxm"/>
+                            <constraint firstItem="flT-yl-U8B" firstAttribute="top" secondItem="GBQ-ee-qX8" secondAttribute="bottom" constant="20" id="hXG-L5-KoB"/>
+                            <constraint firstItem="GBQ-ee-qX8" firstAttribute="centerX" secondItem="xuf-1A-VUn" secondAttribute="centerX" id="psI-8c-9Ua"/>
+                            <constraint firstItem="SEC-94-hh0" firstAttribute="centerY" secondItem="06z-eZ-cfk" secondAttribute="centerY" id="rSj-Ef-SKY"/>
+                            <constraint firstItem="SEC-94-hh0" firstAttribute="centerY" secondItem="ndS-GR-KCR" secondAttribute="centerY" id="vHd-Oq-8Z7"/>
+                            <constraint firstItem="SEC-94-hh0" firstAttribute="leading" secondItem="ndS-GR-KCR" secondAttribute="trailing" constant="8" id="wtD-z2-lbv"/>
+                            <constraint firstItem="N7z-Y8-Vaq" firstAttribute="trailing" secondItem="SEC-94-hh0" secondAttribute="trailing" constant="49" id="wyB-C8-Ytj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="N7z-Y8-Vaq"/>
                     </view>
@@ -1094,23 +1077,21 @@
                     <navigationItem key="navigationItem" title="Reset password by mail" id="JF7-Ic-NnE">
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="Dj9-Pm-M5R">
                             <connections>
-                                <action selector="resetByMail:" destination="ivl-bM-ftF" id="4f3-Bf-y0h"/>
+                                <action selector="sendResetRequest:" destination="ivl-bM-ftF" id="0Gm-la-UpX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="SendEmailToReceiver" destination="SEC-94-hh0" id="5Lg-jR-0hp"/>
                         <outlet property="activity" destination="flT-yl-U8B" id="Vca-te-qtv"/>
                         <outlet property="infoTextView" destination="faZ-y8-avB" id="V1W-nO-XLS"/>
-                        <outlet property="secondsLeft" destination="1i4-xe-1xr" id="k67-Bm-7xz"/>
-                        <outlet property="userInfo" destination="WJH-PP-AVI" id="1hh-7k-3bU"/>
+                        <outlet property="sendEmailToReceiver" destination="SEC-94-hh0" id="kTz-80-wkh"/>
                         <segue destination="tT3-9a-LwM" kind="show" identifier="BackToLoginViewController" id="HHx-uR-c6E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y3g-OR-Jc8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1748" y="1252"/>
+            <point key="canvasLocation" x="-1748" y="1251.7241379310346"/>
         </scene>
         <!--Persondata-->
         <scene sceneID="RhZ-ME-R8x">
@@ -1375,13 +1356,13 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="kFf-Fm-bb9">
                                                     <rect key="frame" x="15" y="5" width="345" height="20.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="postnummer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAQ-Xk-DGg">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="postalCodeLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAQ-Xk-DGg">
                                                             <rect key="frame" x="0.0" y="0.0" width="147.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="poststed" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NTR-yr-KvV">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="cityLabel" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NTR-yr-KvV">
                                                             <rect key="frame" x="197.5" y="0.0" width="147.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -1389,7 +1370,7 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kommuneInfoLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o7P-gK-pef">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="municipalityInfoLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o7P-gK-pef">
                                                     <rect key="frame" x="15" y="25.5" width="260" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
@@ -1406,9 +1387,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="kommuneInfoLabel" destination="o7P-gK-pef" id="S00-ba-H8K"/>
-                                            <outlet property="postnummerLabel" destination="kAQ-Xk-DGg" id="RwW-4F-cZl"/>
-                                            <outlet property="poststedLabel" destination="NTR-yr-KvV" id="zph-Sn-GX3"/>
+                                            <outlet property="cityLabel" destination="NTR-yr-KvV" id="xcg-GW-KgN"/>
+                                            <outlet property="municipalityInfoLabel" destination="o7P-gK-pef" id="UEh-Ha-JXy"/>
+                                            <outlet property="postalCodeLabel" destination="kAQ-Xk-DGg" id="urB-gM-mjt"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1854,6 +1835,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="cJw-d4-x8a"/>
         <segue reference="D5H-78-AuK"/>
-        <segue reference="O1x-ds-s6d"/>
+        <segue reference="HHx-uR-c6E"/>
     </inferredMetricsTieBreakers>
 </document>
