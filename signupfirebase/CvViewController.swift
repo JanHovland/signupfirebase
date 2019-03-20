@@ -140,6 +140,8 @@ class CvViewController: UIViewController {
            A) Når en starter PersonData vises ikke alle bildene (blir oppdatert når en velger en person for oppdatering og så går tilbake).
               Løst ved å benytte UIRefreshControl()
            B) Kan nå slette person i "indexed table view" korrekt.
+           C) Viser nå "loggedin" i ListTableViewController.
+           D) Viser nå korrekt keyboard i CreateAccountViewController.
         
         7. Nye oppgaver (ikke fullført)
         
@@ -149,15 +151,18 @@ class CvViewController: UIViewController {
               . CreateAccountViewController
               . UpdateUserNameViewController
               . UpdatePasswordViewController
+              . ResetPWByMailViewController
               . PersonViewController
         
-           c) "Vis brukerne i Coredata" viser for mange brukere (bør heller vise brukerne i Firebase)
-           d) Kunne slette en bruker i Coredata
-           e) Kunne sende ePost
-           f) Se igjennom opsjonene for Kart i PersonViewController.
-           g) Vise default bilde og ikke et som er valgt tidligere når det ikke er en tilsvarende photoURL i Firebase Storage.
-        
-        e) Oppdatere security i Firebase (er det samme for Firestore?)
+           c) Sjekk layout for "Innstillinger"
+           d) Sjekk swipe for å slette (se ut som alle blir slettet?)
+           e) "Vis brukerne i Coredata" viser for mange brukere (bør heller vise brukerne i Firebase)
+           f) Kunne slette kun en bruker i Coredata
+           g) Gi melding dersom ingen brukere finnes i Coredata
+           h) Kunne sende ePost
+           i) Se igjennom opsjonene for Kart i PersonViewController.
+           j) Vise default bilde og ikke et som er valgt tidligere når det ikke er en tilsvarende photoURL i Firebase Storage.
+           k) Oppdatere security i Firebase (er det samme for Firestore?)
         
         8. Programmerings tips
         

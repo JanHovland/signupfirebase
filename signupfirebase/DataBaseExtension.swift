@@ -574,9 +574,9 @@ extension UIViewController {
     }
     
     
-    func savePhotoURL(image: UIImage,
-                      email: String,
-                      completionHandler: @escaping (String) -> Void) {
+    func savePhotoUrlFirestore(image: UIImage,
+                               email: String,
+                               completionHandler: @escaping (String) -> Void) {
         
         let PHOTO_STORAGE_REF: StorageReference = Storage.storage().reference().child("photos")
         let imageStorageRef = PHOTO_STORAGE_REF.child("\(email).png")

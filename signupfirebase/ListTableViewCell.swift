@@ -13,7 +13,8 @@ class ListTableViewCell: UITableViewCell {
     @IBOutlet var mailLabel: UILabel!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet weak var passwordTextField: UITextField!
-
+    @IBOutlet weak var loggedInLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

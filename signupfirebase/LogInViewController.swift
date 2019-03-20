@@ -255,9 +255,9 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
                                     // Only save photo if a photo has been picked
                                     if self.savePhoto == true {
                                         
-                                        self.savePhotoURL(image: self.inputImage.image!,
-                                                          email: self.eMailLoginTextField.text!,
-                                                          completionHandler: { (url) in
+                                        self.savePhotoUrlFirestore(image: self.inputImage.image!,
+                                                                   email: self.eMailLoginTextField.text!,
+                                                                   completionHandler: { (url) in
                                                             
                                               //  0 = uid  1 = eMail 2 = name  3 = passWord 4 = photoURL
                                               let value = self.getCoreData()
