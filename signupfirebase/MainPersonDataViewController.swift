@@ -38,6 +38,8 @@ var globalPersonNameText = ""
 var globalPersonGenderInt = -1
 var globalPersonPhoneNumberText = ""
 
+var selectedName: String = ""
+
 class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var searchBarPerson: UISearchBar!
@@ -63,8 +65,6 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     // Variable for "indexed table view"
     var personDataDictionary = [String: [PersonData]]()
     var personDataSectionTitles = [String]()
-
-    var selectedName: String = ""
 
     // Called after the view has been loaded. For view controllers created in code, this is after -loadView. For view controllers unarchived from a nib, this is after the view is set.
     override func viewDidLoad() {
@@ -131,6 +131,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         
         selectedName = String(cell.nameLabel!.text!)
         performSegue(withIdentifier: "gotoUpdatePerson", sender: self)
+        
+        
         
     }
     
@@ -236,9 +238,9 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             (action, sourceView, completionHandler) in
 
             let cell = tableView.cellForRow(at: indexPath) as! PersonDataTableViewCell
-            self.selectedName = String(cell.nameLabel!.text!)
+            selectedName = String(cell.nameLabel!.text!)
         
-            let value = self.findPersonData(inputName: self.selectedName)
+            let value = self.findPersonData(inputName: selectedName)
         
             // Find the id of the post
             let id = value.id
@@ -268,7 +270,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             (action, sourceView, completionHandler) in
             
             let cell = tableView.cellForRow(at: indexPath) as! PersonDataTableViewCell
-            self.selectedName = String(cell.nameLabel!.text!)
+            selectedName = String(cell.nameLabel!.text!)
             
             self.performSegue(withIdentifier: "gotoUpdatePerson", sender: nil)
   
@@ -376,11 +378,13 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         // Find the data for thw chosen person = selectedName
         let value = findPersonData(inputName: selectedName)
         
-        // Find the viewController
-        let vc = segue.destination as! PersonViewController
+        print("name = \(selectedName)")
         
         // 'prepare' will run after every segue.
         if segue.identifier! == "gotoUpdatePerson" {
+
+            // Find the viewController
+            let vc = segue.destination as! PersonViewController
             
             // Resetter globale variabler
             globalPersonAddressText =  ""
@@ -413,7 +417,9 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             
         
         } else if segue.identifier! == "gotoAddPerson" {
+            
             let vc = segue.destination as! PersonViewController
+            
             vc.PersonPhotoURL = ""
             vc.PersonIdText = ""
             vc.PersonAddressText = ""
@@ -456,15 +462,20 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         // Find the row of the selected cell
         let buttonPosition = sender.convert(sender.bounds.origin, to: tableView)
         if let indexPath = tableView.indexPathForRow(at: buttonPosition) {
-            let rowIndex =  indexPath.row
-            phoneNumberInput = persons[rowIndex].personData.phoneNumber
+            tableView.deselectRow(at: indexPath, animated: true)
+            let cell = tableView.cellForRow(at: indexPath) as! PersonDataTableViewCell
+            selectedName = String(cell.nameLabel!.text!)
+            let value = self.findPersonData(inputName: selectedName)
+            phoneNumberInput = value.phoneNumber
             
-            personName = persons[rowIndex].personData.name.lowercased()
-            personName = personName.capitalized 
-            locationOnMap = persons[rowIndex].personData.address + " " +
-                            persons[rowIndex].personData.postalCodeNumber + " " +
-                            persons[rowIndex].personData.city
-            personAddress = persons[rowIndex].personData.address
+            personName = value.name.lowercased()
+            personName = personName.capitalized
+            
+            locationOnMap = value.address + " " +
+                            value.postalCodeNumber + " " +
+                            value.city
+            
+            personAddress = value.address
         }
       
     }
@@ -475,10 +486,13 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         // Find the row of the selected cell
         let buttonPosition = sender.convert(sender.bounds.origin, to: tableView)
         if let indexPath = tableView.indexPathForRow(at: buttonPosition) {
-            let rowIndex =  indexPath.row
-            phoneNumberInput = persons[rowIndex].personData.phoneNumber
+            tableView.deselectRow(at: indexPath, animated: true)
+            let cell = tableView.cellForRow(at: indexPath) as! PersonDataTableViewCell
+            selectedName = String(cell.nameLabel!.text!)
+            let value = self.findPersonData(inputName: selectedName)
+            phoneNumberInput = value.phoneNumber
         }
-        
+ 
         phoneNumberInput = phoneNumberInput.replacingOccurrences(of: " ", with: "")
 
         if  let url : URL = URL(string: "tel://\(phoneNumberInput)"){
@@ -494,14 +508,21 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             // Find the row of the selected cell
             let buttonPosition = sender.convert(sender.bounds.origin, to: tableView)
             if let indexPath = tableView.indexPathForRow(at: buttonPosition) {
-                let rowIndex =  indexPath.row
-                phoneNumberInput = persons[rowIndex].personData.phoneNumber
+                tableView.deselectRow(at: indexPath, animated: true)
+                let cell = tableView.cellForRow(at: indexPath) as! PersonDataTableViewCell
+                selectedName = String(cell.nameLabel!.text!)
+                let value = self.findPersonData(inputName: selectedName)
+                phoneNumberInput = value.phoneNumber
             }
 
             phoneNumberInput = phoneNumberInput.replacingOccurrences(of: " ", with: "")
-            
             let controller = MFMessageComposeViewController()
-            controller.body = "Test sending av SMS"
+            // let value = self.findPersonData(inputName: selectedName)
+            // let name1 = value.name
+            // let firstSpace = name1.firstIndex(of: " ") ?? name1.endIndex
+            // let name = name1[..<firstSpace]
+            
+            controller.body = "Gratulerer så mye med dagen, 😃🐠🐠"
             controller.recipients = [self.phoneNumberInput]
             controller.messageComposeDelegate = self as? MFMessageComposeViewControllerDelegate
             

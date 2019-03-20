@@ -140,29 +140,31 @@ class CvViewController: UIViewController {
            A) Når en starter PersonData vises ikke alle bildene (blir oppdatert når en velger en person for oppdatering og så går tilbake).
               Løst ved å benytte UIRefreshControl()
            B) Kan nå slette person i "indexed table view" korrekt.
-           C) Viser nå "loggedin" i ListTableViewController.
-           D) Viser nå korrekt keyboard i CreateAccountViewController.
-        
-        7. Nye oppgaver (ikke fullført)
-        
-           a) Ta bort "Vennligst logg inn på Firebase" unntatt på log inn bildet.
-           b) Oppdatere activity indicator i:
+           C) Tatt bort "Vennligst logg inn på Firebase" unntatt på log inn bildet.
+           D) Viser nå "loggedin" i ListTableViewController.
+           E) Viser nå korrekt keyboard i CreateAccountViewController.
+           F) Oppdatere activity indicator i:
               . LoginViewController
               . CreateAccountViewController
               . UpdateUserNameViewController
               . UpdatePasswordViewController
               . ResetPWByMailViewController
               . PersonViewController
+           G) Nå kommer riktig person ut på map, telefon og melding.
         
-           c) Sjekk layout for "Innstillinger"
-           d) Sjekk swipe for å slette (se ut som alle blir slettet?)
-           e) "Vis brukerne i Coredata" viser for mange brukere (bør heller vise brukerne i Firebase)
-           f) Kunne slette kun en bruker i Coredata
-           g) Gi melding dersom ingen brukere finnes i Coredata
-           h) Kunne sende ePost
-           i) Se igjennom opsjonene for Kart i PersonViewController.
-           j) Vise default bilde og ikke et som er valgt tidligere når det ikke er en tilsvarende photoURL i Firebase Storage.
-           k) Oppdatere security i Firebase (er det samme for Firestore?)
+        7. Nye oppgaver (ikke fullført)
+        
+           . Problemer ved å vise passordet (når en kaller "Vis passord" i Instillinger)
+           . Sjekk layout for "Innstillinger"
+           . Sjekk swipe for å slette (se ut som alle blir slettet?)
+           . "Vis brukerne i Coredata" viser for mange brukere (bør heller vise brukerne i Firebase)
+           . Kunne slette kun en bruker i Coredata
+           . Gi melding dersom ingen brukere finnes i Coredata
+           . Kunne sende ePost
+           . Se igjennom opsjonene for Kart i PersonViewController.
+           . Vise default bilde og ikke et som er valgt tidligere når det ikke er en tilsvarende photoURL i Firebase Storage.
+           . Vurdere å gjeninnføre for- og etternavn
+           . Oppdatere security i Firebase (er det samme for Firestore?)
         
         8. Programmerings tips
         
@@ -175,6 +177,8 @@ class CvViewController: UIViewController {
                 .. searchBarCancelButtonClicked()
               . UpdateUserViewConrtoller: myTimer = Timer.scheduledTimer(timeInterval: TimeInterval(forsinkelse), target: self, selector: #selector(showUserInformation), userInfo: nil, repeats: false)
              . UpdatePasswordViewController: self.myTimer = Timer.scheduledTimer(timeInterval: TimeInterval(self.forsinkelse),target: self,selector: #selector(self.returnToLogin), userInfo: nil, repeats: true)
+           b) Info om strin in Swift: https://oleb.net/blog/2017/11/swift-4-strings/
+        
         
         9. Firestore
            a) Informasjon
