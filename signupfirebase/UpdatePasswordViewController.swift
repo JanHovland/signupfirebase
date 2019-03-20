@@ -13,56 +13,45 @@ class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var activity: UIActivityIndicatorView!
     @IBOutlet var oldPasswordTextField: UITextField!
     @IBOutlet var newPasswordTextField: UITextField!
-    @IBOutlet var userInfo: UILabel!
-
-    var myTimer: Timer!
+    @IBOutlet weak var forEmailTextField: UITextField!
+    
     var activeField: UITextField!
-
-    var melding = ""
-    var melding1 = ""
-    var melding2 = ""
-    var melding3 = ""
-
-    let forsinkelse = 1
-    var seconds = 3
-
-    @IBOutlet var secondsLeft: UITextField!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        secondsLeft.isHidden = true
-
         // Turn off keyboard when you press "Return"
+        oldPasswordTextField.delegate = self
         newPasswordTextField.delegate = self
+        forEmailTextField.delegate = self
 
         activity.hidesWhenStopped = true
         activity.style = .gray
-        view.addSubview(activity)
 
         activity.startAnimating()
 
-        // Find eMail from Firebase
-        let email = Auth.auth().currentUser?.email!
+        DispatchQueue.main.async {
+        
+            // Find eMail from Firebase
+            let email = Auth.auth().currentUser?.email!
+            self.forEmailTextField.text = Auth.auth().currentUser?.email
 
-        // Find password from CoreData
-        oldPasswordTextField.text! = findPasswordCoreData(withEpost: email!)
+           // Find password from CoreData
+            self.oldPasswordTextField.text! = self.findPasswordCoreData(withEpost: email!)
 
-        if (UserDefaults.standard.bool(forKey: "SHOWPASSWORD")) == true {
-            oldPasswordTextField.isSecureTextEntry = false
-            newPasswordTextField.isSecureTextEntry = false
-        } else {
-            oldPasswordTextField.isSecureTextEntry = true
-            newPasswordTextField.isSecureTextEntry = true
+            if (UserDefaults.standard.bool(forKey: "SHOWPASSWORD")) == true {
+                self.oldPasswordTextField.isSecureTextEntry = false
+                self.newPasswordTextField.isSecureTextEntry = false
+            } else {
+                self.oldPasswordTextField.isSecureTextEntry = true
+                self.newPasswordTextField.isSecureTextEntry = true
+            }
         }
-
+        
         activity.stopAnimating()
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        activity.startAnimating()
-        activity.stopAnimating()
-
         // Observe keyboard change
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeUpdatePassword(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeUpdatePassword(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -103,76 +92,50 @@ class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func SaveNewPassword(_ sender: Any) {
+    
+        activity.startAnimating()
         
-        newPasswordTextField.resignFirstResponder()
+        DispatchQueue.main.async {
         
-        if newPasswordTextField.text!.count >= 6 {
-            let region = NSLocale.current.regionCode
-            Auth.auth().languageCode = region!.lowercased()
+            self.newPasswordTextField.resignFirstResponder()
+        
+            if self.newPasswordTextField.text!.count >= 6 {
+                let region = NSLocale.current.regionCode
+                Auth.auth().languageCode = region!.lowercased()
 
-            Auth.auth().currentUser?.updatePassword(to: newPasswordTextField.text!) { error in
+                Auth.auth().currentUser?.updatePassword(to: self.newPasswordTextField.text!) { error in
 
-                if error != nil {
-                    self.presentAlert(withTitle: NSLocalizedString("Error", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword "),
-                                      message: error!.localizedDescription as Any)
-
-                } else {
-                    let region = NSLocale.current.regionCode
-                    Auth.auth().languageCode = region!.lowercased()
-
-                    // Store the password in Coredata
-                    let ok = self.updatePasswordCoreData(withEpost: (Auth.auth().currentUser?.email!)!,
-                                                         withPassWord: self.newPasswordTextField.text!)
-
-                    if ok == false {
-                        let melding = NSLocalizedString("Unable to update the password for the user in CoreData.", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword ")
-
+                    if error != nil {
                         self.presentAlert(withTitle: NSLocalizedString("Error", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword "),
-                                          message: melding)
+                                          message: error!.localizedDescription as Any)
+
                     } else {
+                        let region = NSLocale.current.regionCode
+                        Auth.auth().languageCode = region!.lowercased()
 
-                        self.melding1 = NSLocalizedString("Return to login in ", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword ")
-                        self.melding2 = NSLocalizedString(" seconds", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword ")
-                        self.melding3 = NSLocalizedString(" second", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword ")
-                        
-                        self.melding = self.melding1 + String(self.seconds) + self.melding2
-                        self.secondsLeft.isHidden = false
-                        self.secondsLeft.text = self.melding
-                        
-                        self.seconds -= 1
+                        // Store the password in Coredata
+                        let ok = self.updatePasswordCoreData(withEpost: (Auth.auth().currentUser?.email!)!,
+                                                             withPassWord: self.newPasswordTextField.text!)
 
-                        self.myTimer = Timer.scheduledTimer(timeInterval: TimeInterval(self.forsinkelse),
-                                                            target: self,
-                                                            selector: #selector(self.returnToLogin),
-                                                            userInfo: nil, repeats: true)
+                        if ok == false {
+                            let melding = NSLocalizedString("Unable to update the password for the user in CoreData.", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword ")
+
+                            self.presentAlert(withTitle: NSLocalizedString("Error", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword "),
+                                              message: melding)
+                        }
                     }
                 }
-            }
-        } else {
-            let melding = NSLocalizedString("The password must contain minimum 6 characters", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword")
+            } else {
+                let melding = NSLocalizedString("The password must contain minimum 6 characters", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword")
 
-            presentAlert(withTitle: NSLocalizedString("Error", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword "),
-                         message: melding)
+                self.presentAlert(withTitle: NSLocalizedString("Error", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword "),
+                             message: melding)
+            }
         }
 
         activity.stopAnimating()
     }
-
-    @objc func returnToLogin() {
-        if seconds == 0 {
-            secondsLeft.isHidden = true
-            myTimer.invalidate()
-            performSegue(withIdentifier: "BackToLoginViewController", sender: self)
-        } else {
-            if seconds == 2 {
-                secondsLeft.text = melding1 + String(self.seconds) + melding2       // seconds
-            } else {
-                secondsLeft.text = melding1 + String(self.seconds) + melding3       // second
-            }
-            seconds -= 1
-        }
-    }
-
+ 
     override func viewWillDisappear(_ animated: Bool) {
         // Remove observers
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)

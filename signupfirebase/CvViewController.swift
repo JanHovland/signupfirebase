@@ -147,6 +147,8 @@ class CvViewController: UIViewController {
            b) Oppdatere activity indicator i:
               . LoginViewController
               . CreateAccountViewController
+              . UpdateUserNameViewController
+              . UpdatePasswordViewController
               . PersonViewController
         
            c) "Vis brukerne i Coredata" viser for mange brukere (bør heller vise brukerne i Firebase)
@@ -166,6 +168,8 @@ class CvViewController: UIViewController {
                 .. searchBarBookmarkButtonClicked()
               . Show Cancel Button
                 .. searchBarCancelButtonClicked()
+              . UpdateUserViewConrtoller: myTimer = Timer.scheduledTimer(timeInterval: TimeInterval(forsinkelse), target: self, selector: #selector(showUserInformation), userInfo: nil, repeats: false)
+             . UpdatePasswordViewController: self.myTimer = Timer.scheduledTimer(timeInterval: TimeInterval(self.forsinkelse),target: self,selector: #selector(self.returnToLogin), userInfo: nil, repeats: true)
         
         9. Firestore
            a) Informasjon
