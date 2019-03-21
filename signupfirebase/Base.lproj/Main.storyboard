@@ -431,7 +431,7 @@
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NyI-m2-1DO">
                                                     <rect key="frame" x="310" y="5" width="51" height="31"/>
                                                     <connections>
-                                                        <action selector="showPassword:" destination="nhA-xf-W66" eventType="valueChanged" id="dUn-qc-Hg7"/>
+                                                        <action selector="changeSwitchPassword:" destination="nhA-xf-W66" eventType="valueChanged" id="1vR-v3-uLN"/>
                                                     </connections>
                                                 </switch>
                                             </subviews>
@@ -586,7 +586,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pgR-wM-cad" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2980" y="-127.28635682158921"/>
+            <point key="canvasLocation" x="-3031" y="-127"/>
         </scene>
         <!--Store Postal Codes in Firebase-->
         <scene sceneID="4j0-L3-b03">
@@ -1840,8 +1840,8 @@
         <image name="settings-32" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cJw-d4-x8a"/>
-        <segue reference="D5H-78-AuK"/>
+        <segue reference="Jrj-S4-onc"/>
+        <segue reference="gYJ-L2-bgL"/>
         <segue reference="HHx-uR-c6E"/>
     </inferredMetricsTieBreakers>
 </document>

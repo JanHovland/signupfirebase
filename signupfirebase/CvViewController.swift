@@ -151,20 +151,18 @@ class CvViewController: UIViewController {
               . ResetPWByMailViewController
               . PersonViewController
            G) Nå kommer riktig person ut på map, telefon og melding.
+           H) Nå viser passordet avhengig av status på "Vis passord" i Instillinger
         
         7. Nye oppgaver (ikke fullført)
         
-           . Problemer ved å vise passordet (når en kaller "Vis passord" i Instillinger)
            . Sjekk layout for "Innstillinger"
-           . Sjekk swipe for å slette (se ut som alle blir slettet?)
-           . "Vis brukerne i Coredata" viser for mange brukere (bør heller vise brukerne i Firebase)
-           . Kunne slette kun en bruker i Coredata
            . Gi melding dersom ingen brukere finnes i Coredata
            . Kunne sende ePost
            . Se igjennom opsjonene for Kart i PersonViewController.
            . Vise default bilde og ikke et som er valgt tidligere når det ikke er en tilsvarende photoURL i Firebase Storage.
            . Vurdere å gjeninnføre for- og etternavn
            . Oppdatere security i Firebase (er det samme for Firestore?)
+           * Varsling på fødselsdager
         
         8. Programmerings tips
         
@@ -178,6 +176,7 @@ class CvViewController: UIViewController {
               . UpdateUserViewConrtoller: myTimer = Timer.scheduledTimer(timeInterval: TimeInterval(forsinkelse), target: self, selector: #selector(showUserInformation), userInfo: nil, repeats: false)
              . UpdatePasswordViewController: self.myTimer = Timer.scheduledTimer(timeInterval: TimeInterval(self.forsinkelse),target: self,selector: #selector(self.returnToLogin), userInfo: nil, repeats: true)
            b) Info om strin in Swift: https://oleb.net/blog/2017/11/swift-4-strings/
+        c) Info om timer: https://www.raywenderlich.com/113835-ios-timer-tutorial
         
         
         9. Firestore

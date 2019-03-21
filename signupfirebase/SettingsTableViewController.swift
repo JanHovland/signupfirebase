@@ -16,20 +16,16 @@ class SettingsTableViewController: UITableViewController {
  
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Set the 'switchPassWord' to inaktive
-        if (UserDefaults.standard.bool(forKey: "SHOWPASSWORD")) == true {
-            switchPassWord.isOn = false
-        } else {
-            switchPassWord.isOn = false
-        }
         
+        switchPassWord.isOn = false
+        UserDefaults.standard.set(false, forKey: "SHOWPASSWORD")
+
         activity.hidesWhenStopped = true
         activity.style = .gray
         view.addSubview(activity)
 
     }
-    
+ 
     override open var shouldAutorotate: Bool {
         return false
     }
@@ -40,5 +36,17 @@ class SettingsTableViewController: UITableViewController {
     }
     
     @IBOutlet var switchPassWord: UISwitch!
+        
+    @IBAction func changeSwitchPassword(_ sender: UISwitch) {
+        
+        if switchPassWord.isOn == false {
+            switchPassWord.isOn = true
+            UserDefaults.standard.set(true, forKey: "SHOWPASSWORD")
+        } else {
+            switchPassWord.isOn = false
+            UserDefaults.standard.set(false, forKey: "SHOWPASSWORD")
+        }
+        
+    }
     
 }
