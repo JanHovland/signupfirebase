@@ -7,9 +7,6 @@
 /* LoginViewVontroller.swift selectPersonPhoto */
 "Camera" = "Kamera";
 
-/* LoginViewVontroller.swift selectPersonPhoto */
-"Cancel" = "Avbryt";
-
 /* MainPersonDataViewController.swift buttonMessage */
 "Cannot send message" = "Kan ikke sende SMS";
 
@@ -88,17 +85,14 @@
 /* OK */
 "OK" = "OK";
 
-/* ResetPWByMailViewController.swift resetByMail */
-"Password change request has been sent" = "Forespørsel om endring av passord er sendt";
+/* SettingsTableViewController.swift SectionHeading */
+"Others" = "Andre";
 
 /* LoginViewVontroller.swift selectPersonPhoto */
 "Photo library" = "Foto biblioteket";
 
 /* DataBaseExtension.swift showUserInfo. */
 "Please log in to Firebase." = "Vennligst logg inn på Firebase.";
-
-/* ResetPWByMailViewController.swift resetByMail */
-"Please look in your email" = "Vennligst se i ePosten din";
 
 /* ResetPWByMailViewController.swift viewDidLoad */
 "Please note that the included link is time limited!" = "Legg merke til at linken i ePosten er tidsbegrenset!";
@@ -149,6 +143,9 @@
 
 /* MainPersonDataViewController.swift prepare */
 "Update Person" = "Oppdater Person";
+
+/* SettingsTableViewController.swift SectionHeading */
+"Users" = "Brukere";
 
 /* PersonViewVontroller.swift velgeKjonn 
    PersonViewVontroller.swift viewDidAppear */

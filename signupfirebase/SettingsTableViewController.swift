@@ -10,20 +10,17 @@ import Firebase
 import UIKit
 
 class SettingsTableViewController: UITableViewController {
-    @IBOutlet var activity: UIActivityIndicatorView!
-
-    @IBOutlet weak var userInfo: UILabel!
- 
+    
+    
+    var X: CGFloat = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         switchPassWord.isOn = false
         UserDefaults.standard.set(false, forKey: "SHOWPASSWORD")
 
-        activity.hidesWhenStopped = true
-        activity.style = .gray
-        view.addSubview(activity)
-
+        
     }
  
     override open var shouldAutorotate: Bool {
@@ -31,8 +28,6 @@ class SettingsTableViewController: UITableViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        activity.startAnimating()
-        activity.stopAnimating()
     }
     
     @IBOutlet var switchPassWord: UISwitch!
@@ -49,4 +44,22 @@ class SettingsTableViewController: UITableViewController {
         
     }
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        var heading = ""
+        
+        if section == 0 {
+            let melding = NSLocalizedString("Users", comment: "SettingsTableViewController.swift SectionHeading")
+            heading = melding
+        } else if section == 1 {
+            let melding = NSLocalizedString("Password", comment: "SettingsTableViewController.swift SectionHeading")
+            heading = melding
+        } else if section == 2 {
+            let melding = NSLocalizedString("Others", comment: "SettingsTableViewController.swift SectionHeading")
+            heading = melding
+        }
+        
+        return heading
+    }
+ 
 }

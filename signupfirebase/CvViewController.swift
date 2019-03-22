@@ -162,7 +162,8 @@ class CvViewController: UIViewController {
            . Vise default bilde og ikke et som er valgt tidligere når det ikke er en tilsvarende photoURL i Firebase Storage.
            . Vurdere å gjeninnføre for- og etternavn
            . Oppdatere security i Firebase (er det samme for Firestore?)
-           * Varsling på fødselsdager
+           . Varsling på fødselsdager
+           . Ta bort makering av den cellen som ble valgt, spesielt "Vis passord"
         
         8. Programmerings tips
         
@@ -177,7 +178,8 @@ class CvViewController: UIViewController {
              . UpdatePasswordViewController: self.myTimer = Timer.scheduledTimer(timeInterval: TimeInterval(self.forsinkelse),target: self,selector: #selector(self.returnToLogin), userInfo: nil, repeats: true)
            b) Info om strin in Swift: https://oleb.net/blog/2017/11/swift-4-strings/
         c) Info om timer: https://www.raywenderlich.com/113835-ios-timer-tutorial
-        
+        d) Info om header: https://www.hackingwithswift.com/example-code/uikit/how-to-add-a-section-header-to-a-table-view
+        e) Generell info: https://www.hackingwithswift.com
         
         9. Firestore
            a) Informasjon
