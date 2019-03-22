@@ -55,7 +55,7 @@ class SettingsTableViewController: UITableViewController {
             let melding = NSLocalizedString("Password", comment: "SettingsTableViewController.swift SectionHeading")
             heading = melding
         } else if section == 2 {
-            let melding = NSLocalizedString("Others", comment: "SettingsTableViewController.swift SectionHeading")
+            let melding = NSLocalizedString("Other", comment: "SettingsTableViewController.swift SectionHeading")
             heading = melding
         }
         

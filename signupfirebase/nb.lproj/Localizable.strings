@@ -86,7 +86,10 @@
 "OK" = "OK";
 
 /* SettingsTableViewController.swift SectionHeading */
-"Others" = "Andre";
+"Other" = "Annet";
+
+/* SettingsTableViewController.swift SectionHeading */
+"Password" = "Passord";
 
 /* LoginViewVontroller.swift selectPersonPhoto */
 "Photo library" = "Foto biblioteket";
