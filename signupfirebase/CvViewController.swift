@@ -183,6 +183,7 @@ class CvViewController: UIViewController {
         d) Info om header: https://www.hackingwithswift.com/example-code/uikit/how-to-add-a-section-header-to-a-table-view
         e) Generell info: https://www.hackingwithswift.com
         f) Mer: https://github.com/ioscreator/ioscreator
+        g) Mer: https://github.com/ioscreator/ioscreator/blob/master/IOS12SendiMessageTutorial/IOS12SendiMessageTutorial/ViewController.swift
         
         9. Firestore
            a) Informasjon
