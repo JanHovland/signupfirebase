@@ -152,18 +152,20 @@ class CvViewController: UIViewController {
               . PersonViewController
            G) Nå kommer riktig person ut på map, telefon og melding.
            H) Nå viser passordet avhengig av status på "Vis passord" i Instillinger
+           I) Endret på layout for "Instillinger"
+           J) Tatt bort makering av den cellen som ble valgt, spesielt "Vis passord" (Innstillinger)
         
         7. Nye oppgaver (ikke fullført)
         
-           . Sjekk layout for "Innstillinger"
-           . Gi melding dersom ingen brukere finnes i Coredata
+           . Oppdatere sending av melding (mangler retur til bildet meldingen ble startet fra)
            . Kunne sende ePost
+           . Oppdatere innloggingsbildet (Både med og uten brukere i Coredata)
            . Se igjennom opsjonene for Kart i PersonViewController.
            . Vise default bilde og ikke et som er valgt tidligere når det ikke er en tilsvarende photoURL i Firebase Storage.
            . Vurdere å gjeninnføre for- og etternavn
            . Oppdatere security i Firebase (er det samme for Firestore?)
            . Varsling på fødselsdager
-           . Ta bort makering av den cellen som ble valgt, spesielt "Vis passord"
+        
         
         8. Programmerings tips
         
@@ -180,6 +182,7 @@ class CvViewController: UIViewController {
         c) Info om timer: https://www.raywenderlich.com/113835-ios-timer-tutorial
         d) Info om header: https://www.hackingwithswift.com/example-code/uikit/how-to-add-a-section-header-to-a-table-view
         e) Generell info: https://www.hackingwithswift.com
+        f) Mer: https://github.com/ioscreator/ioscreator
         
         9. Firestore
            a) Informasjon

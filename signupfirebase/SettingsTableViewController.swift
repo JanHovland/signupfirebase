@@ -20,9 +20,12 @@ class SettingsTableViewController: UITableViewController {
         switchPassWord.isOn = false
         UserDefaults.standard.set(false, forKey: "SHOWPASSWORD")
 
-        
     }
  
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     override open var shouldAutorotate: Bool {
         return false
     }
