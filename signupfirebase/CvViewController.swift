@@ -162,9 +162,10 @@ class CvViewController: UIViewController {
            . Vurdere å gjeninnføre for- og etternavn i tillegg til navn.
            . Oppdatere innloggingsbildet (Både med og uten brukere i Coredata)
            . Se igjennom opsjonene for Kart i PersonViewController.
+           . Se igjennom opsjonene for sending av meldinger.
            . Vise default bilde og ikke et som er valgt tidligere når det ikke er en tilsvarende photoURL i Firebase Storage.
-           . Oppdatere security i Firebase (er det samme for Firestore?)
-           . Varsling på fødselsdager
+           . Oppdatere security i Firebase (er security der det samme for Firestore?)
+           . Varsling på fødselsdager (som message eller varsel?)
         
         
         8. Programmerings tips
