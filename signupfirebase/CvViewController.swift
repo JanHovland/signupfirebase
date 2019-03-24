@@ -185,6 +185,7 @@ class CvViewController: UIViewController {
         e) Generell info: https://www.hackingwithswift.com
         f) Mer: https://github.com/ioscreator/ioscreator
         g) Mer: https://github.com/ioscreator/ioscreator/blob/master/IOS12SendiMessageTutorial/IOS12SendiMessageTutorial/ViewController.swift
+        h) Mer: https://github.com/ioscreator/ioscreator/tree/master/IOS12SendEmailTutorial
         
         9. Firestore
            a) Informasjon
