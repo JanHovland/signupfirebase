@@ -1842,6 +1842,7 @@
         <image name="settings-32" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="DAu-eD-J64"/>
         <segue reference="O8t-Ri-MEa"/>
         <segue reference="cJw-d4-x8a"/>
         <segue reference="D5H-78-AuK"/>

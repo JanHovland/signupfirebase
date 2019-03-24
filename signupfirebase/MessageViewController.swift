@@ -11,8 +11,6 @@ import MessageUI
 
 class MessageViewController: UIViewController,  MFMessageComposeViewControllerDelegate {
 
-    @IBOutlet var messageView: UIView!
-    
     var messagePhoneNumber: String = ""
     var messageBody: String = ""
     
@@ -25,29 +23,28 @@ class MessageViewController: UIViewController,  MFMessageComposeViewControllerDe
         
         messageVC.body = messageBody
         messageVC.recipients = [messagePhoneNumber]
-        messageVC.messageComposeDelegate = self 
+        messageVC.messageComposeDelegate = self
         
         self.present(messageVC, animated: true, completion: nil)
-        
     }
-  
+    
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         switch (result) {
         case .cancelled:
             print("Message was cancelled")
-            dismiss(animated: true, completion: nil)
             performSegue(withIdentifier: "gotoMainPerson", sender: self)
+            dismiss(animated: true, completion: nil)
         case .failed:
             print("Message failed")
+            performSegue(withIdentifier: "gotoMainPerson", sender: self)
             dismiss(animated: true, completion: nil)
         case .sent:
             print("Message was sent")
+            performSegue(withIdentifier: "gotoMainPerson", sender: self)
             dismiss(animated: true, completion: nil)
         default:
             break
         }
     }
-    
-    
 
 }

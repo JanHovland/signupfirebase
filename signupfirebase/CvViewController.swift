@@ -154,15 +154,15 @@ class CvViewController: UIViewController {
            H) Nå viser passordet avhengig av status på "Vis passord" i Instillinger
            I) Endret på layout for "Instillinger"
            J) Tatt bort makering av den cellen som ble valgt, spesielt "Vis passord" (Innstillinger)
-        
+           K) Oppdatert sending av melding. Returnerer nå direkte til det bilde som meldingen ble startet fra.
+
         7. Nye oppgaver (ikke fullført)
         
-           . Oppdatere sending av melding (mangler retur til bildet meldingen ble startet fra)
            . Kunne sende ePost
+           . Vurdere å gjeninnføre for- og etternavn i tillegg til navn.
            . Oppdatere innloggingsbildet (Både med og uten brukere i Coredata)
            . Se igjennom opsjonene for Kart i PersonViewController.
            . Vise default bilde og ikke et som er valgt tidligere når det ikke er en tilsvarende photoURL i Firebase Storage.
-           . Vurdere å gjeninnføre for- og etternavn
            . Oppdatere security i Firebase (er det samme for Firestore?)
            . Varsling på fødselsdager
         
