@@ -444,8 +444,14 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             vc.titleMap = personName
             vc.locationOnMap = locationOnMap
             vc.address = personAddress
+            
+        } else if segue.identifier! == "gotoMessage" {
+            
+            let vc = segue.destination as! MessageViewController
+            vc.messageBody = "Test av melding 😄"
+            vc.messagePhoneNumber = phoneNumberInput
+        
         }
- 
         
     }
 
@@ -503,6 +509,19 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     // Send a message with the phone number
     @IBAction func buttonMessage(_ sender: UIButton) {
         
+        // Find the row of the selected cell
+        let buttonPosition = sender.convert(sender.bounds.origin, to: tableView)
+        if let indexPath = tableView.indexPathForRow(at: buttonPosition) {
+            tableView.deselectRow(at: indexPath, animated: true)
+            let cell = tableView.cellForRow(at: indexPath) as! PersonDataTableViewCell
+            selectedName = String(cell.nameLabel!.text!)
+            let value = self.findPersonData(inputName: selectedName)
+            phoneNumberInput = value.phoneNumber
+        }
+        
+        // self.performSegue(withIdentifier: "gotoMessage", sender: nil)
+        
+        /*
         if MFMessageComposeViewController.canSendText() {
             
             // Find the row of the selected cell
@@ -534,6 +553,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                                                            comment: "MainPersonDataViewController.swift buttonMessage"),
                               message: melding)
         }
+        */
+ 
     }
     
     func FindSearchedPersonData(searchText: String) {
@@ -725,6 +746,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     
 }
 
+/*
 extension ViewController: MFMessageComposeViewControllerDelegate {
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         
@@ -747,3 +769,4 @@ extension ViewController: MFMessageComposeViewControllerDelegate {
     }
     
 }
+*/
