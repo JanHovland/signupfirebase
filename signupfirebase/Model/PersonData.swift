@@ -20,6 +20,9 @@ class PersonData {
     var municipality: String
     var municipalityNumber: String
     var photoURL: String
+    var firstName: String
+    var lastName: String
+    var email: String
     
     init(address: String,
          city: String,
@@ -30,7 +33,10 @@ class PersonData {
          postalCodeNumber: String,
          municipality: String,
          municipalityNumber: String,
-         photoURL: String) {
+         photoURL: String,
+         firstName: String,
+         lastName: String,
+         email: String) {
         
         self.address = address
         self.city = city
@@ -42,6 +48,9 @@ class PersonData {
         self.municipality = municipality
         self.municipalityNumber = municipalityNumber
         self.photoURL = photoURL
-        
+        self.firstName =  firstName
+        self.lastName = lastName
+        self.email = email
+
     }
 }

@@ -331,6 +331,9 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                     let municipality = personData["municipality"] as? String,
                     let municipalityNumber = personData["municipalityNumber"] as? String,
                     let personPhotoURL = personData["photoURL"] as? String,
+                    let personFirstName = personData["firstName"] as? String,
+                    let personLastName = personData["lastName"] as? String,
+                    let personEmail = personData["email"] as? String,
                     let timestamp = dict["timestamp"] as? Double {
                     
                     let author = Author(uid: uid,
@@ -347,7 +350,10 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                                                 postalCodeNumber : postalCodeNumber,
                                                 municipality: municipality,
                                                 municipalityNumber: municipalityNumber,
-                                                photoURL: personPhotoURL)
+                                                photoURL: personPhotoURL,
+                                                firstName: personFirstName,
+                                                lastName: personLastName,
+                                                email: personEmail)
                     
                     let person = Person(id: childSnapshot.key,
                                         author: author,
@@ -518,44 +524,14 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             let value = self.findPersonData(inputName: selectedName)
             phoneNumberInput = value.phoneNumber
         }
-        
-        // self.performSegue(withIdentifier: "gotoMessage", sender: nil)
-        
-        /*
-        if MFMessageComposeViewController.canSendText() {
-            
-            // Find the row of the selected cell
-            let buttonPosition = sender.convert(sender.bounds.origin, to: tableView)
-            if let indexPath = tableView.indexPathForRow(at: buttonPosition) {
-                tableView.deselectRow(at: indexPath, animated: true)
-                let cell = tableView.cellForRow(at: indexPath) as! PersonDataTableViewCell
-                selectedName = String(cell.nameLabel!.text!)
-                let value = self.findPersonData(inputName: selectedName)
-                phoneNumberInput = value.phoneNumber
-            }
-
-            phoneNumberInput = phoneNumberInput.replacingOccurrences(of: " ", with: "")
-            let controller = MFMessageComposeViewController()
-            // let value = self.findPersonData(inputName: selectedName)
-            // let name1 = value.name
-            // let firstSpace = name1.firstIndex(of: " ") ?? name1.endIndex
-            // let name = name1[..<firstSpace]
-            
-            controller.body = "Gratulerer så mye med dagen, 😃🐠🐠"
-            controller.recipients = [self.phoneNumberInput]
-            controller.messageComposeDelegate = self as? MFMessageComposeViewControllerDelegate
-            
-            self.present(controller, animated: true, completion: nil)
-            
-        } else {
-            let melding = "\r\n" + NSLocalizedString("Cannot send message", comment: "MainPersonDataViewController.swift buttonMessage")
-            self.presentAlert(withTitle: NSLocalizedString("Error",
-                                                           comment: "MainPersonDataViewController.swift buttonMessage"),
-                              message: melding)
-        }
-        */
- 
+   
     }
+    
+    @IBAction func buttonEmail(_ sender: UIButton) {
+        
+        
+    }
+ 
     
     func FindSearchedPersonData(searchText: String) {
         // Reset poststedsDictionary
@@ -579,24 +555,29 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                                                        postalCodeNumber: persons[index].personData.postalCodeNumber,
                                                        municipality: persons[index].personData.municipality,
                                                        municipalityNumber: persons[index].personData.municipalityNumber,
-                                                       photoURL: persons[index].personData.photoURL))
+                                                       photoURL: persons[index].personData.photoURL,
+                                                       firstName: persons[index].personData.firstName,
+                                                       lastName: persons[index].personData.lastName,
+                                                       email: persons[index].personData.email))
                     
                     personDataDictionary[key] = personDataValues
                     
                 } else {
                     
                     personDataDictionary[key] = [PersonData(address: persons[index].personData.address,
-                                                       city: persons[index].personData.city,
-                                                       dateOfBirth: persons[index].personData.dateOfBirth,
-                                                       name: persons[index].personData.name,
-                                                       gender: persons[index].personData.gender,
-                                                       phoneNumber: persons[index].personData.phoneNumber,
-                                                       postalCodeNumber: persons[index].personData.postalCodeNumber,
-                                                       municipality: persons[index].personData.municipality,
-                                                       municipalityNumber: persons[index].personData.municipalityNumber,
-                                                       photoURL: persons[index].personData.photoURL)]
-                    
-                }
+                                                            city: persons[index].personData.city,
+                                                            dateOfBirth: persons[index].personData.dateOfBirth,
+                                                            name: persons[index].personData.name,
+                                                            gender: persons[index].personData.gender,
+                                                            phoneNumber: persons[index].personData.phoneNumber,
+                                                            postalCodeNumber: persons[index].personData.postalCodeNumber,
+                                                            municipality: persons[index].personData.municipality,
+                                                            municipalityNumber: persons[index].personData.municipalityNumber,
+                                                            photoURL: persons[index].personData.photoURL,
+                                                            firstName: persons[index].personData.firstName,
+                                                            lastName: persons[index].personData.lastName,
+                                                            email: persons[index].personData.email)]
+                  }
             }
             
             personDataSectionTitles = [String](personDataDictionary.keys)
@@ -635,7 +616,10 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                                                            postalCodeNumber: searchedPersonData[index].personData.postalCodeNumber,
                                                            municipality: searchedPersonData[index].personData.municipality,
                                                            municipalityNumber: searchedPersonData[index].personData.municipalityNumber,
-                                                           photoURL: searchedPersonData[index].personData.photoURL))
+                                                           photoURL: searchedPersonData[index].personData.photoURL,
+                                                           firstName: searchedPersonData[index].personData.firstName,
+                                                           lastName: searchedPersonData[index].personData.lastName,
+                                                           email: searchedPersonData[index].personData.email))
                         
                         personDataDictionary[key] = personDataValues
                         
@@ -650,7 +634,10 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                                                                  postalCodeNumber: searchedPersonData[index].personData.postalCodeNumber,
                                                                  municipality: searchedPersonData[index].personData.municipality,
                                                                  municipalityNumber: searchedPersonData[index].personData.municipalityNumber,
-                                                                 photoURL: searchedPersonData[index].personData.photoURL)]
+                                                                 photoURL: searchedPersonData[index].personData.photoURL,
+                                                                 firstName: searchedPersonData[index].personData.firstName,
+                                                                 lastName: searchedPersonData[index].personData.lastName,
+                                                                 email: searchedPersonData[index].personData.email)]
                         
                     }
                 }
@@ -684,7 +671,10 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                                                postalCodeNumber: String,
                                                municipality: String,
                                                municipalityNumber: String,
-                                               photoURL: String) {
+                                               photoURL: String,
+                                               firstName: String,
+                                               lastName: String,
+                                               mail: String) {
         
         // Find number of persons
         let numberOfPersons = persons.count
@@ -715,6 +705,9 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             let municipality = String(persons[personIndex].personData.municipality)
             let municipalityNumber = String(persons[personIndex].personData.municipalityNumber)
             let photoURL = String(persons[personIndex].personData.photoURL)
+            let firstName = String(persons[personIndex].personData.firstName)
+            let lastName = String(persons[personIndex].personData.lastName)
+            let email = String(persons[personIndex].personData.email)
             
             return (id,
                     address,
@@ -726,7 +719,10 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                     postalCodeNumber,
                     municipality,
                     municipalityNumber,
-                    photoURL)
+                    photoURL,
+                    firstName,
+                    lastName,
+                    email)
         
         } else {
             return ("",
@@ -735,6 +731,9 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                     "",
                     "",
                     0,
+                    "",
+                    "",
+                    "",
                     "",
                     "",
                     "",

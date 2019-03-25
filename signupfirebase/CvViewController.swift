@@ -159,6 +159,10 @@ class CvViewController: UIViewController {
         7. Nye oppgaver (ikke fullført)
         
            . Kunne sende ePost
+             .. Tilpasse keyboard til plasseringen av feltene (epostViewController.swift)
+             .. Legge inn epost i Person
+             .. Legge inn epost i findPersonData() i MainPersonDataViewController.swift
+           . Legg inn "Send epost" i "Innstillinger"
            . Vurdere å gjeninnføre for- og etternavn i tillegg til navn.
            . Oppdatere innloggingsbildet (Både med og uten brukere i Coredata)
            . Se igjennom opsjonene for Kart i PersonViewController.
