@@ -7,8 +7,8 @@
 /* LoginViewVontroller.swift selectPersonPhoto */
 "Camera" = "Kamera";
 
-/* MainPersonDataViewController.swift buttonMessage */
-"Cannot send message" = "Kan ikke sende SMS";
+/* LoginViewVontroller.swift selectPersonPhoto */
+"Cancel" = "Avbryt";
 
 /* SavePostalCodesFirebaseTableViewController.swift StorePostalCodes */
 "Cannot store the Postal Codes in Firebase." = "Kan ikke lagre post nummer i Firebase.";
@@ -47,7 +47,6 @@
    ListTableViewController.swift SaveNewPassword 
    LoginViewVontroller.swift CheckLogin 'error'
    LoginViewVontroller.swift CheckLogin error
-   MainPersonDataViewController.swift buttonMessage
    ResetPWByMailViewController.swift resetByMail 
    ResetPWByMailViewController.swift viewDidLoad 
    SavePostalCodesFirebaseTableViewController.swift  documentPicker

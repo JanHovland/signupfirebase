@@ -33,7 +33,6 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
     var postalCodeAddressText = ""
     var postalCodeCityText = ""
     var postalCodeDateOfBirthText = ""
-    var postalCodeNameText = ""
     var postalCodeGenderInt = 0
     var postalCodePhoneNumberText = ""
     var postalCodePostalCodeNumberText = ""
@@ -229,7 +228,6 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
             globalMunicipalityNumber = globalOldMunicipalityNumber
         }
         
-        globalPersonNameText = postalCodeNameText
         globalPersonAddressText = postalCodeAddressText
         globalPersonPhoneNumberText = postalCodePhoneNumberText
         globalPersonDateOfBirthText = postalCodeDateOfBirthText

@@ -34,7 +34,6 @@ import MessageUI
 // Global variables
 var globalPersonAddressText =  ""
 var globalPersonDateOfBirthText = ""
-var globalPersonNameText = ""
 var globalPersonGenderInt = -1
 var globalPersonPhoneNumberText = ""
 
@@ -389,7 +388,6 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             // Resetter globale variabler
             globalPersonAddressText =  ""
             globalPersonDateOfBirthText = ""
-            globalPersonNameText = ""
             globalPersonGenderInt = -1
             globalPersonPhoneNumberText = ""
             globalMunicipality = ""

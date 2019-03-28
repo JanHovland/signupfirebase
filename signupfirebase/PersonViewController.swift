@@ -149,12 +149,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
             dateOfBirthInput.text = PersonDateOfBirthText
         }
         
-        // Use the global variables been set in PostalCodeSearchViewController
-        if globalPersonNameText.count > 0 {
-            nameInput.text = globalPersonNameText
-        } else {
-            nameInput.text = PersonNameText
-        }
+        nameInput.text = PersonNameText
         
         if globalPersonGenderInt != -1 {
             if globalPersonGenderInt == 0 {
@@ -174,12 +169,6 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
                                      forSegmentAt: PersonGenderInt)
             }
             genderInput.selectedSegmentIndex = PersonGenderInt
-        }
-        
-        if globalPersonNameText.count > 0 {
-            nameInput.text = globalPersonNameText
-        } else {
-            nameInput.text = PersonNameText
         }
         
         if globalPersonPhoneNumberText.count > 0 {
@@ -371,10 +360,6 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         if segue.identifier! == "gotoPostalCodes" {
             let vc = segue.destination as! PostalCodeSearchTableViewController
             
-            let name1 = nameInput.text!.lowercased()
-            let name = name1.capitalized
-            
-            vc.postalCodeNameText = name
             vc.postalCodeAddressText = addressInput.text!
             vc.postalCodePhoneNumberText = phoneNumberInput.text!
             vc.postalCodePostalCodeNumberText = postalCodeNumberInput.text!
