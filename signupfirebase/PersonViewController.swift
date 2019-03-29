@@ -20,6 +20,10 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     @IBOutlet weak var municipalityNumberInput: UITextField!
     @IBOutlet weak var municipalityInput: UITextField!
     
+    @IBOutlet weak var firstNameInput: UITextField!
+    @IBOutlet weak var lastNameInput: UITextField!
+    @IBOutlet weak var personEmailInput: UITextField!
+    
     @IBOutlet var inputImage: UIImageView! {
         didSet {
             inputImage.layer.cornerRadius = inputImage.bounds.width / 2
@@ -296,7 +300,10 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
                                                      phoneNumber: self.phoneNumberInput.text!,
                                                      postalCodeNumber: self.postalCodeNumberInput.text!,
                                                      municipality: self.municipalityInput.text!,
-                                                     municipalityNumber: self.municipalityNumberInput.text!) {
+                                                     municipalityNumber: self.municipalityNumberInput.text!,
+                                                     firstName: self.firstNameInput.text!,
+                                                     lastName: self.lastNameInput.text!,
+                                                     personEmail: self.personEmailInput.text!) {
                 
                 // PersonService.shared.storePersonFiredata contains a global varable = percentFinished
                 if  percentFinished == 100.0 {

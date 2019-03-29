@@ -42,6 +42,9 @@ final class PersonService {
                              postalCodeNumber: String,
                              municipality: String,
                              municipalityNumber: String,
+                             firstName: String,
+                             lastName: String,
+                             personEmail: String,
                              completionHandler: @escaping () -> Void) {
         
         var dbRef: DatabaseReference
@@ -109,6 +112,9 @@ final class PersonService {
                         "postalCodeNumber": postalCodeNumber,
                         "municipality": municipality,
                         "municipalityNumber": municipalityNumber,
+                        "firstName": firstName,
+                        "lastName": lastName,
+                        "personEmail": personEmail,
                     ],
                     
                     "timestamp": timestamp,
