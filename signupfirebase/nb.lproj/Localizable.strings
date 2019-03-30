@@ -90,11 +90,17 @@
 /* SettingsTableViewController.swift SectionHeading */
 "Password" = "Passord";
 
+/* ResetPWByMailViewController.swift resetByMail */
+"Password change request has been sent" = "Endringsforespørsel på passordet er sendt pr. Epost";
+
 /* LoginViewVontroller.swift selectPersonPhoto */
 "Photo library" = "Foto biblioteket";
 
 /* DataBaseExtension.swift showUserInfo. */
 "Please log in to Firebase." = "Vennligst logg inn på Firebase.";
+
+/* ResetPWByMailViewController.swift resetByMail */
+"Please look in your email" = "Vennligst sjekk innboksen på Eposten din";
 
 /* ResetPWByMailViewController.swift viewDidLoad */
 "Please note that the included link is time limited!" = "Legg merke til at linken i ePosten er tidsbegrenset!";

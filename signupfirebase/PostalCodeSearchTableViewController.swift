@@ -9,17 +9,6 @@
 import Firebase
 import UIKit
 
-var globalCity = ""
-var globalOldCity = ""
-var globalPostalCode = ""
-var globalOldPostalCode = ""
-
-var globalMunicipality = ""
-var globalMunicipalityNumber = ""
-
-var globalOldMunicipality = ""
-var globalOldMunicipalityNumber = ""
-
 class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     @IBOutlet var searchPostelCode: UISearchBar!
     @IBOutlet var tableViewSearch: UITableView!
@@ -29,7 +18,9 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
     var postalCodes = [PostalCode]()
     var searchedPostalCodes = [PostalCode]()
     var searching = false
-
+    
+// These variables gets their value via gotoPostalCode in PersonViewController
+    
     var postalCodeAddressText = ""
     var postalCodeCityText = ""
     var postalCodeDateOfBirthText = ""
@@ -39,6 +30,12 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
     
     var postalCodeMunicipalityText = ""
     var postalCodeMunicipalityNumberText = ""
+    
+    var postalFirstNameText = ""
+    var postalLastNameText = ""
+    var postalPersonEmailText = ""
+
+    
     
     var poststedsDictionary = [String: [PostalCode]]()
     var poststedSectionTitles = [String]()
@@ -58,12 +55,6 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
         // Forces the online keyboard to be lowercased
         searchPostelCode.autocapitalizationType = UITextAutocapitalizationType.none
 
-        globalOldCity = globalCity
-        globalOldPostalCode = globalPostalCode
-        
-        globalOldMunicipality = globalMunicipality
-        globalOldMunicipalityNumber = globalMunicipalityNumber
-        
     }
 
     // Notifies the view controller that its view was added to a view hierarchy.
@@ -169,13 +160,6 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
-        // Resetting all globals
-        globalCity = ""
-        globalPostalCode = ""
-        
-        globalMunicipality = ""
-        globalMunicipalityNumber = ""
-
         if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
             // Find postalData. Returns postnummer, poststed, kommunenummer og kommune
             let value = findPostalData(postNumber: cell.textLabel!.text!)
@@ -193,13 +177,7 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
 
             // Sets the checkmark on the selected cell
             cell.accessoryType = .checkmark
-
-            globalCity = value.postPlace
-            globalPostalCode = value.postNumber
-            
-            globalMunicipality = value.municipality
-            globalMunicipalityNumber = value.municipalityNumber
-            
+           
         }
     }
 
@@ -212,26 +190,6 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        if globalCity.count == 0 {
-            globalCity = globalOldCity
-        }
-        
-        if globalPostalCode.count == 0 {
-            globalPostalCode = globalOldPostalCode
-        }
-        
-        if globalMunicipality.count == 0 {
-            globalMunicipality = globalOldMunicipality
-        }
-        
-        if globalMunicipalityNumber.count == 0 {
-            globalMunicipalityNumber = globalOldMunicipalityNumber
-        }
-        
-        globalPersonAddressText = postalCodeAddressText
-        globalPersonPhoneNumberText = postalCodePhoneNumberText
-        globalPersonDateOfBirthText = postalCodeDateOfBirthText
-        globalPersonGenderInt = postalCodeGenderInt
     }
 
     // Tell the delegatewhen the scroll view is about to start scrolling the content

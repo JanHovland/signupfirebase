@@ -1,5 +1,11 @@
+/* Class = "UILabel"; text = "Email"; ObjectID = "2IV-gI-RRS"; */
+"2IV-gI-RRS.text" = "Epost";
+
 /* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "5IO-mA-9m4"; */
-"5IO-mA-9m4.title" = "Save";
+"5IO-mA-9m4.title" = "Lagre";
+
+/* Class = "UILabel"; text = "For eMail"; ObjectID = "8yB-Cr-aJk"; */
+"8yB-Cr-aJk.text" = "For Epost";
 
 /* Class = "UILabel"; text = "Reset password by mail"; ObjectID = "9cy-7H-JXc"; */
 "9cy-7H-JXc.text" = "Tilbakestill passordet via ePost";
@@ -16,6 +22,12 @@
 /* Class = "UISearchBar"; placeholder = "Search for a person ..."; ObjectID = "92V-9z-yz6"; */
 "92V-9z-yz6.placeholder" = "Søk etter en person ...";
 
+/* Class = "UISearchBar"; 92V-9z-yz6.scopeButtonTitles[0] = "Title"; ObjectID = "92V-9z-yz6"; */
+"92V-9z-yz6.scopeButtonTitles[0]" = "Tittel";
+
+/* Class = "UISearchBar"; 92V-9z-yz6.scopeButtonTitles[1] = "Title"; ObjectID = "92V-9z-yz6"; */
+"92V-9z-yz6.scopeButtonTitles[1]" = "Tittel";
+
 /* Class = "UILabel"; text = "Update user name"; ObjectID = "99T-f0-Rez"; */
 "99T-f0-Rez.text" = "Oppdater brukernavn";
 
@@ -27,9 +39,6 @@
 
 /* Class = "UITabBarItem"; title = "Settings"; ObjectID = "ayy-xj-Vfm"; */
 "ayy-xj-Vfm.title" = "Innstillinger";
-
-/* Class = "UILabel"; text = "nameLabel"; ObjectID = "bfO-dL-I5s"; */
-"bfO-dL-I5s.text" = "Navn";
 
 /* Class = "UILabel"; text = "Name"; ObjectID = "boK-pG-XnU"; */
 "boK-pG-XnU.text" = "Navn";
@@ -58,10 +67,16 @@
 /* Class = "UILabel"; text = "Phone "; ObjectID = "eJK-ho-8MV"; */
 "eJK-ho-8MV.text" = "Telefon";
 
+/* Class = "UITextField"; placeholder = "Enter the new name"; ObjectID = "F8a-QL-d5l"; */
+"F8a-QL-d5l.placeholder" = "Legg inn det nye navnet";
+
 /* Class = "UILabel"; text = "mail"; ObjectID = "ftW-zQ-P6W"; */
 "ftW-zQ-P6W.text" = "ePost";
 
-/* Class = "UILabel"; text = "Name"; ObjectID = "ggZ-By-2Qr"; */
+/* Class = "UINavigationItem"; title = "Send email"; ObjectID = "Fw2-Wp-1hG"; */
+"Fw2-Wp-1hG.title" = "Send Epost";
+
+/* Class = "UILabel"; text = "First name"; ObjectID = "ggZ-By-2Qr"; */
 "ggZ-By-2Qr.text" = "Navn";
 
 /* Class = "UITabBarItem"; title = "Login"; ObjectID = "Gl8-LX-VoP"; */
@@ -94,6 +109,9 @@
 /* Class = "UINavigationItem"; title = "Reset password by mail"; ObjectID = "JF7-Ic-NnE"; */
 "JF7-Ic-NnE.title" = "Tilbakestill passordet via ePost";
 
+/* Class = "UILabel"; text = "Last name"; ObjectID = "K2E-xe-DEU"; */
+"K2E-xe-DEU.text" = "Etternavn";
+
 /* Class = "UITextField"; placeholder = "Enter the password"; ObjectID = "k82-w8-ML8"; */
 "k82-w8-ML8.placeholder" = "Legg inn passord";
 
@@ -111,6 +129,9 @@
 
 /* Class = "UILabel"; text = "Gender"; ObjectID = "nbz-eB-NWH"; */
 "nbz-eB-NWH.text" = "Kjønn";
+
+/* Class = "UILabel"; text = "Send to"; ObjectID = "ndS-GR-KCR"; */
+"ndS-GR-KCR.text" = "Send til";
 
 /* Class = "UISearchBar"; placeholder = "Search for a city ..."; ObjectID = "NMI-Cs-eLO"; */
 "NMI-Cs-eLO.placeholder" = "Søk etter et sted ...";
@@ -130,6 +151,9 @@
 /* Class = "UILabel"; text = "List all users in Coredata"; ObjectID = "Rd9-pB-LRE"; */
 "Rd9-pB-LRE.text" = "Vis alle brukerne i Coredata";
 
+/* Class = "UILabel"; text = "Old name"; ObjectID = "rhZ-gw-aUj"; */
+"rhZ-gw-aUj.text" = "Gammelt navn";
+
 /* Class = "UITextField"; placeholder = "Enter the address"; ObjectID = "RkK-Je-Gn2"; */
 "RkK-Je-Gn2.placeholder" = "Legg inn adresse";
 
@@ -141,6 +165,9 @@
 
 /* Class = "UILabel"; text = "New password"; ObjectID = "rwH-ai-eqx"; */
 "rwH-ai-eqx.text" = "Nytt passord";
+
+/* Class = "UILabel"; text = "For eMail"; ObjectID = "RXI-fY-7JF"; */
+"RXI-fY-7JF.text" = "For Epost";
 
 /* Class = "UILabel"; text = "The password must have at least 6 characters"; ObjectID = "RZP-WN-Mao"; */
 "RZP-WN-Mao.text" = "Passordet må ha inneholde minimum 6 tegn";
@@ -159,6 +186,9 @@
 
 /* Class = "UILabel"; text = "Store Postal Codes in Firebase"; ObjectID = "TTX-tZ-Mqa"; */
 "TTX-tZ-Mqa.text" = "Lagre postnummer i Firebase";
+
+/* Class = "UITextField"; placeholder = "Enter the email address"; ObjectID = "tUf-CD-cyN"; */
+"tUf-CD-cyN.placeholder" = "legg inn Epost adressen";
 
 /* Class = "UINavigationItem"; title = "Curriculum vitae"; ObjectID = "u3m-jt-SeF"; */
 "u3m-jt-SeF.title" = "Curriculum vitae";
@@ -181,7 +211,7 @@
 /* Class = "UILabel"; text = "Password"; ObjectID = "X3x-Cl-KO1"; */
 "X3x-Cl-KO1.text" = "Passord";
 
-/* Class = "UITextField"; placeholder = "Enter the name"; ObjectID = "yLv-nX-tNx"; */
+/* Class = "UITextField"; placeholder = "Enter the first name"; ObjectID = "yLv-nX-tNx"; */
 "yLv-nX-tNx.placeholder" = "Legg inn navn";
 
 /* Class = "UITextField"; placeholder = "Enter the phone number"; ObjectID = "YyV-Jf-Wrw"; */

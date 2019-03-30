@@ -8,12 +8,23 @@
 import UIKit
 import Firebase
 
+var globalAddress = ""
+var globalCity = ""
+var globalDateOfBirth = ""
+var globalGender = 0
+var globalPhoneNumber = ""
+var globalCodeNumber = ""
+var globalMunicipalityNumber = ""
+var globalMunicipality = ""
+var globalFirstName = ""
+var globalLastName = ""
+var globalPersonEmail = ""
+
 class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet var addressInput: UITextField!
     @IBOutlet var cityInput: UITextField!
     @IBOutlet var dateOfBirthInput: UITextField!
-    @IBOutlet var nameInput: UITextField!
     @IBOutlet var genderInput: UISegmentedControl!
     @IBOutlet var phoneNumberInput: UITextField!
     @IBOutlet var postalCodeNumberInput: UITextField!
@@ -38,18 +49,20 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     
     var savePhoto: Bool = false
     
-    // These vaiables get their values from MainPersonDataViewController.swift
+    // These vaiables get their values from MainPersonDataViewController.swift via gotoUpdatePerson
     var PersonPhotoURL = ""
     var PersonIdText = ""
     var PersonAddressText = ""
     var PersonCityText = ""
     var PersonDateOfBirthText = ""
-    var PersonNameText = ""
     var PersonGenderInt = 0
     var PersonPhoneNumberText = ""
     var PersonPostalCodeNumberText = ""
     var PersonMunicipalityText = ""
     var PersonMunicipalityNumberText = ""
+    var PersonFirstNameText = ""
+    var PersonLastNameText = ""
+    var PersonPersonEmailText = ""
     
     let datoValg = UIDatePicker()
     
@@ -69,7 +82,11 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         // Turn off keyboard when you press "Return"
         addressInput.delegate = self
         cityInput.delegate = self
-        nameInput.delegate = self
+        
+        firstNameInput.delegate = self
+        lastNameInput.delegate = self
+        personEmailInput.delegate = self
+        
         dateOfBirthInput.delegate = self
         phoneNumberInput.delegate = self
         postalCodeNumberInput.delegate = self
@@ -84,24 +101,11 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         
         view.addSubview(activity)
         
-        // Set the global variables
-        globalCity = cityInput.text!
-        globalPostalCode = postalCodeNumberInput.text!
-        
-        globalMunicipality = municipalityInput.text!
-        globalMunicipalityNumber = municipalityNumberInput.text!
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         // Show the Navigation Bar
         navigationController?.setNavigationBarHidden(false, animated: true)
-        postalCodeNumberInput.text! = globalPostalCode
-        cityInput.text! = globalCity
-        
-        municipalityNumberInput.text! = globalMunicipalityNumber
-        municipalityInput.text =  globalMunicipality
-        
         // Find the inputImage before updating the person data
         
         if let image = CacheManager.shared.getFromCache(key: PersonPhotoURL) as? UIImage {
@@ -141,69 +145,70 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeAddPerson(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeAddPerson(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         
-        if globalPersonAddressText.count > 0 {
-            addressInput.text = globalPersonAddressText
-        } else {
-            addressInput.text = PersonAddressText
+        
+        if globalGender == 0 {
+            genderInput.setTitle(NSLocalizedString("Man", comment: "PersonViewVontroller.swift viewDidAppear "),
+                                 forSegmentAt: globalGender)
+        } else if globalGender == 1 {
+            genderInput.setTitle(NSLocalizedString("Woman", comment: "PersonViewVontroller.swift viewDidAppear "),
+                                 forSegmentAt: globalGender)
+            genderInput.selectedSegmentIndex = globalGender
         }
-        
-        if globalPersonDateOfBirthText.count > 0 {
-            dateOfBirthInput.text = globalPersonDateOfBirthText
+ 
+        if globalCodeNumber.count > 0 {
+            cityInput.text! = globalCodeNumber
         } else {
-            dateOfBirthInput.text = PersonDateOfBirthText
+            cityInput.text! = PersonCityText
         }
-        
-        nameInput.text = PersonNameText
-        
-        if globalPersonGenderInt != -1 {
-            if globalPersonGenderInt == 0 {
-                genderInput.setTitle(NSLocalizedString("Man", comment: "PersonViewVontroller.swift viewDidAppear "),
-                                     forSegmentAt: globalPersonGenderInt)
-            } else if globalPersonGenderInt == 1 {
-                genderInput.setTitle(NSLocalizedString("Woman", comment: "PersonViewVontroller.swift viewDidAppear "),
-                                     forSegmentAt: globalPersonGenderInt)
-                genderInput.selectedSegmentIndex = globalPersonGenderInt
-            }
-        } else {
-            if PersonGenderInt == 0 {
-                genderInput.setTitle(NSLocalizedString("Man", comment: "PersonViewVontroller.swift viewDidAppear "),
-                                     forSegmentAt: PersonGenderInt)
-            } else if PersonGenderInt == 1 {
-                genderInput.setTitle(NSLocalizedString("Woman", comment: "PersonViewVontroller.swift viewDidAppear "),
-                                     forSegmentAt: PersonGenderInt)
-            }
-            genderInput.selectedSegmentIndex = PersonGenderInt
-        }
-        
-        if globalPersonPhoneNumberText.count > 0 {
-            phoneNumberInput.text = globalPersonPhoneNumberText
             
+        if globalCodeNumber.count > 0 {
+          postalCodeNumberInput.text = globalCodeNumber
         } else {
-            phoneNumberInput.text = PersonPhoneNumberText
+            postalCodeNumberInput.text = PersonPostalCodeNumberText
         }
         
-        cityInput.text = PersonCityText
-        postalCodeNumberInput.text = PersonPostalCodeNumberText
-        
-        municipalityNumberInput.text! =  PersonMunicipalityNumberText
-        municipalityInput.text = PersonMunicipalityText
-        
-        if globalCity.count > 0 {
-            cityInput.text = globalCity
-        }
-        
-        if globalPostalCode.count > 0 {
-            postalCodeNumberInput.text = globalPostalCode
+        if globalMunicipalityNumber.count > 0 {
+            municipalityNumberInput.text! = globalMunicipalityNumber
+        } else {
+            municipalityNumberInput.text! =  PersonMunicipalityNumberText
         }
         
         if globalMunicipality.count > 0 {
             municipalityInput.text = globalMunicipality
+        } else {
+            municipalityInput.text = PersonMunicipalityText
         }
         
-        if globalMunicipalityNumber.count > 0 {
-            municipalityNumberInput.text = globalMunicipalityNumber
+        if globalFirstName.count > 0 {
+           addressInput.text = globalFirstName
+        } else {
+           addressInput.text = PersonFirstNameText
+        }
+ 
+        if globalLastName.count > 0 {
+            lastNameInput.text = globalLastName
+        } else {
+            lastNameInput.text = PersonLastNameText
         }
         
+        if globalPersonEmail.count > 0 {
+            personEmailInput.text = globalPersonEmail
+        } else {
+            personEmailInput.text = PersonPersonEmailText
+        }
+        
+        if globalDateOfBirth.count > 0 {
+            dateOfBirthInput.text = globalDateOfBirth
+        } else {
+            dateOfBirthInput.text = PersonDateOfBirthText
+        }
+            
+        if globalPhoneNumber.count > 0 {
+            phoneNumberInput.text = globalPhoneNumber
+        } else {
+            phoneNumberInput.text = PersonPhoneNumberText
+        }
+ 
         // Convert PersonDateOfBirthText to the initial datoValg.date
         let formatter = DateFormatter()
         formatter.dateStyle = .long
@@ -261,7 +266,10 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         // Dismiss the keyboard when the view is tapped on
         addressInput.resignFirstResponder()
         cityInput.resignFirstResponder()
-        nameInput.resignFirstResponder()
+        firstNameInput.resignFirstResponder()
+        lastNameInput.resignFirstResponder()
+        personEmailInput.resignFirstResponder()
+        
         dateOfBirthInput.resignFirstResponder()
         phoneNumberInput.resignFirstResponder()
         phoneNumberInput.text = formatPhone(phone: phoneNumberInput.text!)
@@ -295,7 +303,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
                                                      address: self.addressInput.text!,
                                                      city: self.cityInput.text!,
                                                      dateOfBirth: self.dateOfBirthInput.text!,
-                                                     name: self.nameInput.text!.uppercased(),
+                                                     name: (self.firstNameInput.text! + " " + self.lastNameInput.text!).uppercased(),
                                                      gender: self.genderInput.selectedSegmentIndex,
                                                      phoneNumber: self.phoneNumberInput.text!,
                                                      postalCodeNumber: self.postalCodeNumberInput.text!,
@@ -352,6 +360,20 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        
+        // Reset all globala
+        globalAddress = ""
+        globalCity = ""
+        globalDateOfBirth = ""
+        globalGender = 0
+        globalPhoneNumber = ""
+        globalCodeNumber = ""
+        globalMunicipalityNumber = ""
+        globalMunicipality = ""
+        globalFirstName = ""
+        globalLastName = ""
+        globalPersonEmail = ""
+
     }
     
     @IBAction func velgeKjonn(_ sender: UISegmentedControl) {
@@ -368,13 +390,37 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
             let vc = segue.destination as! PostalCodeSearchTableViewController
             
             vc.postalCodeAddressText = addressInput.text!
+            globalAddress = addressInput.text!
+            
             vc.postalCodePhoneNumberText = phoneNumberInput.text!
+            globalPhoneNumber = phoneNumberInput.text!
+            
             vc.postalCodePostalCodeNumberText = postalCodeNumberInput.text!
+            globalCodeNumber = postalCodeNumberInput.text!
+            
             vc.postalCodeCityText = cityInput.text!
+            globalCity = cityInput.text!
+            
             vc.postalCodeDateOfBirthText = dateOfBirthInput.text!
+            globalDateOfBirth = dateOfBirthInput.text!
+            
             vc.postalCodeGenderInt = PersonGenderInt
+            globalGender = PersonGenderInt
+            
             vc.postalCodeMunicipalityText = municipalityInput.text!
+            globalMunicipality = municipalityInput.text!
+            
             vc.postalCodeMunicipalityNumberText = municipalityNumberInput.text!
+            globalMunicipalityNumber = municipalityNumberInput.text!
+            
+            vc.postalFirstNameText = firstNameInput.text!
+            globalFirstName = firstNameInput.text!
+            
+            vc.postalLastNameText = lastNameInput.text!
+            globalLastName = lastNameInput.text!
+            
+            vc.postalPersonEmailText = personEmailInput.text!
+            globalPersonEmail = personEmailInput.text!
             
         }
     }

@@ -31,12 +31,6 @@ import MessageUI
  
 */
 
-// Global variables
-var globalPersonAddressText =  ""
-var globalPersonDateOfBirthText = ""
-var globalPersonGenderInt = -1
-var globalPersonPhoneNumberText = ""
-
 var selectedName: String = ""
 
 class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
@@ -390,31 +384,22 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
 
             // Find the viewController
             let vc = segue.destination as! PersonViewController
-            
-            // Resetter globale variabler
-            globalPersonAddressText =  ""
-            globalPersonDateOfBirthText = ""
-            globalPersonGenderInt = -1
-            globalPersonPhoneNumberText = ""
-            globalMunicipality = ""
-            globalMunicipalityNumber = ""
-        
             vc.PersonPhotoURL = value.photoURL
             vc.PersonIdText = value.id
             vc.PersonAddressText = value.address
             vc.PersonCityText = value.city
             vc.PersonDateOfBirthText = value.dateOfBirth
-        
-            let name1 = value.name.lowercased()
-            let name = name1.capitalized
-        
-            vc.PersonNameText = name
+            
             vc.PersonGenderInt = value.gender
             vc.PersonPhoneNumberText = value.phoneNumber
             vc.PersonPostalCodeNumberText = value.postalCodeNumber
         
             vc.PersonMunicipalityText = value.municipality
             vc.PersonMunicipalityNumberText = value.municipalityNumber
+            
+            vc.PersonFirstNameText = value.firstName
+            vc.PersonLastNameText = value.lastName
+            vc.PersonPersonEmailText = value.personEmail
         
             vc.PersonOption = 1         // Update == 1
             vc.PersonTitle = NSLocalizedString("Update Person", comment: "MainPersonDataViewController.swift prepare")
@@ -429,13 +414,17 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             vc.PersonAddressText = ""
             vc.PersonCityText  = ""
             vc.PersonDateOfBirthText = ""
-            vc.PersonNameText = ""
+            
             vc.PersonGenderInt = 0
             vc.PersonPhoneNumberText = ""
             vc.PersonPostalCodeNumberText = ""
  
             vc.PersonMunicipalityText = ""
             vc.PersonMunicipalityNumberText = ""
+            
+            vc.PersonFirstNameText = ""
+            vc.PersonLastNameText = value.lastName
+            vc.PersonPersonEmailText = value.personEmail
             
             vc.PersonOption = 0             // Save new person == 0
             vc.PersonTitle = NSLocalizedString("New Person", comment: "MainPersonDataViewController.swift prepare")
