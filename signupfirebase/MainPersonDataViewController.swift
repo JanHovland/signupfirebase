@@ -405,7 +405,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             
             let vc = segue.destination as! PersonViewController
 
-            vc.PersonAddressText = ""
+            vc.PersonAddressText = "" 
             vc.PersonCityText  = ""
             vc.PersonDateOfBirthText = ""
             vc.PersonFirstNameText = ""

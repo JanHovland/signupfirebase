@@ -53,7 +53,7 @@
 "csI-ws-1c2.text" = "ePost";
 
 /* Class = "UITextField"; placeholder = "Enter user eMail"; ObjectID = "cye-m2-p8o"; */
-"cye-m2-p8o.placeholder" = "ePost adressen til brukeren";
+"cye-m2-p8o.placeholder" = "Legg inn ePost adressen til brukeren";
 
 /* Class = "UILabel"; text = "Curriculum vitae"; ObjectID = "d16-8N-6Gd"; */
 "d16-8N-6Gd.text" = "Curriculum vitae";
@@ -210,6 +210,9 @@
 
 /* Class = "UILabel"; text = "Password"; ObjectID = "X3x-Cl-KO1"; */
 "X3x-Cl-KO1.text" = "Passord";
+
+/* Class = "UITextField"; placeholder = "Enter the last name"; ObjectID = "Xv5-aD-hau"; */
+"Xv5-aD-hau.placeholder" = "Legg inn etternavn";
 
 /* Class = "UITextField"; placeholder = "Enter the first name"; ObjectID = "yLv-nX-tNx"; */
 "yLv-nX-tNx.placeholder" = "Legg inn navn";

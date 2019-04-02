@@ -1385,44 +1385,41 @@
                                 <rect key="frame" x="-9" y="119" width="375" height="499"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="58" id="l5k-n4-zqv" customClass="SearchedPostelCodesTableViewCell" customModule="signupfirebase" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="58"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="63" id="l5k-n4-zqv" customClass="SearchedPostelCodesTableViewCell" customModule="signupfirebase" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="63"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="l5k-n4-zqv" id="M66-V2-i7N">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="57.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="62.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="kFf-Fm-bb9">
-                                                    <rect key="frame" x="15" y="5" width="345" height="20.5"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="postalCodeLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAQ-Xk-DGg">
-                                                            <rect key="frame" x="0.0" y="0.0" width="147.5" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="cityLabel" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NTR-yr-KvV">
-                                                            <rect key="frame" x="197.5" y="0.0" width="147.5" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="postalCodeLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAQ-Xk-DGg">
+                                                    <rect key="frame" x="15" y="4" width="129.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="municipalityInfoLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o7P-gK-pef">
-                                                    <rect key="frame" x="15" y="25.5" width="260" height="16"/>
+                                                    <rect key="frame" x="15" y="28" width="345" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="cityLabel" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NTR-yr-KvV">
+                                                    <rect key="frame" x="152.5" y="4" width="217.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="kFf-Fm-bb9" firstAttribute="top" secondItem="M66-V2-i7N" secondAttribute="top" constant="5" id="9lR-gp-jUK"/>
-                                                <constraint firstItem="kFf-Fm-bb9" firstAttribute="leading" secondItem="M66-V2-i7N" secondAttribute="leading" constant="15" id="abc-fF-pdk"/>
-                                                <constraint firstItem="o7P-gK-pef" firstAttribute="leading" secondItem="kFf-Fm-bb9" secondAttribute="leading" id="fUa-2F-H9D"/>
-                                                <constraint firstItem="o7P-gK-pef" firstAttribute="top" secondItem="kFf-Fm-bb9" secondAttribute="bottom" id="kla-Ui-dzC"/>
-                                                <constraint firstAttribute="trailing" secondItem="kFf-Fm-bb9" secondAttribute="trailing" constant="15" id="mT1-dM-Bgh"/>
-                                                <constraint firstAttribute="trailing" secondItem="o7P-gK-pef" secondAttribute="trailing" constant="100" id="wTP-Hr-pGM"/>
+                                                <constraint firstItem="kAQ-Xk-DGg" firstAttribute="baseline" secondItem="NTR-yr-KvV" secondAttribute="baseline" id="08F-Lc-ypk"/>
+                                                <constraint firstAttribute="trailing" secondItem="NTR-yr-KvV" secondAttribute="trailing" constant="5" id="1UZ-RU-Yyt"/>
+                                                <constraint firstItem="NTR-yr-KvV" firstAttribute="top" secondItem="M66-V2-i7N" secondAttribute="top" constant="4" id="JWj-PP-L80"/>
+                                                <constraint firstItem="o7P-gK-pef" firstAttribute="leading" secondItem="M66-V2-i7N" secondAttribute="leading" constant="15" id="L2P-pe-62t"/>
+                                                <constraint firstItem="o7P-gK-pef" firstAttribute="top" secondItem="kAQ-Xk-DGg" secondAttribute="bottom" constant="3" id="MU2-mh-bQe"/>
+                                                <constraint firstAttribute="trailing" secondItem="o7P-gK-pef" secondAttribute="trailing" constant="15" id="kOg-sn-Qyt"/>
+                                                <constraint firstItem="kAQ-Xk-DGg" firstAttribute="leading" secondItem="o7P-gK-pef" secondAttribute="leading" id="mID-Z5-fNd"/>
+                                                <constraint firstItem="NTR-yr-KvV" firstAttribute="leading" secondItem="kAQ-Xk-DGg" secondAttribute="trailing" constant="8" symbolic="YES" id="tOZ-RF-IcX"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1465,7 +1462,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bLd-PQ-1sO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3439" y="2015"/>
+            <point key="canvasLocation" x="-3439.1999999999998" y="2014.5427286356824"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="34b-Os-xZD">
