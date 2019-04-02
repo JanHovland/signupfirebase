@@ -160,6 +160,7 @@ class CvViewController: UIViewController {
         
         7. Nye oppgaver (ikke fullført)
         
+           . Kjønn overstyres ved retur fra søking etter poststed (kun ved "Ny Person").
            . Kunne sende ePost
              .. Tilpasse keyboard til plasseringen av feltene (epostViewController.swift)
            . Legg inn "Send epost" i "Innstillinger"

@@ -22,14 +22,14 @@ var globalPhoneNumber = ""
 
 class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    @IBOutlet var addressInput: UITextField!
-    @IBOutlet var cityInput: UITextField!
-    @IBOutlet var dateOfBirthInput: UITextField!
+    @IBOutlet weak var addressInput: UITextField!
+    @IBOutlet weak var cityInput: UITextField!
+    @IBOutlet weak var dateOfBirthInput: UITextField!
     @IBOutlet weak var firstNameInput: UITextField!
-    @IBOutlet var genderInput: UISegmentedControl!
+    @IBOutlet weak var genderInput: UISegmentedControl!
     @IBOutlet weak var lastNameInput: UITextField!
-    @IBOutlet var phoneNumberInput: UITextField!
-    @IBOutlet var postalCodeNumberInput: UITextField!
+    @IBOutlet weak var phoneNumberInput: UITextField!
+    @IBOutlet weak var postalCodeNumberInput: UITextField!
     @IBOutlet weak var municipalityNumberInput: UITextField!
     @IBOutlet weak var municipalityInput: UITextField!
     @IBOutlet weak var personEmailInput: UITextField!
@@ -391,12 +391,13 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
             globalCityCodeNumber = postalCodeNumberInput.text!
             globalCity = cityInput.text!
             globalDateOfBirth = dateOfBirthInput.text!
-            globalGender = PersonGenderInt
+            globalGender = genderInput.selectedSegmentIndex
             globalMunicipality = municipalityInput.text!
             globalMunicipalityNumber = municipalityNumberInput.text!
             globalFirstName = firstNameInput.text!
             globalLastName = lastNameInput.text!
             globalPersonEmail = personEmailInput.text!
+            
         }
     }
     

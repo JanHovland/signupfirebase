@@ -41,6 +41,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     var phoneNumberInput = ""
     
     var personName = ""
+    var personFirstName = ""
     var personAddress = ""
     var locationOnMap = ""
     
@@ -398,9 +399,21 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             vc.PersonPhotoURL = value.photoURL
             vc.PersonPostalCodeNumberText = value.postalCodeNumber
             vc.PersonTitle = NSLocalizedString("Update Person", comment: "MainPersonDataViewController.swift prepare")
+
             
+            // Initialize the globals
+            globalAddress = value.address
+            globalCity = value.city
+            globalCityCodeNumber = value.postalCodeNumber
+            globalDateOfBirth = value.dateOfBirth
+            globalFirstName = value.firstName
             globalGender = value.gender
-        
+            globalLastName = value.lastName
+            globalMunicipalityNumber = value.municipalityNumber
+            globalMunicipality = value.municipality
+            globalPersonEmail = value.personEmail
+            globalPhoneNumber = value.phoneNumber
+       
         } else if segue.identifier! == "gotoAddPerson" {
             
             let vc = segue.destination as! PersonViewController
@@ -445,7 +458,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         } else if segue.identifier! == "gotoMessage" {
             
             let vc = segue.destination as! MessageViewController
-            vc.messageBody = "Test av melding 😄"
+            
+            vc.messageBody = "Gratulerer så mye med fødselsdagen " + personFirstName + " 😄"
             vc.messagePhoneNumber = phoneNumberInput
         
         }
@@ -514,6 +528,9 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             selectedName = String(cell.nameLabel!.text!)
             let value = self.findPersonData(inputName: selectedName)
             phoneNumberInput = value.phoneNumber
+            
+            personFirstName = value.firstName.lowercased()
+            personFirstName = personFirstName.capitalized
         }
    
     }
