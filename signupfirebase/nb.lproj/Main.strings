@@ -77,7 +77,7 @@
 "Fw2-Wp-1hG.title" = "Send Epost";
 
 /* Class = "UILabel"; text = "First name"; ObjectID = "ggZ-By-2Qr"; */
-"ggZ-By-2Qr.text" = "Navn";
+"ggZ-By-2Qr.text" = "Fornavn";
 
 /* Class = "UITabBarItem"; title = "Login"; ObjectID = "Gl8-LX-VoP"; */
 "Gl8-LX-VoP.title" = "Logg inn";

@@ -21,6 +21,7 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
     
 // These variables gets their value via gotoPostalCode in PersonViewController
     
+    /*
     var postalCodeAddressText = ""
     var postalCodeCityText = ""
     var postalCodeDateOfBirthText = ""
@@ -34,7 +35,7 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
     var postalFirstNameText = ""
     var postalLastNameText = ""
     var postalPersonEmailText = ""
-
+    */
     
     
     var poststedsDictionary = [String: [PostalCode]]()
@@ -126,6 +127,7 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
             let kommunenummer = postValues[indexPath.row].municipalityNumber
 
             cell.municipalityInfoLabel?.text = kommunenummer + "  " + municipality.capitalized
+            
         }
 
         return cell
@@ -177,7 +179,15 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
 
             // Sets the checkmark on the selected cell
             cell.accessoryType = .checkmark
-           
+            
+            
+            // Set the global variables
+            globalCityCodeNumber = value.postNumber
+            globalCity = value.postPlace
+            
+            globalMunicipality = value.municipality
+            globalMunicipalityNumber = value.municipalityNumber
+            
         }
     }
 
@@ -189,7 +199,7 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
     // Notifies the view controller that its view is about to be removed from a view hi
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-
+ 
     }
 
     // Tell the delegatewhen the scroll view is about to start scrolling the content

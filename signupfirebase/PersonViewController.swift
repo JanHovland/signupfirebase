@@ -13,7 +13,7 @@ var globalCity = ""
 var globalDateOfBirth = ""
 var globalGender = 0
 var globalPhoneNumber = ""
-var globalCodeNumber = ""
+var globalCityCodeNumber = ""
 var globalMunicipalityNumber = ""
 var globalMunicipality = ""
 var globalFirstName = ""
@@ -49,6 +49,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     
     var savePhoto: Bool = false
     
+    
     // These vaiables get their values from MainPersonDataViewController.swift via gotoUpdatePerson
     var PersonPhotoURL = ""
     var PersonIdText = ""
@@ -63,6 +64,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     var PersonFirstNameText = ""
     var PersonLastNameText = ""
     var PersonPersonEmailText = ""
+    
     
     let datoValg = UIDatePicker()
     
@@ -155,16 +157,16 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
             genderInput.selectedSegmentIndex = globalGender
         }
  
-        if globalCodeNumber.count > 0 {
-            cityInput.text! = globalCodeNumber
+        if globalCity.count > 0 {
+            cityInput.text! = globalCity
         } else {
             cityInput.text! = PersonCityText
         }
-            
-        if globalCodeNumber.count > 0 {
-          postalCodeNumberInput.text = globalCodeNumber
+        
+        if globalCityCodeNumber.count > 0 {
+            postalCodeNumberInput.text! = globalCityCodeNumber
         } else {
-            postalCodeNumberInput.text = PersonPostalCodeNumberText
+            postalCodeNumberInput.text! = PersonPostalCodeNumberText
         }
         
         if globalMunicipalityNumber.count > 0 {
@@ -191,6 +193,12 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
             lastNameInput.text = PersonLastNameText
         }
         
+        if globalFirstName.count > 0 {
+            firstNameInput.text = globalFirstName
+        } else {
+            firstNameInput.text = PersonFirstNameText
+        }
+        
         if globalPersonEmail.count > 0 {
             personEmailInput.text = globalPersonEmail
         } else {
@@ -208,6 +216,8 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         } else {
             phoneNumberInput.text = PersonPhoneNumberText
         }
+        
+        
  
         // Convert PersonDateOfBirthText to the initial datoValg.date
         let formatter = DateFormatter()
@@ -361,19 +371,6 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         
-        // Reset all globala
-        globalAddress = ""
-        globalCity = ""
-        globalDateOfBirth = ""
-        globalGender = 0
-        globalPhoneNumber = ""
-        globalCodeNumber = ""
-        globalMunicipalityNumber = ""
-        globalMunicipality = ""
-        globalFirstName = ""
-        globalLastName = ""
-        globalPersonEmail = ""
-
     }
     
     @IBAction func velgeKjonn(_ sender: UISegmentedControl) {
@@ -387,39 +384,39 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // 'prepare' will run after every segue.
         if segue.identifier! == "gotoPostalCodes" {
-            let vc = segue.destination as! PostalCodeSearchTableViewController
+            // let vc = segue.destination as! PostalCodeSearchTableViewController
             
-            vc.postalCodeAddressText = addressInput.text!
+            // vc.postalCodeAddressText = addressInput.text!
             globalAddress = addressInput.text!
             
-            vc.postalCodePhoneNumberText = phoneNumberInput.text!
+            // vc.postalCodePhoneNumberText = phoneNumberInput.text!
             globalPhoneNumber = phoneNumberInput.text!
             
-            vc.postalCodePostalCodeNumberText = postalCodeNumberInput.text!
-            globalCodeNumber = postalCodeNumberInput.text!
+            // vc.postalCodePostalCodeNumberText = postalCodeNumberInput.text!
+            globalCityCodeNumber = postalCodeNumberInput.text!
             
-            vc.postalCodeCityText = cityInput.text!
+            // vc.postalCodeCityText = cityInput.text!
             globalCity = cityInput.text!
             
-            vc.postalCodeDateOfBirthText = dateOfBirthInput.text!
+            // vc.postalCodeDateOfBirthText = dateOfBirthInput.text!
             globalDateOfBirth = dateOfBirthInput.text!
             
-            vc.postalCodeGenderInt = PersonGenderInt
+            // vc.postalCodeGenderInt = PersonGenderInt
             globalGender = PersonGenderInt
             
-            vc.postalCodeMunicipalityText = municipalityInput.text!
+            // vc.postalCodeMunicipalityText = municipalityInput.text!
             globalMunicipality = municipalityInput.text!
             
-            vc.postalCodeMunicipalityNumberText = municipalityNumberInput.text!
+            // vc.postalCodeMunicipalityNumberText = municipalityNumberInput.text!
             globalMunicipalityNumber = municipalityNumberInput.text!
             
-            vc.postalFirstNameText = firstNameInput.text!
+            // vc.postalFirstNameText = firstNameInput.text!
             globalFirstName = firstNameInput.text!
             
-            vc.postalLastNameText = lastNameInput.text!
+            // vc.postalLastNameText = lastNameInput.text!
             globalLastName = lastNameInput.text!
             
-            vc.postalPersonEmailText = personEmailInput.text!
+            // vc.postalPersonEmailText = personEmailInput.text!
             globalPersonEmail = personEmailInput.text!
             
         }

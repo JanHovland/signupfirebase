@@ -423,12 +423,27 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             vc.PersonMunicipalityNumberText = ""
             
             vc.PersonFirstNameText = ""
-            vc.PersonLastNameText = value.lastName
-            vc.PersonPersonEmailText = value.personEmail
+            vc.PersonLastNameText = ""
+            vc.PersonPersonEmailText = ""
             
             vc.PersonOption = 0             // Save new person == 0
             vc.PersonTitle = NSLocalizedString("New Person", comment: "MainPersonDataViewController.swift prepare")
         
+            // Reset all globala
+            globalAddress = ""
+            
+            globalCityCodeNumber = ""
+            globalCity = ""
+            
+            globalMunicipalityNumber = ""
+            globalMunicipality = ""
+            
+            globalDateOfBirth = ""
+            globalGender = 0
+            globalPhoneNumber = ""
+            globalFirstName = ""
+            globalLastName = ""
+            globalPersonEmail = ""
         
         } else if segue.identifier! == "gotoMap" {
         
