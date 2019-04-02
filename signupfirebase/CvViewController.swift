@@ -155,17 +155,16 @@ class CvViewController: UIViewController {
            I) Endret på layout for "Instillinger"
            J) Tatt bort makering av den cellen som ble valgt, spesielt "Vis passord" (Innstillinger)
            K) Oppdatert sending av melding. Returnerer nå direkte til det bilde som meldingen ble startet fra.
-
+           L) Lagt inn for- og etternavn i tillegg til navn i Person.
+           M) Lagt inn epost i Person.
+        
         7. Nye oppgaver (ikke fullført)
         
-           . Kjønn oppdateres ikke korrekt
            . Kunne sende ePost
              .. Tilpasse keyboard til plasseringen av feltene (epostViewController.swift)
-             .. Legge inn epost i Person
-             .. Legge inn epost i findPersonData() i MainPersonDataViewController.swift
            . Legg inn "Send epost" i "Innstillinger"
-           . Vurdere å gjeninnføre for- og etternavn i tillegg til navn.
            . Oppdatere innloggingsbildet (Både med og uten brukere i Coredata)
+        
            . Se igjennom opsjonene for Kart i PersonViewController.
            . Se igjennom opsjonene for sending av meldinger.
            . Vise default bilde og ikke et som er valgt tidligere når det ikke er en tilsvarende photoURL i Firebase Storage.

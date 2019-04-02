@@ -377,76 +377,63 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         // Find the data for thw chosen person = selectedName
         let value = findPersonData(inputName: selectedName)
         
-        print("name = \(selectedName)")
-        
         // 'prepare' will run after every segue.
         if segue.identifier! == "gotoUpdatePerson" {
 
             // Find the viewController
             let vc = segue.destination as! PersonViewController
-            vc.PersonPhotoURL = value.photoURL
-            vc.PersonIdText = value.id
+            
             vc.PersonAddressText = value.address
             vc.PersonCityText = value.city
             vc.PersonDateOfBirthText = value.dateOfBirth
-            
-            vc.PersonGenderInt = value.gender
-            vc.PersonPhoneNumberText = value.phoneNumber
-            vc.PersonPostalCodeNumberText = value.postalCodeNumber
-        
-            vc.PersonMunicipalityText = value.municipality
-            vc.PersonMunicipalityNumberText = value.municipalityNumber
-            
             vc.PersonFirstNameText = value.firstName
+            vc.PersonGenderInt = value.gender
+            vc.PersonIdText = value.id
             vc.PersonLastNameText = value.lastName
-            vc.PersonPersonEmailText = value.personEmail
-        
+            vc.PersonMunicipalityNumberText = value.municipalityNumber
+            vc.PersonMunicipalityText = value.municipality
             vc.PersonOption = 1         // Update == 1
+            vc.PersonPersonEmailText = value.personEmail
+            vc.PersonPhoneNumberText = value.phoneNumber
+            vc.PersonPhotoURL = value.photoURL
+            vc.PersonPostalCodeNumberText = value.postalCodeNumber
             vc.PersonTitle = NSLocalizedString("Update Person", comment: "MainPersonDataViewController.swift prepare")
             
             globalGender = value.gender
-            
         
         } else if segue.identifier! == "gotoAddPerson" {
             
             let vc = segue.destination as! PersonViewController
-            
-            vc.PersonPhotoURL = ""
-            vc.PersonIdText = ""
+
             vc.PersonAddressText = ""
             vc.PersonCityText  = ""
             vc.PersonDateOfBirthText = ""
-            
+            vc.PersonFirstNameText = ""
             vc.PersonGenderInt = 0
-            vc.PersonPhoneNumberText = ""
-            vc.PersonPostalCodeNumberText = ""
- 
+            vc.PersonIdText = ""
+            vc.PersonLastNameText = ""
             vc.PersonMunicipalityText = ""
             vc.PersonMunicipalityNumberText = ""
-            
-            vc.PersonFirstNameText = ""
-            vc.PersonLastNameText = ""
-            vc.PersonPersonEmailText = ""
-            
             vc.PersonOption = 0             // Save new person == 0
+            vc.PersonPhoneNumberText = ""
+            vc.PersonPostalCodeNumberText = ""
+            vc.PersonPhotoURL = ""
+            vc.PersonPersonEmailText = ""
             vc.PersonTitle = NSLocalizedString("New Person", comment: "MainPersonDataViewController.swift prepare")
         
             // Reset all globala
             globalAddress = ""
-            
-            globalCityCodeNumber = ""
             globalCity = ""
-            
+            globalCityCodeNumber = ""
+            globalDateOfBirth = ""
+            globalFirstName = ""
+            globalGender = 0
+            globalLastName = ""
             globalMunicipalityNumber = ""
             globalMunicipality = ""
-            
-            globalDateOfBirth = ""
-            globalGender = 0
-            globalPhoneNumber = ""
-            globalFirstName = ""
-            globalLastName = ""
             globalPersonEmail = ""
-        
+            globalPhoneNumber = ""
+            
         } else if segue.identifier! == "gotoMap" {
         
             let vc = segue.destination as! MapViewController

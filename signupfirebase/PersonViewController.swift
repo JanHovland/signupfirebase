@@ -10,29 +10,28 @@ import Firebase
 
 var globalAddress = ""
 var globalCity = ""
-var globalDateOfBirth = ""
-var globalGender = 0
-var globalPhoneNumber = ""
 var globalCityCodeNumber = ""
+var globalDateOfBirth = ""
+var globalFirstName = ""
+var globalGender = 0
+var globalLastName = ""
 var globalMunicipalityNumber = ""
 var globalMunicipality = ""
-var globalFirstName = ""
-var globalLastName = ""
 var globalPersonEmail = ""
+var globalPhoneNumber = ""
 
 class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet var addressInput: UITextField!
     @IBOutlet var cityInput: UITextField!
     @IBOutlet var dateOfBirthInput: UITextField!
+    @IBOutlet weak var firstNameInput: UITextField!
     @IBOutlet var genderInput: UISegmentedControl!
+    @IBOutlet weak var lastNameInput: UITextField!
     @IBOutlet var phoneNumberInput: UITextField!
     @IBOutlet var postalCodeNumberInput: UITextField!
     @IBOutlet weak var municipalityNumberInput: UITextField!
     @IBOutlet weak var municipalityInput: UITextField!
-    
-    @IBOutlet weak var firstNameInput: UITextField!
-    @IBOutlet weak var lastNameInput: UITextField!
     @IBOutlet weak var personEmailInput: UITextField!
     
     @IBOutlet var inputImage: UIImageView! {
@@ -51,20 +50,20 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     
     
     // These vaiables get their values from MainPersonDataViewController.swift via gotoUpdatePerson
-    var PersonPhotoURL = ""
-    var PersonIdText = ""
     var PersonAddressText = ""
     var PersonCityText = ""
+    var PersonFirstNameText = ""
+    var PersonIdText = ""
     var PersonDateOfBirthText = ""
     var PersonGenderInt = 0
-    var PersonPhoneNumberText = ""
-    var PersonPostalCodeNumberText = ""
+    var PersonLastNameText = ""
     var PersonMunicipalityText = ""
     var PersonMunicipalityNumberText = ""
-    var PersonFirstNameText = ""
-    var PersonLastNameText = ""
     var PersonPersonEmailText = ""
-    
+    var PersonPhoneNumberText = ""
+    var PersonPostalCodeNumberText = ""
+    var PersonPhotoURL = ""
+
     let datoValg = UIDatePicker()
     
     var gender: String = NSLocalizedString("Man", comment: "PersonViewVontroller.swift velgeKjonn ")
