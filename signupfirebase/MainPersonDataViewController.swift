@@ -404,6 +404,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             vc.PersonOption = 1         // Update == 1
             vc.PersonTitle = NSLocalizedString("Update Person", comment: "MainPersonDataViewController.swift prepare")
             
+            globalGender = value.gender
+            
         
         } else if segue.identifier! == "gotoAddPerson" {
             
@@ -773,27 +775,3 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     
 }
 
-/*
-extension ViewController: MFMessageComposeViewControllerDelegate {
-    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
-        
-        print("result = \(result)")
-        
-        switch (result) {
-        case .cancelled:
-            print("Message was cancelled")
-            dismiss(animated: true, completion: nil)
-        case .failed:
-            print("Message failed")
-            dismiss(animated: true, completion: nil)
-        case .sent:
-            print("Message was sent")
-            dismiss(animated: true, completion: nil)
-        default:
-            break
-        }
-
-    }
-    
-}
-*/

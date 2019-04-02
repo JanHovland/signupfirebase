@@ -159,7 +159,6 @@ class CvViewController: UIViewController {
         7. Nye oppgaver (ikke fullført)
         
            . Kjønn oppdateres ikke korrekt
-           . Etter å ha valgt Sted og Kommune blankes de andre feltene. (Dette skjer kun med når en legger inn en ny person!)
            . Kunne sende ePost
              .. Tilpasse keyboard til plasseringen av feltene (epostViewController.swift)
              .. Legge inn epost i Person

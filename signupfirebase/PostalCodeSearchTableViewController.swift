@@ -19,25 +19,6 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
     var searchedPostalCodes = [PostalCode]()
     var searching = false
     
-// These variables gets their value via gotoPostalCode in PersonViewController
-    
-    /*
-    var postalCodeAddressText = ""
-    var postalCodeCityText = ""
-    var postalCodeDateOfBirthText = ""
-    var postalCodeGenderInt = 0
-    var postalCodePhoneNumberText = ""
-    var postalCodePostalCodeNumberText = ""
-    
-    var postalCodeMunicipalityText = ""
-    var postalCodeMunicipalityNumberText = ""
-    
-    var postalFirstNameText = ""
-    var postalLastNameText = ""
-    var postalPersonEmailText = ""
-    */
-    
-    
     var poststedsDictionary = [String: [PostalCode]]()
     var poststedSectionTitles = [String]()
     var sectionNo = 0

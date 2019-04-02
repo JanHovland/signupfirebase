@@ -1186,14 +1186,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="yes" textContentType="tel"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="uy3-05-bWG" userLabel="City Text Field">
-                                <rect key="frame" x="106" y="437" width="43" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="uy3-05-bWG" userLabel="City Text Field">
+                                <rect key="frame" x="106" y="437" width="49" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="postal-code"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="0PH-fa-QJT" userLabel="Municipal Text Field">
-                                <rect key="frame" x="106" y="482" width="44" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="0PH-fa-QJT" userLabel="Municipal Text Field">
+                                <rect key="frame" x="106" y="482" width="49" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="postal-code"/>
@@ -1222,13 +1222,13 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the municipality" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iJD-3U-e7P" userLabel="City Text Field">
-                                <rect key="frame" x="154" y="482" width="206" height="30"/>
+                                <rect key="frame" x="158" y="482" width="202" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="address-level2"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the city" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a2Y-E5-2Cp" userLabel="City Text Field">
-                                <rect key="frame" x="154" y="437" width="152" height="30"/>
+                                <rect key="frame" x="158" y="437" width="148" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="address-level2"/>
@@ -1268,13 +1268,13 @@
                             <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="UG6-zK-qDH" secondAttribute="trailing" constant="270" id="20V-h4-1e1"/>
                             <constraint firstItem="bjS-Kj-pLv" firstAttribute="centerX" secondItem="ebU-ou-lpj" secondAttribute="centerX" id="2Ov-kF-f4g"/>
                             <constraint firstItem="ntB-2c-9zR" firstAttribute="top" secondItem="iJD-3U-e7P" secondAttribute="bottom" constant="15" id="2sX-bU-OO1"/>
-                            <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="0PH-fa-QJT" secondAttribute="trailing" constant="225" id="3g8-5E-n89"/>
+                            <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="0PH-fa-QJT" secondAttribute="trailing" constant="220" id="3g8-5E-n89"/>
                             <constraint firstItem="YyV-Jf-Wrw" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="107" id="4VA-rw-cC3"/>
                             <constraint firstItem="bjS-Kj-pLv" firstAttribute="top" secondItem="O6w-2j-OOB" secondAttribute="top" constant="15" id="4og-x3-RP2"/>
                             <constraint firstItem="GMW-ld-i1x" firstAttribute="centerX" secondItem="ebU-ou-lpj" secondAttribute="centerX" id="5J6-0e-ltJ"/>
                             <constraint firstItem="mZW-Vq-ZeJ" firstAttribute="top" secondItem="cm9-gv-6K9" secondAttribute="bottom" constant="25.5" id="6jn-8u-wYS"/>
                             <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="K2E-xe-DEU" secondAttribute="trailing" constant="273" id="6xX-dp-Tod"/>
-                            <constraint firstItem="a2Y-E5-2Cp" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="154" id="9Pe-CE-xi2"/>
+                            <constraint firstItem="a2Y-E5-2Cp" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="158" id="9Pe-CE-xi2"/>
                             <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="a2Y-E5-2Cp" secondAttribute="trailing" constant="69" id="Akr-f3-Yzp"/>
                             <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="cm9-gv-6K9" secondAttribute="trailing" constant="270" id="Aoe-F3-eOg"/>
                             <constraint firstItem="ggZ-By-2Qr" firstAttribute="top" secondItem="O6w-2j-OOB" secondAttribute="top" constant="153" id="Auy-a0-cMc"/>
@@ -1316,7 +1316,7 @@
                             <constraint firstItem="tUf-CD-cyN" firstAttribute="top" secondItem="Xv5-aD-hau" secondAttribute="bottom" constant="15" id="pXd-wR-YM0"/>
                             <constraint firstItem="2IV-gI-RRS" firstAttribute="top" secondItem="K2E-xe-DEU" secondAttribute="bottom" constant="25" id="plD-3s-tHu"/>
                             <constraint firstItem="0PH-fa-QJT" firstAttribute="top" secondItem="uy3-05-bWG" secondAttribute="bottom" constant="15" id="pzZ-S3-q1U"/>
-                            <constraint firstItem="iJD-3U-e7P" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="154" id="qdO-xW-FVM"/>
+                            <constraint firstItem="iJD-3U-e7P" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="158" id="qdO-xW-FVM"/>
                             <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="Xv5-aD-hau" secondAttribute="trailing" constant="15" id="qyE-5k-tom"/>
                             <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="tUf-CD-cyN" secondAttribute="trailing" constant="15" id="rVI-3i-OAf"/>
                             <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="yLv-nX-tNx" secondAttribute="trailing" constant="12" id="rWE-1w-noN"/>
@@ -1332,7 +1332,7 @@
                             <constraint firstItem="uy3-05-bWG" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="106" id="x1a-BJ-hSQ"/>
                             <constraint firstItem="tUf-CD-cyN" firstAttribute="leading" secondItem="O6w-2j-OOB" secondAttribute="leading" constant="107" id="x86-HU-ntF"/>
                             <constraint firstItem="Z83-Gy-QZ9" firstAttribute="top" secondItem="ntB-2c-9zR" secondAttribute="bottom" constant="15" id="zBv-j4-U01"/>
-                            <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="uy3-05-bWG" secondAttribute="trailing" constant="226" id="zqG-4x-eoL"/>
+                            <constraint firstItem="O6w-2j-OOB" firstAttribute="trailing" secondItem="uy3-05-bWG" secondAttribute="trailing" constant="220" id="zqG-4x-eoL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O6w-2j-OOB"/>
                     </view>

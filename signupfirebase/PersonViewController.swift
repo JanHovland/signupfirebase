@@ -65,7 +65,6 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     var PersonLastNameText = ""
     var PersonPersonEmailText = ""
     
-    
     let datoValg = UIDatePicker()
     
     var gender: String = NSLocalizedString("Man", comment: "PersonViewVontroller.swift velgeKjonn ")
@@ -147,16 +146,16 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeAddPerson(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeAddPerson(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         
-        
         if globalGender == 0 {
-            genderInput.setTitle(NSLocalizedString("Man", comment: "PersonViewVontroller.swift viewDidAppear "),
-                                 forSegmentAt: globalGender)
-        } else if globalGender == 1 {
+           genderInput.selectedSegmentIndex = globalGender
+           genderInput.setTitle(NSLocalizedString("Man", comment: "PersonViewVontroller.swift viewDidAppear "),
+                                forSegmentAt: globalGender)
+         } else {
+            genderInput.selectedSegmentIndex = globalGender //                          PersonGenderInt
             genderInput.setTitle(NSLocalizedString("Woman", comment: "PersonViewVontroller.swift viewDidAppear "),
                                  forSegmentAt: globalGender)
-            genderInput.selectedSegmentIndex = globalGender
         }
- 
+    
         if globalCity.count > 0 {
             cityInput.text! = globalCity
         } else {
@@ -217,8 +216,12 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
             phoneNumberInput.text = PersonPhoneNumberText
         }
         
+        if globalAddress.count > 0 {
+            addressInput.text = globalAddress
+        } else {
+            addressInput.text = PersonAddressText
+        }
         
- 
         // Convert PersonDateOfBirthText to the initial datoValg.date
         let formatter = DateFormatter()
         formatter.dateStyle = .long
@@ -384,41 +387,17 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // 'prepare' will run after every segue.
         if segue.identifier! == "gotoPostalCodes" {
-            // let vc = segue.destination as! PostalCodeSearchTableViewController
-            
-            // vc.postalCodeAddressText = addressInput.text!
             globalAddress = addressInput.text!
-            
-            // vc.postalCodePhoneNumberText = phoneNumberInput.text!
             globalPhoneNumber = phoneNumberInput.text!
-            
-            // vc.postalCodePostalCodeNumberText = postalCodeNumberInput.text!
             globalCityCodeNumber = postalCodeNumberInput.text!
-            
-            // vc.postalCodeCityText = cityInput.text!
             globalCity = cityInput.text!
-            
-            // vc.postalCodeDateOfBirthText = dateOfBirthInput.text!
             globalDateOfBirth = dateOfBirthInput.text!
-            
-            // vc.postalCodeGenderInt = PersonGenderInt
             globalGender = PersonGenderInt
-            
-            // vc.postalCodeMunicipalityText = municipalityInput.text!
             globalMunicipality = municipalityInput.text!
-            
-            // vc.postalCodeMunicipalityNumberText = municipalityNumberInput.text!
             globalMunicipalityNumber = municipalityNumberInput.text!
-            
-            // vc.postalFirstNameText = firstNameInput.text!
             globalFirstName = firstNameInput.text!
-            
-            // vc.postalLastNameText = lastNameInput.text!
             globalLastName = lastNameInput.text!
-            
-            // vc.postalPersonEmailText = personEmailInput.text!
             globalPersonEmail = personEmailInput.text!
-            
         }
     }
     
