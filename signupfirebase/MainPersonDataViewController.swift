@@ -298,6 +298,9 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         
         var db: DatabaseReference!
         
+        // Reset this variable so that it doesn'n show, if all personal data are deleted
+        personDataSectionTitles = [""]
+        
         db = Database.database().reference().child("person")
         
         db.observe(.value, with: { snapshot in
