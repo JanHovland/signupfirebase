@@ -44,9 +44,9 @@
 		DB5FE0342243F62E00EE8B5D /* youtube.txt in Resources */ = {isa = PBXBuildFile; fileRef = DB5FE0332243F62E00EE8B5D /* youtube.txt */; };
 		DB5FE036224776A200EE8B5D /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FE035224776A200EE8B5D /* MessageViewController.swift */; };
 		DB5FE0382247FAC600EE8B5D /* EpostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FE0372247FAC600EE8B5D /* EpostViewController.swift */; };
+		DB86F3AF2253D3FE00C1BB08 /* signupfirebase-236b9-export-10.json in Resources */ = {isa = PBXBuildFile; fileRef = DB86F3AE2253D3FE00C1BB08 /* signupfirebase-236b9-export-10.json */; };
 		DBC0BD9B222146BC003E5566 /* UIImage+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC0BD9A222146BC003E5566 /* UIImage+Scale.swift */; };
 		DBD44B9C2229BDFA0082E490 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DBD44B9A2229BDFA0082E490 /* InfoPlist.strings */; };
-		DBDB513B224C00070014993F /* signupfirebase-236b9-export-9.json in Resources */ = {isa = PBXBuildFile; fileRef = DBDB513A224C00060014993F /* signupfirebase-236b9-export-9.json */; };
 		DBEDA1762223157600725D75 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEDA1752223157600725D75 /* CacheManager.swift */; };
 		DBEDA17B2223D1F300725D75 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEDA17A2223D1F300725D75 /* WebViewController.swift */; };
 /* End PBXBuildFile section */
@@ -96,9 +96,9 @@
 		DB5FE0332243F62E00EE8B5D /* youtube.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = youtube.txt; sourceTree = "<group>"; };
 		DB5FE035224776A200EE8B5D /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		DB5FE0372247FAC600EE8B5D /* EpostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpostViewController.swift; sourceTree = "<group>"; };
+		DB86F3AE2253D3FE00C1BB08 /* signupfirebase-236b9-export-10.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "signupfirebase-236b9-export-10.json"; sourceTree = "<group>"; };
 		DBC0BD9A222146BC003E5566 /* UIImage+Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Scale.swift"; sourceTree = "<group>"; };
 		DBD44B9B2229BDFA0082E490 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		DBDB513A224C00060014993F /* signupfirebase-236b9-export-9.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "signupfirebase-236b9-export-9.json"; sourceTree = "<group>"; };
 		DBEDA1752223157600725D75 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		DBEDA17A2223D1F300725D75 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -183,7 +183,7 @@
 				D1349F152205C94800C825E7 /* Postnummer.csv */,
 				D13172532202EF1C00EEB530 /* SavePostalCodesFirebaseTableViewController.swift */,
 				D1FFF52A2212E5110097B414 /* SearchedPostelCodesTableViewCell.swift */,
-				DBDB513A224C00060014993F /* signupfirebase-236b9-export-9.json */,
+				DB86F3AE2253D3FE00C1BB08 /* signupfirebase-236b9-export-10.json */,
 				DBC0BD9A222146BC003E5566 /* UIImage+Scale.swift */,
 				DBEDA17A2223D1F300725D75 /* WebViewController.swift */,
 				D134822621CF922900F9F944 /* MainPersonDataViewController.swift */,
@@ -287,13 +287,13 @@
 			files = (
 				D1C7F2EB218C98C900481E48 /* LaunchScreen.storyboard in Resources */,
 				D1B3049421962151006C1319 /* GoogleService-Info.plist in Resources */,
+				DB86F3AF2253D3FE00C1BB08 /* signupfirebase-236b9-export-10.json in Resources */,
 				D1CF583F219C6811000A3497 /* Create iOS Icons.jsx in Resources */,
 				D1E32FBD21E1FED50022BFB3 /* Localizable.strings in Resources */,
 				DB5FE0342243F62E00EE8B5D /* youtube.txt in Resources */,
 				D1349F162205C94800C825E7 /* Postnummer.csv in Resources */,
 				D1C7F2E8218C98C900481E48 /* Assets.xcassets in Resources */,
 				DBD44B9C2229BDFA0082E490 /* InfoPlist.strings in Resources */,
-				DBDB513B224C00070014993F /* signupfirebase-236b9-export-9.json in Resources */,
 				D1C7F2E6218C98C800481E48 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
