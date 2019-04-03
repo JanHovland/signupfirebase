@@ -11,67 +11,54 @@ import MessageUI
 
 class EpostViewController:  UIViewController, MFMailComposeViewControllerDelegate, UITextFieldDelegate, UITextViewDelegate {
 
-    @IBOutlet weak var mailRecipients: UITextField!
+    @IBOutlet weak var recipients: UITextField!
     @IBOutlet weak var subject: UITextField!
-    
     @IBOutlet weak var content: UITextView!
+    
+    var mailRecipients = ""
+    var mailSubject = ""
+    var mailContent = ""
     
     let contentPlaceholder = NSLocalizedString("Write the content of the email", comment: "EpostViewController.swift definition")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mailRecipients.delegate = self
+        recipients.delegate = self
         subject.delegate = self
         content.delegate = self
+        
+        recipients.text! = mailRecipients
+        subject.text! = mailSubject
+        content.text! = mailContent
         
         content.layer.borderWidth = 0.25
         content.layer.borderColor = UIColor.lightGray.cgColor
         
         content.text = contentPlaceholder
         content.textColor = UIColor.lightGray
-
+   
+        if mailContent.count > 0 {
+            content.text = mailContent
+            content.textColor = UIColor.black
+        }
+        
+        
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         
         if content.textColor == UIColor.lightGray {
-            content.text = ""
+            
+            if mailContent.count == 0 {
+                content.text = ""
+            }
             content.textColor = UIColor.black
         }
     }
-    
-    // Is this function necessary ?
-    /*
-    func textViewDidEndEditing(_ textView: UITextView) {
-        
-        if content.text == "" {
-            
-            content.text = contentPlaceholder
-            content.textColor = UIColor.lightGray
-        }
-    }
-    */
-    
+ 
     @IBAction func sendMail(_ sender: Any) {
-        
-        if mailRecipients.text!.count > 0,
-           subject.text!.count > 0,
-            content.text!.count > 0 {
-            
-            // showMailComposer()
-            print("sendMail")
-        } else {
-            
-            let melding = NSLocalizedString("All fields must be filled in.",
-                                            comment: "EpostViewController.swift sendMail")
-            
-            self.presentAlert(withTitle: NSLocalizedString("Missing content of fields",
-                                                           comment: "EpostViewController.swift sendMail"),
-                              message: melding)
-            
-        }
-            
+        showMailComposer()
     }
     
     func showMailComposer() {
@@ -83,15 +70,48 @@ class EpostViewController:  UIViewController, MFMailComposeViewControllerDelegat
         
         let composer = MFMailComposeViewController()
         composer.mailComposeDelegate = self
-        composer.setToRecipients(["jho.hovland@gmail.co"])
-        composer.setSubject("HELP!")
-        composer.setMessageBody("I love your videos, but... help!", isHTML: false)
+        composer.setToRecipients([recipients.text!])
+        composer.setSubject(subject.text!)
+        composer.setMessageBody(content.text!, isHTML: false)
         
         present(composer, animated: true)
     }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
-    
+
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        
+        var melding = ""
+        
+        if let _ = error {
+            //Show error alert
+            controller.dismiss(animated: true)
+            return
+        }
+        
+        switch result {
+        case .cancelled:
+            melding = NSLocalizedString("Cancelled", comment: "EpostViewController.swift mailComposeController")
+        case .failed:
+            melding = NSLocalizedString("Failed to send", comment: "EpostViewController.swift mailComposeController")
+        case .saved:
+            melding = NSLocalizedString("Saved", comment: "EpostViewController.swift mailComposeController")
+        case .sent:
+            melding = NSLocalizedString("Email Sent", comment: "EpostViewController.swift mailComposeController")
+        @unknown default:
+            melding = NSLocalizedString("Fatal error", comment: "EpostViewController.swift mailComposeController")
+        }
+        
+        print(melding)
+        
+        controller.dismiss(animated: true)
+        performSegue(withIdentifier: "gotoMainPerson", sender: self)
+        dismiss(animated: true, completion: nil)
+        
+    }
+
 }
+

@@ -465,7 +465,16 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             vc.messageBody = "Gratulerer så mye med fødselsdagen " + personFirstName + " 😄"
             vc.messagePhoneNumber = phoneNumberInput
         
+        } else if segue.identifier! == "gotoEmail" {
+    
+            let vc = segue.destination as! EpostViewController
+        
+            vc.mailRecipients = "jan.hovland@lyse.ne"
+            vc.mailSubject = "Subject of the email"
+            vc.mailContent = "Content of the email"
+            
         }
+    
         
     }
 
