@@ -214,8 +214,11 @@
 /* Class = "UILabel"; text = "City"; ObjectID = "UZn-5p-0rk"; */
 "UZn-5p-0rk.text" = "Sted";
 
+/* Class = "UILabel"; text = "Send email"; ObjectID = "vGc-a8-Gj9"; */
+"vGc-a8-Gj9.text" = "Send e-post";
+
 /* Class = "UITextField"; placeholder = "Enter email address"; ObjectID = "vH1-YR-EwT"; */
-"vH1-YR-EwT.placeholder" = "Legg inn ePost adresse";
+"vH1-YR-EwT.placeholder" = "Legg inn e-postadresse";
 
 /* Class = "UINavigationItem"; title = "Update password"; ObjectID = "vHt-CU-cWy"; */
 "vHt-CU-cWy.title" = "Oppdater passord";

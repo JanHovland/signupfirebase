@@ -2,7 +2,7 @@
 "Add a new user" = "Legg inn en ny bruker";
 
 /* ResetPWByMailViewController.swift viewDidLoad */
-"After you have asked Firebase to reset your password, you will receive an eMail with istruction." = "Etter at du har bedt Firebase om å resette passordet ditt, vil du motta en ePost med instruksjoner.";
+"After you have asked Firebase to reset your password, you will receive an eMail with istruction." = "Etter at du har bedt Firebase om å resette passordet ditt, vil du motta en e-post med instruksjoner.";
 
 /* LoginViewVontroller.swift selectPersonPhoto */
 "Camera" = "Kamera";
@@ -29,7 +29,7 @@
 "eMail must have a value." = "ePosten må ha en verdi.";
 
 /* EpostViewController.swift mailComposeController */
-"Email Sent" = "Epost sendt";
+"Email Sent" = "e-post sendt";
 
 /* UpdateUserNameViewVontroller.swift SaveNewName */
 "Empty name" = "Tomt navn";
@@ -112,7 +112,7 @@
 "Please log in to Firebase." = "Vennligst logg inn på Firebase.";
 
 /* ResetPWByMailViewController.swift resetByMail */
-"Please look in your email" = "Vennligst sjekk innboksen på Eposten din";
+"Please look in your email" = "Vennligst sjekk innboksen på e-posten din";
 
 /* ResetPWByMailViewController.swift viewDidLoad */
 "Please note that the included link is time limited!" = "Legg merke til at linken i ePosten er tidsbegrenset!";
@@ -123,8 +123,8 @@
 /* EpostViewController.swift mailComposeController */
 "Saved" = "Lagret";
 
-/* MainPersonDataViewController.swift prepare */
-"Subject of the email" = "Emnet for e-posten";
+/* EpostViewController.swift definition */
+"Subject of the email" = "Emnet for e-post";
 
 /* CreateAccountViewVontroller.swift SaveAccount 
    LoginViewVontroller.swift CheckLogin verdi
@@ -144,7 +144,7 @@
 "Unable to delete data in CoreData: " = "Kan ikke slette data i CoreData: ";
 
 /* ResetPWByMailViewController.swift viewDidLoad */
-"Unable to recall the eMail from Firebase." = "Kan ikke hente ePosten fra Firebase.";
+"Unable to recall the eMail from Firebase." = "Kan ikke hente e-post fra Firebase.";
 
 /* CreateAccountViewVontroller.swift CheckLogin verdi */
 "Unable to store data in CoreData." = "Kan ikke lagre data i CoreData.";

@@ -18,6 +18,7 @@ class EpostViewController:  UIViewController, MFMailComposeViewControllerDelegat
     var mailRecipients = ""
     var mailSubject = ""
     var mailMessageBody = ""
+    var mailInfo = ""
     
     let mailMessageBodyPlaceholder = NSLocalizedString("Write the content of the email", comment: "EpostViewController.swift definition")
     let mailMessageSubjectPlaceholder = NSLocalizedString("Subject of the email", comment: "EpostViewController.swift definition")
@@ -130,7 +131,12 @@ class EpostViewController:  UIViewController, MFMailComposeViewControllerDelegat
         print(melding)
         
         controller.dismiss(animated: true)
-        performSegue(withIdentifier: "gotoMainPerson", sender: self)
+        if mailInfo.count == 0 {
+            performSegue(withIdentifier: "gotoMainPerson", sender: self)
+        } else {
+            performSegue(withIdentifier: "gotoBackToSettings", sender: self)
+        }
+        
         dismiss(animated: true, completion: nil)
         
     }

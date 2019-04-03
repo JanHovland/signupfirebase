@@ -467,13 +467,14 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             vc.messagePhoneNumber = phoneNumberInput
         
         } else if segue.identifier! == "gotoEmail" {
-    
+            
             let vc = segue.destination as! EpostViewController
-  
+            
             vc.mailRecipients = personEmail
             vc.mailSubject = ""
             vc.mailMessageBody = ""
             
+   
         }
     
     }

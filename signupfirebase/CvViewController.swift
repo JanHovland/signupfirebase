@@ -159,11 +159,10 @@ class CvViewController: UIViewController {
            M) Lagt inn epost i Person.
            N) Nå oppdateres "Kjønn" riktig etter retur fra søking etter poststed (kun ved "Ny Person").
            O) Kan nå sende e-post fra MainPersonDataViewController
-
+           P) Lagt inn "Send epost" i "Innstillinger"
         
         7. Nye oppgaver (ikke fullført)
         
-           . Legg inn "Send epost" i "Innstillinger"
            . Varsling på fødselsdager (som message eller varsel?)
         
            . Oppdatere innloggingsbildet (Både med og uten brukere i Coredata)

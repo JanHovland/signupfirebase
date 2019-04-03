@@ -64,5 +64,19 @@ class SettingsTableViewController: UITableViewController {
         
         return heading
     }
- 
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // 'prepare' will run after every segue.
+        if segue.identifier! == "gotoEmailFromSettings" {
+        
+            let vc = segue.destination as! EpostViewController
+        
+            vc.mailRecipients = ""
+            vc.mailSubject = ""
+            vc.mailMessageBody = ""
+            vc.mailInfo = "FromSettings"
+            
+        }
+    }
 }
