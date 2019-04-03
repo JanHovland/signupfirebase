@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "signupfirebase/MainPersonDataViewController.swift"
-            timestampString = "575920495.1033829"
+            filePath = "signupfirebase/EpostViewController.swift"
+            timestampString = "575972390.277717"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
-            landmarkName = "tableView(_:didSelectRowAt:)"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "sendMail(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

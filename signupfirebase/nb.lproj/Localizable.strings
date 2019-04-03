@@ -4,6 +4,9 @@
 /* ResetPWByMailViewController.swift viewDidLoad */
 "After you have asked Firebase to reset your password, you will receive an eMail with istruction." = "Etter at du har bedt Firebase om å resette passordet ditt, vil du motta en ePost med instruksjoner.";
 
+/* EpostViewController.swift sendMail */
+"All fields must be filled in." = "Alle felt må fylles ut.";
+
 /* LoginViewVontroller.swift selectPersonPhoto */
 "Camera" = "Kamera";
 
@@ -77,6 +80,9 @@
 /* PersonViewVontroller.swift velgeKjonn 
    PersonViewVontroller.swift viewDidAppear */
 "Man" = "Mann";
+
+/* EpostViewController.swift sendMail */
+"Missing content of fields" = "Mangler innhold i felt";
 
 /* MainPersonDataViewController.swift prepare */
 "New Person" = "Ny Person";
@@ -158,4 +164,7 @@
 /* PersonViewVontroller.swift velgeKjonn 
    PersonViewVontroller.swift viewDidAppear */
 "Woman" = "Kvinne";
+
+/* EpostViewController.swift definition */
+"Write the content of the email" = "Skriv innholdet i e-posten";
 

@@ -1,5 +1,11 @@
+/* Class = "UITextField"; placeholder = "Enter email recipients"; ObjectID = "1T9-up-nrf"; */
+"1T9-up-nrf.placeholder" = "Skriv inn ePost mottakere";
+
 /* Class = "UILabel"; text = "Email"; ObjectID = "2IV-gI-RRS"; */
 "2IV-gI-RRS.text" = "Epost";
+
+/* Class = "UILabel"; text = "Subject"; ObjectID = "5gt-gW-5mh"; */
+"5gt-gW-5mh.text" = "Emne";
 
 /* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "5IO-mA-9m4"; */
 "5IO-mA-9m4.title" = "Lagre";
@@ -85,6 +91,9 @@
 /* Class = "UILabel"; text = "addressLabel"; ObjectID = "GoA-hY-uI8"; */
 "GoA-hY-uI8.text" = "Adresse";
 
+/* Class = "UITextField"; placeholder = "Enter the subject"; ObjectID = "gYV-Ud-eQK"; */
+"gYV-Ud-eQK.placeholder" = "Skriv inn emnet";
+
 /* Class = "UILabel"; text = "Old password"; ObjectID = "h3M-sf-tUf"; */
 "h3M-sf-tUf.text" = "Password";
 
@@ -102,6 +111,9 @@
 
 /* Class = "UITextField"; placeholder = "Enter the municipality"; ObjectID = "iJD-3U-e7P"; */
 "iJD-3U-e7P.placeholder" = "Legg inn kommune";
+
+/* Class = "UILabel"; text = "To"; ObjectID = "Ixo-RK-z8h"; */
+"Ixo-RK-z8h.text" = "Til";
 
 /* Class = "UILabel"; text = "eMail"; ObjectID = "IZ3-hb-Xl4"; */
 "IZ3-hb-Xl4.text" = "ePost";

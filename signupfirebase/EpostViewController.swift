@@ -11,56 +11,87 @@ import MessageUI
 
 class EpostViewController:  UIViewController, MFMailComposeViewControllerDelegate, UITextFieldDelegate, UITextViewDelegate {
 
+    @IBOutlet weak var mailRecipients: UITextField!
     @IBOutlet weak var subject: UITextField!
-    @IBOutlet weak var body: UITextView!
     
-    @IBAction func sendMail(_ sender: Any) {
-        let picker = MFMailComposeViewController()
-        picker.mailComposeDelegate = self
-        
-        if let subjectText = subject.text {
-            picker.setSubject(subjectText)
-        }
-        picker.setMessageBody(body.text, isHTML: true)
-        
-        present(picker, animated: true, completion: nil)
-    }
+    @IBOutlet weak var content: UITextView!
+    
+    let contentPlaceholder = NSLocalizedString("Write the content of the email", comment: "EpostViewController.swift definition")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mailRecipients.delegate = self
         subject.delegate = self
-        body.delegate = self
-    }
-    
-    // MFMailComposeViewControllerDelegate
-    
-    // 1
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    // UITextFieldDelegate
-    
-    // 2
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        content.delegate = self
         
-        return true
+        content.layer.borderWidth = 0.25
+        content.layer.borderColor = UIColor.lightGray.cgColor
+        
+        content.text = contentPlaceholder
+        content.textColor = UIColor.lightGray
+
     }
     
-    // UITextViewDelegate
-    
-    // 3
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        body.text = textView.text
+    func textViewDidBeginEditing(_ textView: UITextView) {
         
-        if text == "\n" {
-            textView.resignFirstResponder()
+        if content.textColor == UIColor.lightGray {
+            content.text = ""
+            content.textColor = UIColor.black
+        }
+    }
+    
+    // Is this function necessary ?
+    /*
+    func textViewDidEndEditing(_ textView: UITextView) {
+        
+        if content.text == "" {
             
-            return false
+            content.text = contentPlaceholder
+            content.textColor = UIColor.lightGray
+        }
+    }
+    */
+    
+    @IBAction func sendMail(_ sender: Any) {
+        
+        if mailRecipients.text!.count > 0,
+           subject.text!.count > 0,
+            content.text!.count > 0 {
+            
+            // showMailComposer()
+            print("sendMail")
+        } else {
+            
+            let melding = NSLocalizedString("All fields must be filled in.",
+                                            comment: "EpostViewController.swift sendMail")
+            
+            self.presentAlert(withTitle: NSLocalizedString("Missing content of fields",
+                                                           comment: "EpostViewController.swift sendMail"),
+                              message: melding)
+            
+        }
+            
+    }
+    
+    func showMailComposer() {
+        
+        guard MFMailComposeViewController.canSendMail() else {
+            //Show alert informing the user
+            return
         }
         
+        let composer = MFMailComposeViewController()
+        composer.mailComposeDelegate = self
+        composer.setToRecipients(["jho.hovland@gmail.co"])
+        composer.setSubject("HELP!")
+        composer.setMessageBody("I love your videos, but... help!", isHTML: false)
+        
+        present(composer, animated: true)
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
         return true
     }
+    
 }

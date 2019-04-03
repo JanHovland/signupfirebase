@@ -157,13 +157,14 @@ class CvViewController: UIViewController {
            K) Oppdatert sending av melding. Returnerer nå direkte til det bilde som meldingen ble startet fra.
            L) Lagt inn for- og etternavn i tillegg til navn i Person.
            M) Lagt inn epost i Person.
+           N) Nå oppdateres "Kjønn" riktig etter retur fra søking etter poststed (kun ved "Ny Person").
         
         7. Nye oppgaver (ikke fullført)
         
-           . Kjønn overstyres ved retur fra søking etter poststed (kun ved "Ny Person").
            . Kunne sende ePost
              .. Tilpasse keyboard til plasseringen av feltene (epostViewController.swift)
            . Legg inn "Send epost" i "Innstillinger"
+        
            . Oppdatere innloggingsbildet (Både med og uten brukere i Coredata)
         
            . Se igjennom opsjonene for Kart i PersonViewController.
