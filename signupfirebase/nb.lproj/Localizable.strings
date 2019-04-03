@@ -4,14 +4,14 @@
 /* ResetPWByMailViewController.swift viewDidLoad */
 "After you have asked Firebase to reset your password, you will receive an eMail with istruction." = "Etter at du har bedt Firebase om å resette passordet ditt, vil du motta en ePost med instruksjoner.";
 
-/* EpostViewController.swift sendMail */
-"All fields must be filled in." = "Alle felt må fylles ut.";
-
 /* LoginViewVontroller.swift selectPersonPhoto */
 "Camera" = "Kamera";
 
 /* LoginViewVontroller.swift selectPersonPhoto */
 "Cancel" = "Avbryt";
+
+/* EpostViewController.swift mailComposeController */
+"Cancelled" = "Avbrutt";
 
 /* SavePostalCodesFirebaseTableViewController.swift StorePostalCodes */
 "Cannot store the Postal Codes in Firebase." = "Kan ikke lagre post nummer i Firebase.";
@@ -27,6 +27,9 @@
 
 /* LoginViewVontroller.swift CheckLogin verdi */
 "eMail must have a value." = "ePosten må ha en verdi.";
+
+/* EpostViewController.swift mailComposeController */
+"Email Sent" = "Epost sendt";
 
 /* UpdateUserNameViewVontroller.swift SaveNewName */
 "Empty name" = "Tomt navn";
@@ -71,6 +74,12 @@
 /* CreateAccountViewVontroller.swift SaveAccount */
 "Every field must have a value." = "Alle feltene må ha en verdi.";
 
+/* EpostViewController.swift mailComposeController */
+"Failed to send" = "Mislykket sending";
+
+/* EpostViewController.swift mailComposeController */
+"Fatal error" = "Fatal feil";
+
 /* SavePostalCodesFirebaseTableViewController.swift StorePostalCodes */
 "In order to save the Postal Codes, the 'Store Postal Codes in Firebase' button must be enabled." = "IFor å lagre postnummer, må bryteren 'Lagre postnummer i Firebase' aktiveres.";
 
@@ -80,9 +89,6 @@
 /* PersonViewVontroller.swift velgeKjonn 
    PersonViewVontroller.swift viewDidAppear */
 "Man" = "Mann";
-
-/* EpostViewController.swift sendMail */
-"Missing content of fields" = "Mangler innhold i felt";
 
 /* MainPersonDataViewController.swift prepare */
 "New Person" = "Ny Person";
@@ -113,6 +119,12 @@
 
 /* SavePostalCodesFirebaseTableViewController.swift documentPicker */
 "Save in Firebase" = "Lagre i Firebase";
+
+/* EpostViewController.swift mailComposeController */
+"Saved" = "Lagret";
+
+/* MainPersonDataViewController.swift prepare */
+"Subject of the email" = "Emnet for e-posten";
 
 /* CreateAccountViewVontroller.swift SaveAccount 
    LoginViewVontroller.swift CheckLogin verdi

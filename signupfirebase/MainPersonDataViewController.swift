@@ -44,6 +44,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     var personFirstName = ""
     var personAddress = ""
     var locationOnMap = ""
+    var personEmail = ""
     
     var persons = [Person]()
     
@@ -468,16 +469,15 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         } else if segue.identifier! == "gotoEmail" {
     
             let vc = segue.destination as! EpostViewController
-        
-            vc.mailRecipients = "jan.hovland@lyse.ne"
-            vc.mailSubject = "Subject of the email"
-            vc.mailContent = "Content of the email"
+  
+            vc.mailRecipients = personEmail
+            vc.mailSubject = ""
+            vc.mailMessageBody = ""
             
         }
     
-        
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         // Remove observers
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -548,15 +548,22 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     @IBAction func buttonEmail(_ sender: UIButton) {
-        
-        
+    
+        // Find the row of the selected cell
+        let buttonPosition = sender.convert(sender.bounds.origin, to: tableView)
+        if let indexPath = tableView.indexPathForRow(at: buttonPosition) {
+            tableView.deselectRow(at: indexPath, animated: true)
+            let cell = tableView.cellForRow(at: indexPath) as! PersonDataTableViewCell
+            selectedName = String(cell.nameLabel!.text!)
+            let value = self.findPersonData(inputName: selectedName)
+            personEmail = value.personEmail
+        }
     }
  
     
     func FindSearchedPersonData(searchText: String) {
         // Reset poststedsDictionary
         personDataDictionary = [String: [PersonData]]()
-        
         
         if persons.count > 0 {
         

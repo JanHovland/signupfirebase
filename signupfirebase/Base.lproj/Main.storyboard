@@ -1881,7 +1881,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="content" destination="qPf-LU-iYh" id="RhQ-jP-fyG"/>
+                        <outlet property="messageBody" destination="qPf-LU-iYh" id="vOv-IA-Njl"/>
                         <outlet property="recipients" destination="1T9-up-nrf" id="9BB-iv-vcw"/>
                         <outlet property="subject" destination="gYV-Ud-eQK" id="BmQ-5I-LMl"/>
                         <segue destination="4y3-m1-4aQ" kind="show" identifier="gotoMainPerson" id="Wv5-LX-JHz"/>

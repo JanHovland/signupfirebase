@@ -13,51 +13,73 @@ class EpostViewController:  UIViewController, MFMailComposeViewControllerDelegat
 
     @IBOutlet weak var recipients: UITextField!
     @IBOutlet weak var subject: UITextField!
-    @IBOutlet weak var content: UITextView!
+    @IBOutlet weak var messageBody: UITextView!
     
     var mailRecipients = ""
     var mailSubject = ""
-    var mailContent = ""
+    var mailMessageBody = ""
     
-    let contentPlaceholder = NSLocalizedString("Write the content of the email", comment: "EpostViewController.swift definition")
-    
+    let mailMessageBodyPlaceholder = NSLocalizedString("Write the content of the email", comment: "EpostViewController.swift definition")
+    let mailMessageSubjectPlaceholder = NSLocalizedString("Subject of the email", comment: "EpostViewController.swift definition")
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
         recipients.delegate = self
         subject.delegate = self
-        content.delegate = self
+        messageBody.delegate = self
         
         recipients.text! = mailRecipients
         subject.text! = mailSubject
-        content.text! = mailContent
+        messageBody.text! = mailMessageBody
         
-        content.layer.borderWidth = 0.25
-        content.layer.borderColor = UIColor.lightGray.cgColor
-        
-        content.text = contentPlaceholder
-        content.textColor = UIColor.lightGray
-   
-        if mailContent.count > 0 {
-            content.text = mailContent
-            content.textColor = UIColor.black
-        }
-        
+        messageBody.layer.borderWidth = 0.25
+        messageBody.layer.borderColor = UIColor.lightGray.cgColor
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if mailMessageBody.count > 0 {
+            messageBody.text = mailMessageBody
+            messageBody.textColor = UIColor.black
+        } else {
+            messageBody.text = mailMessageBodyPlaceholder
+            messageBody.textColor = UIColor.lightGray
+        }
+        
+        if mailSubject.count > 0 {
+            subject.text = mailSubject
+            subject.textColor = UIColor.black
+        } else {
+            subject.text = mailMessageSubjectPlaceholder
+            subject.textColor = UIColor.lightGray
+        }
+        
+    }
+
     func textViewDidBeginEditing(_ textView: UITextView) {
         
-        if content.textColor == UIColor.lightGray {
+        if messageBody.textColor == UIColor.lightGray {
             
-            if mailContent.count == 0 {
-                content.text = ""
+            if mailMessageBody.count == 0 {
+                messageBody.text = ""
             }
-            content.textColor = UIColor.black
+            messageBody.textColor = UIColor.black
         }
     }
- 
+     
     @IBAction func sendMail(_ sender: Any) {
+        
+        // Prevents the placeholder to be exported
+        if messageBody.text == mailMessageBodyPlaceholder {
+            messageBody.text = ""
+        }
+        
+        if subject.text == mailMessageSubjectPlaceholder {
+            subject.text = ""
+        }
+      
         showMailComposer()
     }
     
@@ -72,7 +94,7 @@ class EpostViewController:  UIViewController, MFMailComposeViewControllerDelegat
         composer.mailComposeDelegate = self
         composer.setToRecipients([recipients.text!])
         composer.setSubject(subject.text!)
-        composer.setMessageBody(content.text!, isHTML: false)
+        composer.setMessageBody(messageBody.text!, isHTML: false)
         
         present(composer, animated: true)
     }
