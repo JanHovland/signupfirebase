@@ -158,15 +158,15 @@ class CvViewController: UIViewController {
            L) Lagt inn for- og etternavn i tillegg til navn i Person.
            M) Lagt inn epost i Person.
            N) Nå oppdateres "Kjønn" riktig etter retur fra søking etter poststed (kun ved "Ny Person").
+           O) Kan nå sende e-post fra MainPersonDataViewController
+
         
         7. Nye oppgaver (ikke fullført)
         
-           . Kunne sende ePost
-             .. Tilpasse keyboard til plasseringen av feltene (epostViewController.swift)
            . Legg inn "Send epost" i "Innstillinger"
+           . Varsling på fødselsdager (som message eller varsel?)
         
            . Oppdatere innloggingsbildet (Både med og uten brukere i Coredata)
-        
            . Se igjennom opsjonene for Kart i PersonViewController.
            . Se igjennom opsjonene for sending av meldinger.
            . Vise default bilde og ikke et som er valgt tidligere når det ikke er en tilsvarende photoURL i Firebase Storage.
