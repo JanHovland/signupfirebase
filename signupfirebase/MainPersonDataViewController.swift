@@ -65,6 +65,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         tableView.delegate = self
         tableView.dataSource = self
         searchBarPerson.delegate = self
@@ -95,12 +97,17 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     
+    // Called when the view is about to made visible. Default does nothing
+    override func viewWillAppear(_ animated: Bool) {
+        // On return from "MessageViewController" navigationbar shows "< Persondata"
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        self.navigationItem.hidesBackButton = true
+        tableView.reloadData()
+    }
+    
     // Called when the view has been fully transitioned onto the screen. Default does nothing
     override func viewDidAppear(_ animated: Bool) {
-        
-        // If reloadData is called the "cell.nameLabel?.text" is displayed incorrectly
-        tableView.reloadData()
-        
+
     }
     
     // Asks the data source to return the number of sections in the table view.
@@ -126,9 +133,6 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         
         selectedName = String(cell.nameLabel!.text!)
         performSegue(withIdentifier: "gotoUpdatePerson", sender: self)
-        
-        
-        
     }
     
     // Asks the data source for a cell to insert in a particular location of the table view.
@@ -473,10 +477,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             vc.mailRecipients = personEmail
             vc.mailSubject = ""
             vc.mailMessageBody = ""
-            
-   
+        
         }
-    
     }
     
     override func viewWillDisappear(_ animated: Bool) {

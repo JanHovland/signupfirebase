@@ -26,7 +26,7 @@
 "Delete" = "Slett";
 
 /* LoginViewVontroller.swift CheckLogin verdi */
-"eMail must have a value." = "ePosten må ha en verdi.";
+"eMail must have a value." = "e-postadressen må fylles ut.";
 
 /* EpostViewController.swift mailComposeController */
 "Email Sent" = "e-post sendt";
@@ -81,7 +81,7 @@
 "Fatal error" = "Fatal feil";
 
 /* SavePostalCodesFirebaseTableViewController.swift StorePostalCodes */
-"In order to save the Postal Codes, the 'Store Postal Codes in Firebase' button must be enabled." = "IFor å lagre postnummer, må bryteren 'Lagre postnummer i Firebase' aktiveres.";
+"In order to save the Postal Codes, the 'Store Postal Codes in Firebase' button must be enabled." = "For å lagre postnummer, må bryteren 'Lagre postnummer i Firebase' aktiveres.";
 
 /* DataBaseExtension.swift formatPhone */
 "Invalid phone number" = "Feil format telefonnr";
@@ -103,7 +103,7 @@
 "Password" = "Passord";
 
 /* ResetPWByMailViewController.swift resetByMail */
-"Password change request has been sent" = "Endringsforespørsel på passordet er sendt pr. Epost";
+"Password change request has been sent" = "Endringsforespørsel på passordet er sendt på e-post";
 
 /* LoginViewVontroller.swift selectPersonPhoto */
 "Photo library" = "Foto biblioteket";
@@ -115,7 +115,7 @@
 "Please look in your email" = "Vennligst sjekk innboksen på e-posten din";
 
 /* ResetPWByMailViewController.swift viewDidLoad */
-"Please note that the included link is time limited!" = "Legg merke til at linken i ePosten er tidsbegrenset!";
+"Please note that the included link is time limited!" = "Legg merke til at linken i e-posten er tidsbegrenset!";
 
 /* SavePostalCodesFirebaseTableViewController.swift documentPicker */
 "Save in Firebase" = "Lagre i Firebase";

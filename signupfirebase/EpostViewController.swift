@@ -137,7 +137,7 @@ class EpostViewController:  UIViewController, MFMailComposeViewControllerDelegat
             performSegue(withIdentifier: "gotoBackToSettings", sender: self)
         }
         
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil) 
         
     }
 

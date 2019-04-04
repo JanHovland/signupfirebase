@@ -32,15 +32,15 @@ class MessageViewController: UIViewController,  MFMessageComposeViewControllerDe
         switch (result) {
         case .cancelled:
             print("Message was cancelled")
-            performSegue(withIdentifier: "gotoMainPerson", sender: self)
+            performSegue(withIdentifier: "goBackToPersondata", sender: self)
             dismiss(animated: true, completion: nil)
         case .failed:
             print("Message failed")
-            performSegue(withIdentifier: "gotoMainPerson", sender: self)
+            performSegue(withIdentifier: "goBackToPersondata", sender: self)
             dismiss(animated: true, completion: nil)
         case .sent:
             print("Message was sent")
-            performSegue(withIdentifier: "gotoMainPerson", sender: self)
+            performSegue(withIdentifier: "goBackToPersondata", sender: self)
             dismiss(animated: true, completion: nil)
         default:
             break
