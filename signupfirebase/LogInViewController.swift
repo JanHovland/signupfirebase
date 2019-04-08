@@ -267,7 +267,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
                                         }
                                     }
                                   
-                                    self.tabBarController?.tabBar.isHidden = false
+                                    self.tabBarController?.tabBar.isHidden = false 
                                                             
                                 })
 
