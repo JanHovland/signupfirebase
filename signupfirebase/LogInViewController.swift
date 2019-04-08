@@ -51,8 +51,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         activity.hidesWhenStopped = true
         activity.style = .gray
         activity.transform = CGAffineTransform(scaleX: 1.25, y: 1.25)
-        // view.addSubview(activity)
-
+    
         // Turn off keyboard when you press "Return"
         eMailLoginTextField.delegate = self
         passwordTextField.delegate = self
@@ -90,9 +89,9 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         eMailLoginTextField.delegate = self
         passwordTextField.delegate = self
         
-        activity.startAnimating()
-        
         DispatchQueue.main.async {
+            
+            self.activity.startAnimating()
             
             let value = self.getCoreData()
         
@@ -192,12 +191,12 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         eMailLoginTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
 
-        activity.startAnimating()
-        
         DispatchQueue.main.async {
             
             if self.eMailLoginTextField.text!.count > 0,
                 self.passwordTextField.text!.count >= 6 {
+                
+                self.activity.startAnimating()
                 
                 let region = NSLocale.current.regionCode  // Returns the local region
                 Auth.auth().languageCode = region
@@ -216,8 +215,65 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
 
                             if ok == false {
                                 
-                            } else {
+                                // Store an existing user from Firebase into Coredata if Coredata is empty.
                                 
+                                var ok1: Bool = false
+                                
+                                let uid = Auth.auth().currentUser?.uid ?? ""
+                                let name = Auth.auth().currentUser?.displayName ?? ""
+                                
+                                // Use default inputImage if nil
+                                if self.inputImage.image == nil {
+                                    self.inputImage.image = UIImage(named: "new-person.png")
+                                }
+                                
+                                self.savePhotoUrlFirestore(image: self.inputImage.image!,
+                                                           email: self.eMailLoginTextField.text!,
+                                                           completionHandler: { (url) in
+                                                            
+                                    ok1 = self.saveCoreData(withEpost: self.eMailLoginTextField.text!,
+                                                            withPassord: self.passwordTextField.text!,
+                                                            withUid: uid,
+                                                            withLoggedIn: true,
+                                                            withName: name,
+                                                            withPhotoURL: url)
+                                
+                                    if ok1 == false {
+                                        let melding = NSLocalizedString("Unable to store data in CoreData.",
+                                                                        comment: "CreateAccountViewVontroller.swift CheckLogin verdi")
+                                        
+                                        self.presentAlert(withTitle: NSLocalizedString("Error",
+                                                                                       comment: "CreateAccountViewVontroller.swift SaveAccount "),
+                                                          message: melding)
+                                        
+                                    } else {
+                                        let region = NSLocale.current.regionCode?.lowercased()  // Returns the local region
+                                        Auth.auth().languageCode = region!
+                                        
+                                        // Store the name of the user in Firebase
+                                        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                                        changeRequest?.displayName = name
+                                        // changeRequest?.photoURL = URL(string: value2.photoURL)
+                                        
+                                        changeRequest?.commitChanges { error in
+                                            if error == nil {
+                                                self.dismiss(animated: false, completion: nil)
+                                            } else {
+                                                let melding = error!.localizedDescription
+                                                self.presentAlert(withTitle: NSLocalizedString("Error", comment: "CreateAccountViewVontroller.swift SaveAccount"),
+                                                                  message: melding)
+                                            }
+                                            self.activity.stopAnimating()
+                                        }
+                                    }
+                                  
+                                    self.tabBarController?.tabBar.isHidden = false
+                                                            
+                                })
+
+                               
+                            } else {
+                            
                                 // Find the password from CoreData, if it is different from Firedata, Update CoreData
                                 if self.findPasswordCoreData(withEpost: self.eMailLoginTextField.text!) != self.passwordTextField.text! {
                                     // Store the new password in CoreData
@@ -341,7 +397,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
                                         }
                                     }
                                 }
-                           }
+                            }
      
                         } else {
                             let melding = NSLocalizedString("Unable to update CoreData.",
