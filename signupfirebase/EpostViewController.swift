@@ -134,7 +134,7 @@ class EpostViewController:  UIViewController, MFMailComposeViewControllerDelegat
         if mailInfo.count == 0 {
             performSegue(withIdentifier: "gotoMainPerson", sender: self)
         } else {
-            performSegue(withIdentifier: "gotoBackToSettings", sender: self)
+            performSegue(withIdentifier: "goBackToSettings", sender: self)
         }
         
         dismiss(animated: true, completion: nil) 
