@@ -160,15 +160,14 @@ class CvViewController: UIViewController {
            N) Nå oppdateres "Kjønn" riktig etter retur fra søking etter poststed (kun ved "Ny Person").
            O) Kan nå sende e-post fra MainPersonDataViewController
            P) Lagt inn "Send epost" i "Innstillinger"
+           Q) Oppdatert innloggingsbildet slik at det er OK både med og uten brukere i Coredata.
         
         7. Nye oppgaver (ikke fullført)
         
            . Varsling på fødselsdager (som message eller varsel?)
-        
-           . Oppdatere innloggingsbildet (Både med og uten brukere i Coredata)
            . Se igjennom opsjonene for Kart i PersonViewController.
            . Se igjennom opsjonene for sending av meldinger.
-           . Vise default bilde og ikke et som er valgt tidligere når det ikke er en tilsvarende photoURL i Firebase Storage.
+           . Vise default bilde og ikke et som er valgt tidligere når det ikke er en tilsvarende photoURL i Firebase Storage (usikker om dette er tilfellet nå).
            . Oppdatere security i Firebase (er security der det samme for Firestore?)
            . Varsling på fødselsdager (som message eller varsel?)
         
