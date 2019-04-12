@@ -9,6 +9,12 @@
 import CoreData
 import Firebase
 import UIKit
+import Foundation
+
+
+import Foundation
+import FirebaseStorage
+
 
 class CreateAccountViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet var activity: UIActivityIndicatorView!
@@ -106,8 +112,6 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate, UIImag
     }
 
     @IBAction func SaveAccount(_ sender: UIBarButtonItem) {
-        var ok: Bool = false
-        var ok1: Bool = false
 
         activity.startAnimating()
         
@@ -116,204 +120,38 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate, UIImag
         nameCreateAccountTextField.resignFirstResponder()
         passwordCreateAccountTextField.resignFirstResponder()
         
-        DispatchQueue.main.async {
+        if self.eMailCreateAccountTextField.text!.count > 0,
+            self.nameCreateAccountTextField.text!.count > 0,
+            self.passwordCreateAccountTextField.text!.count >= 6 {
+            
+            // Register the user with Firebase
+            Auth.auth().createUser(withEmail: self.eMailCreateAccountTextField.text!,
+                                   password: self.passwordCreateAccountTextField.text!) { _, error in
 
-            if self.eMailCreateAccountTextField.text!.count > 0,
-                self.nameCreateAccountTextField.text!.count > 0,
-                self.passwordCreateAccountTextField.text!.count >= 6 {
-                
-                let region = NSLocale.current.regionCode?.lowercased()  // Returns the local region
-                Auth.auth().languageCode = region!
+                if error == nil {
 
-                // Register the user with Firebase
-                Auth.auth().createUser(withEmail: self.eMailCreateAccountTextField.text!,
-                                       password: self.passwordCreateAccountTextField.text!) { _, error in
-
-                    if error == nil {
-                        // The user is stored in Firebase
-
+                    self.inputImage.image = UIImage(named: "new-person.png")
+                    
+                    self.inputImage.contentMode = .scaleAspectFill
+                    self.inputImage.clipsToBounds = true
+                    
+                    self.savePhotoUrlFirestore(image: self.inputImage.image!,
+                                               email: self.eMailCreateAccountTextField.text!,
+                                               completionHandler: { (url) in
+                                                
                         let uid = Auth.auth().currentUser?.uid ?? ""
-                        let name = self.nameCreateAccountTextField.text!
-
-                        // Reset all posts where 'loggedin' == true
-                        ok = self.resetLoggedIinCoreData()
-
-                        if ok == true {
-                            // Check if the user exists in CoreData
-                            // Else, store the user in CoreData
-                            ok = self.findCoreData(withEpost: self.eMailCreateAccountTextField.text!)
-
-                            if ok == false {
-                                
-                                // Store the image og the new user
-                                
-                                self.savePhotoUrlFirestore(image: self.inputImage.image!,
-                                                           email: self.eMailCreateAccountTextField.text!,
-                                                           completionHandler: { (url) in
-                                
-                                    ok1 = self.saveCoreData(withEpost: self.eMailCreateAccountTextField.text!,
-                                                            withPassord: self.passwordCreateAccountTextField.text!,
-                                                            withUid: uid,
-                                                            withLoggedIn: true,
-                                                            withName: name,
-                                                            withPhotoURL: url)
-
-                                    if ok1 == false {
-                                        let melding = NSLocalizedString("Unable to store data in CoreData.",
-                                                                        comment: "CreateAccountViewVontroller.swift CheckLogin verdi")
-                                        
-                                        self.presentAlert(withTitle: NSLocalizedString("Error",
-                                                                                       comment: "CreateAccountViewVontroller.swift SaveAccount "),
-                                                          message: melding)
-                                        
-                                    } else {
-                                        let region = NSLocale.current.regionCode?.lowercased()  // Returns the local region
-                                        Auth.auth().languageCode = region!
-                                        
-                                        // Store the name of the user in Firebase
-                                        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-                                        changeRequest?.displayName = self.nameCreateAccountTextField.text!
-                                        // changeRequest?.photoURL = URL(string: value2.photoURL)
-                                        
-                                        changeRequest?.commitChanges { error in
-                                            if error == nil {
-                                                self.dismiss(animated: false, completion: nil)
-                                            } else {
-                                                let melding = error!.localizedDescription
-                                                self.presentAlert(withTitle: NSLocalizedString("Error", comment: "CreateAccountViewVontroller.swift SaveAccount"),
-                                                                  message: melding)
-                                            }
-                                            self.activity.stopAnimating()
-                                        }
-                                    }
-                                                    
-                                })
-                                
-                            } else {
-                                // Update CoreData with 'loggedin' == true
-                                ok = self.updateCoreData(withEpost: self.eMailCreateAccountTextField.text!, withLoggedIn: true)
-
-                                if ok == false {
-                                    let melding = NSLocalizedString("Unable to store data in CoreData.",
-                                                                    comment: "CreateAccountViewVontroller.swift CheckLogin verdi")
-                                    
-                                    self.presentAlert(withTitle: NSLocalizedString("Error",
-                                                                                   comment: "CreateAccountViewVontroller.swift SaveAccount "),
-                                                      message: melding)
-                                    
-                                } else {
-                                    let region = NSLocale.current.regionCode?.lowercased()  // Returns the local region
-                                    Auth.auth().languageCode = region!
-
-                                    let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-                                    changeRequest?.displayName = self.nameCreateAccountTextField.text!
-
-                                    changeRequest?.commitChanges { error in
-                                        if error == nil {
-                                            self.dismiss(animated: false, completion: nil)
-                                        } else {
-                                            let melding = error!.localizedDescription
-                                            self.presentAlert(withTitle: NSLocalizedString("Error", comment: "CreateAccountViewVontroller.swift SaveAccount"),
-                                                         message: melding)
-                                        }
-                                    }
-                                    
-                                    // Only save photo if a photo has been picked
-                                    if self.savePhoto == true {
-                                        
-                                        self.savePhotoUrlFirestore(image: self.inputImage.image!,
-                                                                   email: self.eMailCreateAccountTextField.text!,
-                                                                   completionHandler: { (url) in
-                                                            
-                                            //  0 = uid  1 = eMail 2 = name  3 = passWord 4 = photoURL
-                                            let value = self.getCoreData()
-                                            let OK = self.saveCoreData(withEpost: value.eMail,
-                                                                       withPassord: value.passWord,
-                                                                       withUid: value.uid,
-                                                                       withLoggedIn: true,
-                                                                       withName: value.name,
-                                                                       withPhotoURL: url)
-                                            
-                                            if OK == false {
-                                                let melding = NSLocalizedString("Unable to store data in FireBase.",
-                                                                                comment: "LoginViewVontroller.swift CheckLogin")
-                                                self.presentAlert(withTitle: NSLocalizedString("Error.",
-                                                                                               comment: "LoginViewVontroller.swift CheckLogin"),
-                                                                  message: melding)
-                                                
-                                            } else {
-                                                
-                                                let value1 = self.getCoreData()
-                                                
-                                                if let image = CacheManager.shared.getFromCache(key: value.photoURL) as? UIImage, self.savePhoto == false {
-                                                    self.inputImage.image = image
-                                                } else {
-                                                    self.savePhoto = false
-                                                    if let url = URL(string: value1.photoURL) {
-                                                        
-                                                        let findCellImage = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-                                                            guard let imageData = data else {
-                                                                self.activity.stopAnimating()
-                                                                return
-                                                            }
-                                                            OperationQueue.main.addOperation {
-                                                                guard let image = UIImage(data: imageData) else {
-                                                                    self.activity.stopAnimating()
-                                                                    return
-                                                                }
-                                                                
-                                                                self.inputImage.image = image
-                                                                
-                                                                // Add the downloaded image to cache
-                                                                CacheManager.shared.cache(object: image, key: value.photoURL)
-                                                            }
-                                                        })
-                                                        
-                                                        findCellImage.resume()
-                                                    }
-                                                }
-                                                
-                                            }
-                                            
-                                        })
-                                        
-                                    } else {
-                                        let value = self.getCoreData()
-                                        
-                                        if let image = CacheManager.shared.getFromCache(key: value.photoURL) as? UIImage, self.savePhoto == false {
-                                            self.inputImage.image = image
-                                        } else {
-                                            self.savePhoto = false
-                                            if let url = URL(string: value.photoURL) {
-                                                
-                                                let findCellImage = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-                                                    guard let imageData = data else {
-                                                        self.activity.stopAnimating()
-                                                        return
-                                                    }
-                                                    OperationQueue.main.addOperation {
-                                                        guard let image = UIImage(data: imageData) else {
-                                                            self.activity.stopAnimating()
-                                                            return
-                                                        }
-                                                        
-                                                        self.inputImage.image = image
-                                                        
-                                                        // Add the downloaded image to cache
-                                                        CacheManager.shared.cache(object: image, key: value.photoURL)
-                                                    }
-                                                })
-                                                
-                                                findCellImage.resume()
-                                            }
-                                        }
-                                        
-                                    }
-                                 }
-                                
-                            }
-
-                        } else {
+                        let name = Auth.auth().currentUser?.displayName ?? ""
+                        
+                        let _ = self.deleteAllCoreData()
+                        
+                        let ok1 = self.saveCoreData(withEpost: self.eMailCreateAccountTextField.text!,
+                                                    withPassord: self.passwordCreateAccountTextField.text!,
+                                                    withUid: uid,
+                                                    withLoggedIn: true,
+                                                    withName: name,
+                                                    withPhotoURL: url)
+                        
+                        if ok1 == false {
                             let melding = NSLocalizedString("Unable to store data in CoreData.",
                                                             comment: "CreateAccountViewVontroller.swift CheckLogin verdi")
                             
@@ -321,35 +159,70 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate, UIImag
                                                                            comment: "CreateAccountViewVontroller.swift SaveAccount "),
                                               message: melding)
                             
+                        } else {
+                            
+                            // Store the name of the user in Firebase
+                            let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                            changeRequest?.photoURL = URL(string: url)
+                            
+                            changeRequest?.commitChanges { error in
+                                if error == nil {
+                                    self.dismiss(animated: false, completion: nil)
+                                } else {
+                                    let melding = error!.localizedDescription
+                                    self.presentAlert(withTitle: NSLocalizedString("Error", comment: "CreateAccountViewVontroller.swift SaveAccount"),
+                                                      message: melding)
+                                }
+                                self.activity.stopAnimating()
+                            }
+                            
+                            
                         }
-
-                    } else {
-                        self.presentAlert(withTitle: NSLocalizedString("Error", comment: "CreateAccountViewVontroller.swift SaveAccount"),
-                                          message: error!.localizedDescription as String)
-                    }
-                                        
-                    self.activity.stopAnimating()
+                        
+                    })
                     
-                }
-
-            } else {
-                if self.passwordCreateAccountTextField.text!.count < 6 {
-                    let melding1 = NSLocalizedString("Every field must have a value.", comment: "CreateAccountViewVontroller.swift SaveAccount ")
-                    let melding2 = NSLocalizedString("The password must contain minimum 6 characters", comment: "CreateAccountViewVontroller.swift SaveAccount ")
-                    let melding = melding1 + "\r\n" + melding2
                     
-                    self.presentAlert(withTitle: NSLocalizedString("Error", comment: "CreateAccountViewVontroller.swift SaveAccount"),
-                                 message: melding)
                 } else {
-                    let melding = NSLocalizedString("Every field must have a value", comment: "LoginViewVontroller.swift SaveAccount")
-                    self.presentAlert(withTitle: NSLocalizedString("Error", comment: "CreateAccountViewVontroller.swift SaveAccount"),
-                                 message: melding)
+                    
+                    // Show the photo of the user
+                    let findCellImage = URLSession.shared.dataTask(with: (Auth.auth().currentUser?.photoURL)!, completionHandler: { (data, response, error) in
+                        guard let imageData = data else {
+                            return
+                        }
+                        OperationQueue.main.addOperation {
+                            guard let image = UIImage(data: imageData) else {
+                                return
+                            }
+                            
+                            self.inputImage.image = image
+                            
+                        }
+                    })
+                    
+                    findCellImage.resume()
+                    
+                    // Enable showing the photo
+                    self.inputImage.isHidden = false
+                    
                 }
+
             }
             
-            
+        } else {
+            if self.passwordCreateAccountTextField.text!.count < 6 {
+                let melding1 = NSLocalizedString("Every field must have a value.", comment: "CreateAccountViewVontroller.swift SaveAccount ")
+                let melding2 = NSLocalizedString("The password must contain minimum 6 characters", comment: "CreateAccountViewVontroller.swift SaveAccount ")
+                let melding = melding1 + "\r\n" + melding2
+                
+                self.presentAlert(withTitle: NSLocalizedString("Error", comment: "CreateAccountViewVontroller.swift SaveAccount"),
+                             message: melding)
+            } else {
+                let melding = NSLocalizedString("Every field must have a value", comment: "CreateAccountViewController.swift SaveAccount")
+                self.presentAlert(withTitle: NSLocalizedString("Error", comment: "CreateAccountViewVontroller.swift SaveAccount"),
+                             message: melding)
+            }
         }
- 
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -361,11 +234,11 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate, UIImag
     
     @IBAction func selectPersonPhoto(_ sender: UIButton) {
         
-        let melding = NSLocalizedString("Choose your photo source", comment: "LoginViewVontroller.swift selectPersonPhoto")
+        let melding = NSLocalizedString("Choose your photo source", comment: "CreateAccountViewController.swift selectPersonPhoto")
         
         let photoSourceRequestController = UIAlertController(title: "", message: melding, preferredStyle: .actionSheet)
         
-        let title = NSLocalizedString("Camera", comment: "LoginViewVontroller.swift selectPersonPhoto")
+        let title = NSLocalizedString("Camera", comment: "CreateAccountViewController.swift selectPersonPhoto")
         
         let cameraAction = UIAlertAction(title: title, style: .default, handler: { (action) in
             if UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -377,7 +250,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate, UIImag
             }
         })
         
-        let title1 = NSLocalizedString("Photo library", comment: "LoginViewVontroller.swift selectPersonPhoto")
+        let title1 = NSLocalizedString("Photo library", comment: "CreateAccountViewController.swift selectPersonPhoto")
         
         let photoLibraryAction = UIAlertAction(title: title1, style: .default, handler: { (action) in
             if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
@@ -389,7 +262,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate, UIImag
             }
         })
         
-        let title2 = NSLocalizedString("Cancel", comment: "LoginViewVontroller.swift selectPersonPhoto")
+        let title2 = NSLocalizedString("Cancel", comment: "CreateAccountViewController.swift selectPersonPhoto")
         
         photoSourceRequestController.addAction(cameraAction)
         photoSourceRequestController.addAction(photoLibraryAction)
@@ -414,6 +287,178 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate, UIImag
         
         dismiss(animated: true, completion: nil)
     }
-
     
 }
+
+extension AuthErrorCode {
+    var description: String? {
+        switch self {
+        case .accountExistsWithDifferentCredential:
+            return NSLocalizedString("Account exists with different credential", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .appNotAuthorized:
+            return NSLocalizedString("App not authorized", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .appNotVerified:
+            return NSLocalizedString("App not verified", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .appVerificationUserInteractionFailure:
+            return NSLocalizedString("App verification user interaction failure", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .captchaCheckFailed:
+            return NSLocalizedString("Captcha check failed", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .credentialAlreadyInUse:
+            return NSLocalizedString("Credential already in use", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .customTokenMismatch:
+            return NSLocalizedString("Custom token mismatch", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .emailAlreadyInUse:
+            return NSLocalizedString("That email address is already in use", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .expiredActionCode:
+            return NSLocalizedString("Expired action code", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .internalError:
+            return NSLocalizedString("Internal error", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .invalidActionCode:
+            return NSLocalizedString("Invalid action code", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .invalidAPIKey:
+            return NSLocalizedString("Invalid API key", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .invalidAppCredential:
+            return NSLocalizedString("Invalid app credential", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .invalidClientID:
+            return NSLocalizedString("Invalid client ID", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .invalidContinueURI:
+            return NSLocalizedString("Invalid continue URI", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .invalidCredential:
+            return NSLocalizedString("Invalid credential", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .invalidCustomToken:
+            return NSLocalizedString("Invalid personalized token", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .invalidEmail:
+            return NSLocalizedString("E-mail not valid", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .invalidMessagePayload:
+            return NSLocalizedString("Invalid message payload", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .invalidPhoneNumber:
+            return NSLocalizedString("Invalid phone number", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .invalidRecipientEmail:
+            return NSLocalizedString("Invalid recipient email", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .invalidSender:
+            return NSLocalizedString("Invalid sender", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .invalidUserToken:
+            return NSLocalizedString("Invalid user token", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .invalidVerificationCode:
+            return NSLocalizedString("Invalid verification code", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .invalidVerificationID:
+            return NSLocalizedString("Invalid verification ID", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .keychainError:
+            return NSLocalizedString("Keychain error", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .malformedJWT:
+            return NSLocalizedString("Malformed JWT", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .missingAndroidPackageName:
+            return NSLocalizedString("Missing android package name", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .missingAppCredential:
+            return NSLocalizedString("Missing app credential", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .missingAppToken:
+            return NSLocalizedString("Missing app token", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .missingContinueURI:
+            return NSLocalizedString("Missing continue URI", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .missingEmail:
+            return NSLocalizedString("You need to register an email", comment: "CreateAccountViewController.swift AuthErrorCode")
+       case .missingIosBundleID:
+            return NSLocalizedString("Missing ios bundle ID", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .missingPhoneNumber:
+            return NSLocalizedString("Missing phone number", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .missingVerificationCode:
+            return NSLocalizedString("Missing verification code", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .missingVerificationID:
+            return NSLocalizedString("Missing verification ID", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .networkError:
+            return NSLocalizedString("Problem when trying to connect to the server", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .noSuchProvider:
+            return NSLocalizedString("No such provider", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .notificationNotForwarded:
+            return NSLocalizedString("Notification not forwarded", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .nullUser:
+            return NSLocalizedString("Null user", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .operationNotAllowed:
+            return NSLocalizedString("Operation not allowed", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .providerAlreadyLinked:
+            return NSLocalizedString("Provider already linked", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .quotaExceeded:
+            return NSLocalizedString("Quota exceeded", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .requiresRecentLogin:
+            return NSLocalizedString("Requires recent login", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .sessionExpired:
+            return NSLocalizedString("Session expired", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .tooManyRequests:
+            return NSLocalizedString("Many requests have already been sent to the server", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .unauthorizedDomain:
+            return NSLocalizedString("Unauthorized domain", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .userDisabled:
+            return NSLocalizedString("This user has been disabled", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .userMismatch:
+            return NSLocalizedString("User mismatch", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .userNotFound:
+            return NSLocalizedString("There is no user record corresponding to this identifier", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .userTokenExpired:
+            return NSLocalizedString("User token expired", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .weakPassword:
+            return NSLocalizedString("Very weak or invalid password", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .webContextAlreadyPresented:
+            return NSLocalizedString("Web context already presented", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .webContextCancelled:
+            return NSLocalizedString("Web context cancelled", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .webInternalError:
+            return NSLocalizedString("Web internal error", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .webNetworkRequestFailed:
+            return NSLocalizedString("Web network request failed", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .wrongPassword:
+            return NSLocalizedString("Incorrect password", comment: "CreateAccountViewController.swift AuthErrorCode")
+        default:
+            return nil
+        }
+    }
+}
+
+extension StorageErrorCode {
+    var description: String? {
+        switch self {
+        case .bucketNotFound:
+            return NSLocalizedString("Bo bucket is configured for Firebase Storage", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .cancelled:
+            return NSLocalizedString("Operation cancelled", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .downloadSizeExceeded:
+            return NSLocalizedString("Download size exceeds memory space", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .nonMatchingChecksum:
+            return NSLocalizedString("Non matching checksum", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .objectNotFound:
+            return NSLocalizedString("Object not found", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .projectNotFound:
+            return NSLocalizedString("Project not found", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .quotaExceeded:
+            return NSLocalizedString("The space to save files has been surpassed", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .retryLimitExceeded:
+            return NSLocalizedString("Excessive waiting time Please try again", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .unauthenticated:
+            return NSLocalizedString("Unauthenticated user", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .unknown:
+            return NSLocalizedString("Unknown error", comment: "CreateAccountViewController.swift AuthErrorCode")
+        case .unauthorized:
+            return NSLocalizedString("Unauthorized user to perform this operation", comment: "CreateAccountViewController.swift AuthErrorCode")
+        default:
+            return nil
+        }
+    } }
+
+public extension Error {
+    var localizedDescription: String {
+        let error = self as NSError
+        if error.domain == AuthErrorDomain {
+            if let code = AuthErrorCode(rawValue: error.code) {
+                if let errorString = code.description {
+                    return errorString
+                }
+            }
+        }else if error.domain == StorageErrorDomain {
+            if let code = StorageErrorCode(rawValue: error.code) {
+                if let errorString = code.description {
+                    return errorString
+                }
+            }
+        }
+        return error.localizedDescription
+    } }
+

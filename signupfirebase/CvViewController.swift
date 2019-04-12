@@ -165,6 +165,7 @@ class CvViewController: UIViewController {
         
         7. Nye oppgaver (ikke fullført)
         
+        . Legg inn error codes for Firebase / Firestore
         . Varsling på fødselsdager (som message eller varsel?)
         . Se igjennom opsjonene for Kart i PersonViewController.
         . Se igjennom opsjonene for sending av meldinger.

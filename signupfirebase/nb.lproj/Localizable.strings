@@ -4,10 +4,12 @@
 /* ResetPWByMailViewController.swift viewDidLoad */
 "After you have asked Firebase to reset your password, you will receive an eMail with istruction." = "Etter at du har bedt Firebase om å resette passordet ditt, vil du motta en e-post med instruksjoner.";
 
-/* LoginViewVontroller.swift selectPersonPhoto */
+/* CreateAccountViewController.swift selectPersonPhoto
+   LoginViewVontroller.swift selectPersonPhoto */
 "Camera" = "Kamera";
 
-/* LoginViewVontroller.swift selectPersonPhoto */
+/* CreateAccountViewController.swift selectPersonPhoto
+   LoginViewVontroller.swift selectPersonPhoto */
 "Cancel" = "Avbryt";
 
 /* EpostViewController.swift mailComposeController */
@@ -16,7 +18,8 @@
 /* SavePostalCodesFirebaseTableViewController.swift StorePostalCodes */
 "Cannot store the Postal Codes in Firebase." = "Kan ikke lagre post nummer i Firebase.";
 
-/* LoginViewVontroller.swift selectPersonPhoto */
+/* CreateAccountViewController.swift selectPersonPhoto
+   LoginViewVontroller.swift selectPersonPhoto */
 "Choose your photo source" = "Velg kilden for foto ";
 
 /* SavePostalCodesFirebaseTableViewController.swift documentPicker */
@@ -24,6 +27,12 @@
 
 /* MainPersonDataViewController trailingSwipeActionsConfigurationForRowAt */
 "Delete" = "Slett";
+
+/* CreateAccountViewController.swift AuthErrorCode */
+"Download size exceeds memory space" = "Nedlastingsstørrelsen overstiger tilgjengelig minneplass";
+
+/* CreateAccountViewController.swift AuthErrorCode */
+"E-mail not valid" = "e-posten er ikke gyldig";
 
 /* LoginViewVontroller.swift CheckLogin verdi */
 "eMail must have a value." = "e-postadressen må fylles ut.";
@@ -51,8 +60,9 @@
    ListTableViewController viewDidLoad
    ListTableViewController viewWillAppear
    ListTableViewController.swift SaveNewPassword 
+   LogInViewController.swift SaveAccount
+   LogInViewController.swift SaveAccount 
    LoginViewVontroller.swift CheckLogin 'error'
-   LoginViewVontroller.swift CheckLogin error
    ResetPWByMailViewController.swift resetByMail 
    ResetPWByMailViewController.swift viewDidLoad 
    SavePostalCodesFirebaseTableViewController.swift  documentPicker
@@ -60,19 +70,17 @@
    UpdateUserNameViewVontroller.swift SaveNewName */
 "Error" = "Feil";
 
-/* LoginViewVontroller.swift CheckLogin
-   LoginViewVontroller.swift CheckLogin error
-   LoginViewVontroller.swift CheckLogin updatepassword */
-"Error." = "Feil.";
-
 /* DataBaseExtension.swift savePostalCodesFiredata */
 "Every field must be filled in." = "Alle feltene må fylles ut.";
 
-/* LoginViewVontroller.swift SaveAccount */
+/* CreateAccountViewController.swift SaveAccount */
 "Every field must have a value" = "Alle feltene må ha en verdi";
 
 /* CreateAccountViewVontroller.swift SaveAccount */
 "Every field must have a value." = "Alle feltene må ha en verdi.";
+
+/* CreateAccountViewController.swift AuthErrorCode */
+"Excessive waiting time Please try again" = "Overdreven ventetid, vennligst prøv igjen";
 
 /* EpostViewController.swift mailComposeController */
 "Failed to send" = "Mislykket sending";
@@ -83,18 +91,34 @@
 /* SavePostalCodesFirebaseTableViewController.swift StorePostalCodes */
 "In order to save the Postal Codes, the 'Store Postal Codes in Firebase' button must be enabled." = "For å lagre postnummer, må bryteren 'Lagre postnummer i Firebase' aktiveres.";
 
-/* DataBaseExtension.swift formatPhone */
+/* CreateAccountViewController.swift AuthErrorCode */
+"Incorrect password" = "Feil passord";
+
+/* CreateAccountViewController.swift AuthErrorCode */
+"Internal error" = "Intern feil";
+
+/* CreateAccountViewController.swift AuthErrorCode */
+"Invalid personalized token" = "Ugyldig personlig token";
+
+/* CreateAccountViewController.swift AuthErrorCode
+   DataBaseExtension.swift formatPhone */
 "Invalid phone number" = "Feil format telefonnr";
 
 /* PersonViewVontroller.swift velgeKjonn 
    PersonViewVontroller.swift viewDidAppear */
 "Man" = "Mann";
 
+/* CreateAccountViewController.swift AuthErrorCode */
+"Many requests have already been sent to the server" = "Mange forespørsler er allerede sendt til serveren";
+
 /* MainPersonDataViewController.swift prepare */
 "New Person" = "Ny Person";
 
 /* OK */
 "OK" = "OK";
+
+/* CreateAccountViewController.swift AuthErrorCode */
+"Operation cancelled" = "Drift avbrutt";
 
 /* SettingsTableViewController.swift SectionHeading */
 "Other" = "Annet";
@@ -105,7 +129,8 @@
 /* ResetPWByMailViewController.swift resetByMail */
 "Password change request has been sent" = "Endringsforespørsel på passordet er sendt på e-post";
 
-/* LoginViewVontroller.swift selectPersonPhoto */
+/* CreateAccountViewController.swift selectPersonPhoto
+   LoginViewVontroller.swift selectPersonPhoto */
 "Photo library" = "Foto biblioteket";
 
 /* DataBaseExtension.swift showUserInfo. */
@@ -117,6 +142,9 @@
 /* ResetPWByMailViewController.swift viewDidLoad */
 "Please note that the included link is time limited!" = "Legg merke til at linken i e-posten er tidsbegrenset!";
 
+/* CreateAccountViewController.swift AuthErrorCode */
+"Problem when trying to connect to the server" = "Problem når du prøver å koble til serveren";
+
 /* SavePostalCodesFirebaseTableViewController.swift documentPicker */
 "Save in Firebase" = "Lagre i Firebase";
 
@@ -126,6 +154,9 @@
 /* EpostViewController.swift definition */
 "Subject of the email" = "Emnet for e-post";
 
+/* CreateAccountViewController.swift AuthErrorCode */
+"That email address is already in use" = "E-post adressen er allerede i bruk";
+
 /* CreateAccountViewVontroller.swift SaveAccount 
    LoginViewVontroller.swift CheckLogin verdi
    UpdatePasswordViewVontroller.swift SaveNewPassword */
@@ -134,8 +165,17 @@
 /* DataBaseExtension.swift formatPhone */
 "The phonenumber must include 8 digits.\nThe country code prefix will automaticall be added.\n\nFormat: +47 123 45 678" = "Telefonnummeret må ha 8 siffer.\nLandskoden vil automatisk bli lagt til.\n\nFormat: +47 123 45 678";
 
+/* CreateAccountViewController.swift AuthErrorCode */
+"The space to save files has been surpassed" = "Plassen for å lagre filer har blitt overgått";
+
 /* UpdateUserNameViewVontroller.swift SaveNewName */
 "The username must have a value." = "Navnet til brukeren kan ikke være tomt.";
+
+/* CreateAccountViewController.swift AuthErrorCode */
+"There is no user record corresponding to this identifier" = "Det finnes ikke en bruker med denne e-posten og/eller dette passordet";
+
+/* CreateAccountViewController.swift AuthErrorCode */
+"This user has been disabled" = "Denne brukeren er deaktivert";
 
 /* LoginViewVontroller.swift presentAlertCreateAccount */
 "Try one more time" = "Prøv en gang til.";
@@ -146,23 +186,21 @@
 /* ResetPWByMailViewController.swift viewDidLoad */
 "Unable to recall the eMail from Firebase." = "Kan ikke hente e-post fra Firebase.";
 
-/* CreateAccountViewVontroller.swift CheckLogin verdi */
+/* CreateAccountViewVontroller.swift CheckLogin verdi
+   LogInViewController.swift CheckLogin verdi */
 "Unable to store data in CoreData." = "Kan ikke lagre data i CoreData.";
-
-/* LoginViewVontroller.swift CheckLogin */
-"Unable to store data in FireBase." = "Kan ikke lagre data i FireBase.";
-
-/* LoginViewVontroller.swift CheckLogin 'loggedin' */
-"Unable to update 'loggedin' in FireBase." = "Kan ikke oppdatere 'loggedin' i FireBase.";
-
-/* LoginViewVontroller.swift CheckLogin 'update' */
-"Unable to update CoreData." = "Kan ikke oppdatere CoreData.";
 
 /* UpdatePasswordViewVontroller.swift SaveNewPassword */
 "Unable to update the password for the user in CoreData." = "Kan ikke oppdatere passordet til brukeren i CoreData.";
 
-/* LoginViewVontroller.swift CheckLogin */
-"Unable to update the password in FireBase." = "Kan ikke oppdatere passordet i FireBase.";
+/* CreateAccountViewController.swift AuthErrorCode */
+"Unauthenticated user" = "Brukeren er ikke autensiert";
+
+/* CreateAccountViewController.swift AuthErrorCode */
+"Unauthorized user to perform this operation" = "Brukeren er ikke autensiert til å utføre denne operasjonen";
+
+/* CreateAccountViewController.swift AuthErrorCode */
+"Unknown error" = "Ukjent feil";
 
 /* MainPersonDataViewController leadingSwipeActionsConfigurationForRowAt */
 "Update" = "Oppdater";
@@ -173,10 +211,16 @@
 /* SettingsTableViewController.swift SectionHeading */
 "Users" = "Brukere";
 
+/* CreateAccountViewController.swift AuthErrorCode */
+"Very weak or invalid password" = "Veldig svakt eller ugyldig passord";
+
 /* PersonViewVontroller.swift velgeKjonn 
    PersonViewVontroller.swift viewDidAppear */
 "Woman" = "Kvinne";
 
 /* EpostViewController.swift definition */
 "Write the content of the email" = "Skriv innholdet i e-posten";
+
+/* CreateAccountViewController.swift AuthErrorCode */
+"You need to register an email" = "Du må registrere en e-post";
 
