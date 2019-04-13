@@ -161,17 +161,16 @@ class CvViewController: UIViewController {
            O) Kan nå sende e-post fra MainPersonDataViewController
            P) Lagt inn "Send epost" i "Innstillinger"
            Q) Oppdatert innloggingsbildet slik at det er OK både med og uten brukere i Coredata.
-        
+           R) Lagt inn feilkoder for Firebase / Firestore
+           S) Coredata oppdateres nå ved når en ny bruker logger inn.
+           T) Nå trenger en ikke å logge inn etter å ha endret bildet til en bruker.
         
         7. Nye oppgaver (ikke fullført)
         
-        . Legg inn error codes for Firebase / Firestore
-        . Varsling på fødselsdager (som message eller varsel?)
+        . Varsling på fødselsdager.
         . Se igjennom opsjonene for Kart i PersonViewController.
         . Se igjennom opsjonene for sending av meldinger.
-        . Vise default bilde og ikke et som er valgt tidligere når det ikke er en tilsvarende photoURL i Firebase Storage (usikker om dette er tilfellet lenger?).
         . Oppdatere security i Firebase (er security der det samme for Firestore?)
-        
         
         8. Programmerings tips
         
@@ -201,6 +200,7 @@ class CvViewController: UIViewController {
         9. Feil som må rettes
         
            a) Det kan legges inn flere like poster når en legger inn en ny person
+           b) Vise default bilde og ikke et som er valgt tidligere når det ikke er en tilsvarende photoURL i Firebase Storage (usikker om dette er tilfellet lenger?).
         
         10. Concurrency
         

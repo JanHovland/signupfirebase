@@ -26,16 +26,13 @@
 "Choose your photo source" = "Velg kilden for foto ";
 
 /* CreateAccountViewController.swift SaveAccount */
-"Create account." = "Opprett ny konto.";
+"Create account." = "Opprett ny konto";
 
 /* SavePostalCodesFirebaseTableViewController.swift documentPicker */
 "Data are now saved in Firebase." = "Data er nå lagret i Firebase.";
 
 /* MainPersonDataViewController trailingSwipeActionsConfigurationForRowAt */
 "Delete" = "Slett";
-
-/* CreateAccountViewController.swift AuthErrorCode */
-"E-mail not valid" = "e-posten er ikke gyldig";
 
 /* LoginViewVontroller.swift CheckLogin verdi */
 "eMail must have a value." = "e-postadressen må fylles ut.";
@@ -95,24 +92,20 @@
 "In order to save the Postal Codes, the 'Store Postal Codes in Firebase' button must be enabled." = "For å lagre postnummer, må bryteren 'Lagre postnummer i Firebase' aktiveres.";
 
 /* CreateAccountViewController.swift AuthErrorCode */
-"Incorrect password" = "Feil passord";
+"Indicates the user account was not found." = "Indikerer at brukerkontoen ikke ble funnet.";
 
 /* CreateAccountViewController.swift AuthErrorCode */
 "Internal error" = "Intern feil";
 
-/* CreateAccountViewController.swift AuthErrorCode */
-"Invalid personalized token" = "Ugyldig personlig token";
-
-/* CreateAccountViewController.swift AuthErrorCode
-   DataBaseExtension.swift formatPhone */
+/* DataBaseExtension.swift formatPhone */
 "Invalid phone number" = "Feil format telefonnr";
+
+/* LoginViewVontroller.swift CheckLogin 'error' */
+"Login Firebase" = "Innlogging Firebase";
 
 /* PersonViewVontroller.swift velgeKjonn 
    PersonViewVontroller.swift viewDidAppear */
 "Man" = "Mann";
-
-/* CreateAccountViewController.swift AuthErrorCode */
-"Many requests have already been sent to the server" = "Mange forespørsler er allerede sendt til serveren";
 
 /* MainPersonDataViewController.swift prepare */
 "New Person" = "Ny Person";
@@ -152,9 +145,6 @@
 "Please note that the included link is time limited!" = "Legg merke til at linken i e-posten er tidsbegrenset!";
 
 /* CreateAccountViewController.swift AuthErrorCode */
-"Problem when trying to connect to the server" = "Problem når du prøver å koble til serveren";
-
-/* CreateAccountViewController.swift AuthErrorCode */
 "Quota on your Firebase Storage bucket has been exceeded. If you're on the free tier, upgrade to a paid plan. If you're on a paid plan, reach out to Firebase support." = "Quota på din Firebase Storage bucket har blitt overskredet. Hvis du er på ledig nivå, oppgrader til en betalt plan. Hvis du er på en betalt plan, nå ut til Firebase-støtte.";
 
 /* SavePostalCodesFirebaseTableViewController.swift documentPicker */
@@ -185,12 +175,6 @@
 
 /* UpdateUserNameViewVontroller.swift SaveNewName */
 "The username must have a value." = "Navnet til brukeren kan ikke være tomt.";
-
-/* CreateAccountViewController.swift AuthErrorCode */
-"There is no user record corresponding to this identifier" = "Det finnes ikke en bruker med denne e-posten og/eller dette passordet";
-
-/* CreateAccountViewController.swift AuthErrorCode */
-"This user has been disabled" = "Denne brukeren er deaktivert";
 
 /* LoginViewVontroller.swift presentAlertCreateAccount */
 "Try one more time" = "Prøv en gang til.";
@@ -226,16 +210,10 @@
 /* SettingsTableViewController.swift SectionHeading */
 "Users" = "Brukere";
 
-/* CreateAccountViewController.swift AuthErrorCode */
-"Very weak or invalid password" = "Veldig svakt eller ugyldig passord";
-
 /* PersonViewVontroller.swift velgeKjonn 
    PersonViewVontroller.swift viewDidAppear */
 "Woman" = "Kvinne";
 
 /* EpostViewController.swift definition */
 "Write the content of the email" = "Skriv innholdet i e-posten";
-
-/* CreateAccountViewController.swift AuthErrorCode */
-"You need to register an email" = "Du må registrere en e-post";
 

@@ -32,6 +32,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     var status: Bool = true
     var activeField: UITextField!
     
+    var updatePhoto: Bool = false
+    
     // Called after the view has been loaded. For view controllers created in code, this is after -loadView. For view controllers unarchived from a nib, this is after the view is set.
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,21 +85,26 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     // // Called when the view is about to made visible. Default does nothing
     override func viewWillAppear(_ animated: Bool) {
         
-        // Hide the photo
-        inputImage.isHidden = true
+        if updatePhoto == true {
+           updatePhoto = false
+        } else {
         
-        // Show info to log in
-        loginStatus.text = self.showUserInfo(startUp: true)
+            // Hide the photo
+            inputImage.isHidden = true
+            
+            // Show info to log in
+            loginStatus.text = self.showUserInfo(startUp: true)
 
-        // Hide the photoButton
-        photoButton.isHidden = true
-        
-        // Hide the tabBar
-        tabBarController?.tabBar.isHidden = true
-        
-        // Hide the BackButton when returning from change/reset password
-        self.navigationItem.setHidesBackButton(true, animated: false)
-        
+            // Hide the photoButton
+            photoButton.isHidden = true
+            
+            // Hide the tabBar
+            tabBarController?.tabBar.isHidden = true
+            
+            // Hide the BackButton when returning from change/reset password
+            self.navigationItem.setHidesBackButton(true, animated: false)
+        }
+            
         // Observe keyboard change
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeLogin(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeLogin(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -269,10 +276,30 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
 
                     // Blank the login message
                     self.loginStatus.text = ""
+                
+                    // Delete CoreData
+                    let _ = self.deleteAllCoreData()
                     
+                    // Update Coredata with the new user
+                    let ok = self.saveCoreData(withEpost: self.eMailLoginTextField.text!,
+                                               withPassord: self.passwordTextField.text!,
+                                               withUid: Auth.auth().currentUser!.uid ,
+                                               withLoggedIn: true,
+                                               withName: Auth.auth().currentUser!.uid ,
+                                               withPhotoURL: String(describing: Auth.auth().currentUser!.photoURL!))
+                    
+                    if ok == false {
+                        let melding = NSLocalizedString("Unable to store data in CoreData.",
+                                                        comment: "LogInViewController.swift CheckLogin verdi")
+                        
+                        self.presentAlert(withTitle: NSLocalizedString("Error",
+                                                                       comment: "LogInViewController.swift SaveAccount "),
+                                          message: melding)
+                    }
+                        
                 } else {
                     
-                    let withTitle =   NSLocalizedString("Error", comment: "LoginViewVontroller.swift CheckLogin 'error'")
+                    let withTitle =   NSLocalizedString("Login Firebase", comment: "LoginViewVontroller.swift CheckLogin 'error'")
                     let firstTitle =  NSLocalizedString("Add a new user", comment: "LoginViewVontroller.swift presentAlertCreateAccount")
                     let secondTitle = NSLocalizedString("Try one more time", comment: "LoginViewVontroller.swift presentAlertCreateAccount")
 
@@ -376,6 +403,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
+        updatePhoto = false
+        
         // Find the person's new photo
         if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             
@@ -428,6 +457,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
                 }
                             
             })
+        
+            updatePhoto = true
             
         }
         
