@@ -164,9 +164,11 @@ class CvViewController: UIViewController {
            R) Lagt inn feilkoder for Firebase / Firestore
            S) Coredata oppdateres nå ved når en ny bruker logger inn.
            T) Nå trenger en ikke å logge inn etter å ha endret bildet til en bruker.
+           U) Endret "List all users in Coredata til "Coredata for the current user"
         
         7. Nye oppgaver (ikke fullført)
         
+        . Vise photoURL i "Oversikt over brukerne i Coredata"
         . Varsling på fødselsdager.
         . Se igjennom opsjonene for Kart i PersonViewController.
         . Se igjennom opsjonene for sending av meldinger.
