@@ -128,8 +128,13 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate, UIImag
             Auth.auth().createUser(withEmail: self.eMailCreateAccountTextField.text!,
                                    password: self.passwordCreateAccountTextField.text!) { _, error in
 
-                if error == nil {
-
+                if error != nil {
+                    self.activity.stopAnimating()
+                    let title = NSLocalizedString("Create account.", comment: "CreateAccountViewController.swift SaveAccount")
+                    self.presentAlert(withTitle: title,
+                                      message: error!.localizedDescription as String)
+                } else {
+                    
                     self.inputImage.image = UIImage(named: "new-person.png")
                     
                     self.inputImage.contentMode = .scaleAspectFill
@@ -181,8 +186,6 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate, UIImag
                         
                     })
                     
-                    
-                } else {
                     
                     // Show the photo of the user
                     let findCellImage = URLSession.shared.dataTask(with: (Auth.auth().currentUser?.photoURL)!, completionHandler: { (data, response, error) in
@@ -308,7 +311,7 @@ extension AuthErrorCode {
         case .customTokenMismatch:
             return NSLocalizedString("Custom token mismatch", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .emailAlreadyInUse:
-            return NSLocalizedString("That email address is already in use", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("The email address is already in use by another account.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .expiredActionCode:
             return NSLocalizedString("Expired action code", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .internalError:
@@ -446,13 +449,13 @@ extension StorageErrorCode {
 public extension Error {
     var localizedDescription: String {
         let error = self as NSError
-        if error.domain == AuthErrorDomain {
+        if error.domain == (AuthErrorDomain) {
             if let code = AuthErrorCode(rawValue: error.code) {
                 if let errorString = code.description {
                     return errorString
                 }
             }
-        }else if error.domain == StorageErrorDomain {
+        } else if error.domain == StorageErrorDomain {
             if let code = StorageErrorCode(rawValue: error.code) {
                 if let errorString = code.description {
                     return errorString
