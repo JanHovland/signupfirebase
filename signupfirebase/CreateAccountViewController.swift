@@ -36,8 +36,6 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate, UIImag
         }
     }
     
-    var savePhoto: Bool = false
-
     // Called after the view has been loaded. For view controllers created in code, this is after -loadView. For view controllers unarchived from a nib, this is after the view is set.
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -284,8 +282,6 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate, UIImag
             inputImage.contentMode = .scaleAspectFill
             inputImage.clipsToBounds = true
             
-            savePhoto = true
-            
         }
         
         dismiss(animated: true, completion: nil)
@@ -297,119 +293,119 @@ extension AuthErrorCode {
     var description: String? {
         switch self {
         case .accountExistsWithDifferentCredential:
-            return NSLocalizedString("Account exists with different credential", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates account linking is required.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .appNotAuthorized:
-            return NSLocalizedString("App not authorized", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates the App is not authorized to use Firebase Authentication with the provided API Key.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .appNotVerified:
-            return NSLocalizedString("App not verified", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates that the app could not be verified by Firebase during phone number authentication.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .appVerificationUserInteractionFailure:
-            return NSLocalizedString("App verification user interaction failure", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates a general failure during the app verification flow.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .captchaCheckFailed:
-            return NSLocalizedString("Captcha check failed", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates that the reCAPTCHA token is not valid.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .credentialAlreadyInUse:
-            return NSLocalizedString("Credential already in use", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates an attempt to link with a credential that has already been linked with a different Firebase account", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .customTokenMismatch:
-            return NSLocalizedString("Custom token mismatch", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates the service account and the API key belong to different projects.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .emailAlreadyInUse:
             return NSLocalizedString("The email address is already in use by another account.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .expiredActionCode:
-            return NSLocalizedString("Expired action code", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates the OOB code is expired", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .internalError:
             return NSLocalizedString("Internal error", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .invalidActionCode:
-            return NSLocalizedString("Invalid action code", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates the OOB code is invalid.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .invalidAPIKey:
-            return NSLocalizedString("Invalid API key", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates an invalid API key was supplied in the request.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .invalidAppCredential:
-            return NSLocalizedString("Invalid app credential", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates that an invalid APNS device token was used in the verifyClient request.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .invalidClientID:
-            return NSLocalizedString("Invalid client ID", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates that the clientID used to invoke a web flow is invalid.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .invalidContinueURI:
-            return NSLocalizedString("Invalid continue URI", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates that the domain specified in the continue URI is not valid.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .invalidCredential:
-            return NSLocalizedString("Invalid credential", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates the IDP token or requestUri is invalid.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .invalidCustomToken:
-            return NSLocalizedString("Invalid personalized token", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates a validation error with the custom token.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .invalidEmail:
-            return NSLocalizedString("E-mail not valid", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates the email is invalid.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .invalidMessagePayload:
-            return NSLocalizedString("Invalid message payload", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates that there are invalid parameters in the payload during a 'send password reset email' attempt.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .invalidPhoneNumber:
-            return NSLocalizedString("Invalid phone number", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates that an invalid phone number was provided in a call to `verifyPhoneNumber:completion:`.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .invalidRecipientEmail:
-            return NSLocalizedString("Invalid recipient email", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates that the recipient email is invalid.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .invalidSender:
-            return NSLocalizedString("Invalid sender", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates that the sender email is invalid during a 'send password reset email' attempt.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .invalidUserToken:
-            return NSLocalizedString("Invalid user token", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates user's saved auth credential is invalid, the user needs to sign in again.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .invalidVerificationCode:
-            return NSLocalizedString("Invalid verification code", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("ndicates that an invalid verification code was used in the verifyPhoneNumber request.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .invalidVerificationID:
-            return NSLocalizedString("Invalid verification ID", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates that an invalid verification ID was used in the verifyPhoneNumber request.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .keychainError:
-            return NSLocalizedString("Keychain error", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates an error occurred while attempting to access the keychain.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .malformedJWT:
-            return NSLocalizedString("Malformed JWT", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString(" Raised when a JWT fails to parse correctly. May be accompanied by an underlying error describing which step of the JWT parsing process failed.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .missingAndroidPackageName:
-            return NSLocalizedString("Missing android package name", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates that the android package name is missing when the `androidInstallApp` flag is set to true.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .missingAppCredential:
-            return NSLocalizedString("Missing app credential", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates that the APNS device token is missing in the verifyClient request.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .missingAppToken:
-            return NSLocalizedString("Missing app token", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates that the APNs device token could not be obtained. The app may not have set up remote notification correctly, or may fail to forward the APNs device FIRAuth                if app delegate swizzling is disabled.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .missingContinueURI:
-            return NSLocalizedString("Missing continue URI", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates that a continue URI was not provided in a request to the backend which requires one.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .missingEmail:
-            return NSLocalizedString("You need to register an email", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates that an email address was expected but one was not provided.", comment: "CreateAccountViewController.swift AuthErrorCode")
        case .missingIosBundleID:
-            return NSLocalizedString("Missing ios bundle ID", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates that the iOS bundle ID is missing when a iOS App Store ID is provided.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .missingPhoneNumber:
-            return NSLocalizedString("Missing phone number", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates that a phone number was not provided in a call to `verifyPhoneNumber:completion:`.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .missingVerificationCode:
-            return NSLocalizedString("Missing verification code", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates that the phone auth credential was created with an empty verification code.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .missingVerificationID:
-            return NSLocalizedString("Missing verification ID", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates that the phone auth credential was created with an empty verification ID.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .networkError:
-            return NSLocalizedString("Problem when trying to connect to the server", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates a network error occurred (such as a timeout, interrupted connection, or unreachable host). These types of errors are often recoverable with a retry. The                `NSUnderlyingError` field in the `NSError.userInfo` dictionary will contain the error encountered.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .noSuchProvider:
-            return NSLocalizedString("No such provider", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates an attempt to unlink a provider that is not linked.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .notificationNotForwarded:
-            return NSLocalizedString("Notification not forwarded", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("ndicates that the app fails to forward remote notification to FIRAuth.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .nullUser:
-            return NSLocalizedString("Null user", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates that a non-null user was expected as an argmument to the operation but a null user was provided.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .operationNotAllowed:
-            return NSLocalizedString("Operation not allowed", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates the administrator disabled sign in with the specified identity provider.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .providerAlreadyLinked:
-            return NSLocalizedString("Provider already linked", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates an attempt to link a provider to which the account is already linked.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .quotaExceeded:
-            return NSLocalizedString("Quota exceeded", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates that the APNs device token could not be obtained. The app may not have set up remote notification correctly, or may fail to forward the APNs device token to FIRAuth if app delegate swizzling is disabled.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .requiresRecentLogin:
-            return NSLocalizedString("Requires recent login", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates the user has attemped to change email or password more than 5 minutes after signing in.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .sessionExpired:
-            return NSLocalizedString("Session expired", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates that the SMS code has expired.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .tooManyRequests:
-            return NSLocalizedString("Many requests have already been sent to the server", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates that too many requests were made to a server method.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .unauthorizedDomain:
-            return NSLocalizedString("Unauthorized domain", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates that the phone auth credential was created with an empty verification code.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .userDisabled:
-            return NSLocalizedString("This user has been disabled", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates the user's account is disabled on the server.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .userMismatch:
-            return NSLocalizedString("User mismatch", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates that an attempt was made to reauthenticate with a user which is not the current user.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .userNotFound:
-            return NSLocalizedString("There is no user record corresponding to this identifier", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates the user account was not found.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .userTokenExpired:
-            return NSLocalizedString("User token expired", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates the saved token has expired, for example, the user may have changed account password on another device. The user needs to sign in again on the device that made this request.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .weakPassword:
-            return NSLocalizedString("Very weak or invalid password", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates an attempt to set a password that is considered too weak.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .webContextAlreadyPresented:
-            return NSLocalizedString("Web context already presented", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates that an attempt was made to present a new web context while one was already being presented.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .webContextCancelled:
-            return NSLocalizedString("Web context cancelled", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates that the URL presentation was cancelled prematurely by the user.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .webInternalError:
-            return NSLocalizedString("Web internal error", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates that an internal error occurred within a SFSafariViewController or UIWebview.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .webNetworkRequestFailed:
-            return NSLocalizedString("Web network request failed", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates that a network request within a SFSafariViewController or UIWebview failed.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .wrongPassword:
-            return NSLocalizedString("Incorrect password", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates the user attempted sign in with a wrong password.", comment: "CreateAccountViewController.swift AuthErrorCode")
         default:
             return nil
         }
