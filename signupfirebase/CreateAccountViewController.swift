@@ -420,27 +420,27 @@ extension StorageErrorCode {
     var description: String? {
         switch self {
         case .bucketNotFound:
-            return NSLocalizedString("Bo bucket is configured for Firebase Storage", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("No bucket is configured for Firebase Storage.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .cancelled:
-            return NSLocalizedString("Operation cancelled", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("User cancelled the operation.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .downloadSizeExceeded:
-            return NSLocalizedString("Download size exceeds memory space", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Size of the downloaded file exceeds the amount of memory allocated for the download. Increase memory cap and try downloading again.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .nonMatchingChecksum:
-            return NSLocalizedString("Non matching checksum", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("File on the client does not match the checksum of the file received by the server. Try uploading again.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .objectNotFound:
-            return NSLocalizedString("Object not found", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("No object exists at the desired reference. ", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .projectNotFound:
-            return NSLocalizedString("Project not found", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("No project is configured for Firebase Storage.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .quotaExceeded:
-            return NSLocalizedString("The space to save files has been surpassed", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Quota on your Firebase Storage bucket has been exceeded. If you're on the free tier, upgrade to a paid plan. If you're on a paid plan, reach out to Firebase support.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .retryLimitExceeded:
-            return NSLocalizedString("Excessive waiting time Please try again", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("The maximum time limit on an operation (upload, download, delete, etc.) has been exceeded.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .unauthenticated:
-            return NSLocalizedString("Unauthenticated user", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("User is unauthenticated. Authenticate and try again.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .unknown:
-            return NSLocalizedString("Unknown error", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("An unknown error occurred.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .unauthorized:
-            return NSLocalizedString("Unauthorized user to perform this operation", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("User is not authorized to perform the desired action.", comment: "CreateAccountViewController.swift AuthErrorCode")
         default:
             return nil
         }

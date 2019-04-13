@@ -4,6 +4,9 @@
 /* ResetPWByMailViewController.swift viewDidLoad */
 "After you have asked Firebase to reset your password, you will receive an eMail with istruction." = "Etter at du har bedt Firebase om å resette passordet ditt, vil du motta en e-post med instruksjoner.";
 
+/* CreateAccountViewController.swift AuthErrorCode */
+"An unknown error occurred." = "En ukjent feil oppstod.";
+
 /* CreateAccountViewController.swift selectPersonPhoto
    LoginViewVontroller.swift selectPersonPhoto */
 "Camera" = "Kamera";
@@ -30,9 +33,6 @@
 
 /* MainPersonDataViewController trailingSwipeActionsConfigurationForRowAt */
 "Delete" = "Slett";
-
-/* CreateAccountViewController.swift AuthErrorCode */
-"Download size exceeds memory space" = "Nedlastingsstørrelsen overstiger tilgjengelig minneplass";
 
 /* CreateAccountViewController.swift AuthErrorCode */
 "E-mail not valid" = "e-posten er ikke gyldig";
@@ -82,14 +82,14 @@
 /* CreateAccountViewVontroller.swift SaveAccount */
 "Every field must have a value." = "Alle feltene må ha en verdi.";
 
-/* CreateAccountViewController.swift AuthErrorCode */
-"Excessive waiting time Please try again" = "Overdreven ventetid, vennligst prøv igjen";
-
 /* EpostViewController.swift mailComposeController */
 "Failed to send" = "Mislykket sending";
 
 /* EpostViewController.swift mailComposeController */
 "Fatal error" = "Fatal feil";
+
+/* CreateAccountViewController.swift AuthErrorCode */
+"File on the client does not match the checksum of the file received by the server. Try uploading again." = "Filen på klienten samsvarer ikke med sjekksummen for filen mottatt av serveren. Prøv å laste opp igjen ";
 
 /* SavePostalCodesFirebaseTableViewController.swift StorePostalCodes */
 "In order to save the Postal Codes, the 'Store Postal Codes in Firebase' button must be enabled." = "For å lagre postnummer, må bryteren 'Lagre postnummer i Firebase' aktiveres.";
@@ -117,11 +117,17 @@
 /* MainPersonDataViewController.swift prepare */
 "New Person" = "Ny Person";
 
-/* OK */
-"OK" = "OK";
+/* CreateAccountViewController.swift AuthErrorCode */
+"No bucket is configured for Firebase Storage." = "Ingen bucket er konfigurert for Firebase Storage.";
 
 /* CreateAccountViewController.swift AuthErrorCode */
-"Operation cancelled" = "Drift avbrutt";
+"No object exists at the desired reference. " = "Intet object eksisterer ved ønsket referanse. ";
+
+/* CreateAccountViewController.swift AuthErrorCode */
+"No project is configured for Firebase Storage." = "Intet prosjekt er konfigurert for Firebase Storage.";
+
+/* OK */
+"OK" = "OK";
 
 /* SettingsTableViewController.swift SectionHeading */
 "Other" = "Annet";
@@ -148,17 +154,26 @@
 /* CreateAccountViewController.swift AuthErrorCode */
 "Problem when trying to connect to the server" = "Problem når du prøver å koble til serveren";
 
+/* CreateAccountViewController.swift AuthErrorCode */
+"Quota on your Firebase Storage bucket has been exceeded. If you're on the free tier, upgrade to a paid plan. If you're on a paid plan, reach out to Firebase support." = "Quota på din Firebase Storage bucket har blitt overskredet. Hvis du er på ledig nivå, oppgrader til en betalt plan. Hvis du er på en betalt plan, nå ut til Firebase-støtte.";
+
 /* SavePostalCodesFirebaseTableViewController.swift documentPicker */
 "Save in Firebase" = "Lagre i Firebase";
 
 /* EpostViewController.swift mailComposeController */
 "Saved" = "Lagret";
 
+/* CreateAccountViewController.swift AuthErrorCode */
+"Size of the downloaded file exceeds the amount of memory allocated for the download. Increase memory cap and try downloading again." = "Størrelsen på den nedlastede filen overskrider mengden minne som er tildelt for nedlastingen. Øk memory cap og prøv å laste ned igjen.";
+
 /* EpostViewController.swift definition */
 "Subject of the email" = "Emnet for e-post";
 
 /* CreateAccountViewController.swift AuthErrorCode */
 "The email address is already in use by another account." = "e-postadressen er allerede i bruk på en annen konto.";
+
+/* CreateAccountViewController.swift AuthErrorCode */
+"The maximum time limit on an operation (upload, download, delete, etc.) has been exceeded." = "Maksimumsgrensen for en operasjon (opplasting, nedlasting, sletting, etc.) er overskredet.";
 
 /* CreateAccountViewVontroller.swift SaveAccount 
    LoginViewVontroller.swift CheckLogin verdi
@@ -167,9 +182,6 @@
 
 /* DataBaseExtension.swift formatPhone */
 "The phonenumber must include 8 digits.\nThe country code prefix will automaticall be added.\n\nFormat: +47 123 45 678" = "Telefonnummeret må ha 8 siffer.\nLandskoden vil automatisk bli lagt til.\n\nFormat: +47 123 45 678";
-
-/* CreateAccountViewController.swift AuthErrorCode */
-"The space to save files has been surpassed" = "Plassen for å lagre filer har blitt overgått";
 
 /* UpdateUserNameViewVontroller.swift SaveNewName */
 "The username must have a value." = "Navnet til brukeren kan ikke være tomt.";
@@ -196,20 +208,20 @@
 /* UpdatePasswordViewVontroller.swift SaveNewPassword */
 "Unable to update the password for the user in CoreData." = "Kan ikke oppdatere passordet til brukeren i CoreData.";
 
-/* CreateAccountViewController.swift AuthErrorCode */
-"Unauthenticated user" = "Brukeren er ikke autensiert";
-
-/* CreateAccountViewController.swift AuthErrorCode */
-"Unauthorized user to perform this operation" = "Brukeren er ikke autensiert til å utføre denne operasjonen";
-
-/* CreateAccountViewController.swift AuthErrorCode */
-"Unknown error" = "Ukjent feil";
-
 /* MainPersonDataViewController leadingSwipeActionsConfigurationForRowAt */
 "Update" = "Oppdater";
 
 /* MainPersonDataViewController.swift prepare */
 "Update Person" = "Oppdater Person";
+
+/* CreateAccountViewController.swift AuthErrorCode */
+"User cancelled the operation." = "Brukeren avbrøt operasjonen.";
+
+/* CreateAccountViewController.swift AuthErrorCode */
+"User is not authorized to perform the desired action." = "Brukeren er ikke autorisert til å utføre ønsket handling.";
+
+/* CreateAccountViewController.swift AuthErrorCode */
+"User is unauthenticated. Authenticate and try again." = "Brukeren er uautorisert. Godkjen og prøv igjen.";
 
 /* SettingsTableViewController.swift SectionHeading */
 "Users" = "Brukere";
