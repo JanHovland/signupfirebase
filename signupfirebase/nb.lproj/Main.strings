@@ -106,8 +106,8 @@
 /* Class = "UILabel"; text = "Password"; ObjectID = "I0q-5V-oWR"; */
 "I0q-5V-oWR.text" = "Passord";
 
-/* Class = "UINavigationItem"; title = "Coredata current user"; ObjectID = "iac-mu-xdT"; */
-"iac-mu-xdT.title" = "Coredata pålogget bruker";
+/* Class = "UINavigationItem"; title = "Show Coredata"; ObjectID = "iac-mu-xdT"; */
+"iac-mu-xdT.title" = "Vis Coredata";
 
 /* Class = "UITextField"; placeholder = "Enter the municipality"; ObjectID = "iJD-3U-e7P"; */
 "iJD-3U-e7P.placeholder" = "Legg inn kommune";
@@ -160,8 +160,8 @@
 /* Class = "UILabel"; text = "Store Postal Codes in Firebase"; ObjectID = "qXg-f5-tEB"; */
 "qXg-f5-tEB.text" = "Lagre postnummer i Firebase";
 
-/* Class = "UILabel"; text = "Coredata current user"; ObjectID = "Rd9-pB-LRE"; */
-"Rd9-pB-LRE.text" = "Coredata pålogget bruker";
+/* Class = "UILabel"; text = "Show Coredata"; ObjectID = "Rd9-pB-LRE"; */
+"Rd9-pB-LRE.text" = "Vis Coredata";
 
 /* Class = "UILabel"; text = "Old name"; ObjectID = "rhZ-gw-aUj"; */
 "rhZ-gw-aUj.text" = "Gammelt navn";

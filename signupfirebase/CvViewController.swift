@@ -162,9 +162,9 @@ class CvViewController: UIViewController {
            P) Lagt inn "Send epost" i "Innstillinger"
            Q) Oppdatert innloggingsbildet slik at det er OK både med og uten brukere i Coredata.
            R) Lagt inn feilkoder for Firebase / Firestore
-           S) Coredata oppdateres nå ved når en ny bruker logger inn.
+           S) Coredata oppdateres nå ved når en ny bruker logger inn og nåe en endrer bilde til brkeren.
            T) Nå trenger en ikke å logge inn etter å ha endret bildet til en bruker.
-           U) Endret "List all users in Coredata til "Coredata for the current user"
+           U) Endret "List all users in Coredata til "Show Coredata"
         
         7. Nye oppgaver (ikke fullført)
         

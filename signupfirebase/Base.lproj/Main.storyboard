@@ -429,7 +429,7 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="Icon-20" translatesAutoresizingMaskIntoConstraints="NO" id="4Jw-wS-K5L">
                                                     <rect key="frame" x="17" y="10" width="20" height="20"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coredata current user" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rd9-pB-LRE">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Coredata" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rd9-pB-LRE">
                                                     <rect key="frame" x="52" y="9" width="274" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -951,7 +951,7 @@
             </objects>
             <point key="canvasLocation" x="386" y="-617"/>
         </scene>
-        <!--Coredata current user-->
+        <!--Show Coredata-->
         <scene sceneID="kCf-Mh-aWN">
             <objects>
                 <tableViewController id="boW-XG-6jl" customClass="ListTableViewController" customModule="signupfirebase" customModuleProvider="target" sceneMemberID="viewController">
@@ -1028,7 +1028,7 @@
                             <outlet property="delegate" destination="boW-XG-6jl" id="ehW-Pa-Y75"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Coredata current user" id="iac-mu-xdT"/>
+                    <navigationItem key="navigationItem" title="Show Coredata" id="iac-mu-xdT"/>
                     <connections>
                         <outlet property="activity" destination="VI4-ru-b2u" id="aXk-TD-A5i"/>
                     </connections>
