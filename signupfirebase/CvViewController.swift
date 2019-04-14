@@ -165,10 +165,10 @@ class CvViewController: UIViewController {
            S) Coredata oppdateres nå ved når en ny bruker logger inn og nåe en endrer bilde til brkeren.
            T) Nå trenger en ikke å logge inn etter å ha endret bildet til en bruker.
            U) Endret "List all users in Coredata til "Show Coredata"
+           V) Viser photoURL i "Show Coredata"
         
         7. Nye oppgaver (ikke fullført)
         
-        . Vise photoURL i "Oversikt over brukerne i Coredata"
         . Varsling på fødselsdager.
         . Se igjennom opsjonene for Kart i PersonViewController.
         . Se igjennom opsjonene for sending av meldinger.

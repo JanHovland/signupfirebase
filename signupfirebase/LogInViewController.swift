@@ -283,9 +283,9 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
                     // Update Coredata with the new user
                     let ok = self.saveCoreData(withEpost: self.eMailLoginTextField.text!,
                                                withPassord: self.passwordTextField.text!,
-                                               withUid: Auth.auth().currentUser!.uid ,
+                                               withUid: Auth.auth().currentUser!.uid,
                                                withLoggedIn: true,
-                                               withName: Auth.auth().currentUser!.uid ,
+                                               withName: Auth.auth().currentUser!.displayName!,
                                                withPhotoURL: String(describing: Auth.auth().currentUser!.photoURL!))
                     
                     if ok == false {

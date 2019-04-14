@@ -54,18 +54,8 @@ class ListTableViewController: UITableViewController {
 
         let item = listItems[indexPath.row]
 
-        cell.uidLabel?.text = item.value(forKey: "uid") as? String
-        cell.mailLabel?.text = item.value(forKey: "email") as? String
         cell.nameLabel?.text = item.value(forKey: "name") as? String
-        
-        let loggedIn = item.value(forKey: "loggedin") as? Bool
-        
-        if loggedIn == false {
-          cell.loggedInLabel.text? = "0"
-        } else {
-            cell.loggedInLabel.text? = "1"
-        }
-        
+
         cell.passwordTextField?.isEnabled = false
         
         // Set the 'switchPassWord' to OFF
@@ -77,7 +67,21 @@ class ListTableViewController: UITableViewController {
         }
         
         cell.passwordTextField?.text = item.value(forKey: "password") as? String
-
+        
+        cell.mailLabel?.text = item.value(forKey: "email") as? String
+        
+        cell.uidLabel?.text = item.value(forKey: "uid") as? String
+        
+        let loggedIn = item.value(forKey: "loggedin") as? Bool
+        
+        if loggedIn == false {
+          cell.loggedInLabel.text? = "0"
+        } else {
+            cell.loggedInLabel.text? = "1"
+        }
+        
+        cell.photoURL?.text =  (item.value(forKey: "photoURL")! as! String)
+        
         return cell
     }
 

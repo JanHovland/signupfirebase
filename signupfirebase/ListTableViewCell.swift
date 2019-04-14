@@ -14,6 +14,7 @@ class ListTableViewCell: UITableViewCell {
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loggedInLabel: UILabel!
+    @IBOutlet weak var photoURL: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

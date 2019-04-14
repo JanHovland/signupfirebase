@@ -92,7 +92,10 @@
 "In order to save the Postal Codes, the 'Store Postal Codes in Firebase' button must be enabled." = "For å lagre postnummer, må bryteren 'Lagre postnummer i Firebase' aktiveres.";
 
 /* CreateAccountViewController.swift AuthErrorCode */
-"Indicates the user account was not found." = "Indikerer at brukerkontoen ikke ble funnet.";
+"Indicates the user account was not found." = "Konto til brukeren ble ikke funnet.";
+
+/* CreateAccountViewController.swift AuthErrorCode */
+"Indicates the user attempted sign in with a wrong password." = "Brukeren forsøkte å logge på med feil passord.";
 
 /* CreateAccountViewController.swift AuthErrorCode */
 "Internal error" = "Intern feil";
