@@ -183,17 +183,17 @@
 "Try one more time" = "Prøv en gang til.";
 
 /* ListTableViewController.swift trailingSwipeActionsConfigurationForRowAt */
-"Unable to delete data in CoreData: " = "Kan ikke slette data i CoreData: ";
+"Unable to delete data in CoreData: " = "Kan ikke slette data i Core Data: ";
 
 /* ResetPWByMailViewController.swift viewDidLoad */
 "Unable to recall the eMail from Firebase." = "Kan ikke hente e-post fra Firebase.";
 
 /* CreateAccountViewVontroller.swift CheckLogin verdi
    LogInViewController.swift CheckLogin verdi */
-"Unable to store data in CoreData." = "Kan ikke lagre data i CoreData.";
+"Unable to store data in CoreData." = "Kan ikke lagre data i Core Data.";
 
 /* UpdatePasswordViewVontroller.swift SaveNewPassword */
-"Unable to update the password for the user in CoreData." = "Kan ikke oppdatere passordet til brukeren i CoreData.";
+"Unable to update the password for the user in CoreData." = "Kan ikke oppdatere passordet til brukeren i Core Data.";
 
 /* MainPersonDataViewController leadingSwipeActionsConfigurationForRowAt */
 "Update" = "Oppdater";

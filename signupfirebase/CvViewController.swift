@@ -59,11 +59,11 @@ class CvViewController: UIViewController {
            a) Lagre via menypunktet Source Control/Commit
            b) Hente: https://github.com/JanHovland
         
-        3. CoreData.
+        3. Core Data.
         
            a) Oppdatere AppDelegate slik at directory vises i AppDelegate.swift
            b) Viser data med hjelp av applikasjonen "Datum"
-           c) Bruke "Datum" for finne resultatet i CoreData av:
+           c) Bruke "Datum" for finne resultatet i Core Data av:
               . Insert data
               . Delete data
               . Update data
@@ -160,12 +160,12 @@ class CvViewController: UIViewController {
            N) Nå oppdateres "Kjønn" riktig etter retur fra søking etter poststed (kun ved "Ny Person").
            O) Kan nå sende e-post fra MainPersonDataViewController
            P) Lagt inn "Send epost" i "Innstillinger"
-           Q) Oppdatert innloggingsbildet slik at det er OK både med og uten brukere i Coredata.
+           Q) Oppdatert innloggingsbildet slik at det er OK både med og uten brukere i Core Data.
            R) Lagt inn feilkoder for Firebase / Firestore
-           S) Coredata oppdateres nå ved når en ny bruker logger inn og nåe en endrer bilde til brkeren.
+           S) Core Data oppdateres nå når en ny bruker logger inn og ved endring av bildet til brukeren.
            T) Nå trenger en ikke å logge inn etter å ha endret bildet til en bruker.
-           U) Endret "List all users in Coredata til "Show Coredata"
-           V) Viser photoURL i "Show Coredata"
+           U) Endret "List all users in Core Data til "Show Core Data"
+           V) Viser photoURL i "Show Core Data"
         
         7. Nye oppgaver (ikke fullført)
         

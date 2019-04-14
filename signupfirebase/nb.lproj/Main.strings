@@ -95,7 +95,7 @@
 "gYV-Ud-eQK.placeholder" = "Skriv inn emnet";
 
 /* Class = "UILabel"; text = "Old password"; ObjectID = "h3M-sf-tUf"; */
-"h3M-sf-tUf.text" = "Password";
+"h3M-sf-tUf.text" = "Passord";
 
 /* Class = "UINavigationItem"; title = "Postal Codes"; ObjectID = "hO4-l2-IU5"; */
 "hO4-l2-IU5.title" = "Postnummer";
@@ -107,7 +107,7 @@
 "I0q-5V-oWR.text" = "Passord";
 
 /* Class = "UINavigationItem"; title = "Show Coredata"; ObjectID = "iac-mu-xdT"; */
-"iac-mu-xdT.title" = "Vis Coredata";
+"iac-mu-xdT.title" = "Vis Core Data";
 
 /* Class = "UITextField"; placeholder = "Enter the municipality"; ObjectID = "iJD-3U-e7P"; */
 "iJD-3U-e7P.placeholder" = "Legg inn kommune";
@@ -161,10 +161,10 @@
 "qXg-f5-tEB.text" = "Lagre postnummer i Firebase";
 
 /* Class = "UILabel"; text = "Show Coredata"; ObjectID = "Rd9-pB-LRE"; */
-"Rd9-pB-LRE.text" = "Vis Coredata";
+"Rd9-pB-LRE.text" = "Vis Core Data";
 
 /* Class = "UILabel"; text = "Old name"; ObjectID = "rhZ-gw-aUj"; */
-"rhZ-gw-aUj.text" = "Gammelt navn";
+"rhZ-gw-aUj.text" = "Navn";
 
 /* Class = "UITextField"; placeholder = "Enter the address"; ObjectID = "RkK-Je-Gn2"; */
 "RkK-Je-Gn2.placeholder" = "Legg inn adresse";
