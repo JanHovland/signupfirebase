@@ -169,9 +169,9 @@ class CvViewController: UIViewController {
         
         7. Nye oppgaver (ikke fullført)
         
-        . Varsling på fødselsdager.
         . Se igjennom opsjonene for Kart i PersonViewController.
         . Se igjennom opsjonene for sending av meldinger.
+        . Varsling på fødselsdager.
         . Oppdatere security i Firebase (er security der det samme for Firestore?)
         
         8. Programmerings tips
