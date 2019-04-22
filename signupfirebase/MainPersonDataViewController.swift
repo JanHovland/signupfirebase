@@ -463,6 +463,16 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             vc.locationOnMap = locationOnMap
             vc.address = personAddress
             
+            vc.changeName = ""
+            vc.changeLatitude = 0.0
+            vc.changeLlongitude = 0.0
+            
+            if value.firstName == "Johanne Kristine", value.lastName == "Lima" {
+                vc.changeName = "JKR"
+                vc.changeLatitude = 60.429350
+                vc.changeLlongitude = 9.465658
+            }
+            
         } else if segue.identifier! == "gotoMessage" {
             
             let vc = segue.destination as! MessageViewController

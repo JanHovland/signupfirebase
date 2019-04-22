@@ -16,7 +16,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     var titleMap: String = ""
     var locationOnMap: String = ""
     var address: String = ""
-    
+    var changeName: String = ""
+    var changeLatitude: Double = 60.429350
+    var changeLlongitude: Double = 9.465658
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +51,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 if let location = placemark.location {
                     
                     annotation.coordinate = location.coordinate
+
+                    if self.changeName.count > 0 {
+                        annotation.coordinate.latitude = self.changeLatitude
+                        annotation.coordinate.longitude = self.changeLlongitude
+                    }
+                    
                     annotation.title = self.address
                     
                     // Display the annotationn

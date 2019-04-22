@@ -166,9 +166,11 @@ class CvViewController: UIViewController {
            T) Nå trenger en ikke å logge inn etter å ha endret bildet til en bruker.
            U) Endret "List all users in Core Data til "Show Core Data"
            V) Viser photoURL i "Show Core Data"
+           W) Overstyrer koordinatene for "Johanne Kristine Lima". Hun bor på Flå, men vises på Gol (annen person?)
         
         7. Nye oppgaver (ikke fullført)
         
+        . Se på oppdateringen av Persondata (må kjøre oppfrisking for å fåmed bildene)
         . Se igjennom opsjonene for Kart i PersonViewController.
         . Se igjennom opsjonene for sending av meldinger.
         . Varsling på fødselsdager.
