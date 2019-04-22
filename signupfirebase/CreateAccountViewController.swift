@@ -365,7 +365,7 @@ extension AuthErrorCode {
         case .missingVerificationID:
             return NSLocalizedString("Indicates that the phone auth credential was created with an empty verification ID.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .networkError:
-            return NSLocalizedString("Indicates a network error occurred (such as a timeout, interrupted connection, or unreachable host). These types of errors are often recoverable with a retry. The                `NSUnderlyingError` field in the `NSError.userInfo` dictionary will contain the error encountered.", comment: "CreateAccountViewController.swift AuthErrorCode")
+            return NSLocalizedString("Indicates a network error occurred (such as a timeout, interrupted connection, or unreachable host). These types of errors are often recoverable with a retry. The `NSUnderlyingError` field in the `NSError.userInfo` dictionary will contain the error encountered.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .noSuchProvider:
             return NSLocalizedString("Indicates an attempt to unlink a provider that is not linked.", comment: "CreateAccountViewController.swift AuthErrorCode")
         case .notificationNotForwarded:
