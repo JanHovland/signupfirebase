@@ -167,14 +167,14 @@ class CvViewController: UIViewController {
            U) Endret "List all users in Core Data til "Show Core Data"
            V) Viser photoURL i "Show Core Data"
            W) Overstyrer koordinatene for "Johanne Kristine Lima". Hun bor på Flå, men vises på Gol (annen person?)
+           X) Har sett på oppdateringen av Persondata (må kjøre oppfrisking for å fåmed bildene). Foreslår å ikke gjøre noe.
         
         7. Nye oppgaver (ikke fullført)
         
-        . Se på oppdateringen av Persondata (må kjøre oppfrisking for å fåmed bildene)
-        . Se igjennom opsjonene for Kart i PersonViewController.
-        . Se igjennom opsjonene for sending av meldinger.
-        . Varsling på fødselsdager.
-        . Oppdatere security i Firebase (er security der det samme for Firestore?)
+           . Varsling på fødselsdager.
+           . Se igjennom opsjonene for Kart i PersonViewController.
+           . Se igjennom opsjonene for sending av meldinger.
+           . Oppdatere security i Firebase (er security der det samme for Firestore?)
         
         8. Programmerings tips
         
