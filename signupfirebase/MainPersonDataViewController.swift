@@ -179,9 +179,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                             return
                         }
                         
-                        if self.persons[indexPath.row].personData.photoURL == imageFileURL {
-                            cell.imageLabel?.image = image
-                        }
+                        cell.imageLabel?.image = image
                         
                         // Add the downloaded image to cache
                         CacheManager.shared.cache(object: image, key: imageFileURL)
@@ -192,9 +190,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                 
                 findCellImage.resume()
                 
-                
             }
-            
         }
           
         return cell

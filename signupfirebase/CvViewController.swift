@@ -168,6 +168,7 @@ class CvViewController: UIViewController {
            V) Viser photoURL i "Show Core Data"
            W) Overstyrer koordinatene for "Johanne Kristine Lima". Hun bor på Flå, men vises på Gol (annen person?)
            X) Har sett på oppdateringen av Persondata (må kjøre oppfrisking for å fåmed bildene). Foreslår å ikke gjøre noe.
+           Y) Bildene i Persondata vises nå korrekt. Grunnen var en test på to URL's som sammenlignet to forskjellige URL's
         
         7. Nye oppgaver (ikke fullført)
         
