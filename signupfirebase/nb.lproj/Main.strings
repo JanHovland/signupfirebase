@@ -61,6 +61,9 @@
 /* Class = "UILabel"; text = "Municipality"; ObjectID = "cm9-gv-6K9"; */
 "cm9-gv-6K9.text" = "Kommune";
 
+/* Class = "UINavigationItem"; title = "Overview birthdays"; ObjectID = "co3-yZ-gHr"; */
+"co3-yZ-gHr.title" = "Oversikt fødselsdager";
+
 /* Class = "UILabel"; text = "eMail"; ObjectID = "csI-ws-1c2"; */
 "csI-ws-1c2.text" = "e-post";
 
@@ -228,6 +231,9 @@
 
 /* Class = "UINavigationItem"; title = "Update password"; ObjectID = "vHt-CU-cWy"; */
 "vHt-CU-cWy.title" = "Oppdater passord";
+
+/* Class = "UINavigationItem"; title = "Notification on birthdays"; ObjectID = "w1x-BW-uuP"; */
+"w1x-BW-uuP.title" = "Varsling på fødselsdager";
 
 /* Class = "UILabel"; text = "Password"; ObjectID = "X3x-Cl-KO1"; */
 "X3x-Cl-KO1.text" = "Passord";

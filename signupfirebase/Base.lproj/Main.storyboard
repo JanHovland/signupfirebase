@@ -599,6 +599,9 @@
                                                 <constraint firstItem="0UE-Yl-nS2" firstAttribute="top" secondItem="VJs-OG-GOG" secondAttribute="top" constant="9" id="ala-fF-EZB"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="LUs-6H-ik8" kind="show" identifier="gotoOverviewBirthdays" id="dSN-EF-8GL"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="12" focusStyle="custom" id="KDj-Yx-1mu">
                                         <rect key="frame" x="0.0" y="552" width="375" height="44"/>
@@ -626,6 +629,9 @@
                                                 <constraint firstItem="lif-TJ-vea" firstAttribute="top" secondItem="1id-hH-Tww" secondAttribute="top" constant="10" id="rsv-7t-fkT"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="xKD-uF-kZj" kind="show" identifier="gotoNotificationBirthdays" id="RDn-rc-Yyb"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -645,6 +651,55 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pgR-wM-cad" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3247" y="-127"/>
+        </scene>
+        <!--Notification on birthdays-->
+        <scene sceneID="J7p-WG-O3j">
+            <objects>
+                <viewController id="xKD-uF-kZj" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WUD-XW-krr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="QIL-Y8-AdU"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Notification on birthdays" id="w1x-BW-uuP">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="5az-Bu-IJI"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MO5-qn-ELw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2406" y="-147"/>
+        </scene>
+        <!--Overview birthdays-->
+        <scene sceneID="J2s-LS-a0S">
+            <objects>
+                <tableViewController id="LUs-6H-ik8" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="324-zr-OUZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellBirthday" id="ZyH-nn-ZXC">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZyH-nn-ZXC" id="wrl-xr-qdR">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="LUs-6H-ik8" id="VAy-aY-TeU"/>
+                            <outlet property="delegate" destination="LUs-6H-ik8" id="Pcv-Iz-T8a"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Overview birthdays" id="co3-yZ-gHr">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="zPM-fR-3Ea"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gKj-JY-f1i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1537" y="-147"/>
         </scene>
         <!--Store Postal Codes in Firebase-->
         <scene sceneID="4j0-L3-b03">
@@ -767,7 +822,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A3g-Gu-jyx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2310" y="-127"/>
+            <point key="canvasLocation" x="-681" y="-127"/>
         </scene>
         <!--Firebase Console-->
         <scene sceneID="7JC-3R-JlT">
@@ -2067,6 +2122,6 @@
         <segue reference="cJw-d4-x8a"/>
         <segue reference="gYJ-L2-bgL"/>
         <segue reference="kW4-9W-oAh"/>
-        <segue reference="UGA-2W-dJw"/>
+        <segue reference="HHx-uR-c6E"/>
     </inferredMetricsTieBreakers>
 </document>
