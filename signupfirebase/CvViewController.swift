@@ -172,7 +172,21 @@ class CvViewController: UIViewController {
         
         7. Nye oppgaver (ikke fullført)
         
-           . Varsling på fødselsdager.
+           . Legge inn 2 nye punkter under "Settings" :
+             . "Oversikt fødselsdager" ("Overview birthdays")
+               . "Dato" - "Navn" - "Sende melding" - "Markere inneværende måned"
+        
+             . "Varsling på fødselsdager". ("Notification on birthdays")
+        
+           . Se om visningen av "Persondata kan gjøre raskere (background thread)
+              "Introduction to iOS Threading - Zelda App (Xcode 8, Swift 3)" på Youtube.com av Mark Moeykens
+             . DispatchQueue.global(qos: .userInteractive).async {
+                   self.tableData = Data.getData()
+                   DispatchQueue.main.async {
+                       self.tableView.reloadData()
+                   }
+               }
+        
            . Se igjennom opsjonene for Kart i PersonViewController.
            . Se igjennom opsjonene for sending av meldinger.
            . Oppdatere security i Firebase (er security der det samme for Firestore?)
@@ -188,7 +202,7 @@ class CvViewController: UIViewController {
                 .. searchBarCancelButtonClicked()
               . UpdateUserViewConrtoller: myTimer = Timer.scheduledTimer(timeInterval: TimeInterval(forsinkelse), target: self, selector: #selector(showUserInformation), userInfo: nil, repeats: false)
              . UpdatePasswordViewController: self.myTimer = Timer.scheduledTimer(timeInterval: TimeInterval(self.forsinkelse),target: self,selector: #selector(self.returnToLogin), userInfo: nil, repeats: true)
-           b) Info om strin in Swift: https://oleb.net/blog/2017/11/swift-4-strings/
+           b) Info om strings in Swift: https://oleb.net/blog/2017/11/swift-4-strings/
         c) Info om timer: https://www.raywenderlich.com/113835-ios-timer-tutorial
         d) Info om header: https://www.hackingwithswift.com/example-code/uikit/how-to-add-a-section-header-to-a-table-view
         e) Generell info: https://www.hackingwithswift.com
