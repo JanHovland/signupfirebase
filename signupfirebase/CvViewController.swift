@@ -169,7 +169,18 @@ class CvViewController: UIViewController {
            W) Overstyrer koordinatene for "Johanne Kristine Lima". Hun bor på Flå, men vises på Gol (annen person?)
            X) Har sett på oppdateringen av Persondata (må kjøre oppfrisking for å fåmed bildene). Foreslår å ikke gjøre noe.
            Y) Bildene i Persondata vises nå korrekt. Grunnen var en test på to URL's som sammenlignet to forskjellige URL's
-        
+           Z) Har tilpasset visningen kan gjøres raskere med background thread.
+              "Introduction to iOS Threading - Zelda App (Xcode 8, Swift 3)" på Youtube.com av Mark Moeykens
+               let start = Date()
+               DispatchQueue.global(qos: .userInteractive).async {
+                   self.makeRead()
+               }
+               DispatchQueue.global(qos: .userInteractive).async {
+                   self.FindSearchedPersonData(searchText: "")
+               }
+               let end = Date()
+               print = end.timeIntervalSince(start))
+
         7. Nye oppgaver (ikke fullført)
         
            . Legge inn 2 nye punkter under "Settings" :
@@ -177,6 +188,7 @@ class CvViewController: UIViewController {
                . "Dato" - "Navn" - "Sende melding" - "Markere inneværende måned"
         
              . "Varsling på fødselsdager". ("Notification on birthdays")           --> "NotificationTableView.swift"
+               . Legg inn Info
         
            . Se om visningen av "Persondata kan gjøre raskere med background thread.
               "Introduction to iOS Threading - Zelda App (Xcode 8, Swift 3)" på Youtube.com av Mark Moeykens

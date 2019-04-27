@@ -45,7 +45,7 @@
 		DB5FE036224776A200EE8B5D /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FE035224776A200EE8B5D /* MessageViewController.swift */; };
 		DB5FE0382247FAC600EE8B5D /* EpostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FE0372247FAC600EE8B5D /* EpostViewController.swift */; };
 		DB86F3AF2253D3FE00C1BB08 /* signupfirebase-236b9-export-10.json in Resources */ = {isa = PBXBuildFile; fileRef = DB86F3AE2253D3FE00C1BB08 /* signupfirebase-236b9-export-10.json */; };
-		DB97FEBA22743FA80010F419 /* BirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB97FEB922743FA80010F419 /* BirthdayViewController.swift */; };
+		DB97FEBA22743FA80010F419 /* BirthdayNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB97FEB922743FA80010F419 /* BirthdayNotificationViewController.swift */; };
 		DB97FEBC22743FC80010F419 /* BirthdayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB97FEBB22743FC80010F419 /* BirthdayTableViewController.swift */; };
 		DB97FEBE22743FF80010F419 /* BirthdayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB97FEBD22743FF80010F419 /* BirthdayTableViewCell.swift */; };
 		DBA73876226321EC00440E70 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA73875226321EC00440E70 /* MapKit.framework */; };
@@ -102,7 +102,7 @@
 		DB5FE0372247FAC600EE8B5D /* EpostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpostViewController.swift; sourceTree = "<group>"; };
 		DB86F3AE2253D3FE00C1BB08 /* signupfirebase-236b9-export-10.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "signupfirebase-236b9-export-10.json"; sourceTree = "<group>"; };
 		DB97FEB822743AE50010F419 /* signupfirebase.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = signupfirebase.entitlements; sourceTree = "<group>"; };
-		DB97FEB922743FA80010F419 /* BirthdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BirthdayViewController.swift; path = ../../BirthdayViewController.swift; sourceTree = "<group>"; };
+		DB97FEB922743FA80010F419 /* BirthdayNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BirthdayNotificationViewController.swift; path = ../../BirthdayNotificationViewController.swift; sourceTree = "<group>"; };
 		DB97FEBB22743FC80010F419 /* BirthdayTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayTableViewController.swift; sourceTree = "<group>"; };
 		DB97FEBD22743FF80010F419 /* BirthdayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayTableViewCell.swift; sourceTree = "<group>"; };
 		DBA73875226321EC00440E70 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -204,7 +204,7 @@
 				DB343257222EDDA900452D0B /* MapViewController.swift */,
 				DB5FE035224776A200EE8B5D /* MessageViewController.swift */,
 				DB5FE0372247FAC600EE8B5D /* EpostViewController.swift */,
-				DB97FEB922743FA80010F419 /* BirthdayViewController.swift */,
+				DB97FEB922743FA80010F419 /* BirthdayNotificationViewController.swift */,
 				DB97FEBB22743FC80010F419 /* BirthdayTableViewController.swift */,
 				DB97FEBD22743FF80010F419 /* BirthdayTableViewCell.swift */,
 			);
@@ -395,7 +395,7 @@
 				D136492821D0E9250039BDC6 /* Person.swift in Sources */,
 				DB97FEBE22743FF80010F419 /* BirthdayTableViewCell.swift in Sources */,
 				DBEDA17B2223D1F300725D75 /* WebViewController.swift in Sources */,
-				DB97FEBA22743FA80010F419 /* BirthdayViewController.swift in Sources */,
+				DB97FEBA22743FA80010F419 /* BirthdayNotificationViewController.swift in Sources */,
 				D17C78F221F0C89100DEE649 /* SearchViewController.swift in Sources */,
 				D1A486E9219E0BA8004D41BE /* LogInViewController.swift in Sources */,
 				D1B9562A21B3F3E1003F5937 /* ListTableViewCell.swift in Sources */,

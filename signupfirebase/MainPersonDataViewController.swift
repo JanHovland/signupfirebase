@@ -65,8 +65,6 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         tableView.delegate = self
         tableView.dataSource = self
         searchBarPerson.delegate = self
@@ -74,8 +72,19 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         // Forces the online keyboard to be lowercased
         searchBarPerson.autocapitalizationType = UITextAutocapitalizationType.none
  
-        self.makeRead()
+        let start = Date()
+        
+        DispatchQueue.global(qos: .userInteractive).async {
+            self.makeRead()
+        }
 
+        DispatchQueue.global(qos: .userInteractive).async {
+            self.FindSearchedPersonData(searchText: "")
+        }
+
+        let end = Date()
+        print("Elapsed time = \(end.timeIntervalSince(start))")
+        
         activity.style = .gray
         activity.isHidden = true
         
@@ -102,7 +111,6 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         // On return from "MessageViewController" navigationbar shows "< Persondata"
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         self.navigationItem.hidesBackButton = true
-        tableView.reloadData()
     }
     
     // Called when the view has been fully transitioned onto the screen. Default does nothing
@@ -285,13 +293,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     // Reads all data outside the closure in ReadPersonsFiredata
     func makeRead() {
         ReadPersonsFiredata { _ in
-            
-            // Must use the main thread to get the data
-            // DispatchQueue manages the execution of work items.
-            // Each work item submitted to a queue is processed on a pool of threads managed by the system.
-            DispatchQueue.main.async {
-                self.FindSearchedPersonData(searchText: "")
-            }
+            self.FindSearchedPersonData(searchText: "")
         }
     }
     

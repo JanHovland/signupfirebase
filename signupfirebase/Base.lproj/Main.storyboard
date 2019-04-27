@@ -655,7 +655,7 @@
         <!--Notification on birthdays-->
         <scene sceneID="J7p-WG-O3j">
             <objects>
-                <viewController id="xKD-uF-kZj" sceneMemberID="viewController">
+                <viewController id="xKD-uF-kZj" customClass="BirthdayNotificationViewController" customModule="signupfirebase" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WUD-XW-krr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -668,12 +668,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MO5-qn-ELw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2406" y="-147"/>
+            <point key="canvasLocation" x="-2401" y="-147"/>
         </scene>
         <!--Overview birthdays-->
         <scene sceneID="J2s-LS-a0S">
             <objects>
-                <tableViewController id="LUs-6H-ik8" sceneMemberID="viewController">
+                <tableViewController id="LUs-6H-ik8" customClass="BirthdayTableViewController" customModule="signupfirebase" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="324-zr-OUZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
