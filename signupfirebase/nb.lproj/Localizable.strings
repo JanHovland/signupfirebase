@@ -7,6 +7,9 @@
 /* CreateAccountViewController.swift AuthErrorCode */
 "An unknown error occurred." = "En ukjent feil oppstod.";
 
+/* SettingsTableViewController.swift SectionHeading */
+"Birthdays" = "Fødselsdager";
+
 /* CreateAccountViewController.swift selectPersonPhoto
    LoginViewVontroller.swift selectPersonPhoto */
 "Camera" = "Kamera";

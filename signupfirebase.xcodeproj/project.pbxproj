@@ -98,6 +98,7 @@
 		DB5FE035224776A200EE8B5D /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		DB5FE0372247FAC600EE8B5D /* EpostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpostViewController.swift; sourceTree = "<group>"; };
 		DB86F3AE2253D3FE00C1BB08 /* signupfirebase-236b9-export-10.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "signupfirebase-236b9-export-10.json"; sourceTree = "<group>"; };
+		DB97FEB822743AE50010F419 /* signupfirebase.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = signupfirebase.entitlements; sourceTree = "<group>"; };
 		DBA73875226321EC00440E70 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DBC0BD9A222146BC003E5566 /* UIImage+Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Scale.swift"; sourceTree = "<group>"; };
 		DBD44B9B2229BDFA0082E490 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -157,6 +158,7 @@
 		D1C7F2DF218C98C800481E48 /* signupfirebase */ = {
 			isa = PBXGroup;
 			children = (
+				DB97FEB822743AE50010F419 /* signupfirebase.entitlements */,
 				DB5FE0322243F5CA00EE8B5D /* Tips and Tricks */,
 				D1C7F2E0218C98C800481E48 /* AppDelegate.swift */,
 				D1C7F2E4218C98C800481E48 /* Main.storyboard */,
@@ -265,6 +267,9 @@
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 0;
 							};
 						};
 					};

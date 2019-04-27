@@ -60,6 +60,9 @@ class SettingsTableViewController: UITableViewController {
         } else if section == 2 {
             let melding = NSLocalizedString("Other", comment: "SettingsTableViewController.swift SectionHeading")
             heading = melding
+        } else if section == 3 {
+            let melding = NSLocalizedString("Birthdays", comment: "SettingsTableViewController.swift SectionHeading")
+            heading = melding
         }
         
         return heading

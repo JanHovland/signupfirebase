@@ -1,8 +1,14 @@
+/* Class = "UILabel"; text = "Overview birthdays"; ObjectID = "0UE-Yl-nS2"; */
+"0UE-Yl-nS2.text" = "Oversikt fødselsdager";
+
 /* Class = "UITextField"; placeholder = "Enter email recipients"; ObjectID = "1T9-up-nrf"; */
 "1T9-up-nrf.placeholder" = "Skriv inn e-post mottakere";
 
 /* Class = "UILabel"; text = "Email"; ObjectID = "2IV-gI-RRS"; */
 "2IV-gI-RRS.text" = "e-post";
+
+/* Class = "UILabel"; text = "Notification on birthdays"; ObjectID = "2yY-dy-dKJ"; */
+"2yY-dy-dKJ.text" = "Varsling på fødselsdager";
 
 /* Class = "UILabel"; text = "Subject"; ObjectID = "5gt-gW-5mh"; */
 "5gt-gW-5mh.text" = "Emne";

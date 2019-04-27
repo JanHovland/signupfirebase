@@ -173,12 +173,12 @@ class CvViewController: UIViewController {
         7. Nye oppgaver (ikke fullført)
         
            . Legge inn 2 nye punkter under "Settings" :
-             . "Oversikt fødselsdager" ("Overview birthdays")
+             . "Oversikt fødselsdager" ("Overview birthdays")                      --> "BirthdaysTableviewController.swift" + "BirthdaysTableviewCell.swift"
                . "Dato" - "Navn" - "Sende melding" - "Markere inneværende måned"
         
-             . "Varsling på fødselsdager". ("Notification on birthdays")
+             . "Varsling på fødselsdager". ("Notification on birthdays")           --> "NotificationTableView.swift"
         
-           . Se om visningen av "Persondata kan gjøre raskere (background thread)
+           . Se om visningen av "Persondata kan gjøre raskere med background thread.
               "Introduction to iOS Threading - Zelda App (Xcode 8, Swift 3)" på Youtube.com av Mark Moeykens
              . DispatchQueue.global(qos: .userInteractive).async {
                    self.tableData = Data.getData()
