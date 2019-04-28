@@ -706,13 +706,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QIL-Y8-AdU"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Notification on birthdays" id="w1x-BW-uuP">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="5az-Bu-IJI">
-                            <connections>
-                                <action selector="startNotofication:" destination="xKD-uF-kZj" id="Rbn-WM-nUC"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Notification on birthdays" id="w1x-BW-uuP"/>
                     <connections>
                         <outlet property="infoTextView" destination="8MR-i4-sML" id="UaR-cm-3qw"/>
                     </connections>

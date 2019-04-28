@@ -9,6 +9,7 @@
 import CoreData
 import Firebase
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
 
@@ -27,6 +28,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         print(urls[urls.count - 1] as URL)
+        
+        // Request user's permission to send notifications.
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+            if granted {
+                print("Notifications permission granted.")
+            }
+            else {
+                print("Notifications permission denied because: \(error?.localizedDescription ?? "OK").")
+            }
+        }
 
         return true
     }

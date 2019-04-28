@@ -189,6 +189,7 @@ class CvViewController: UIViewController {
         
              . "Varsling på fødselsdager". ("Notification on birthdays")           --> "NotificationTableView.swift"
                . Legg inn Info
+               . Legg in sjekk om varslinger til brukeren
         
            . Se om visningen av "Persondata kan gjøre raskere med background thread.
               "Introduction to iOS Threading - Zelda App (Xcode 8, Swift 3)" på Youtube.com av Mark Moeykens
