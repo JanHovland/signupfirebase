@@ -109,7 +109,7 @@
 /* DataBaseExtension.swift formatPhone */
 "Invalid phone number" = "Feil format telefonnr";
 
-/* ResetPWByMailViewController.swift viewDidLoad */
+/* BirthdayNotificationViewController.swift viewDidLoad */
 "Local notification can only execute when the app is set to background." = "Lokal varsling kan bare utføres når appen ligger i bakgrunnen.";
 
 /* LoginViewVontroller.swift CheckLogin 'error' */
@@ -118,6 +118,9 @@
 /* PersonViewVontroller.swift velgeKjonn 
    PersonViewVontroller.swift viewDidAppear */
 "Man" = "Mann";
+
+/* BirthdayNotificationViewController.swift viewDidLoad */
+"NB. The app will only produce one notification. It will no repeat itself." = "NB. Appen vil bare produsere en varsling. Det vil ikke komme flere varslinger enn denne ene.";
 
 /* MainPersonDataViewController.swift prepare */
 "New Person" = "Ny Person";
@@ -154,9 +157,6 @@
 "Please look in your email" = "Vennligst sjekk innboksen på e-posten din";
 
 /* ResetPWByMailViewController.swift viewDidLoad */
-"Please make sure that this app is not showing on the screen." = "Pass på at denne appen ikke vises på skjermen.";
-
-/* ResetPWByMailViewController.swift viewDidLoad */
 "Please note that the included link is time limited!" = "Legg merke til at linken i e-posten er tidsbegrenset!";
 
 /* CreateAccountViewController.swift AuthErrorCode */
@@ -180,7 +180,7 @@
 /* CreateAccountViewController.swift AuthErrorCode */
 "The maximum time limit on an operation (upload, download, delete, etc.) has been exceeded." = "Maksimumsgrensen for en operasjon (opplasting, nedlasting, sletting, etc.) er overskredet.";
 
-/* ResetPWByMailViewController.swift viewDidLoad */
+/* BirthdayNotificationViewController.swift viewDidLoad */
 "The notification will start when yiu press the 'Home' button." = "Varslingen blir laget etter at du har trykket på 'Hjem' knappen.";
 
 /* CreateAccountViewVontroller.swift SaveAccount 

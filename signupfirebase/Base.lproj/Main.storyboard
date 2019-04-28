@@ -670,7 +670,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8MR-i4-sML">
-                                <rect key="frame" x="15" y="269" width="345" height="128"/>
+                                <rect key="frame" x="15" y="269" width="345" height="205"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -699,7 +699,7 @@
                             <constraint firstItem="MlG-wY-wic" firstAttribute="leading" secondItem="WUD-XW-krr" secondAttribute="leading" constant="305" id="aIi-uF-TBE"/>
                             <constraint firstItem="QIL-Y8-AdU" firstAttribute="trailing" secondItem="8MR-i4-sML" secondAttribute="trailing" constant="15" id="hB4-pM-1oR"/>
                             <constraint firstItem="AQl-cg-QUq" firstAttribute="top" secondItem="QIL-Y8-AdU" secondAttribute="top" constant="120" id="kRV-rG-nKL"/>
-                            <constraint firstItem="QIL-Y8-AdU" firstAttribute="bottom" secondItem="8MR-i4-sML" secondAttribute="bottom" constant="177" id="krL-4h-cPF"/>
+                            <constraint firstItem="QIL-Y8-AdU" firstAttribute="bottom" secondItem="8MR-i4-sML" secondAttribute="bottom" constant="100" id="krL-4h-cPF"/>
                             <constraint firstItem="QIL-Y8-AdU" firstAttribute="trailing" secondItem="jdo-oD-VCY" secondAttribute="trailing" constant="46" id="sMa-Qv-8V9"/>
                             <constraint firstItem="MlG-wY-wic" firstAttribute="top" secondItem="WUD-XW-krr" secondAttribute="top" id="sTZ-0F-6mq"/>
                             <constraint firstItem="jdo-oD-VCY" firstAttribute="top" secondItem="QIL-Y8-AdU" secondAttribute="top" constant="120" id="xbV-fS-j7Q"/>
