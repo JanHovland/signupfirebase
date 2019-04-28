@@ -659,16 +659,67 @@
                     <view key="view" contentMode="scaleToFill" id="WUD-XW-krr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MlG-wY-wic">
+                                <rect key="frame" x="305" y="0.0" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="22" id="QBI-ue-HQ1"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="info:" destination="ivl-bM-ftF" eventType="touchUpInside" id="dyg-rT-XCg"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8MR-i4-sML">
+                                <rect key="frame" x="15" y="269" width="345" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQl-cg-QUq">
+                                <rect key="frame" x="337" y="184" width="23" height="22"/>
+                                <connections>
+                                    <action selector="info:" destination="xKD-uF-kZj" eventType="touchUpInside" id="ShV-Wq-Msa"/>
+                                    <action selector="info:" destination="ivl-bM-ftF" eventType="touchUpInside" id="dns-21-2oT"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to use notification on birthdays" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdo-oD-VCY">
+                                <rect key="frame" x="15" y="184" width="314" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QIL-Y8-AdU" firstAttribute="trailing" secondItem="AQl-cg-QUq" secondAttribute="trailing" constant="15" id="0Eu-UJ-9Ra"/>
+                            <constraint firstItem="8MR-i4-sML" firstAttribute="top" secondItem="QIL-Y8-AdU" secondAttribute="top" constant="205" id="3Sn-yx-Smz"/>
+                            <constraint firstItem="jdo-oD-VCY" firstAttribute="leading" secondItem="QIL-Y8-AdU" secondAttribute="leading" constant="15" id="Lca-eV-agr"/>
+                            <constraint firstItem="8MR-i4-sML" firstAttribute="leading" secondItem="QIL-Y8-AdU" secondAttribute="leading" constant="15" id="RSb-dy-eJU"/>
+                            <constraint firstItem="AQl-cg-QUq" firstAttribute="leading" secondItem="QIL-Y8-AdU" secondAttribute="leading" constant="337" id="W2V-Qq-eJH"/>
+                            <constraint firstItem="MlG-wY-wic" firstAttribute="leading" secondItem="WUD-XW-krr" secondAttribute="leading" constant="305" id="aIi-uF-TBE"/>
+                            <constraint firstItem="QIL-Y8-AdU" firstAttribute="trailing" secondItem="8MR-i4-sML" secondAttribute="trailing" constant="15" id="hB4-pM-1oR"/>
+                            <constraint firstItem="AQl-cg-QUq" firstAttribute="top" secondItem="QIL-Y8-AdU" secondAttribute="top" constant="120" id="kRV-rG-nKL"/>
+                            <constraint firstItem="QIL-Y8-AdU" firstAttribute="bottom" secondItem="8MR-i4-sML" secondAttribute="bottom" constant="177" id="krL-4h-cPF"/>
+                            <constraint firstItem="QIL-Y8-AdU" firstAttribute="trailing" secondItem="jdo-oD-VCY" secondAttribute="trailing" constant="46" id="sMa-Qv-8V9"/>
+                            <constraint firstItem="MlG-wY-wic" firstAttribute="top" secondItem="WUD-XW-krr" secondAttribute="top" id="sTZ-0F-6mq"/>
+                            <constraint firstItem="jdo-oD-VCY" firstAttribute="top" secondItem="QIL-Y8-AdU" secondAttribute="top" constant="120" id="xbV-fS-j7Q"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="QIL-Y8-AdU"/>
                     </view>
                     <navigationItem key="navigationItem" title="Notification on birthdays" id="w1x-BW-uuP">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="5az-Bu-IJI"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="5az-Bu-IJI">
+                            <connections>
+                                <action selector="startNotofication:" destination="xKD-uF-kZj" id="Rbn-WM-nUC"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="infoTextView" destination="8MR-i4-sML" id="UaR-cm-3qw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MO5-qn-ELw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2401" y="-147"/>
+            <point key="canvasLocation" x="-2415.1999999999998" y="-147.07646176911544"/>
         </scene>
         <!--Overview birthdays-->
         <scene sceneID="J2s-LS-a0S">

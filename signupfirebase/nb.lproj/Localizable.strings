@@ -109,6 +109,9 @@
 /* DataBaseExtension.swift formatPhone */
 "Invalid phone number" = "Feil format telefonnr";
 
+/* ResetPWByMailViewController.swift viewDidLoad */
+"Local notification can only execute when the app is set to background." = "Lokal varsling kan bare utføres når appen ligger i bakgrunnen.";
+
 /* LoginViewVontroller.swift CheckLogin 'error' */
 "Login Firebase" = "Innlogging Firebase";
 
@@ -149,6 +152,9 @@
 
 /* ResetPWByMailViewController.swift resetByMail */
 "Please look in your email" = "Vennligst sjekk innboksen på e-posten din";
+
+/* ResetPWByMailViewController.swift viewDidLoad */
+"Please make sure that this app is not showing on the screen." = "Pass på at denne appen ikke vises på skjermen.";
 
 /* ResetPWByMailViewController.swift viewDidLoad */
 "Please note that the included link is time limited!" = "Legg merke til at linken i e-posten er tidsbegrenset!";
