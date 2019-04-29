@@ -10,6 +10,10 @@ import UIKit
 
 class BirthdayTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var birthdayLabel: UILabel!
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,4 +25,7 @@ class BirthdayTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func sendMessage(_ sender: Any) {
+       print("Sending a message to Qwerty")
+    }
 }
