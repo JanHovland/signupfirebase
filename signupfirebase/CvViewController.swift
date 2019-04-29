@@ -185,6 +185,7 @@ class CvViewController: UIViewController {
         
            . Legge inn 2 nye punkter under "Settings" :
              . "Oversikt fødselsdager" ("Overview birthdays")                      --> "BirthdaysTableviewController.swift" + "BirthdaysTableviewCell.swift"
+               . Legg inn birthDay2 inn i oppdater og lage ny Persondate
                . "Dato" - "Navn" - "Sende melding" - "Markere inneværende måned"
         
              . "Varsling på fødselsdager". ("Notification on birthdays")           --> "NotificationTableView.swift"
