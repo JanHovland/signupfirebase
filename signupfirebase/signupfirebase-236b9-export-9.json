@@ -2,15 +2,16 @@
   "person" : {
     "-LZiiqBNVS5LjxQ38EQd" : {
       "author" : {
-        "email" : "jho.hovland@gmail.com",
-        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2Fjho.hovland@gmail.com.png?alt=media&token=a4d493cf-651c-447f-b3fd-66eedd8d25dc",
-        "uid" : "WooRDdygpfSBRuBEZIhzRH0dfu23",
-        "username" : "Jan Gmail Hovland"
+        "email" : "jan.hovland@lyse.net",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2Fjan.hovland@lyse.net.png?alt=media&token=5d4b5016-c653-4e45-a43f-76f7fc82d89a",
+        "uid" : "wfMRXF6W3KYo1Iw7y2AIbm1xH3n2",
+        "username" : "Jan Hovland"
       },
       "personData" : {
         "address" : "Kvernfallveien 3",
         "city" : "Lye",
-        "dateOfBirth" : "3. april 1980",
+        "dateOfBirth1" : "3. april 1980",
+        "dateOfBirth2" : "04-03",
         "firstName" : "Astrid",
         "gender" : 1,
         "lastName" : "Hovland",
@@ -19,22 +20,23 @@
         "name" : "ASTRID HOVLAND",
         "personEmail" : " ",
         "phoneNumber" : "+47 404 85 402",
-        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-LZiiqBNVS5LjxQ38EQd.png?alt=media&token=6e511347-20a4-431d-8635-5dae1458630a",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-LZiiqBNVS5LjxQ38EQd.png?alt=media&token=56aa4366-6c1c-49f2-9e9f-260cef0f03dd",
         "postalCodeNumber" : "4347"
       },
-      "timestamp" : 1554191274755
+      "timestamp" : 1554399492732
     },
     "-LZis9pw5yICuUDAuXSf" : {
       "author" : {
-        "email" : "jho.hovland@gmail.com",
-        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2Fjho.hovland@gmail.com.png?alt=media&token=a4d493cf-651c-447f-b3fd-66eedd8d25dc",
-        "uid" : "WooRDdygpfSBRuBEZIhzRH0dfu23",
-        "username" : "Jan Gmail Hovland"
+        "email" : "jan.hovland@lyse.net",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2Fjan.hovland@lyse.net.png?alt=media&token=5d4b5016-c653-4e45-a43f-76f7fc82d89a",
+        "uid" : "wfMRXF6W3KYo1Iw7y2AIbm1xH3n2",
+        "username" : "Jan Hovland"
       },
       "personData" : {
         "address" : "Uelandsgata 2",
         "city" : "Varhaug",
-        "dateOfBirth" : "28. mars 1948",
+        "dateOfBirth1" : "28. mars 1948",
+        "dateOfBirth2" : "03-28",
         "firstName" : "Jan",
         "gender" : 0,
         "lastName" : "Hovland",
@@ -43,10 +45,10 @@
         "name" : "JAN HOVLAND",
         "personEmail" : "jho.hovland@gmail.com",
         "phoneNumber" : "+47 400 05 430",
-        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-LZis9pw5yICuUDAuXSf.png?alt=media&token=6b893a0f-a86e-46cc-b21c-95fa3aa31af8",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-LZis9pw5yICuUDAuXSf.png?alt=media&token=d7097bf8-c398-4e58-a78d-dc86dce92340",
         "postalCodeNumber" : "4360"
       },
-      "timestamp" : 1554191344552
+      "timestamp" : 1554369870992
     },
     "-LZxiAVcdFzlup4aOOzT" : {
       "author" : {
@@ -58,7 +60,8 @@
       "personData" : {
         "address" : "Uelandsgata 3",
         "city" : "Varhaug",
-        "dateOfBirth" : "20. mai 1948",
+        "dateOfBirth1" : "20. mai 1948",
+        "dateOfBirth2" : "05-20",
         "firstName" : "Ågot",
         "gender" : 1,
         "lastName" : "Lima Hovland",
@@ -82,7 +85,8 @@
       "personData" : {
         "address" : "Kjørevegen 16",
         "city" : "Vigrestad",
-        "dateOfBirth" : "11. mai 1973",
+        "dateOfBirth1" : "11. mai 1973",
+        "dateOfBirth2" : "05-11",
         "firstName" : "Julie",
         "lastName" : "Hovland Waldeland",
         "municipality" : "Hå",
@@ -105,7 +109,8 @@
       "personData" : {
         "address" : "Timoteiveien 27",
         "city" : "Kleppe",
-        "dateOfBirth" : "12. april 1976",
+        "dateOfBirth1" : "12. april 1976",
+        "dateOfBirth2" : "04-12",
         "firstName" : "Kirsten",
         "gender" : 1,
         "lastName" : "Hovland Kråkenes",
@@ -129,7 +134,8 @@
       "personData" : {
         "address" : "Storgata 25",
         "city" : "Sandnes",
-        "dateOfBirth" : "15. juni 1990",
+        "dateOfBirth1" : "15. juni 1990",
+        "dateOfBirth2" : "06-15",
         "firstName" : "Jørn",
         "gender" : 0,
         "lastName" : "Hovland",
@@ -153,7 +159,8 @@
       "personData" : {
         "address" : "Gardsvegen 4 ",
         "city" : "Vigrestad",
-        "dateOfBirth" : "21. mars 1993",
+        "dateOfBirth1" : "21. mars 1993",
+        "dateOfBirth2" : "03-21",
         "firstName" : "Ole André",
         "gender" : 0,
         "lastName" : "Hovland Waldeland",
@@ -176,29 +183,55 @@
       },
       "timestamp" : 1552903029097
     },
-    "-LbU4Qgd_BVEM1jzKu6B" : {
+    "-Lc_alnJ5j8tzUh3UEQu" : {
       "author" : {
         "email" : "jho.hovland@gmail.com",
-        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2Fjho.hovland@gmail.com.png?alt=media&token=a4d493cf-651c-447f-b3fd-66eedd8d25dc",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2Fjho.hovland@gmail.com.png?alt=media&token=7cd81044-a0d5-4588-9f68-fc5f2c105197",
         "uid" : "WooRDdygpfSBRuBEZIhzRH0dfu23",
         "username" : "Jan Gmail Hovland"
       },
       "personData" : {
-        "address" : "D",
-        "city" : "Abelvær",
-        "dateOfBirth" : "2. april 2019",
-        "firstName" : "A",
+        "address" : "Sentrumsvegen 17",
+        "city" : "Flå",
+        "dateOfBirth1" : "21. april 1952",
+        "dateOfBirth2" : "04-21",
+        "firstName" : "Johanne Kristine",
         "gender" : 1,
-        "lastName" : "B",
-        "municipality" : "Nærøy",
-        "municipalityNumber" : "5051",
-        "name" : "A B",
-        "personEmail" : "c",
-        "phoneNumber" : "+47 111 14 555",
-        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-LbU4Qgd_BVEM1jzKu6B.png?alt=media&token=549e5afe-6279-4382-a2d2-4f9404620cf1",
-        "postalCodeNumber" : "7950"
+        "lastName" : "Lima",
+        "municipality" : "Flå",
+        "municipalityNumber" : "0615",
+        "name" : "JOHANNE KRISTINE LIMA",
+        "personEmail" : "johakr.lima@icloud.com",
+        "phoneNumber" : "+47 414 75 437",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-Lc_alnJ5j8tzUh3UEQu.png?alt=media&token=a7d74727-faa8-4fcc-b05b-6aefc82ba24c",
+        "postalCodeNumber" : "3539"
       },
-      "timestamp" : 1554225940070
+      "timestamp" : 1555481971127
+    },
+    "-LcbQHPHMSlGtoIvhV5R" : {
+      "author" : {
+        "email" : "jho.hovland@gmail.com",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2Fjho.hovland@gmail.com.png?alt=media&token=7cd81044-a0d5-4588-9f68-fc5f2c105197",
+        "uid" : "WooRDdygpfSBRuBEZIhzRH0dfu23",
+        "username" : "Jan Gmail Hovland"
+      },
+      "personData" : {
+        "address" : "Hallingdalvegen 2288",
+        "city" : "Flå",
+        "dateOfBirth1" : "24. april 1975",
+        "dateOfBirth2" : "04-24",
+        "firstName" : "Anne",
+        "gender" : 1,
+        "lastName" : "Trøstheim ",
+        "municipality" : "Flå",
+        "municipalityNumber" : "0615",
+        "name" : "ANNE TRØSTHEIM ",
+        "personEmail" : "t",
+        "phoneNumber" : "+47 917 55 859",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-LcbQHPHMSlGtoIvhV5R.png?alt=media&token=405484be-85ce-48e7-a1f3-0bdde8ed857b",
+        "postalCodeNumber" : "3539"
+      },
+      "timestamp" : 1555444891755
     }
   },
   "postnr" : {

@@ -33,6 +33,13 @@ import MessageUI
 
 var selectedName: String = ""
 
+var persons = [Person]()
+
+// Variable for "indexed table view"
+var personDataDictionary = [String: [PersonData]]()
+var personDataSectionTitles = [String]()
+
+
 class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var searchBarPerson: UISearchBar!
@@ -46,7 +53,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     var locationOnMap = ""
     var personEmail = ""
     
-    var persons = [Person]()
+//    var persons = [Person]()
     
     var searching = false
     private var currentPerson: Person?
@@ -57,9 +64,9 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     
     var indexRowUpdateSwipe  = -1
     
-    // Variable for "indexed table view"
-    var personDataDictionary = [String: [PersonData]]()
-    var personDataSectionTitles = [String]()
+//    // Variable for "indexed table view"
+//    var personDataDictionary = [String: [PersonData]]()
+//    var personDataSectionTitles = [String]()
 
     // Called after the view has been loaded. For view controllers created in code, this is after -loadView. For view controllers unarchived from a nib, this is after the view is set.
     override func viewDidLoad() {
@@ -75,7 +82,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         let start = Date()
         
         DispatchQueue.global(qos: .userInteractive).async {
-            self.makeRead()
+            self.makeReadPersons()
         }
 
         DispatchQueue.global(qos: .userInteractive).async {
@@ -83,7 +90,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         }
 
         let end = Date()
-        print("Elapsed time = \(end.timeIntervalSince(start))")
+        print("Elapsed time MainPersonDataViewController = \(end.timeIntervalSince(start))")
         
         activity.style = .gray
         activity.isHidden = true
@@ -100,7 +107,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
 
     @objc func reloadData() {
         DispatchQueue.main.async {
-            self.makeRead()
+            self.makeReadPersons()
             self.tableView.reloadData()
             self.tableView.refreshControl?.endRefreshing()
         }
@@ -166,7 +173,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             let name = name1.capitalized
             cell.nameLabel.text = name
             
-            cell.bornLabel?.text = personDataValues[indexPath.row].dateOfBirth
+            cell.bornLabel?.text = personDataValues[indexPath.row].dateOfBirth1
             
             cell.addressLabel?.text = personDataValues[indexPath.row].address + " " +
                 personDataValues[indexPath.row].postalCodeNumber + " " +
@@ -290,95 +297,6 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         return swipeConfiguration
     }
     
-    // Reads all data outside the closure in ReadPersonsFiredata
-    func makeRead() {
-        ReadPersonsFiredata { _ in
-            self.FindSearchedPersonData(searchText: "")
-        }
-    }
-    
-    func ReadPersonsFiredata(completionHandler: @escaping (_ tempPersons: [Person]) -> Void) {
-        
-        var db: DatabaseReference!
-        
-        // Reset this variable so that it doesn'n show, if all personal data are deleted
-        personDataSectionTitles = [""]
-        
-        db = Database.database().reference().child("person")
-        
-        db.observe(.value, with: { snapshot in
-
-            var tempPersons = [Person]()
-
-            
-            for child in snapshot.children {
-                
-                if let childSnapshot = child as? DataSnapshot,
-                    let dict = childSnapshot.value as? [String: Any],
-                    let author = dict["author"] as? [String: Any],
-                    let uid = author["uid"] as? String,
-                    let username = author["username"] as? String,
-                    let email = author["email"] as? String,
-                    let authorPhotoURL = author["photoURL"] as? String,
-                    let personData = dict["personData"] as? [String: Any],
-                    let address = personData["address"] as? String,
-                    let city = personData["city"] as? String,
-                    let dateOfBirth = personData["dateOfBirth"] as? String,
-                    let name = personData["name"] as? String,
-                    let gender = personData["gender"] as? Int,
-                    let phoneNumber = personData["phoneNumber"] as? String,
-                    let postalCodeNumber = personData["postalCodeNumber"] as? String,
-                    let municipality = personData["municipality"] as? String,
-                    let municipalityNumber = personData["municipalityNumber"] as? String,
-                    let personPhotoURL = personData["photoURL"] as? String,
-                    let firstName = personData["firstName"] as? String,
-                    let lastName = personData["lastName"] as? String,
-                    let personEmail = personData["personEmail"] as? String,
-                    let timestamp = dict["timestamp"] as? Double {
-                    
-                    let author = Author(uid: uid,
-                                        username: username,
-                                        email: email,
-                                        photoURL: authorPhotoURL)
-                    
-                    let personData = PersonData(address: address,
-                                                city : city,
-                                                dateOfBirth: dateOfBirth,
-                                                name: name,
-                                                gender: gender,
-                                                phoneNumber : phoneNumber,
-                                                postalCodeNumber : postalCodeNumber,
-                                                municipality: municipality,
-                                                municipalityNumber: municipalityNumber,
-                                                photoURL: personPhotoURL,
-                                                firstName: firstName,
-                                                lastName: lastName,
-                                                personEmail: personEmail)
-                    
-                    let person = Person(id: childSnapshot.key,
-                                        author: author,
-                                        personData: personData,
-                                        timestamp: timestamp)
-                    
-                    tempPersons.append(person)
-                    
-                }
-            }
-            
-            // Sorting the persons array on firstName
-            self.persons.sort(by: {$0.personData.name < $1.personData.name})
-            self.persons = tempPersons
-            
-            // Fill the table view
-            // self.tableView.reloadData()
-            
-            completionHandler(tempPersons)
-            
-            
-        })
-    
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
  
         // Find the data for thw chosen person = selectedName
@@ -392,7 +310,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             
             vc.PersonAddressText = value.address
             vc.PersonCityText = value.city
-            vc.PersonDateOfBirthText = value.dateOfBirth
+            vc.PersonDateOfBirthText = value.dateOfBirth1
             vc.PersonFirstNameText = value.firstName
             vc.PersonGenderInt = value.gender
             vc.PersonIdText = value.id
@@ -411,7 +329,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             globalAddress = value.address
             globalCity = value.city
             globalCityCodeNumber = value.postalCodeNumber
-            globalDateOfBirth = value.dateOfBirth
+            globalDateOfBirth = value.dateOfBirth1
             globalFirstName = value.firstName
             globalGender = value.gender
             globalLastName = value.lastName
@@ -572,141 +490,13 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     }
  
     
-    func FindSearchedPersonData(searchText: String) {
-        // Reset poststedsDictionary
-        personDataDictionary = [String: [PersonData]]()
-        
-        if persons.count > 0 {
-        
-            if searchText.count == 0 {
-                let count = persons.count - 1
-                
-                for index in 0 ... count {
-                    
-                    let key = String(persons[index].personData.name.prefix(1))
-                    
-                    if var personDataValues = personDataDictionary[key] {
-                        
-                        personDataValues.append(PersonData(address: persons[index].personData.address,
-                                                           city: persons[index].personData.city,
-                                                           dateOfBirth: persons[index].personData.dateOfBirth,
-                                                           name: persons[index].personData.name,
-                                                           gender: persons[index].personData.gender,
-                                                           phoneNumber: persons[index].personData.phoneNumber,
-                                                           postalCodeNumber: persons[index].personData.postalCodeNumber,
-                                                           municipality: persons[index].personData.municipality,
-                                                           municipalityNumber: persons[index].personData.municipalityNumber,
-                                                           photoURL: persons[index].personData.photoURL,
-                                                           firstName: persons[index].personData.firstName,
-                                                           lastName: persons[index].personData.lastName,
-                                                           personEmail: persons[index].personData.personEmail))
-                        
-                        personDataDictionary[key] = personDataValues
-                        
-                    } else {
-                        
-                        personDataDictionary[key] = [PersonData(address: persons[index].personData.address,
-                                                                city: persons[index].personData.city,
-                                                                dateOfBirth: persons[index].personData.dateOfBirth,
-                                                                name: persons[index].personData.name,
-                                                                gender: persons[index].personData.gender,
-                                                                phoneNumber: persons[index].personData.phoneNumber,
-                                                                postalCodeNumber: persons[index].personData.postalCodeNumber,
-                                                                municipality: persons[index].personData.municipality,
-                                                                municipalityNumber: persons[index].personData.municipalityNumber,
-                                                                photoURL: persons[index].personData.photoURL,
-                                                                firstName: persons[index].personData.firstName,
-                                                                lastName: persons[index].personData.lastName,
-                                                                personEmail: persons[index].personData.personEmail)]
-                        
-                     }
-                }
-                
-                personDataSectionTitles = [String](personDataDictionary.keys)
-                
-                // Must use local sorting of the poststedSectionTitles
-                let region = NSLocale.current.regionCode?.lowercased() // Returns the local region
-                let language = Locale(identifier: region!)
-                let sortedPersonDataSection1 = personDataSectionTitles.sorted {
-                    $0.compare($1, locale: language) == .orderedAscending
-                }
-                personDataSectionTitles = sortedPersonDataSection1
-                
-                // Fill the table view
-                tableView.reloadData()
-                
-            } else {
-                
-                let searchedPersonData = persons.filter({ $0.personData.name.contains(searchText.uppercased()) })
-                
-                let count = searchedPersonData.count
-                
-                if count > 0 {
-                    let count = searchedPersonData.count - 1
-                    
-                    for index in 0 ... count {
-                        let key = String(searchedPersonData[index].personData.name.prefix(1))
-                        
-                        if var personDataValues = personDataDictionary[key] {
-                            
-                            personDataValues.append(PersonData(address: searchedPersonData[index].personData.address,
-                                                               city: searchedPersonData[index].personData.city,
-                                                               dateOfBirth: searchedPersonData[index].personData.dateOfBirth,
-                                                               name: searchedPersonData[index].personData.name,
-                                                               gender: searchedPersonData[index].personData.gender,
-                                                               phoneNumber: searchedPersonData[index].personData.phoneNumber,
-                                                               postalCodeNumber: searchedPersonData[index].personData.postalCodeNumber,
-                                                               municipality: searchedPersonData[index].personData.municipality,
-                                                               municipalityNumber: searchedPersonData[index].personData.municipalityNumber,
-                                                               photoURL: searchedPersonData[index].personData.photoURL,
-                                                               firstName: searchedPersonData[index].personData.firstName,
-                                                               lastName: searchedPersonData[index].personData.lastName,
-                                                               personEmail: searchedPersonData[index].personData.personEmail))
-                            
-                            personDataDictionary[key] = personDataValues
-                            
-                        } else {
-                            
-                            personDataDictionary[key] =  [PersonData(address: searchedPersonData[index].personData.address,
-                                                                     city: searchedPersonData[index].personData.city,
-                                                                     dateOfBirth: searchedPersonData[index].personData.dateOfBirth,
-                                                                     name: searchedPersonData[index].personData.name,
-                                                                     gender: searchedPersonData[index].personData.gender,
-                                                                     phoneNumber: searchedPersonData[index].personData.phoneNumber,
-                                                                     postalCodeNumber: searchedPersonData[index].personData.postalCodeNumber,
-                                                                     municipality: searchedPersonData[index].personData.municipality,
-                                                                     municipalityNumber: searchedPersonData[index].personData.municipalityNumber,
-                                                                     photoURL: searchedPersonData[index].personData.photoURL,
-                                                                     firstName: searchedPersonData[index].personData.firstName,
-                                                                     lastName: searchedPersonData[index].personData.lastName,
-                                                                     personEmail: searchedPersonData[index].personData.personEmail)]
-                                
-                        }
-                    }
-                }
-                
-                personDataSectionTitles = [String](personDataDictionary.keys)
-                
-                // Must use local sorting of the poststedSectionTitles
-                let region = NSLocale.current.regionCode?.lowercased() // Returns the local region
-                let language = Locale(identifier: region!)
-                let sortedPersonDataSection1 = personDataSectionTitles.sorted {
-                    $0.compare($1, locale: language) == .orderedAscending
-                }
-                personDataSectionTitles = sortedPersonDataSection1
-                
-                // Fill the table view
-                tableView.reloadData()
-                
-            }
-        }
-    }
     
     // Find personlData. Returns address, city, dateOfBirth, name, gender, phoneNumber, postalCodeNumber, municipality, municipalityNumber, photoURL
     func findPersonData(inputName: String) -> (id: String,
                                                address: String,
                                                city: String,
-                                               dateOfBirth: String,
+                                               dateOfBirth1: String,
+                                               dateOfBirth2: String,
                                                name: String,
                                                gender: Int,
                                                phoneNumber: String,
@@ -740,7 +530,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                 let id = String(persons[personIndex].id)
                 let address = String(persons[personIndex].personData.address)
                 let city = String(persons[personIndex].personData.city)
-                let dateOfBirth = String(persons[personIndex].personData.dateOfBirth)
+                let dateOfBirth1 = String(persons[personIndex].personData.dateOfBirth1)
+                let dateOfBirth2 = String(persons[personIndex].personData.dateOfBirth2)
                 let name1 = String(persons[personIndex].personData.name).lowercased()
                 let name = name1.capitalized
                 let gender = persons[personIndex].personData.gender
@@ -756,7 +547,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                 return (id,
                         address,
                         city,
-                        dateOfBirth,
+                        dateOfBirth1,
+                        dateOfBirth2,
                         name,
                         gender,
                         phoneNumber,
@@ -770,6 +562,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                 
             } else {
                 return ("",
+                        "",
                         "",
                         "",
                         "",
@@ -792,6 +585,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                     "",
                     "",
                     "",
+                    "",
                     0,
                     "",
                     "",
@@ -808,4 +602,247 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
  
     
 }
+
+extension UIViewController {
+    
+    // Reads all data outside the closure in ReadPersonsFiredata
+    func makeReadPersons() {
+        ReadPersonsFiredata { _ in
+            self.FindSearchedPersonData(searchText: "")
+        }
+    }
+
+    func ReadPersonsFiredata(completionHandler: @escaping (_ tempPersons: [Person]) -> Void) {
+        
+        var db: DatabaseReference!
+        
+        // Reset this variable so that it doesn'n show, if all personal data are deleted
+        personDataSectionTitles = [""]
+        
+        db = Database.database().reference().child("person")
+        
+        db.observe(.value, with: { snapshot in
+            
+            var tempPersons = [Person]()
+            
+            
+            for child in snapshot.children {
+                
+                if let childSnapshot = child as? DataSnapshot,
+                    let dict = childSnapshot.value as? [String: Any],
+                    let author = dict["author"] as? [String: Any],
+                    let uid = author["uid"] as? String,
+                    let username = author["username"] as? String,
+                    let email = author["email"] as? String,
+                    let authorPhotoURL = author["photoURL"] as? String,
+                    let personData = dict["personData"] as? [String: Any],
+                    let address = personData["address"] as? String,
+                    let city = personData["city"] as? String,
+                    let dateOfBirth1 = personData["dateOfBirth1"] as? String,
+                    let dateOfBirth2 = personData["dateOfBirth2"] as? String,
+                    let name = personData["name"] as? String,
+                    let gender = personData["gender"] as? Int,
+                    let phoneNumber = personData["phoneNumber"] as? String,
+                    let postalCodeNumber = personData["postalCodeNumber"] as? String,
+                    let municipality = personData["municipality"] as? String,
+                    let municipalityNumber = personData["municipalityNumber"] as? String,
+                    let personPhotoURL = personData["photoURL"] as? String,
+                    let firstName = personData["firstName"] as? String,
+                    let lastName = personData["lastName"] as? String,
+                    let personEmail = personData["personEmail"] as? String,
+                    let timestamp = dict["timestamp"] as? Double {
+                    
+                    let author = Author(uid: uid,
+                                        username: username,
+                                        email: email,
+                                        photoURL: authorPhotoURL)
+                    
+                    let personData = PersonData(address: address,
+                                                city : city,
+                                                dateOfBirth1: dateOfBirth1,
+                                                dateOfBirth2: dateOfBirth2,
+                                                name: name,
+                                                gender: gender,
+                                                phoneNumber : phoneNumber,
+                                                postalCodeNumber : postalCodeNumber,
+                                                municipality: municipality,
+                                                municipalityNumber: municipalityNumber,
+                                                photoURL: personPhotoURL,
+                                                firstName: firstName,
+                                                lastName: lastName,
+                                                personEmail: personEmail)
+                    
+                    let person = Person(id: childSnapshot.key,
+                                        author: author,
+                                        personData: personData,
+                                        timestamp: timestamp)
+                    
+                    tempPersons.append(person)
+                    
+                }
+            }
+            
+            // Sorting the persons array on firstName
+            persons.sort(by: {$0.personData.name < $1.personData.name})
+            persons = tempPersons
+            
+            // Fill the table view
+            // self.tableView.reloadData()
+            
+            completionHandler(tempPersons)
+            
+            
+        })
+        
+    }
+
+    func FindSearchedPersonData(searchText: String ) {
+        // Reset poststedsDictionary
+        personDataDictionary = [String: [PersonData]]()
+        
+        if persons.count > 0 {
+            
+            if searchText.count == 0 {
+                let count = persons.count - 1
+                
+                for index in 0 ... count {
+                    
+                    let key = String(persons[index].personData.name.prefix(1))
+                    
+                    if var personDataValues = personDataDictionary[key] {
+                        
+                        personDataValues.append(PersonData(address: persons[index].personData.address,
+                                                           city: persons[index].personData.city,
+                                                           dateOfBirth1: persons[index].personData.dateOfBirth1,
+                                                           dateOfBirth2: persons[index].personData.dateOfBirth2,
+                                                           name: persons[index].personData.name,
+                                                           gender: persons[index].personData.gender,
+                                                           phoneNumber: persons[index].personData.phoneNumber,
+                                                           postalCodeNumber: persons[index].personData.postalCodeNumber,
+                                                           municipality: persons[index].personData.municipality,
+                                                           municipalityNumber: persons[index].personData.municipalityNumber,
+                                                           photoURL: persons[index].personData.photoURL,
+                                                           firstName: persons[index].personData.firstName,
+                                                           lastName: persons[index].personData.lastName,
+                                                           personEmail: persons[index].personData.personEmail))
+                        
+                        personDataDictionary[key] = personDataValues
+                        
+                    } else {
+                        
+                        personDataDictionary[key] = [PersonData(address: persons[index].personData.address,
+                                                                city: persons[index].personData.city,
+                                                                dateOfBirth1: persons[index].personData.dateOfBirth1,
+                                                                dateOfBirth2: persons[index].personData.dateOfBirth2,
+                                                                name: persons[index].personData.name,
+                                                                gender: persons[index].personData.gender,
+                                                                phoneNumber: persons[index].personData.phoneNumber,
+                                                                postalCodeNumber: persons[index].personData.postalCodeNumber,
+                                                                municipality: persons[index].personData.municipality,
+                                                                municipalityNumber: persons[index].personData.municipalityNumber,
+                                                                photoURL: persons[index].personData.photoURL,
+                                                                firstName: persons[index].personData.firstName,
+                                                                lastName: persons[index].personData.lastName,
+                                                                personEmail: persons[index].personData.personEmail)]
+                        
+                    }
+                }
+                
+                personDataSectionTitles = [String](personDataDictionary.keys)
+                
+                // Must use local sorting of the poststedSectionTitles
+                let region = NSLocale.current.regionCode?.lowercased() // Returns the local region
+                let language = Locale(identifier: region!)
+                
+                let sortedPersonDataSection1 = personDataSectionTitles.sorted {
+                        $0.compare($1, locale: language) == .orderedAscending
+                }
+                personDataSectionTitles = sortedPersonDataSection1
+                
+                // Fill the table view
+//                self.tableView.reloadData()
+                
+            } else {
+                
+                let searchedPersonData = persons.filter({ $0.personData.name.contains(searchText.uppercased()) })
+                
+                let count = searchedPersonData.count
+                
+                if count > 0 {
+                    let count = searchedPersonData.count - 1
+                    
+                    for index in 0 ... count {
+                        let key = String(searchedPersonData[index].personData.name.prefix(1))
+                        
+                        if var personDataValues = personDataDictionary[key] {
+                            
+                            personDataValues.append(PersonData(address: searchedPersonData[index].personData.address,
+                                                               city: searchedPersonData[index].personData.city,
+                                                               dateOfBirth1: searchedPersonData[index].personData.dateOfBirth1,
+                                                               dateOfBirth2: searchedPersonData[index].personData.dateOfBirth2,
+                                                               name: searchedPersonData[index].personData.name,
+                                                               gender: searchedPersonData[index].personData.gender,
+                                                               phoneNumber: searchedPersonData[index].personData.phoneNumber,
+                                                               postalCodeNumber: searchedPersonData[index].personData.postalCodeNumber,
+                                                               municipality: searchedPersonData[index].personData.municipality,
+                                                               municipalityNumber: searchedPersonData[index].personData.municipalityNumber,
+                                                               photoURL: searchedPersonData[index].personData.photoURL,
+                                                               firstName: searchedPersonData[index].personData.firstName,
+                                                               lastName: searchedPersonData[index].personData.lastName,
+                                                               personEmail: searchedPersonData[index].personData.personEmail))
+                            
+                            personDataDictionary[key] = personDataValues
+                            
+                        } else {
+                            
+                            personDataDictionary[key] =  [PersonData(address: searchedPersonData[index].personData.address,
+                                                                     city: searchedPersonData[index].personData.city,
+                                                                     dateOfBirth1: searchedPersonData[index].personData.dateOfBirth1,
+                                                                     dateOfBirth2: searchedPersonData[index].personData.dateOfBirth2,
+                                                                     name: searchedPersonData[index].personData.name,
+                                                                     gender: searchedPersonData[index].personData.gender,
+                                                                     phoneNumber: searchedPersonData[index].personData.phoneNumber,
+                                                                     postalCodeNumber: searchedPersonData[index].personData.postalCodeNumber,
+                                                                     municipality: searchedPersonData[index].personData.municipality,
+                                                                     municipalityNumber: searchedPersonData[index].personData.municipalityNumber,
+                                                                     photoURL: searchedPersonData[index].personData.photoURL,
+                                                                     firstName: searchedPersonData[index].personData.firstName,
+                                                                     lastName: searchedPersonData[index].personData.lastName,
+                                                                     personEmail: searchedPersonData[index].personData.personEmail)]
+                            
+                        }
+                    }
+                }
+                
+                personDataSectionTitles = [String](personDataDictionary.keys)
+                
+                // Must use local sorting of the poststedSectionTitles
+                let region = NSLocale.current.regionCode?.lowercased() // Returns the local region
+                let language = Locale(identifier: region!)
+                let sortedPersonDataSection1 = personDataSectionTitles.sorted {
+                    $0.compare($1, locale: language) == .orderedAscending
+                }
+                personDataSectionTitles = sortedPersonDataSection1
+                
+                // Fill the table view
+//                self.tableView.reloadData()
+                
+            }
+        }
+    }
+
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
 

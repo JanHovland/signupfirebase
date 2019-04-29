@@ -12,7 +12,8 @@ import UIKit
 class PersonData {
     var address: String
     var city: String
-    var dateOfBirth: String
+    var dateOfBirth1: String            // 12. april 1976
+    var dateOfBirth2: String            // 04-12         for å kunne sortere etter måned og dag
     var name: String
     var gender: Int
     var phoneNumber: String
@@ -26,7 +27,8 @@ class PersonData {
     
     init(address: String,
          city: String,
-         dateOfBirth: String,
+         dateOfBirth1: String,
+         dateOfBirth2: String,
          name: String,
          gender: Int,
          phoneNumber: String,
@@ -40,7 +42,8 @@ class PersonData {
         
         self.address = address
         self.city = city
-        self.dateOfBirth = dateOfBirth
+        self.dateOfBirth1 = dateOfBirth1
+        self.dateOfBirth2 = dateOfBirth2
         self.name = name
         self.gender = gender
         self.phoneNumber = phoneNumber

@@ -38,6 +38,16 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let start = Date()
+       
+        // Read Person data from Firedata
+        DispatchQueue.global(qos: .userInteractive).async {
+            self.makeReadPersons()
+        }
+        
+        let end = Date()
+        print("Elapsed time LogInViewController = \(end.timeIntervalSince(start))")
+        
         // Hide the users's photo
         inputImage.isHidden = true
         

@@ -38,13 +38,13 @@
 		D1E9A40E220C4D18003423D7 /* IndexedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E9A40D220C4D18003423D7 /* IndexedTableViewController.swift */; };
 		D1EAAB8521C1178A005D2656 /* DataBaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAAB8421C1178A005D2656 /* DataBaseExtension.swift */; };
 		D1FFF52B2212E5110097B414 /* SearchedPostelCodesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFF52A2212E5110097B414 /* SearchedPostelCodesTableViewCell.swift */; };
+		DB1DC67922775A96009711CC /* signupfirebase-236b9-export-9.json in Resources */ = {isa = PBXBuildFile; fileRef = DB1DC67822775A95009711CC /* signupfirebase-236b9-export-9.json */; };
 		DB2FE8D22225C696006BDF27 /* PersonsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2FE8D12225C696006BDF27 /* PersonsService.swift */; };
 		DB343258222EDDA900452D0B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB343257222EDDA900452D0B /* MapViewController.swift */; };
 		DB4B74732215FD48002BCDDD /* PersonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4B74722215FD47002BCDDD /* PersonData.swift */; };
 		DB5FE0342243F62E00EE8B5D /* youtube.txt in Resources */ = {isa = PBXBuildFile; fileRef = DB5FE0332243F62E00EE8B5D /* youtube.txt */; };
 		DB5FE036224776A200EE8B5D /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FE035224776A200EE8B5D /* MessageViewController.swift */; };
 		DB5FE0382247FAC600EE8B5D /* EpostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FE0372247FAC600EE8B5D /* EpostViewController.swift */; };
-		DB86F3AF2253D3FE00C1BB08 /* signupfirebase-236b9-export-10.json in Resources */ = {isa = PBXBuildFile; fileRef = DB86F3AE2253D3FE00C1BB08 /* signupfirebase-236b9-export-10.json */; };
 		DB97FEBA22743FA80010F419 /* BirthdayNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB97FEB922743FA80010F419 /* BirthdayNotificationViewController.swift */; };
 		DB97FEBC22743FC80010F419 /* BirthdayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB97FEBB22743FC80010F419 /* BirthdayTableViewController.swift */; };
 		DB97FEBE22743FF80010F419 /* BirthdayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB97FEBD22743FF80010F419 /* BirthdayTableViewCell.swift */; };
@@ -94,13 +94,13 @@
 		D1EAAB8421C1178A005D2656 /* DataBaseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseExtension.swift; sourceTree = "<group>"; };
 		D1FFF52A2212E5110097B414 /* SearchedPostelCodesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedPostelCodesTableViewCell.swift; sourceTree = "<group>"; };
 		D8FA6AF44DDF6A6C8562A35A /* Pods_signupfirebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_signupfirebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB1DC67822775A95009711CC /* signupfirebase-236b9-export-9.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "signupfirebase-236b9-export-9.json"; sourceTree = "<group>"; };
 		DB2FE8D12225C696006BDF27 /* PersonsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonsService.swift; sourceTree = "<group>"; };
 		DB343257222EDDA900452D0B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DB4B74722215FD47002BCDDD /* PersonData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonData.swift; sourceTree = "<group>"; };
 		DB5FE0332243F62E00EE8B5D /* youtube.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = youtube.txt; sourceTree = "<group>"; };
 		DB5FE035224776A200EE8B5D /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		DB5FE0372247FAC600EE8B5D /* EpostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpostViewController.swift; sourceTree = "<group>"; };
-		DB86F3AE2253D3FE00C1BB08 /* signupfirebase-236b9-export-10.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "signupfirebase-236b9-export-10.json"; sourceTree = "<group>"; };
 		DB97FEB822743AE50010F419 /* signupfirebase.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = signupfirebase.entitlements; sourceTree = "<group>"; };
 		DB97FEB922743FA80010F419 /* BirthdayNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BirthdayNotificationViewController.swift; path = ../../BirthdayNotificationViewController.swift; sourceTree = "<group>"; };
 		DB97FEBB22743FC80010F419 /* BirthdayTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayTableViewController.swift; sourceTree = "<group>"; };
@@ -195,7 +195,7 @@
 				D1349F152205C94800C825E7 /* Postnummer.csv */,
 				D13172532202EF1C00EEB530 /* SavePostalCodesFirebaseTableViewController.swift */,
 				D1FFF52A2212E5110097B414 /* SearchedPostelCodesTableViewCell.swift */,
-				DB86F3AE2253D3FE00C1BB08 /* signupfirebase-236b9-export-10.json */,
+				DB1DC67822775A95009711CC /* signupfirebase-236b9-export-9.json */,
 				DBC0BD9A222146BC003E5566 /* UIImage+Scale.swift */,
 				DBEDA17A2223D1F300725D75 /* WebViewController.swift */,
 				D134822621CF922900F9F944 /* MainPersonDataViewController.swift */,
@@ -310,12 +310,12 @@
 			files = (
 				D1C7F2EB218C98C900481E48 /* LaunchScreen.storyboard in Resources */,
 				D1B3049421962151006C1319 /* GoogleService-Info.plist in Resources */,
-				DB86F3AF2253D3FE00C1BB08 /* signupfirebase-236b9-export-10.json in Resources */,
 				D1CF583F219C6811000A3497 /* Create iOS Icons.jsx in Resources */,
 				D1E32FBD21E1FED50022BFB3 /* Localizable.strings in Resources */,
 				DB5FE0342243F62E00EE8B5D /* youtube.txt in Resources */,
 				D1349F162205C94800C825E7 /* Postnummer.csv in Resources */,
 				D1C7F2E8218C98C900481E48 /* Assets.xcassets in Resources */,
+				DB1DC67922775A96009711CC /* signupfirebase-236b9-export-9.json in Resources */,
 				DBD44B9C2229BDFA0082E490 /* InfoPlist.strings in Resources */,
 				D1C7F2E6218C98C800481E48 /* Main.storyboard in Resources */,
 			);

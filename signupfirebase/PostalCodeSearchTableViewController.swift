@@ -27,7 +27,7 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        makeRead()
+        makeReadPostal()
 
         activity.style = .gray
         activity.isHidden = false
@@ -203,7 +203,7 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
     }
 
     // Reads all data outside the closure in ReadPostalCodeFiredata
-    func makeRead() {
+    func makeReadPostal() {
         ReadPostalCodeFiredata { _ in
 
             // Must use the main thread to get the data
