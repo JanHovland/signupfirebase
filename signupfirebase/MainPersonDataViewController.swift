@@ -100,6 +100,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         refreshControl.addTarget(self, action: #selector(reloadData), for: .valueChanged)
         self.tableView.refreshControl = refreshControl
 
+        self.tableView.reloadData()
+        
         activity.style = .gray
         activity.isHidden = true
  
@@ -108,7 +110,6 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     @objc func reloadData() {
         DispatchQueue.main.async {
             self.makeReadPersons()
-            self.tableView.reloadData()
             self.tableView.refreshControl?.endRefreshing()
         }
     }
@@ -122,7 +123,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     
     // Called when the view has been fully transitioned onto the screen. Default does nothing
     override func viewDidAppear(_ animated: Bool) {
-        tableView.reloadData()
+        // tableView.reloadData()
     }
     
     // Asks the data source to return the number of sections in the table view.

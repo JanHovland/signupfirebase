@@ -27,10 +27,10 @@
     },
     "-LZis9pw5yICuUDAuXSf" : {
       "author" : {
-        "email" : "jan.hovland@lyse.net",
-        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2Fjan.hovland@lyse.net.png?alt=media&token=5d4b5016-c653-4e45-a43f-76f7fc82d89a",
-        "uid" : "wfMRXF6W3KYo1Iw7y2AIbm1xH3n2",
-        "username" : "Jan Hovland"
+        "email" : "jho.hovland@gmail.com",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2Fjho.hovland@gmail.com.png?alt=media&token=7cd81044-a0d5-4588-9f68-fc5f2c105197",
+        "uid" : "WooRDdygpfSBRuBEZIhzRH0dfu23",
+        "username" : "Jan Gmail Hovland"
       },
       "personData" : {
         "address" : "Uelandsgata 2",
@@ -45,10 +45,10 @@
         "name" : "JAN HOVLAND",
         "personEmail" : "jho.hovland@gmail.com",
         "phoneNumber" : "+47 400 05 430",
-        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-LZis9pw5yICuUDAuXSf.png?alt=media&token=d7097bf8-c398-4e58-a78d-dc86dce92340",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-LZis9pw5yICuUDAuXSf.png?alt=media&token=8ba092fa-6458-47ba-8ede-ca8ab0560cad",
         "postalCodeNumber" : "4360"
       },
-      "timestamp" : 1554369870992
+      "timestamp" : 1556645663507
     },
     "-LZxiAVcdFzlup4aOOzT" : {
       "author" : {
@@ -174,15 +174,6 @@
       },
       "timestamp" : 1554191698655
     },
-    "-L_Y1P6aB9CCLlnXMiUv" : {
-      "author" : {
-        "email" : "jho.hovland@gmail.com",
-        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2Fjho.hovland@gmail.com.png?alt=media&token=bd7f6017-39fe-4430-bacf-1d14213cdadd",
-        "uid" : "MnYNNQNIJUgSXZhpKlk3TZaT2YJ3",
-        "username" : "Jan Gmail Hovland"
-      },
-      "timestamp" : 1552903029097
-    },
     "-Lc_alnJ5j8tzUh3UEQu" : {
       "author" : {
         "email" : "jho.hovland@gmail.com",
@@ -228,10 +219,85 @@
         "name" : "ANNE TRØSTHEIM ",
         "personEmail" : "t",
         "phoneNumber" : "+47 917 55 859",
-        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-LcbQHPHMSlGtoIvhV5R.png?alt=media&token=405484be-85ce-48e7-a1f3-0bdde8ed857b",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-LcbQHPHMSlGtoIvhV5R.png?alt=media&token=dd5f018e-5795-4fd1-a565-5c90fc987282",
         "postalCodeNumber" : "3539"
       },
-      "timestamp" : 1555444891755
+      "timestamp" : 1556645696379
+    },
+    "-LdjKJLEBIteL-UuyINu" : {
+      "author" : {
+        "email" : "jho.hovland@gmail.com",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2Fjho.hovland@gmail.com.png?alt=media&token=7cd81044-a0d5-4588-9f68-fc5f2c105197",
+        "uid" : "WooRDdygpfSBRuBEZIhzRH0dfu23",
+        "username" : "Jan Gmail Hovland"
+      },
+      "personData" : {
+        "address" : "Kjørevegen 16",
+        "city" : "Vigrestad",
+        "dateOfBirth1" : "28. april 1999",
+        "dateOfBirth2" : "04-28",
+        "firstName" : "Sara",
+        "gender" : 0,
+        "lastName" : "Hovland Waldeland",
+        "municipality" : "Hå",
+        "municipalityNumber" : "1119",
+        "name" : "SARA HOVLAND WALDELAND",
+        "personEmail" : "",
+        "phoneNumber" : "",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-LdjKJLEBIteL-UuyINu.png?alt=media&token=6a5cce71-c743-4d6e-b629-e6e5546c1f1a",
+        "postalCodeNumber" : "4362"
+      },
+      "timestamp" : 1556647179038
+    },
+    "-LdjNef0JCTGw9lwelEX" : {
+      "author" : {
+        "email" : "jho.hovland@gmail.com",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2Fjho.hovland@gmail.com.png?alt=media&token=7cd81044-a0d5-4588-9f68-fc5f2c105197",
+        "uid" : "WooRDdygpfSBRuBEZIhzRH0dfu23",
+        "username" : "Jan Gmail Hovland"
+      },
+      "personData" : {
+        "address" : "Kjørevegen 16",
+        "city" : "Vigrestad",
+        "dateOfBirth1" : "11. mai 1973",
+        "dateOfBirth2" : "05-11",
+        "firstName" : "Julie",
+        "gender" : 0,
+        "lastName" : "Hovland Vigrestad",
+        "municipality" : "Hå",
+        "municipalityNumber" : "1119",
+        "name" : "JULIE HOVLAND VIGRESTAD",
+        "personEmail" : "",
+        "phoneNumber" : "+47 924 23 491",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-LdjNef0JCTGw9lwelEX.png?alt=media&token=545ad59b-0bc8-4fdd-9f2f-c5a648dd02c8",
+        "postalCodeNumber" : "4362"
+      },
+      "timestamp" : 1556646901324
+    },
+    "-LdjRSYlZQTZ3QupzVkG" : {
+      "author" : {
+        "email" : "jho.hovland@gmail.com",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2Fjho.hovland@gmail.com.png?alt=media&token=7cd81044-a0d5-4588-9f68-fc5f2c105197",
+        "uid" : "WooRDdygpfSBRuBEZIhzRH0dfu23",
+        "username" : "Jan Gmail Hovland"
+      },
+      "personData" : {
+        "address" : "Kvernfallsvegen 3",
+        "city" : "Lye",
+        "dateOfBirth1" : "28. mars 1999",
+        "dateOfBirth2" : "03-28",
+        "firstName" : "Rebecca",
+        "gender" : 1,
+        "lastName" : "Hovland",
+        "municipality" : "Time",
+        "municipalityNumber" : "1121",
+        "name" : "REBECCA HOVLAND",
+        "personEmail" : "",
+        "phoneNumber" : "+47 400 58 485",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-LdjRSYlZQTZ3QupzVkG.png?alt=media&token=798f2ce0-c4fd-4ec6-9765-7e8530fdc838",
+        "postalCodeNumber" : "4347"
+      },
+      "timestamp" : 1556648110474
     }
   },
   "postnr" : {
