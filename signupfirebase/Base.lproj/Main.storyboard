@@ -744,13 +744,13 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="birthdayLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1i-KC-BFo">
-                                            <rect key="frame" x="5" y="10" width="127" height="21"/>
+                                            <rect key="frame" x="5" y="10" width="116" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kLd-p9-Foz">
-                                            <rect key="frame" x="123" y="10" width="199" height="21"/>
+                                            <rect key="frame" x="125" y="10" width="197" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -758,10 +758,10 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="iuh-ey-RXU" firstAttribute="leading" secondItem="kLd-p9-Foz" secondAttribute="trailing" constant="9" id="9L8-so-BAC"/>
-                                        <constraint firstItem="iuh-ey-RXU" firstAttribute="leading" secondItem="l1i-KC-BFo" secondAttribute="trailing" constant="199" id="EOL-k9-5D1"/>
+                                        <constraint firstItem="iuh-ey-RXU" firstAttribute="leading" secondItem="l1i-KC-BFo" secondAttribute="trailing" constant="210" id="EOL-k9-5D1"/>
                                         <constraint firstItem="iuh-ey-RXU" firstAttribute="top" secondItem="wrl-xr-qdR" secondAttribute="top" constant="1" id="Lwj-PC-3XX"/>
                                         <constraint firstItem="l1i-KC-BFo" firstAttribute="top" secondItem="wrl-xr-qdR" secondAttribute="top" constant="10" id="MSE-bA-DAx"/>
-                                        <constraint firstItem="kLd-p9-Foz" firstAttribute="leading" secondItem="wrl-xr-qdR" secondAttribute="leading" constant="123" id="OnJ-Jq-z59"/>
+                                        <constraint firstItem="kLd-p9-Foz" firstAttribute="leading" secondItem="wrl-xr-qdR" secondAttribute="leading" constant="125" id="OnJ-Jq-z59"/>
                                         <constraint firstItem="kLd-p9-Foz" firstAttribute="top" secondItem="wrl-xr-qdR" secondAttribute="top" constant="10" id="UdZ-qk-S74"/>
                                         <constraint firstItem="l1i-KC-BFo" firstAttribute="leading" secondItem="wrl-xr-qdR" secondAttribute="leading" constant="5" id="hgT-yK-smj"/>
                                         <constraint firstAttribute="trailing" secondItem="iuh-ey-RXU" secondAttribute="trailing" constant="10" id="v4D-Pm-Cwc"/>
