@@ -35,7 +35,8 @@ final class PersonService {
                              email: String,
                              address: String,
                              city: String,
-                             dateOfBirth: String,
+                             dateOfBirth1: String,
+                             dateOfBirth2: String,
                              name: String,
                              gender: Int,
                              phoneNumber: String,
@@ -105,7 +106,8 @@ final class PersonService {
                         "photoURL": personPhotoURL,
                         "address": address,
                         "city": city,
-                        "dateOfBirth": dateOfBirth,
+                        "dateOfBirth1": dateOfBirth1,
+                        "dateOfBirth2": self.convertStringDate(stringDate: dateOfBirth1),
                         "name": name,
                         "gender": gender,
                         "phoneNumber": phoneNumber,
@@ -147,6 +149,77 @@ final class PersonService {
             
         }
         
+    }
+    
+    // Converts "12. april 1976" to "04-12"
+    func convertStringDate(stringDate: String) -> String {
+        
+        var day: String = ""
+        var month: String = ""
+        
+        if let space = stringDate.lastIndex(of: " ") {
+            
+            let str1 = stringDate[..<space]
+            
+            print("str1 = \(str1)")
+            
+            if let periode = str1.firstIndex(of: ".") {
+                
+                let day1 = stringDate[..<periode]
+                
+                day = String(day1)
+                
+                if day.count == 1 {
+                    day = "0" + day
+                }
+                
+                print("day = \(day)")
+                
+                if let space1 = str1.firstIndex(of: " ") {
+                    
+                    let month1 = str1[space1...]
+                    
+                    let month2 = month1.replacingOccurrences(of: " ", with: "")
+                    
+                    let month3 = String(month2)
+                    
+                    if month3         == NSLocalizedString("january", comment: "LogInViewController.swift CheckLogin verdi") {
+                        month = "01"
+                    } else if  month3 == NSLocalizedString("february", comment: "LogInViewController.swift CheckLogin verdi") {
+                        month = "02"
+                    } else if  month3 == NSLocalizedString("march", comment: "LogInViewController.swift CheckLogin verdi") {
+                        month = "03"
+                    } else if  month3 == NSLocalizedString("april", comment: "LogInViewController.swift CheckLogin verdi") {
+                        month = "04"
+                    } else if  month3 == NSLocalizedString("may", comment: "LogInViewController.swift CheckLogin verdi") {
+                        month = "05"
+                    } else if  month3 == NSLocalizedString("june", comment: "LogInViewController.swift CheckLogin verdi") {
+                        month = "06"
+                    } else if  month3 == NSLocalizedString("july", comment: "LogInViewController.swift CheckLogin verdi") {
+                        month = "07"
+                    } else if  month3 == NSLocalizedString("august", comment: "LogInViewController.swift CheckLogin verdi") {
+                        month = "08"
+                    } else if  month3 == NSLocalizedString("september", comment: "LogInViewController.swift CheckLogin verdi") {
+                        month = "09"
+                    } else if  month3 == NSLocalizedString("october", comment: "LogInViewController.swift CheckLogin verdi") {
+                        month = "10"
+                    } else if  month3 == NSLocalizedString("november", comment: "LogInViewController.swift CheckLogin verdi") {
+                        month = "11"
+                    } else if  month3 == NSLocalizedString("december", comment: "LogInViewController.swift CheckLogin verdi") {
+                        month = "12"
+                    }
+                    
+                    print("month = \(month)")
+                    
+                    return month + "-" + day
+                    
+                }
+                
+            }
+            
+        }
+        
+        return month + "-" + day
     }
     
 }

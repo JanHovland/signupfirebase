@@ -17,9 +17,10 @@ class BirthdayTableViewController: UITableViewController {
             self.makeReadPersons()
         }
         
-        
         persons.sort(by: {$0.personData.dateOfBirth2 < $1.personData.dateOfBirth2})
 
+        tableView.reloadData()
+        
    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -33,20 +34,21 @@ class BirthdayTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CellBirthday", for: indexPath) as! BirthdayTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellBirthday", for: indexPath) as! BirthdayTableViewCell
 
-        cell.birthdayLabel.text = persons[indexPath.row].personData.dateOfBirth1
+        // There is now no selectionStyle of the selected cell (.default, .blue, .gray or ,none)
+        cell.selectionStyle = .none
+        
+        let birthDay = persons[indexPath.row].personData.dateOfBirth1
+        if let secondSpace = birthDay.lastIndex(of: " ") {
+           cell.birthdayLabel.text = String(birthDay[..<secondSpace])
+        }
+        
         cell.nameLabel.text = persons[indexPath.row].personData.firstName + " " + persons[indexPath.row].personData.lastName
+        
         return cell
+        
     }
-    
-
+ 
 }
 
-extension Date {
-    func asString() -> String {
-      let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        return dateFormatter.string(from: self)
-    }
-}

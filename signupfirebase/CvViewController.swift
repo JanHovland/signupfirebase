@@ -171,22 +171,14 @@ class CvViewController: UIViewController {
            Y) Bildene i Persondata vises nå korrekt. Grunnen var en test på to URL's som sammenlignet to forskjellige URL's
            Z) Har tilpasset visningen kan gjøres raskere med background thread.
               "Introduction to iOS Threading - Zelda App (Xcode 8, Swift 3)" på Youtube.com av Mark Moeykens
-               let start = Date()
-               DispatchQueue.global(qos: .userInteractive).async {
-                   self.makeRead()
-               }
-               DispatchQueue.global(qos: .userInteractive).async {
-                   self.FindSearchedPersonData(searchText: "")
-               }
-               let end = Date()
-               print = end.timeIntervalSince(start))
+           Æ) Lagt inn birthDay2 inn i oppdater og lage ny Persondate           --> MM-dd
+
 
         7. Nye oppgaver (ikke fullført)
         
            . Legge inn 2 nye punkter under "Settings" :
              . "Oversikt fødselsdager" ("Overview birthdays")                      --> "BirthdaysTableviewController.swift" + "BirthdaysTableviewCell.swift"
-               . Legg inn birthDay2 inn i oppdater og lage ny Persondate
-               . "Dato" - "Navn" - "Sende melding" - "Markere inneværende måned"
+                              . "Dato" - "Navn" - "Sende melding" - "Markere inneværende måned"
         
              . "Varsling på fødselsdager". ("Notification on birthdays")           --> "NotificationTableView.swift"
                . Legg inn Info

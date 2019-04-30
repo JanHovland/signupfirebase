@@ -7,6 +7,12 @@
 /* CreateAccountViewController.swift AuthErrorCode */
 "An unknown error occurred." = "En ukjent feil oppstod.";
 
+/* LogInViewController.swift CheckLogin verdi */
+"april" = "april";
+
+/* LogInViewController.swift CheckLogin verdi */
+"august" = "august";
+
 /* SettingsTableViewController.swift SectionHeading */
 "Birthdays" = "Fødselsdager";
 
@@ -33,6 +39,9 @@
 
 /* SavePostalCodesFirebaseTableViewController.swift documentPicker */
 "Data are now saved in Firebase." = "Data er nå lagret i Firebase.";
+
+/* LogInViewController.swift CheckLogin verdi */
+"december" = "desember";
 
 /* MainPersonDataViewController trailingSwipeActionsConfigurationForRowAt */
 "Delete" = "Slett";
@@ -88,6 +97,9 @@
 /* EpostViewController.swift mailComposeController */
 "Fatal error" = "Fatal feil";
 
+/* LogInViewController.swift CheckLogin verdi */
+"february" = "februar";
+
 /* CreateAccountViewController.swift AuthErrorCode */
 "File on the client does not match the checksum of the file received by the server. Try uploading again." = "Filen på klienten samsvarer ikke med sjekksummen for filen mottatt av serveren. Prøv å laste opp igjen ";
 
@@ -109,6 +121,15 @@
 /* DataBaseExtension.swift formatPhone */
 "Invalid phone number" = "Feil format telefonnr";
 
+/* LogInViewController.swift CheckLogin verdi */
+"january" = "januar";
+
+/* LogInViewController.swift CheckLogin verdi */
+"july" = "juli";
+
+/* LogInViewController.swift CheckLogin verdi */
+"june" = "juni";
+
 /* BirthdayNotificationViewController.swift viewDidLoad */
 "Local notification can only execute when the app is set to background." = "Lokal varsling kan bare utføres når appen ligger i bakgrunnen.";
 
@@ -118,6 +139,12 @@
 /* PersonViewVontroller.swift velgeKjonn 
    PersonViewVontroller.swift viewDidAppear */
 "Man" = "Mann";
+
+/* LogInViewController.swift CheckLogin verdi */
+"march" = "mars";
+
+/* LogInViewController.swift CheckLogin verdi */
+"may" = "mai";
 
 /* BirthdayNotificationViewController.swift viewDidLoad */
 "NB. The app will only produce one notification. It will no repeat itself." = "NB. Appen vil bare produsere en varsling. Det vil ikke komme flere varslinger enn denne ene.";
@@ -133,6 +160,12 @@
 
 /* CreateAccountViewController.swift AuthErrorCode */
 "No project is configured for Firebase Storage." = "Intet prosjekt er konfigurert for Firebase Storage.";
+
+/* LogInViewController.swift CheckLogin verdi */
+"november" = "november";
+
+/* LogInViewController.swift CheckLogin verdi */
+"october" = "oktober";
 
 /* OK */
 "OK" = "OK";
@@ -167,6 +200,9 @@
 
 /* EpostViewController.swift mailComposeController */
 "Saved" = "Lagret";
+
+/* LogInViewController.swift CheckLogin verdi */
+"september" = "september";
 
 /* CreateAccountViewController.swift AuthErrorCode */
 "Size of the downloaded file exceeds the amount of memory allocated for the download. Increase memory cap and try downloading again." = "Størrelsen på den nedlastede filen overskrider mengden minne som er tildelt for nedlastingen. Øk memory cap og prøv å laste ned igjen.";

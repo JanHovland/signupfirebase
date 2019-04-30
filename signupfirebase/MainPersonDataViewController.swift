@@ -88,7 +88,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         DispatchQueue.global(qos: .userInteractive).async {
             self.FindSearchedPersonData(searchText: "")
         }
-
+        
         let end = Date()
         print("Elapsed time MainPersonDataViewController = \(end.timeIntervalSince(start))")
         
@@ -122,7 +122,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     
     // Called when the view has been fully transitioned onto the screen. Default does nothing
     override func viewDidAppear(_ animated: Bool) {
-
+        tableView.reloadData()
     }
     
     // Asks the data source to return the number of sections in the table view.
@@ -310,7 +310,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             
             vc.PersonAddressText = value.address
             vc.PersonCityText = value.city
-            vc.PersonDateOfBirthText = value.dateOfBirth1
+            vc.PersonDateOfBirthText1 = value.dateOfBirth1
+            vc.PersonDateOfBirthText2 = value.dateOfBirth2
             vc.PersonFirstNameText = value.firstName
             vc.PersonGenderInt = value.gender
             vc.PersonIdText = value.id
@@ -344,7 +345,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
 
             vc.PersonAddressText = "" 
             vc.PersonCityText  = ""
-            vc.PersonDateOfBirthText = ""
+            vc.PersonDateOfBirthText1 = ""
+            vc.PersonDateOfBirthText2 = ""
             vc.PersonFirstNameText = ""
             vc.PersonGenderInt = 0
             vc.PersonIdText = ""

@@ -24,7 +24,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     
     @IBOutlet weak var addressInput: UITextField!
     @IBOutlet weak var cityInput: UITextField!
-    @IBOutlet weak var dateOfBirthInput: UITextField!
+    @IBOutlet weak var dateOfBirthInput1: UITextField!
     @IBOutlet weak var firstNameInput: UITextField!
     @IBOutlet weak var genderInput: UISegmentedControl!
     @IBOutlet weak var lastNameInput: UITextField!
@@ -33,6 +33,9 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     @IBOutlet weak var municipalityNumberInput: UITextField!
     @IBOutlet weak var municipalityInput: UITextField!
     @IBOutlet weak var personEmailInput: UITextField!
+    
+    
+    var dateOfBirthInput2 = ""
     
     @IBOutlet var inputImage: UIImageView! {
         didSet {
@@ -54,7 +57,8 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     var PersonCityText = ""
     var PersonFirstNameText = ""
     var PersonIdText = ""
-    var PersonDateOfBirthText = ""
+    var PersonDateOfBirthText1 = ""
+    var PersonDateOfBirthText2 = ""
     var PersonGenderInt = 0
     var PersonLastNameText = ""
     var PersonMunicipalityText = ""
@@ -87,7 +91,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         lastNameInput.delegate = self
         personEmailInput.delegate = self
         
-        dateOfBirthInput.delegate = self
+        dateOfBirthInput1.delegate = self
         phoneNumberInput.delegate = self
         postalCodeNumberInput.delegate = self
         
@@ -204,9 +208,9 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         }
         
         if globalDateOfBirth.count > 0 {
-            dateOfBirthInput.text = globalDateOfBirth
+            dateOfBirthInput1.text = globalDateOfBirth
         } else {
-            dateOfBirthInput.text = PersonDateOfBirthText
+            dateOfBirthInput1.text = PersonDateOfBirthText1
         }
             
         if globalPhoneNumber.count > 0 {
@@ -227,8 +231,8 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         formatter.timeStyle = .none
         let region = NSLocale.current.regionCode?.lowercased()
         formatter.locale = NSLocale(localeIdentifier: region!) as Locale
-        if PersonDateOfBirthText.count > 0 {
-            let date = formatter.date(from: PersonDateOfBirthText)
+        if PersonDateOfBirthText1.count > 0 {
+            let date = formatter.date(from: PersonDateOfBirthText1)
             if date != nil {
                 datoValg.date = date!
             }
@@ -282,7 +286,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         lastNameInput.resignFirstResponder()
         personEmailInput.resignFirstResponder()
         
-        dateOfBirthInput.resignFirstResponder()
+        dateOfBirthInput1.resignFirstResponder()
         phoneNumberInput.resignFirstResponder()
         phoneNumberInput.text = formatPhone(phone: phoneNumberInput.text!)
         postalCodeNumberInput.resignFirstResponder()
@@ -314,7 +318,8 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
                                                      email: value.eMail,
                                                      address: self.addressInput.text!,
                                                      city: self.cityInput.text!,
-                                                     dateOfBirth: self.dateOfBirthInput.text!,
+                                                     dateOfBirth1: self.dateOfBirthInput1.text!,
+                                                     dateOfBirth2: self.dateOfBirthInput2,
                                                      name: (self.firstNameInput.text! + " " + self.lastNameInput.text!).uppercased(),
                                                      gender: self.genderInput.selectedSegmentIndex,
                                                      phoneNumber: self.phoneNumberInput.text!,
@@ -347,8 +352,8 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         
         toolBarDatoValg.setItems([flexibleSpaceDatoValg, ferdigButtonDatoValg], animated: false)
         
-        dateOfBirthInput.inputAccessoryView = toolBarDatoValg
-        dateOfBirthInput.inputView = datoValg
+        dateOfBirthInput1.inputAccessoryView = toolBarDatoValg
+        dateOfBirthInput1.inputView = datoValg
         datoValg.datePickerMode = .date
         let region = NSLocale.current.regionCode?.lowercased()
         datoValg.locale = NSLocale(localeIdentifier: region!) as Locale
@@ -363,7 +368,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         formatter.locale = NSLocale(localeIdentifier: region!) as Locale
         
         let datoString = formatter.string(from: datoValg.date)
-        dateOfBirthInput.text =  "\(datoString)"
+        dateOfBirthInput1.text =  "\(datoString)"
         view.endEditing(true)
     }
     
@@ -390,7 +395,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
             globalPhoneNumber = phoneNumberInput.text!
             globalCityCodeNumber = postalCodeNumberInput.text!
             globalCity = cityInput.text!
-            globalDateOfBirth = dateOfBirthInput.text!
+            globalDateOfBirth = dateOfBirthInput1.text!
             globalGender = genderInput.selectedSegmentIndex
             globalMunicipality = municipalityInput.text!
             globalMunicipalityNumber = municipalityNumberInput.text!

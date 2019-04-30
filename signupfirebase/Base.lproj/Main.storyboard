@@ -724,7 +724,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellBirthday" id="ZyH-nn-ZXC" customClass="BirthdayTableViewCell" customModule="signupfirebase" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellBirthday" id="ZyH-nn-ZXC" customClass="BirthdayTableViewCell" customModule="signupfirebase" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZyH-nn-ZXC" id="wrl-xr-qdR">
@@ -744,13 +744,13 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="birthdayLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1i-KC-BFo">
-                                            <rect key="frame" x="15" y="10" width="117" height="21"/>
+                                            <rect key="frame" x="5" y="10" width="127" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kLd-p9-Foz">
-                                            <rect key="frame" x="142" y="10" width="180" height="21"/>
+                                            <rect key="frame" x="123" y="10" width="199" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -761,9 +761,9 @@
                                         <constraint firstItem="iuh-ey-RXU" firstAttribute="leading" secondItem="l1i-KC-BFo" secondAttribute="trailing" constant="199" id="EOL-k9-5D1"/>
                                         <constraint firstItem="iuh-ey-RXU" firstAttribute="top" secondItem="wrl-xr-qdR" secondAttribute="top" constant="1" id="Lwj-PC-3XX"/>
                                         <constraint firstItem="l1i-KC-BFo" firstAttribute="top" secondItem="wrl-xr-qdR" secondAttribute="top" constant="10" id="MSE-bA-DAx"/>
+                                        <constraint firstItem="kLd-p9-Foz" firstAttribute="leading" secondItem="wrl-xr-qdR" secondAttribute="leading" constant="123" id="OnJ-Jq-z59"/>
                                         <constraint firstItem="kLd-p9-Foz" firstAttribute="top" secondItem="wrl-xr-qdR" secondAttribute="top" constant="10" id="UdZ-qk-S74"/>
-                                        <constraint firstItem="l1i-KC-BFo" firstAttribute="leading" secondItem="wrl-xr-qdR" secondAttribute="leading" constant="15" id="hgT-yK-smj"/>
-                                        <constraint firstItem="kLd-p9-Foz" firstAttribute="leading" secondItem="l1i-KC-BFo" secondAttribute="trailing" constant="10" id="lcO-3T-mPV"/>
+                                        <constraint firstItem="l1i-KC-BFo" firstAttribute="leading" secondItem="wrl-xr-qdR" secondAttribute="leading" constant="5" id="hgT-yK-smj"/>
                                         <constraint firstAttribute="trailing" secondItem="iuh-ey-RXU" secondAttribute="trailing" constant="10" id="v4D-Pm-Cwc"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -1585,7 +1585,7 @@
                         <outlet property="activity" destination="GMW-ld-i1x" id="NJi-mP-D90"/>
                         <outlet property="addressInput" destination="RkK-Je-Gn2" id="CqP-ZQ-j1n"/>
                         <outlet property="cityInput" destination="a2Y-E5-2Cp" id="5sp-RK-g0w"/>
-                        <outlet property="dateOfBirthInput" destination="ntB-2c-9zR" id="Ooh-XH-7Zi"/>
+                        <outlet property="dateOfBirthInput1" destination="ntB-2c-9zR" id="73C-7S-C8r"/>
                         <outlet property="firstNameInput" destination="yLv-nX-tNx" id="iwb-Mf-dft"/>
                         <outlet property="genderInput" destination="Z83-Gy-QZ9" id="PA6-m9-1Ld"/>
                         <outlet property="inputImage" destination="bjS-Kj-pLv" id="8ZK-k5-506"/>
@@ -2060,31 +2060,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email recipients" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1T9-up-nrf" userLabel="Email to textfield">
-                                <rect key="frame" x="84" y="50" width="276" height="30"/>
+                                <rect key="frame" x="84" y="94" width="276" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ixo-RK-z8h" userLabel="To Label">
-                                <rect key="frame" x="15" y="55" width="60" height="20.5"/>
+                                <rect key="frame" x="15" y="99" width="60" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gt-gW-5mh" userLabel="Subject Llabel">
-                                <rect key="frame" x="15" y="114.5" width="60" height="21"/>
+                                <rect key="frame" x="15" y="158.5" width="60" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qPf-LU-iYh">
-                                <rect key="frame" x="15" y="170" width="345" height="397"/>
+                                <rect key="frame" x="15" y="214" width="345" height="260"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the subject" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gYV-Ud-eQK" userLabel="Email subject Textfield">
-                                <rect key="frame" x="84" y="110" width="276" height="30"/>
+                                <rect key="frame" x="84" y="154" width="276" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -2202,10 +2202,10 @@
         <image name="settings-32" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7sg-2O-9QF"/>
-        <segue reference="Wv5-LX-JHz"/>
+        <segue reference="92B-JQ-Sp4"/>
+        <segue reference="lfQ-m4-uRe"/>
         <segue reference="cJw-d4-x8a"/>
-        <segue reference="gYJ-L2-bgL"/>
+        <segue reference="D5H-78-AuK"/>
         <segue reference="kW4-9W-oAh"/>
         <segue reference="HHx-uR-c6E"/>
     </inferredMetricsTieBreakers>
