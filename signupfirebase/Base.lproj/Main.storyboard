@@ -941,7 +941,7 @@
             </objects>
             <point key="canvasLocation" x="-354" y="1252"/>
         </scene>
-        <!--Melding-->
+        <!--Message-->
         <scene sceneID="GJp-sE-CJE">
             <objects>
                 <viewController id="0RD-8Y-bw7" customClass="MessageViewController" customModule="signupfirebase" customModuleProvider="target" sceneMemberID="viewController">
@@ -965,7 +965,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xr7-K9-RdT"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Melding" id="kjk-G7-JAA"/>
+                    <navigationItem key="navigationItem" title="Message" id="kjk-G7-JAA"/>
                     <connections>
                         <segue destination="4y3-m1-4aQ" kind="show" identifier="goBackToPersondata" id="lfQ-m4-uRe"/>
                     </connections>
@@ -1700,7 +1700,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bLd-PQ-1sO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3439.1999999999998" y="2014.5427286356824"/>
+            <point key="canvasLocation" x="-3303" y="2085"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="34b-Os-xZD">
@@ -2207,6 +2207,6 @@
         <segue reference="cJw-d4-x8a"/>
         <segue reference="D5H-78-AuK"/>
         <segue reference="kW4-9W-oAh"/>
-        <segue reference="HHx-uR-c6E"/>
+        <segue reference="UGA-2W-dJw"/>
     </inferredMetricsTieBreakers>
 </document>

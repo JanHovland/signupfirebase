@@ -7,10 +7,12 @@
 /* CreateAccountViewController.swift AuthErrorCode */
 "An unknown error occurred." = "En ukjent feil oppstod.";
 
-/* LogInViewController.swift CheckLogin verdi */
+/* BirthdayTableViewController.swift cellForRowAt
+   LogInViewController.swift CheckLogin verdi */
 "april" = "april";
 
-/* LogInViewController.swift CheckLogin verdi */
+/* BirthdayTableViewController.swift cellForRowAt
+   LogInViewController.swift CheckLogin verdi */
 "august" = "august";
 
 /* SettingsTableViewController.swift SectionHeading */
@@ -40,7 +42,8 @@
 /* SavePostalCodesFirebaseTableViewController.swift documentPicker */
 "Data are now saved in Firebase." = "Data er nå lagret i Firebase.";
 
-/* LogInViewController.swift CheckLogin verdi */
+/* BirthdayTableViewController.swift cellForRowAt
+   LogInViewController.swift CheckLogin verdi */
 "december" = "desember";
 
 /* MainPersonDataViewController trailingSwipeActionsConfigurationForRowAt */
@@ -97,7 +100,8 @@
 /* EpostViewController.swift mailComposeController */
 "Fatal error" = "Fatal feil";
 
-/* LogInViewController.swift CheckLogin verdi */
+/* BirthdayTableViewController.swift cellForRowAt
+   LogInViewController.swift CheckLogin verdi */
 "february" = "februar";
 
 /* CreateAccountViewController.swift AuthErrorCode */
@@ -121,13 +125,16 @@
 /* DataBaseExtension.swift formatPhone */
 "Invalid phone number" = "Feil format telefonnr";
 
-/* LogInViewController.swift CheckLogin verdi */
+/* BirthdayTableViewController.swift cellForRowAt
+   LogInViewController.swift CheckLogin verdi */
 "january" = "januar";
 
-/* LogInViewController.swift CheckLogin verdi */
+/* BirthdayTableViewController.swift cellForRowAt
+   LogInViewController.swift CheckLogin verdi */
 "july" = "juli";
 
-/* LogInViewController.swift CheckLogin verdi */
+/* BirthdayTableViewController.swift cellForRowAt
+   LogInViewController.swift CheckLogin verdi */
 "june" = "juni";
 
 /* BirthdayNotificationViewController.swift viewDidLoad */
@@ -136,14 +143,17 @@
 /* LoginViewVontroller.swift CheckLogin 'error' */
 "Login Firebase" = "Innlogging Firebase";
 
-/* PersonViewVontroller.swift velgeKjonn 
+/* PersonViewVontroller.swift chooseGender 
+   PersonViewVontroller.swift gender
    PersonViewVontroller.swift viewDidAppear */
 "Man" = "Mann";
 
-/* LogInViewController.swift CheckLogin verdi */
+/* BirthdayTableViewController.swift cellForRowAt
+   LogInViewController.swift CheckLogin verdi */
 "march" = "mars";
 
-/* LogInViewController.swift CheckLogin verdi */
+/* BirthdayTableViewController.swift cellForRowAt
+   LogInViewController.swift CheckLogin verdi */
 "may" = "mai";
 
 /* BirthdayNotificationViewController.swift viewDidLoad */
@@ -161,10 +171,12 @@
 /* CreateAccountViewController.swift AuthErrorCode */
 "No project is configured for Firebase Storage." = "Intet prosjekt er konfigurert for Firebase Storage.";
 
-/* LogInViewController.swift CheckLogin verdi */
+/* BirthdayTableViewController.swift cellForRowAt
+   LogInViewController.swift CheckLogin verdi */
 "november" = "november";
 
-/* LogInViewController.swift CheckLogin verdi */
+/* BirthdayTableViewController.swift cellForRowAt
+   LogInViewController.swift CheckLogin verdi */
 "october" = "oktober";
 
 /* OK */
@@ -201,7 +213,8 @@
 /* EpostViewController.swift mailComposeController */
 "Saved" = "Lagret";
 
-/* LogInViewController.swift CheckLogin verdi */
+/* BirthdayTableViewController.swift cellForRowAt
+   LogInViewController.swift CheckLogin verdi */
 "september" = "september";
 
 /* CreateAccountViewController.swift AuthErrorCode */
@@ -264,7 +277,7 @@
 /* SettingsTableViewController.swift SectionHeading */
 "Users" = "Brukere";
 
-/* PersonViewVontroller.swift velgeKjonn 
+/* PersonViewVontroller.swift chooseGender 
    PersonViewVontroller.swift viewDidAppear */
 "Woman" = "Kvinne";
 

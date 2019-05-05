@@ -97,9 +97,6 @@
 /* Class = "UITabBarItem"; title = "Login"; ObjectID = "Gl8-LX-VoP"; */
 "Gl8-LX-VoP.title" = "Logg inn";
 
-/* Class = "UILabel"; text = "addressLabel"; ObjectID = "GoA-hY-uI8"; */
-"GoA-hY-uI8.text" = "Adresse";
-
 /* Class = "UITextField"; placeholder = "Enter the subject"; ObjectID = "gYV-Ud-eQK"; */
 "gYV-Ud-eQK.placeholder" = "Skriv inn emnet";
 
@@ -138,6 +135,9 @@
 
 /* Class = "UITextField"; placeholder = "Enter the password"; ObjectID = "k82-w8-ML8"; */
 "k82-w8-ML8.placeholder" = "Legg inn passord";
+
+/* Class = "UINavigationItem"; title = "Message"; ObjectID = "kjk-G7-JAA"; */
+"kjk-G7-JAA.title" = "Melding";
 
 /* Class = "UILabel"; text = "Update password"; ObjectID = "KYc-I2-FZP"; */
 "KYc-I2-FZP.text" = "Oppdater passord";
@@ -202,9 +202,6 @@
 /* Class = "UITextField"; placeholder = "Enter user password"; ObjectID = "sTZ-Fn-8Km"; */
 "sTZ-Fn-8Km.placeholder" = "Legg inn nytt passord";
 
-/* Class = "UITableViewSection"; headerTitle = " "; ObjectID = "Tb1-zK-Lpo"; */
-"Tb1-zK-Lpo.headerTitle" = " ";
-
 /* Class = "UINavigationItem"; title = "Settings"; ObjectID = "tSB-Wf-nFh"; */
 "tSB-Wf-nFh.title" = "Innstillinger";
 
@@ -261,9 +258,6 @@
 
 /* Class = "UILabel"; text = "Show password"; ObjectID = "ztN-ha-CAL"; */
 "ztN-ha-CAL.text" = "Vis passord";
-
-/* Class = "UITableViewSection"; headerTitle = " "; ObjectID = "ztu-GZ-onZ"; */
-"ztu-GZ-onZ.headerTitle" = " ";
 
 /* Class = "UILabel"; text = "uid"; ObjectID = "zZr-bg-gnn"; */
 "zZr-bg-gnn.text" = "uid";
