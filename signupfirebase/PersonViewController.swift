@@ -70,7 +70,7 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
 
     let datoValg = UIDatePicker()
     
-    var gender: String = NSLocalizedString("Man", comment: "PersonViewVontroller.swift velgeKjonn ")
+    var gender: String = NSLocalizedString("Man", comment: "PersonViewVontroller.swift gender")
     
     @IBOutlet var loginStatus: UILabel!
     
@@ -369,6 +369,11 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         
         let datoString = formatter.string(from: datoValg.date)
         dateOfBirthInput1.text =  "\(datoString)"
+        
+        // This variable gets its value from a seque when if is updated
+        // But when you add a new person it has no value, so set the value 
+        PersonDateOfBirthText1 = "\(datoString)"
+        
         view.endEditing(true)
     }
     
@@ -380,10 +385,10 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         
     }
     
-    @IBAction func velgeKjonn(_ sender: UISegmentedControl) {
+    @IBAction func chooseGender(_ sender: UISegmentedControl) {
         switch genderInput.selectedSegmentIndex {
-        case 0: gender = NSLocalizedString("Man", comment: "PersonViewVontroller.swift velgeKjonn ")
-        case 1: gender = NSLocalizedString("Woman", comment: "PersonViewVontroller.swift velgeKjonn ")
+        case 0: gender = NSLocalizedString("Man", comment: "PersonViewVontroller.swift chooseGender ")
+        case 1: gender = NSLocalizedString("Woman", comment: "PersonViewVontroller.swift chooseGender ")
         default: return
         }
     }

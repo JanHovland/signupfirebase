@@ -1449,7 +1449,7 @@
                                     <segment title="Woman"/>
                                 </segments>
                                 <connections>
-                                    <action selector="velgeKjonn:" destination="rxh-wi-pm3" eventType="valueChanged" id="ysi-vl-GXC"/>
+                                    <action selector="chooseGender:" destination="rxh-wi-pm3" eventType="valueChanged" id="1ox-YX-aaD"/>
                                 </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bC7-mk-vXQ">

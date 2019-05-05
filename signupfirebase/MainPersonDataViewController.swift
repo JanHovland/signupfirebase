@@ -53,8 +53,6 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     var locationOnMap = ""
     var personEmail = ""
     
-//    var persons = [Person]()
-    
     var searching = false
     private var currentPerson: Person?
 
@@ -64,10 +62,6 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     
     var indexRowUpdateSwipe  = -1
     
-//    // Variable for "indexed table view"
-//    var personDataDictionary = [String: [PersonData]]()
-//    var personDataSectionTitles = [String]()
-
     // Called after the view has been loaded. For view controllers created in code, this is after -loadView. For view controllers unarchived from a nib, this is after the view is set.
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,10 +76,6 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         let start = Date()
         
         DispatchQueue.global(qos: .userInteractive).async {
-            self.makeReadPersons()
-        }
-
-        DispatchQueue.global(qos: .userInteractive).async {
             self.FindSearchedPersonData(searchText: "")
         }
         
@@ -96,12 +86,9 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         activity.isHidden = true
         
         let refreshControl = UIRefreshControl()
-        // refreshControl.attributedTitle = NSAttributedString(string: "Skyv nedover for å hente data")
         refreshControl.addTarget(self, action: #selector(reloadData), for: .valueChanged)
         self.tableView.refreshControl = refreshControl
 
-        self.tableView.reloadData()
-        
         activity.style = .gray
         activity.isHidden = true
  
@@ -119,6 +106,10 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         // On return from "MessageViewController" navigationbar shows "< Persondata"
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         self.navigationItem.hidesBackButton = true
+        
+        // Reloads everything from scratch. Redisplays visible rows. Note that this will cause any existing drop placeholder rows to be removed.
+        self.tableView.reloadData()
+        
     }
     
     // Called when the view has been fully transitioned onto the screen. Default does nothing
@@ -689,12 +680,8 @@ extension UIViewController {
             persons.sort(by: {$0.personData.name < $1.personData.name})
             persons = tempPersons
             
-            // Fill the table view
-            // self.tableView.reloadData()
-            
             completionHandler(tempPersons)
-            
-            
+           
         })
         
     }
@@ -762,9 +749,6 @@ extension UIViewController {
                 }
                 personDataSectionTitles = sortedPersonDataSection1
                 
-                // Fill the table view
-//                self.tableView.reloadData()
-                
             } else {
                 
                 let searchedPersonData = persons.filter({ $0.personData.name.contains(searchText.uppercased()) })
@@ -826,9 +810,6 @@ extension UIViewController {
                     $0.compare($1, locale: language) == .orderedAscending
                 }
                 personDataSectionTitles = sortedPersonDataSection1
-                
-                // Fill the table view
-//                self.tableView.reloadData()
                 
             }
         }
