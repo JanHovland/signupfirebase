@@ -7,16 +7,24 @@
 /* CreateAccountViewController.swift AuthErrorCode */
 "An unknown error occurred." = "En ukjent feil oppstod.";
 
-/* BirthdayTableViewController.swift cellForRowAt
+/* BirthdayNotificationViewController.swift findBirthdaysThisMonth
+   BirthdayTableViewController.swift cellForRowAt
    LogInViewController.swift CheckLogin verdi */
 "april" = "april";
 
-/* BirthdayTableViewController.swift cellForRowAt
+/* BirthdayNotificationViewController.swift findBirthdaysThisMonth
+   BirthdayTableViewController.swift cellForRowAt
    LogInViewController.swift CheckLogin verdi */
 "august" = "august";
 
+/* BirthdayNotificationViewController.swift findBirthdaysThisMonth */
+"Birthday in " = "Fødselsdag i ";
+
 /* SettingsTableViewController.swift SectionHeading */
 "Birthdays" = "Fødselsdager";
+
+/* BirthdayNotificationViewController.swift findBirthdaysThisMonth */
+"Birthdays in " = "Fødselsdager i ";
 
 /* CreateAccountViewController.swift selectPersonPhoto
    LoginViewVontroller.swift selectPersonPhoto */
@@ -42,7 +50,8 @@
 /* SavePostalCodesFirebaseTableViewController.swift documentPicker */
 "Data are now saved in Firebase." = "Data er nå lagret i Firebase.";
 
-/* BirthdayTableViewController.swift cellForRowAt
+/* BirthdayNotificationViewController.swift findBirthdaysThisMonth
+   BirthdayTableViewController.swift cellForRowAt
    LogInViewController.swift CheckLogin verdi */
 "december" = "desember";
 
@@ -100,7 +109,8 @@
 /* EpostViewController.swift mailComposeController */
 "Fatal error" = "Fatal feil";
 
-/* BirthdayTableViewController.swift cellForRowAt
+/* BirthdayNotificationViewController.swift findBirthdaysThisMonth
+   BirthdayTableViewController.swift cellForRowAt
    LogInViewController.swift CheckLogin verdi */
 "february" = "februar";
 
@@ -125,15 +135,18 @@
 /* DataBaseExtension.swift formatPhone */
 "Invalid phone number" = "Feil format telefonnr";
 
-/* BirthdayTableViewController.swift cellForRowAt
+/* BirthdayNotificationViewController.swift findBirthdaysThisMonth
+   BirthdayTableViewController.swift cellForRowAt
    LogInViewController.swift CheckLogin verdi */
 "january" = "januar";
 
-/* BirthdayTableViewController.swift cellForRowAt
+/* BirthdayNotificationViewController.swift findBirthdaysThisMonth
+   BirthdayTableViewController.swift cellForRowAt
    LogInViewController.swift CheckLogin verdi */
 "july" = "juli";
 
-/* BirthdayTableViewController.swift cellForRowAt
+/* BirthdayNotificationViewController.swift findBirthdaysThisMonth
+   BirthdayTableViewController.swift cellForRowAt
    LogInViewController.swift CheckLogin verdi */
 "june" = "juni";
 
@@ -148,11 +161,13 @@
    PersonViewVontroller.swift viewDidAppear */
 "Man" = "Mann";
 
-/* BirthdayTableViewController.swift cellForRowAt
+/* BirthdayNotificationViewController.swift findBirthdaysThisMonth
+   BirthdayTableViewController.swift cellForRowAt
    LogInViewController.swift CheckLogin verdi */
 "march" = "mars";
 
-/* BirthdayTableViewController.swift cellForRowAt
+/* BirthdayNotificationViewController.swift findBirthdaysThisMonth
+   BirthdayTableViewController.swift cellForRowAt
    LogInViewController.swift CheckLogin verdi */
 "may" = "mai";
 
@@ -161,6 +176,9 @@
 
 /* MainPersonDataViewController.swift prepare */
 "New Person" = "Ny Person";
+
+/* BirthdayNotificationViewController.swift findBirthdaysThisMonth */
+"No birthdays in this month" = "Ingen fødselsdager i denne måneden";
 
 /* CreateAccountViewController.swift AuthErrorCode */
 "No bucket is configured for Firebase Storage." = "Ingen bucket er konfigurert for Firebase Storage.";
@@ -171,11 +189,13 @@
 /* CreateAccountViewController.swift AuthErrorCode */
 "No project is configured for Firebase Storage." = "Intet prosjekt er konfigurert for Firebase Storage.";
 
-/* BirthdayTableViewController.swift cellForRowAt
+/* BirthdayNotificationViewController.swift findBirthdaysThisMonth
+   BirthdayTableViewController.swift cellForRowAt
    LogInViewController.swift CheckLogin verdi */
 "november" = "november";
 
-/* BirthdayTableViewController.swift cellForRowAt
+/* BirthdayNotificationViewController.swift findBirthdaysThisMonth
+   BirthdayTableViewController.swift cellForRowAt
    LogInViewController.swift CheckLogin verdi */
 "october" = "oktober";
 
@@ -213,7 +233,8 @@
 /* EpostViewController.swift mailComposeController */
 "Saved" = "Lagret";
 
-/* BirthdayTableViewController.swift cellForRowAt
+/* BirthdayNotificationViewController.swift findBirthdaysThisMonth
+   BirthdayTableViewController.swift cellForRowAt
    LogInViewController.swift CheckLogin verdi */
 "september" = "september";
 
