@@ -16,24 +16,20 @@ class BirthdayTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DispatchQueue.global(qos: .userInteractive).async {
-            self.makeReadPersons()
-        }
-        
         persons.sort(by: {$0.personData.dateOfBirth2 < $1.personData.dateOfBirth2})
 
+        tableView.reloadData()
+        
         let refreshControl = UIRefreshControl()
         // refreshControl.attributedTitle = NSAttributedString(string: "Skyv nedover for å hente data")
         refreshControl.addTarget(self, action: #selector(reloadData), for: .valueChanged)
         self.tableView.refreshControl = refreshControl
         
-        tableView.reloadData()
         
     }
     
     @objc func reloadData() {
         DispatchQueue.main.async {
-            persons.sort(by: {$0.personData.dateOfBirth2 < $1.personData.dateOfBirth2})
             self.tableView.reloadData()
             self.tableView.refreshControl?.endRefreshing()
         }
