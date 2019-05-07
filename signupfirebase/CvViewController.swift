@@ -171,28 +171,17 @@ class CvViewController: UIViewController {
            Y) Bildene i Persondata vises nå korrekt. Grunnen var en test på to URL's som sammenlignet to forskjellige URL's
            Z) Har tilpasset visningen kan gjøres raskere med background thread.
               "Introduction to iOS Threading - Zelda App (Xcode 8, Swift 3)" på Youtube.com av Mark Moeykens
-           Æ) Lagt inn birthDay2 inn i oppdater og lage ny Persondate           --> MM-dd
-
-
+           Æ) Lagt inn birthDay2 inn i oppdater og lagre i Persondata (MM-dd)
+           Ø) Lagt inn 2 nye punkter under "Settings" :
+              . "Oversikt fødselsdager" ("Overview birthdays")
+                 .. "Dato" - "Navn" - "Sende melding" - "Markere inneværende måned"
+              . "Varsling på fødselsdager". ("Notification on birthdays")
+                .. Legg inn Info
+        
         7. Nye oppgaver (ikke fullført)
         
-           . Legge inn 2 nye punkter under "Settings" :
-             . "Oversikt fødselsdager" ("Overview birthdays")                      --> "BirthdaysTableviewController.swift" + "BirthdaysTableviewCell.swift"
-                              . "Dato" - "Navn" - "Sende melding" - "Markere inneværende måned"
-        
-             . "Varsling på fødselsdager". ("Notification on birthdays")           --> "NotificationTableView.swift"
-               . Legg inn Info
-               . Legg in sjekk om varslinger til brukeren
-        
-           . Se om visningen av "Persondata kan gjøre raskere med background thread.
-              "Introduction to iOS Threading - Zelda App (Xcode 8, Swift 3)" på Youtube.com av Mark Moeykens
-             . DispatchQueue.global(qos: .userInteractive).async {
-                   self.tableData = Data.getData()
-                   DispatchQueue.main.async {
-                       self.tableView.reloadData()
-                   }
-               }
-        
+           . Retur fra "Oversikt fødselsdager" til "Persondata
+           . Legg in sjekk om varslinger til brukeren
            . Se igjennom opsjonene for Kart i PersonViewController.
            . Se igjennom opsjonene for sending av meldinger.
            . Oppdatere security i Firebase (er security der det samme for Firestore?)
