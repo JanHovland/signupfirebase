@@ -181,7 +181,7 @@ class CvViewController: UIViewController {
         7. Nye oppgaver (ikke fullført)
         
            . Retur fra "Oversikt fødselsdager" til "Persondata
-           . Legg in sjekk om varslinger til brukeren
+           . Legg in sjekk om brukeren godtar varslinger
            . Se igjennom opsjonene for Kart i PersonViewController.
            . Se igjennom opsjonene for sending av meldinger.
            . Oppdatere security i Firebase (er security der det samme for Firestore?)
