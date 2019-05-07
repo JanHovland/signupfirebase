@@ -389,6 +389,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             
             vc.messageBody = "Gratulerer så mye med fødselsdagen " + personFirstName + " 😄"
             vc.messagePhoneNumber = phoneNumberInput
+            vc.messageId = "fromMainPersonData"
         
         } else if segue.identifier! == "gotoEmail" {
             
@@ -483,78 +484,95 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
  
-    
-    
     // Find personlData. Returns address, city, dateOfBirth, name, gender, phoneNumber, postalCodeNumber, municipality, municipalityNumber, photoURL
     func findPersonData(inputName: String) -> (id: String,
-                                               address: String,
-                                               city: String,
-                                               dateOfBirth1: String,
-                                               dateOfBirth2: String,
-                                               name: String,
-                                               gender: Int,
-                                               phoneNumber: String,
-                                               postalCodeNumber: String,
-                                               municipality: String,
-                                               municipalityNumber: String,
-                                               photoURL: String,
-                                               firstName: String,
-                                               lastName: String,
-                                               personEmail: String) {
-                                                    
-        // Find number of persons
-        let numberOfPersons = persons.count
-                                                
-        if numberOfPersons > 0 {
-
-            var idx = 0
-            var personIndex = -1
-
-            // Find the selected person
-            repeat {
-                if persons[idx].personData.name.uppercased() == inputName.uppercased() {
-                 personIndex = idx
-                 idx = numberOfPersons
-                }
-               idx += 1
-            } while (idx < numberOfPersons)
+        address: String,
+        city: String,
+        dateOfBirth1: String,
+        dateOfBirth2: String,
+        name: String,
+        gender: Int,
+        phoneNumber: String,
+        postalCodeNumber: String,
+        municipality: String,
+        municipalityNumber: String,
+        photoURL: String,
+        firstName: String,
+        lastName: String,
+        personEmail: String) {
             
-            if personIndex >= 0 {
+            // Find number of persons
+            let numberOfPersons = persons.count
+            
+            if numberOfPersons > 0 {
                 
-                let id = String(persons[personIndex].id)
-                let address = String(persons[personIndex].personData.address)
-                let city = String(persons[personIndex].personData.city)
-                let dateOfBirth1 = String(persons[personIndex].personData.dateOfBirth1)
-                let dateOfBirth2 = String(persons[personIndex].personData.dateOfBirth2)
-                let name1 = String(persons[personIndex].personData.name).lowercased()
-                let name = name1.capitalized
-                let gender = persons[personIndex].personData.gender
-                let phoneNumber = String(persons[personIndex].personData.phoneNumber)
-                let postalCodeNumber = String(persons[personIndex].personData.postalCodeNumber)
-                let municipality = String(persons[personIndex].personData.municipality)
-                let municipalityNumber = String(persons[personIndex].personData.municipalityNumber)
-                let photoURL = String(persons[personIndex].personData.photoURL)
-                let firstName = String(persons[personIndex].personData.firstName)
-                let lastName = String(persons[personIndex].personData.lastName)
-                let personEmail = String(persons[personIndex].personData.personEmail)
+                var idx = 0
+                var personIndex = -1
                 
-                return (id,
-                        address,
-                        city,
-                        dateOfBirth1,
-                        dateOfBirth2,
-                        name,
-                        gender,
-                        phoneNumber,
-                        postalCodeNumber,
-                        municipality,
-                        municipalityNumber,
-                        photoURL,
-                        firstName,
-                        lastName,
-                        personEmail)
+                // Find the selected person
+                repeat {
+                    if persons[idx].personData.name.uppercased() == inputName.uppercased() {
+                        personIndex = idx
+                        idx = numberOfPersons
+                    }
+                    idx += 1
+                } while (idx < numberOfPersons)
+                
+                if personIndex >= 0 {
+                    
+                    let id = String(persons[personIndex].id)
+                    let address = String(persons[personIndex].personData.address)
+                    let city = String(persons[personIndex].personData.city)
+                    let dateOfBirth1 = String(persons[personIndex].personData.dateOfBirth1)
+                    let dateOfBirth2 = String(persons[personIndex].personData.dateOfBirth2)
+                    let name1 = String(persons[personIndex].personData.name).lowercased()
+                    let name = name1.capitalized
+                    let gender = persons[personIndex].personData.gender
+                    let phoneNumber = String(persons[personIndex].personData.phoneNumber)
+                    let postalCodeNumber = String(persons[personIndex].personData.postalCodeNumber)
+                    let municipality = String(persons[personIndex].personData.municipality)
+                    let municipalityNumber = String(persons[personIndex].personData.municipalityNumber)
+                    let photoURL = String(persons[personIndex].personData.photoURL)
+                    let firstName = String(persons[personIndex].personData.firstName)
+                    let lastName = String(persons[personIndex].personData.lastName)
+                    let personEmail = String(persons[personIndex].personData.personEmail)
+                    
+                    return (id,
+                            address,
+                            city,
+                            dateOfBirth1,
+                            dateOfBirth2,
+                            name,
+                            gender,
+                            phoneNumber,
+                            postalCodeNumber,
+                            municipality,
+                            municipalityNumber,
+                            photoURL,
+                            firstName,
+                            lastName,
+                            personEmail)
+                    
+                } else {
+                    return ("",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            0,
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "")
+                }
                 
             } else {
+                
                 return ("",
                         "",
                         "",
@@ -570,30 +588,14 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                         "",
                         "",
                         "")
+                
             }
             
-        } else {
-            
-            return ("",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    0,
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "")
-            
-       }
-                                                
     }
- 
+    
+
+    
+    
     
 }
 

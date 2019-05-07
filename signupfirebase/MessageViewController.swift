@@ -11,8 +11,11 @@ import MessageUI
 
 class MessageViewController: UIViewController,  MFMessageComposeViewControllerDelegate {
 
+    
+    // Values are set in MainPersonDataTableViewController.ewift or BirthdayTableViewController.swift
     var messagePhoneNumber: String = ""
     var messageBody: String = ""
+    var messageId: String = ""             // "fromMainPersonData" or "fromBirthday"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,15 +35,27 @@ class MessageViewController: UIViewController,  MFMessageComposeViewControllerDe
         switch (result) {
         case .cancelled:
             print("Message was cancelled")
-            performSegue(withIdentifier: "goBackToPersondata", sender: self)
+            if messageId == "fromMainPersonData" {
+                performSegue(withIdentifier: "goBackToPersondata", sender: self)
+            } else if messageId == "fromBirthday" {
+                performSegue(withIdentifier: "goBackToBirthday", sender: self)
+            }
             dismiss(animated: true, completion: nil)
         case .failed:
             print("Message failed")
-            performSegue(withIdentifier: "goBackToPersondata", sender: self)
+            if messageId == "fromMainPersonData" {
+                performSegue(withIdentifier: "goBackToPersondata", sender: self)
+            } else if messageId == "fromBirthday" {
+                performSegue(withIdentifier: "goBackToBirthday", sender: self)
+            }
             dismiss(animated: true, completion: nil)
         case .sent:
             print("Message was sent")
-            performSegue(withIdentifier: "goBackToPersondata", sender: self)
+            if messageId == "fromMainPersonData" {
+                performSegue(withIdentifier: "goBackToPersondata", sender: self)
+            } else if messageId == "fromBirthday" {
+                performSegue(withIdentifier: "goBackToBirthday", sender: self)
+            }
             dismiss(animated: true, completion: nil)
         default:
             break

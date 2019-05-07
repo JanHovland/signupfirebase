@@ -9,7 +9,10 @@
 import UIKit
 
 class BirthdayTableViewController: UITableViewController {
-
+    
+    var phoneNumber: String = ""
+    var firstName: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,7 +29,7 @@ class BirthdayTableViewController: UITableViewController {
         
         tableView.reloadData()
         
-   }
+    }
     
     @objc func reloadData() {
         DispatchQueue.main.async {
@@ -114,6 +117,58 @@ class BirthdayTableViewController: UITableViewController {
         return cell
         
     }
- 
+    
+    @IBAction func sendMessage(_ sender: UIButton) {
+
+        var idx = 0
+        var personIndex = -1
+        
+        let numberOfPersons = persons.count
+        
+        if numberOfPersons > 0 {
+        
+            // Find the row of the selected cell
+            let buttonPosition = sender.convert(sender.bounds.origin, to: tableView)
+            if let indexPath = tableView.indexPathForRow(at: buttonPosition) {
+                tableView.deselectRow(at: indexPath, animated: true)
+                let cell = tableView.cellForRow(at: indexPath) as! BirthdayTableViewCell
+                selectedName = String(cell.nameLabel!.text!)
+                
+                // Find the selected person
+                repeat {
+                    if persons[idx].personData.name.uppercased() == selectedName.uppercased() {
+                        personIndex = idx
+                        idx = numberOfPersons
+                    }
+                    idx += 1
+                } while (idx < numberOfPersons)
+
+                if personIndex >= 0 {
+                    phoneNumber = String(persons[personIndex].personData.phoneNumber)
+                    firstName = String(persons[personIndex].personData.firstName)
+
+                    print(firstName + " " + phoneNumber)
+                    
+                    performSegue(withIdentifier: "gotoMessageFromBirthday", sender: nil)
+                    
+                }
+
+            }
+        }
+        
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier! == "gotoMessageFromBirthday" {
+            
+            let vc = segue.destination as! MessageViewController
+            
+            vc.messageBody = "Gratulerer så mye med fødselsdagen " + firstName + " 😄"
+            vc.messagePhoneNumber = phoneNumber
+            vc.messageId = "fromBirthday"
+        }
+    }
+
+    
 }
 

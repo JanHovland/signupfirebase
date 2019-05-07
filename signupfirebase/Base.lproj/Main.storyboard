@@ -740,7 +740,7 @@
                                             <state key="normal" image="message-35"/>
                                             <connections>
                                                 <action selector="buttonMessage:" destination="4y3-m1-4aQ" eventType="touchUpInside" id="qXx-66-aDB"/>
-                                                <action selector="sendMessage:" destination="ZyH-nn-ZXC" eventType="touchUpInside" id="1Cl-y4-ULL"/>
+                                                <action selector="sendMessage:" destination="LUs-6H-ik8" eventType="touchUpInside" id="rh4-Z8-uOE"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="birthdayLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1i-KC-BFo">
@@ -781,6 +781,9 @@
                     <navigationItem key="navigationItem" title="Overview birthdays" id="co3-yZ-gHr">
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="zPM-fR-3Ea"/>
                     </navigationItem>
+                    <connections>
+                        <segue destination="0RD-8Y-bw7" kind="show" identifier="gotoMessageFromBirthday" id="o69-kt-M6t"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gKj-JY-f1i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -968,11 +971,12 @@
                     <navigationItem key="navigationItem" title="Message" id="kjk-G7-JAA"/>
                     <connections>
                         <segue destination="4y3-m1-4aQ" kind="show" identifier="goBackToPersondata" id="lfQ-m4-uRe"/>
+                        <segue destination="LUs-6H-ik8" kind="show" identifier="goBackToBirthday" id="Lf5-Bm-ke8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PRI-NV-ICE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3994" y="1263"/>
+            <point key="canvasLocation" x="-3926" y="520"/>
         </scene>
         <!--Update user name-->
         <scene sceneID="ffJ-QF-Ihx">
@@ -2060,31 +2064,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email recipients" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1T9-up-nrf" userLabel="Email to textfield">
-                                <rect key="frame" x="84" y="94" width="276" height="30"/>
+                                <rect key="frame" x="84" y="50" width="276" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ixo-RK-z8h" userLabel="To Label">
-                                <rect key="frame" x="15" y="99" width="60" height="20.5"/>
+                                <rect key="frame" x="15" y="55" width="60" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gt-gW-5mh" userLabel="Subject Llabel">
-                                <rect key="frame" x="15" y="158.5" width="60" height="21"/>
+                                <rect key="frame" x="15" y="114.5" width="60" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qPf-LU-iYh">
-                                <rect key="frame" x="15" y="214" width="345" height="260"/>
+                                <rect key="frame" x="15" y="170" width="345" height="397"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the subject" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gYV-Ud-eQK" userLabel="Email subject Textfield">
-                                <rect key="frame" x="84" y="154" width="276" height="30"/>
+                                <rect key="frame" x="84" y="110" width="276" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -2202,11 +2206,13 @@
         <image name="settings-32" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="92B-JQ-Sp4"/>
+        <segue reference="7sg-2O-9QF"/>
         <segue reference="lfQ-m4-uRe"/>
         <segue reference="cJw-d4-x8a"/>
         <segue reference="D5H-78-AuK"/>
+        <segue reference="DAu-eD-J64"/>
+        <segue reference="Lf5-Bm-ke8"/>
         <segue reference="kW4-9W-oAh"/>
-        <segue reference="UGA-2W-dJw"/>
+        <segue reference="HHx-uR-c6E"/>
     </inferredMetricsTieBreakers>
 </document>

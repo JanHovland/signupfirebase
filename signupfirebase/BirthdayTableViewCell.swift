@@ -9,6 +9,9 @@
 import UIKit
 
 class BirthdayTableViewCell: UITableViewCell {
+    
+    var phoneNumber: String = ""
+    var firstName: String = ""
 
     @IBOutlet weak var birthdayLabel: UILabel!
     
@@ -24,8 +27,6 @@ class BirthdayTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
-    @IBAction func sendMessage(_ sender: Any) {
-       print("Sending a message to Qwerty")
-    }
+    
 }
+
