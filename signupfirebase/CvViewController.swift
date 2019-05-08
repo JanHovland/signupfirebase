@@ -167,7 +167,7 @@ class CvViewController: UIViewController {
            U) Endret "List all users in Core Data til "Show Core Data"
            V) Viser photoURL i "Show Core Data"
            W) Overstyrer koordinatene for "Johanne Kristine Lima". Hun bor på Flå, men vises på Gol (annen person?)
-           X) Har sett på oppdateringen av Persondata (må kjøre oppfrisking for å fåmed bildene). Foreslår å ikke gjøre noe.
+           X) Har sett på oppdateringen av Persondata (må kjøre oppfrisking for å få med bildene). Foreslår å ikke gjøre noe.
            Y) Bildene i Persondata vises nå korrekt. Grunnen var en test på to URL's som sammenlignet to forskjellige URL's
            Z) Har tilpasset visningen kan gjøres raskere med background thread.
               "Introduction to iOS Threading - Zelda App (Xcode 8, Swift 3)" på Youtube.com av Mark Moeykens
@@ -180,7 +180,12 @@ class CvViewController: UIViewController {
         
         7. Nye oppgaver (ikke fullført)
         
-           . Retur fra "Oversikt fødselsdager" til "Persondata
+           . Krasjer ved refresh etter sletting i "Persondata"
+           . Refresh "Oversikt fødselsdager" feil etter å ha lagt inn en ny person
+             .. OK hvis en avslutter og logger på igjen
+             .. Refresh er OK hvis det ikke er lagt inn en ny person
+             .. Hva med sletting?
+           . Retur fra "Oversikt fødselsdager" til "Persondata"
            . Legg in sjekk om brukeren godtar varslinger
            . Se igjennom opsjonene for Kart i PersonViewController.
            . Se igjennom opsjonene for sending av meldinger.
@@ -213,7 +218,7 @@ class CvViewController: UIViewController {
         
         9. Feil som må rettes
         
-           a) Det kan legges inn flere like poster når en legger inn en ny person
+           a) Det kan legges inn flere like poster når en legger inn en ny person (kan det løses med en index?)
            b) Vise default bilde og ikke et som er valgt tidligere når det ikke er en tilsvarende photoURL i Firebase Storage (usikker om dette er tilfellet lenger?).
         
         10. Concurrency
