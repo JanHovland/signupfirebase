@@ -181,6 +181,7 @@ class CvViewController: UIViewController {
         7. Nye oppgaver (ikke fullført)
         
            . Krasjer ved refresh etter sletting i "Persondata"
+             .. Sletter i Firebase og så logginn = OK (perform segue back to login)
            . Refresh "Oversikt fødselsdager" feil etter å ha lagt inn en ny person
              .. OK hvis en avslutter og logger på igjen
              .. Refresh er OK hvis det ikke er lagt inn en ny person

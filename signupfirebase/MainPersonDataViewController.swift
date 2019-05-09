@@ -251,6 +251,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
      
             dataBase.setValue(nil)
         
+           self.performSegue(withIdentifier: "goBackToLogin", sender: self)
+        
  
         }
         
@@ -265,6 +267,29 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         return swipeConfiguration
     }
 
+      // Altenative to "trailingSwipeActionsConfigurationForRowAt"
+    
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == UITableViewCell.EditingStyle.delete {
+//
+//            let cell = tableView.cellForRow(at: indexPath) as! PersonDataTableViewCell
+//            selectedName = String(cell.nameLabel!.text!)
+//
+//            let value = self.findPersonData(inputName: selectedName)
+//
+//            // Find the id of the post
+//            let id = value.id
+//
+//            let dataBase = Database.database().reference().child("person" + "/" + id)
+//
+//            dataBase.removeValue()
+//
+//            performSegue(withIdentifier: "goBackToLogin", sender: self)
+//
+//        }
+//    }
+    
+    
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         // In order to show both the icon and the text, the height of the tableViewCell must be > 91
