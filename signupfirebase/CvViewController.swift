@@ -177,15 +177,14 @@ class CvViewController: UIViewController {
                  .. "Dato" - "Navn" - "Sende melding" - "Markere inneværende måned"
               . "Varsling på fødselsdager". ("Notification on birthdays")
                 .. Legg inn Info
+           Å) For å hindre krasj etter sletting av en person i "Persondata", har jeg lagt inn en segue back to login.
         
         7. Nye oppgaver (ikke fullført)
         
-           . Krasjer ved refresh etter sletting i "Persondata"
-             .. Sletter i Firebase og så logginn = OK (perform segue back to login)
            . Refresh "Oversikt fødselsdager" feil etter å ha lagt inn en ny person
              .. OK hvis en avslutter og logger på igjen
              .. Refresh er OK hvis det ikke er lagt inn en ny person
-             .. Hva med sletting?
+             .. Hva med sletting? Trykkes "Slett" 2 ganger slettes alle persomdata.
            . Retur fra "Oversikt fødselsdager" til "Persondata"
            . Legg in sjekk om brukeren godtar varslinger
            . Se igjennom opsjonene for Kart i PersonViewController.

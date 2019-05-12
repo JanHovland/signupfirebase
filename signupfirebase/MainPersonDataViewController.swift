@@ -95,8 +95,10 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     }
 
     @objc func reloadData() {
+        persons = [Person]()
         DispatchQueue.main.async {
             self.makeReadPersons()
+            self.FindSearchedPersonData(searchText: "")
             self.tableView.refreshControl?.endRefreshing()
         }
     }
@@ -159,9 +161,16 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         
         let key = personDataSectionTitles[indexPath.section]
         
+        print("key = \(key as Any)")
+        
         if let personDataValues = personDataDictionary[key] {
+            
+            print("indexPath.row = \(indexPath.row)")
 
             let name1 = personDataValues[indexPath.row].name.lowercased()
+            
+            print(name1 as Any)
+            
             let name = name1.capitalized
             cell.nameLabel.text = name
             
@@ -206,6 +215,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     // Asks the data source for the title of the header of the specified section of the table view.
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 
+        print("section = \(personDataSectionTitles[section] as Any)")
+        
         return personDataSectionTitles[section]
     }
     
@@ -238,30 +249,50 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
        // In order to show both the icon and the text, the height of the tableViewCell must be > 91
        let deleteAction = UIContextualAction(style: .destructive, title: "") {
             (action, sourceView, completionHandler) in
+        
+            // persons.remove(at: [indexPath.section][indexPath.row])
 
             let cell = tableView.cellForRow(at: indexPath) as! PersonDataTableViewCell
             selectedName = String(cell.nameLabel!.text!)
-        
+
             let value = self.findPersonData(inputName: selectedName)
-        
+
             // Find the id of the post
             let id = value.id
 
             let dataBase = Database.database().reference().child("person" + "/" + id)
-     
+
             dataBase.setValue(nil)
         
-           self.performSegue(withIdentifier: "goBackToLogin", sender: self)
         
- 
+
+//            let key = personDataSectionTitles[indexPath.section]
+//            print("key fra trailing = \(key as Any)")
+//            print("firstName from trailing = \(value.firstName as Any)")
+//
+//            // Find number of persons in section
+//            let  y = personDataDictionary[key]?.count
+//            print("Antall personer i seksjonen = \(y! as Any)")
+//
+//
+//        print("test")
+            // personDataSectionTitles[0].remove(at: indexPath.row)
+
+            // personDataSectionTitles[indexPath.section].remove(at: indexPath.section)
+
+            // print(personDataSectionTitles[indexPath.section] as Any)
+
+            self.performSegue(withIdentifier: "goBackToLogin", sender: self)
+
+
         }
-        
+
         // Customize the action buttons
         deleteAction.title = NSLocalizedString("Delete", comment: "MainPersonDataViewController trailingSwipeActionsConfigurationForRowAt")
 
         deleteAction.image = #imageLiteral(resourceName: "trash-35")
         deleteAction.backgroundColor = .red
-      
+
         let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction])
 
         return swipeConfiguration
@@ -288,7 +319,57 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
 //
 //        }
 //    }
-    
+  
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            persons.remove(at: [indexPath.section][indexPath.row])
+//
+//            let cell = tableView.cellForRow(at: indexPath) as! PersonDataTableViewCell
+//            selectedName = String(cell.nameLabel!.text!)
+//
+//            let value = findPersonData(inputName: selectedName)
+//
+//            // Find the id of the post
+//            let id = value.id
+//
+//            let dataBase = Database.database().reference().child("person" + "/" + id)
+//
+//            dataBase.removeValue()
+//
+//
+//
+//            let key = personDataSectionTitles[indexPath.section]
+//
+//            if let personDataValues = personDataDictionary[key] {
+//
+//                let name1 = personDataValues[indexPath.row].name.lowercased()
+//
+//
+//
+//            // persons.removeAtIndex(indexPath.section - 1)
+//
+//            // let indexSet = IndexSet(integer: indexPath.section)
+//            // tableView.deleteSections(indexSet, with: .automatic)
+//
+//
+//            //            var dict = persons[indexPath.section]
+//            //            let key = personDataSectionTitles[indexPath.section]
+//            //            let codes = dict[key]
+//            //
+//            //            //remove code from [Code]
+//            //            codes.remove(at: indexPath.row)
+//            //            dict[key] = codes
+//            //            persons[indexPath.section] = dict
+//            //            userDefaults.setValue(NSKeyedArchiver.archivedData(withRootObject: codeArray), forKey: "codeArrayKey")
+//            //            UserDefaults.synchronize()
+//
+//            // self.tableView.reloadRows(at: [IndexPath(row: indexPath.row, section: indexPath.section)], with: .fade)
+//
+//
+//
+//
+//        }
+//    }
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
