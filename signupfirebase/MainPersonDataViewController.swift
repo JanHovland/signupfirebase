@@ -73,14 +73,14 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         // Forces the online keyboard to be lowercased
         searchBarPerson.autocapitalizationType = UITextAutocapitalizationType.none
  
-        let start = Date()
+        // let start = Date()
         
         DispatchQueue.global(qos: .userInteractive).async {
             self.FindSearchedPersonData(searchText: "")
         }
         
-        let end = Date()
-        print("Elapsed time MainPersonDataViewController = \(end.timeIntervalSince(start))")
+        // let end = Date()
+        // print("Elapsed time MainPersonDataViewController = \(end.timeIntervalSince(start))")
         
         activity.style = .gray
         activity.isHidden = true
@@ -109,6 +109,11 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         self.navigationItem.hidesBackButton = true
         
+        // Resets the two globals that is used in PersonsService.swift in function storePersonFiredata()
+        
+        newPersonCounter = -1
+        dbKey = ""
+
         // Reloads everything from scratch. Redisplays visible rows. Note that this will cause any existing drop placeholder rows to be removed.
         self.tableView.reloadData()
         
@@ -161,15 +166,15 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         
         let key = personDataSectionTitles[indexPath.section]
         
-        print("key = \(key as Any)")
+        // print("key = \(key as Any)")
         
         if let personDataValues = personDataDictionary[key] {
             
-            print("indexPath.row = \(indexPath.row)")
+            // print("indexPath.row = \(indexPath.row)")
 
             let name1 = personDataValues[indexPath.row].name.lowercased()
             
-            print(name1 as Any)
+            // print(name1 as Any)
             
             let name = name1.capitalized
             cell.nameLabel.text = name
@@ -215,7 +220,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     // Asks the data source for the title of the header of the specified section of the table view.
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 
-        print("section = \(personDataSectionTitles[section] as Any)")
+        // print("section = \(personDataSectionTitles[section] as Any)")
         
         return personDataSectionTitles[section]
     }

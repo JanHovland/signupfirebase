@@ -10,6 +10,8 @@ import Foundation
 import Firebase
 
 var percentFinished: Double = 0.0
+var newPersonCounter = -1
+var dbKey = ""
 
 final class PersonService {
     
@@ -52,10 +54,23 @@ final class PersonService {
         
         if id.count == 0 {
             // Generate an unique ID for the Persons and prepare the Persons reference
-            dbRef = PERSON_DB_REF.childByAutoId()
+            
+            newPersonCounter += 1
+            
+            print("newPersonCounter = \(newPersonCounter as Any)")
+            
+            if newPersonCounter == 0 {
+                dbRef = PERSON_DB_REF.childByAutoId()
+                dbKey = dbRef.key!
+            } else {
+                print("dbKey = \(dbKey as Any)")
+                dbRef = BASE_DB_REF.child("person" + "/" + dbKey)
+            }
         } else {
             dbRef = BASE_DB_REF.child("person" + "/" + id)
         }
+        
+        print(dbRef)
         
         let personDatabaseRef = dbRef
         

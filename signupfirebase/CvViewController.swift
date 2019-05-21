@@ -178,6 +178,10 @@ class CvViewController: UIViewController {
               . "Varsling på fødselsdager". ("Notification on birthdays")
                 .. Legg inn Info
            Å) For å hindre krasj etter sletting av en person i "Persondata", har jeg lagt inn en segue back to login.
+
+           a) Problemet med flere like personer er løst. Løst ved å bruker 2 globale variabler:
+              . newPersonCounter = -1   // Teller som øker hver gang en trykker på "Arkiver"
+              . dbKey = ""              // bruker kun verdien fra dbKey som settes når newPersonCounter == 0
         
         7. Nye oppgaver (ikke fullført)
         
@@ -218,8 +222,7 @@ class CvViewController: UIViewController {
         
         9. Feil som må rettes
         
-           a) Det kan legges inn flere like poster når en legger inn en ny person (kan det løses med en index?)
-           b) Vise default bilde og ikke et som er valgt tidligere når det ikke er en tilsvarende photoURL i Firebase Storage (usikker om dette er tilfellet lenger?).
+           a) Vise default bilde og ikke et som er valgt tidligere når det ikke er en tilsvarende photoURL i Firebase Storage (usikker om dette er tilfellet lenger?).
         
         10. Concurrency
         
