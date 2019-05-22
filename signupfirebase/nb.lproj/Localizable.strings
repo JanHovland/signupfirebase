@@ -241,6 +241,9 @@
 /* CreateAccountViewController.swift AuthErrorCode */
 "Size of the downloaded file exceeds the amount of memory allocated for the download. Increase memory cap and try downloading again." = "Størrelsen på den nedlastede filen overskrider mengden minne som er tildelt for nedlastingen. Øk memory cap og prøv å laste ned igjen.";
 
+/* BirthdayTableViewController.swift viewDidLoad */
+"Slide down to retrieve data" = "Skyv nedover for å hente data på nytt";
+
 /* EpostViewController.swift definition */
 "Subject of the email" = "Emnet for e-post";
 

@@ -177,18 +177,17 @@ class CvViewController: UIViewController {
                  .. "Dato" - "Navn" - "Sende melding" - "Markere inneværende måned"
               . "Varsling på fødselsdager". ("Notification on birthdays")
                 .. Legg inn Info
-           Å) For å hindre krasj etter sletting av en person i "Persondata", har jeg lagt inn en segue back to login.
-
-           a) Problemet med flere like personer er løst. Løst ved å bruker 2 globale variabler:
-              . newPersonCounter = -1   // Teller som øker hver gang en trykker på "Arkiver"
-              . dbKey = ""              // bruker kun verdien fra dbKey som settes når newPersonCounter == 0
+           Å) Problemet med å legge flere nye personer som er like er løst. Bruker 2 globale variabler:
+              . newPersonCounter = -1   // Teller som øker hver gang en trykker på "Arkiver" for ny person
+              . dbKey = ""              // bruker kun verdien fra dbKey som settes når newPersonCounter == 0 
+           a) Rettet feil med "Refresh Oversikt fødselsdager".
+              .. Lagt inn persons.sort(by: {$0.personData.dateOfBirth2 < $1.personData.dateOfBirth2}) i viewWillAppear()
+              .. Lagt inn self.tableView.reloadData() i reloadData()
         
         7. Nye oppgaver (ikke fullført)
         
-           . Refresh "Oversikt fødselsdager" feil etter å ha lagt inn en ny person
-             .. OK hvis en avslutter og logger på igjen
-             .. Refresh er OK hvis det ikke er lagt inn en ny person
-             .. Hva med sletting? Trykkes "Slett" 2 ganger slettes alle persomdata.
+           . For å hindre krasj etter sletting av en person i "Persondata", har jeg lagt inn en segue back to login.
+           . Hva med sletting? Trykkes "Slett" 2 ganger slettes alle persomdata. (Aktuelt nå?)
            . Retur fra "Oversikt fødselsdager" til "Persondata"
            . Legg in sjekk om brukeren godtar varslinger
            . Se igjennom opsjonene for Kart i PersonViewController.

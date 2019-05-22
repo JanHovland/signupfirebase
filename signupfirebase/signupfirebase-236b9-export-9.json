@@ -298,6 +298,31 @@
         "postalCodeNumber" : "4347"
       },
       "timestamp" : 1556648110474
+    },
+    "-LfPaL3AbDifRDNTwcbn" : {
+      "author" : {
+        "email" : "jho.hovland@gmail.com",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2Fjho.hovland@gmail.com.png?alt=media&token=1e37d888-65fd-4de1-bea9-cfb1fc2eed1e",
+        "uid" : "WooRDdygpfSBRuBEZIhzRH0dfu23",
+        "username" : "Jan Gmail Hovland"
+      },
+      "personData" : {
+        "address" : "Ringgåsveien 5",
+        "city" : "Varhaug",
+        "dateOfBirth1" : "9. juni 1957",
+        "dateOfBirth2" : "06-09",
+        "firstName" : "Kristian",
+        "gender" : 0,
+        "lastName" : "Lima",
+        "municipality" : "Hå",
+        "municipalityNumber" : "1119",
+        "name" : "KRISTIAN LIMA",
+        "personEmail" : "",
+        "phoneNumber" : "+47 924 09 161",
+        "photoURL" : "https://firebasestorage.googleapis.com/v0/b/signupfirebase-236b9.appspot.com/o/photos%2F-LfPaL3AbDifRDNTwcbn.png?alt=media&token=963dbe24-6290-4bc9-b7e8-e2a674454253",
+        "postalCodeNumber" : "4360"
+      },
+      "timestamp" : 1558446161682
     }
   },
   "postnr" : {

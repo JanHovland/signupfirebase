@@ -16,25 +16,25 @@ class BirthdayTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        persons.sort(by: {$0.personData.dateOfBirth2 < $1.personData.dateOfBirth2})
-
-        tableView.reloadData()
-        
         let refreshControl = UIRefreshControl()
-        // refreshControl.attributedTitle = NSAttributedString(string: "Skyv nedover for å hente data")
+        let message = NSLocalizedString("Slide down to retrieve data", comment: "BirthdayTableViewController.swift viewDidLoad")
+        
+        refreshControl.attributedTitle = NSAttributedString(string: message)
         refreshControl.addTarget(self, action: #selector(reloadData), for: .valueChanged)
         self.tableView.refreshControl = refreshControl
         
-        
+    }
+    
+    // Called when the view is about to made visible. Default does nothing
+    override func viewWillAppear(_ animated: Bool) {
+       persons.sort(by: {$0.personData.dateOfBirth2 < $1.personData.dateOfBirth2})
     }
     
     @objc func reloadData() {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-            self.tableView.refreshControl?.endRefreshing()
-        }
+        self.tableView.reloadData()
+        self.tableView.refreshControl?.endRefreshing()
     }
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
