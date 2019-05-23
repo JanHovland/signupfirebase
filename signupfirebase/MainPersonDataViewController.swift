@@ -121,7 +121,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     
     // Called when the view has been fully transitioned onto the screen. Default does nothing
     override func viewDidAppear(_ animated: Bool) {
-        // tableView.reloadData()
+        tableView.reloadData()
     }
     
     // Asks the data source to return the number of sections in the table view.
@@ -220,7 +220,9 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
     // Asks the data source for the title of the header of the specified section of the table view.
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 
-        // print("section = \(personDataSectionTitles[section] as Any)")
+        print("section = \(personDataSectionTitles[section].count as Any)")
+        
+        // self.makeReadPersons()
         
         return personDataSectionTitles[section]
     }
@@ -289,6 +291,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
 
             self.performSegue(withIdentifier: "goBackToLogin", sender: self)
 
+            // self.tableView.reloadData()
+        
 
         }
 
