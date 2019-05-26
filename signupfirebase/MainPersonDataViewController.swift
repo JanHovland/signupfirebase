@@ -100,7 +100,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             self.makeReadPersons()
             self.FindSearchedPersonData(searchText: "")
             self.tableView.refreshControl?.endRefreshing()
-            self.tableView.reloadData()
+            // self.tableView.reloadData()
         }
     }
     
