@@ -100,6 +100,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             self.makeReadPersons()
             self.FindSearchedPersonData(searchText: "")
             self.tableView.refreshControl?.endRefreshing()
+            self.tableView.reloadData()
         }
     }
     
@@ -170,7 +171,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         
         if let personDataValues = personDataDictionary[key] {
             
-            // print("indexPath.row = \(indexPath.row)")
+            print("indexPath.row = \(indexPath.row)")
 
             let name1 = personDataValues[indexPath.row].name.lowercased()
             
@@ -213,7 +214,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
                 
             }
         }
-          
+        
         return cell
     }
     
@@ -270,9 +271,32 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             let dataBase = Database.database().reference().child("person" + "/" + id)
 
             dataBase.setValue(nil)
+
+            // remove(persons[indexPath.row].personData.          // remove(persons[indexPath.row].personData.firstName)
         
+            persons.remove(at: indexPath.row)
+        
+        
+            // let key = personDataSectionTitles[indexPath.section]
+            // let personDataValues = personDataDictionary[key]
+        
+        
+            // Works when there is only one person at at section
+        
+            personDataSectionTitles.remove(at: indexPath.section)
+        
+        
+            // let key1 = personDataSectionTitles[indexPath.section]
+            // let personDataValues = personDataDictionary[key1]
+        
+        
+        
+        
+//   VIRKER IKKE !!!!!     let indexPath = IndexPath(row: indexPath.row, section: indexPath.section)                      // (item: 0, section: 0)
+//        tableView.deleteRows(at: [indexPath], with: .fade)
         
 
+        
 //            let key = personDataSectionTitles[indexPath.section]
 //            print("key fra trailing = \(key as Any)")
 //            print("firstName from trailing = \(value.firstName as Any)")
@@ -289,9 +313,11 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
 
             // print(personDataSectionTitles[indexPath.section] as Any)
 
-            self.performSegue(withIdentifier: "goBackToLogin", sender: self)
+            // self.performSegue(withIdentifier: "goBackToLogin", sender: self)
 
-            // self.tableView.reloadData()
+            self.tableView.reloadData()
+        
+        // self.makeReadPersons()
         
 
         }
@@ -936,7 +962,15 @@ extension UIViewController {
 }
 
 
-
+extension Array where Element: Equatable {
+    
+    // Remove first collection element that is equal to the given `object`:
+    mutating func remove(object: Element) {
+        guard let index = firstIndex(of: object) else {return}
+        remove(at: index)
+        
+    }
+}
 
 
 
