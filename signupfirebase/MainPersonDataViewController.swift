@@ -276,21 +276,43 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         
             persons.remove(at: indexPath.row)
         
-        
-            // let key = personDataSectionTitles[indexPath.section]
-            // let personDataValues = personDataDictionary[key]
-        
-        
+            let key = personDataSectionTitles[indexPath.section]
+            // let personDataValues = personDataDictionary[key].
             // Works when there is only one person at at section
         
+            // personDataDictionary.remove(at: <#T##Dictionary<String, [PersonData]>.Index#>)
+        
+            // let x = personDataDictionary.keys.contains(key)
+        
+            // let x = personDataDictionary[<"A",
+        
+        // personDataDictionary.removeValue(forKey: key) // Sletter f.eks "J"
+        
+        // personDataDictionary.removeAll() // Sletter alt
+        
+        personDataDictionary.removeValue(forKey: selectedName)
+//        personDataDictionary.remove(at: <#T##Dictionary<String, [PersonData]>.Index#>)
+//
+//        personDataDictionary.remove(at: <#T##Dictionary<String, [PersonData]>.Index#>)
+//        personDataDictionary.remove(at: Dictionary<key, selectedName>)
+//
+        
+        personDataDictionary.remove(at: indexPath.row)
+        
+        if let idx = personDataDictionary.index(forKey: key) {
+            personDataDictionary.remove(at: idx) // Sletter alle data under f.eks key == "K"
+            print(personDataDictionary)
+        }
+        
+        
+        
+        
+            // personDataDictionary.remove(at: key, persons[indexPath.row].personData.firstName) //                 selectedName)
+    
             personDataSectionTitles.remove(at: indexPath.section)
         
-        
-            // let key1 = personDataSectionTitles[indexPath.section]
-            // let personDataValues = personDataDictionary[key1]
-        
-        
-        
+// let key1 = personDataSectionTitles[indexPath.section]
+// let personDataValues = personDataDictionary[key1]
         
 //   VIRKER IKKE !!!!!     let indexPath = IndexPath(row: indexPath.row, section: indexPath.section)                      // (item: 0, section: 0)
 //        tableView.deleteRows(at: [indexPath], with: .fade)
@@ -307,17 +329,17 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
 //
 //
 //        print("test")
-            // personDataSectionTitles[0].remove(at: indexPath.row)
+// personDataSectionTitles[0].remove(at: indexPath.row)
 
-            // personDataSectionTitles[indexPath.section].remove(at: indexPath.section)
+// personDataSectionTitles[indexPath.section].remove(at: indexPath.section)
 
-            // print(personDataSectionTitles[indexPath.section] as Any)
+// print(personDataSectionTitles[indexPath.section] as Any)
 
-            // self.performSegue(withIdentifier: "goBackToLogin", sender: self)
+// self.performSegue(withIdentifier: "goBackToLogin", sender: self)
 
             self.tableView.reloadData()
         
-        // self.makeReadPersons()
+// self.makeReadPersons()
         
 
         }
