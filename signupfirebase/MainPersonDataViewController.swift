@@ -80,22 +80,21 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         activity.style = .gray
         activity.isHidden = true
         
-//        let refreshControl = UIRefreshControl()
-//        refreshControl.addTarget(self, action: #selector(reloadData), for: .valueChanged)
-//        self.tableView.refreshControl = refreshControl
+        let refreshControl = UIRefreshControl()
+        let message = NSLocalizedString("Slide down to retrieve data", comment: "MainPersonDataViewController.swift viewDidLoad")
+        refreshControl.attributedTitle = NSAttributedString(string: message)
+        
+        refreshControl.addTarget(self, action: #selector(reloadData), for: .valueChanged)
+        self.tableView.refreshControl = refreshControl
 
         activity.style = .gray
         activity.isHidden = true
  
     }
-
+    
     @objc func reloadData() {
-        persons = [Person]()
-        DispatchQueue.main.async {
-            self.makeReadPersons()
-            self.FindSearchedPersonData(searchText: "")
-            self.tableView.refreshControl?.endRefreshing()
-        }
+        self.tableView.reloadData()
+        self.tableView.refreshControl?.endRefreshing()
     }
     
     // Called when the view is about to made visible. Default does nothing
