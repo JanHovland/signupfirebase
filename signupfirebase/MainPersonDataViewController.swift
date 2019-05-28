@@ -80,9 +80,9 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         activity.style = .gray
         activity.isHidden = true
         
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(reloadData), for: .valueChanged)
-        self.tableView.refreshControl = refreshControl
+//        let refreshControl = UIRefreshControl()
+//        refreshControl.addTarget(self, action: #selector(reloadData), for: .valueChanged)
+//        self.tableView.refreshControl = refreshControl
 
         activity.style = .gray
         activity.isHidden = true
@@ -95,7 +95,6 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             self.makeReadPersons()
             self.FindSearchedPersonData(searchText: "")
             self.tableView.refreshControl?.endRefreshing()
-            // self.tableView.reloadData()
         }
     }
     

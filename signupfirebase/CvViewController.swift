@@ -183,11 +183,11 @@ class CvViewController: UIViewController {
            a) Rettet feil med "Refresh Oversikt fødselsdager".
               .. Lagt inn persons.sort(by: {$0.personData.dateOfBirth2 < $1.personData.dateOfBirth2}) i viewWillAppear()
               .. Lagt inn self.tableView.reloadData() i reloadData()
+           b) Rettet feil med sletting av en person.
         
         7. Nye oppgaver (ikke fullført)
         
-           . For å hindre krasj etter sletting av en person i "Persondata", har jeg lagt inn en segue back to login.
-           . Hva med sletting? Trykkes "Slett" 2 ganger slettes alle persomdata. (Aktuelt nå?)
+           . Refresh i Persondata virker ikke, må gå til "Log in" for refresh.
            . Retur fra "Oversikt fødselsdager" til "Persondata"
            . Legg in sjekk om brukeren godtar varslinger
            . Se igjennom opsjonene for Kart i PersonViewController.
