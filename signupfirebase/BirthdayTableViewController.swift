@@ -142,11 +142,7 @@ class BirthdayTableViewController: UITableViewController {
                 if personIndex >= 0 {
                     phoneNumber = String(persons[personIndex].personData.phoneNumber)
                     firstName = String(persons[personIndex].personData.firstName)
-
-                    print(firstName + " " + phoneNumber)
-                    
                     performSegue(withIdentifier: "gotoMessageFromBirthday", sender: nil)
-                    
                 }
 
             }

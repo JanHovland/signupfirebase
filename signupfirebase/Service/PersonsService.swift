@@ -57,20 +57,15 @@ final class PersonService {
             
             newPersonCounter += 1
             
-            print("newPersonCounter = \(newPersonCounter as Any)")
-            
             if newPersonCounter == 0 {
                 dbRef = PERSON_DB_REF.childByAutoId()
                 dbKey = dbRef.key!
             } else {
-                print("dbKey = \(dbKey as Any)")
                 dbRef = BASE_DB_REF.child("person" + "/" + dbKey)
             }
         } else {
             dbRef = BASE_DB_REF.child("person" + "/" + id)
         }
-        
-        print(dbRef)
         
         let personDatabaseRef = dbRef
         
@@ -176,8 +171,6 @@ final class PersonService {
             
             let str1 = stringDate[..<space]
             
-            print("str1 = \(str1)")
-            
             if let periode = str1.firstIndex(of: ".") {
                 
                 let day1 = stringDate[..<periode]
@@ -187,8 +180,6 @@ final class PersonService {
                 if day.count == 1 {
                     day = "0" + day
                 }
-                
-                print("day = \(day)")
                 
                 if let space1 = str1.firstIndex(of: " ") {
                     
@@ -223,8 +214,6 @@ final class PersonService {
                     } else if  month3 == NSLocalizedString("december", comment: "LogInViewController.swift CheckLogin verdi") {
                         month = "12"
                     }
-                    
-                    print("month = \(month)")
                     
                     return month + "-" + day
                     

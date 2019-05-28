@@ -581,8 +581,6 @@ extension UIViewController {
         let PHOTO_STORAGE_REF: StorageReference = Storage.storage().reference().child("photos")
         let imageStorageRef = PHOTO_STORAGE_REF.child("\(email).png")
         
-        print(imageStorageRef as Any)
-        
         // Resize the image
         let scaledImage = image.scale(newWidth: 50.0)
         
@@ -605,8 +603,6 @@ extension UIViewController {
                 guard let url = url else {
                     return
                 }
-                
-                print(url)
                 
                 completionHandler(url.absoluteString)
             })
