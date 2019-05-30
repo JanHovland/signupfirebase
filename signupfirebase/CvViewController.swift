@@ -222,10 +222,6 @@ class CvViewController: UIViewController {
               . Har gode queriesProgrammerings oppgaver:
               . Søkefunksjon i Firestore i PersonViewController på både fornavn og/eller etternavn
         
-        9. Feil som må rettes
-        
-           a) Vise default bilde og ikke et som er valgt tidligere når det ikke er en tilsvarende photoURL i Firebase Storage (usikker om dette er tilfellet lenger?).
-        
         10. Concurrency
         
             Why concurrency? As soon as you add heavy tasks to your app like data loading it slows your UI work down or even freezes it. Concurrency lets you perform 2 or more tasks “simultaneously”. The disadvantage of this approach is that thread safety which is not always as easy to control. F.e. when different tasks want to access the same resources like trying to change the same variable on a different threads or accessing the resources already blocked by the different threads.
