@@ -415,7 +415,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             
             let vc = segue.destination as! MessageViewController
             
-            vc.messageBody = "Gratulerer så mye med fødselsdagen " + personFirstName + " 😄"
+            let string = NSLocalizedString("Congratulations on your birthday", comment: "MainPersonDataViewController.swift prepare")
+            vc.messageBody = string + " " + personFirstName + " 🇳🇴 😄"
             vc.messagePhoneNumber = phoneNumberInput
             vc.messageId = "fromMainPersonData"
         
@@ -425,7 +426,10 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             
             vc.subject = "Fødselsdagen din"
             vc.toRecipients = personEmail
-            vc.messageBody = "Gratulerer så mye med dagen " + personFirstName + " 😄 \n\n\nHilsen Jan"
+            
+            let string =  NSLocalizedString("Congratulations on your birthday", comment: "MainPersonDataViewController.swift prepare")
+            let string1 = NSLocalizedString("With regards", comment: "MainPersonDataViewController.swift prepare")
+            vc.messageBody = string + " " + personFirstName + " 🇳🇴 😄" + "\n\n\n" + string1 + "\nJan"
            
         }
     }

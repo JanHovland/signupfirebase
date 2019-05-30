@@ -1,17 +1,11 @@
 /* Class = "UILabel"; text = "Overview birthdays"; ObjectID = "0UE-Yl-nS2"; */
 "0UE-Yl-nS2.text" = "Oversikt fødselsdager";
 
-/* Class = "UITextField"; placeholder = "Enter email recipients"; ObjectID = "1T9-up-nrf"; */
-"1T9-up-nrf.placeholder" = "Skriv inn e-post mottakere";
-
 /* Class = "UILabel"; text = "Email"; ObjectID = "2IV-gI-RRS"; */
 "2IV-gI-RRS.text" = "e-post";
 
 /* Class = "UILabel"; text = "Notification on birthdays"; ObjectID = "2yY-dy-dKJ"; */
 "2yY-dy-dKJ.text" = "Varsling på fødselsdager";
-
-/* Class = "UILabel"; text = "Subject"; ObjectID = "5gt-gW-5mh"; */
-"5gt-gW-5mh.text" = "Emne";
 
 /* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "5IO-mA-9m4"; */
 "5IO-mA-9m4.title" = "Lagre";
@@ -97,9 +91,6 @@
 /* Class = "UITabBarItem"; title = "Login"; ObjectID = "Gl8-LX-VoP"; */
 "Gl8-LX-VoP.title" = "Logg inn";
 
-/* Class = "UITextField"; placeholder = "Enter the subject"; ObjectID = "gYV-Ud-eQK"; */
-"gYV-Ud-eQK.placeholder" = "Skriv inn emnet";
-
 /* Class = "UILabel"; text = "Old password"; ObjectID = "h3M-sf-tUf"; */
 "h3M-sf-tUf.text" = "Passord";
 
@@ -117,9 +108,6 @@
 
 /* Class = "UITextField"; placeholder = "Enter the municipality"; ObjectID = "iJD-3U-e7P"; */
 "iJD-3U-e7P.placeholder" = "Legg inn kommune";
-
-/* Class = "UILabel"; text = "To"; ObjectID = "Ixo-RK-z8h"; */
-"Ixo-RK-z8h.text" = "Til";
 
 /* Class = "UILabel"; text = "eMail"; ObjectID = "IZ3-hb-Xl4"; */
 "IZ3-hb-Xl4.text" = "e-post";

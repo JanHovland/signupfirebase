@@ -44,6 +44,9 @@
    LoginViewVontroller.swift selectPersonPhoto */
 "Choose your photo source" = "Velg kilden for foto ";
 
+/* MainPersonDataViewController.swift prepare */
+"Congratulations on your birthday" = "Gratulerer så mye med fødselsdagen din";
+
 /* CreateAccountViewController.swift SaveAccount */
 "Create account." = "Opprett ny konto";
 
@@ -241,7 +244,8 @@
 /* CreateAccountViewController.swift AuthErrorCode */
 "Size of the downloaded file exceeds the amount of memory allocated for the download. Increase memory cap and try downloading again." = "Størrelsen på den nedlastede filen overskrider mengden minne som er tildelt for nedlastingen. Øk memory cap og prøv å laste ned igjen.";
 
-/* BirthdayTableViewController.swift viewDidLoad */
+/* BirthdayTableViewController.swift viewDidLoad
+   MainPersonDataViewController.swift viewDidLoad */
 "Slide down to retrieve data" = "Skyv nedover for å hente data på nytt";
 
 /* EpostViewController.swift definition */
@@ -300,6 +304,9 @@
 
 /* SettingsTableViewController.swift SectionHeading */
 "Users" = "Brukere";
+
+/* MainPersonDataViewController.swift prepare */
+"With regards" = "Med hilsen";
 
 /* PersonViewVontroller.swift chooseGender 
    PersonViewVontroller.swift viewDidAppear */
