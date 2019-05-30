@@ -185,14 +185,13 @@ class CvViewController: UIViewController {
               .. Lagt inn self.tableView.reloadData() i reloadData()
            b) Rettet feil med sletting av en person.
            c) Refresh i Persondata er nå OK.
+           d) Forbedret email slik at det nå kun vises et bilde.
         
         7. Nye oppgaver (ikke fullført)
         
-           . Forbedre email (i dage er det 2. skjermbilder), endre til kun et bilde.
+           . Se igjennom opsjonene (kan sende epost) og gi melding dersom det ikke er mulig.
            . Retur fra "Oversikt fødselsdager" til "Persondata"
            . Legg in sjekk om brukeren godtar varslinger
-           . Se igjennom opsjonene for Kart i PersonViewController.
-           . Se igjennom opsjonene for sending av meldinger.
            . Oppdatere security i Firebase (er security der det samme for Firestore?)
         
         8. Programmerings tips
