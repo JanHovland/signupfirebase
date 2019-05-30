@@ -423,10 +423,10 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             
             let vc = segue.destination as! EpostViewController
             
-            vc.mailRecipients = personEmail
-            vc.mailSubject = ""
-            vc.mailMessageBody = ""
-        
+            vc.subject = "Fødselsdagen din"
+            vc.toRecipients = personEmail
+            vc.messageBody = "Gratulerer så mye med dagen " + personFirstName + " 😄 \n\n\nHilsen Jan"
+           
         }
     }
     
@@ -492,11 +492,8 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             selectedName = String(cell.nameLabel!.text!)
             let value = self.findPersonData(inputName: selectedName)
             phoneNumberInput = value.phoneNumber
-            
-            personFirstName = value.firstName.lowercased()
-            personFirstName = personFirstName.capitalized
+            personFirstName = value.firstName
         }
-   
     }
     
     @IBAction func buttonEmail(_ sender: UIButton) {
@@ -509,6 +506,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             selectedName = String(cell.nameLabel!.text!)
             let value = self.findPersonData(inputName: selectedName)
             personEmail = value.personEmail
+            personFirstName = value.firstName
         }
     }
  

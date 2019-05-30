@@ -75,9 +75,9 @@ class SettingsTableViewController: UITableViewController {
         
             let vc = segue.destination as! EpostViewController
         
-            vc.mailRecipients = ""
-            vc.mailSubject = ""
-            vc.mailMessageBody = ""
+            vc.toRecipients = ""
+            vc.subject = ""
+            vc.messageBody = ""                      
             vc.mailInfo = "FromSettings"
             
         }

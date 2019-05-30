@@ -188,6 +188,7 @@ class CvViewController: UIViewController {
         
         7. Nye oppgaver (ikke fullført)
         
+           . Forbedre email (i dage er det 2. skjermbilder), endre til kun et bilde.
            . Retur fra "Oversikt fødselsdager" til "Persondata"
            . Legg in sjekk om brukeren godtar varslinger
            . Se igjennom opsjonene for Kart i PersonViewController.
@@ -212,6 +213,9 @@ class CvViewController: UIViewController {
         f) Mer: https://github.com/ioscreator/ioscreator
         g) Mer: https://github.com/ioscreator/ioscreator/blob/master/IOS12SendiMessageTutorial/IOS12SendiMessageTutorial/ViewController.swift
         h) Mer: https://github.com/ioscreator/ioscreator/tree/master/IOS12SendEmailTutorial
+        
+        How To Send an Email From Your App - Swift 
+        
         
         9. Firestore
            a) Informasjon
