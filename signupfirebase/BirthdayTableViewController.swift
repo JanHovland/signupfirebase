@@ -155,7 +155,7 @@ class BirthdayTableViewController: UITableViewController {
             
             let vc = segue.destination as! MessageViewController
             
-            vc.messageBody = "Gratulerer så mye med fødselsdagen " + firstName + " 😄"
+            vc.messageBody = "Gratulerer så mye med fødselsdagen " + firstName + " 🇳🇴 😄"
             vc.messagePhoneNumber = phoneNumber
             vc.messageId = "fromBirthday"
         }
