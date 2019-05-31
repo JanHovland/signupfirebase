@@ -84,6 +84,7 @@
    DataBaseExtension.swift updateEpostCoreData
    DataBaseExtension.swift updateNameCoreData
    DataBaseExtension.swift updatePasswordCoreData
+   EpostViewController.swift EpostViewController
    ListTableViewController viewDidLoad
    ListTableViewController viewWillAppear
    ListTableViewController.swift SaveNewPassword 
@@ -270,6 +271,9 @@
 
 /* UpdateUserNameViewVontroller.swift SaveNewName */
 "The username must have a value." = "Navnet til brukeren kan ikke være tomt.";
+
+/* EpostViewController.swift EpostViewController */
+"This device is not configured to send email." = "Denne enheten er ikke konfigurert til å sende e-post.";
 
 /* LoginViewVontroller.swift presentAlertCreateAccount */
 "Try one more time" = "Prøv en gang til.";

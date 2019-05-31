@@ -33,6 +33,9 @@ class EpostViewController: UIViewController {
         
         guard MFMailComposeViewController.canSendMail() else {
             //Show alert informing the user
+            let string = NSLocalizedString("This device is not configured to send email.", comment: "EpostViewController.swift EpostViewController")
+            self.presentAlert(withTitle: NSLocalizedString("Error", comment: "EpostViewController.swift EpostViewController"),
+                              message: string)
             return
         }
         
@@ -68,7 +71,7 @@ extension EpostViewController: MFMailComposeViewControllerDelegate {
             controller.dismiss(animated: true)
             return
         }
-        
+ 
         switch result {
         case .cancelled:
             print("Cancelled")
