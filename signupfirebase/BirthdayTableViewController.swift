@@ -149,7 +149,15 @@ class BirthdayTableViewController: UITableViewController {
         }
         
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let cell = tableView.cellForRow(at: indexPath) as! BirthdayTableViewCell
 
+        selectedName = String(cell.nameLabel!.text!)
+        performSegue(withIdentifier: "goBackToPersonData", sender: self)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier! == "gotoMessageFromBirthday" {
             
@@ -158,9 +166,67 @@ class BirthdayTableViewController: UITableViewController {
             vc.messageBody = "Gratulerer så mye med fødselsdagen " + firstName + " 🇳🇴 😄"
             vc.messagePhoneNumber = phoneNumber
             vc.messageId = "fromBirthday"
+            
+        } else if segue.identifier! == "goBackToPersonData" {
+            
+            var idx = 0
+            var personIndex = -1
+            
+            let numberOfPersons = persons.count
+            
+            if numberOfPersons > 0 {
+                
+                // Find the selected person
+                repeat {
+                    if persons[idx].personData.name.uppercased() == selectedName.uppercased() {
+                        personIndex = idx
+                        idx = numberOfPersons
+                    }
+                    idx += 1
+                } while (idx < numberOfPersons)
+                
+                if personIndex >= 0 {
+                    
+                    let vc = segue.destination as! PersonViewController
+                    
+                    vc.PersonAddressText = String(persons[personIndex].personData.address)
+                    vc.PersonCityText = String(persons[personIndex].personData.city)
+                    vc.PersonDateOfBirthText1 = String(persons[personIndex].personData.dateOfBirth1)
+                    vc.PersonDateOfBirthText2 = String(persons[personIndex].personData.dateOfBirth2)
+                    vc.PersonFirstNameText = String(persons[personIndex].personData.firstName)
+                    vc.PersonGenderInt = persons[personIndex].personData.gender
+                    vc.PersonIdText = String(persons[personIndex].id)
+                    vc.PersonLastNameText = String(persons[personIndex].personData.lastName)
+                    vc.PersonMunicipalityNumberText = String(persons[personIndex].personData.municipalityNumber)
+                    vc.PersonMunicipalityText = String(persons[personIndex].personData.municipality)
+                    vc.PersonOption = 1         // Update == 1
+                    vc.PersonPersonEmailText = String(persons[personIndex].personData.personEmail)
+                    vc.PersonPhoneNumberText = String(persons[personIndex].personData.phoneNumber)
+                    vc.PersonPhotoURL = String(persons[personIndex].personData.photoURL)
+                    vc.PersonPostalCodeNumberText = String(persons[personIndex].personData.postalCodeNumber)
+                    vc.PersonTitle = NSLocalizedString("Update Person", comment: "BirthdayTableViewController.swift prepare")
+                    
+                    // Initialize the globals
+                    globalAddress = String(persons[personIndex].personData.address)
+                    globalCity = String(persons[personIndex].personData.city)
+                    globalCityCodeNumber = String(persons[personIndex].personData.postalCodeNumber)
+                    globalDateOfBirth = String(persons[personIndex].personData.dateOfBirth1)
+                    globalFirstName = String(persons[personIndex].personData.firstName)
+                    globalGender = persons[personIndex].personData.gender
+                    globalLastName = String(persons[personIndex].personData.lastName)
+                    globalMunicipalityNumber = String(persons[personIndex].personData.municipalityNumber)
+                    globalMunicipality = String(persons[personIndex].personData.municipality)
+                    globalPersonEmail = String(persons[personIndex].personData.personEmail)
+                    globalPhoneNumber = String(persons[personIndex].personData.phoneNumber)
+
+                  
+                }
+            }
+            
         }
     }
-
+    
+    
     
 }
 

@@ -125,7 +125,7 @@
 "In order to save the Postal Codes, the 'Store Postal Codes in Firebase' button must be enabled." = "For å lagre postnummer, må bryteren 'Lagre postnummer i Firebase' aktiveres.";
 
 /* CreateAccountViewController.swift AuthErrorCode */
-"Indicates a network error occurred (such as a timeout, interrupted connection, or unreachable host). These types of errors are often recoverable with a retry. The `NSUnderlyingError` field in the `NSError.userInfo` dictionary will contain the error encountered." = "Indikerer at det oppstod en nettverksfeil (for eksempel en timeout, avbrutt forbindelse eller ikke tilgjengelig feil). Slike typer feil kan ofte gjenopprettes med å prøver på nytt. 'NSUnderliggendeError`-feltet i `NSError.userInfo` dictionary viser den oppståtte feilen.";
+"Indicates a network error occurred (such as a timeout, interrupted connection, or unreachable host). These types of errors are often recoverable with a retry. The `NSUnderlyingError` field in the `NSError.userInfo` dictionary will contain the error encountered." = "Indikerer at det oppstod en nettverksfeil (for eksempel en timeout, avbrutt forbindelse eller ikke tilgjengelig feil). Slike typer feil kan ofte gjenopprettes med å prøve på nytt. 'NSUnderliggendeError`-feltet i `NSError.userInfo` dictionary viser den oppståtte feilen.";
 
 /* CreateAccountViewController.swift AuthErrorCode */
 "Indicates the user account was not found." = "Konto til brukeren ble ikke funnet.";

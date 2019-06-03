@@ -227,6 +227,9 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         // Search
         FindSearchedPersonData(searchText: searchText)
         
+        // Fill the table view
+        tableView.reloadData()
+        
     }
     
     // called when keyboard done button pressed
@@ -400,6 +403,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             vc.titleMap = personName
             vc.locationOnMap = locationOnMap
             vc.address = personAddress
+            vc.subtitle = value.city
             
             vc.changeName = ""
             vc.changeLatitude = 0.0

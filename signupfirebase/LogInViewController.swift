@@ -59,7 +59,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         activity.hidesWhenStopped = true
         activity.style = .gray
         activity.transform = CGAffineTransform(scaleX: 1.25, y: 1.25)
-    
+        view.addSubview(activity)
+        
         // Turn off keyboard when you press "Return"
         eMailLoginTextField.delegate = self
         passwordTextField.delegate = self
@@ -302,6 +303,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
                                           message: melding)
                     }
                         
+                    self.activity.stopAnimating()
+                    
                 } else {
                     
                     let withTitle =   NSLocalizedString("Login Firebase", comment: "LoginViewVontroller.swift CheckLogin 'error'")
@@ -315,12 +318,9 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
                                                    message: error!.localizedDescription as String,
                                                    firstTitle: firstTitle,
                                                    secondTitle: secondTitle)
-            
                 }
-            
+                
             }
-            
-            self.activity.stopAnimating()
             
         } else {
             

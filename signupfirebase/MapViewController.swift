@@ -14,6 +14,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet var mapView: MKMapView!
     
     var titleMap: String = ""
+    var subtitle: String = ""
     var locationOnMap: String = ""
     var address: String = ""
     var changeName: String = ""
@@ -30,7 +31,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         mapView.showsCompass = true
         mapView.showsScale = true
         mapView.showsTraffic = true
-       
+        mapView.showsBuildings = true
+        mapView.showsPointsOfInterest = true
+
         
         // Convert address to coordinate and annotate it on map
         let geoCoder = CLGeocoder()
@@ -58,6 +61,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                     }
                     
                     annotation.title = self.address
+                    annotation.subtitle = self.subtitle
                     
                     // Display the annotationn
                     self.mapView.showAnnotations([annotation], animated: true)
