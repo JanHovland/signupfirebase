@@ -46,8 +46,7 @@ class SavePostalCodesFirebaseTableViewController: UITableViewController, UIDocum
             present(documentPicker, animated: true, completion: nil)
 
         } else {
-            let message = NSLocalizedString("In order to save the Postal Codes, the 'Store Postal Codes in Firebase' button must be enabled.",
-                                            comment: "SavePostalCodesFirebaseTableViewController.swift StorePostalCodes")
+            let message = NSLocalizedString("In order to save the Postal Codes, the 'Store Postal Codes in Firebase' button must be enabled.",comment: "SavePostalCodesFirebaseTableViewController.swift StorePostalCodes")
             let message1 = "\n" + message
             presentAlert(withTitle: NSLocalizedString("Cannot store the Postal Codes in Firebase.",
                                                       comment: "SavePostalCodesFirebaseTableViewController.swift StorePostalCodes"),
