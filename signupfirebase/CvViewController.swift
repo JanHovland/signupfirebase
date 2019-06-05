@@ -188,10 +188,10 @@ class CvViewController: UIViewController {
            d) Lagt inn varsel dersom enheten ikke kan sende ePost.
            e) Søke på navn i Persondate er nå OK.
            f) Retur fra "Oversikt fødselsdager" til "Persondata" er nå lagt inn.
+           g) Forbedret email med kun et bilde.
         
         7. Nye oppgaver (ikke fullført)
         
-           . Forbedre email med kun et bilde.
            . Legg in sjekk om brukeren godtar varslinger.
            . Oppdatere security i Firebase (er security der det samme for Firestore?)
         

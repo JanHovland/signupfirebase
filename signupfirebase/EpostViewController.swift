@@ -88,7 +88,7 @@ extension EpostViewController: MFMailComposeViewControllerDelegate {
         }
         
         print(message)
-
+        
         if mailInfo.count == 0 {
             performSegue(withIdentifier: "gotoMainPerson", sender: self)
         } else if mailInfo.count > 0 {
