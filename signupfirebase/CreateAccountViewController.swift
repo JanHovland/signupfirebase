@@ -155,12 +155,12 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate, UIImag
                                                     withPhotoURL: url)
                         
                         if ok1 == false {
-                            let melding = NSLocalizedString("Unable to store data in CoreData.",
+                            let message = NSLocalizedString("Unable to store data in CoreData.",
                                                             comment: "CreateAccountViewVontroller.swift CheckLogin verdi")
                             
                             self.presentAlert(withTitle: NSLocalizedString("Error",
                                                                            comment: "CreateAccountViewVontroller.swift SaveAccount "),
-                                              message: melding)
+                                              message: message)
                             
                         } else {
                             
@@ -172,9 +172,9 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate, UIImag
                                 if error == nil {
                                     self.dismiss(animated: false, completion: nil)
                                 } else {
-                                    let melding = error!.localizedDescription
+                                    let message = error!.localizedDescription
                                     self.presentAlert(withTitle: NSLocalizedString("Error", comment: "CreateAccountViewVontroller.swift SaveAccount"),
-                                                      message: melding)
+                                                      message: message)
                                 }
                                 self.activity.stopAnimating()
                             }
@@ -211,16 +211,16 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate, UIImag
             
         } else {
             if self.passwordCreateAccountTextField.text!.count < 6 {
-                let melding1 = NSLocalizedString("Every field must have a value.", comment: "CreateAccountViewVontroller.swift SaveAccount ")
-                let melding2 = NSLocalizedString("The password must contain minimum 6 characters", comment: "CreateAccountViewVontroller.swift SaveAccount ")
-                let melding = melding1 + "\r\n" + melding2
+                let message1 = NSLocalizedString("Every field must have a value.", comment: "CreateAccountViewVontroller.swift SaveAccount ")
+                let message2 = NSLocalizedString("The password must contain minimum 6 characters", comment: "CreateAccountViewVontroller.swift SaveAccount ")
+                let message = message1 + "\r\n" + message2
                 
                 self.presentAlert(withTitle: NSLocalizedString("Error", comment: "CreateAccountViewVontroller.swift SaveAccount"),
-                             message: melding)
+                             message: message)
             } else {
-                let melding = NSLocalizedString("Every field must have a value", comment: "CreateAccountViewController.swift SaveAccount")
+                let message = NSLocalizedString("Every field must have a value", comment: "CreateAccountViewController.swift SaveAccount")
                 self.presentAlert(withTitle: NSLocalizedString("Error", comment: "CreateAccountViewVontroller.swift SaveAccount"),
-                             message: melding)
+                             message: message)
             }
         }
         
@@ -235,9 +235,9 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate, UIImag
     
     @IBAction func selectPersonPhoto(_ sender: UIButton) {
         
-        let melding = NSLocalizedString("Choose your photo source", comment: "CreateAccountViewController.swift selectPersonPhoto")
+        let message = NSLocalizedString("Choose your photo source", comment: "CreateAccountViewController.swift selectPersonPhoto")
         
-        let photoSourceRequestController = UIAlertController(title: "", message: melding, preferredStyle: .actionSheet)
+        let photoSourceRequestController = UIAlertController(title: "", message: message, preferredStyle: .actionSheet)
         
         let title = NSLocalizedString("Camera", comment: "CreateAccountViewController.swift selectPersonPhoto")
         

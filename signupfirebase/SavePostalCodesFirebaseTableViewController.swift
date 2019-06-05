@@ -46,12 +46,12 @@ class SavePostalCodesFirebaseTableViewController: UITableViewController, UIDocum
             present(documentPicker, animated: true, completion: nil)
 
         } else {
-            let melding = NSLocalizedString("In order to save the Postal Codes, the 'Store Postal Codes in Firebase' button must be enabled.",
+            let message = NSLocalizedString("In order to save the Postal Codes, the 'Store Postal Codes in Firebase' button must be enabled.",
                                             comment: "SavePostalCodesFirebaseTableViewController.swift StorePostalCodes")
-            let melding1 = "\n" + melding
+            let message1 = "\n" + message
             presentAlert(withTitle: NSLocalizedString("Cannot store the Postal Codes in Firebase.",
                                                       comment: "SavePostalCodesFirebaseTableViewController.swift StorePostalCodes"),
-                         message: melding1)
+                         message: message1)
         }
 
         UserDefaults.standard.set(false, forKey: "SHOWSTOREPOSTALCODES")
@@ -70,9 +70,9 @@ class SavePostalCodesFirebaseTableViewController: UITableViewController, UIDocum
             do {
                 try FileManager.default.copyItem(at: selectedFileURL, to: sandboxFileURL)
             } catch {
-                let melding = error.localizedDescription
+                let message = error.localizedDescription
                 presentAlert(withTitle: NSLocalizedString("Error", comment: "SavePostalCodesFirebaseTableViewController.swift  documentPicker"),
-                             message: melding)
+                             message: message)
             }
         }
 
@@ -103,9 +103,9 @@ class SavePostalCodesFirebaseTableViewController: UITableViewController, UIDocum
             }
 
         } catch {
-            let melding = error.localizedDescription
+            let message = error.localizedDescription
             presentAlert(withTitle: NSLocalizedString("Error", comment: "SavePostalCodesFirebaseTableViewController.swift  documentPicker"),
-                         message: melding)
+                         message: message)
         }
 
         let title = NSLocalizedString("Save in Firebase", comment: "SavePostalCodesFirebaseTableViewController.swift documentPicker")

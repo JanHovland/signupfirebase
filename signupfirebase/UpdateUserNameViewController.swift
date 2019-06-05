@@ -119,9 +119,9 @@ class UpdateUserNameViewController: UIViewController, UITextFieldDelegate {
                 let ok = self.updateNameCoreData(withEpost: (Auth.auth().currentUser?.email)!, withNavn: self.NewNameTextField.text!)
 
                 if ok == false {
-                    let melding = "Unable to update the username in CoreData."
+                    let message = "Unable to update the username in CoreData."
                     self.presentAlert(withTitle: NSLocalizedString("Error", comment: "UpdateUserNameViewVontroller.swift SaveNewName "),
-                                 message: melding)
+                                 message: message)
                 }
 
             }
@@ -129,9 +129,9 @@ class UpdateUserNameViewController: UIViewController, UITextFieldDelegate {
             activity.stopAnimating()
 
         } else {
-            let melding = NSLocalizedString("The username must have a value.", comment: "UpdateUserNameViewVontroller.swift SaveNewName ")
+            let message = NSLocalizedString("The username must have a value.", comment: "UpdateUserNameViewVontroller.swift SaveNewName ")
             presentAlert(withTitle: NSLocalizedString("Empty name", comment: "UpdateUserNameViewVontroller.swift SaveNewName "),
-                         message: melding)
+                         message: message)
         }
     }
 

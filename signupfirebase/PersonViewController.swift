@@ -413,9 +413,9 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     
     @IBAction func selectPersonPhoto(_ sender: UIButton) {
         
-        let melding = NSLocalizedString("Choose your photo source", comment: "LoginViewVontroller.swift selectPersonPhoto")
+        let message = NSLocalizedString("Choose your photo source", comment: "LoginViewVontroller.swift selectPersonPhoto")
         
-        let photoSourceRequestController = UIAlertController(title: "", message: melding, preferredStyle: .actionSheet)
+        let photoSourceRequestController = UIAlertController(title: "", message: message, preferredStyle: .actionSheet)
         
         let title = NSLocalizedString("Camera", comment: "LoginViewVontroller.swift selectPersonPhoto")
         

@@ -118,18 +118,18 @@ class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
                                                              withPassWord: self.newPasswordTextField.text!)
 
                         if ok == false {
-                            let melding = NSLocalizedString("Unable to update the password for the user in CoreData.", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword ")
+                            let message = NSLocalizedString("Unable to update the password for the user in CoreData.", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword ")
 
                             self.presentAlert(withTitle: NSLocalizedString("Error", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword "),
-                                              message: melding)
+                                              message: message)
                         }
                     }
                 }
             } else {
-                let melding = NSLocalizedString("The password must contain minimum 6 characters", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword")
+                let message = NSLocalizedString("The password must contain minimum 6 characters", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword")
 
                 self.presentAlert(withTitle: NSLocalizedString("Error", comment: "UpdatePasswordViewVontroller.swift SaveNewPassword "),
-                             message: melding)
+                             message: message)
             }
         }
 

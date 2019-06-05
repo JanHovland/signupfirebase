@@ -81,9 +81,9 @@ extension UIViewController {
             try context.save()
             ok = true
         } catch {
-            let melding = error.localizedDescription
+            let message = error.localizedDescription
             self.presentAlert(withTitle: NSLocalizedString("Error", comment: "DataBaseExtension.swift saveCoreData"),
-                              message: melding)
+                              message: message)
         }
         
         return ok
@@ -134,9 +134,9 @@ extension UIViewController {
                 }
                 
             } catch {
-                let melding = error.localizedDescription
+                let message = error.localizedDescription
                 self.presentAlert(withTitle: NSLocalizedString("Error", comment: "DataBaseExtension.swift getCoreData"),
-                                  message: melding)
+                                  message: message)
             }
             
             return (uid, ePost, name, passWord, photoURL)
@@ -165,9 +165,9 @@ extension UIViewController {
                                 do {
                                     try context.save()
                                 } catch {
-                                    let melding = error.localizedDescription
+                                    let message = error.localizedDescription
                                     self.presentAlert(withTitle: NSLocalizedString("Error", comment: "DataBaseExtension.swift updateCoreData"),
-                                                      message: melding)
+                                                      message: message)
                                 }
                             }
                         }
@@ -175,9 +175,9 @@ extension UIViewController {
                 }
             }
         } catch {
-            let melding = error.localizedDescription
+            let message = error.localizedDescription
             self.presentAlert(withTitle: NSLocalizedString("Error", comment: "DataBaseExtension.swift updateCoreData"),
-                              message: melding)
+                              message: message)
         }
         
         return ok
@@ -201,9 +201,9 @@ extension UIViewController {
                 ok = true
             }
         } catch {
-            let melding = error.localizedDescription
+            let message = error.localizedDescription
             self.presentAlert(withTitle: NSLocalizedString("Error", comment: "DataBaseExtension.swift findCoreData"),
-                              message: melding)
+                              message: message)
         }
         
         return ok
@@ -231,9 +231,9 @@ extension UIViewController {
                 }
             }
         } catch {
-            let melding = error.localizedDescription
+            let message = error.localizedDescription
             self.presentAlert(withTitle: NSLocalizedString("Error", comment: "DataBaseExtension.swift findPasswordCoreData"),
-                              message: melding)
+                              message: message)
         }
         
         return password
@@ -260,17 +260,17 @@ extension UIViewController {
                         do {
                             try context.save()
                         } catch {
-                            let melding = error.localizedDescription
+                            let message = error.localizedDescription
                             self.presentAlert(withTitle: NSLocalizedString("Error", comment: "DataBaseExtension.swift updateNameCoreData"),
-                                              message: melding)
+                                              message: message)
                         }
                     }
                 }
             }
         } catch {
-            let melding = error.localizedDescription
+            let message = error.localizedDescription
             self.presentAlert(withTitle: NSLocalizedString("Error", comment: "DataBaseExtension.swift updateNameCoreData"),
-                              message: melding)
+                              message: message)
         }
         
         return ok
@@ -297,17 +297,17 @@ extension UIViewController {
                         do {
                             try context.save()
                         } catch {
-                            let melding = error.localizedDescription
+                            let message = error.localizedDescription
                             self.presentAlert(withTitle: NSLocalizedString("Error", comment: "DataBaseExtension.swift updatePasswordCoreData"),
-                                              message: melding)
+                                              message: message)
                         }
                     }
                 }
             }
         } catch {
-            let melding = error.localizedDescription
+            let message = error.localizedDescription
             self.presentAlert(withTitle: NSLocalizedString("Error", comment: "DataBaseExtension.swift updatePasswordCoreData"),
-                              message: melding)
+                              message: message)
         }
         
         return ok
@@ -335,17 +335,17 @@ extension UIViewController {
                         do {
                             try context.save()
                         } catch {
-                            let melding = error.localizedDescription
+                            let message = error.localizedDescription
                             self.presentAlert(withTitle: NSLocalizedString("Error", comment: "DataBaseExtension.swift updateEpostCoreData"),
-                                              message: melding)
+                                              message: message)
                         }
                     }
                 }
             }
         } catch {
-            let melding = error.localizedDescription
+            let message = error.localizedDescription
             self.presentAlert(withTitle: NSLocalizedString("Error", comment: "DataBaseExtension.swift updateEpostCoreData"),
-                              message: melding)
+                              message: message)
         }
         
         return ok
@@ -362,9 +362,9 @@ extension UIViewController {
             try context.execute(deleteRequest)
             
         } catch {
-            let melding = error.localizedDescription
+            let message = error.localizedDescription
             self.presentAlert(withTitle: NSLocalizedString("Error", comment: "DataBaseExtension.swift deleteAllCoreData"),
-                              message: melding)
+                              message: message)
         }
     }
     
@@ -383,9 +383,9 @@ extension UIViewController {
             return true
             
         } catch {
-            let melding = error.localizedDescription
+            let message = error.localizedDescription
             self.presentAlert(withTitle: NSLocalizedString("Error", comment: "DataBaseExtension.swift deleteUserCoreData"),
-                              message: melding)
+                              message: message)
             return false
         }
     }
@@ -412,9 +412,9 @@ extension UIViewController {
                         do {
                             try context.save()
                         } catch {
-                            let melding = error.localizedDescription
+                            let message = error.localizedDescription
                             self.presentAlert(withTitle: NSLocalizedString("Error", comment: "DataBaseExtension.swift resetLoggedInCoreData"),
-                                              message: melding)
+                                              message: message)
                         }
                     }
                 }
@@ -423,9 +423,9 @@ extension UIViewController {
             }
             
         } catch {
-            let melding = error.localizedDescription
+            let message = error.localizedDescription
             self.presentAlert(withTitle: NSLocalizedString("Error", comment: "DataBaseExtension.swift resetLoggedInCoreData"),
-                              message: melding)
+                              message: message)
         }
         
         return ok
@@ -528,11 +528,11 @@ extension UIViewController {
     // Show the alert
     
     func showAlert() {
-        let melding = "\r\n" + NSLocalizedString("The phonenumber must include 8 digits.\nThe country code prefix will automaticall be added.\n\nFormat: +47 123 45 678",
+        let message = "\r\n" + NSLocalizedString("The phonenumber must include 8 digits.\nThe country code prefix will automaticall be added.\n\nFormat: +47 123 45 678",
                                                  comment: "DataBaseExtension.swift formatPhone")
         self.presentAlert(withTitle: NSLocalizedString("Invalid phone number",
                                                        comment: "DataBaseExtension.swift formatPhone"),
-                          message: melding)
+                          message: message)
     }
     
     func savePostalCodesFiredata(postnummer: String,
@@ -558,18 +558,18 @@ extension UIViewController {
                 if error == nil {
                     self.dismiss(animated: true, completion: nil)
                 } else {
-                    let melding = error!.localizedDescription
+                    let message = error!.localizedDescription
                     self.presentAlert(withTitle: NSLocalizedString("Error", comment: "DataBaseExtension.swift savePostalCodesFiredata"),
-                                      message: melding)
+                                      message: message)
                 }
             })
         } else {
-            let melding = "\r\n" + NSLocalizedString("Every field must be filled in.",
+            let message = "\r\n" + NSLocalizedString("Every field must be filled in.",
                                                      comment: "DataBaseExtension.swift savePostalCodesFiredata")
             
             self.presentAlert(withTitle: NSLocalizedString("Error",
                                                            comment: "DataBaseExtension.swift savePostalCodesFiredata"),
-                              message: melding)
+                              message: message)
         }
     }
     

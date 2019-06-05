@@ -52,17 +52,17 @@ class SettingsTableViewController: UITableViewController {
         var heading = ""
         
         if section == 0 {
-            let melding = NSLocalizedString("Users", comment: "SettingsTableViewController.swift SectionHeading")
-            heading = melding
+            let message = NSLocalizedString("Users", comment: "SettingsTableViewController.swift SectionHeading")
+            heading = message
         } else if section == 1 {
-            let melding = NSLocalizedString("Password", comment: "SettingsTableViewController.swift SectionHeading")
-            heading = melding
+            let message = NSLocalizedString("Password", comment: "SettingsTableViewController.swift SectionHeading")
+            heading = message
         } else if section == 2 {
-            let melding = NSLocalizedString("Other", comment: "SettingsTableViewController.swift SectionHeading")
-            heading = melding
+            let message = NSLocalizedString("Other", comment: "SettingsTableViewController.swift SectionHeading")
+            heading = message
         } else if section == 3 {
-            let melding = NSLocalizedString("Birthdays", comment: "SettingsTableViewController.swift SectionHeading")
-            heading = melding
+            let message = NSLocalizedString("Birthdays", comment: "SettingsTableViewController.swift SectionHeading")
+            heading = message
         }
         
         return heading

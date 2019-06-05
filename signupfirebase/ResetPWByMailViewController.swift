@@ -20,21 +20,21 @@ class ResetPWByMailViewController: UIViewController {
     var teller: Int = 0
     var status: Bool = true
 
-    var melding = ""
-    var melding1 = ""
-    var melding2 = ""
-    var melding3 = ""
+    var message = ""
+    var message1 = ""
+    var message2 = ""
+    var message3 = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let melding1 = NSLocalizedString("After you have asked Firebase to reset your password, you will receive an eMail with istruction.",
+        let message1 = NSLocalizedString("After you have asked Firebase to reset your password, you will receive an eMail with istruction.",
                                          comment: "ResetPWByMailViewController.swift viewDidLoad ")
 
-        let melding2 = NSLocalizedString("Please note that the included link is time limited!",
+        let message2 = NSLocalizedString("Please note that the included link is time limited!",
                                          comment: "ResetPWByMailViewController.swift viewDidLoad ")
 
-        infoTextView.text = melding1 + "\n\n" + melding2
+        infoTextView.text = message1 + "\n\n" + message2
         infoTextView.isHidden = true
 
         activity.hidesWhenStopped = true
@@ -46,9 +46,9 @@ class ResetPWByMailViewController: UIViewController {
             self.sendEmailToReceiver.text! = (Auth.auth().currentUser?.email)!
         
             if self.sendEmailToReceiver.text?.count == 0 {
-                let melding = NSLocalizedString("Unable to recall the eMail from Firebase.", comment: "ResetPWByMailViewController.swift viewDidLoad ")
+                let message = NSLocalizedString("Unable to recall the eMail from Firebase.", comment: "ResetPWByMailViewController.swift viewDidLoad ")
                 self.presentAlert(withTitle: NSLocalizedString("Error", comment: "ResetPWByMailViewController.swift viewDidLoad "),
-                             message: melding)
+                             message: message)
             }
         }
         activity.stopAnimating()
@@ -76,11 +76,11 @@ class ResetPWByMailViewController: UIViewController {
                 } else {
                     
                     let title = NSLocalizedString("Password change request has been sent", comment: "ResetPWByMailViewController.swift resetByMail ")
-                    let melding1 = NSLocalizedString("Please look in your email", comment: "ResetPWByMailViewController.swift resetByMail ")
-                    let melding = "\n" + melding1
+                    let message1 = NSLocalizedString("Please look in your email", comment: "ResetPWByMailViewController.swift resetByMail ")
+                    let message = "\n" + message1
     
                     self.presentAlert(withTitle: title,
-                                      message: melding)
+                                      message: message)
                     
                 }
             }

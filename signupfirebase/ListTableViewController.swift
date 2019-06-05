@@ -30,9 +30,9 @@ class ListTableViewController: UITableViewController {
             listItems = result as! [NSManagedObject]
         } catch {
             
-            let melding = error.localizedDescription
+            let message = error.localizedDescription
             self.presentAlert(withTitle: NSLocalizedString("Error", comment: "ListTableViewController viewDidLoad"),
-                              message: melding)
+                              message: message)
 
         }
 
@@ -96,9 +96,9 @@ class ListTableViewController: UITableViewController {
             listItems = result as! [NSManagedObject]
         } catch {
             
-            let melding = error.localizedDescription
+            let message = error.localizedDescription
             self.presentAlert(withTitle: NSLocalizedString("Error", comment: "ListTableViewController viewWillAppear"),
-                              message: melding)
+                              message: message)
         }
         activity.stopAnimating()
     }
@@ -112,11 +112,11 @@ class ListTableViewController: UITableViewController {
 
             if self.deleteUserCoreData(UserEmail: String(describing: userEmail!))  == true {
             } else {
-                let melding = NSLocalizedString("Unable to delete data in CoreData: ", comment: "ListTableViewController.swift trailingSwipeActionsConfigurationForRowAt ")
+                let message = NSLocalizedString("Unable to delete data in CoreData: ", comment: "ListTableViewController.swift trailingSwipeActionsConfigurationForRowAt ")
                     + userEmail!
                 
                 self.presentAlert(withTitle: NSLocalizedString("Error", comment: "ListTableViewController.swift SaveNewPassword "),
-                                  message: melding)
+                                  message: message)
             }
 
            // Call completion handler with true to indicate

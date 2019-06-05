@@ -220,12 +220,12 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
                                                         withPhotoURL: url)
                             
                             if ok1 == false {
-                                let melding = NSLocalizedString("Unable to store data in CoreData.",
+                                let message = NSLocalizedString("Unable to store data in CoreData.",
                                                                 comment: "LogInViewController.swift CheckLogin verdi")
                                 
                                 self.presentAlert(withTitle: NSLocalizedString("Error",
                                                                                comment: "LogInViewController.swift SaveAccount "),
-                                                  message: melding)
+                                                  message: message)
                                 
                             } else {
                                 
@@ -237,9 +237,9 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
                                     if error == nil {
                                         self.dismiss(animated: false, completion: nil)
                                     } else {
-                                        let melding = error!.localizedDescription
+                                        let message = error!.localizedDescription
                                         self.presentAlert(withTitle: NSLocalizedString("Error", comment: "LogInViewController.swift SaveAccount"),
-                                                          message: melding)
+                                                          message: message)
                                     }
                                     self.activity.stopAnimating()
                                 }
@@ -295,12 +295,12 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
                                                withPhotoURL: String(describing: Auth.auth().currentUser!.photoURL!))
                     
                     if ok == false {
-                        let melding = NSLocalizedString("Unable to store data in CoreData.",
+                        let message = NSLocalizedString("Unable to store data in CoreData.",
                                                         comment: "LogInViewController.swift CheckLogin verdi")
                         
                         self.presentAlert(withTitle: NSLocalizedString("Error",
                                                                        comment: "LogInViewController.swift SaveAccount "),
-                                          message: melding)
+                                          message: message)
                     }
                         
                     self.activity.stopAnimating()
@@ -326,17 +326,17 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
             
             // Give an alert when email and/or password is missing/false length
             
-            let melding1 = NSLocalizedString("eMail must have a value.",
+            let message1 = NSLocalizedString("eMail must have a value.",
                                              comment: "LoginViewVontroller.swift CheckLogin verdi")
 
-            let melding2 = NSLocalizedString("The password must contain minimum 6 characters",
+            let message2 = NSLocalizedString("The password must contain minimum 6 characters",
                                              comment: "LoginViewVontroller.swift CheckLogin verdi")
 
-            let melding = melding1 + "\r\n" + melding2
+            let message = message1 + "\r\n" + message2
 
             self.presentAlert(withTitle: NSLocalizedString("Error",
                                                            comment: "LoginViewVontroller.swift CheckLogin 'error'"),
-                              message: melding)
+                              message: message)
 
         }
         
@@ -367,9 +367,9 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     // Find a new photo from the Camera or the photoLibrary
     @IBAction func selectPersonPhoto(_ sender: UIButton) {
         
-        let melding = NSLocalizedString("Choose your photo source", comment: "LoginViewVontroller.swift selectPersonPhoto")
+        let message = NSLocalizedString("Choose your photo source", comment: "LoginViewVontroller.swift selectPersonPhoto")
         
-        let photoSourceRequestController = UIAlertController(title: "", message: melding, preferredStyle: .actionSheet)
+        let photoSourceRequestController = UIAlertController(title: "", message: message, preferredStyle: .actionSheet)
         
         let title = NSLocalizedString("Camera", comment: "LoginViewVontroller.swift selectPersonPhoto")
         
@@ -434,12 +434,12 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
                                         withPhotoURL: url)
                 
                 if ok1 == false {
-                    let melding = NSLocalizedString("Unable to store data in CoreData.",
+                    let message = NSLocalizedString("Unable to store data in CoreData.",
                                                     comment: "LogInViewController.swift CheckLogin verdi")
                     
                     self.presentAlert(withTitle: NSLocalizedString("Error",
                                                                    comment: "LogInViewController.swift SaveAccount "),
-                                      message: melding)
+                                      message: message)
                     
                 } else {
                     
@@ -451,9 +451,9 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
                         if error == nil {
                             self.dismiss(animated: false, completion: nil)
                         } else {
-                            let melding = error!.localizedDescription
+                            let message = error!.localizedDescription
                             self.presentAlert(withTitle: NSLocalizedString("Error", comment: "LogInViewController.swift SaveAccount"),
-                                              message: melding)
+                                              message: message)
                         }
                         self.activity.stopAnimating()
                     }
