@@ -29,7 +29,7 @@ class PostalCodeSearchTableViewController: UIViewController, UITableViewDelegate
 
         makeReadPostal()
 
-        activity.style = .gray
+        activity.style = UIActivityIndicatorView.Style.medium
         activity.isHidden = false
 
         searchPostelCode.delegate = self

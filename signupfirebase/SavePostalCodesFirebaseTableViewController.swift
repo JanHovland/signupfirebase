@@ -20,7 +20,7 @@ class SavePostalCodesFirebaseTableViewController: UITableViewController, UIDocum
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        activity.style = .gray
+        activity.style = UIActivityIndicatorView.Style.medium
         activity.isHidden = true
 
         // Set the 'switchStorePostalCodes' to inaktive

@@ -23,13 +23,24 @@ class UpdateUserNameViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Must update the colors and background (Early version ?)
+        
+        NewNameTextField.textColor = .label
+        NewNameTextField.backgroundColor = .systemBackground
+        
+        OldNameTextField.textColor = .label
+        OldNameTextField.backgroundColor = .systemBackground
+        
+        forEmailTextField.textColor = .label
+        forEmailTextField.backgroundColor = .systemBackground
+        
         // Turn off keyboard when you press "Return"
         NewNameTextField.delegate = self
         OldNameTextField.delegate = self
         forEmailTextField.delegate = self
         
         activity.hidesWhenStopped = true
-        activity.style = .gray
+        activity.style = UIActivityIndicatorView.Style.medium
   
         activity.startAnimating()
 

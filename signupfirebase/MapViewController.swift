@@ -32,7 +32,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         mapView.showsScale = true
         mapView.showsTraffic = true
         mapView.showsBuildings = true
-        mapView.showsPointsOfInterest = true
+        // mapView.showsPointsOfInterest = true
 
         
         // Convert address to coordinate and annotate it on map

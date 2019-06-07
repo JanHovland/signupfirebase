@@ -192,6 +192,11 @@ class CvViewController: UIViewController {
         
         7. Nye oppgaver (ikke fullført)
         
+           . Dark mode.
+           . Skrive om "Vis Core data" fra TableViewController til ViewController.
+           . Skrive om "Lagre postnummer i Firestore" (fra TableViewController til ViewController).
+           . "Vise passord" fungerer ikke
+           . Retur fra "Send ePost" ikke korrekt (henger igjen)
            . Legg in sjekk om brukeren godtar varslinger.
            . Oppdatere security i Firebase (er security der det samme for Firestore?)
         

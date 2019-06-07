@@ -36,9 +36,16 @@ class ResetPWByMailViewController: UIViewController {
 
         infoTextView.text = message1 + "\n\n" + message2
         infoTextView.isHidden = true
-
+        // Must update the colors and background (Early version ?)
+        
+        infoTextView.textColor = .label
+        infoTextView.backgroundColor = .systemBackground
+        
+        sendEmailToReceiver.textColor = .label
+        sendEmailToReceiver.backgroundColor = .systemBackground
+        
         activity.hidesWhenStopped = true
-        activity.style = .gray
+        activity.style = UIActivityIndicatorView.Style.medium
 
         activity.startAnimating()
        

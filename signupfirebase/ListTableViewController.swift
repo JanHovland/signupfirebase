@@ -17,7 +17,7 @@ class ListTableViewController: UITableViewController {
         super.viewDidLoad()
 
         activity.hidesWhenStopped = true
-        activity.style = .gray
+        activity.style = UIActivityIndicatorView.Style.medium
         view.addSubview(activity)
 
         activity.startAnimating()

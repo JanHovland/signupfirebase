@@ -77,7 +77,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
             self.FindSearchedPersonData(searchText: "")
         }
         
-        activity.style = .gray
+        activity.style = UIActivityIndicatorView.Style.medium
         activity.isHidden = true
         
         let refreshControl = UIRefreshControl()
@@ -87,7 +87,7 @@ class MainPersonDataViewController: UIViewController, UITableViewDelegate, UITab
         refreshControl.addTarget(self, action: #selector(reloadData), for: .valueChanged)
         self.tableView.refreshControl = refreshControl
 
-        activity.style = .gray
+        activity.style = UIActivityIndicatorView.Style.medium
         activity.isHidden = true
  
     }

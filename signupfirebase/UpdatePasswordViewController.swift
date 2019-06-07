@@ -20,13 +20,24 @@ class UpdatePasswordViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Must update the colors and background (Early version ?)
+        
+        oldPasswordTextField.textColor = .label
+        oldPasswordTextField.backgroundColor = .systemBackground
+        
+        newPasswordTextField.textColor = .label
+        newPasswordTextField.backgroundColor = .systemBackground
+        
+        forEmailTextField.textColor = .label
+        forEmailTextField.backgroundColor = .systemBackground
+        
         // Turn off keyboard when you press "Return"
         oldPasswordTextField.delegate = self
         newPasswordTextField.delegate = self
         forEmailTextField.delegate = self
 
         activity.hidesWhenStopped = true
-        activity.style = .gray
+        activity.style = UIActivityIndicatorView.Style.medium
 
         activity.startAnimating()
 

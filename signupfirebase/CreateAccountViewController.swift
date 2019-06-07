@@ -51,7 +51,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate, UIImag
 
         // Initialize the activity
         activity.hidesWhenStopped = true
-        activity.style = .gray
+        activity.style = UIActivityIndicatorView.Style.medium
         view.addSubview(activity)
         
     }

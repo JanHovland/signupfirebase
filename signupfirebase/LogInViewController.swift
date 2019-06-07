@@ -57,7 +57,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         
         // Initialize the UIActivityIndicatorView
         activity.hidesWhenStopped = true
-        activity.style = .gray
+        activity.style = UIActivityIndicatorView.Style.medium
         activity.transform = CGAffineTransform(scaleX: 1.25, y: 1.25)
         view.addSubview(activity)
         
