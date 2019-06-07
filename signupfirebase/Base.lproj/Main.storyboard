@@ -2018,11 +2018,11 @@
                                                         <segue destination="hbL-oa-tkZ" kind="show" identifier="gotoMap" id="cJw-d4-x8a"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MVn-O6-4oX" userLabel="Button Phone">
-                                                    <rect key="frame" x="316" y="103" width="34" height="34"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MVn-O6-4oX" userLabel="Button eMail">
+                                                    <rect key="frame" x="310" y="100" width="40" height="40"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="34" id="Xcj-f5-s6S"/>
-                                                        <constraint firstAttribute="height" constant="34" id="aVI-3h-4Cz"/>
+                                                        <constraint firstAttribute="width" constant="40" id="Xcj-f5-s6S"/>
+                                                        <constraint firstAttribute="height" constant="40" id="aVI-3h-4Cz"/>
                                                     </constraints>
                                                     <state key="normal" image="email"/>
                                                     <connections>
@@ -2044,7 +2044,7 @@
                                                 <constraint firstItem="Fdo-ST-VW8" firstAttribute="top" secondItem="1rH-2X-JJ2" secondAttribute="bottom" constant="18" id="meQ-Ti-NxX"/>
                                                 <constraint firstAttribute="trailing" secondItem="MVn-O6-4oX" secondAttribute="trailing" constant="25" id="r5b-YI-3v1"/>
                                                 <constraint firstItem="KXD-47-3Wg" firstAttribute="leading" secondItem="wJv-xm-7P4" secondAttribute="leading" constant="25" id="rNi-1U-5Rs"/>
-                                                <constraint firstItem="MVn-O6-4oX" firstAttribute="top" secondItem="1rH-2X-JJ2" secondAttribute="bottom" constant="17.5" id="yJD-hD-gRR"/>
+                                                <constraint firstItem="MVn-O6-4oX" firstAttribute="top" secondItem="1rH-2X-JJ2" secondAttribute="bottom" constant="14.5" id="yJD-hD-gRR"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -2187,7 +2187,7 @@
     <resources>
         <image name="Icon-20" width="20" height="20"/>
         <image name="Icon-30" width="29" height="29"/>
-        <image name="email" width="105" height="105"/>
+        <image name="email" width="256" height="256"/>
         <image name="firebase_logo" width="1024" height="1024"/>
         <image name="map" width="1600" height="1600"/>
         <image name="message-35" width="35" height="35"/>
@@ -2199,10 +2199,10 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="7sg-2O-9QF"/>
-        <segue reference="lfQ-m4-uRe"/>
+        <segue reference="Wv5-LX-JHz"/>
         <segue reference="cJw-d4-x8a"/>
-        <segue reference="D5H-78-AuK"/>
-        <segue reference="DAu-eD-J64"/>
+        <segue reference="aWK-O6-IeL"/>
+        <segue reference="o69-kt-M6t"/>
         <segue reference="Lf5-Bm-ke8"/>
         <segue reference="uLQ-Gi-aCK"/>
         <segue reference="HHx-uR-c6E"/>

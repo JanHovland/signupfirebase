@@ -56,7 +56,9 @@ class BirthdayTableViewController: UITableViewController {
         // There is now no selectionStyle of the selected cell (.default, .blue, .gray or ,none)
         cell.selectionStyle = .none
         
-        cell.backgroundColor = .white
+        cell.backgroundColor = .systemBackground
+        
+        
         
         let birthDay = persons[indexPath.row].personData.dateOfBirth1
         if let secondSpace = birthDay.lastIndex(of: " ") {
@@ -101,9 +103,9 @@ class BirthdayTableViewController: UITableViewController {
             monthFromDate = calendar.component(.month, from: date)
             
             if month == monthFromDate {
-                cell.birthdayLabel.backgroundColor = .green
+                cell.birthdayLabel.backgroundColor = .systemGreen
             } else {
-                cell.birthdayLabel.backgroundColor = .white
+                cell.birthdayLabel.backgroundColor = .systemBackground
             }
            
         }
