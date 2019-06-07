@@ -1480,9 +1480,9 @@
                                     <action selector="chooseGender:" destination="rxh-wi-pm3" eventType="valueChanged" id="1ox-YX-aaD"/>
                                 </connections>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bC7-mk-vXQ">
-                                <rect key="frame" x="324" y="371" width="31" height="31"/>
-                                <state key="normal" image="search-31"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bC7-mk-vXQ">
+                                <rect key="frame" x="324" y="371" width="31" height="22.5"/>
+                                <state key="normal" image="magnifyingglass" catalog="system"/>
                                 <connections>
                                     <segue destination="p5X-p9-m4e" kind="show" identifier="gotoPostalCodes" id="GaG-R5-IAe"/>
                                 </connections>
@@ -2189,12 +2189,12 @@
         <image name="Icon-30" width="29" height="29"/>
         <image name="email" width="256" height="256"/>
         <image name="firebase_logo" width="1024" height="1024"/>
+        <image name="magnifyingglass" catalog="system" width="64" height="60"/>
         <image name="map" width="1600" height="1600"/>
         <image name="message-35" width="35" height="35"/>
         <image name="new-person" width="127" height="128"/>
         <image name="personer-33" width="29" height="29"/>
         <image name="phone" width="1024" height="1024"/>
-        <image name="search-31" width="31" height="31"/>
         <image name="settings-32" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
