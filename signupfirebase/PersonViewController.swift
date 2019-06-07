@@ -98,6 +98,39 @@ class PersonViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         municipalityNumberInput.delegate = self
         municipalityInput.delegate = self
         
+        
+        // Must update the colors and background (Early version ?)
+        
+        addressInput.textColor = .label
+        addressInput.backgroundColor = .systemBackground
+        
+        cityInput.textColor = .label
+        cityInput.backgroundColor = .systemBackground
+        
+        firstNameInput.textColor = .label
+        firstNameInput.backgroundColor = .systemBackground
+        
+        lastNameInput.textColor = .label
+        lastNameInput.backgroundColor = .systemBackground
+        
+        personEmailInput.textColor = .label
+        personEmailInput.backgroundColor = .systemBackground
+        
+        dateOfBirthInput1.textColor = .label
+        dateOfBirthInput1.backgroundColor = .systemBackground
+        
+        phoneNumberInput.textColor = .label
+        phoneNumberInput.backgroundColor = .systemBackground
+        
+        postalCodeNumberInput.textColor = .label
+        postalCodeNumberInput.backgroundColor = .systemBackground
+        
+        municipalityNumberInput.textColor = .label
+        municipalityNumberInput.backgroundColor = .systemBackground
+        
+        municipalityInput.textColor = .label
+        municipalityInput.backgroundColor = .systemBackground
+        
         // Initierer UIActivityIndicatorView
         activity.hidesWhenStopped = true
         activity.style = UIActivityIndicatorView.Style.medium

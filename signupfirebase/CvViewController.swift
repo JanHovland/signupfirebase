@@ -189,6 +189,7 @@ class CvViewController: UIViewController {
            e) Søke på navn i Persondate er nå OK.
            f) Retur fra "Oversikt fødselsdager" til "Persondata" er nå lagt inn.
            g) Forbedret email med kun et bilde.
+           h) "Oppdater Person" får nå plass på skjermer.
         
         7. Nye oppgaver (ikke fullført)
         
