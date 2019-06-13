@@ -196,7 +196,7 @@ class CvViewController: UIViewController {
            g) Forbedret email med kun et bilde.
            h) "Oppdater Person" får nå plass på skjermer.
            i) Rettet "Vise passord".
-           j) Rettet "Send e-post" fra settings. (Må ha intial settings).
+           j) Rettet "Send e-post" fra settings. (Må ha flere intial settings).
         
         7. Nye oppgaver (ikke fullført)
         

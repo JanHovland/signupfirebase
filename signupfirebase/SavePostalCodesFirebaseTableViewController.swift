@@ -19,6 +19,8 @@ class SavePostalCodesFirebaseTableViewController: UITableViewController, UIDocum
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.backgroundColor = .systemBackground
 
         activity.style = UIActivityIndicatorView.Style.medium
         activity.isHidden = true
