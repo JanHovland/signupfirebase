@@ -805,36 +805,13 @@
                         <activityIndicatorView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="qAu-FN-S0X">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         </activityIndicatorView>
                         <sections>
-                            <tableViewSection headerTitle=" " id="adk-Na-4f3">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="31" id="yJH-u6-6r6">
-                                        <rect key="frame" x="0.0" y="48" width="375" height="31"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yJH-u6-6r6" id="RQY-up-rML">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="31"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIz-QL-RMB">
-                                                    <rect key="frame" x="15" y="5" width="345" height="0.0"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="xIz-QL-RMB" secondAttribute="trailing" constant="15" id="3Ib-xT-2vs"/>
-                                                <constraint firstItem="xIz-QL-RMB" firstAttribute="leading" secondItem="RQY-up-rML" secondAttribute="leading" constant="15" id="b4o-Wq-jkQ"/>
-                                                <constraint firstItem="xIz-QL-RMB" firstAttribute="top" secondItem="RQY-up-rML" secondAttribute="top" constant="5" id="fz1-d8-PRx"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                             <tableViewSection headerTitle=" " id="hly-3p-pLr">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="i8e-bi-Bn7">
-                                        <rect key="frame" x="0.0" y="135" width="375" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="48" width="375" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i8e-bi-Bn7" id="G3k-YZ-y2b">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -877,27 +854,6 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle=" " id="tXb-3v-Gj3">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="5Ur-Qi-P9w">
-                                        <rect key="frame" x="0.0" y="234.5" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Ur-Qi-P9w" id="UAl-XQ-fKV">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="MqM-Fs-S8W">
-                                                    <rect key="frame" x="177.5" y="12" width="20" height="20"/>
-                                                </activityIndicatorView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="MqM-Fs-S8W" firstAttribute="centerX" secondItem="UAl-XQ-fKV" secondAttribute="centerX" id="HUk-Ku-dAl"/>
-                                                <constraint firstItem="MqM-Fs-S8W" firstAttribute="centerY" secondItem="UAl-XQ-fKV" secondAttribute="centerY" id="NUL-vB-auH"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="eOf-mx-9AX" id="BJH-fM-Qpy"/>
@@ -912,9 +868,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="activity" destination="MqM-Fs-S8W" id="t02-hA-6hz"/>
+                        <outlet property="activity" destination="qAu-FN-S0X" id="sOa-NJ-I4J"/>
                         <outlet property="switchStorePostalCodes" destination="yzb-dl-kJx" id="ocm-MB-3YR"/>
-                        <outlet property="userInfo" destination="xIz-QL-RMB" id="PUb-86-5pg"/>
                         <segue destination="rxh-wi-pm3" kind="show" identifier="goBackToPersonData" id="uti-bI-Dit"/>
                     </connections>
                 </tableViewController>
