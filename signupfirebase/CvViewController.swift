@@ -20,7 +20,12 @@ class CvViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
+        // Must update the colors and background (Early version ?)
+        
+        cvTextView.textColor = .label
+        cvTextView.backgroundColor = .systemBackground
+
         cvTextView.text =
             
         """
@@ -190,13 +195,13 @@ class CvViewController: UIViewController {
            f) Retur fra "Oversikt fødselsdager" til "Persondata" er nå lagt inn.
            g) Forbedret email med kun et bilde.
            h) "Oppdater Person" får nå plass på skjermer.
+           i) Rettet "Vise passord".
+           j) Rettet "Send e-post" fra settings. (Må ha intial settings).
         
         7. Nye oppgaver (ikke fullført)
         
            . Dark mode.
-           . Skrive om "Vis Core data" fra TableViewController til ViewController.
            . Skrive om "Lagre postnummer i Firestore" (fra TableViewController til ViewController).
-           . "Vise passord" fungerer ikke
            . Legg in sjekk om brukeren godtar varslinger.
            . Oppdatere security i Firebase (er security der det samme for Firestore?)
         

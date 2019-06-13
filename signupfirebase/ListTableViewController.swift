@@ -15,7 +15,9 @@ class ListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        tableView.backgroundColor = .systemBackground
+  
         activity.hidesWhenStopped = true
         activity.style = UIActivityIndicatorView.Style.medium
         view.addSubview(activity)
@@ -49,12 +51,17 @@ class ListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ListTableViewCell
-
+        
+        // Must update the colors and background (Early version ?)
+        
+        cell.backgroundColor = .systemBackground
+    
         // Configure the cell...
 
         let item = listItems[indexPath.row]
 
         cell.nameLabel?.text = item.value(forKey: "name") as? String
+        cell.nameLabel?.textColor = .label
 
         cell.passwordTextField?.isEnabled = false
         
@@ -67,11 +74,14 @@ class ListTableViewController: UITableViewController {
         }
         
         cell.passwordTextField?.text = item.value(forKey: "password") as? String
+        cell.passwordTextField?.textColor = .label
         
         cell.mailLabel?.text = item.value(forKey: "email") as? String
-        
+        cell.mailLabel?.textColor = .label
+
         cell.uidLabel?.text = item.value(forKey: "uid") as? String
-        
+        cell.uidLabel?.textColor = .label
+
         let loggedIn = item.value(forKey: "loggedin") as? Bool
         
         if loggedIn == false {
@@ -81,6 +91,7 @@ class ListTableViewController: UITableViewController {
         }
         
         cell.photoURL?.text =  (item.value(forKey: "photoURL")! as! String)
+        cell.photoURL?.textColor = .label
         
         return cell
     }

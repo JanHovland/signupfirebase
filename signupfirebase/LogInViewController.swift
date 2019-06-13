@@ -38,6 +38,17 @@ class LogInViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Must update the colors and background (Early version ?)
+        
+        eMailLoginTextField.textColor = .label
+        eMailLoginTextField.backgroundColor = .systemBackground
+        
+        passwordTextField.textColor = .label
+        passwordTextField.backgroundColor = .systemBackground
+        
+        loginStatus.textColor = .label
+        loginStatus.backgroundColor = .systemBackground
+        
         // Read Person data from Firedata
         DispatchQueue.global(qos: .userInteractive).async {
             self.makeReadPersons()

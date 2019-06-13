@@ -17,6 +17,10 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Must update the colors and background (Early version ?)
+        
+        tableView.backgroundColor = .systemBackground
+ 
         switchPassWord.isOn = false
         UserDefaults.standard.set(false, forKey: "SHOWPASSWORD")
 
@@ -38,11 +42,11 @@ class SettingsTableViewController: UITableViewController {
     @IBAction func changeSwitchPassword(_ sender: UISwitch) {
         
         if switchPassWord.isOn == false {
-            switchPassWord.isOn = true
-            UserDefaults.standard.set(true, forKey: "SHOWPASSWORD")
-        } else {
             switchPassWord.isOn = false
             UserDefaults.standard.set(false, forKey: "SHOWPASSWORD")
+        } else {
+            switchPassWord.isOn = true
+            UserDefaults.standard.set(true, forKey: "SHOWPASSWORD")
         }
         
     }
@@ -75,9 +79,9 @@ class SettingsTableViewController: UITableViewController {
         
             let vc = segue.destination as! EpostViewController
         
-            vc.toRecipients = ""
-            vc.subject = ""
-            vc.messageBody = ""                      
+            vc.toRecipients = NSLocalizedString("", comment: "SettingsTableViewController.swift prepare")
+            vc.subject = NSLocalizedString("subject", comment: "SettingsTableViewController.swift prepare")
+            vc.messageBody = NSLocalizedString("body", comment: "SettingsTableViewController.swift prepare")
             vc.mailInfo = "FromSettings"
             
         }

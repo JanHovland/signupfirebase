@@ -14,7 +14,6 @@ class EpostViewController: UIViewController {
     var subject = ""
     var toRecipients = ""
     var messageBody = ""
-    
     var mailInfo = ""
     
     override func viewDidLoad() {

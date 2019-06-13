@@ -40,6 +40,17 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate, UIImag
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Must update the colors and background (Early version ?)
+        
+        nameCreateAccountTextField.textColor = .label
+        nameCreateAccountTextField.backgroundColor = .systemBackground
+        
+        eMailCreateAccountTextField.textColor = .label
+        eMailCreateAccountTextField.backgroundColor = .systemBackground
+        
+        passwordCreateAccountTextField.textColor = .label
+        passwordCreateAccountTextField.backgroundColor = .systemBackground
+        
         // Turn off keyboard when you press "Return"
         nameCreateAccountTextField.delegate = self
         eMailCreateAccountTextField.delegate = self

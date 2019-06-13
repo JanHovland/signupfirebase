@@ -26,6 +26,9 @@
 /* BirthdayNotificationViewController.swift findBirthdaysThisMonth */
 "Birthdays in " = "Fødselsdager i ";
 
+/* SettingsTableViewController.swift prepare */
+"body" = "Innhold";
+
 /* CreateAccountViewController.swift selectPersonPhoto
    LoginViewVontroller.swift selectPersonPhoto */
 "Camera" = "Kamera";
@@ -33,9 +36,6 @@
 /* CreateAccountViewController.swift selectPersonPhoto
    LoginViewVontroller.swift selectPersonPhoto */
 "Cancel" = "Avbryt";
-
-/* EpostViewController.swift mailComposeController */
-"Cancelled" = "Avbrutt";
 
 /* SavePostalCodesFirebaseTableViewController.swift StorePostalCodes */
 "Cannot store the Postal Codes in Firebase." = "Kan ikke lagre post nummer i Firebase.";
@@ -63,9 +63,6 @@
 
 /* LoginViewVontroller.swift CheckLogin verdi */
 "eMail must have a value." = "e-postadressen må fylles ut.";
-
-/* EpostViewController.swift mailComposeController */
-"Email Sent" = "e-post sendt";
 
 /* UpdateUserNameViewVontroller.swift SaveNewName */
 "Empty name" = "Tomt navn";
@@ -106,12 +103,6 @@
 
 /* CreateAccountViewVontroller.swift SaveAccount */
 "Every field must have a value." = "Alle feltene må ha en verdi.";
-
-/* EpostViewController.swift mailComposeController */
-"Failed to send" = "Mislykket sending";
-
-/* EpostViewController.swift mailComposeController */
-"Fatal error" = "Fatal feil";
 
 /* BirthdayNotificationViewController.swift findBirthdaysThisMonth
    BirthdayTableViewController.swift cellForRowAt
@@ -175,9 +166,6 @@
    LogInViewController.swift CheckLogin verdi */
 "may" = "mai";
 
-/* BirthdayNotificationViewController.swift viewDidLoad */
-"NB. The app will only produce one notification. It will no repeat itself." = "NB. Appen vil bare produsere en varsling. Det vil ikke komme flere varslinger enn denne ene.";
-
 /* MainPersonDataViewController.swift prepare */
 "New Person" = "Ny Person";
 
@@ -234,9 +222,6 @@
 /* SavePostalCodesFirebaseTableViewController.swift documentPicker */
 "Save in Firebase" = "Lagre i Firebase";
 
-/* EpostViewController.swift mailComposeController */
-"Saved" = "Lagret";
-
 /* BirthdayNotificationViewController.swift findBirthdaysThisMonth
    BirthdayTableViewController.swift cellForRowAt
    LogInViewController.swift CheckLogin verdi */
@@ -249,17 +234,14 @@
    MainPersonDataViewController.swift viewDidLoad */
 "Slide down to retrieve data" = "Skyv nedover for å hente data på nytt";
 
-/* EpostViewController.swift definition */
-"Subject of the email" = "Emnet for e-post";
+/* SettingsTableViewController.swift prepare */
+"subject" = "Emne";
 
 /* CreateAccountViewController.swift AuthErrorCode */
 "The email address is already in use by another account." = "e-postadressen er allerede i bruk på en annen konto.";
 
 /* CreateAccountViewController.swift AuthErrorCode */
 "The maximum time limit on an operation (upload, download, delete, etc.) has been exceeded." = "Maksimumsgrensen for en operasjon (opplasting, nedlasting, sletting, etc.) er overskredet.";
-
-/* BirthdayNotificationViewController.swift viewDidLoad */
-"The notification will start when yiu press the 'Home' button." = "Varslingen blir laget etter at du har trykket på 'Hjem' knappen.";
 
 /* CreateAccountViewVontroller.swift SaveAccount 
    LoginViewVontroller.swift CheckLogin verdi
@@ -294,7 +276,8 @@
 /* MainPersonDataViewController leadingSwipeActionsConfigurationForRowAt */
 "Update" = "Oppdater";
 
-/* MainPersonDataViewController.swift prepare */
+/* BirthdayTableViewController.swift prepare
+   MainPersonDataViewController.swift prepare */
 "Update Person" = "Oppdater Person";
 
 /* CreateAccountViewController.swift AuthErrorCode */
@@ -315,7 +298,4 @@
 /* PersonViewVontroller.swift chooseGender 
    PersonViewVontroller.swift viewDidAppear */
 "Woman" = "Kvinne";
-
-/* EpostViewController.swift definition */
-"Write the content of the email" = "Skriv innholdet i e-posten";
 
