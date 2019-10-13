@@ -74,6 +74,8 @@ class BirthdayNotificationViewController: UIViewController {
         
         if str1.count == 1 {
             monthTodayString = "0" + str1
+        } else {
+            monthTodayString = str1
         }
         
         // Set default values
@@ -122,6 +124,9 @@ class BirthdayNotificationViewController: UIViewController {
                             default :
                                 str2 = ""
                         }
+                        
+                        print(str2)
+                        
                         
                         teller += 1
                         
