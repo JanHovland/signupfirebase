@@ -125,9 +125,6 @@ class BirthdayNotificationViewController: UIViewController {
                                 str2 = ""
                         }
                         
-                        print(str2)
-                        
-                        
                         teller += 1
                         
                         if teller == 1 {
@@ -138,7 +135,14 @@ class BirthdayNotificationViewController: UIViewController {
                             
                         if let secondSpace = persons[n].personData.dateOfBirth1.lastIndex(of: " ") {
                             str4 = String(persons[n].personData.dateOfBirth1[..<secondSpace])
-                            body = body +  str4 + " " + persons[n].personData.firstName + "\n"
+                            body = body +  str4 + " " + persons[n].personData.firstName + "              "
+                            
+                            // if teller modulus 2 == 0 (teller == 2, 4, 6 or 8, add lineshift
+                            
+                            if (teller % 2) == 0 {
+                                body = body + "\n"
+                            }
+                            
                         }
                         
                     }

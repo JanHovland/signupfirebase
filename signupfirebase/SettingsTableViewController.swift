@@ -23,7 +23,7 @@ class SettingsTableViewController: UITableViewController {
  
         switchPassWord.isOn = false
         UserDefaults.standard.set(false, forKey: "SHOWPASSWORD")
-
+ 
     }
  
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
