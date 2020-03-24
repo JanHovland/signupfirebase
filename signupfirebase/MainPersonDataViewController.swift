@@ -839,14 +839,6 @@ extension UIViewController {
                 
                 personDataSectionTitles = [String](personDataDictionary.keys)
                 
-                // Must use local sorting of the poststedSectionTitles
-                let region = NSLocale.current.regionCode?.lowercased() // Returns the local region
-                let language = Locale(identifier: region!)
-                let sortedPersonDataSection1 = personDataSectionTitles.sorted {
-                    $0.compare($1, locale: language) == .orderedAscending
-                }
-                personDataSectionTitles = sortedPersonDataSection1
-                
             }
         }
     }
