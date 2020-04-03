@@ -38,6 +38,7 @@
 		D1E9A40E220C4D18003423D7 /* IndexedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E9A40D220C4D18003423D7 /* IndexedTableViewController.swift */; };
 		D1EAAB8521C1178A005D2656 /* DataBaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAAB8421C1178A005D2656 /* DataBaseExtension.swift */; };
 		D1FFF52B2212E5110097B414 /* SearchedPostelCodesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFF52A2212E5110097B414 /* SearchedPostelCodesTableViewCell.swift */; };
+		DB26D2BA24373ACC00B2AEB4 /* Create iOS Icons.jsx in Resources */ = {isa = PBXBuildFile; fileRef = DB26D2B924373ACB00B2AEB4 /* Create iOS Icons.jsx */; };
 		DB2FE8D22225C696006BDF27 /* PersonsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2FE8D12225C696006BDF27 /* PersonsService.swift */; };
 		DB343258222EDDA900452D0B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB343257222EDDA900452D0B /* MapViewController.swift */; };
 		DB4B74732215FD48002BCDDD /* PersonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4B74722215FD47002BCDDD /* PersonData.swift */; };
@@ -94,6 +95,7 @@
 		D1EAAB8421C1178A005D2656 /* DataBaseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseExtension.swift; sourceTree = "<group>"; };
 		D1FFF52A2212E5110097B414 /* SearchedPostelCodesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedPostelCodesTableViewCell.swift; sourceTree = "<group>"; };
 		D8FA6AF44DDF6A6C8562A35A /* Pods_signupfirebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_signupfirebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB26D2B924373ACB00B2AEB4 /* Create iOS Icons.jsx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Create iOS Icons.jsx"; sourceTree = "<group>"; };
 		DB2FE8D12225C696006BDF27 /* PersonsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonsService.swift; sourceTree = "<group>"; };
 		DB343257222EDDA900452D0B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DB4B74722215FD47002BCDDD /* PersonData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonData.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				D1266D682199A72C00593984 /* CreateAccountViewController.swift */,
 				D1E32FBB21E1FED50022BFB3 /* Localizable.strings */,
 				D1C96A1721A1CB0F00C5DA7A /* UpdateUserNameViewController.swift */,
+				DB26D2B924373ACB00B2AEB4 /* Create iOS Icons.jsx */,
 				D1C96A1321A1C97900C5DA7A /* UpdatePasswordViewController.swift */,
 				D135787821B693BB0057140D /* ResetPWByMailViewController.swift */,
 				D1859F7221B7C38500E1D518 /* ListTableViewController.swift */,
@@ -318,6 +321,7 @@
 				D1C7F2E8218C98C900481E48 /* Assets.xcassets in Resources */,
 				DBD44B9C2229BDFA0082E490 /* InfoPlist.strings in Resources */,
 				D1C7F2E6218C98C800481E48 /* Main.storyboard in Resources */,
+				DB26D2BA24373ACC00B2AEB4 /* Create iOS Icons.jsx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
