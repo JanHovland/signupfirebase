@@ -44,9 +44,9 @@
 		DB5FE036224776A200EE8B5D /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FE035224776A200EE8B5D /* MessageViewController.swift */; };
 		DB5FE0382247FAC600EE8B5D /* EpostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FE0372247FAC600EE8B5D /* EpostViewController.swift */; };
 		DB6226C8243B20410022F244 /* Create iOS Icons.jsx in Resources */ = {isa = PBXBuildFile; fileRef = DB6226C7243B20410022F244 /* Create iOS Icons.jsx */; };
-		DB84054A2296914B00C579A8 /* signupfirebase-236b9-export-9.json in Resources */ = {isa = PBXBuildFile; fileRef = DB8405492296914A00C579A8 /* signupfirebase-236b9-export-9.json */; };
 		DB97FEBC22743FC80010F419 /* BirthdayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB97FEBB22743FC80010F419 /* BirthdayTableViewController.swift */; };
 		DB97FEBE22743FF80010F419 /* BirthdayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB97FEBD22743FF80010F419 /* BirthdayTableViewCell.swift */; };
+		DBA5B73F253F672A00CCB7E0 /* signupfirebase-236b9-export.json in Resources */ = {isa = PBXBuildFile; fileRef = DBA5B73E253F672A00CCB7E0 /* signupfirebase-236b9-export.json */; };
 		DBA73876226321EC00440E70 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA73875226321EC00440E70 /* MapKit.framework */; };
 		DBC0225A22A7B0CB000AEB82 /* BirthdayNotificationViewController .swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC0225922A7B0CB000AEB82 /* BirthdayNotificationViewController .swift */; };
 		DBC0BD9B222146BC003E5566 /* UIImage+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC0BD9A222146BC003E5566 /* UIImage+Scale.swift */; };
@@ -100,10 +100,10 @@
 		DB5FE035224776A200EE8B5D /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		DB5FE0372247FAC600EE8B5D /* EpostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpostViewController.swift; sourceTree = "<group>"; };
 		DB6226C7243B20410022F244 /* Create iOS Icons.jsx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Create iOS Icons.jsx"; path = "../../../Create iOS Icons.jsx"; sourceTree = "<group>"; };
-		DB8405492296914A00C579A8 /* signupfirebase-236b9-export-9.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "signupfirebase-236b9-export-9.json"; sourceTree = "<group>"; };
 		DB97FEB822743AE50010F419 /* signupfirebase.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = signupfirebase.entitlements; sourceTree = "<group>"; };
 		DB97FEBB22743FC80010F419 /* BirthdayTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayTableViewController.swift; sourceTree = "<group>"; };
 		DB97FEBD22743FF80010F419 /* BirthdayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayTableViewCell.swift; sourceTree = "<group>"; };
+		DBA5B73E253F672A00CCB7E0 /* signupfirebase-236b9-export.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "signupfirebase-236b9-export.json"; sourceTree = "<group>"; };
 		DBA73875226321EC00440E70 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DBC0225922A7B0CB000AEB82 /* BirthdayNotificationViewController .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BirthdayNotificationViewController .swift"; sourceTree = "<group>"; };
 		DBC0BD9A222146BC003E5566 /* UIImage+Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Scale.swift"; sourceTree = "<group>"; };
@@ -197,9 +197,9 @@
 				D1FFF52A2212E5110097B414 /* SearchedPostelCodesTableViewCell.swift */,
 				DBC0BD9A222146BC003E5566 /* UIImage+Scale.swift */,
 				DBEDA17A2223D1F300725D75 /* WebViewController.swift */,
+				DBA5B73E253F672A00CCB7E0 /* signupfirebase-236b9-export.json */,
 				D134822621CF922900F9F944 /* MainPersonDataViewController.swift */,
 				D1E95C8D21D6899400B40EE9 /* PersonViewController.swift */,
-				DB8405492296914A00C579A8 /* signupfirebase-236b9-export-9.json */,
 				D1E95C8F21D6BB6E00B40EE9 /* PersonDataTableViewCell.swift */,
 				DB343257222EDDA900452D0B /* MapViewController.swift */,
 				DB5FE035224776A200EE8B5D /* MessageViewController.swift */,
@@ -310,8 +310,8 @@
 			files = (
 				D1C7F2EB218C98C900481E48 /* LaunchScreen.storyboard in Resources */,
 				D1B3049421962151006C1319 /* GoogleService-Info.plist in Resources */,
+				DBA5B73F253F672A00CCB7E0 /* signupfirebase-236b9-export.json in Resources */,
 				DB6226C8243B20410022F244 /* Create iOS Icons.jsx in Resources */,
-				DB84054A2296914B00C579A8 /* signupfirebase-236b9-export-9.json in Resources */,
 				D1E32FBD21E1FED50022BFB3 /* Localizable.strings in Resources */,
 				DB5FE0342243F62E00EE8B5D /* youtube.txt in Resources */,
 				D1349F162205C94800C825E7 /* Postnummer.csv in Resources */,
