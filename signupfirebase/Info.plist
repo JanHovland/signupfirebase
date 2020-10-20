@@ -54,6 +54,10 @@
 	<string>You need to grant the app access to your camera in order to take photoes.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>You need to grant the app access to yout photo library.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>external-accessory</string>
+	</array>
 	<key>UIFileSharingEnabled</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>

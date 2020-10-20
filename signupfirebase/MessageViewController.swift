@@ -6,7 +6,7 @@
 //  Copyright © 2019 Jan . All rights reserved.
 //
 
-import UIKit
+// import UIKit
 import MessageUI
 
 class MessageViewController: UIViewController,  MFMessageComposeViewControllerDelegate {
