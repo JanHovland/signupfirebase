@@ -43,7 +43,6 @@
 		DB5FE0342243F62E00EE8B5D /* youtube.txt in Resources */ = {isa = PBXBuildFile; fileRef = DB5FE0332243F62E00EE8B5D /* youtube.txt */; };
 		DB5FE036224776A200EE8B5D /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FE035224776A200EE8B5D /* MessageViewController.swift */; };
 		DB5FE0382247FAC600EE8B5D /* EpostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FE0372247FAC600EE8B5D /* EpostViewController.swift */; };
-		DB6226C8243B20410022F244 /* Create iOS Icons.jsx in Resources */ = {isa = PBXBuildFile; fileRef = DB6226C7243B20410022F244 /* Create iOS Icons.jsx */; };
 		DB97FEBC22743FC80010F419 /* BirthdayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB97FEBB22743FC80010F419 /* BirthdayTableViewController.swift */; };
 		DB97FEBE22743FF80010F419 /* BirthdayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB97FEBD22743FF80010F419 /* BirthdayTableViewCell.swift */; };
 		DBA5B73F253F672A00CCB7E0 /* signupfirebase-236b9-export.json in Resources */ = {isa = PBXBuildFile; fileRef = DBA5B73E253F672A00CCB7E0 /* signupfirebase-236b9-export.json */; };
@@ -51,6 +50,7 @@
 		DBC0225A22A7B0CB000AEB82 /* BirthdayNotificationViewController .swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC0225922A7B0CB000AEB82 /* BirthdayNotificationViewController .swift */; };
 		DBC0BD9B222146BC003E5566 /* UIImage+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC0BD9A222146BC003E5566 /* UIImage+Scale.swift */; };
 		DBD44B9C2229BDFA0082E490 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DBD44B9A2229BDFA0082E490 /* InfoPlist.strings */; };
+		DBD6C766255FDCAD00F09BF7 /* Create iOS Icons.jsx in Resources */ = {isa = PBXBuildFile; fileRef = DBD6C765255FDCAD00F09BF7 /* Create iOS Icons.jsx */; };
 		DBEDA1762223157600725D75 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEDA1752223157600725D75 /* CacheManager.swift */; };
 		DBEDA17B2223D1F300725D75 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEDA17A2223D1F300725D75 /* WebViewController.swift */; };
 /* End PBXBuildFile section */
@@ -99,7 +99,6 @@
 		DB5FE0332243F62E00EE8B5D /* youtube.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = youtube.txt; sourceTree = "<group>"; };
 		DB5FE035224776A200EE8B5D /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		DB5FE0372247FAC600EE8B5D /* EpostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpostViewController.swift; sourceTree = "<group>"; };
-		DB6226C7243B20410022F244 /* Create iOS Icons.jsx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Create iOS Icons.jsx"; path = "../../../Create iOS Icons.jsx"; sourceTree = "<group>"; };
 		DB97FEB822743AE50010F419 /* signupfirebase.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = signupfirebase.entitlements; sourceTree = "<group>"; };
 		DB97FEBB22743FC80010F419 /* BirthdayTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayTableViewController.swift; sourceTree = "<group>"; };
 		DB97FEBD22743FF80010F419 /* BirthdayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayTableViewCell.swift; sourceTree = "<group>"; };
@@ -108,6 +107,7 @@
 		DBC0225922A7B0CB000AEB82 /* BirthdayNotificationViewController .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BirthdayNotificationViewController .swift"; sourceTree = "<group>"; };
 		DBC0BD9A222146BC003E5566 /* UIImage+Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Scale.swift"; sourceTree = "<group>"; };
 		DBD44B9B2229BDFA0082E490 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DBD6C765255FDCAD00F09BF7 /* Create iOS Icons.jsx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Create iOS Icons.jsx"; sourceTree = "<group>"; };
 		DBEDA1752223157600725D75 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		DBEDA17A2223D1F300725D75 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -172,7 +172,7 @@
 				D1C7F2E9218C98C900481E48 /* LaunchScreen.storyboard */,
 				D1C7F2EC218C98C900481E48 /* Info.plist */,
 				DBD44B9A2229BDFA0082E490 /* InfoPlist.strings */,
-				DB6226C7243B20410022F244 /* Create iOS Icons.jsx */,
+				DBD6C765255FDCAD00F09BF7 /* Create iOS Icons.jsx */,
 				D1B3049321962151006C1319 /* GoogleService-Info.plist */,
 				D11E2BD6219470D90075BD11 /* Model.xcdatamodeld */,
 				D1B9562921B3F3E1003F5937 /* ListTableViewCell.swift */,
@@ -311,13 +311,13 @@
 				D1C7F2EB218C98C900481E48 /* LaunchScreen.storyboard in Resources */,
 				D1B3049421962151006C1319 /* GoogleService-Info.plist in Resources */,
 				DBA5B73F253F672A00CCB7E0 /* signupfirebase-236b9-export.json in Resources */,
-				DB6226C8243B20410022F244 /* Create iOS Icons.jsx in Resources */,
 				D1E32FBD21E1FED50022BFB3 /* Localizable.strings in Resources */,
 				DB5FE0342243F62E00EE8B5D /* youtube.txt in Resources */,
 				D1349F162205C94800C825E7 /* Postnummer.csv in Resources */,
 				D1C7F2E8218C98C900481E48 /* Assets.xcassets in Resources */,
 				DBD44B9C2229BDFA0082E490 /* InfoPlist.strings in Resources */,
 				D1C7F2E6218C98C800481E48 /* Main.storyboard in Resources */,
+				DBD6C766255FDCAD00F09BF7 /* Create iOS Icons.jsx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,6 +585,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = signupfirebase/signupfirebase.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6UR9TA6744;
 				INFOPLIST_FILE = signupfirebase/Info.plist;
@@ -595,6 +596,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.janhovland.signupfirebase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -607,6 +609,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = signupfirebase/signupfirebase.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6UR9TA6744;
 				INFOPLIST_FILE = signupfirebase/Info.plist;
@@ -617,6 +620,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.janhovland.signupfirebase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

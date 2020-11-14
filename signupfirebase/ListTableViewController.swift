@@ -31,7 +31,7 @@ class ListTableViewController: UITableViewController {
             let result = try context.fetch(request)
             listItems = result as! [NSManagedObject]
         } catch {
-            
+       
             let message = error.localizedDescription
             self.presentAlert(withTitle: NSLocalizedString("Error", comment: "ListTableViewController viewDidLoad"),
                               message: message)
